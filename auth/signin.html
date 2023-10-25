@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="../css/auth/index.css" />
+  </head>
+  <body class="auth-wrapper">
+    <main class="auth-content">
+      <form class="auth-form signin">
+        <header class="auth-form-header">
+          <h1 aria-label="Linkbrary 로고" class="hidden">Linkbrary 로고</h1>
+          <a href="/index.html" class="logo">
+            <img src="/assets/icons/logo.svg" alt="Linkbrary 로고" />
+          </a>
+          <nav class="auth-subnav">
+            회원이 아니신가요?
+            <a href="/auth/signup.html" class="signup-link"> 회원 가입하기</a>
+          </nav>
+        </header>
+        <div class="auth-inputs">
+          <div class="auth-input">
+            <label for="id"> 이메일 </label>
+            <div class="input-wrapper">
+              <input
+                id="id"
+                name="id"
+                type="email"
+                placeholder="이메일을 입력해주세요."
+                required
+              />
+            </div>
+          </div>
+          <div class="auth-input">
+            <label for="password"> 비밀번호 </label>
+            <div class="input-wrapper">
+              <input
+                id="password"
+                name="password"
+                placeholder="비밀번호를 입력해주세요."
+                required
+                type="password"
+              />
+              <div class="icon eyeoff">
+                <img src="/assets/icons/eye-off.svg" />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="auth-submit">로그인</button>
+        </div>
+      </form>
+      <nav class="auth-social">
+        소셜 로그인
+        <div class="social-navs">
+          <a href="https://www.google.com/" class="icon"
+            ><img src="/assets/icons/google.svg"
+          /></a>
+          <a href="https://www.kakaocorp.com/page/" class="icon"
+            ><img src="/assets/icons/kakao.svg" />
+          </a>
+        </div>
+      </nav>
+    </main>
+  </body>
+</html>
