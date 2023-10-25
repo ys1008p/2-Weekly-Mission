@@ -10,6 +10,8 @@
 }
 
 .gnb {
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,6 +26,7 @@
   flex-direction: column;
   align-items: center;
   row-gap: 4rem;
+  margin-top: 9.4rem;
   padding-top: 7rem;
 }
 
