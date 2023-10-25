@@ -37,7 +37,7 @@
   font-weight: 400;
 }
 
-.signup-link {
+.subnav-link {
   margin-left: 0.4rem;
   color: var(--color-primary);
   font-weight: 600;
@@ -58,7 +58,7 @@
 
 .auth-input {
   position: relative;
-  color: var(--color-black);
+  color: var(--color-gray-5);
   font-size: 1.4rem;
   font-weight: 400;
 }
