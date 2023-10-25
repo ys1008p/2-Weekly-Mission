@@ -115,7 +115,7 @@
   inline-size: 100%;
   padding: 1.6rem 2rem;
   border-radius: 0.8rem;
-  background: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
+  background: var(--gradient-purple-skyblue);
   color: var(--color-white);
   font-size: 1.8rem;
   font-weight: 600;
