@@ -1,7 +1,7 @@
 @import url("reset.css");
 @import url("globals.css");
 
-header {
+.global-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@ header {
   background-color: #edf7ff;
 }
 
-nav {
+.gnb {
   display: flex;
   justify-content: space-between;
   align-items: center;
