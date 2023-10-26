@@ -74,12 +74,12 @@ footer {
 }
 
 .header-content {
-  height: 953px;
+  height: 1047px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 164px 360px 0;
+  padding: 164px 360px;
   gap: 40px;
 }
 
