@@ -18,8 +18,11 @@ main{
 }
 header{
   padding: 1.25rem 12.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
-.header-logo {
+.header-logo-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
