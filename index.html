@@ -2,19 +2,17 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <title>Linkbrary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/index.css" />
-    <title>Linkbrary</title>
   </head>
   <body>
     <header>
       <div class="header_wrap">
-        <h1>
-          <a href="/">
-            <img src="./img/logo.png" alt="Linkbrary 로고" />
-          </a>
-        </h1>
-        <button class="login_btn"><a href="/signin.html">로그인</a></button>
+        <a href="index.html">
+          <img src="./img/logo.png" alt="Linkbrary 로고" />
+        </a>
+        <button class="login_btn"><a href="signin.html">로그인</a></button>
       </div>
     </header>
     <main>
@@ -23,9 +21,13 @@
           <span>세상의 모든 정보</span>를 <br />쉽게 저장하고 관리해 보세요
         </p>
         <button class="link_add_btn">
-          <a href="/signup.html">링크 추가하기</a>
+          <a href="signup.html">링크 추가하기</a>
         </button>
-        <div class="top_section_img_wrap"></div>
+        <img
+          class="top_section_img"
+          src="./img/index_top_section.png"
+          alt="Linkbrary 서비스 소개"
+        />
       </section>
       <section class="card_section1 card_section">
         <div class="section_desc_wrap">
@@ -83,20 +85,20 @@
       <div class="footer_wrap">
         <div class="corplogo_wrap">©codeit - 2023</div>
         <div class="policy_faq_wrap">
-          <a href="./privacy.html">Privacy Policy</a>
-          <a href="./faq.html ">FAQ</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="faq.html">FAQ</a>
         </div>
         <div class="sns_wrap">
-          <a href="https://www.facebook.com/"
+          <a href="https://www.facebook.com/" target="_blank"
             ><img src="./img/sns_icon_facebook.svg" alt="페이스북으로 이동"
           /></a>
-          <a href="https://twitter.com/"
+          <a href="https://twitter.com/" target="_blank"
             ><img src="./img/sns_icon_twitter.svg" alt="트위터로 이동"
           /></a>
-          <a href="https://www.youtube.com/"
+          <a href="https://www.youtube.com/" target="_blank"
             ><img src="./img/sns_icon_youtube.svg" alt="유튜브로 이동"
           /></a>
-          <a href="https://www.instagram.com/"
+          <a href="https://www.instagram.com/" target="_blank"
             ><img src="./img/sns_icon_instagram.svg" alt="인스타그램으로 이동"
           /></a>
         </div>
