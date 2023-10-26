@@ -1,0 +1,93 @@
+body {
+  background-color: #f0f6ff;
+}
+main {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+  flex-direction: column;
+  width: 40rem;
+  padding: 23.8rem 0 25.2rem;
+  margin: 0 auto;
+}
+main .sign_wrap {
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  width: 100%;
+}
+main .sign_wrap .logo_wrap {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-direction: column;
+}
+main .sign_wrap .logo_wrap .logo img {
+  height: 3.8rem;
+}
+main .sign_wrap .logo_wrap p {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+main .sign_wrap .logo_wrap p a {
+  border-bottom: 1px solid #6d6afe;
+  font-weight: 600;
+  color: #6d6afe;
+}
+main .sign_wrap form {
+  display: flex;
+  gap: 2.4rem;
+  flex-direction: column;
+  width: 100%;
+}
+main .sign_wrap form .input_wrap {
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+}
+main .sign_wrap form .input_wrap .input_tit {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+main .sign_wrap form .input_wrap input {
+  width: 100%;
+  padding: 1.8rem 4rem 1.8rem 1.5rem;
+  border: 1px solid #ccd5e3;
+  border-radius: 0.8rem;
+  outline: none;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+main .sign_wrap form .input_wrap input.hidden_txt {
+  background: #fff url('../img/eye_off_icon.svg') no-repeat calc(100% - 15px);
+}
+main .sign_wrap form .input_wrap input:focus {
+  border: 1px solid #6d6afe;
+}
+main .sign_wrap .submit_btn {
+  padding: 1.6rem 2rem;
+  border-radius: 0.8rem;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  font-size: 1.8rem;
+  color: #f5f5f5;
+}
+main .sns_sign_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.2rem 2.4rem;
+  border: 1px solid #CCD5E3;
+  border-radius: 0.8rem;
+  background-color: #E7EFFB;
+  font-size: 1.4rem;
+}
+main .sns_sign_wrap .sns_logo_wrap {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+main .sns_sign_wrap .sns_logo_wrap a {
+  display: flex;
+  align-items: center;
+}
