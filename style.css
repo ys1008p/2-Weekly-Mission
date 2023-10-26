@@ -9,7 +9,7 @@ h1, p {
   margin: 0;
 }
 a{
-  cursor: crosshair;
+  cursor: pointer;
 }
 header,
 main{
