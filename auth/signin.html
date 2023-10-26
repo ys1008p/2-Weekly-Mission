@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Linkbrary 로그인 페이지" />
     <title>Linkbrary</title>
     <link rel="stylesheet" href="../css/auth/index.css" />
   </head>
@@ -11,8 +12,12 @@
       <form class="auth-form signin">
         <header class="auth-form-header">
           <h1 aria-label="Linkbrary 로고" class="hidden">Linkbrary 로고</h1>
-          <a href="/index.html" class="logo">
-            <img src="/assets/icons/logo.svg" alt="Linkbrary 로고" />
+          <a href="/index.html" class="logo" aria-label="Move to homepage">
+            <img
+              src="/assets/icons/logo.svg"
+              alt="Linkbrary 로고"
+              aria-hidden
+            />
           </a>
           <nav class="auth-subnav">
             회원이 아니신가요?
@@ -42,22 +47,36 @@
                 required
                 type="password"
               />
-              <div class="icon eyeoff">
-                <img src="/assets/icons/eye-off.svg" />
-              </div>
+              <button class="icon eyetoggle" aria-label="Hide password">
+                <img
+                  src="/assets/icons/eye-off.svg"
+                  alt="패스워드 숨기기"
+                  aria-hidden
+                />
+              </button>
             </div>
           </div>
           <button type="submit" class="auth-submit">로그인</button>
         </div>
       </form>
-      <nav class="auth-social">
+      <nav class="auth-social" aria-label="Social login menu">
         소셜 로그인
         <div class="social-navs">
-          <a href="https://www.google.com/" class="icon"
-            ><img src="/assets/icons/google.svg"
+          <a
+            href="https://www.google.com/"
+            class="icon"
+            aria-label="Login with google"
+            ><img src="/assets/icons/google.svg" alt="구글 로그인" aria-hidden
           /></a>
-          <a href="https://www.kakaocorp.com/page/" class="icon"
-            ><img src="/assets/icons/kakao.svg" />
+          <a
+            href="https://www.kakaocorp.com/page/"
+            class="icon"
+            aria-label="Login with kakao"
+            ><img
+              src="/assets/icons/kakao.svg"
+              alt="카카오 로그인"
+              aria-hidden
+            />
           </a>
         </div>
       </nav>

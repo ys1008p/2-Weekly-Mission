@@ -98,7 +98,7 @@
   background-color: inherit;
 }
 
-.icon.eyeoff {
+.icon.eyetoggle {
   padding: 0.8rem;
   margin-right: 0.7rem;
 
@@ -106,7 +106,7 @@
   align-items: center;
 }
 
-.eyeoff > img {
+.eyetoggle > img {
   width: 1.6rem;
   height: 1.6rem;
 }
