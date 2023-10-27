@@ -12,6 +12,10 @@ article {
   padding: 23.8rem 0 25.2rem;
 }
 
+.signup {
+  padding: 23.8rem 0 11.6rem;
+}
+
 section {
   display: flex;
   flex: 0 0 auto;
