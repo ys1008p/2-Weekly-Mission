@@ -1,0 +1,21 @@
+.input-group {
+  .input-title {
+    @include text-style(14);
+  }
+
+  .input-box {
+    position: relative;
+    margin-top: 12px;
+
+    input {
+      @extend %input-base;
+    }
+
+    button {
+      @include pos-center-y;
+      right: 15px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
