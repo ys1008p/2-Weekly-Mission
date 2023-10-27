@@ -16,6 +16,8 @@ a {
 }
 
 .header {
+    position: sticky;
+    top: 0px;
     display: flex;
     padding: 20px 200px;
 
@@ -23,6 +25,7 @@ a {
     align-items: center;
     background: #F0F6FF;
     gap: 8px;
+    z-index: 999;
 }
 
 .header-img-div {
