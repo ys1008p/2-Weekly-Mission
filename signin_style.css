@@ -21,7 +21,6 @@ input:focus {
   border-color: (--linkbrary-primary-color, #6D6AFE);
   background: var(--linkbrary-white, #FFF);
 }
-/* body에 폰트 입히기. */
 
 .login {
   display: flex;
@@ -31,7 +30,6 @@ input:focus {
 }
 
 .container {
-
   display: flex;
   width: 1440px;
   padding: 238px 0px 252px 0px;
@@ -87,10 +85,11 @@ gap: 12px;
 }
 
 .emaillPwGap {
+  position: relative;
   display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .enter {
@@ -103,21 +102,10 @@ gap: 24px;
   border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
   background: var(--linkbrary-white, #FFF);
 }
-/* 여기 수정 필요 */
-.enterEye {
-  position: relative;
-  display: flex;
-  width: 400px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
-  background: var(--linkbrary-white, #FFF);
-}
 
 .eye {
   position: absolute;
+  bottom: 18px;
   right: 15px;
 }
 
