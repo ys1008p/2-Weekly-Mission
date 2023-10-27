@@ -99,7 +99,7 @@ line-height: 1.5rem;
   align-items: center;
   border-radius: 0.5rem;
   border: 1px solid var(--primary);
-  background: var(--gray2);
+  background: var(--white);
   position: relative;
 }
 input {
@@ -109,7 +109,7 @@ input {
   border: 0px;
 }
 .container3_2_1_1:focus-within {
-  background-color: var(--primary);
+  background-color: var(--gray2);
 }
 button {
   display: flex;
