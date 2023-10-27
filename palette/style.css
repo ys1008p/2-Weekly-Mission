@@ -1,6 +1,6 @@
 :root {
     --primary-background-color: #3498db;
-
+--linkbarary-black : #000000;
     --linkbrary-white: #FFF;
     --linkbrary-primary-color: #6D6AFE;
     --linkbrary-red: #FF5B56;
@@ -21,16 +21,12 @@
     text-decoration: none;
     box-sizing: border-box;
 }
-body{display: flex;justify-content: center;
-margin-top: 12%;
-}
-.main {
-    
+html{    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-}
-.flexalign{    display: flex;
-    flex-direction: column;}
+    align-items: center;
+    justify-content: center;}
+
 .class {
     width: 100px;
     height: 100px;
@@ -57,7 +53,7 @@ margin-top: 12%;
 }
 
 .textdiv {
-    color: #000;
+    color: var(--linkbarary-black);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -75,7 +71,7 @@ margin-top: 12%;
 }
 
 .black {
-    background-color: var(--the-julge-black)
+    background-color: var(--the-julge-black);
 }
 
 .white {
@@ -104,7 +100,7 @@ margin-top: 12%;
     background-color: var(--linkbrary-bg);
 }
 .flexalign1{display: flex;gap:2px;}
-.boxsize.white>div {    color: #000;}
+.boxsize.white>div {    color: var(--linkbarary-black);}
 .alignbox{
     display:flex;
     flex-direction: column;
