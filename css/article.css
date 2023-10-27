@@ -5,6 +5,8 @@ article {
   padding-top: 7rem;
   padding-bottom: 12rem;
   background-color: var(--linkbrary-white, #ffffff);
+  max-width: 192rem;
+  margin: 0 auto;
 }
 
 /* 섹션 공통 */

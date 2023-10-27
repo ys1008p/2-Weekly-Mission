@@ -1,8 +1,16 @@
 footer {
+  width: 100%;
+  max-width: 192rem;
+  margin: 0 auto;
   background: var(--the-julge-black, #111322);
-  display: flex;
   height: 16rem;
   padding: 3.2rem 10.4rem 6.4rem;
+  flex-shrink: 0;
+}
+
+.footer-container {
+  max-width: 192rem;
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-shrink: 0;

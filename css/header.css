@@ -3,6 +3,8 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
+  align-items: center;
 }
 
 /* ============================= */
@@ -39,6 +41,7 @@ nav {
 /* ============================= */
 
 .hero {
+  max-width: 192rem;
   padding-top: 16.4rem; /* 기존 nav의 높이만큼 추가 */
   display: flex;
   flex-direction: column;
