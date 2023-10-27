@@ -1,3 +1,13 @@
+:root{
+--sign_maincolor : #F0F6FF;
+--input_bordercolor : #CCD5E3;
+--input_focuscolor : #6D6AFE;
+--button_gradientcolor : #6AE3FE;
+--social_logincolor : #E7EFFB;
+--black : #000;
+--white : #F5F5F5;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -182,7 +192,7 @@ footer {
 display: flex;
 padding: 14.875rem 0rem 15.75rem 0rem;
 justify-content: center;
-background:#F0F6FF;
+background:var(--sign_maincolor);
 }
 
 .sign{
@@ -221,11 +231,11 @@ padding: 1.125rem 0.9375rem;
 justify-content: center;
 align-items: center;
 border-radius: 0.5rem;
-border: 1px solid #CCD5E3;
+border: 1px solid var(--input_bordercolor);
 }
 
 input:focus{
-border-color: #6D6AFE;
+border-color: var(--input_focuscolor);
 outline: none;
 }
 
@@ -237,9 +247,9 @@ justify-content: center;
 align-items: center;
 gap: 0.625rem;
 border-radius: 0.5rem;
-background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+background: linear-gradient(91deg, var(--input_focuscolor) 0.12%, var(--button_gradientcolor) 101.84%);
 border: none;
-color: #F5F5F5;
+color: var(--white);
 font-size: 1.125rem;
 font-style: normal;
 font-weight: 600;
@@ -253,8 +263,8 @@ padding: 0.75rem 1.5rem;
 justify-content: space-between;
 align-items: center;
 border-radius: 0.5rem;
-border: 1px solid #CCD5E3;
-background: #E7EFFB;
+border: 1px solid var(--input_bordercolor);
+background: var(--social_logincolor);
 }
 
 .logo_section{
@@ -268,7 +278,7 @@ gap: 1rem;
 display: flex;
 align-items: center;
 gap: 0.5rem;
-color:#000;
+color:var(--black);
 font-size: 1rem;
 font-style: normal;
 font-weight: 400;
@@ -281,7 +291,7 @@ line-height: 1.5rem;
 }
 
 .question_head a{
-color: var(--linkbrary-primary-color, #6D6AFE);
+color:var(--input_focuscolor);
 font-size: 1rem;
 font-style: normal;
 font-weight: 600;
