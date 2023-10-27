@@ -32,7 +32,12 @@ footer {
   gap: 1.2rem;
 }
 
-.sns-links > img {
+.sns-link {
+  display: inline-block;
   width: 2rem;
   height: 2rem;
+}
+
+.sns-link img {
+  width: 100%;
 }

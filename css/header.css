@@ -26,6 +26,10 @@ nav {
   height: 2.4rem;
 }
 
+.home-link img {
+  width: 100%;
+}
+
 .btn-short {
   width: 12.8rem;
 }

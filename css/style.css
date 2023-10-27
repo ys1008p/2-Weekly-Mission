@@ -11,6 +11,10 @@
   --linkbrary-bg: #f0f6ff;
 }
 
+body {
+  background-color: var(--linkbrary-bg, #f0f6ff);
+}
+
 .btn {
   display: flex;
   justify-content: center;
