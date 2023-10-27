@@ -1,5 +1,7 @@
+@import url('global_styles.css');
+
 body {
-  background-color: #f0f6ff;
+  background-color: var(--linkbrary-bg);
 }
 main {
   display: flex;
@@ -30,9 +32,9 @@ main .sign_wrap .logo_wrap p {
   line-height: 2.4rem;
 }
 main .sign_wrap .logo_wrap p a {
-  border-bottom: 1px solid #6d6afe;
+  border-bottom: 1px solid var(--linkbrary-primary);
   font-weight: 600;
-  color: #6d6afe;
+  color: var(--linkbrary-primary);
 }
 main .sign_wrap form {
   display: flex;
@@ -52,22 +54,30 @@ main .sign_wrap form .input_wrap .input_tit {
 main .sign_wrap form .input_wrap input {
   width: 100%;
   padding: 1.8rem 4rem 1.8rem 1.5rem;
-  border: 1px solid #ccd5e3;
+  border: 1px solid var(--linkbrary-gray-20);
   border-radius: 0.8rem;
   outline: none;
   font-size: 1.6rem;
   line-height: 2.4rem;
-}
-main .sign_wrap form .input_wrap input.hidden_txt {
-  background: #fff url('../img/eye_off_icon.svg') no-repeat calc(100% - 15px);
+  color: var(--linkbrary-gray-100);
 }
 main .sign_wrap form .input_wrap input:focus {
-  border: 1px solid #6d6afe;
+  border: 1px solid var(--linkbrary-primary);
+}
+main .sign_wrap form .input_wrap .input_hidden_wrap {
+  position: relative;
+}
+main .sign_wrap form .input_wrap .input_hidden_wrap img {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  cursor: pointer;
+  transform: translateY(-50%);
 }
 main .sign_wrap .submit_btn {
   padding: 1.6rem 2rem;
   border-radius: 0.8rem;
-  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(91deg, var(--linkbrary-primary) 0.12%, #6ae3fe 101.84%);
   font-size: 1.8rem;
   color: #f5f5f5;
 }
@@ -77,10 +87,11 @@ main .sns_sign_wrap {
   justify-content: space-between;
   width: 100%;
   padding: 1.2rem 2.4rem;
-  border: 1px solid #CCD5E3;
+  border: 1px solid var(--linkbrary-gray-20);
   border-radius: 0.8rem;
-  background-color: #E7EFFB;
+  background-color: var(--linkbrary-gray-10);
   font-size: 1.4rem;
+  color: var(--linkbrary-gray-100);
 }
 main .sns_sign_wrap .sns_logo_wrap {
   display: flex;
