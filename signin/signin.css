@@ -103,7 +103,7 @@ form {
 .div2-img {
     width: 16px;
     height: 16px;
-    background: url(indexImages/eye-off.png);
+    background: url(/Images/eye-off.png);
     background-size: 16px 16px;
 
 
@@ -189,7 +189,7 @@ input:focus::placeholder {
 }
 
 .google {
-    background: url(indexImages/google.png);
+    background: url(/Images/google.png);
     background-size: 42px 42px;
     width: 42px;
     height: 42px;
@@ -207,7 +207,7 @@ input:focus::placeholder {
 }
 
 .talk {
-    background: url(indexImages/facebook.png);
+    background: url(/Images/facebook.png);
     background-size: 42px 42px;
     width: 42px;
     height: 42px;

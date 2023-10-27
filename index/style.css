@@ -28,7 +28,7 @@ a {
 .header-img-div {
     width: 133px;
     height: 24px;
-    background: url(indexImages/logo.png) no-repeat center;
+    background: url(/Images/logo.png) no-repeat center;
 }
 
 .login-button {
@@ -187,14 +187,14 @@ a {
 }
 
 .num2-img.img1 {
-    background: url(indexImages/3.png) no-repeat center;
+    background: url(/Images/3.png) no-repeat center;
     width: 279px;
     height: 275px;
     background-size: cover;
 }
 
 .num2-img.img2 {
-    background: url(indexImages/4.png) no-repeat center;
+    background: url(/Images/4.png) no-repeat center;
     background-size: 279px 275px;
     width: 279px;
     height: 275px;
@@ -203,7 +203,7 @@ a {
 }
 
 .num2-img.img3 {
-    background: url(indexImages/2.png) no-repeat center;
+    background: url(/Images/2.png) no-repeat center;
     width: 279px;
     height: 275px;
     background-size: cover;
@@ -236,7 +236,7 @@ a {
     height: 270px;
 
     flex-shrink: 0;
-    background: url(indexImages/moresearch.png);
+    background: url(/Images/moresearch.png);
     background-size: 414px 270px;
 }
 
@@ -248,7 +248,7 @@ a {
 }
 
 .num2-imgdiv.num2-backgroundimg1 {
-    background: url(indexImages/image423.png) no-repeat center;
+    background: url(/Images/image423.png) no-repeat center;
     border-radius: 25px;
     background-size: 550px 450px;
 
@@ -281,7 +281,7 @@ a {
 }
 
 .num2-imgdiv.num2-backgroundimg {
-    background: url(indexImages/image423.png) no-repeat center;
+    background: url(/Images/image423.png) no-repeat center;
 
     background-size: 160% 130%;
     display: flex;
