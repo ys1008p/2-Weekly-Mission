@@ -1,0 +1,19 @@
+.gnb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $gnb-level;
+  background-color: $light-blue;
+
+  &-container {
+    @include flexbox(between);
+    height: 93px;
+    padding: 0 200px;
+
+    .btn-login {
+      @include text-style(18);
+      width: 120px;
+    }
+  }
+}
