@@ -95,6 +95,7 @@ section {
   flex: 0 0 auto;
   flex-direction: column;
   gap: 1.2rem;
+  position: relative;
 }
 
 .input-box {
@@ -146,4 +147,11 @@ input:focus {
 
 .link-image img {
   width: 100%;
+}
+
+.toggle-show-pwd {
+  width: 1.6rem;
+  position: absolute;
+  top: 5.2rem;
+  right: 1.5rem;
 }
