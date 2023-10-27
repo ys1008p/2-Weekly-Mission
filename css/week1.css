@@ -1,0 +1,182 @@
+.display1 {
+  background: #f0f6ff;
+ 
+}
+/* start header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 200px;
+  position: fixed;
+  background: #f0f6ff;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.login {
+  text-align: center;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  cursor: pointer;
+  padding: 16px 20px;
+  text-decoration: none;
+}
+.login-text {
+  color: var(--grey-light, #f5f5f5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+/* end header */
+
+/* start content1 */
+.content1 {
+  padding: 70px 360px;
+  text-align: center;
+}
+.sub-tilte {
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80px;
+}
+.sub-tilte > span {
+  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.link-add {
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  cursor: pointer;
+  text-decoration: none;
+  padding: 16px 126px;
+}
+.link-text {
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: auto;
+  color: rgba(245, 245, 245, 1);
+}
+.main-img {
+  width: 1118px;
+  height: 659px;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+.img-detail {
+  width: 1118px;
+  height: 659px;
+  border-radius: 25px;
+  margin: 0 auto 0 auto;
+  object-fit: cover;
+}
+/* end content1 */
+
+/* start content2 */
+.content2{  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 157px;
+  padding: 120px 460px 50px;
+  
+
+}
+ .frame{
+  display: flex;
+  width: 291px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+ #title{
+  font-family: Pretendard;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+  letter-spacing: 0px;
+  text-align: left;
+}/* 왜 안되는지 모르겠음*/
+#want-link{
+  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-style: normal;
+line-height: normal
+}
+.content2-comment{
+color: #6B6B6B;
+font-family: Pretendard;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 150%
+}
+.content2-imgs{
+  gap: 12px;
+}
+
+#care{
+  background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+background-clip:text;
+-webkit-background-clip:text;
+-webkit-text-fill-color: transparent;
+font-style: normal;
+line-height: normal;}
+
+#share{
+background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+background-clip:text;
+-webkit-background-clip:text;
+-webkit-text-fill-color: transparent;
+font-style: normal;
+line-height: normal;}
+#search{
+  background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#content5-img{
+  width: 619px;
+  height: 584px;
+  background-size: cover;
+}
+#rever{
+  flex-direction: row-reverse;
+}
+footer{
+  margin-top: 120px;
+  padding: 32px 104px 64px;
+  display: flex;
+  background-color:#111322; 
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+a{text-decoration: none;
+color: white;}
+
+
+
+
+
+
+
+
