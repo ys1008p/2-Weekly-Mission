@@ -1,5 +1,16 @@
+:root {
+  --linkbrary-primary-color: #6D6AFE;
+  --linkbrary-gray-10: #E7EFFB;
+  --linkbrary-gray-20: #CCD5E3;
+  --linkbrary-gray-100: #373740;
+  --linkbrary-bg: #F0F6FF;
+  --black: #000;
+  --linkbrary-white: #FFF;
+  --grey-light: #F5F5F5
+}
+
 body {
-  background: var(--linkbrary-bg, #F0F6FF);
+  background: var(--linkbrary-bg);
   display: grid;
   grid-template-areas: 
     'title'
@@ -24,7 +35,7 @@ body {
 }
 
 .query {
-  color: var(--black, #000);
+  color: var(--black);
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -33,7 +44,7 @@ body {
 
 .login-link {
   text-decoration: underline;
-  color: var(--linkbrary-primary-color, #6D6AFE);
+  color: var(--linkbrary-primary-color);
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -50,7 +61,7 @@ form {
 }
 
 label {
-  color: var(--black, #000);
+  color: var(--black);
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
@@ -59,9 +70,9 @@ label {
 
 input {
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-white, #FFF);
-  color: var(--linkbrary-gray-100, #373740);
+  border: 1px solid var(--linkbrary-gray-20);
+  background: var(--linkbrary-white);
+  color: var(--linkbrary-gray-100);
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -72,7 +83,7 @@ input {
 
 input:focus {
   outline: none;
-  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+  border: 1px solid var(--linkbrary-primary-color);
 }
 
 .eye-on.first {
@@ -94,8 +105,8 @@ input:focus {
 .join-button {
   border: none;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-  color: var(--grey-light, #F5F5F5);
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--linkbrary-primary-color) 0.12%, #6AE3FE 101.84%));
+  color: var(--grey-light);
   font-size: 1.8rem;
   font-style: normal;
   font-weight: 600;
@@ -108,8 +119,8 @@ input:focus {
 .social-join {
   grid-area: social-login;
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-gray-10, #E7EFFB);
+  border: 1px solid var(--linkbrary-gray-20);
+  background: var(--linkbrary-gray-10);
   width: 400px;
   display: flex;
   justify-content: space-between;
@@ -120,7 +131,7 @@ input:focus {
 }
 
 .social-title {
-  color: var(--linkbrary-gray-100, #373740);
+  color: var(--linkbrary-gray-100);
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
