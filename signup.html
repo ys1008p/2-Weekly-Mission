@@ -12,22 +12,22 @@
   </head>
   <body>
     <main>
-      <div class="container">
-        <div class="signin-box">
-          <div class="signup-check">
+      <div class="flex-column">
+        <div class="signin-box flex-column">
+          <div class="signup-check flex-column">
             <a href="/"><img class="logo" src="./images/logo.png" /></a>
             <div>
-              <span class="check-status">이미 회원이신가요?</span>
+              <span class="check-status">회원이 아니신가요?</span>
               <span class="signup-link"
-                ><a href="signin.html">로그인하기</a></span
+                ><a href="signup.html">회원 가입하기</a></span
               >
             </div>
           </div>
 
           <div>
-            <form>
-              <div class="login-input">
-                <div class="box-width">
+            <form class="flex-column">
+              <div class="login-input flex-column">
+                <div class="box-width flex-column">
                   <label class="common_title">이메일</label>
                   <input
                     type="text"
@@ -37,7 +37,7 @@
                     alt="이메일 주소"
                   />
                 </div>
-                <div class="box-width">
+                <div class="box-width flex-column">
                   <label class="common_title">비밀번호</label>
                   <input
                     type="password"
@@ -46,9 +46,9 @@
                     required
                     alt="비밀번호"
                   />
-                  <img class="eye-on-img" src="./images/eye-on.png" />
+                  <img class="eye-on-img" src="./images/eye-off.png" />
                 </div>
-                <div class="box-width">
+                <div class="box-width flex-column">
                   <label class="common_title">비밀번호 확인</label>
                   <input
                     type="password"
