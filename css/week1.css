@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 200px;
+  padding: 2.0rem 20.0rem;
   position: fixed;
   background: #f0f6ff;
   top: 0;
@@ -17,37 +17,37 @@
 
 .login {
   text-align: center;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background: var(
     --gra-purpleblue-to-skyblue,
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
   cursor: pointer;
-  padding: 16px 20px;
+  padding: 1.6rem 2.0rem;
   text-decoration: none;
 }
 .login-text {
   color: var(--grey-light, #f5f5f5);
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 60.0;
   line-height: normal;
 }
 /* end header */
 
 /* start content1 */
 .content1 {
-  padding: 70px 360px;
+  padding: 7.0rem 36.0rem;
   text-align: center;
 }
 .sub-tilte {
   text-align: center;
   font-family: Pretendard;
-  font-size: 64px;
+  font-size: 6.4rem;
   font-style: normal;
-  font-weight: 700;
-  line-height: 80px;
+  font-weight: 70.0;
+  line-height: 8.0rem;
 }
 .sub-tilte > span {
   background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
@@ -56,32 +56,32 @@
   -webkit-text-fill-color: transparent;
 }
 .link-add {
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background: var(
     --gra-purpleblue-to-skyblue,
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
   cursor: pointer;
   text-decoration: none;
-  padding: 16px 126px;
+  padding: 1.6rem 12.6rem;
 }
 .link-text {
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   line-height: auto;
   color: rgba(245, 245, 245, 1);
 }
 .main-img {
-  width: 1118px;
-  height: 659px;
-  border-radius: 25px;
+  width: 111.8rem;
+  height: 65.9rem;
+  border-radius: 2.5rem;
   margin: 0 auto;
 }
 .img-detail {
-  width: 1118px;
-  height: 659px;
-  border-radius: 25px;
+  width: 111.8rem;
+  height: 65.9rem;
+  border-radius: 2.5rem;
   margin: 0 auto 0 auto;
   object-fit: cover;
 }
@@ -92,24 +92,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 157px;
-  padding: 120px 460px 50px;
+  gap: 15.7rem;
+  padding: 12.0rem 46.0rem 5.0rem;
   
 
 }
  .frame{
   display: flex;
-  width: 291px;
+  width: 29.1rem;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 1.0rem;
 }
  #title{
   font-family: Pretendard;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 58px;
-  letter-spacing: 0px;
+  font-size: 4.8rem;
+  font-weight: 70.0;
+  line-height: 5.8rem;
+  letter-spacing: 0rem;
   text-align: left;
 }/* 왜 안되는지 모르겠음*/
 #want-link{
@@ -123,13 +123,13 @@ line-height: normal
 .content2-comment{
 color: #6B6B6B;
 font-family: Pretendard;
-font-size: 16px;
+font-size: 1.6rem;
 font-style: normal;
 font-weight: 500;
 line-height: 150%
 }
 .content2-imgs{
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 #care{
@@ -154,16 +154,16 @@ line-height: normal;}
   -webkit-text-fill-color: transparent;
 }
 #content5-img{
-  width: 619px;
-  height: 584px;
+  width: 61.9rem;
+  height: 58.4rem;
   background-size: cover;
 }
 #rever{
   flex-direction: row-reverse;
 }
 footer{
-  margin-top: 120px;
-  padding: 32px 104px 64px;
+  margin-top: 12.0rem;
+  padding: 3.2rem 10.4rem 6.4rem;
   display: flex;
   background-color:#111322; 
   justify-content: space-between;
