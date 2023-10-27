@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Linkbrary</title>
+  </head>
+  <body>
+    <main>
+      <div class="header">
+        <a href="../">
+          <img class="logo" src="../images/logo.svg" />
+        </a>
+        <span>이미 회원이신가요? <a href="./signin.html">로그인 하기</a></span>
+      </div>
+      <form action="">
+        <label for="email">이메일</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="codeit@codeit.com"
+        />
+        <div class="password-box">
+          <label for="password">비밀번호</label>
+          <input
+            type="password"
+            name="passowrd"
+            id="password"
+            class="password"
+          />
+          <img class="password-eye" src="../images/eye-off.svg" />
+        </div>
+        <div class="password-box">
+          <label for="password">비밀번호 확인</label>
+          <input
+            type="password"
+            name="passowrd"
+            id="password"
+            class="password"
+          />
+          <img class="password-eye" src="../images/eye-off.svg" />
+        </div>
+
+        <button>회원가입</button>
+      </form>
+      <div class="auth">
+        다른 방식으로 가입하기
+        <div class="icon">
+          <img src="../images/google.png" />
+          <img src="../images/kakao.png" />
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
