@@ -1,6 +1,6 @@
 :root {
     --primary-background-color: #3498db;
---linkbarary-black : #000000;
+    --linkbarary-black: #000000;
     --linkbrary-white: #FFF;
     --linkbrary-primary-color: #6D6AFE;
     --linkbrary-red: #FF5B56;
@@ -16,16 +16,19 @@
 
 
 * {
-    margin: 0 ;
+    margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
 }
-html{    width: 100%;
+
+html {
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;}
+    justify-content: center;
+}
 
 .class {
     width: 100px;
@@ -99,10 +102,22 @@ html{    width: 100%;
 .gray5 {
     background-color: var(--linkbrary-bg);
 }
-.flexalign1{display: flex;gap:2px;}
-.boxsize.white>div {    color: var(--linkbarary-black);}
-.alignbox{
-    display:flex;
+
+.flexalign1 {
+    display: flex;
+    gap: 2px;
+}
+
+.boxsize.white>div {
+    color: var(--linkbarary-black);
+}
+
+.alignbox {
+    display: flex;
     flex-direction: column;
-gap: 20px;}
-.innerboxsize.textblack{color: var(--the-julge-black);}
+    gap: 20px;
+}
+
+.innerboxsize.textblack {
+    color: var(--the-julge-black);
+}
