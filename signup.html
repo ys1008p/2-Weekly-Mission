@@ -31,24 +31,31 @@
 
         <section>
           <div class="sign-input">
+            <label for="emailCheck">이메일</label>
             <div class="sign-input-type">
-              <label for="emailCheck">이메일</label>
               <input type="email" id="emailCheck" />
             </div>
 
             <div class="sign-input-type">
               <label for="pw">비밀번호</label>
-              <input class="need-eyes" type="password" id="pw" />
-            </div>
-            <div class="sign-input-type">
-              <label for="pwCheck">비밀번호 확인</label>
-              <div class="sign-input-items">
-                <input class="need-eyes" type="password" id="pwCheck" />
-                <span class="font14-we4 sign-input-span-pw"
-                  >비밀번호가 다릅니다.</span
-                >
+              <div class="sign-input-div">
+                <input type="password" id="pw" />
+                <img class="eye" src="images/eye-off.svg" alt="eye" />
               </div>
             </div>
+
+            <div class="sign-input-type">
+              <label for="pwCheck">비밀번호 확인</label>
+              <div class="sign-input-div">
+                <input type="password" id="pwCheck" />
+                <img class="eye" src="images/eye-off.svg" alt="eye" />
+              </div>
+            </div>
+          </div>
+          <div class="input-under-div">
+            <span class="font14-we4 sign-input-span-pw"
+              >비밀번호가 다릅니다.</span
+            >
           </div>
         </section>
         <button class="sign-btn">회원가입</button>
