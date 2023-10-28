@@ -79,3 +79,75 @@ h1 {
   width: 69.875rem;
   height: 41.1875rem;
 }
+
+/* main */
+main {
+  padding-top: 4.5rem;
+  padding-bottom: 7.5rem;
+}
+
+/* section 공통사항 */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9.8125rem;
+  padding: 3.125rem 28.8125rem;
+}
+
+.description-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 18.1875rem;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.01875rem;
+}
+
+.description {
+  color: #6b6b6b;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.content__img {
+  width: 34.375rem;
+  height: 28.125rem;
+}
+
+.content:nth-child(even) .description-box {
+  order: 1;
+}
+
+/* section 제목 - 그라데이션 */
+.save__title--gradient {
+  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+}
+
+.folder__title--gradient {
+  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+}
+
+.share__title--gradient {
+  background: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+}
+
+.search__title--gradient {
+  background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
+}
+
+.bg-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
