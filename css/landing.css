@@ -1,3 +1,20 @@
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 200px;
+}
+
 .banner {
   background-color: var(--gray-bg);
+}
+
+.logo {
+  width: 133px;
+}
+
+.btn-login {
+  width: 128px;
 }
