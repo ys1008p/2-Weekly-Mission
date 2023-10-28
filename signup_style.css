@@ -11,8 +11,8 @@ body {
 }
 
 input:focus {
-  border-color: (--linkbrary-primary-color, #6D6AFE);
-  background: var(--linkbrary-white, #FFF);
+  outline: none;
+  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
 }
 /* body에 폰트 입히기. */
 
