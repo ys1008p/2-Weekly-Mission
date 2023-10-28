@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>로그인</title>
+  <link rel="stylesheet" href="./src/singin.css" />
+</head>
+
+<body>
+  <form>
+    <div class="login">
+      <div class="login-header">
+        <a class="login-title" href="index.html">
+          <img class="logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+        </a>
+        <div class="login-signup">
+          <a>이미 회원이신가요?</a>
+          <a class="login-signup-link" href="signin.html">로그인 하기</a>
+        </div>
+      </div>
+      <div class="login-user">
+        <div class="user-email">
+          <label>이메일</label>
+          <input name="useremail" type="text" placeholder="Email" />
+        </div>
+        <div class="user-password">
+          <label>비밀번호</label>
+          <div class="eye-icon">
+            <input name="password" type="password" placeholder="비밀번호" />
+            <img class="eye-off" src="./images/eye-on.png" alt="eye-off">
+          </div>
+        </div>
+        <div class="user-password-again">
+          <label>비밀번호 확인</label>
+          <div class="eye-icon">
+            <input name="password" type="password" placeholder="비밀번호 재확인" />
+            <img class="eye-off" src="./images/eye-on.png" alt="eye-off">
+          </div>
+        </div>
+      </div>
+      <button>회원가입</button>
+    </div>
+    <div class="social-login">
+      <a>다른 방식으로 가입하기</a>
+      <div class="social-icon">
+        <a class="google" href="https://google.com/">
+          <img src="./images/google.png" alt="구글">
+        </a>
+        <a class="kakaotalk" href="https://kakaocorp.com/page/">
+          <img src="./images/99FE484C5C3451F218 1.svg" alt="카카오톡">
+        </a>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>
