@@ -87,6 +87,9 @@ section:not(#home){
 
 /* header */
 header {
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 100%;
   background-color: var(--linkbrary-bg);
   margin: 0 auto;
