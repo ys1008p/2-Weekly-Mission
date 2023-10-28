@@ -1,0 +1,59 @@
+main h1{
+  text-align: center;
+  font-family: Pretendard;
+  /* font-size: 64px; */
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 5rem; /* 125% */
+}
+
+main h2{
+  font-family: Pretendard;
+/* font-size: 48px; */
+font-size: 3rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+main p{
+  font-family: Pretendard;
+  /* font-size: 16px; */
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+}
+
+a{
+  text-decoration: none;
+  text-align: center;
+}
+
+.button{
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+#company-title{
+  text-align: center;
+  font-family: Arial;
+  /* font-size: 16px; */
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+footer .more-information{
+  font-family: Arial;
+  /* font-size: 16px; */
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
