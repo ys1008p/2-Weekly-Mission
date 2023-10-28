@@ -1,6 +1,4 @@
-
-
-main{
+main {
   padding-bottom: 12rem;
 }
 
@@ -13,7 +11,7 @@ main{
   font-size: 1.8rem;
 }
 
-.gradient-fill{
+.gradient-fill {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -63,7 +61,6 @@ header {
   position: sticky;
   top: 0;
   z-index: 1;
-
 }
 
 nav {
@@ -71,15 +68,15 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 192rem;
-  padding: 2rem  20rem;
+  padding: 2rem 20rem;
 }
 
-.login-link{
+.login-link {
   padding: 1.6rem 4.05rem;
   text-decoration: none;
 }
 
-nav img{
+nav img {
   width: 13.3rem;
 }
 
@@ -87,10 +84,9 @@ nav img{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:var(--gray-bg-color);
-  padding-top:7rem;
+  background-color: var(--gray-bg-color);
+  padding-top: 7rem;
   margin-bottom: 7rem;
-
 }
 
 .banner h1 {
@@ -106,11 +102,11 @@ nav img{
   margin-bottom: 3.9rem;
 }
 
-.banner img{
+.banner img {
   width: 116.8em;
 }
 
-.information{
+.information {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,7 +147,7 @@ article {
 .save .right {
   width: 55rem;
   height: 45rem;
-  background-color:var(--gray-bg-color);
+  background-color: var(--gray-bg-color);
   overflow: hidden;
   border-radius: 1.5rem;
   display: flex;
@@ -163,37 +159,42 @@ article {
   width: 81.3rem;
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-}
-
-.card {
-  width: 24.4rem;
-  height: 23.9rem;
-  background-color: lightgray;
-  border-radius: 1rem;
-  border: 0.1rem solid lightslategray;
-}
-
-.card.cneter {
-  border: 0.3rem solid var(--primary-color);
+  gap: 0.5rem;
   position: relative;
 }
 
-.download-icon {
+.card {
+  width: 14.7rem;
+}
+.card-cneter {
+  width: 27.9rem;
+}
+
+.card-cneter__box {
+  width: 24.4rem;
+  height: 24.0rem;
+  border-radius: 1.1rem;
+  border: 0.3rem solid var(--primary-color);
+  position: absolute;
+  top: 1.4rem;
+  right: 17rem;
+}
+
+.card-cneter__icon {
   width: 4.6rem;
   height: 4.6rem;
   border-radius: 50%;
-  background-color:var(--primary-color);
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom:-2rem;
-  right:-2rem; 
+  top: 22.4rem;
+  right: 15.5rem;
 }
 
-.download-icon img{
-  width:1.8rem;
+.card-cneter__icon img {
+  width: 1.8rem;
   bottom: 1.5rem;
   right: 1.5rem;
 }
@@ -202,19 +203,19 @@ article {
   padding: 11.4rem 6.8rem 6.6rem;
 }
 
-.manage img{
+.manage img {
   width: 41.4rem;
 }
 
-.share .right{
-  background-image: linear-gradient( rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-  url(../images/팝업이미지\ 배경.png);
+.share .right {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../images/팝업이미지\ 배경.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 11.2rem 6.7rem 6.7rem;
 }
 
-.share img{
+.share img {
   width: 46.1rem;
 }
 
@@ -230,11 +231,11 @@ footer {
   line-height: 1.84rem;
   font-size: 1.6rem;
   padding: 3.2rem 10.4rem 10.8rem;
-  display: flex;justify-content: center;
+  display: flex;
+  justify-content: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .copyright {
@@ -254,7 +255,6 @@ footer .sns {
   gap: 1.2rem;
 }
 
-footer .sns img{
+footer .sns img {
   width: 2rem;
 }
-
