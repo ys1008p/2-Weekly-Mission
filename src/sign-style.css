@@ -58,6 +58,13 @@ input{
   background: var(--linkbrary-white, #FFF);
 }
 
+#password{
+  background-image: url(/images/eye-off.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-origin: content-box;
+}
+
 input:focus {
   outline-color:  var(--linkbrary-primary-color, #6D6AFE);
 }
