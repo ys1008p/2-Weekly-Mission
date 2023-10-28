@@ -17,18 +17,16 @@
 
 - [x] [심화] 비밀번호 input 요소 위에 비밀번호를 확인할 수 있는 눈 모양 아이콘을 추가했나요?
 ## 주요 변경사항
-
--
--
+랜딩페이지 Linkbrary로고 , 로그인 버튼 네비게이션 바 생성 로그인페이지, 회원 가입 페이지 생성, input 요소 focus 시 보더 색상 지정
 
 ## 스크린샷
+![index html페이지](https://github.com/codeit-bootcamp-frontend/2-Weekly-Mission/assets/148178373/5a7dadfa-0423-4d22-b80a-d61e8264e00c)
+![로그인 페이지](https://github.com/codeit-bootcamp-frontend/2-Weekly-Mission/assets/148178373/2db96a98-8b15-4324-bf0d-ce25e051c3b7)
+![회원가입 페이지](https://github.com/codeit-bootcamp-frontend/2-Weekly-Mission/assets/148178373/144993fa-6c58-47df-8c31-c2d103716886)
 
-![image](../index.html페이지.png)
-![image](../로그인%20페이지.png)
-![image](../회원가입%20페이지.png)
 
 ## 멘토에게
 
--
+-일부러 1주차 템플릿 코드는 안보고 했습니다 ㅠㅠ 
 -
 - 셀프 코드 리뷰를 통해 질문 이어가겠습니다.

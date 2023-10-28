@@ -94,14 +94,14 @@ input {
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--gray2);
   background: var(--white);
   position: relative;
   outline: none;
 }
 
 input:focus {
-  border: 1px solid var(--gray2);
+  border: 1px solid var(--primary);
 }
 button {
   display: flex;
