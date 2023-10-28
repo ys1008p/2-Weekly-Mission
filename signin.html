@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./reset.css">
+    <title>로그인</title>
+</head>
+
+<body>
+    <header>
+        <section class="logo">
+            <a href="/">
+                <img class="logo-image" src="./image/logo.svg">
+            </a>
+        </section>
+    </header>
+    <main>
+        <section class="signup">
+            <p>회원이 아니신가요? <a class="move signup" href="/signup">회원 가입하기</a></p>
+        </section>
+        <section class="signin input">
+            <form class="signin form" method="get">
+                <div class="id">
+                    <label class="signin label" for="signin-email">
+                        이메일
+                    </label>
+                    <input class="signin input" id="signin-email" name="email" type="email" autocomplete="email"
+                        required>
+                </div>
+                <div class="password">
+                    <label class="signin label" for="signin-password">
+                        비밀번호
+                    </label>
+                    <input class="signin input" id="signin-password" name="password" type="password" required>
+                </div>
+            </form>
+        </section>
+        <button class="login button">
+            로그인
+        </button>
+        <section class="social-login">
+            <p class="social-login label">소셜 로그인</p>
+            <a class="google-login"><img src="" alt="구글 로그인"></a>
+            <a class="kakao-login"><img src="" alt="카카오 로그인"></a>
+        </section>
+    </main>
+</body>
+
+</html>
