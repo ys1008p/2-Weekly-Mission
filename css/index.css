@@ -101,7 +101,6 @@ article {
 .article-img_container img {
   width: 69.875rem;
   height: 41.1875rem;
-  flex-shrink: 0;
   border-radius: 1.5625rem;
   background: linear-gradient(
     180deg,
@@ -209,7 +208,6 @@ img.icon {
 .section3 .sub-img img {
   width: 25.875rem;
   height: 16.875rem;
-  flex-shrink: 0;
 }
 
 .section3 .sub-text .text-highlight {
@@ -256,7 +254,6 @@ img.icon {
   position: relative;
   width: 26rem;
   height: 16.9375rem;
-  flex-shrink: 0;
 }
 
 .section4 .sub-img div > div {
@@ -299,7 +296,6 @@ img.icon {
 .section5 .sub-img > div > img {
   width: 38.6875rem;
   height: 36.5rem;
-  flex-shrink: 0;
 
   border-radius: 0.9375rem;
   background: linear-gradient(
