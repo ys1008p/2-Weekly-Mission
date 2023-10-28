@@ -1,0 +1,81 @@
+/* Global */
+:root {
+  --size-max-width: 120rem;
+}
+
+/* Header 공통사항 */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-gray-light);
+  background: var(--gra-purpleblue-to-skyblue);
+}
+
+/* Navigation bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--linkbrary-bg);
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--size-max-width);
+  margin: auto;
+  padding: 1.25rem 12.5rem;
+}
+
+.btn__sign-in {
+  width: 8rem;
+}
+
+/* Header */
+header {
+  background-color: var(--linkbrary-bg);
+}
+
+.introduce {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5rem;
+  margin: auto;
+  padding: 10.5rem 22.5rem 0rem 22.5rem;
+  max-width: var(--size-max-width);
+}
+
+h1 {
+  flex-shrink: 0;
+  text-align: center;
+  width: 44.25rem;
+  height: 10rem;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5rem;
+}
+
+.introduce__title--gradient {
+  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn__sign-up {
+  width: 21.875rem;
+}
+
+.introduce__img {
+  width: 69.875rem;
+  height: 41.1875rem;
+}

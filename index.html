@@ -17,21 +17,27 @@
   <body>
     <header>
       <nav>
-        <a href="index.html">
-          <img
-            src="./images/logo.svg"
-            alt="메인 페이지로 이동하는 Linkbrary 로고"
-          />
-        </a>
-        <a href="signin.html">로그인</a>
+        <div class="nav__container">
+          <a href="index.html">
+            <img
+              src="./images/logo.svg"
+              alt="메인 페이지로 이동하는 Linkbrary 로고"
+            />
+          </a>
+          <a class="btn btn__sign-in" href="signin.html">로그인</a>
+        </div>
       </nav>
-      <section>
+      <section class="introduce">
         <h1>
-          <span>세상의 모든 정보</span>를<br />
-          쉽게 저장하고 관리해 보세요
+          <span class="introduce__title--gradient"> 세상의 모든 정보</span
+          >를<br />쉽게 저장하고 관리해 보세요
         </h1>
-        <a href="signup.html">링크 추가하기</a>
-        <img src="./images/introduce.png" alt="Linkbrary 소개 이미지" />
+        <a class="btn btn__sign-up" href="signup.html">링크 추가하기</a>
+        <img
+          class="introduce__img"
+          src="./images/introduce.png"
+          alt="Linkbrary 소개 이미지"
+        />
       </section>
     </header>
     <main>
