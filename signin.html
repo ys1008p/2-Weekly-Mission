@@ -14,33 +14,62 @@
     <link rel="stylesheet" href="/styles/signin.css" />
     <title>Linkbrary</title>
   </head>
-  <body>
-    <main class="bgc-blue">
-      <section>
-        <a href="/">
-          <img src="./images/icons/logo.svg" alt="링크브러리 로고" />
-        </a>
-        <span>회원이 아니신가요?</span>
-        <a href="/signup.html">회원 가입하기</a>
-      </section>
-      <form action="/" class="wrap">
-        <label for="input-email">이메일</label>
-        <input type="email" name="email" id="input-email" />
-        <label for="input-password">비밀번호</label>
-        <input type="password" name="password" id="input-password" />
-        <button type="submit">로그인</button>
-      </form>
-      <section>
-        <span>소셜 로그인</span>
-        <div>
-          <a href="https://www.google.com/" aria-label="구글 계정으로 로그인"
-            ><img src="/images/icons/google.png" alt=""
-          /></a>
-          <a
-            href="https://www.kakaocorp.com/page/"
-            aria-label="카카오 계정으로 로그인"
-            ><img src="/images/icons/kakao-icon.png" alt=""
-          /></a>
+  <body class="bgc-blue">
+    <main>
+      <section class="container">
+        <div class="logo">
+          <a href="/" aria-label="메인 페이지로 이동">
+            <img
+              class="logo__img"
+              src="./images/icons/logo.svg"
+              alt="링크브러리 로고"
+            />
+          </a>
+          <p class="logo__signup">
+            <span>회원이 아니신가요?</span>
+            <a class="logo__signup--link" href="/signup.html">회원 가입하기</a>
+          </p>
+        </div>
+
+        <form class="form" action="/">
+          <div class="form__email">
+            <label class="form__label" for="input-email">이메일</label>
+            <input
+              class="form__input"
+              type="email"
+              name="email"
+              id="input-email"
+            />
+          </div>
+          <div class="form__password">
+            <label class="form__label" for="input-password">비밀번호</label>
+            <input
+              class="form__input"
+              type="password"
+              name="password"
+              id="input-password"
+            />
+            <button class="form__input--eye-icon" type="button"></button>
+          </div>
+
+          <button class="cta form__submit" type="submit">로그인</button>
+        </form>
+
+        <div class="sns-login">
+          <span>소셜 로그인</span>
+          <div>
+            <a
+              class="sns-login__link"
+              href="https://www.google.com/"
+              aria-label="구글 계정으로 로그인"
+              ><img src="/images/icons/google.png" alt=""
+            /></a>
+            <a
+              href="https://www.kakaocorp.com/page/"
+              aria-label="카카오 계정으로 로그인"
+              ><img src="/images/icons/kakao-icon.png" alt=""
+            /></a>
+          </div>
         </div>
       </section>
     </main>

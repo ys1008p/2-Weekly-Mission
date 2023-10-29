@@ -45,3 +45,7 @@ em {
   width: 100%;
   margin: 0 auto;
 }
+
+.bgc-blue {
+  background: var(--color-gray2);
+}
