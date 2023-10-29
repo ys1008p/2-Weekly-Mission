@@ -1,6 +1,9 @@
+*{
+  font-family: Pretendard;
+}
+
 main h1{
   text-align: center;
-  font-family: Pretendard;
   /* font-size: 64px; */
   font-size: 4rem;
   font-style: normal;
@@ -9,7 +12,6 @@ main h1{
 }
 
 main h2{
-  font-family: Pretendard;
 /* font-size: 48px; */
 font-size: 3rem;
 font-style: normal;
@@ -18,7 +20,6 @@ line-height: normal;
 }
 
 main p{
-  font-family: Pretendard;
   /* font-size: 16px; */
   font-size: 1rem;
   font-style: normal;
@@ -32,7 +33,6 @@ a{
 }
 
 .button{
-  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
