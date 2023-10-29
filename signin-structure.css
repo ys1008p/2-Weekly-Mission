@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    margin: 0 auto;
+    width: 400px;
+    height: 492px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+main{
+    width: 100%;
+}
+
+.logo .logo-image{
+    height: 38px;
+}
+
+.signin-form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signin{
+margin: 30px 0;
+}
+
+.signin .input-group{
+    width: 100%;
+    position: relative;
+}
+
+.signin input{
+    padding: 18px 15px;
+    border-radius: 8px;
+    width: inherit;
+    height: 60px;
+}
+
+.input-group .icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button{
+    border: 0;
+    padding: 16px 20px;
+    width: inherit;
+}
+
+.social-login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 24px;
+    border-radius: 8px;
+
+    margin-top: 32px;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.social-login .icon{
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    display: inline-flex;
+}
+
+.icon.google-login{
+    padding: 10px;
+}
+.icon.kakao-login{
+    padding: 8px;
+    padding-top: 10px;
+}

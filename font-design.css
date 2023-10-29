@@ -1,35 +1,60 @@
-*{
+body{
   font-family: Pretendard;
 }
 
 main h1{
   text-align: center;
-  /* font-size: 64px; */
-  font-size: 4rem;
+  font-size: 64px;
+  /* font-size: 4rem; */
   font-style: normal;
   font-weight: 700;
-  line-height: 5rem; /* 125% */
+  line-height: 125%;
 }
 
 main h2{
-/* font-size: 48px; */
-font-size: 3rem;
+font-size: 48px;
+/* font-size: 3rem; */
 font-style: normal;
 font-weight: 700;
 line-height: normal;
 }
 
-main p{
-  /* font-size: 16px; */
-  font-size: 1rem;
+p{
+  font-size: 16px;
+  /* font-size: 1rem; */
   font-style: normal;
   font-weight: 500;
-  line-height: 150%; /* 24px */
+  line-height: 24px; /* 24px */
+}
+
+.signup p{
+  font-weight: 400;
 }
 
 a{
   text-decoration: none;
   text-align: center;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+form label,
+label{
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+form input.text{
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
 }
 
 .button{
@@ -39,11 +64,12 @@ a{
   line-height: normal;
 }
 
+
 #company-title{
   text-align: center;
   font-family: Arial;
-  /* font-size: 16px; */
-  font-size: 1rem;
+  font-size: 16px;
+  /* font-size: 1rem; */
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -51,8 +77,8 @@ a{
 
 footer .more-information{
   font-family: Arial;
-  /* font-size: 16px; */
-  font-size: 1rem;
+  font-size: 16px;
+  /* font-size: 1rem; */
   font-style: normal;
   font-weight: 400;
   line-height: normal;
