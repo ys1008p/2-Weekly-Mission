@@ -1,0 +1,60 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $black;
+}
+
+.loading-box {
+  @include flexbox;
+  min-height: 100vh;
+
+  &-ring {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: ring 2s linear infinite;
+
+    @keyframes ring {
+      0% {
+        transform: rotate(0deg);
+        box-shadow: 1px 5px 2px $primary;
+      }
+      50% {
+        transform: rotate(180deg);
+        box-shadow: 1px 5px 2px $red;
+      }
+      100% {
+        transform: rotate(360deg);
+        box-shadow: 1px 5px 2px $primary;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &-text {
+    @include text-style(16, $gray-80);
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    animation: loadingText 3s ease-in-out infinite;
+  }
+
+  @keyframes loadingText {
+    50% {
+      color: $black;
+    }
+  }
+}

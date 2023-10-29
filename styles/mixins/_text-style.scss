@@ -1,0 +1,98 @@
+@mixin text-style-64() {
+  font-size: $font-size-64;
+  line-height: 1.25em;
+  font-weight: 700;
+}
+
+@mixin text-style-48() {
+  font-size: $font-size-48;
+  line-height: normal;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+@mixin text-style-40() {
+  font-size: $font-size-40;
+  line-height: normal;
+  font-weight: 600;
+}
+
+@mixin text-style-32() {
+  font-size: $font-size-32;
+  line-height: normal;
+  font-weight: 600;
+}
+
+@mixin text-style-24() {
+  font-size: $font-size-24;
+  line-height: normal;
+  font-weight: 600;
+}
+
+@mixin text-style-18() {
+  font-size: $font-size-18;
+  line-height: normal;
+  font-weight: 600;
+}
+
+@mixin text-style-16() {
+  font-size: $font-size-16;
+  line-height: 1.5em;
+}
+
+@mixin text-style-14() {
+  font-size: $font-size-14;
+  line-height: normal;
+}
+
+@mixin text-style-15() {
+  font-size: $font-size-15;
+  line-height: 1.5em;
+  font-weight: 500;
+}
+
+@mixin text-style-13() {
+  font-size: $font-size-13;
+  line-height: normal;
+  font-weight: 400;
+}
+
+@mixin text-style($size, $color: false) {
+  @if ($size == 13) {
+    @include text-style-13;
+  }
+  @if ($size == 14) {
+    @include text-style-14;
+  }
+  @if ($size == 16) {
+    @include text-style-16;
+  }
+  @if ($size == 18) {
+    @include text-style-18;
+  }
+  @if ($size == 24) {
+    @include text-style-24;
+  }
+  @if ($size == 32) {
+    @include text-style-32;
+  }
+  @if ($size == 40) {
+    @include text-style-40;
+  }
+  @if ($size == 48) {
+    @include text-style-48;
+  }
+  @if ($size == 64) {
+    @include text-style-64;
+  }
+
+  @if (type-of($color) == color) {
+    color: $color;
+  }
+}
+
+@mixin gradient-text() {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}

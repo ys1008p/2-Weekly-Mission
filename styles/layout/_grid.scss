@@ -1,0 +1,15 @@
+$lg-max-container: 1200px;
+$sm-padding: 0 32px;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include responsive(T) {
+  }
+
+  @include responsive(M) {
+    width: 100%;
+    padding: $sm-padding;
+  }
+}
