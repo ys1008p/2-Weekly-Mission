@@ -63,7 +63,7 @@
 }
 
 #input-password-chk {
-  border: 0.0625rem solid var(--color-red);
+  /* border: 0.0625rem solid var(--color-red); */
 }
 
 .form__password-chk--error {
