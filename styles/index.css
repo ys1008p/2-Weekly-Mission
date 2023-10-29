@@ -25,7 +25,7 @@
 }
 
 .hero {
-  padding-top: 164px;
+  padding-top: 10.25rem;
   display: flex;
   gap: 2.5rem;
   flex-direction: column;
@@ -78,7 +78,7 @@
 
 .hero__img--img {
   border-radius: 25px 25px 0 0;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.25rem 1.5625rem 0 rgba(0, 0, 0, 0.08);
   max-block-size: none;
   width: 100%;
 }
@@ -103,7 +103,7 @@ section:nth-child(even) .contents {
 .contents__info--heading {
   font-size: 3rem;
   font-weight: 700;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.0187rem;
   margin: 0;
 }
 
@@ -111,7 +111,7 @@ section:nth-child(even) .contents {
   color: #6b6b6b;
   font-size: 1rem;
   font-weight: 500;
-  line-height: 150%; /* 24px */
+  line-height: 150%;
   margin: 0.625rem 0 0;
 }
 
@@ -146,7 +146,7 @@ section:nth-child(even) .contents {
   border-radius: 15px;
   transform: scale(1.3);
   flex-shrink: 0;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.25rem 1.5625rem 0 rgba(0, 0, 0, 0.08);
   position: absolute;
   top: 7.5rem;
   left: 7.8125rem;
@@ -154,7 +154,7 @@ section:nth-child(even) .contents {
 
 .content__img.bg-main-capture {
   border-radius: 25px;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.25rem 1.5625rem 0 rgba(0, 0, 0, 0.08);
   background: url("/images/landing/main-capture.webp") center / 160% no-repeat
     #999999;
   background-blend-mode: multiply;
