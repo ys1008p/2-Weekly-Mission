@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <main id="main">
+      <section>
+        <header>
+          <div class="logo"><a href="index.html"><img class="logoImg" src="./images/logo.svg" /></a></div>
+          <div class="signinBox">
+            <p class="ask">이미 회원이신가요?</p>
+            <a class="toSignin" href="/signin.html">로그인 하기</a>
+          </div>
+        </header>
+        <formBox class="formBox">
+          <div class="email">
+            <label>이메일</label>
+            <input class="emailInput" />
+          </div>
+          <div class="pw">
+            <label>비밀번호</label>
+            <input class="pwInput" type="password"/>
+          </div>
+          <div class="checkPw">
+            <label>비밀번호 확인</label>
+            <input class="pwInput" type="password"/>
+          </div>
+        </formBox>
+        <div></div>
+      </section>
+      <div><button class="signupBtn"><label class="signupBtnLabel">회원가입</label></button></div>
+      <div class="socialLoginBox">
+        <div><p>다른 방식으로 가입하기</p></div>
+        <div class="siteLogo">
+            <a href="https://www.google.com">
+              <div class="toGoogle">
+                <img class="googleImg" src=".\images\Google__G__Logo.svg.webp"/>
+              </div>
+              </a>
+            <a href="https://www.kakao.com">
+              <div class=toKakao><img class="kakaoImg" src="./images/kakaoImg.jpg"/></div>
+              </div>
+            </a>
+        </div>
+    </main>
+  </body>
+</html>
