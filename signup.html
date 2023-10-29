@@ -11,10 +11,80 @@
     />
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/common.css" />
-    <link rel="stylesheet" href="/styles/signup.css" />
+    <link rel="stylesheet" href="/styles/sign.css" />
     <title>Linkbrary</title>
   </head>
-  <body>
-    회원 가입 페이지
+  <body class="bgc-blue">
+    <main>
+      <section class="container">
+        <div class="logo">
+          <a href="/" aria-label="메인 페이지로 이동">
+            <img
+              class="logo__img"
+              src="./images/icons/logo.svg"
+              alt="링크브러리 로고"
+            />
+          </a>
+          <p class="logo__signup">
+            <span>이미 회원이신가요?</span>
+            <a class="logo__signup--link" href="/signin.html">로그인 하기</a>
+          </p>
+        </div>
+
+        <form class="form" action="/">
+          <div class="form__email">
+            <label class="form__label" for="input-email">이메일</label>
+            <input
+              class="form__input"
+              type="email"
+              name="email"
+              id="input-email"
+            />
+          </div>
+          <div class="form__password">
+            <label class="form__label" for="input-password">비밀번호</label>
+            <input
+              class="form__input"
+              type="text"
+              name="password"
+              id="input-password"
+            />
+            <button class="form__input--eye-on eye-icon" type="button"></button>
+          </div>
+          <div class="form__password-chk">
+            <label class="form__label" for="input-password-chk"
+              >비밀번호 확인</label
+            >
+            <input
+              class="form__input"
+              type="text"
+              name="password"
+              id="input-password-chk"
+            />
+            <button class="form__input--eye-on eye-icon" type="button"></button>
+          </div>
+          <span class="form__password-chk--error">비밀번호가 다릅니다</span>
+
+          <button class="cta form__submit" type="submit">회원가입</button>
+        </form>
+
+        <div class="sns-login">
+          <span class="sns-login__text">다른 방식으로 가입하기</span>
+          <div>
+            <a
+              class="sns-login__link"
+              href="https://www.google.com/"
+              aria-label="구글 계정으로 로그인"
+              ><img src="/images/icons/google-icon.png" alt=""
+            /></a>
+            <a
+              href="https://www.kakaocorp.com/page/"
+              aria-label="카카오 계정으로 로그인"
+              ><img src="/images/icons/kakao-icon.png" alt=""
+            /></a>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
