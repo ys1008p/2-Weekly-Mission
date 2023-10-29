@@ -1,0 +1,295 @@
+.btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+header {
+  width: 100%;
+  padding: 1.25rem 12.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  z-index: 2;
+}
+
+.login {
+  width: 8rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(to right, var(--purple), var(--sky-blue));
+  font-size: 1rem;
+}
+
+.login a {
+  display: inline-block;
+  width: 100%;
+  color: var(--gray-20);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+section.first {
+  width: 100%;
+  background-color: var(--light-blue);
+  overflow: hidden;
+  padding-top: 1.25rem;
+}
+
+.headline {
+  padding-top: 4.375rem;
+  text-align: center;
+}
+
+.headline h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.headline h1 span {
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--purple), var(--sky-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headline button.signup {
+  background: linear-gradient(to right, var(--purple), var(--sky-blue));
+  width: 21.875rem;
+  padding: 1rem 1.25rem;
+  margin: 2.5rem auto;
+}
+
+button.signup a {
+  font-size: 1.2rem;
+  color: var(--gray-20);
+}
+
+div.posting {
+  margin: 0 auto;
+  padding: 1.25rem 1.875rem 6rem;
+  width: 60%;
+  max-width: 70rem;
+  border-radius: 1.5625rem;
+  background: var(--white);
+  box-shadow: 0 0.25rem 0.75rem 0 rgba(0, 0, 0, 0.08);
+  position: relative;
+  bottom: -2rem;
+}
+
+div.posting form.search {
+  width: 90%;
+  border-radius: 0.625rem;
+  padding: 0.8125rem 1rem;
+  background-color: var(--gray-20);
+  display: flex;
+  align-items: flex-start;
+  gap: 0 0.9375rem;
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  margin-bottom: 1.875rem;
+}
+
+.posting-option {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.posting-option div {
+  display: flex;
+  align-items: center;
+  gap: 0 0.625rem;
+}
+
+.posting-option div button {
+  border: 1px solid var(--purple);
+  border-radius: 0.3125rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--black);
+}
+
+.posting-option div .show-all {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.posting-option .plus-folder {
+  padding: 0.5rem 0.75rem;
+  color: var(--purple);
+}
+
+.posting-cards {
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  width: 90%;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.posting-card {
+  position: relative;
+  display: block;
+  border-radius: 0.9375rem;
+  box-shadow: 0 0.3125rem 1.5625rem 0 rgba(0, 0, 0, 0.08);
+}
+
+.posting-card img:first-child {
+  width: 100%;
+  border-radius: 0.9375rem 0.9375rem 0 0;
+}
+
+.posting-card .star {
+  width: 1.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.posting-card div {
+  width: 100%;
+  height: 8rem;
+  color: var(--black);
+  font-weight: 400;
+  line-height: 1.5rem;
+  padding: 0 0.9375rem;
+}
+
+.posting-card div > * {
+  padding-top: 0.625rem;
+}
+
+.posting-card div .posting-time {
+  font-size: 0.7rem;
+}
+
+.posting-card div .posting-content {
+  font-size: 0.8rem;
+  color: var(--black);
+  line-height: 1.2rem;
+  font-weight: 700;
+}
+
+.posting-card div .posting-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.page {
+  margin: 0 auto;
+  width: 70rem;
+  height: 40rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page:nth-child(2n-1) {
+  flex-direction: row-reverse;
+}
+
+.page_text .page_title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 1.25rem;
+}
+
+.page:nth-child(2) .page_text .page_title span {
+  background: linear-gradient(96deg, #fe8a8a, #a4ceff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page:nth-child(3) .page_text .page_title span {
+  background: linear-gradient(277deg, #6fbaff, #ffd88b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page:nth-child(4) .page_text .page_title span {
+  background: linear-gradient(99deg, #6d7ccd, rgba(82, 136, 133, 0.22));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page:nth-child(5) .page_text .page_title span {
+  background: linear-gradient(271deg, #fe578f, #68e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page_text .page_title span {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.page_text .page_body {
+  line-height: 1.6rem;
+}
+
+.page_img {
+  width: 35rem;
+  height: 28rem;
+  background-color: var(--light-blue);
+  border-radius: 0.9375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.page:nth-child(5) .page_img {
+  justify-content: flex-end;
+  align-items: end;
+}
+
+footer {
+  background-color: var(--dark-blue);
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 7.5rem;
+}
+
+footer .bottom {
+  list-style: none;
+  width: 90%;
+  height: 4rem;
+  margin: 0 6.5rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+footer .bottom .company {
+  color: var(--gary-70);
+}
+
+footer .bottom .guide {
+  text-align: center;
+}
+
+footer .bottom .guide a {
+  color: var(--gray-40);
+  margin: 0 0.5rem;
+}
+
+footer .bottom .icons {
+  color: var(--gray-40);
+  text-align: right;
+}
+
+footer .bottom .icons * {
+  margin: 0 0.5rem;
+}

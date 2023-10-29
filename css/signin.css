@@ -1,0 +1,126 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-blue);
+}
+
+.btn {
+  padding: 1.125rem 0.9375rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+main {
+  width: 25rem;
+}
+
+section {
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.875rem;
+}
+
+.title .logo {
+  padding: 0;
+}
+
+.title .logo a img {
+  width: 13rem;
+}
+
+.title p {
+  line-height: 1.5rem;
+}
+
+.title p a {
+  padding: 0;
+  margin-left: 0.5rem;
+  border-bottom: 1px solid var(--purple);
+  border-radius: 0;
+  color: var(--purple);
+}
+
+.input-area {
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.input-area h2 {
+  font-size: 0.875rem;
+  color: var(--black);
+}
+
+.input-area form {
+  width: 25rem;
+  margin-bottom: 0.75rem;
+}
+
+.input-area .pw {
+  position: relative;
+}
+
+.input-area .pw img {
+  width: 1rem;
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+}
+
+.input-area input {
+  width: 100%;
+  background-color: var(--white);
+  border: 1px solid var(--blue-gray-60);
+  border-radius: 0.5rem;
+  padding: 1.125rem 0.9375rem;
+}
+
+.input-area input:focus {
+  border: 1px solid var(--purple);
+}
+
+.input-area button {
+  background: linear-gradient(
+    91deg,
+    var(--purple) 0.12%,
+    var(--sky-blue) 101.84%
+  );
+  color: var(--gray-20);
+}
+
+.input-area div {
+  width: 25rem;
+}
+
+.social {
+  display: flex;
+  width: 25rem;
+  padding: 0.75rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--blue-gray-60);
+  margin-top: 1rem;
+  background-color: var(--blue-gray-40);
+}
+
+.social h3 {
+  font-size: 0.875rem;
+  color: var(--blue-gray-100);
+}
+
+.social .simple-login {
+  width: 6.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
