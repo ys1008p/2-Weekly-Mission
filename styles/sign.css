@@ -50,6 +50,10 @@
   color: var(--color-gray6);
 }
 
+.form__input::placeholder {
+  color: var(--color-gray4);
+}
+
 .form__password {
   position: relative;
 }
