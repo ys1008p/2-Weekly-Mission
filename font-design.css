@@ -27,7 +27,7 @@ p{
   line-height: 24px; /* 24px */
 }
 
-.signup p{
+.sign p{
   font-weight: 400;
 }
 
@@ -58,6 +58,7 @@ form input.text{
 }
 
 .button{
+  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;

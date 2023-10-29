@@ -16,7 +16,7 @@ footer{
   background-color:#111322;
 }
 
-.move.signup{
+.move.sign{
   text-decoration: underline;
   color: #6D6AFE;
 }
@@ -106,7 +106,7 @@ footer a{
 }
 
 
-.social-login{
+.social{
   background-color: #E7EFFB;
   border: 1px solid #CCD5E3;
 }
