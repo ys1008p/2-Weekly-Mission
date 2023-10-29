@@ -4,6 +4,17 @@ header {
   align-items: center;
   width: 100%;
   background-color: #edf7ff;
+  padding-top: 9.4rem;
+}
+
+.gnb {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #edf7ff;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 nav {
