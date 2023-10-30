@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>회원가입</title>
+  </head>
+  <body class="sign_body">
+    <form class="sign">
+      <div class="mainform">
+        <div class="logo_section">
+          <a href="./index.html">
+            <img src="./images/logo.svg">
+          </a>
+          <div class="question_head">
+            <p class="question">이미 회원이신가요?</p>
+            <a href="./signin.html">로그인 하기</a>
+          </div>
+        </div>
+          <div class="input_head">
+            <div class="input_section">
+              <label for="email">이메일</label>
+              <input id="email" name="email" type="email">
+            </div>
+            <div class="input_section">
+              <label for="password">비밀번호</label>
+              <input id="password" name="password" type="password">
+              <img src="./images/eye-on.png">  
+            </div>
+            <div class="input_section">
+              <label for="password2">비밀번호 확인</label>
+              <input id="password2" name="password2" type="password">
+              <img src="./images/eye-on.png"> 
+            </div>
+          </div> 
+          <button>회원가입</button>
+      </div>
+      <div class="social_login_button">
+        <p>다른 방식으로 가입하기</p>
+        <div class="icon">
+          <a href="https://www.google.com/">
+            <img src="./images/google_icon.png">
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img src="./images/kakao_icon.png">
+          </a>
+        </div>    
+      </div>
+    </form>
+  </body>
+</html>
