@@ -231,31 +231,36 @@ input:focus::placeholder {
 /* Mobile 사이즈 스타일 */
 @media (max-width: 767px) {
     /* 좌우 여백 32px 제외하고 내부 요소가 너비를 모두 차지하도록 스타일을 설정합니다. */
+   
     body {
-        max-width: 400px;
+    
         padding: 120px 32px 232px;
     
-        height: 884px;
+        height: 0;
     }
 
     .all-div {
-        width: 100%;
-
+        min-width: 0px;
+        max-width: 400px;
         padding: 0;
     }
     .logo-div {
       width: 210px;
       height: 38px;
     }
-    .input-div {
-        width: 325px;
-       
+    .input-div.div1 {
+     
+     width: 100%; min-width: 325px;
     }
-    .login-button{width: 325px;}
+    .input-div.div2 {  
+        width:100%; min-width: 325px;
+    }
+    .login-button{max-width:  100%;min-width: 325px;}
     .social-login {
-
-        width: 325px;
+        min-width: 325px;
+        max-width:  100%;
 
     }
     form{margin: 30px 0 0 0;}
+    form>div:nth-child(1){width: 100%};
 }
