@@ -1,0 +1,172 @@
+/* Global */
+:root {
+  /* App Colors */
+  --color-primary: var(--color-purple);
+
+  /* Colors */
+  --color-purple: #6d6afe;
+  --color-red: #ff5b56;
+  --color-black: #111322;
+  --color-white: #ffffff;
+  --color-gray: #373740;
+
+  --home-bg: #f0f6ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', sans-serif;
+  margin: 0;
+}
+
+.wrap {
+  background-color: var(--home-bg);
+  width: 90rem;
+  display: flex;
+  padding: 14.875rem 0 15.75rem 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  width: 25rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.875rem;
+}
+
+.main__login {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* header */
+.header {
+  margin: auto;
+}
+
+.main__signin {
+  margin: 1rem 0 0 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: var(--color-black);
+}
+
+.main__signin {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Main */
+.main__login input {
+  width: 25rem;
+  padding: 1.125rem 0.9375rem;
+}
+
+.main__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.main__login label {
+  color: var(--color-black);
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.main__login input {
+  color: var(--color-gray);
+  padding: 18px 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-white);
+  /* focus in 색상 변경 */
+  outline-color: blue;
+}
+
+.main__login {
+  position: relative;
+}
+.main__login img {
+  position: absolute;
+  right: 15px;
+  bottom: 22px;
+  color: black;
+}
+
+.social__wrap {
+  width: 100%;
+}
+
+.login__btn {
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--color-white);
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  padding: 1rem 1.25rem;
+}
+
+.social__container {
+  margin-top: 2rem;
+  display: flex;
+  padding: 0.75rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-gray-10, #e7effb);
+}
+
+.contact__links {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+}
+.description {
+  font-size: 14px;
+  font-weight: 400;
+}
+.description,
+.contact__links {
+  margin: 0;
+}
+
+.icon {
+  position: absolute;
+  inset: 10px;
+}
+.kakao {
+  top: 10px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+}
+.icon__bg {
+  width: 42px;
+  height: 42px;
+}
+ul {
+  list-style: none;
+}
+li {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
