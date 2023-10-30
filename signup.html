@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Linkbrary-signin</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/signin-up.css" />
+  </head>
+  <body>
+    <main>
+      <div class="flex-column">
+        <div class="signin-box flex-column">
+          <div class="signup-check flex-column">
+            <a href="/"><img class="logo" src="./images/logo.png" /></a>
+            <div>
+              <span class="check-status">회원이 아니신가요?</span>
+              <span class="signup-link"
+                ><a href="signup.html">회원 가입하기</a></span
+              >
+            </div>
+          </div>
+
+          <div>
+            <form class="flex-column">
+              <div class="login-input flex-column">
+                <div class="box-width flex-column">
+                  <label class="common_title">이메일</label>
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                    alt="이메일 주소"
+                  />
+                </div>
+                <div class="box-width flex-column">
+                  <label class="common_title">비밀번호</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    alt="비밀번호"
+                  />
+                  <img class="eye-on-img" src="./images/eye-off.png" />
+                </div>
+                <div class="box-width flex-column">
+                  <label class="common_title">비밀번호 확인</label>
+                  <input
+                    type="password"
+                    id="password-check"
+                    name="password-check"
+                    required
+                    alt="비밀번호 확인"
+                  />
+                  <img class="eye-on-img" src="./images/eye-on.png" />
+                </div>
+              </div>
+              <div class="login-button box-width">회원가입</div>
+            </form>
+          </div>
+        </div>
+        <div class="social-login-box box-width">
+          <label class="common_title">다른 방식으로 가입하기</label>
+          <div class="social-icon-box">
+            <div>
+              <a href="https://www.google.com/"
+                ><img class="circle-img" src="./images/white-circle.png"
+              /></a>
+              <img class="icon-img google" src="./images/google-icon.png" />
+            </div>
+            <div>
+              <a href="https://www.kakaocorp.com/page/"
+                ><img class="circle-img" src="./images/yellow-circle.png"
+              /></a>
+              <img class="icon-img kakao" src="./images/kakao-icon.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
