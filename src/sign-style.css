@@ -1,0 +1,157 @@
+
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+  color: var(--black);
+  font-family: Pretendard;
+  font-style: normal;
+  line-height: normal;
+  font-size: 16px;
+  margin-top: 238px;
+  margin-bottom: 252px;
+}
+
+.logo{
+  width: 210.583px;
+  height: 38px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.ask-signup{
+  font-weight: 400;
+  line-height: 24px; /* 150% */ 
+  margin-bottom: 30px;
+}
+
+.signup{
+  color: var(--primary-color);
+  display: inline-block;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  color: var(--black, #000);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+input{
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  background: var(--linkbrary-white, #FFF);
+}
+
+#password{
+  background-image: url(/images/eye-off.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-origin: content-box;
+}
+
+input:focus {
+  outline-color:  var(--linkbrary-primary-color, #6D6AFE);
+}
+
+
+.email-input{
+  margin-bottom: 24px;
+}
+
+.password-input{
+  margin-bottom: 24px;
+}
+
+button{
+  border: none;
+  display: flex;
+  cursor: pointer;
+  width: 400px;
+  padding: 16px 20px;
+  margin-top: 30px;
+  margin-bottom: 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--grey-light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+
+}
+
+.sns-signin{
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-gray-10, #E7EFFB);
+}
+
+.sns-text{
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.sns-logo{
+  display: flex;
+  gap: 16px;
+}
+
+.google-block{
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+
+}
+.kakao-block{
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.google-block{
+  background-image: url('/images/google-back.svg');
+  padding: 11px 11px 11px 11px; 
+}
+
+.kakao-block{
+  background-image: url('/images/kakao-back.svg');
+  padding: 10px 8px 8px 8px;
+}
+
+.google-logo{
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+}
+
+.kakao-logo{
+  width: 26px;
+  height: 24px;
+  display: inline-block;
+}
