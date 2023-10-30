@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary | 로그인</title>
+
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/assets/images/favicon/safari-pinned-tab.svg"
+      color="#6d6afe"
+    />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="skip_nav">
+      <a href="/">본문 바로가기</a>
+    </div>
+
+    <div id="signin-wrapper">
+      <div class="form">
+        <header class="form-header">
+          <h1 class="logo">
+            <a href="/">
+              <img src="../../assets/images/logo.svg" alt="linkbrary-logo" />
+            </a>
+          </h1>
+          <div class="info-user">
+            <span>회원이 아니신가요?</span>
+            <a class="create-link" href="signup.html">회원 가입하기</a>
+          </div>
+        </header>
+
+        <main class="form-inner">
+          <form action="/" method="post" class="login-form">
+            <fieldset>
+              <legend>Login Linkbrary Account</legend>
+
+              <!-- 1. email -->
+              <div class="login-email">
+                <div class="input-group">
+                  <label class="input-title" for="email">이메일</label>
+                  <div class="input-box">
+                    <input
+                      id="email"
+                      name="id"
+                      type="email"
+                      placeholder="이메일"
+                      maxlength="30"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="error-msg error-email hide"></div>
+              </div>
+
+              <!-- 2. password -->
+              <div class="login-password">
+                <div class="input-group">
+                  <label class="input-title" for="password">비밀번호</label>
+                  <div class="input-box">
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      placeholder="비밀번호"
+                      maxlength="16"
+                      required
+                    />
+                    <button
+                      type="button"
+                      class="btn-eye-off"
+                      aria-label="비밀번호 보기 toggle 버튼"
+                    >
+                      <img
+                        src="../../assets/images/icon/eye-off.svg"
+                        alt="비밀번호 보기-off"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="error-msg error-password hide"></div>
+              </div>
+
+              <!-- submit -->
+              <button class="btn-signin btn-primary" type="submit">
+                로그인
+              </button>
+            </fieldset>
+          </form>
+
+          <div class="social-login">
+            <span class="social-login-title">소셜 로그인</span>
+            <ul class="social-login-list">
+              <li class="social-login-item">
+                <a href="https://www.google.com">
+                  <img
+                    src="../../assets/images/icon/social-google.svg"
+                    alt="소셜 로그인-구글"
+                  />
+                </a>
+              </li>
+              <li class="social-login-item">
+                <a href="https://www.kakaocorp.com/page/">
+                  <img
+                    src="../../assets/images/icon/social-kakao.svg"
+                    alt="소셜 로그인-카카오"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
