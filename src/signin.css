@@ -1,0 +1,210 @@
+:root{
+    /* Color */
+    --Primary-color:#6D6AFE;
+    --Red-color:#FF5B56;
+    --Black-color:#111322;
+    --White-color:#FFFFFF;
+    --Gray-color:#3E3E43;
+    --Gray-color2:#9FA6B2;
+    --Gray-color3:#CCD5E3;
+    --Gray-color4:#E7EFFB;
+    --Gray-color5:#F0F6FF;
+
+    /* Font-size */
+
+    /* Size */
+   }    
+    main{
+        display: flex;
+        width: 1440px;
+        padding: 238px 0px 252px 0px;
+        justify-content: center;
+        align-items: center;
+        background: #F0F6FF;
+    }
+
+    article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .logo-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .logo-textBox{
+        display: inline;
+    }
+
+    span{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; 
+    }
+
+    .href-signup{
+        color: var(--linkbrary-primary-color, #6D6AFE);
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .signin-btn{
+        display: flex;
+        width: 400px;
+        padding: 16px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+
+    }
+
+    .signin-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .email-box{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .pw-box{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .eye_off-img{
+        width: 16px;
+        height: 16px;
+        fill: #FFF;
+    }
+
+    label{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .input-label{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    input{
+        display: flex;
+        width: 400px;
+        padding: 18px 15px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border-radius: 8px;
+        border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+        background: var(--linkbrary-white, #FFF);
+    }
+
+    #password{
+        display: flex;
+        background-image: url(/images/eye-off.svg);
+        background-repeat: no-repeat;
+        background-position:right;
+        background-origin : content-box;
+    }
+
+    input:hover{
+        border-radius: 8px;
+        border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+        background: var(--linkbrary-white, #FFF);
+    }
+
+    .snslogin-box{
+        display: flex;
+        width: 400px;
+        padding: 12px 24px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+        background: var(--linkbrary-gray-10, #E7EFFB);
+    }
+
+    .login-btn{
+        color: var(--grey-light, #F5F5F5);
+        font-family: Pretendard;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-decoration: none;
+    }
+
+    .sns-text{
+        color: var(--linkbrary-gray-100, #373740);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .sns-icoBox{
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .google-ico{
+        width: 42px;
+        height: 42px;
+    }
+
+    .kakao-ico{
+        width: 42px;
+    height: 42px;
+    }
+    .ico-bg{
+        position: absolute;
+    }
+
+    .ico{
+        position:relative;
+        display: flex;
+        width: 23px;
+        height: 23px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        left: 10px;
+        top:11px;
+        
+    }
+
