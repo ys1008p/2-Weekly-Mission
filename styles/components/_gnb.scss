@@ -8,6 +8,8 @@
 
   &-container {
     @include flexbox(between);
+    max-width: 192rem;
+    margin: 0 auto;
     height: 93px;
     padding: 0 200px;
 
