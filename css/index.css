@@ -65,7 +65,7 @@ article {
   align-items: center;
   gap: 2.5rem;
   text-align: center;
-  padding: 4.375rem 22.5rem 0rem 22.5rem;
+  padding-top: 4.375rem;
 
   background-color: var(--blue-background);
 }
