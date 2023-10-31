@@ -55,12 +55,12 @@ input {
   background: var(--linkbrary-white, #fff);
 }
 
-#password {
+/* #password {
   background-image: url(/images/eye-off.svg);
   background-repeat: no-repeat;
   background-position: right;
   background-origin: content-box;
-}
+} */
 
 input:focus {
   outline-color: var(--linkbrary-primary-color, #6d6afe);
@@ -74,7 +74,7 @@ input:focus {
   margin-bottom: 24px;
 }
 
-button {
+.button-submit {
   border: none;
   display: flex;
   cursor: pointer;
@@ -91,9 +91,23 @@ button {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+}
+
+.password-box,
+.password-check-box {
+  position: relative;
+}
+
+.button-eye {
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 19px;
+  top: 19px;
+  border: none;
+  display: flex;
 }
 
 .sns-signin {
