@@ -1,0 +1,147 @@
+:root {
+    --linkbrary-purple: #6D6AFE;
+    --linkbrary-gray: #CCD5E3;
+    --linkbrary-white: #FFFFFF; 
+    --linkbrary-light-gray: #F5F5F5;
+    --linkbrary-background-gray: #E7EFFB;
+    --linkbrary-background: #F0F6FF;
+    --gra-purpleblue-to-skyblue: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    --common-text: #000000;
+    --gray-text: #373740;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  background-color: var(--linkbrary-background);
+}
+.signLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 23.8rem;
+  background-color: var(--linkbrary-background);
+  width: 100%;
+}
+.signContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40rem;
+}
+.signHeader {
+  width: 21.8rem;
+}
+
+.signHeader_logo {
+  width: 21rem;
+  height: 3.8rem;
+}
+
+.signHeader_message {
+  color: var(--common-text);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 400;
+  margin-top: 1.6rem;
+}
+
+.signHeader_anchorToSignup {
+  color: var(--linkbrary-purple);
+  font-size: 1.6rem;
+  line-height: 1.91rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.signForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.signForm_label {
+  display: block;
+  font-size: 1.4rem;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.6rem;
+}
+
+.signForm_input {
+  display: block;
+  width: 100%;
+  margin: 1.6rem 0;
+  padding: 1.8rem 1.5rem;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: var(--linkbrary-gray);
+  color: var(--gray-text);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+.signForm_input:focus {
+  outline-color: var(--linkbrary-purple);
+}
+.password {
+  position: relative;
+}
+.password_visible{
+  border: none;
+  padding: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url("../images/invisible.svg");
+  position: absolute;
+  right: 2.3rem;
+  top: 2.3rem;
+}
+
+.signForm_button {
+  display: block;
+  width: 100%;
+  margin: 3rem 0;
+  padding: 1.6rem 2rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--gra-purpleblue-to-skyblue);
+  color: var(--linkbrary-light-gray);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 2.16rem;
+}
+
+.signSocial_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.4rem;
+  width: 100%;
+  margin-top: 24px;
+  background: var(--linkbrary-background-gray);
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: var(--linkbrary-gray);
+}
+
+.signSocial_text {
+
+  color: var(--gray-text);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.7rem;
+}
+
+.signSocial_badges {
+  display: flex;
+  gap: 1.6rem;
+  width: 10rem;
+  height: 4.2rem;
+}
