@@ -2,7 +2,6 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
   font-family: "Pretendard";
 }
 
@@ -12,6 +11,5 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
