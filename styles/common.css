@@ -14,38 +14,53 @@
 
 html {
   font-family: Pretendard, sans-serif;
-  font-size: 100%;
+  font-size: 62.5%;
 }
 
-em {
-  font-style: normal;
+@media screen and (min-width: 0\0) {
+  /* IE 9, IE 10, IE 11 */
+  :root,
+  html {
+    font-size: 10px;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* IE 10, IE 11 */
+  :root,
+  html {
+    font-size: 10px;
+  }
+}
+
+button {
+  cursor: pointer;
 }
 
 a:focus {
-  outline: 2px solid var(--color-gray4);
+  outline: 0.2rem solid var(--color-gray4);
 }
 
 button:focus {
-  outline: 2px solid var(--color-gray4);
+  outline: 0.2rem solid var(--color-gray4);
 }
 
 .cta {
+  padding: 1.6rem 2rem;
   border-radius: 8px;
   background: linear-gradient(
     91deg,
     var(--color-primary) 0.12%,
     #6ae3fe 101.84%
   );
-  padding: 1rem 1.25rem;
   color: #f5f5f5;
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  text-decoration: none;
   text-align: center;
+  text-decoration: none;
 }
 
 .cta:focus {
-  outline: 2px solid var(--color-gray4);
+  outline: 0.2rem solid var(--color-gray4);
 }
 
 .background-clip-text {
@@ -55,8 +70,8 @@ button:focus {
 }
 
 .wrap {
-  max-width: 120rem;
   width: 100%;
+  max-width: 192rem;
   margin: 0 auto;
 }
 
