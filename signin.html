@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="signin_style.css">
+  <link rel="stylesheet" type="text/css"
+    href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main">
+      <div class="login">
+        <div class="logoSignin">
+          <a href="index.html">
+            <img src="img/logo.png" alt="logo">
+          </a>
+          <div class="signin">
+            <div class="nomember">
+              회원이 아니신가요?
+            </div>
+            <a href="/signup" class="gomember">
+              회원 가입하기
+            </a>
+          </div>
+        </div>
+        <form>
+          <div class="form">
+            <label>이메일</label>
+            <div class="emaillPwGap">
+              <input type="email" class="enter" value="codeit@codeit.com">
+              <div class="form">
+                <label>비밀번호</label>
+                <input type="password" class="enter" value="* * * * ">
+                <img src="img/eye-off.png" alt="눈사진" class="eye">
+              </div>
+              <!-- 눈모양 사진 넣을거면 여기 label input어딘가에 넣어야함. 
+          input type="image" src넣으면될듯-->
+            </div>
+          </div>
+        </form>
+        <button type="submit" class="button">로그인</button>
+      </div>
+      <div class="footer">
+        <div class="socialLogin">소셜 로그인
+        </div>
+        <div class="imgFlex">
+          <a href="https://www.google.com/" class="companyFlex">
+            <img src="img/googlBack.png" alt="구글흰색배경" class="socialBack">
+            <img src="img/google.png" alt="구글" class="socialLogo">
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="companyFlex">
+            <img src="img/kakaoBack.png" alt="카카오노란배경" class="socialBack">
+            <img src="img/kakao.png" alt="카카오" class="socialLogo">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

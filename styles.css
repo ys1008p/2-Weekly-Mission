@@ -1,0 +1,420 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard"
+}
+
+.contentsBackColor {
+  background: #F0F6FF;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  padding: 20px 200px;
+}
+
+/* 로그인 글자 폰트 */
+.font {
+  color: var(--grey-light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+
+/* 로그인 */
+.sign {
+  display: flex;
+  flex-shrink: 0;
+  width: 128px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%)); 
+  cursor:pointer
+}
+
+/* 그라데이션 폰트 초기화 */
+.fontCelar {
+  -webkit-text-fill-color: initial;
+}
+
+
+/* 이거 센터 설정 못하겠음 도움 필요 */
+.zzz {
+  width: 414px;
+  height: 270px;
+  flex-shrink: 0;
+}
+
+.contentsImg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 25px;
+  width: 1118px;
+  height: 659px;
+  flex-shrink: 0;
+  background-image: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%), url(img/header.png);
+  margin: 50px 41px;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* 메인 화면 */
+.contents {
+  align-items: center;
+  height: 953px;
+  overflow: hidden;
+  background: rgb(240, 246, 255);
+  display: flex;
+  padding: 70px 360px 0px;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 메인 화면 글 */
+.contentsText {
+  width: 708px;
+  background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center; 
+  font-family: Pretendard;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80px; /* 125% */
+}
+
+
+/* 링크 추가하기 버튼 */
+.linkBox {
+  color: var(--grey-light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  display: flex;
+  width: 350px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor:pointer
+}
+
+/* 아래 메인화면 */
+.contents-two {
+  position: relative;
+  display: flex;
+  padding: 120px 461px 50px 461px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 아래 메인화면의 각종 글 사진 조정 */
+.frame {
+  display: flex;
+  align-items: center;
+  gap: 157px;
+}
+
+/* 아래 메인화면 글 */
+.frameText {
+  display: flex;
+  width: 291px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 아래 메인화면 글 세부사항 조정 */
+.textLink {
+  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* 아래 메인화면 글 세부사항 조정 2 */
+.textLinkBottm {
+  color: #6B6B6B;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+}
+
+/* 사진 담은 박스 */
+.imgBackColor {
+  display: flex;
+  width: 550px;
+  height: 450px;
+  border-radius: 15px;
+  background: #F0F6FF;
+}
+
+/* 사진 여백 조절 */
+.imgSize {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 가운데 강아지 사진 */
+.midog {
+  width: 279px;
+  height: 274.441px;
+  flex-shrink: 0;
+  margin: -12px;
+}
+
+
+.middog {
+  width: 279px;
+  height: 274.441px;
+  flex-shrink: 0;
+}
+
+
+.download {
+  position: absolute;
+  right: 142px;
+  bottom: 92px;
+}
+/* 3번째 메인 화면 전체 크기 */
+.contents-mainBox {
+  display: flex;
+  padding: 50px 461px;
+  justify-content: center;
+  align-items: center;
+  gap: 157px;
+}
+/* 폴더 이름 변경하기 바깥 상자 */
+.nameC {
+  display: flex;
+  width: 550px;
+  padding: 114px 68px 66px 68px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background: #F0F6FF;
+}
+
+/* 관리 그라데이션 */
+.gradation {
+  background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-family: Pretendard;
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -0.3px;
+}
+
+/* 관리 그라데이션 없애기 */
+.contents-font {
+  -webkit-text-fill-color: initial;
+  color: #000;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+/* 3번째 메인 글자,이미지 쪽 박스 */
+.contents-full {
+  display: flex;
+  align-items: center;
+  gap: 157px;
+}
+
+/* 3번째 메인 글자 합한거 */
+.contents-fontBox {
+  display: flex;
+  width: 291px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* 3번째 메인 작은 글자 */
+.contents-minifont {
+  color: #6B6B6B;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+}
+
+.gradation_share {
+  background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.under_img {
+  width: 570px;
+  height: 469px;
+  flex-shrink: 0;
+  filter: opacity(0.4) drop-shadow(0 0 0 black);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+.border {
+  width: 244px;
+  height: 239px;
+  border: 2px solid #6D6AFE;
+  border-radius: 11px;
+  position: absolute;
+  top: 102px;
+}
+
+.background {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.40);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+.up_img {
+  position: absolute;
+  width: 416px;
+  height: 271px;
+  flex-shrink: 0;
+}
+
+.searchColor {
+  background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.lastImg {
+  position: absolute;
+  top: 55px;
+  left: 60px;
+  width: 619px;
+  height: 584px;
+  flex-shrink: 0;
+}
+
+.lastBox {
+  position: relative;
+  overflow: hidden;
+  width: 550px;
+  height: 450px;
+  border-radius: 15px;
+  background: #F0F6FF;
+}
+
+.lastText {
+  display: flex;
+  width: 291px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer {
+  display: flex;
+  height: 280px;
+  padding-top: 120px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+
+.footerunder {
+  display: flex;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: var(--the-julge-black, #111322);
+}
+
+.footersize {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.company {
+  color: #676767;
+  text-align: center;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.none {
+  color: #CFCFCF;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.FAQ {
+  display: flex;
+  width: 181.111px;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.socialMedia {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
