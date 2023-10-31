@@ -1,98 +1,126 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkbrary</title>
-    <link rel="stylesheet" href="home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linkbrary</title>
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <header>
-        <div class="head">
-            <a href="home.html"><img src="img/logo.svg"></a>
-            <a class="login_bt" href="member/signin.html"><span>로그인</span></a>
+  <nav>
+    <div class="nav">
+      <a href="home.html"><img src="img/logo.svg"/></a>
+      <a class="login_bt" href="member/signin.html"><span>로그인</span></a>
+    </div>
+  </nav>
+
+  <header>
+    <h1><span>세상의 모든 정보</span>를<br>쉽게 저장하고 관리해보세요</h1>
+    <a href="member/signup.html">링크 추가하기</a>
+    <div class="header_img">
+      <img src="img/section1.png"/>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section_contents">
+        <div class="section_text">
+          <h2 class="title">
+            <span class="title1_gradient"> 원하는 링크</span>를
+            <br />
+            저장하세요
+          </h2>
+          <p class="description">
+            나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+            <br />
+            사고 싶은 옷, 기억하고 싶은 모든 것을
+            <br />
+            한 공간에 저장하세요.
+          </p>
         </div>
-    </header>
-
-    <main>
-        <section class="section1">
-            <h1><span>세상의 모든 정보</span>를<br>쉽게 저장하고 관리해보세요</h1>
-            <a href="member/signup.html">링크 추가하기</a>
-            <div class="section1_img">
-                <img src="img/section1.png">
-            </div>
-        </section>
-        
-        <section class="section2">
-            <div class="section2_contents">
-                <div class="section2_text">
-                    <h2><span>원하는 링크</span>를<br>저장하세요</h2>
-                    <p>나중에 읽고 싶은 글, 다시 보고싶은 영상, 사고 싶은 옷, 기억하고 싶은 모든 것을 한 공간에 저장하세요.</p>
-                </div>
-                <div class="section2_card">
-                    <img src="img/card1.png">
-                    <img class="blueimg" src="img/card2.png">
-                    <img class="icon" src="img/Group 20.svg">
-                    <img src="img/card3.png">
-                </div>
-            </div>
-        </section>
-
-        <section class="section3">
-            <div class="section3_contents">
-                <div class="section3_img">
-                    <img src="img/folder_img.png">
-                </div>
-                <div class="section3_text">
-                    <h2>링크를 폴더로<span>관리</span>하세요
-                    </h2>
-                    <p>나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section4">
-            <div class="section4_contents">
-                <div class="section4_text">
-                    <h2>저장한 링크를 <span>공유</span>해 보세요.</h2>
-                    <p>여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.</p>
-                </div>
-                <div class="section4_img">
-                    <img src="img/file_share.png">
-                </div>
-            </div>
-        </section>
-
-        <section class="section5">
-            <div class="section5_contents">
-                <div class="section5_img">
-                    <img src="img/screenshot.png">
-                </div>
-                <div class="section5_text">
-                    <h2>저장한 링크를 <span>검색</span>해 보세요</h2>
-                    <p>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!--footer-->
-    <footer>
-        <div class="foot">
-            <div class="footer_contents">
-                <div class="company">©codeit - 2023</div>
-                <div class="foot_link">
-                    <a href="footer/privacy.html">Privacy Policy</a>
-                    <a href="footer/faq.html">FAQ</a>
-                </div>
-                <div class="sms">
-                    <a href="https://www.facebook.com/?locale=ko_KR" target="_blank"><img src="img/akar-icons_facebook-fill.svg"></a>
-                    <a href="https://twitter.com/?lang=ko" target="_blank"><img src="img/akar-icons_twitter-fill.svg"></a>
-                    <a href="https://www.youtube.com/" target="_blank"><img src="img/akar-icons_youtube-fill.svg"></a>
-                    <a href="https://www.instagram.com/" target="_blank"><img src="img/ant-design_instagram-filled.svg"></a>
-                </div>
-            </div>    
+        <div>
+          <img src="./img/save_img.png" class="content-image"/>
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <section>
+      <div class="section_contents">
+        <div class="link_to_foler">
+          <img src="./img/folder_img.png" class="content-image" />
+        </div>
+        <div class="section_text">
+          <h2 class="title">
+            링크를 폴더로
+            <br />
+            <span class="title2_gradient">관리</span>하세요
+          </h2>
+          <p class="description">
+            나만의 폴더를 무제한으로 만들고
+            <br />
+            다양하게 활용할 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section_contents">
+        <div class="section_text">
+          <h2 class="title">
+            저장한 링크를
+            <br />
+            <span class="title3_gradient">공유</span>해 보세요
+          </h2>
+          <p class="description">
+            여러 링크를 폴더에 담고 공유할 수 있습니다.
+            <br />
+            가족, 친구, 동료들에게 쉽고 빠르게 링크를
+            <br />
+            공유해 보세요.
+          </p>
+        </div>
+        <div>
+          <img src="./img/file_share.png" class="content-image"/>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section_contents">
+        <div>
+          <img src="./img/screenshot.png" class="content-image" />
+        </div>
+        <div class="section_text">
+          <h2 class="title">
+            저장한 링크를
+            <br />
+            <span class="title4_gradient">검색</span>해 보세요
+          </h2>
+          <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div class="footer_contents">
+        <div class="company">©codeit - 2023</div>
+        <div class="foot_link">
+          <a href="footer/privacy.html">Privacy Policy</a>
+          <a href="footer/faq.html">FAQ</a>
+        </div>
+        <div class="sms">
+          <a href="https://www.facebook.com/?locale=ko_KR" target="_blank"><img src="img/akar-icons_facebook-fill.svg"/></a>
+          <a href="https://twitter.com/?lang=ko" target="_blank"><img src="img/akar-icons_twitter-fill.svg"/></a>
+          <a href="https://www.youtube.com/" target="_blank"><img src="img/akar-icons_youtube-fill.svg"/></a>
+          <a href="https://www.instagram.com/" target="_blank"><img src="img/ant-design_instagram-filled.svg"/></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
