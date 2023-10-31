@@ -1,0 +1,122 @@
+* {
+    padding:0; 
+    margin:0; 
+    box-sizing:border-box;
+}
+body { 
+    line-height:1; 
+    font-family:pretendard;
+    background-color:#F0F6FF;
+}
+img { 
+    vertical-align:top; 
+}
+a {
+    text-decoration:none;
+}
+/* #main */
+#main {
+    width:400px;
+    margin:238px auto 252px;
+} 
+/* #s1 */
+#s1 {
+    text-align:center;
+}
+#s1 .logo_botText {
+    display:flex;
+    justify-content: center;
+    margin-top:16px;
+}
+.logo_botText p {
+    margin-right:8px;
+    font-weight:400;
+}
+.logo_botText a {
+    text-decoration:underline;
+    color:#6D6AFE;
+    font-weight:600;
+}
+
+/* #s2 */
+#join {
+    margin:30px 0;
+}
+/* #s2 공통 */
+#s2 label {
+    display:inline-block;
+    font-size:14px;
+    font-weight:400;
+}
+
+#s2 input {
+    display:block;
+    width: 100%;
+    padding:18px 15px;
+    margin-top:12px;
+    border-radius:8px;
+    border:1px solid #CCD5E3;
+}
+#s2 input:focus {
+    outline:none;
+    border:1px solid #6D6AFE;
+}
+/* #s2 개별 */
+#s2 .userPass {
+    margin-top:24px;
+}
+#s2 button {
+    display:block;
+    /* pr1) display:block을 해줬는데 width100%를 해줘야 하는이유 */
+    width:100%;
+    padding:16px 20px;
+    margin-top:30px;
+    border-radius:8px;
+    border:none;
+    background:linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    font-size:18px;
+    font-weight:600;
+    color:#F5F5F5;
+    
+}
+/* 눈아이콘 없애기 */
+input[type="password"]::-ms-reveal {
+    display:none;
+}
+/* 눈아이콘 위치 시키기 */
+#join {
+    position:relative;
+}
+.eye-off {
+    position:absolute;
+    top:150px;
+    right:10px;
+}
+/* #s3 */
+/* #s3 공통 */
+.merge {
+    display:inline-block;
+    width:42px;
+    height:42px;
+    position:relative;
+}
+.merge .mainIcon {
+    position:absolute;
+    inset:10px;
+}
+/* #s3 개별 */
+#s3 {
+    padding:12px 24px;
+    background-color: #E7EFFB;
+    border-radius:8px;
+    border:1px solid #CCD5E3;
+    font-size:14px;
+    font-weight:400;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.marGin {
+    margin-right:16px;
+}
