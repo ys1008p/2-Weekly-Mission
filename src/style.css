@@ -111,6 +111,23 @@ section:nth-of-type(even) {
     /550px 291px;
 }
 
+@media (max-width: 767px) {
+  section.section {
+    padding: 40px 32px;
+    column-gap: 0px;
+    justify-content: stretch;
+    height: auto;
+    grid-template:
+      'title'
+      'image'
+      'description';
+  }
+
+  img.content-image {
+    width: 100%;
+  }
+}
+
 .title {
   grid-area: title;
   font-size: 48px;
