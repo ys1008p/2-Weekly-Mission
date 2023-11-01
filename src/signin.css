@@ -11,14 +11,20 @@
 
 body {
   background: var(--linkbrary-bg);
+
+}
+
+.grid-container {
   display: grid;
   grid-template-areas: 
     'title'
     'form'
     'social-login';
+    grid-template-columns: minmax(40rem , auto);
   justify-content: center;
   gap: 3rem;
   padding: 23.8rem 0 25.2rem;
+  margin: 0 auto;
 }
 
 .title {
@@ -53,7 +59,6 @@ body {
 
 form {
   grid-area: form;
-  width: 40rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -108,15 +113,14 @@ input:focus {
 
 .social-login {
   grid-area: social-login;
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-gray-20);
   background: var(--linkbrary-gray-10);
-  width: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1.6rem;
-  padding: 12px 24px;
+  padding: 1.2rem 2.4rem;
   margin-top: 0.2rem;
 }
 
@@ -132,4 +136,18 @@ input:focus {
   display: flex;
   align-items: center;
   gap: 1.6rem;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+
+  .grid-container{
+    grid-template-columns: minmax(0px, 40rem);
+    padding: 12rem 3.2rem 23.2rem;
+  }
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+
 }
