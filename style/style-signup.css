@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  padding : 23.8rem 0 11.6rem;
+  padding: 23.8rem 0 11.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,7 +64,7 @@ input:focus {
 }
 
 .eye {
-  position:absolute;
+  position: absolute;
   top: 2em;
   right: 2rem;
 }
@@ -72,11 +72,11 @@ input:focus {
 form {
   display: flex;
   flex-direction: column;
-  gap:2.4rem
+  gap: 2.4rem
 }
 
 .button {
-  background-image: linear-gradient( 90deg,#6d6afe, #6ae3fe);
+  background-image: linear-gradient(90deg, #6d6afe, #6ae3fe);
   font-size: 1.8rem;
   text-align: center;
   text-decoration: none;

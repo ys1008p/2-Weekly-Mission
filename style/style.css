@@ -1,12 +1,12 @@
 * {
-    box-sizing: border-box;
-    margin: 0 ;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 html {
-    font-family: Pretendard, Arial, sans-serif;
-    font-size: 62.5%;
-    background-color: var(--gray-bg-color, #edf7ff);
+  font-family: Pretendard, Arial, sans-serif;
+  font-size: 62.5%;
+  background-color: var(--gray-bg-color, #edf7ff);
 
 }
 
@@ -18,85 +18,85 @@ main {
 
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 20rem;
-    align-self: stretch;
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 192rem;
-    z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 20rem;
+  align-self: stretch;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 192rem;
+  z-index: 1;
 }
 
 .button {
-    background-image: linear-gradient( 90deg,#6d6afe, #6ae3fe);
-    font-size: 1.8rem;
-    text-align: center;
-    text-decoration: none;
-    color: var(--white-color, #ffffff);
-    font-weight: 600;
-    border-radius: 0.8rem;
-    padding: 1.6rem 2.0rem;
-    cursor: pointer
+  background-image: linear-gradient(90deg, #6d6afe, #6ae3fe);
+  font-size: 1.8rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white-color, #ffffff);
+  font-weight: 600;
+  border-radius: 0.8rem;
+  padding: 1.6rem 2.0rem;
+  cursor: pointer
 }
 
 .login {
-    width: 12.8rem;
-    height: hug;
+  width: 12.8rem;
+  height: hug;
 }
 
 
 .header {
-    padding-top: 7rem;
+  padding-top: 7rem;
 }
 
 .intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
 }
 
 .header-title {
-    text-align: center;
-    font-size: 6.4rem;
-    line-height: 125%;
-    width: 70.8rem
+  text-align: center;
+  font-size: 6.4rem;
+  line-height: 125%;
+  width: 70.8rem
 }
 
 .title-gradation {
-    background-image: linear-gradient(90deg, #6d6afe, #ff9f9f);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+  background-image: linear-gradient(90deg, #6d6afe, #ff9f9f);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .linkadd {
-    width: 35rem;
+  width: 35rem;
 }
 
 .example {
-    width: 120rem;
-    height: 59rem;
+  width: 120rem;
+  height: 59rem;
 }
 
 .content:nth-of-type(odd) {
-    background-color: var(--white-color, #ffffff);
-    padding: 5rem 46.1rem;
-    display: grid;
-    justify-content: center;
-    column-gap: 15.7rem;
-    row-gap: 1rem;
-    width: 100%;
-    grid-template: 
-      ". image"
-      "title image"
-      "description image"
-      ". image" /291px 55rem;
+  background-color: var(--white-color, #ffffff);
+  padding: 5rem 46.1rem;
+  display: grid;
+  justify-content: center;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
+  width: 100%;
+  grid-template:
+    ". image"
+    "title image"
+    "description image"
+    ". image" /291px 55rem;
 }
 
 .content:nth-of-type(even) {
@@ -107,7 +107,7 @@ nav {
   column-gap: 15.7rem;
   row-gap: 1rem;
   width: 100%;
-  grid-template: 
+  grid-template:
     "image ."
     "image title"
     "image description"
@@ -115,44 +115,44 @@ nav {
 }
 
 .title {
-    font-size: 4.8rem;
-    text-align: left;
-    grid-area: title;
+  font-size: 4.8rem;
+  text-align: left;
+  grid-area: title;
 }
 
 .description {
-    font-size: 1.6rem;
-    color: #6b6b6b;
-    font-weight: 500;
-    line-height: 150%;
-    grid-area: description;
+  font-size: 1.6rem;
+  color: #6b6b6b;
+  font-weight: 500;
+  line-height: 150%;
+  grid-area: description;
 }
 
-.image1 { 
-    width: 55rem;
-    height: 45rem;
-    border-radius: 1.5rem;
-    background-color: var(--gray-bg-color, #f0f6ff);
-    display: flex;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    align-items: center;
-    grid-area: image;
+.image1 {
+  width: 55rem;
+  height: 45rem;
+  border-radius: 1.5rem;
+  background-color: var(--gray-bg-color, #f0f6ff);
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  align-items: center;
+  grid-area: image;
 }
 
 .image1 .card {
-    width: 27.9rem;
+  width: 27.9rem;
 }
 
 .download {
-    position: relative;
+  position: relative;
 }
 
 .download-icon {
-    position: absolute;
-    top: 22.7rem;
-    left: 22.7rem;
-    z-index: 1;
+  position: absolute;
+  top: 22.7rem;
+  left: 22.7rem;
+  z-index: 1;
 }
 
 .contents-02,
@@ -162,7 +162,7 @@ nav {
   padding: 5rem 46.1rem;
 }
 
-.image2 { 
+.image2 {
   width: 55rem;
   height: 45rem;
   border-radius: 1.5rem;
@@ -173,7 +173,7 @@ nav {
   grid-area: image;
 }
 
-.image3 { 
+.image3 {
   box-shadow: 0rem 0.4rem 2.5rem 0rem rgba(0, 0, 0, 0.08);
   position: relative;
   width: 57rem;
@@ -196,7 +196,7 @@ nav {
   left: 7.7rem;
 }
 
-.image4 { 
+.image4 {
   width: 55rem;
   height: 45rem;
   border-radius: 1.5rem;
@@ -239,7 +239,7 @@ footer {
   cursor: pointer;
 }
 
-.sns {  
+.sns {
   display: flex;
   gap: 1.2rem;
   cursor: pointer;
