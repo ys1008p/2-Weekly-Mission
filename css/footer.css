@@ -1,0 +1,46 @@
+/* footer */
+.footer-container {
+  background-color: var(--black);
+  width: 100%;
+}
+.footer-section {
+  padding: 3.2rem 10.4rem 6.4rem;
+  background-color: var(--black);
+  display: flex;
+  justify-content: space-between;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+footer > section > p {
+  color: var(--gray-700);
+  font-family: Arial;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.footer-middle {
+  font-family: Arial;
+  font-size: 1.6rem;
+  font-weight: 400;
+  display: flex;
+  gap: 30px;
+}
+
+.footer-middle a {
+  color: var(--gray-400);
+}
+
+.footer-middle p {
+  cursor: pointer;
+}
+
+.footer-last {
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.footer-last img {
+  cursor: pointer;
+}

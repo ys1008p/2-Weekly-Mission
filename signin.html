@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signin</title>
+    <link rel="stylesheet" href="./css/basic.css" />
+    <link rel="stylesheet" href="./css/signinup.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+  </head>
+  <body>
+    <!-- ================================== -->
+    <main class="background">
+      <!-- ================================== -->
+      <section class="header">
+        <a href="/"
+          ><img src="img/logo.png" alt="logo" style="width: 21rem"
+        /></a>
+        <p>회원이 아니신가요? <a href="/signup.html ">회원 가입하기</a></p>
+      </section>
+      <!-- ================================== -->
+      <section class="login_form">
+        <form action="">
+          <label for="email">이메일</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            style="margin-bottom: 2.4rem"
+          />
+
+          <label for="password">비밀번호 </label>
+          <div class="password_eyes_container">
+            <input type="password" id="password" name="password" />
+            <img
+              src="svg/signin/eye-off.svg"
+              alt="eye_off"
+              class="password_eyes"
+            />
+          </div>
+
+          <input type="submit" value="로그인" style="margin: 3rem 0 3.2rem" />
+        </form>
+      </section>
+      <!-- ================================== -->
+      <section class="another_login">
+        <p>소셜 로그인</p>
+        <div class="img_container">
+          <a href="https://www.google.com" target="_blank"
+            ><img src="/img/signin/google.png" alt="google_logo"
+          /></a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"
+            ><img src="/img/signin/kakao.png" alt="kakao_logo"
+          /></a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
