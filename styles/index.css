@@ -4,9 +4,7 @@
   background-color: var(--blue-color-bg);
 }
 
-.header .inner {
-  display: flex;
-  justify-content: space-between;
+.header .container {
   align-items: center;
   padding: 0 20rem;
   height: 9rem;
@@ -18,7 +16,7 @@
   text-align: center;
 }
 
-.landing .inner {
+.landing {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,22 +34,22 @@
 }
 
 .services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10rem;
   padding: 12rem 0;
 }
 
-.service .inner {
+.service {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 99.8rem;
 }
 
-.service:nth-child(even) .inner  {
+.service:nth-child(even) {
   flex-direction: row-reverse;
-}
-
-.service:not(:last-child) {
-  margin-bottom: 10rem;
 }
 
 .service .title {
@@ -86,9 +84,7 @@
   text-align: center;
 }
 
-.footer .inner {
-  display: flex;
-  justify-content: space-between;
+.footer .container {
   height: 16rem;
   padding: 3.2rem 10.4rem;
 }
