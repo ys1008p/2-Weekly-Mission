@@ -115,6 +115,7 @@ section:nth-of-type(even) {
   .slogan {
     display: flex;
     flex-direction: column;
+    padding: 0 32px;
   }
 
   .hero-image {
