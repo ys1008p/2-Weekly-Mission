@@ -111,6 +111,12 @@ section:nth-of-type(even) {
     /550px 291px;
 }
 
+@media (max-width: 1199px) {
+  section.section {
+    column-gap: 51px;
+  }
+}
+
 @media (max-width: 767px) {
   .slogan {
     display: flex;
