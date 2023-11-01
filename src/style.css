@@ -264,4 +264,25 @@ footer {
   img.content-image {
     width: 100%;
   }
+
+  .footer-box {
+    display: grid;
+    grid-template:
+      'user-links sns-links'
+      'copyright .';
+    padding: 0 32px;
+    row-gap: 60px;
+  }
+
+  .copyright {
+    grid-area: copyright;
+  }
+
+  .footer-links {
+    grid-area: user-links;
+  }
+
+  .sns {
+    grid-area: sns-links;
+  }
 }
