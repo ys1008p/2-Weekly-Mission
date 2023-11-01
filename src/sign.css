@@ -1,24 +1,21 @@
-:root {
-  --linkbrary-primary-color: #6D6AFE;
-  --linkbrary-gray-10: #E7EFFB;
-  --linkbrary-gray-20: #CCD5E3;
-  --linkbrary-gray-100: #373740;
-  --linkbrary-bg: #F0F6FF;
-  --black: #000;
-  --linkbrary-white: #FFF;
-  --grey-light: #F5F5F5
-}
+@import "./global.css";
 
 body {
-  background: var(--linkbrary-bg);
+  background: var(--background);
+
+}
+
+.grid-container {
   display: grid;
   grid-template-areas: 
     'title'
     'form'
     'social-login';
+    grid-template-columns: minmax(40rem , auto);
   justify-content: center;
   gap: 3rem;
-  padding: 23.8rem 0 11.6rem;
+  padding: 23.8rem 0 25.2rem;
+  margin: 0 auto;
 }
 
 .title {
@@ -29,6 +26,7 @@ body {
   gap: 1.6rem;
 }
 
+.join-suggestion, 
 .login-suggestion {
   display: flex;
   gap: 0.8rem;
@@ -42,9 +40,10 @@ body {
   line-height: 2.4rem;
 }
 
-.login-link {
+.join-link, 
+.login-link{
   text-decoration: underline;
-  color: var(--linkbrary-primary-color);
+  color: var(--primary);
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -53,7 +52,6 @@ body {
 
 form {
   grid-area: form;
-  width: 40rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -70,9 +68,9 @@ label {
 
 input {
   border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20);
-  background: var(--linkbrary-white);
-  color: var(--linkbrary-gray-100);
+  border: 1px solid var(--gray20);
+  background: var(--white);
+  color: var(--gray100);
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -83,7 +81,16 @@ input {
 
 input:focus {
   outline: none;
-  border: 1px solid var(--linkbrary-primary-color);
+  border: 1px solid var(--primary);
+}
+
+.eye-off,
+.eye-on {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  right: 1.5rem;
+  bottom: 10.5rem;
 }
 
 .eye-on.first {
@@ -94,19 +101,12 @@ input:focus {
   top: 16.5rem;
 }
 
-.eye-on.second {
-  width: 1.6rem;
-  height: 1.6rem;
-  position: absolute;
-  right: 1.5rem;
-  bottom: 10.5rem;
-}
-
+.login-button,
 .join-button {
   border: none;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--linkbrary-primary-color) 0.12%, #6AE3FE 101.84%));
-  color: var(--grey-light);
+  background: linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%);
+  color: #f5f5f5;
   font-size: 1.8rem;
   font-style: normal;
   font-weight: 600;
@@ -116,22 +116,22 @@ input:focus {
   cursor: pointer;
 }
 
+.social-login, 
 .social-join {
   grid-area: social-login;
-  border-radius: 8px;
-  border: 1px solid var(--linkbrary-gray-20);
-  background: var(--linkbrary-gray-10);
-  width: 400px;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+  background: var(--gray10);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1.6rem;
-  padding: 12px 24px;
+  padding: 1.2rem 2.4rem;
   margin-top: 0.2rem;
 }
 
 .social-title {
-  color: var(--linkbrary-gray-100);
+  color: var(--gray100);
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
@@ -142,4 +142,20 @@ input:focus {
   display: flex;
   align-items: center;
   gap: 1.6rem;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+
+  .grid-container{
+    grid-template-columns: minmax(0px, 40rem);
+    padding-top: 12rem; 
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+
 }
