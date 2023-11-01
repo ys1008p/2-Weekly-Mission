@@ -14,6 +14,7 @@ header {
   align-items: center;
   text-align: center;
   position: fixed;
+  background-color: var(--light-blue);
   z-index: 2;
 }
 
@@ -36,7 +37,7 @@ section.first {
   width: 100%;
   background-color: var(--light-blue);
   overflow: hidden;
-  padding-top: 1.25rem;
+  padding-top: 5.875rem;
 }
 
 .headline {
