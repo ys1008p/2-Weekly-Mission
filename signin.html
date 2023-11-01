@@ -21,16 +21,18 @@
     </header>
     <div class="sign-body">
        <form class="sign-form">
-          <div class="form-item">
-            <label for="useremail">이메일</label>
-            <input id="useremail" type="text" name="useremail" placeholder="codeit@codeit.com" />
-          </div>
-          <div class="form-item">
-            <label for="password">비밀번호</label>
-            <div class="input-wrap">
-              <input id="password" type="password" name="password" />
-              <!-- MEMO: .hide 클래스 활성시 aria-label의 텍스트 '비밀번호 숨기기' 변경 -->
-              <button class="button-show" aria-label="비밀번호 보기"></button>
+          <div class="input-container">
+            <div class="input-row">
+              <label for="useremail">이메일</label>
+              <input id="useremail" type="text" name="useremail" placeholder="codeit@codeit.com" />
+            </div>
+            <div class="input-row">
+              <label for="password">비밀번호</label>
+              <div class="input-wrap">
+                <input id="password" type="password" name="password" />
+                <!-- MEMO: .hide 클래스 활성시 aria-label의 텍스트 '비밀번호 숨기기' 변경 -->
+                <button class="button-show" aria-label="비밀번호 보기"></button>
+              </div>
             </div>
           </div>
 
