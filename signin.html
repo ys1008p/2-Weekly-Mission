@@ -18,18 +18,21 @@
         </div>
         <form>
           <div class="input_wrap">
-            <p class="input_tit">이메일</p>
-            <input type="email" />
+            <label for="email">이메일</label>
+            <input type="email" id="email" />
           </div>
           <div class="input_wrap">
-            <p class="input_tit">비밀번호</p>
+            <label for="password">비밀번호</label>
             <div class="input_hidden_wrap">
-              <input type="password" />
-              <img src="./img/eye_off_icon.svg" alt="비밀번호 안보이는 상태 아이콘" />
+              <input type="password" id="password" />
+              <img
+                src="./img/eye_off_icon.svg"
+                alt="비밀번호 안보이는 상태 아이콘"
+              />
             </div>
           </div>
+          <button class="submit_button">로그인</button>
         </form>
-        <button class="submit_btn">로그인</button>
       </div>
       <div class="sns_sign_wrap">
         <span>소셜 로그인</span>

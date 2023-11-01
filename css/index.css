@@ -3,7 +3,7 @@
 header {
   position: sticky;
   top: 0;
-  background: var(--linkbrary-bg);
+  background: var(--bg);
 }
 header .header_wrap {
   display: flex;
@@ -18,18 +18,16 @@ header .header_wrap {
 header .header_wrap .logo img {
   width: 13.3rem;
 }
-header .header_wrap .login_btn {
-  width: 12.8rem;
-  border-radius: 0.8rem;
-  background-image: linear-gradient(91deg, var(--linkbrary-primary) 0.12%, #6ae3fe 101.84%);
-}
-header .header_wrap .login_btn a {
+header .header_wrap .login_button {
   display: inline-block;
-  width: 100%;
+  width: 12.8rem;
   padding: 1.6rem 2rem;
+  border-radius: 0.8rem;
+  background-image: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
   font-size: 1.8rem;
   font-weight: 600;
   color: #f5f5f5;
+  text-align: center;
 }
 main .top_section {
   display: flex;
@@ -37,32 +35,30 @@ main .top_section {
   align-items: center;
   flex-direction: column;
   padding-top: 7rem;
-  background: var(--linkbrary-bg);
+  background: var(--bg);
 }
-main .top_section .top_section_tit {
+main .top_section .top_section_title {
   font-size: 6.4rem;
   font-weight: 700;
   line-height: 8rem;
   text-align: center;
 }
-main .top_section .top_section_tit span {
-  background: linear-gradient(91deg, var(--linkbrary-primary) 17.28%, #ff9f9f 74.98%);
+main .top_section .top_section_title span {
+  background: linear-gradient(91deg, var(--primary) 17.28%, #ff9f9f 74.98%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-main .top_section .link_add_btn {
-  width: 35rem;
-  border-radius: 0.8rem;
-  background: linear-gradient(91deg, var(--linkbrary-primary) 0.12%, #6ae3fe 101.84%);
-}
-main .top_section .link_add_btn a {
+main .top_section .link_add_button {
   display: inline-block;
-  width: 100%;
+  width: 35rem;
   padding: 1.6rem 2rem;
+  border-radius: 0.8rem;
+  background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #f5f5f5;
+  text-align: center;
 }
 main .top_section .top_section_img {
   width: 120rem;
@@ -123,7 +119,7 @@ main .card_section .section_img_wrap img {
   width: 100%;
 }
 footer {
-  background-color: var(--linkbrary-black);
+  background-color: var(--black);
 }
 footer .footer_wrap {
   display: flex;
