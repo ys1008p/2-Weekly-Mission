@@ -1,5 +1,9 @@
 @media (min-width: 1920px) {
   header .container {
-    width: 120rem;
+    width: 95rem;
+  }
+
+  footer .bottom {
+    width: 95rem;
   }
 }
