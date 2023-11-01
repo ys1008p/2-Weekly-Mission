@@ -1,51 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/reset.css" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Linkbrary</title>
+    <title>로그인</title>
   </head>
   <body>
-    <main>
-      <div class="header">
-        <a href="../">
-          <img class="logo" src="../images/logo.svg" />
+    <div class="form-container">
+      <header>
+        <a href="/">
+          <img class="logo" src="../images/logo.svg" alt="Linkbrary" />
         </a>
         <span
           >회원이 아니신가요? <a href="./signup.html">회원 가입하기</a></span
         >
-      </div>
-      <form action="">
-        <label for="email">이메일</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="codeit@codeit.com"
-        />
-        <div class="password-box">
-          <label for="password">비밀번호</label>
+      </header>
+      <form action="/">
+        <div class="form-group">
+          <label for="email">이메일</label>
           <input
-            type="password"
-            name="passowrd"
-            id="password"
-            class="password"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="codeit@codeit.com"
           />
-          <img class="password-eye" src="../images/eye-off.svg" />
         </div>
-        <button>로그인</button>
+        <div class="form-group password-wrapper">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" name="password" required />
+          <img class="eye-icon" src="../images/eye-off.svg" />
+        </div>
+        <button type="submit">로그인</button>
       </form>
       <div class="auth">
-        소셜 로그인
+        <span>다른 방식으로 가입하기</span>
         <div class="icon">
-          <a href="https://google.com"><img src="../images/google.png" /></a>
-          <a href="https://www.kakaocorp.com/page/"
-            ><img src="../images/kakao.png"
-          /></a>
+          <img class="auth-icon" src="../images/google.png" alt="google" />
+          <img class="auth-icon" src="../images/kakao.png" alt="kakao" />
         </div>
       </div>
-    </main>
+    </div>
   </body>
 </html>
