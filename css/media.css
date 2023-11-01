@@ -1,0 +1,5 @@
+@media (min-width: 1920px) {
+  header .container {
+    width: 120rem;
+  }
+}
