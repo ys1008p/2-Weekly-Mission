@@ -1,9 +1,28 @@
 @media (min-width: 1920px) {
+  html {
+    font-size: 14px;
+  }
+
   header .container {
     width: 95rem;
   }
 
+  .page_container {
+    width: 70rem;
+  }
+
   footer .bottom {
     width: 95rem;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 1199px) {
+  .page_container {
+    width: 50rem;
+  }
+
+  .page_img {
+    width: 24.0625rem;
+    height: 19.6875rem;
   }
 }
