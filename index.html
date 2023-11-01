@@ -1,136 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linkbrary</title>
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
-  <link rel="stylesheet" href="src/landing.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="src/landing.css" />
+  </head>
+  <body>
+    <header>
+      <section>
+        <div class="header-bar">
+          <a href="/" class="link logo">
+            <img src="images/landing/logo.svg" alt="로고" />
+          </a>
+          <a href="/signin.html" class="link login"> 로그인 </a>
+        </div>
+        <div class="header-content">
+          <h1 class="title">
+            <span>세상의 모든 정보</span>를<br />
+            쉽게 저장하고 관리해 보세요
+          </h1>
+          <a href="/signup.html" class="link add"> 링크 추가하기 </a>
+          <div class="header-img"></div>
+        </div>
+      </section>
+    </header>
 
-  <header>
-    <section>
-      <div class="header-bar">
-        <a href="/" class="link logo">
-          <img src="images/landing/logo.svg" alt="로고">
-        </a>
-        <a href="/signin.html" class="link login">
-          로그인
-        </a>
-      </div>
-      <div class="header-content">
-        <h1 class="title">
-          <span>세상의 모든 정보</span>를<br>
-          쉽게 저장하고 관리해 보세요
-        </h1>
-        <a href="/signup.html" class="link add">
-          링크 추가하기
-        </a>
-        <div class="header-img"></div>
-      </div>
-    </section>
-  </header>
+    <main>
+      <section>
+        <div class="info save">
+          <div class="info-letter">
+            <h2 class="phrase">
+              <span>원하는 링크</span>를<br />
+              저장하세요
+            </h2>
+            <p class="description">
+              나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br />
+              사고 싶은 옷, 기억하고 싶은 모든 것을<br />
+              한 공간에 저장하세요.
+            </p>
+          </div>
+          <div class="info-image">
+            <img
+              class="main"
+              src="images/landing/main_save1.png"
+              alt="메인1_그라데이션"
+            />
+            <img
+              class="main"
+              src="images/landing/main_save2.png"
+              alt="메인1_강아지"
+            />
+            <div class="border"></div>
+            <img
+              src="images/landing/Group_20.svg"
+              alt="다운로드_이모티콘"
+              class="down-img"
+              width="46"
+            />
+            <img
+              class="main"
+              src="images/landing/main_save3.png"
+              alt="메인1_거실"
+            />
+          </div>
+        </div>
 
-  <main>
-    <section>
-      <div class="info save">
-        <div class="info-letter">
-          <h2 class="phrase">
-            <span>원하는 링크</span>를<br>
-            저장하세요
-          </h2>
-          <p class="description">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
-            사고 싶은 옷, 기억하고 싶은 모든 것을<br>
-            한 공간에 저장하세요.
-          </p>
+        <div class="info admin">
+          <div class="info-image">
+            <img src="images/landing/main_admin.png" alt="메인2_즐겨찾기" />
+          </div>
+          <div class="info-letter">
+            <h2 class="phrase">
+              링크를 폴더로<br />
+              <span>관리</span>하세요
+            </h2>
+            <p class="description">
+              나만의 폴더를 무제한으로 만들고<br />
+              다양하게 활용할 수 있습니다.
+            </p>
+          </div>
         </div>
-        <div class="info-image">
-          <img class="main" src="images/landing/main_save1.png" alt="메인1_그라데이션">
-          <img class="main" src="images/landing/main_save2.png" alt="메인1_강아지">
-          <div class="border"></div>
-          <img src="images/landing/Group_20.svg" alt="다운로드_이모티콘" class="down-img" width="46">
-          <img class="main" src="images/landing/main_save3.png" alt="메인1_거실">
-        </div>
-      </div>
 
-      <div class="info admin">
-        <div class="info-image">
-          <img src="images/landing/main_admin.png" alt="메인2_즐겨찾기">
+        <div class="info share">
+          <div class="info-letter">
+            <h2 class="phrase">
+              저장한 링크를<br />
+              <span>공유</span>해 보세요.
+            </h2>
+            <p class="description">
+              여러 링크를 폴더에 담고 공유할 수 있습니다.<br />
+              가족, 친구, 동료들에게 쉽고 빠르게 링크를<br />
+              공유해 보세요.
+            </p>
+          </div>
+          <div class="info-image">
+            <img
+              class="back"
+              src="images/landing/header.png"
+              alt="메인3_배경"
+            />
+            <img
+              class="front"
+              src="images/landing/main_share.png"
+              alt="메인3_폴더공유"
+            />
+          </div>
         </div>
-        <div class="info-letter">
-          <h2 class="phrase">
-            링크를 폴더로<br>
-            <span>관리</span>하세요
-          </h2>
-          <p class="description">
-            나만의 폴더를 무제한으로 만들고<br>
-            다양하게 활용할 수 있습니다.
-          </p>
-        </div>
-      </div>
-      
-      <div class="info share">
-        <div class="info-letter">
-          <h2 class="phrase">
-            저장한 링크를<br>
-            <span>공유</span>해 보세요.
-          </h2>
-          <p class="description">
-            여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
-            가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
-            공유해 보세요.
-          </p>
-        </div>
-        <div class="info-image">
-          <img class="back" src="images/landing/header.png" alt="메인3_배경">
-          <img class="front" src="images/landing/main_share.png" alt="메인3_폴더공유">
-        </div>
-      </div>
 
-      <div class="info search">
-        <div class="info-image">
-          <img src="images/landing/main_search.png" alt="메인4_검색창">
+        <div class="info search">
+          <div class="info-image">
+            <img src="images/landing/main_search.png" alt="메인4_검색창" />
+          </div>
+          <div class="info-letter">
+            <h2 class="phrase">
+              저장한 링크를<br />
+              <span>검색</span>해 보세요
+            </h2>
+            <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+          </div>
         </div>
-        <div class="info-letter">
-          <h2 class="phrase">
-            저장한 링크를<br>
-            <span>검색</span>해 보세요
-          </h2>
-          <p class="description">
-            중요한 정보들을 검색으로 쉽게 찾아보세요.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer>
-    <div class="footer-notice">
-      <div class="company">
-        ©codeit - 2023
+    <footer>
+      <div class="footer-notice">
+        <div class="company">©codeit - 2023</div>
+        <div class="supplement">
+          <a class="link privacy" href="/privacy.html" target="_self"
+            >Privacy Policy</a
+          >
+          <a class="link faq" href="/faq.html" target="_self">FAQ</a>
+        </div>
+        <div class="footer-sns">
+          <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
+            <img src="images/landing/icons_facebook.svg" alt="페이스북" />
+          </a>
+          <a href="https://twitter.com/?lang=ko" target="_blank">
+            <img src="images/landing/icons_twitter.svg" alt="트위터" />
+          </a>
+          <a href="https://www.youtube.com/" target="_blank">
+            <img src="images/landing/icons_youtube.svg" alt="유튜브" />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank">
+            <img src="images/landing/icons_instagram.svg" alt="인스타그램" />
+          </a>
+        </div>
       </div>
-      <div class="supplement">
-        <a class="link privacy" href="/privacy.html" target="_self">Privacy Policy</a>
-        <a class="link faq" href="/faq.html" target="_self">FAQ</a>
-      </div>
-      <div class="footer-sns">
-        <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
-          <img src="images/landing/icons_facebook.svg" alt="페이스북">
-        </a>
-        <a href="https://twitter.com/?lang=ko" target="_blank">
-          <img src="images/landing/icons_twitter.svg" alt="트위터">
-        </a>
-        <a href="https://www.youtube.com/" target="_blank">
-          <img src="images/landing/icons_youtube.svg" alt="유튜브">
-        </a>
-        <a href="https://www.instagram.com/" target="_blank">
-          <img src="images/landing/icons_instagram.svg" alt="인스타그램">
-        </a>
-      </div>
-    </div>
-  </footer>
-  
-</body>
+    </footer>
+  </body>
 </html>

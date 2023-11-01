@@ -2,16 +2,15 @@
 
 body {
   background: var(--background);
-
 }
 
 .grid-container {
   display: grid;
-  grid-template-areas: 
-    'title'
-    'form'
-    'social-login';
-    grid-template-columns: minmax(40rem , auto);
+  grid-template-areas:
+    "title"
+    "form"
+    "social-login";
+  grid-template-columns: minmax(40rem, auto);
   justify-content: center;
   gap: 3rem;
   padding: 23.8rem 0 25.2rem;
@@ -26,7 +25,7 @@ body {
   gap: 1.6rem;
 }
 
-.join-suggestion, 
+.join-suggestion,
 .login-suggestion {
   display: flex;
   gap: 0.8rem;
@@ -40,8 +39,8 @@ body {
   line-height: 2.4rem;
 }
 
-.join-link, 
-.login-link{
+.join-link,
+.login-link {
   text-decoration: underline;
   color: var(--primary);
   font-size: 1.6rem;
@@ -105,7 +104,7 @@ input:focus {
 .join-button {
   border: none;
   border-radius: 8px;
-  background: linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%);
+  background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
   color: #f5f5f5;
   font-size: 1.8rem;
   font-style: normal;
@@ -116,7 +115,7 @@ input:focus {
   cursor: pointer;
 }
 
-.social-login, 
+.social-login,
 .social-join {
   grid-area: social-login;
   border-radius: 0.8rem;
@@ -146,10 +145,9 @@ input:focus {
 
 /* mobile */
 @media (max-width: 767px) {
-
-  .grid-container{
+  .grid-container {
     grid-template-columns: minmax(0px, 40rem);
-    padding-top: 12rem; 
+    padding-top: 12rem;
     padding-left: 3.2rem;
     padding-right: 3.2rem;
   }
@@ -157,5 +155,4 @@ input:focus {
 
 /* tablet */
 @media (max-width: 1199px) {
-
 }
