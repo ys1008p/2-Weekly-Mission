@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>로그인</title>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/reset.css" />
+    <link rel="stylesheet" href="./src/colors.css" />    
+    <link rel="stylesheet" href="./src/signin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sign">
+        <div class="header">
+          <div class="header-logo">
+            <a href="index.html">
+              <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+            </a>
+          </div>
+          <div class="header-signup">
+            회원이 아니신가요?
+            <a class="signup-link" href="signup.html">
+              회원 가입하기
+            </a>
+          </div>
+        </div>
+        <form>
+          <div class="form-container">
+            <label>이메일</label>
+            <input
+            name="username"
+            type="text"
+            placeholder=" "
+            />
+          </div>
+          <div class="form-container">
+            <label>비밀번호</label>
+            <div class="input-container">
+              <input
+              name="password"
+              type="password"
+              placeholder=" "
+              />
+              <img class="eyeoff-icon" src="./images/eye-off.png" alt="비밀번호 가리기 icon">
+            </div>
+          </div>
+        </form>
+        <a class="login-button" href="#">
+          로그인
+        </a>        
+      </div>
+      <div class="social">
+        <div class="social-text">
+          소셜 로그인
+        </div>
+        <div class="social-logo">
+          <a href="https://www.google.com">
+            <img src="./images/google.svg" alt="google 홈페이지로 연결된 google 로고" />
+          </a>
+          <a href="https://www.kakaocorp.com">
+            <img src="./images/kakaotalk.svg" alt="kakaocorp 홈페이지로 연결된 kakaotalk 로고" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
