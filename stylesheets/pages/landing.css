@@ -1,0 +1,259 @@
+/* header */
+
+.landing--header {
+  background: var(--linkbrary-bg);
+  position: sticky;
+  top: 0;
+}
+
+.header-bar {
+  padding: 20px 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1920px;
+  margin: 0 auto;
+  
+}
+
+.logo {
+  width: 133px;
+  height: 24px;
+}
+
+.btn {
+  padding: 16px 20px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  text-decoration: none;
+
+  color: var(--grey-light, #F5F5F5);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.login {
+  width: 128px;
+}
+
+/* main */
+
+.main {
+  background: var(--linkbrary-bg);
+  width: 100%;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 70px;
+  align-items: center;
+  background: var(--linkbrary-bg);
+  overflow: hidden;
+}
+
+.main--image {
+  width: 1118px;
+  height: 659px;
+  flex-shrink: 0;
+}
+
+.add-link {
+  width: 350px;
+}
+
+.title {
+  color: #000;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80px;
+
+  width: 708px;
+  height: 160px;
+
+  text-align: center;
+
+  margin: 0;
+}
+
+.title .gradient {
+  background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landing--main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtitle-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.subtitle {
+  color: #000;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+
+  margin: 0;
+}
+
+.description {
+  color: #6B6B6B;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 157px;
+  padding: 50px 0;
+}
+
+.content:nth-of-type(even) .image-container {
+  order: 1;
+}
+
+.content:nth-of-type(even) .subtitle-description {
+  order: 2;
+}
+
+.content-01 {
+  margin-top: 70px;
+}
+
+.content-01 img {
+  width: 550px;
+  height: 450px;
+}
+
+.content-01 .gradient {
+  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.image-container {
+  width: 550px;
+  height: 450px;
+  border-radius: 15px;
+  background: #F0F6FF;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.content-02 img {
+  width: 414px;
+  height: 270px;
+}
+
+.content-02 .gradient {
+  background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content-03 img {
+  width: 570px;
+  height: 469px;
+  flex-shrink: 0;
+}
+
+.content-03 .gradient {
+  background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content-04 .image-container {
+  justify-content: flex-end;
+  align-items: end;
+}
+
+.content-04 img {
+  width: 490px;
+  height: 395px;
+}
+
+.content-04 .gradient {
+  background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+footer {
+  width: 100%;
+  height: 160px;
+  background: var(--the-julge-black);
+  margin-top: 120px;
+  padding: 32px 104px 64px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.copyright {
+  color: #676767;
+  text-align: center;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.privacy, .faq {
+  color: #CFCFCF;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.privacy-faq {
+  display: flex;
+  gap: 30px;
+}
+
+.icons {
+  display: flex;
+  gap: 12px;
+}

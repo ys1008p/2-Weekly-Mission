@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linkbrary-SignIn</title>
+  <link rel="stylesheet" href="./stylesheets/main.css">
+</head>
+<body>
+  <main class="signin--main">
+    <div class="signin--container">
+      <div class="logo-signup">
+        <a href="/">
+          <img src="./assets/logo/logo.svg" alt="logo" class="logo">
+        </a>
+        <div class="signup--description">
+          <p class="user-check">회원이 아니신가요?</p>
+          <a href="./signup.html" class="signup--link">회원 가입하기</a>
+        </div>
+      </div>
+      <form action="" class="signin--form">
+        <div class="email-password">
+          <div class="email--box form--box">
+            <label for="email">이메일</label>
+            <input type="email" id="email">
+          </div>
+          <div class="password--box form--box">
+            <label for="password">비밀번호</label>
+            <input type="password" id="password">
+            <img src="./assets/icon/eye-off.svg" alt="eye-off" class="eye-off">
+          </div>
+        </div>
+        <button class="login--btn btn" type="submit">로그인</button>
+      </form>
+    </div>
+    <div class="social-login">
+      <p>소셜 로그인</p>
+      <div class="social--icons">
+        <a href="https://www.google.com">
+          <div class="icon--container google">
+            <img src="./assets/icon/google.png" alt="google login" class="google--icon">
+          </div>
+        </a>
+        <a href="https://www.kakaocorp.com/page">
+          <div class="icon--container kakao">
+            <img src="./assets/icon/kakao.svg" alt="kakao login" class="kakao--icon">
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

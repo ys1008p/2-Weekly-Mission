@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linkbrary-SignUp</title>
+  <link rel="stylesheet" href="./stylesheets/main.css">
+</head>
+<body>
+  <main class="signup--main">
+    <div class="signup--container">
+      <div class="logo-signup">
+        <a href="/">
+          <img src="./assets/logo/logo.svg" alt="logo" class="logo">
+        </a>
+        <div class="signup--description">
+          <p class="user-check">이미 회원이신가요?</p>
+          <a href="./signin.html" class="signup--link">로그인 하기</a>
+        </div>
+      </div>
+      <form action="" class="signup--form">
+        <div class="email-password">
+          <div class="email--box form--box">
+            <label for="email">이메일</label>
+            <input type="email" id="email">
+          </div>
+          <div class="password--box form--box">
+            <label for="password">비밀번호</label>
+            <input type="text" id="password">
+            <img src="./assets/icon/eye-on.svg" alt="eye-on" class="eye-on">
+          </div>
+          <div class="password-check--box form--box">
+            <label for="password-check">비밀번호 확인</label>
+            <input type="text" id="password-check">
+            <img src="./assets/icon/eye-on.svg" alt="eye-on" class="eye-on">
+          </div>
+        </div>
+        <button class="login--btn btn" type="submit">회원가입</button>
+      </form>
+    </div>
+    <div class="social-login">
+      <p>다른 방식으로 가입하기</p>
+      <div class="social--icons">
+        <a href="https://www.google.com">
+          <div class="icon--container google">
+            <img src="./assets/icon/google.png" alt="google login" class="google--icon">
+          </div>
+        </a>
+        <a href="https://www.kakaocorp.com/page">
+          <div class="icon--container kakao">
+            <img src="./assets/icon/kakao.svg" alt="kakao login" class="kakao--icon">
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
