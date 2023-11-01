@@ -55,13 +55,6 @@ input {
   background: var(--linkbrary-white, #fff);
 }
 
-/* #password {
-  background-image: url(/images/eye-off.svg);
-  background-repeat: no-repeat;
-  background-position: right;
-  background-origin: content-box;
-} */
-
 input:focus {
   outline-color: var(--linkbrary-primary-color, #6d6afe);
 }
@@ -92,7 +85,10 @@ input:focus {
   font-weight: 600;
   line-height: normal;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
 }
 
 .password-box,
@@ -143,12 +139,12 @@ input:focus {
 }
 
 .google-block {
-  background-image: url("/images/google-back.svg");
+  background-image: url('/images/google-back.svg');
   padding: 11px 11px 11px 11px;
 }
 
 .kakao-block {
-  background-image: url("/images/kakao-back.svg");
+  background-image: url('/images/kakao-back.svg');
   padding: 10px 8px 8px 8px;
 }
 
