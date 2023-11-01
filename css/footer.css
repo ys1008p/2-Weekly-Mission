@@ -1,0 +1,51 @@
+footer {
+  width: 100%;
+  max-width: 192rem;
+  margin: 0 auto;
+  background: var(--the-julge-black, #111322);
+  height: 16rem;
+  padding: 3.2rem 10.4rem 6.4rem;
+  flex-shrink: 0;
+}
+
+.footer-container {
+  max-width: 192rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.copyright {
+  color: #676767;
+  font-family: Arial, serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.policies {
+  color: #cfcfcf;
+  font-family: Arial, serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  display: flex;
+  width: 18.1111rem;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.sns-links {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.sns-link {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.sns-link img {
+  width: 100%;
+}
