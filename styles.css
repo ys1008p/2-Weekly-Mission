@@ -21,7 +21,6 @@
 /* 로그인 글자 폰트 */
 .font {
   color: var(--grey-light, #F5F5F5);
-  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -39,8 +38,8 @@
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%)); 
-  cursor:pointer
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  cursor: pointer
 }
 
 /* 그라데이션 폰트 초기화 */
@@ -50,7 +49,7 @@
 
 
 /* 이거 센터 설정 못하겠음 도움 필요 */
-.zzz {
+.name_change {
   width: 414px;
   height: 270px;
   flex-shrink: 0;
@@ -87,19 +86,18 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-align: center; 
-  font-family: Pretendard;
+  text-align: center;
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
-  line-height: 80px; /* 125% */
+  line-height: 80px;
+  /* 125% */
 }
 
 
 /* 링크 추가하기 버튼 */
 .linkBox {
   color: var(--grey-light, #F5F5F5);
-  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -112,7 +110,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  cursor:pointer
+  cursor: pointer
 }
 
 /* 아래 메인화면 */
@@ -145,7 +143,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -155,11 +152,11 @@
 /* 아래 메인화면 글 세부사항 조정 2 */
 .textLinkBottm {
   color: #6B6B6B;
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%; /* 24px */
+  line-height: 150%;
+  /* 24px */
 }
 
 /* 사진 담은 박스 */
@@ -201,6 +198,7 @@
   right: 142px;
   bottom: 92px;
 }
+
 /* 3번째 메인 화면 전체 크기 */
 .contents-mainBox {
   display: flex;
@@ -209,6 +207,7 @@
   align-items: center;
   gap: 157px;
 }
+
 /* 폴더 이름 변경하기 바깥 상자 */
 .nameC {
   display: flex;
@@ -223,22 +222,9 @@
 /* 관리 그라데이션 */
 .gradation {
   background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-font-family: Pretendard;
-font-size: 48px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: -0.3px;
-}
-
-/* 관리 그라데이션 없애기 */
-.contents-font {
-  -webkit-text-fill-color: initial;
-  color: #000;
-  font-family: Pretendard;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -246,12 +232,18 @@ letter-spacing: -0.3px;
   letter-spacing: -0.3px;
 }
 
-/* 3번째 메인 글자,이미지 쪽 박스 */
-.contents-full {
-  display: flex;
-  align-items: center;
-  gap: 157px;
+/* 관리 그라데이션 없애기 */
+.contents-font {
+  -webkit-text-fill-color: initial;
+  color: #000;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
 }
+
+
 
 /* 3번째 메인 글자 합한거 */
 .contents-fontBox {
@@ -265,11 +257,11 @@ letter-spacing: -0.3px;
 /* 3번째 메인 작은 글자 */
 .contents-minifont {
   color: #6B6B6B;
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%; /* 24px */
+  line-height: 150%;
+  /* 24px */
 }
 
 .gradation_share {
@@ -277,7 +269,6 @@ letter-spacing: -0.3px;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -307,7 +298,6 @@ letter-spacing: -0.3px;
   justify-content: center;
   align-items: center;
   position: relative;
-
   flex-shrink: 0;
   border-radius: 25px;
   background: rgba(0, 0, 0, 0.40);
@@ -326,7 +316,6 @@ letter-spacing: -0.3px;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;

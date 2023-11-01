@@ -14,7 +14,6 @@ input:focus {
   outline: none;
   border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
 }
-/* body에 폰트 입히기. */
 
 .login {
   display: flex;

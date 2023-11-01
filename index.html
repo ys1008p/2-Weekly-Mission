@@ -1,126 +1,137 @@
- <!DOCTYPE html>
- <html lang="ko">
- <head>
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Linkbrary</title>
-  <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+  <link rel="stylesheet" type="text/css"
+    href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 
   <link rel="stylesheet" href="styles.css">
- </head>
- <body>
+</head>
+
+<body>
   <div class="contentsBackColor">
-  <div class="header">
-    <a href="/">
-    <img src="img/logo.svg" alt="로고"></a>
-  <div class="sign"><a href="/signin" class="font">로그인
-  </div></a>
-</div>
+    <div class="header">
+      <a href="/">
+        <img src="img/logo.svg" alt="로고"></a>
+      <div class="sign"><a href="/signin" class="font">로그인
+      </div></a>
+    </div>
 
-<div class="contents">
-  <div class="contentsText">세상의 모든 정보<span class="fontCelar">를<br> 쉽게 저장하고 관리해보세요</span></div>
-  <div class="linkBox"><a href="/signup" class="font">링크 추가하기</div></a>
-  <div class="contentsImg"></div>
-</div>
-</div>
-<div class="contents-two">
-  <div class="frame">
-    <div class="frameText">
-  <div class="textLink">원하는 링크<span class="fontCelar">를 저장하세요<br>
-  </span>
+    <div class="contents">
+      <div class="contentsText">세상의 모든 정보<span class="fontCelar">를<br> 쉽게 저장하고 관리해보세요</span></div>
+      <div class="linkBox"><a href="/signup" class="font">링크 추가하기</div></a>
+      <div class="contentsImg"></div>
+    </div>
   </div>
+  <div class="contents-two">
+    <div class="frame">
+      <div class="frameText">
+        <div class="textLink">원하는 링크<span class="fontCelar">를 저장하세요<br>
+          </span>
+        </div>
 
-  <span class="textLinkBottm">
-  나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은 모든 것을 한 공간에 저장하세요.
-</span>
-  </div>
-  <div class="imgBackColor">
-    <div class="imgSize">
-    <img src="https://s3-alpha-sig.figma.com/img/5d7a/e078/d62625bce050db18b8273c4485fa0c59?Expires=1699228800&Signature=FzNA-xsDShCvznxpwB0ytAbJ~naAre-vRp5m84gMyWjeR4jzM8LvBUwK2OeyttjRRef9rGTE455dxC4haVNPjvEP1Mdt7LVbt97hcfRaF5xaIoUatqppONcUZY45woiRplw6ApAz1KwWG6PSBlfj1RcOmX2S1npPKeKM4SfDIi~kUOmwJxCZ0CoG7h-zhKr2rbPWURKZscU-kK97kW9uY~F75wgTRgGefwKChekkmjl1OYFJ83GEOY-jEyrDPAxFD0It~WnOuR1FKcIryFb8jlmzhDf1L4EpmbMsf8LggRbJTf42Q~SluNdVH7Au4OMsm4jAOXzKujGUpvZcKf24Mw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="오른쪽반쪽사진" class="middog">
-    <div class="border"></div>
-  <img src="https://s3-alpha-sig.figma.com/img/45cf/22af/33756c4b525abb91a345d685466b507a?Expires=1699228800&Signature=mMFjpjlqcnIFNammhZRLI9tZKzqIf8ESHGa7Jjgq1NV~y8AZBPkqfJtUHelPjYEQcsw8qvKEDCZatZQqXC0qUQRjvBouJGQ61PygTOBNHL3hpxTZfqOfRhvNLufeKKnjwo4YG8oTmRzAUeoXetGJRdVkDhBlfF3EhwHZneFcCQfkIfUNBAG6C0g2~fNB~Oxrze7euVeLuVvILSQIxL2oQUnntdhRuLcOkT2Vdrf4ql6UtRnA2Qz5Y62BQLhY3um7daJoA1rIviIXAZPtgvn89zDJA5LS5JVp5xIpYaIm50QCx35R7QquADOfgM2R10kgBY59okntXc9XoqDQiz66Kg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="중앙강아지사진" class="midog">
-  <img src="img/Group 20.svg" alt="다운로드" class="download">
-  <img src="https://s3-alpha-sig.figma.com/img/fa28/e69e/1263c25d5d1a2dbbe3ce207a55221297?Expires=1699228800&Signature=Z-0bYVG206N~3seQW4-xSwE7nWhwQ-lCOQRPe6d-5HEbB7GlJWMz69MchjSkexXpxai4lcrLctkSk8LhrS52WGDonoXx58qlBfHVH5artN~yRPwU93ihxSqF1ztzZnnOGj5X4vebI~RiTKHzbWVjDsJW9dQZ0z-rrL0fTDCqBovHMTC8oXlY6IkIjo6v5xGeHuO1Ai8YWnavB3CYmpjiRuixnnkrikBfNgNqa8JuQ7QV941jD0S0WWIuFNZJRU7QvYWJosJmxvM2FJi-ycOATsJqOP1C5jRXnzTMkTNgP88ckk23e0mEByrChjiMSo7NNDeGc5UpEXHrYJqf3mGf1A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="왼쪽반쪽사진" class="middog">
-</div>
-</div>
+        <span class="textLinkBottm">
+          나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은 모든 것을 한 공간에 저장하세요.
+        </span>
+      </div>
+      <div class="imgBackColor">
+        <div class="imgSize">
+          <img
+            src="https://s3-alpha-sig.figma.com/img/5d7a/e078/d62625bce050db18b8273c4485fa0c59?Expires=1699228800&Signature=FzNA-xsDShCvznxpwB0ytAbJ~naAre-vRp5m84gMyWjeR4jzM8LvBUwK2OeyttjRRef9rGTE455dxC4haVNPjvEP1Mdt7LVbt97hcfRaF5xaIoUatqppONcUZY45woiRplw6ApAz1KwWG6PSBlfj1RcOmX2S1npPKeKM4SfDIi~kUOmwJxCZ0CoG7h-zhKr2rbPWURKZscU-kK97kW9uY~F75wgTRgGefwKChekkmjl1OYFJ83GEOY-jEyrDPAxFD0It~WnOuR1FKcIryFb8jlmzhDf1L4EpmbMsf8LggRbJTf42Q~SluNdVH7Au4OMsm4jAOXzKujGUpvZcKf24Mw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+            alt="오른쪽반쪽사진" class="middog">
+          <div class="border"></div>
+          <img
+            src="https://s3-alpha-sig.figma.com/img/45cf/22af/33756c4b525abb91a345d685466b507a?Expires=1699228800&Signature=mMFjpjlqcnIFNammhZRLI9tZKzqIf8ESHGa7Jjgq1NV~y8AZBPkqfJtUHelPjYEQcsw8qvKEDCZatZQqXC0qUQRjvBouJGQ61PygTOBNHL3hpxTZfqOfRhvNLufeKKnjwo4YG8oTmRzAUeoXetGJRdVkDhBlfF3EhwHZneFcCQfkIfUNBAG6C0g2~fNB~Oxrze7euVeLuVvILSQIxL2oQUnntdhRuLcOkT2Vdrf4ql6UtRnA2Qz5Y62BQLhY3um7daJoA1rIviIXAZPtgvn89zDJA5LS5JVp5xIpYaIm50QCx35R7QquADOfgM2R10kgBY59okntXc9XoqDQiz66Kg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+            alt="중앙강아지사진" class="midog">
+          <img src="img/Group 20.svg" alt="다운로드" class="download">
+          <img
+            src="https://s3-alpha-sig.figma.com/img/fa28/e69e/1263c25d5d1a2dbbe3ce207a55221297?Expires=1699228800&Signature=Z-0bYVG206N~3seQW4-xSwE7nWhwQ-lCOQRPe6d-5HEbB7GlJWMz69MchjSkexXpxai4lcrLctkSk8LhrS52WGDonoXx58qlBfHVH5artN~yRPwU93ihxSqF1ztzZnnOGj5X4vebI~RiTKHzbWVjDsJW9dQZ0z-rrL0fTDCqBovHMTC8oXlY6IkIjo6v5xGeHuO1Ai8YWnavB3CYmpjiRuixnnkrikBfNgNqa8JuQ7QV941jD0S0WWIuFNZJRU7QvYWJosJmxvM2FJi-ycOATsJqOP1C5jRXnzTMkTNgP88ckk23e0mEByrChjiMSo7NNDeGc5UpEXHrYJqf3mGf1A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+            alt="왼쪽반쪽사진" class="middog">
+        </div>
+      </div>
     </div>
   </div>
   <div class="contents-mainBox">
 
-        <div class="contents-full">
-          <div class="nameC">
-            <img src="img/path-to-image.png" alt="폴더이름변경" class="zzz">
+    <div class="frame">
+      <div class="nameC">
+        <img src="img/path-to-image.png" alt="폴더이름변경" class="name_change">
       </div>
       <div class="contents-fontBox">
-    <div class="gradation"> <span class="contents-font">링크를 폴더로 </span>관리<span class="contents-font">하세요</span>
+        <div class="gradation"> <span class="contents-font">링크를 폴더로 </span>관리<span class="contents-font">하세요</span>
+        </div>
+        <div class="contents-minifont">나만의 폴더로 무제한으로 만들고 다양하게 활용할 수 있습니다.</div>
+      </div>
     </div>
-    <div class="contents-minifont">나만의 폴더로 무제한으로 만들고 다양하게 활용할 수 있습니다.</div>
   </div>
   </div>
-  </div>
-  </div>
-
+  <!-- 각종 -->
   <div class="contents-mainBox">
-    <div class="contents-full">
+    <div class="frame">
       <div class="contents-fontBox">
-      <div class="gradation_share"><span class="contents-font">저장한 링크를</span> 공유<span class="contents-font">해 보세요</span>
-      </div>
-    <div class="contents-minifont">여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.
+        <div class="gradation_share"><span class="contents-font">저장한 링크를</span> 공유<span class="contents-font">해
+            보세요</span>
+        </div>
+        <div class="contents-minifont">여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.
 
-    </div>
-  </div>
-  <div class="imgclass">
-    <div class="background"> 
-    <img src="img/image 26.png" alt="컨텐츠메인이미지" class="under_img">
-        
-    <img src="img/folder.png" alt="덮어쓰는이미지" class="up_img">
+        </div>
+      </div>
+      <div class="imgclass">
+        <div class="background">
+          <img src="img/image 26.png" alt="컨텐츠메인이미지" class="under_img">
+
+          <img src="img/folder.png" alt="덮어쓰는이미지" class="up_img">
         </div>
       </div>
     </div>
   </div>
 
   <div class="contents-mainBox">
-    <div class="contents-full">
+    <div class="frame">
       <div class="lastbackground">
         <div class="lastBox">
-    <img src="img/last.png" alt="마지막이미지" class="lastImg">
-  </div>
-</div>
-<div class="lastText">
-  <div class="searchColor">
-    <span class="contents-font">저장한 링크를</span> 검색<span class="contents-font">해 보세요</span>
-    </div>
-  <div>
-    중요한 정보들을 검색으로 쉽게 찾아보세요.
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="footer">
-  <div class="footerunder">
-  <div class="footersize">
-<div class="company">@codeit - 2023
-</div>
-<div class="FAQ"><a href="/privacy" class="none">Privacy Policy</a> <a href="/faq" class="none">FAQ</a>
-</div>
-<div class="socialMedia">
-  <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
-    <img src="img/akar-icons_facebook-fill.svg" alt="facebook">
-  </a>
-  <a href="https://twitter.com/?lang=ko" target="_blank">
-    <img src="img/akar-icons_twitter-fill.svg" alt="twitter">
-  </a>
-  <a href="https://www.youtube.com/" target="_blank">
-    <img src="img/akar-icons_youtube-fill.svg" alt="youtube">
-  </a>
-  <a href="https://www.instagram.com/" target="_blank">
-    <img src="img/ant-design_instagram-filled.svg" alt="instagram">
-  </a>
-              </div>
-          </div>
+          <img src="img/last.png" alt="마지막이미지" class="lastImg">
         </div>
       </div>
- </body>
- </html>
+      <div class="lastText">
+        <div class="searchColor">
+          <span class="contents-font">저장한 링크를</span> 검색<span class="contents-font">해 보세요</span>
+        </div>
+        <div>
+          중요한 정보들을 검색으로 쉽게 찾아보세요.
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="footer">
+    <div class="footerunder">
+      <div class="footersize">
+        <div class="company">@codeit - 2023
+        </div>
+        <div class="FAQ"><a href="/privacy" class="none">Privacy Policy</a> <a href="/faq" class="none">FAQ</a>
+        </div>
+        <div class="socialMedia">
+          <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
+            <img src="img/akar-icons_facebook-fill.svg" alt="facebook">
+          </a>
+          <a href="https://twitter.com/?lang=ko" target="_blank">
+            <img src="img/akar-icons_twitter-fill.svg" alt="twitter">
+          </a>
+          <a href="https://www.youtube.com/" target="_blank">
+            <img src="img/akar-icons_youtube-fill.svg" alt="youtube">
+          </a>
+          <a href="https://www.instagram.com/" target="_blank">
+            <img src="img/ant-design_instagram-filled.svg" alt="instagram">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
