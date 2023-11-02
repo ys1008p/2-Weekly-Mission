@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <!-- Fonts -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/sign.css" />
+  </head>
+  <body>
+    <section class="container">
+      <header class="logo">
+        <a href="index.html">
+          <img
+            src="./images/logo.svg"
+            alt="메인 페이지로 이동하는 linkbrary 로고"
+            class="link-to-main"
+          />
+        </a>
+        <p class="ask-signup">
+          회원이 아니신가요?
+          <a class="link-to-signup" href="signup.html">회원 가입하기</a>
+        </p>
+      </header>
+      <form id="sign-in" action="">
+        <div class="input__container">
+          <label class="input__label" for="email">이메일</label>
+          <input class="input" id="email" type="email" name="user-email" />
+        </div>
+        <div class="input__container">
+          <label class="input__label" for="password">비밀번호</label>
+          <input
+            class="input"
+            id="password"
+            type="password"
+            name="user-password"
+          />
+          <button class="hide-password">
+            <img
+              src="./images/sign/icon/blindpassword.svg"
+              alt="비밀번호 숨김"
+            />
+          </button>
+        </div>
+      </form>
+      <button class="btn__sign-in" type="submit" form="sign-in">로그인</button>
+      <footer class="social">
+        <p class="social__title">소셜 로그인</p>
+        <div class="social__logos">
+          <a href="http://www.google.com/" target="_blank"
+            ><img
+              src="./images/sign/icon/google.svg"
+              alt="google 홈페이지로 이동"
+              class="social__logo__img"
+            />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank"
+            ><img
+              src="./images/sign/icon/kakao.svg"
+              alt="kakao 홈페이지로 이동"
+              class="social__logo__img"
+          /></a>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>

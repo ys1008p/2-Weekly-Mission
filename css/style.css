@@ -1,0 +1,206 @@
+/* Global */
+:root {
+  --size-max-width: 192rem;
+}
+
+/* Header 공통사항 */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem 2rem;
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-gray-light);
+  background: var(--gra-purpleblue-to-skyblue);
+}
+
+/* Navigation bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--linkbrary-bg);
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--size-max-width);
+  margin: auto;
+  padding: 2rem 20rem;
+}
+
+.nav__logo {
+  width: 13.3rem;
+  height: 2.4rem;
+}
+
+.btn__sign-in {
+  width: 12.8rem;
+}
+
+/* Header */
+header {
+  background-color: var(--linkbrary-bg);
+}
+
+.introduce {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4rem;
+  margin: auto;
+  padding: 16.4rem 36rem 0rem 36rem;
+  max-width: var(--size-max-width);
+}
+
+h1 {
+  flex-shrink: 0;
+  text-align: center;
+  width: 70.8rem;
+  height: 16rem;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 8rem;
+}
+
+.introduce__title--gradient {
+  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn__sign-up {
+  width: 35rem;
+}
+
+.introduce__img {
+  width: 120rem;
+  height: 59rem;
+}
+
+/* main */
+main {
+  padding-top: 7rem;
+  padding-bottom: 12rem;
+}
+
+/* section 공통사항 */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15.7rem;
+  padding: 5rem 46.1rem;
+}
+
+.description-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 29.1rem;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 4.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03rem;
+}
+
+.description {
+  color: #6b6b6b;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.content__img {
+  width: 55rem;
+  height: 45rem;
+}
+
+.content:nth-child(even) .description-box {
+  order: 1;
+}
+
+/* section 제목 - 그라데이션 */
+.save__title--gradient {
+  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+}
+
+.folder__title--gradient {
+  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+}
+
+.share__title--gradient {
+  background: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+}
+
+.search__title--gradient {
+  background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
+}
+
+.bg-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Footer */
+footer {
+  background: var(--color-black);
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  height: 16rem;
+  margin: auto;
+  padding: 3.2rem 10.4rem 6.4rem 10.4rem;
+  max-width: var(--size-max-width);
+}
+
+.footer__codeit {
+  color: #676767;
+  text-align: center;
+  font-family: Arial;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.footer__infoes {
+  display: flex;
+  width: 18.1rem;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.footer__info {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.footer__sns__container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.footer__sns__image {
+  width: 2rem;
+  height: 2rem;
+  color: #ffffff;
+}

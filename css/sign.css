@@ -1,0 +1,134 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 23.8rem;
+  background-color: var(--linkbrary-bg);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  width: 40rem;
+}
+
+/* Header */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.link-to-main {
+  width: 21rem;
+  height: 3.8rem;
+}
+
+.ask-signup {
+  display: flex;
+  gap: 0.8rem;
+  color: var(--color-black);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+
+.link-to-signup {
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+/* form */
+#sign-in {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.input__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.input__label {
+  color: var(--color-black);
+  font-size: 1.4rem;
+}
+
+.input {
+  width: 100%;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--color-gray-20);
+  background: var(--color-white);
+  color: var(--color-gray-100);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.input:focus {
+  border: 1px solid var(--color-primary);
+}
+
+.hide-password {
+  border: none;
+  background: transparent;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 1.5rem;
+  bottom: 2rem;
+}
+
+.btn__sign-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1.6rem 2rem;
+  border: none;
+  border-radius: 0.8rem;
+  color: var(--color-gray-light);
+  background: var(--gra-purpleblue-to-skyblue);
+}
+
+/* footer */
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.192rem;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--color-gray-20);
+  background: var(--color-gray-10);
+}
+
+.social__title {
+  font-size: 1.4rem;
+  color: var(--color-gray-100);
+}
+
+.social__logos {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.social__logo__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+}
