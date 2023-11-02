@@ -1,0 +1,208 @@
+main{
+  display: flex;
+  width: 144rem;
+  padding: 23.8rem 0 11.6rem;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--linkbrary-bg, #F0F6FF);
+  margin: 0 auto;
+}
+
+.signup-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo-signin{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-signin svg{
+  width: 21.0583rem;
+  height: 3.8rem;
+}
+
+.signin{
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.signin p{
+  color: var(--black, #000);
+
+  /* Linkbrary/body1-regular */
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem; /* 150% */
+}
+
+.signin span{
+  color: var(--linkbrary-primary-color, #6D6AFE);
+
+/* Linkbrary/body 1-semibold */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.signin span::after{
+  display:block;
+  content:'';
+  height:1px;
+  background: var(--linkbrary-primary-color, #6D6AFE);;  
+}
+
+.signup-box form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.4rem;
+}
+
+.signup-box form div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.signup-box form div label{
+  color: var(--black, #000);
+/* Linkbrary/body2-regular */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.signup-box form div input{
+  width: 40rem;
+  padding: 1.8rem 1.5rem;
+
+  color: var(--linkbrary-gray-100, #373740);
+
+/* Linkbrary/body1-regular */
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem; /* 150% */
+
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-white, #FFF);
+}
+
+.signup-box form div input:focus{
+  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+  outline: none;
+}
+
+.signup-box form button{
+  display: flex;
+  width: 40rem;
+  padding: 1.6rem 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 8px;
+  border: none;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+
+  color: var(--grey-light, #F5F5F5);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.sns-signup{
+  margin-top: 0.2rem;
+  
+  display: flex;
+  width: 40rem;
+  padding: 1.2rem 2.4rem;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
+  background: var(--linkbrary-gray-10, #E7EFFB);
+}
+
+.sns-signup p{
+  color: var(--linkbrary-gray-100, #373740);
+
+/* Linkbrary/body2-regular */
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sns-logo{
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.sns-logo > a > div{
+  width: 4.2rem;
+  height: 4.2rem;
+  position:relative;
+}
+
+.sns-logo > a > div > svg{
+  width: 4.2rem;
+  height: 4.2rem;
+  flex-shrink: 0;
+}
+
+.google-logo{
+  background: url('../imgs/google.png') no-repeat center / cover;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.kakao-logo{
+  margin-top:1px;
+  width: 2.6rem;
+  height: 2.4rem;
+  flex-shrink: 0;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.pw-box,
+.pw-check-box{
+  position: relative;  
+}
+
+.pw-onoff{
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: #FFF;
+  position: absolute;
+  right:15px;
+  bottom:31px;
+  transform: translateY(50%);
+}
