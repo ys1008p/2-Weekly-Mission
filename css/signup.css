@@ -1,9 +1,5 @@
 body {
   width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: var(--light-blue);
 }
 
@@ -15,6 +11,8 @@ body {
 
 main {
   width: 25rem;
+  margin: 0 auto;
+  margin-top: 10rem;
 }
 
 section {
@@ -56,27 +54,46 @@ section {
   gap: 0.75rem;
 }
 
-.input-area h2 {
-  font-size: 0.875rem;
-  color: var(--black);
+.input-area div {
+  width: 25rem;
 }
 
-.input-area form {
+.input-area .form_email,
+.input-area .form_pw {
+  margin-bottom: 1.5rem;
+}
+
+.input-area .signup_form h2 {
+  font-size: 0.875rem;
+  color: var(--black);
+  margin-bottom: 0.75rem;
+}
+
+.input-area .signup_form {
   width: 25rem;
   margin-bottom: 0.75rem;
 }
 
-.input-area .pw,
-.input-area .pw-check {
+.input-area .form_pw,
+.input-area .form_pw-check {
   position: relative;
 }
 
-.input-area .pw img,
-.input-area .pw-check img {
-  width: 1rem;
+.input-area .form_pw button,
+.input-area .form_pw-check button {
   position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
+  top: 2.8125rem;
+  right: 0.9375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-area .form_pw-check p {
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0.375rem;
 }
 
 .input-area input {
@@ -91,7 +108,7 @@ section {
   border: 1px solid var(--purple);
 }
 
-.input-area button {
+.input-area .signup-btn {
   background: linear-gradient(
     91deg,
     var(--purple) 0.12%,
@@ -99,10 +116,6 @@ section {
   );
   color: var(--gray-20);
   margin-top: 1.125rem;
-}
-
-.input-area div {
-  width: 25rem;
 }
 
 .social {

@@ -1,3 +1,4 @@
+/* Big Screen */
 @media (min-width: 1920px) {
   html {
     font-size: 14px;
@@ -16,7 +17,12 @@
   }
 }
 
-@media (min-width: 390px) and (max-width: 1199px) {
+/* PC */
+@media (min-width: 1200px) and (max-width: 1919px) {
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
   .page_container {
     width: 50rem;
   }
@@ -25,4 +31,8 @@
     width: 24.0625rem;
     height: 19.6875rem;
   }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
 }

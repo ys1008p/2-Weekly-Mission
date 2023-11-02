@@ -20,25 +20,29 @@
         </p>
       </section>
       <section class="input-area">
-        <h2>이메일</h2>
-        <form action="" class="id">
-          <input type="email" id="email" />
+        <form action="" class="signin_form">
+          <div class="form_email">
+            <h2>이메일</h2>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="form_pw">
+            <h2>비밀번호</h2>
+            <input type="password" id="pw" name="password" />
+            <button>
+              <img src="./assets/eye-off.svg" alt="closed-eye" />
+            </button>
+          </div>
         </form>
-        <h2>비밀번호</h2>
-        <form action="" class="pw">
-          <input type="password" id="pw" />
-          <img src="./assets/eye-off.svg" alt="closed-eye" />
-        </form>
-        <button class="login btn">로그인</button>
+        <button class="login-btn btn">로그인</button>
         <div class="social btn">
           <h3>소셜 로그인</h3>
           <div class="simple-login">
-            <a href="https://www.google.com/"
-              ><img src="./assets/google.svg" alt="google"
-            /></a>
-            <a href="https://www.kakaocorp.com/page/"
-              ><img src="./assets/kakao.svg" alt="kakao"
-            /></a>
+            <a href="https://www.google.com/">
+              <img src="./assets/google.svg" alt="google" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="./assets/kakao.svg" alt="kakao" />
+            </a>
           </div>
         </div>
       </section>
