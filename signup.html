@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>회원가입</title>
+  </head>
+</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>회원가입</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/reset.css" />
+    <link rel="stylesheet" href="./src/sign.css" />
+  </head>
+  <body>
+    <div class="sign">
+      <div class="sign-section">
+        <div class="sign-frame">
+          <div class="logo-sign-section">
+            <a href="index.html">
+              <img class="logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+            </a>
+            <div class="goto-sign">
+              <div>이미 회원이신가요?</div>
+              <a href="./signin.html">로그인 하기</a>
+            </div>
+          </div>
+          <form class="sign-form">
+            <div class="sign-form-section">
+              <div>
+                <label for="signup-email">
+                  이메일
+                </label>
+                <div>
+                  <input id="singup-email" name="email" type="email" autocomplete="off" placeholder="이메일" required>
+                </div>
+              </div>
+              <div>
+                <label for="signup-password">
+                  비밀번호
+                </label>
+                <div class="pwd-section">
+                  <input id="signup-password" name="password" type="password" placeholder="비밀번호" required>
+                  <div class="eye">
+                    <img src="images/eye-off.svg">
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="signup-password-comfirm">
+                  비밀번호 확인
+                </label>
+                <div class="pwd-section">
+                  <input id="signup-password-comfirm" name="password" type="password" placeholder="비밀번호" required>
+                  <div class="eye">
+                    <img src="images/eye-off.svg">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="sign-button">회원가입</button>
+          </form>
+        </div>
+        <div class="social-sign">
+          <div>다른 방식으로 가입하기</div>
+          <div class="social-sign-icon">
+            <a class="social-icon" href="https://www.google.com/">
+              <img class="google" src="images/icgoogle.png">
+              <img class="ic google" src="images/google.png">
+            </a>
+            <a class="social-icon" href="https://www.kakaocorp.com/page/">
+              <img class="kakao" src="images/ickakao.png">
+              <img class="ic kakao" src="images/kakao.png">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

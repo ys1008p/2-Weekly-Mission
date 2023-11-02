@@ -1,0 +1,189 @@
+:root {
+  --linkbrary-primary-color: #6D6AFE;
+  --linkbrary-red: #FF5B56;
+  --the-julge-black: #111322;
+  --linkbrary-black: #000;
+  --linkbrary-white: #FFF;
+  --linkbrary-gray-100: #373740;
+  --linkbrary-gray-60: #9FA6B2;
+  --linkbrary-gray-20: #CCD5E3;
+  --linkbrary-gray-10: #E7EFFB;
+  --linkbrary-bg: #F0F6FF;
+}
+
+html {
+  background: var(--linkbrary-bg);
+}
+
+.sign {
+  display: flex;
+  width: 100%;
+  padding: 238px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.sign-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo-sign-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 210px;
+}
+
+.goto-sign {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--linkbrary-black);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.goto-sign a {
+  position: relative;
+  top: -1px;
+  color: var(--linkbrary-primary-color);
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.sign-form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.sign-form-section div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+input {
+  border: 1px solid var(--linkbrary-gray-20);
+  border-radius: 8px;
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 18px 15px;
+  width: 400px;
+}
+
+input:focus {
+  border: 1px solid var(--linkbrary-primary-color);
+  outline: none;
+}
+
+.sign-button {
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #F5F5F5;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.social-sign {
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-gray-20);
+  background: var(--linkbrary-gray-10);
+  color: var(--linkbrary-gray-100);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.social-sign-icon {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.social-icon {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.google, .kakao {
+  width: 100%;
+}
+
+.ic.google {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 10px;
+  right: 10px;
+}
+
+.ic.kakao {
+  position: absolute;
+  width: 26px;
+  height: 24px;
+  right: 8px;
+  top: 9px;
+}
+
+.pwd-section {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  top: 23px;
+  right: 15px;
+}
+
