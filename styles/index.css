@@ -13,30 +13,12 @@
   justify-content: space-between;
 }
 
-.gnb__logo-img {
-  width: 13.3rem;
-  height: 2.4rem;
-  margin-left: 200px;
-}
-
-.gnb__signin {
-  width: 12.8rem;
-  margin-right: 200px;
-}
-
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 16.4rem;
   gap: 4rem;
-}
-
-.hero__heading {
-  margin: 0;
-  font-size: 6.4rem;
-  font-weight: 700;
-  text-align: center;
 }
 
 .hero__heading--gradient {
@@ -51,17 +33,6 @@
   width: 35rem;
 }
 
-.hero__img {
-  width: 120rem;
-  height: 59rem;
-  padding: 5rem 4.1rem 0;
-  overflow: hidden;
-}
-
-.hero__img--gradient {
-  position: relative;
-}
-
 .hero__img--gradient::before {
   position: absolute;
   top: 0;
@@ -74,21 +45,6 @@
     rgba(196, 196, 196, 0.7) 100%
   );
   content: "";
-}
-
-.hero__img--img {
-  width: 100%;
-  max-block-size: none;
-  border-radius: 25px 25px 0 0;
-  box-shadow: 0 0.4rem 2.5rem 0 rgba(0, 0, 0, 0.08);
-}
-
-.contents {
-  display: flex;
-  justify-content: center;
-  margin-top: 12rem;
-  margin-bottom: 5rem;
-  gap: 15.7rem;
 }
 
 section:nth-child(even) .contents {
@@ -113,25 +69,6 @@ section:nth-child(even) .contents {
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 150%;
-}
-
-.content__img {
-  display: flex;
-  position: relative;
-  flex-basis: 55rem;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  height: 45rem;
-  overflow: hidden;
-  border-radius: 15px;
-  background: var(--color-gray2);
-}
-
-.content__img--card {
-  flex-shrink: 0;
-  width: 24.4rem;
-  height: 23.9rem;
 }
 
 .content__img--download-icon {
@@ -226,4 +163,149 @@ footer {
 
 .footer__sns-links--icon {
   width: 2rem;
+}
+
+/* PC */
+@media only screen and (min-width: 1200px) {
+  .gnb__signin {
+    width: 12.8rem;
+    margin-right: 200px;
+  }
+
+  .gnb__logo-img {
+    width: 13.3rem;
+    height: 2.4rem;
+    margin-left: 200px;
+  }
+
+  .hero__heading {
+    margin: 0;
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 8rem;
+    text-align: center;
+  }
+
+  .hero__img {
+    width: 1200px;
+    height: 590px;
+    padding: 5rem 4.1rem 0;
+    overflow: hidden;
+  }
+
+  .hero__img--gradient {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 1118px;
+  }
+
+  .hero__img--img {
+    width: 1118px;
+    max-block-size: none;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 0.4rem 2.5rem 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .contents {
+    display: flex;
+    justify-content: center;
+    margin-top: 12rem;
+    margin-bottom: 5rem;
+    gap: 15.7rem;
+  }
+
+  .content__img {
+    display: flex;
+    position: relative;
+    flex-basis: 55rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    height: 45rem;
+    overflow: hidden;
+    border-radius: 15px;
+    background: var(--color-gray2);
+  }
+
+  .content__img--card {
+    flex-shrink: 0;
+    width: 24.4rem;
+    height: 23.9rem;
+  }
+}
+
+/* Tablet */
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+  .gnb__signin {
+    width: 12.8rem;
+    margin-right: 32px;
+  }
+
+  .gnb__logo-img {
+    width: 13.3rem;
+    height: 2.4rem;
+    margin-left: 32px;
+  }
+
+  .hero__heading {
+    width: 53rem;
+    margin: 0;
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 8rem;
+    text-align: center;
+  }
+
+  .hero__img {
+    width: 698px;
+    height: 343px;
+    padding: 29.1px 23.8px 0;
+    overflow: hidden;
+  }
+
+  .hero__img--gradient {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 650px;
+  }
+
+  .hero__img--img {
+    width: 650px;
+    max-block-size: none;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 0.4rem 1.2rem 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .contents {
+    display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+    gap: 5.1rem;
+  }
+
+  .content__img {
+    display: flex;
+    position: relative;
+    flex-basis: 38.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    height: 31.5rem;
+    overflow: hidden;
+    border-radius: 15px;
+    background: var(--color-gray2);
+  }
+
+  .content__img--card {
+    flex-shrink: 0;
+    width: 24.4rem;
+    height: 23.9rem;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) and (min-width: 375px) {
 }

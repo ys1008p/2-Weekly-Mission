@@ -15,6 +15,7 @@
 html {
   font-family: Pretendard, sans-serif;
   font-size: 62.5%;
+  word-break: keep-all;
 }
 
 @media screen and (min-width: 0\0) {
@@ -69,10 +70,26 @@ button:focus {
   color: transparent;
 }
 
-.wrap {
-  width: 100%;
-  max-width: 192rem;
-  margin: 0 auto;
+/* PC */
+@media only screen and (min-width: 1200px) {
+  .wrap {
+    width: 100%;
+    max-width: 192rem;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet */
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+  .wrap {
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) and (min-width: 375px) {
 }
 
 .bgc-blue {
