@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Linkbrary 로그인 페이지" />
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="/css/auth/index.css" />
+  </head>
+  <body class="auth-wrapper">
+    <main class="auth-content">
+      <form class="auth-form signin">
+        <header class="auth-form-header">
+          <a href="/index.html" class="logo" aria-label="홈페이지로 이동">
+            <h1 class="hidden">Linkbrary</h1>
+            <img
+              src="https://res.cloudinary.com/divjslgco/image/upload/v1698465630/codeit/icons/logo.svg"
+              alt="Linkbrary 로고"
+              aria-hidden
+            />
+          </a>
+          <nav class="auth-subnav">
+            회원이 아니신가요?
+            <a href="/auth/signup.html" class="subnav-link">회원 가입하기</a>
+          </nav>
+        </header>
+        <div class="auth-inputs">
+          <div class="auth-input">
+            <label for="id"> 이메일 </label>
+            <div class="input-wrapper">
+              <input
+                id="id"
+                name="id"
+                type="email"
+                placeholder="이메일을 입력해주세요."
+                required
+              />
+            </div>
+          </div>
+          <div class="auth-input">
+            <label for="password"> 비밀번호 </label>
+            <div class="input-wrapper">
+              <input
+                id="password"
+                name="password"
+                placeholder="비밀번호를 입력해주세요."
+                required
+                type="password"
+              />
+              <button class="icon eyetoggle" aria-label="패스워드 숨기기">
+                <img
+                  src="https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/eye-off"
+                  alt="패스워드 숨기기"
+                  aria-hidden
+                />
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="auth-submit">로그인</button>
+        </div>
+      </form>
+      <nav class="auth-social" aria-label="소셜 로그인 메뉴">
+        소셜 로그인
+        <div class="social-navs">
+          <a
+            href="https://www.google.com/"
+            class="icon"
+            aria-label="구글 로그인"
+            ><img
+              src="https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/google"
+              alt="구글 로그인"
+              aria-hidden
+          /></a>
+          <a
+            href="https://www.kakaocorp.com/page/"
+            class="icon"
+            aria-label="카카오 로그인"
+            ><img
+              src="https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/kakao"
+              alt="카카오 로그인"
+              aria-hidden
+            />
+          </a>
+        </div>
+      </nav>
+    </main>
+  </body>
+</html>
