@@ -1,118 +1,121 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Linkbrary</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-      <div>
+  <header>
+    <div class="header-container">
       <div class="header-logo-login">
         <a href="./index.html"><img src="./images/head_logo.svg"></a>
         <a id="login" href="./signin.html">로그인</a>
       </div>
-    </header>
-    <main>
-      <div class="title">
-        <h1 class="info-title"><span class="info-title-accent">세상의 모든 정보</span>를<br>쉽게 저장하고 관리해 보세요</h1>
+  </header>
+  <main>
+    <div class="title">
+      <h1 class="info-title"><span class="info-title-accent">세상의 모든 정보</span>를<br>쉽게 저장하고 관리해 보세요</h1>
+    </div>
+    <a class="signup" href="./signup.html">링크 추가하기</a>
+    <div class="image-box">
+      <img src="./images/image 25.png" alt="main_image">
+    </div>
+  </main>
+  <section id="first-section">
+    <div class="container">
+      <div class="section-text-container">
+        <div class="section-text">
+          <h1><span class="text-accent1">원하는 링크</span>를<br> 저장하세요</h1>
+        </div>
+        <p>나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+          사고 싶은 옷, 기억하고 싶은 모든 것을
+          한 공간에 저장하세요.</p>
       </div>
-        <a class="signup" href="./signup.html">링크 추가하기</a>
-      <div class="image-box">
-        <img src="./images/image 25.png" alt="main_image"> 
-      </div>  
-    </main>
-    <section id="first-section">
-      <div class="container">
-        <div class="section-text-container">
-          <div class="section-text">
-            <h1><span class="text-accent1">원하는 링크</span>를<br> 저장하세요</h1>          
+      <div class="img-box  md-background1">
+        <div class="img-container">
+          <img class="img" src="./images/Card1.png">
+          <div id="image-select">
+            <img class="img" src="./images/Card.png">
           </div>
-          <p>나중에 읽고 싶은 글, 다시 보고 싶은 영상,
-            사고 싶은 옷, 기억하고 싶은 모든 것을
-            한 공간에 저장하세요.</p>
-        </div>
-        <div class="img-box">
-          <div class="img-container">
-            <img class="img" src="./images/Card1.png">
-            <div id="image-select">
-              <img class="img" src="./images/Card.png">
-            </div>
-            <img id="group" src="./images/Group 20.svg">
-            <img class="img" src="./images/card-1.png">
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container revers">
-        <div class="section-text-container">
-          <div class="section-text">
-            <h1>링크를 폴더로<br><span class="text-accent2">관리</span>하세요</h1>
-          </div>
-          <p>
-            나만의 폴더를 무제한으로 만들고 
-            다양하게 활용할 수 있습니다.
-          </p>
-        </div>
-        <div class="img-box">
-          <div class="img-container">
-            <img src="./images/디스크립션 없는 팝업 1.png">
-          </div>
+          <img id="group" src="./images/Group 20.svg">
+          <img class="img" src="./images/card-1.png">
         </div>
       </div>
-    </section>
-    <section>
-      <div class="container relative">
-        <div class="section-text-container">
-          <div class="section-text">
-            <h1> 저장한 링크를<br><span class="text-accent3">공유</span>해보세요</h1>
-          </div>
-          <p>
-            중요한 정보들을 검색으로 쉽게 찾아보세요.
-          </p>
+    </div>
+  </section>
+  <section>
+    <div class="container revers">
+      <div class="section-text-container">
+        <div class="section-text">
+          <h1>링크를 폴더로<br><span class="text-accent2">관리</span>하세요</h1>
         </div>
-        <div class="img-box-container">
-            <div class="supimage-background">
-              <img class="supimage" src="./images/폴더 공유하기 팝업 1.png">
-            </div>
+        <p>
+          나만의 폴더를 무제한으로 만들고
+          다양하게 활용할 수 있습니다.
+        </p>
+      </div>
+      <div class="img-box md-background2 display-none">
+        <div class="img-container">
+          <img src="./images/디스크립션 없는 팝업 1.png">
         </div>
       </div>
-    </section>
-    <section>
-      <div class="container revers">
-        <div class="section-text-container">
-          <div class="section-text">
-            <h1>저장한 링크를<span class="text-accent4">검색</span>해 보세요</h1>
-          </div>
-          <p>
-            나만의 폴더를 무제한으로 만들고 
-            다양하게 활용할 수 있습니다.
-          </p>
+    </div>
+  </section>
+  <section>
+    <div class="container relative">
+      <div class="section-text-container">
+        <div class="section-text">
+          <h1> 저장한 링크를<br><span class="text-accent3">공유</span>해보세요</h1>
         </div>
-        <div class="img-box">
-          <div class="img-container">
-            <img class="screenshot" src="./images/스크린샷 2023-03-17 오후 3.22 1.png">
-          </div>
+        <p>
+          중요한 정보들을 검색으로 쉽게 찾아보세요.
+        </p>
+      </div>
+      <div class="img-box md-background3 display-none">
+        <div class="supimage-background">
+          <img class="supimage" src="./images/폴더 공유하기 팝업 1.png">
         </div>
       </div>
-    </section>
-    <footer>
-      <div class="footer-max">
-        <div class="left-box">
-          ©codeit - 2023
+    </div>
+  </section>
+  <section>
+    <div class="container revers">
+      <div class="section-text-container">
+        <div class="section-text">
+          <h1>저장한 링크를<span class="text-accent4">검색</span>해 보세요</h1>
         </div>
-        <div class="center-box">
-          <a href="./privacy">Privacy Policy</a><a href="./faq">FAQ</a>
-        </div>
-        <div class="right-box">
-          <a href="https://facebook.com" target="_blink"><img src="./images/facebook.svg"></a>
-          <a href="https://twitter.com" target="_blink"><img src="./images/twitter.svg"></a>
-          <a href="https://youtube.com" target="_blink"><img src="./images/youtube.svg"></a>
-          <a href="https://instagram.com" target="_blink"><img src="./images/instagram.svg"></a>
+        <p>
+          나만의 폴더를 무제한으로 만들고
+          다양하게 활용할 수 있습니다.
+        </p>
+      </div>
+      <div class="img-box md-background4 display-none">
+        <div class="img-container">
+          <img class="screenshot" src="./images/스크린샷 2023-03-17 오후 3.22 1.png">
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-max">
+      <div class="left-box">
+        ©codeit - 2023
+      </div>
+      <div class="center-box">
+        <a href="./privacy">Privacy Policy</a><a href="./faq">FAQ</a>
+      </div>
+      <div class="right-box">
+        <a href="https://facebook.com" target="_blink"><img src="./images/facebook.svg"></a>
+        <a href="https://twitter.com" target="_blink"><img src="./images/twitter.svg"></a>
+        <a href="https://youtube.com" target="_blink"><img src="./images/youtube.svg"></a>
+        <a href="https://instagram.com" target="_blink"><img src="./images/instagram.svg"></a>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
