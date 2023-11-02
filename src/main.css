@@ -16,15 +16,14 @@ nav {
   padding: 0 20rem;
 }
 
-.nav-background{
+.nav-background {
   position: fixed;
   background-color: #edf7ff;
-  width:100%;
-  display:flex;
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .hero-header {
   display: flex;
@@ -74,8 +73,8 @@ nav {
 }
 
 .hero-image {
-  width: 120rem;
-  height: 59rem;
+  width: 1200px;
+  height: 590px;
 }
 
 article {
@@ -99,7 +98,7 @@ section:nth-of-type(odd) {
     "title image"
     "description image"
     ". image"
-    /291px 55rem;
+    /291px 550px;
 }
 
 section:nth-of-type(even) {
@@ -108,7 +107,7 @@ section:nth-of-type(even) {
     "image title"
     "image description"
     "image ."
-    /550px 29.1rem;
+    /550px 291px;
 }
 
 .title {

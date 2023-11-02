@@ -13,7 +13,7 @@
   </head>
   <body>
     <section class="logo-link-container">
-      <a href="index.html">
+      <a href="/">
         <img
           class="logo"
           src="./images/logo.svg"
@@ -27,7 +27,7 @@
     </section>
     <form class="form">
       <div class="label-textfield">
-        <label>
+        <label class="label">
           이메일
           <input
             type="email"
@@ -36,10 +36,10 @@
             required
           />
         </label>
-        <label class="password-container">
+        <label class="label password-container">
           비밀번호
           <input type="password" name="password" placeholder="" required />
-          <img scr = "./images/facebook.svg" class="eye"></img>
+          <object class="eye" data = "./images/eye-off.svg"></object>
         </label>
       </div>
       <button class="button" type="submit"><span>로그인</button>
