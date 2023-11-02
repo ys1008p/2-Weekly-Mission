@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrap {
+  width: 400px;
+  height: 492px;
+  margin: 238px auto 252px;
+}
+
+.header {
+  width: 400px;
+  height: 108px;
+}
+
+.header1 {
+  width: 218px;
+  height: 78px;
+  margin: 0 auto;
+}
+
+.header1-text {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text1 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  color: #000;
+}
+
+.text2 {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: #6d6afe;
+  text-decoration: underline;
+  text-decoration-color: #6d6afe;
+  text-decoration-thickness: 1px;
+}
+
+.email-text {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #000;
+}
+
+.email-input {
+  padding: 18px 15px;
+  margin: 12px 0 24px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+  background: #fff;
+}
+.password-text {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #000;
+}
+
+.password-input {
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+  background: #fff;
+  padding: 18px 15px;
+  margin: 12px 0 30px;
+  position: relative;
+}
+
+.login-btn {
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  margin-bottom: 32px;
+  border: none;
+}
+.login-btn-text {
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: #f5f5f5;
+}
+
+.footer {
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+  background-color: #e7effb;
+}
+
+.footer-text {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #373740;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+input:focus {
+  border-color: blue;
+  outline: none;
+}
