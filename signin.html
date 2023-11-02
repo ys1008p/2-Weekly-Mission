@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linkbrary / 로그인</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/common.css" />
+  <link rel="stylesheet" href="styles/sign.css" />
+</head>
+<body>
+  <div class="sign">
+    <header class="sign-header">
+      <h1 class="logo">
+        <a class="link-home" href="/">
+          <img class="image-logo" src="images/sign/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+        </a>
+      </h1>
+      <p class="text">회원이 아니신가요? <a href="/signup.html" class="link-signup">회원가입</a></p>
+    </header>
+
+    <div class="sign-body">
+       <form class="sign-form">
+          <div class="input-container">
+            <div class="input-row">
+              <label for="useremail">이메일</label>
+              <input id="useremail" type="email" name="useremail" placeholder="codeit@codeit.com" />
+            </div>
+            <div class="input-row">
+              <label for="password">비밀번호</label>
+              <div class="input-wrap">
+                <input id="password" type="password" name="password" />
+                <!-- MEMO: .hide 클래스 활성시 aria-label의 텍스트 '비밀번호 숨기기' 변경 -->
+                <button class="button-show" aria-label="비밀번호 보기"></button>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="button-primary">로그인</button>
+        </form>
+    </div>
+
+    <footer class="sign-footer">
+      <label>소셜 로그인</label>
+      <div class="social-login">
+         <a href="https://www.google.com/">
+          <img class="image" src="images/sign/icon_google.png" alt="구글" />
+        </a>
+        <a href="https://www.kakaocorp.com/page/">
+          <img class="image" src="images/sign/icon_kakao.png" alt="카카오톡" />
+        </a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

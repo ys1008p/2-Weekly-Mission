@@ -1,0 +1,142 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--blue-color-bg);
+}
+
+.header .container {
+  align-items: center;
+  padding: 0 20rem;
+  height: 9rem;
+}
+
+.landing {
+  padding-top: 7rem;
+  background-color: var(--blue-color-bg);
+  text-align: center;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4rem;
+}
+
+.landing .title {
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 8rem;
+}
+
+.landing .image {
+  width: 120rem;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10rem;
+  padding: 12rem 0;
+}
+
+.service {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99.8rem;
+}
+
+.service:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.service .title {
+  margin-bottom: 1rem;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 5.8rem;
+  letter-spacing: -0.03rem;
+}
+
+.service .description {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #6B6B6B;
+}
+
+.service-content {
+  flex-basis: 55rem;
+}
+
+.service .image {
+  width: 100%;
+}
+
+.footer {
+  background-color: #111322;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #CFCFCF;
+  text-align: center;
+}
+
+.footer .container {
+  height: 16rem;
+  padding: 3.2rem 10.4rem;
+}
+
+.footer .copyright {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.footer-info .privacy {
+  margin-right: 3rem;
+}
+
+.footer-sns {
+  display: flex;
+  column-gap: 1.2rem;
+}
+
+.footer-sns .image {
+  width: 2rem;
+}
+
+.background-clip-text  {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-landing-gradient {
+  background-image: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+}
+
+.title-1-gradient {
+  background-image: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+}
+
+.title-2-gradient {
+  background-image: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+}
+
+.title-3-gradient {
+  background-image: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+}
+
+.title-4-gradient {
+  background-image: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+}
+
+.button-primary.signin {
+  width: 12.8rem;
+}
+
+.button-primary.signup {
+  width: 35rem;
+}
