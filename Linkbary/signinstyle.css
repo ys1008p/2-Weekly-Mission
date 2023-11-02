@@ -2,9 +2,10 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f0f6ff;
     margin: 238px 520px 252px;
     width: 400px;
+    background-color: #f0f6ff;
+
 }
 form{
     display: flex;
@@ -12,116 +13,103 @@ form{
     align-items: center;
     width: 400px;
 }
-.logo{/*linkbary 로고 크기 설정*/
+.logo{
     width: 210.583px;
     height: 38px;
 }
-.text-flex{/* 가로로 플렉스로 정렬*/
+.text-flex{
     display: flex;
-
 }
-.signuptext{/*회원가입하기의 버튼 부분*/
+.signuptext{
     color:
-     var(--linkbrary-primary-color, #6D6AFE);
-    /* Linkbrary/body 1-semibold */
-    font-family: Pretendard;
+     #6D6AFE;
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     text-decoration: underline;
 }
 
-.signup{/*회원이 아니신가요? 부분의 기본 설정*/
+.signup{
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    color: var(--black, #000);
+    color: 
+     #000;
     font-size: 16px;
     font-weight: 400;
 }
-header{/*로그인 폼 위의 부분*/
+header{
     gap: 16px;
     width: 218px;
     height: 78px;
 }
-.login-form{/*이메일, 비밀번호를 감싼 영역 부분, 세로로 정렬하기 위해서*/
+.login-form{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
     margin: 30px 0;
-    color: var(--black, #000);
+    color: #000;
     /* Linkbrary/body2-regular */
-    font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
 }
 
-input{/*이메일, 비밀번호 입력 창*/
+input{
     display: flex;
-    width: 400px;
-    padding: 18px 15px;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
-    background: var(--linkbrary-white, #FFF);
+    width: 400px;
+    padding: 18px 15px;
     margin: 12px 0;
+    background-color:  #FFF;
+    border-radius: 8px;
+    border: 1px solid  #6D6AFE;
 }
-input:focus{/*input을 포커스했을 때 이벤트*/
+input:focus{
     border: 1px solid blue;
 
 }
-.password{/*비밀번호 창 위에 눈 모양 아이콘을 띄우기 위해*/
+.password{
     position: relative;
 }
-.eyes{/*눈 모양 아이콘 설정*/
+.eyes{
+    position: absolute;
     width: 16px;
     height: 16px;
-    position: absolute;
     z-index: 1;
 }
-.login{/*로그인 창*/
+.login{
     display: flex;
-    width: 400px;
-    padding: 16px 20px;
     justify-content: center;
     align-items: center;
+    width: 400px;
+    padding: 16px 20px;
     gap: 10px;
-    border-radius: 8px;
+    color:  #F5F5F5;
     background:
-    var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-    color: var(--grey-light, #F5F5F5);
-    font-family: Pretendard;
+    linear-gradient(91deg, #6D6AFE , #6AE3FE);
+    border-radius: 8px;
     font-size: 18px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
 }
-footer{/*푸터 부분 정렬*/
+footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 32px;
     width: 400px;
+    margin-top: 32px;
     padding: 12px 24px;
-     /* Linkbrary/body2-regular */
-    font-family: Pretendard;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal; 
+    background-color:  #E7EFFB;
+    border: 1px solid  #CCD5E3;
     border-radius: 8px;
-    border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-    background: var(--linkbrary-gray-10, #E7EFFB);
+    font-size: 14px;
+    font-weight: 400;
 }
 .social{
-    color: var(--linkbrary-gray-100, #373740);
+    color: 
+     #373740;
 }
-.icons{/*구글, 카카오톡 아이콘 정렬*/
+.icons{
     display: flex;
     gap: 16px;
 }
