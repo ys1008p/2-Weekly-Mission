@@ -754,8 +754,8 @@ a {
   }
 
   .absolute-icon {
-    width: 27px;
-    height: 27px;
+    width: 6.5vw;
+    height: 6.5vw;
   }
 
   .gapdiv {
@@ -763,9 +763,9 @@ a {
   }
 
   .num2-border {
-    top: 3px;
-    left: 8px;
-    width: 37.3vw;
+    top: 0.9vw;
+    left: 1.8vw;
+    width: 37.1vw;
     height: 34.3vw;
   }
 
