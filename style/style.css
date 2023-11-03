@@ -16,7 +16,6 @@ section {
   padding-bottom: 12rem;
 }
 
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -46,7 +45,6 @@ nav {
 .login {
   width: 12.8rem;
 }
-
 
 header {
   padding-top: 7rem;
@@ -88,7 +86,7 @@ h1 {
   height: 59rem;
 }
 
-.content:nth-of-type(odd) {
+.content {
   background-color: var(--white-color, #ffffff);
   padding: 5rem 46.1rem;
   display: grid;
@@ -96,26 +94,6 @@ h1 {
   column-gap: 15.7rem;
   row-gap: 1rem;
   width: 100%;
-  grid-template:
-    ". image"
-    "title image"
-    "description image"
-    ". image" /291px 55rem;
-}
-
-.content:nth-of-type(even) {
-  background-color: var(--white-color, #ffffff);
-  padding: 5rem 46.1rem;
-  display: grid;
-  justify-content: center;
-  column-gap: 15.7rem;
-  row-gap: 1rem;
-  width: 100%;
-  grid-template:
-    "image ."
-    "image title"
-    "image description"
-    "image ." /550px 29.1rem;
 }
 
 .title {
@@ -135,6 +113,7 @@ h1 {
 .image {
   width: 55rem;
   height: 45rem;
+  grid-area: image;
 }
 
 .img1 {
@@ -144,7 +123,6 @@ h1 {
   flex-wrap: nowrap;
   overflow: hidden;
   align-items: center;
-  grid-area: image;
 }
 
 .img1 .card {
@@ -169,7 +147,6 @@ h1 {
   justify-content: center;
   align-items: center;
   position: flex;
-  grid-area: image;
 }
 
 .img3 {
@@ -179,7 +156,6 @@ h1 {
   height: 46.9rem;
   overflow: hidden;
   border-radius: 2.5rem;
-  grid-area: image;
 }
 
 .share-background {
@@ -200,7 +176,6 @@ h1 {
   background-color: var(--gray-bg-color, #f0f6ff);
   position: relative;
   overflow: hidden;
-  grid-area: image;
 }
 
 .screenshot {
@@ -241,4 +216,94 @@ footer {
   display: flex;
   gap: 1.2rem;
   cursor: pointer;
+}
+
+/* mobile */
+@media (min-width: 375px) {
+  nav {
+    padding: 2rem 3.2rem;
+  }
+
+  .br {
+    display: none;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  h1 {
+    width: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    padding: 0 3.2rem;
+  }
+
+  .title,
+  .description,
+  .image {
+    width: 100%;
+  }
+
+/* grid에 너비 꽉차게...왜 안됮.....흑 */
+  .content:nth-of-type(odd) { 
+    padding: 4rem 3.2rem;
+    row-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    grid-template:
+      "title"
+      "description"
+      "image";
+  }
+  .content:nth-of-type(even) {
+    padding: 4rem 3.2rem;
+    row-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    grid-template:
+      "title"
+      "description"
+      "image";
+  }
+
+  .codeit {grid-area: codeit;}
+  .policy {grid-area: policy;}
+  .sns {grid-area: sns;}
+
+  .info {
+    display: grid;
+    row-gap: 6rem;
+    grid-template: 
+      "policy sns"
+      "codeit .";
+    }
+}
+
+@media (min-width: 768px) {
+
+}
+
+/* PC */
+@media (min-width: 1200px) {
+
+  .content:nth-of-type(odd) {
+    grid-template:
+    ". image"
+    "title image"
+    "description image"
+    ". image" /291px 55rem;
+  }
+
+  .content:nth-of-type(even) {
+    grid-template:
+    "image ."
+    "image title"
+    "image description"
+    "image ." /550px 29.1rem;
+  }
+
 }
