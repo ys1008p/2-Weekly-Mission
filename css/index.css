@@ -98,41 +98,41 @@ main section.card-section4 {
     "image description"
     "image ." /550px 29.1rem;
 }
-main .card-section .section-tit {
+main .card-section .section-title {
   font-size: 4.8rem;
   font-weight: 700;
   line-height: 5.8rem;
   letter-spacing: -0.03rem;
   grid-area: title;
 }
-main .card-section .section-txt {
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 2.4rem;
-  color: #6b6b6b;
-  word-break: keep-all;
-  grid-area: description;
-}
-main .card-section .section-tit span {
+main .card-section .section-title span {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-main .card-section1 .section-tit span {
+main .card-section1 .section-title span {
   background-image: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
 }
-main .card-section2 .section-tit span {
+main .card-section2 .section-title span {
   background-image: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
 }
-main .card-section3 .section-tit span {
+main .card-section3 .section-title span {
   background-image: linear-gradient(
     99deg,
     #6d7ccd 19.76%,
     rgba(82, 136, 133, 0.22) 52.69%
   );
 }
-main .card-section4 .section-tit span {
+main .card-section4 .section-title span {
   background-image: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
+}
+main .card-section .section-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  color: #6b6b6b;
+  word-break: keep-all;
+  grid-area: description;
 }
 main .card-section .section-img {
   width: 100%;
@@ -256,12 +256,12 @@ footer .footer-wrap .sns-wrap {
       " image"
       "description";
   }
-  main .card-section .section-tit {
+  main .card-section .section-title {
     margin-bottom: 0.4rem;
     font-size: 2.4rem;
     line-height: normal;
   }
-  main .card-section .section-txt {
+  main .card-section .section-text {
     font-size: 1.5rem;
     line-height: 150%;
   }
