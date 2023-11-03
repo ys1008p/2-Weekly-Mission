@@ -1,12 +1,12 @@
 @mixin responsive($screen) {
   @if ($screen == 'T') {
-    @media screen and (min-width: $tablet-breakpoint) and (max-width: $desktop-breakpoint - 1) {
+    @media screen and (max-width: $md-breakpoint) {
       @content;
     }
   }
 
   @if ($screen == 'M') {
-    @media screen and (min-width: $mobile-breakpoint) and (max-width: $tablet-breakpoint - 1) {
+    @media screen and (max-width: $sm-breakpoint) {
       @content;
     }
   }
