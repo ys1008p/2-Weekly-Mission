@@ -325,8 +325,7 @@ a {
   top: 55px;
   left: 60px;
   border-radius: 15px;
-  /*background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 48.72%, #000 128.17%);
-    background-size: 619px 584px;*/
+
 }
 
 .num2-imgdiv.last {
@@ -589,7 +588,7 @@ a {
 }  .blink-p{display: block;}
 .blink-p1{display: none;}
 
-@media (min-width:375px) and (max-width:767px) {
+@media (max-width:767px) {
   .header {
     width: 100%;
     max-width: 767px;
@@ -882,7 +881,7 @@ grid-template-areas: "subject"
   .num2-imgdiv.last{
     margin : auto;  grid-area: img;}
   .last-contents{     grid-area: subcontents;
-    width: 325px;
+    width: 100%;
 
   }.num2-subject{ grid-area: subject;}
   .blink-p{display: none;}
