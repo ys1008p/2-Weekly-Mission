@@ -1,11 +1,2 @@
-/* 
-* PC ····························· 1024px ~
-* Laptop & Tablet 가로 ············ 1024px ~ 1279px 
-* Tablet 가로 ····················· 768px ~ 1023px
-* Mobile 가로 & Tablet 세로 ········ 480px ~ 767px
-* Mobile 세로 ····················· ~ 479px
-*/
-
-$desktop-breakpoint: 1200px;
-$tablet-breakpoint: 768px;
-$mobile-breakpoint: 360px;
+$md-breakpoint: 1199px;
+$sm-breakpoint: 767px;
