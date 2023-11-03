@@ -48,6 +48,15 @@
 
 /* PC */
 @media only screen and (min-width: 1200px) {
+  .gnb {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 2rem 0;
+  }
+
   .gnb__signin {
     width: 12.8rem;
     margin-right: 200px;
@@ -97,11 +106,12 @@
   .contents {
     display: flex;
     justify-content: center;
-    margin: 10rem 0;
+    margin-top: 10rem;
     gap: 15.7rem;
   }
 
   .contents__info--heading {
+    width: 38.6rem;
     margin: 0;
     font-size: 4.8rem;
     font-weight: 700;
@@ -109,6 +119,7 @@
   }
 
   .contents__info--desc {
+    width: 26rem;
     margin: 1rem 0 0;
     color: #6b6b6b;
     font-size: 1.6rem;
@@ -164,6 +175,15 @@
 
 /* Tablet */
 @media only screen and (max-width: 1199px) and (min-width: 768px) {
+  .gnb {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 2rem 0;
+  }
+
   .gnb__signin {
     width: 12.8rem;
     margin-right: 32px;
@@ -219,6 +239,7 @@
   }
 
   .contents__info--heading {
+    width: 39.5rem;
     margin: 0;
     font-size: 4.8rem;
     font-weight: 700;
@@ -226,6 +247,7 @@
   }
 
   .contents__info--desc {
+    width: 26.5rem;
     margin: 1rem 0 0;
     color: #6b6b6b;
     font-size: 1.6rem;
@@ -234,8 +256,10 @@
   }
 
   .content__img--img {
+    display: block;
     width: 385px;
     height: 315px;
+    max-inline-size: none;
   }
 
   .footer {
@@ -281,4 +305,110 @@
 
 /* Mobile */
 @media only screen and (max-width: 767px) and (min-width: 375px) {
+  .gnb {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 1.3rem 0;
+  }
+
+  .gnb__signin {
+    width: 8rem;
+  }
+
+  .gnb__logo-img {
+    width: 8.8667rem;
+    height: 1.6rem;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 9.1rem;
+    gap: 2.4rem;
+  }
+
+  .hero__heading {
+    width: 26.5rem;
+    margin: 0;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 4.2rem;
+    text-align: center;
+  }
+
+  .hero__signup {
+    width: 20rem;
+  }
+
+  .main-margin {
+    margin: 4rem 0;
+  }
+
+  .contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+    gap: 2.4rem;
+  }
+
+  .contents__info--heading {
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.03rem;
+  }
+
+  .contents__info--desc {
+    width: 32.5rem;
+    margin: 1rem 0 0;
+    color: #6b6b6b;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  .footer {
+    background-color: var(--color-black);
+  }
+
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 3.2rem 3.2rem;
+  }
+
+  .footer__copy-right {
+    color: #676767;
+    font-family: Arial;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  .footer__pages {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .footer__pages--link {
+    color: #cfcfcf;
+    font-family: Arial;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .footer__sns-links {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .footer__sns-links--icon {
+    width: 2rem;
+  }
 }
