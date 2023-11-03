@@ -728,7 +728,7 @@ font-size: 3.4vw;
   }
 
   .num2-imgdiv {
-    width: 82vw;
+    width: 88vw;
     height: 68vw;
     display: flex;
     overflow: hidden;
@@ -782,7 +782,7 @@ font-size: 3.4vw;
 
   .section.num2.reverse {
     display: grid;
-    grid-template: 1fr 266px auto/1fr;
+
 margin: 0 auto;
 grid-template-areas: "subject"
 "img"
@@ -792,7 +792,7 @@ grid-template-areas: "subject"
 
 
   .num2-imgdiv.num2-backgroundimg1 {
-    width: 81vw;
+    width: 88vw;
     height: 68vw;
     background-size: 100% 100%;
   }
@@ -851,7 +851,7 @@ grid-template-areas: "subject"
   }
 
   #first-section1 {
-    width: 82vw;
+    width: 88vw;
     height: 64vw;
     display: flex;
     overflow: hidden;
@@ -883,7 +883,7 @@ grid-template-areas: "subject"
     margin : auto;  grid-area: img;}
   .last-contents{     grid-area: subcontents;
     width: 325px;
-    margin: 0 auto;
+
   }.num2-subject{ grid-area: subject;}
   .blink-p{display: none;}
 .blink-p1{display: block;}
