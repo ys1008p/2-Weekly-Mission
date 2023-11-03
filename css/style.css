@@ -1,45 +1,49 @@
-* { padding:0; margin:0;}
+* { padding:0; margin:0; box-sizing:border-box;}
 img { vertical-align:top;}
 ul,ol,li { list-style:none; }
 body { line-height:1; box-sizing:border-box; font-family:pretendard;}
 a { text-decoration:none;}
-/* header */
-#head{
-    height:94px;
+/* nav */
+nav {
     display:flex;
-    align-items:center;
-    /* 네비게이션 바 최상단 고정  */
+    justify-content:center;
+    background-color: #F0F6FF;
+    /* nav 상단 고정 */
     position:fixed;
     top:0;
     width:100%;
 }
-/* 배경색상 */
-#head, .c1 { 
-    background-color:#f0f6ff;
-   
-}
-.h_center{
-    margin:0 auto;
-    width:1520px;
-    height:54px;
+.nav_center {
     display:flex;
     justify-content:space-between;
+    align-items: center;
+    width:1520px;
 }
-.h_center > a {
-    width:128px; 
-    color:#fff;
-    background-image:linear-gradient(91deg,rgba(109,106,254,1) 0.12%, rgba(106,227,254,1) 101.84%);
-    border-radius:8%;     
+
+.nav_center ul {
+    margin:20px 0;
+}
+.nav_center ul a {
+    display:inline-block;
     text-align:center;
-    line-height:54px;
+    width:128px;
+    color:#ffffff;
+    background:linear-gradient(91deg,rgba(109,106,254,1) 0.12%, rgba(106,227,254,1) 101.84%);
+    border-radius:8px; 
+    padding:16px 20px;
     cursor: pointer;
+   
 }
+
 /* contain */
 /* c1 */
+.c1 {
+    background-color: #F0F6FF;
+}
 .c1_center {
     width:1200px;
     margin:0 auto;
-    padding-top:150px;
+    padding-top:164px;
 }
 .c1_center > h1 {
     font-size: 64px;
@@ -68,7 +72,7 @@ a { text-decoration:none;}
     border-radius: 25px;
     background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
     margin:50px 41px 0;
-    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+    /* box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08); */
 }
 /* c2-c5 레이아웃(동일) */
 .contCent {
@@ -178,8 +182,14 @@ footer {
     margin-top:120px;
     background-color: #111322 ;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     padding:32px 0 64px;
+}
+.f_center {
+    width:1712px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 footer p { 
     color:gray;
