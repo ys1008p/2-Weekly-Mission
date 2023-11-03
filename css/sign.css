@@ -103,3 +103,17 @@ main .sns_sign_wrap .sns_logo_wrap a {
   display: flex;
   align-items: center;
 }
+
+@media (max-width: 1199px) {
+  main {
+    padding: 20rem 0;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    width: 100%;
+    max-width: 40rem;
+    padding: 12rem 3.2rem;
+  }
+}
