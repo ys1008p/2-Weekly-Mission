@@ -78,7 +78,6 @@
   font-size: 1.6rem;
   font-weight: 400;
   color: #CFCFCF;
-  text-align: center;
 }
 
 .footer .container {
@@ -87,8 +86,7 @@
 }
 
 .footer .copyright {
-  font-size: 1.6rem;
-  font-weight: 400;
+  color: #676767;
 }
 
 .footer-info .privacy {
