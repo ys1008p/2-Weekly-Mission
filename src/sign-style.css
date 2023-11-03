@@ -32,6 +32,10 @@ body {
   font-weight: 600;
 }
 
+.container{
+  width: 400px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -46,7 +50,7 @@ label {
 
 input {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 18px 15px;
   justify-content: center;
   align-items: center;
@@ -71,7 +75,7 @@ input:focus {
   border: none;
   display: flex;
   cursor: pointer;
-  width: 400px;
+  width: 100%;
   padding: 16px 20px;
   margin-top: 30px;
   margin-bottom: 32px;
@@ -93,6 +97,7 @@ input:focus {
 
 .password-box,
 .password-check-box {
+  width: 100%;
   position: relative;
 }
 
@@ -108,7 +113,7 @@ input:focus {
 
 .sns-signin {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 12px 24px;
   justify-content: space-between;
   align-items: center;
@@ -158,4 +163,12 @@ input:focus {
   width: 26px;
   height: 24px;
   display: inline-block;
+}
+
+@media(max-width:767px){
+  .container{
+    max-width: 464px;
+    width: 100vw;
+    padding: 0 32px;
+  }
 }
