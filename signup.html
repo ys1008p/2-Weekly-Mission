@@ -3,13 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>회원가입</title>
-    <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-  />
- 
-  <link rel="stylesheet" href="./src/signup.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/> 
+  <link rel="stylesheet" href="./src/signup.css"/>
+<link rel="stylesheet" href="./src/reset.css">
   </head>
   <body>
 <main>
@@ -25,11 +21,11 @@
       </div>
       </div>
     </div>
-     <div class="signin-container">
-      <div class="email-box">
-      <label for="email" class="input-label">이메일</label>
-      <input type="email" id="email">
-    </div>
+  <form class="signup-container">
+  <div class="email-box">
+  <label for="email" class="input-label">이메일</label>
+  <input type="email" id="email">
+  </div>
       <div class="pw-box">
       <label for="pw" class="input-label">비밀번호</label>
       <input type="text" id="password">
@@ -38,25 +34,25 @@
       <label for="pw" class="input-label">비밀번호 확인</label>
       <input type="text" id="password">
     </div>
-    <div class="signin-btn">
+    <div class="signup-btn">
      <a href="/" class="login-btn">회원가입</a>
     </div>
-     </div>
+     </form>
      <div class="snslogin-box">
       <span class="sns-text">다른 방식으로 가입하기</span>
       
       <div class="sns-icoBox">
-      <div class="google-ico">
-        <a href="https://www.google.com/" target="_blank">
-         <img src="./images/google.svg" alt="구글배경" class="ico-bg">
-         <img src="./images/google.png" alt="구글아이콘" class="ico">
-        </a>
-      </div>
+        <div class="google-ico">
+          <a href="https://www.google.com/" target="_blank" alt="구글로 이동하기">
+            <img src="./images/google.svg" alt="" class="ico-bg"/>
+            <img src="./images/google.png" alt="" class="ico"/>
+          </a>
+        </div>
 
-      <div class="kakao-ico">
-        <a href="https://www.kakaocorp.com/page/" target="_blank">
-        <img src="./images/back-kakao.svg" alt="카카오배경" class="ico-bg">
-        <img src="./images/kakao.svg" alt="카카오아이콘" class="ico">
+        <div class="kakao-ico">
+          <a href="https://www.kakaocorp.com/page/"target="_blank"alt="카카오로 이동하기">
+            <img src="./images/back-kakao.svg" alt="" class="ico-bg"/>
+            <img src="./images/kakao.svg" alt="" class="ico"/>
       </a>
     </div>
       </div>
