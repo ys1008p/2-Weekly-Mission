@@ -75,37 +75,37 @@ nav {
     /* box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08); */
 }
 /* c2-c5 레이아웃(동일) */
-.contCent {
+.contentCent {
     width:998px; 
     margin:120px auto 50px;
     display:flex;
     justify-content:space-between;
 }
 /* 1) 텍스트 박스 */
-.contTextBox {
+.contentTextBox {
     display:flex;
     flex-direction: row;
     align-items: center;
 }
-.contTextBox .cont_text1 {
+.contentTextBox .content_text1 {
     font-size:48px;
     font-weight:700;
     letter-spacing:-0.3px;
     margin-bottom:10px;
 } 
-.contTextBox .cont_text2 {
+.contentTextBox .content_text2 {
     color:#6b6b6b;
     font-weight:500;
     line-height:150%;
 }
 /* 텍스트그라데이션 */
-.cont_text1 span {
+.content_text1 span {
     background-clip:text;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 /* 2) 이미지 박스 */
-.contImgBox {
+.contentImgBox {
     width:550px;
     border-radius: 15px;
     background: #F0F6FF;
@@ -185,7 +185,7 @@ footer {
     justify-content:center;
     padding:32px 0 64px;
 }
-.f_center {
+.footer_center {
     width:1712px;
     display:flex;
     justify-content:space-between;
@@ -195,27 +195,27 @@ footer p {
     color:gray;
 }
 /* menu1 */
-.f_gnb {
+.footer_gnb {
     display:flex;
     justify-content:center;
 
 }
-.f_gnb li:nth-child(1) {
+.footer_gnb li:nth-child(1) {
     margin-right:30px;
 }
-.f_gnb li a {
+.footer_gnb li a {
     color:#ffffff;
     cursor: pointer
 }
 /* menu2 */
-.f_gnb2 {
+.footer_gnb2 {
     display:flex;
 }
-.f_gnb2 li {
+.footer_gnb2 li {
     width:20px;
     display:flex;
     margin-left:12px;
 }
-.f_gnb2 li a {
+.footer_gnb2 li a {
     cursor:pointer;
 }

@@ -22,6 +22,7 @@ a {
 /* #s1 */
 #s1 {
     text-align:center;
+    margin-top:30px;
 }
 #s1 .logo_botText {
     display:flex;
@@ -77,19 +78,18 @@ a {
     font-size:18px;
     font-weight:600;
     color:#F5F5F5;
-    
 }
 /* 눈아이콘 없애기 */
 input[type="password"]::-ms-reveal {
     display:none;
 }
 /* 눈아이콘 위치 시키기 */
-#join {
+.eye_box {
     position:relative;
 }
-.eye-off {
+.eye_off {
     position:absolute;
-    top:150px;
+    top:70px;
     right:10px;
 }
 /* #s3 */
