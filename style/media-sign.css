@@ -1,0 +1,10 @@
+@media (min-width: 375px) and (max-width: 767px) {
+  body {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+  main {
+    width: 100%;
+    max-width: 40rem;
+  }
+}
