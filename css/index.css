@@ -170,6 +170,7 @@ footer .footer-wrap .sns-wrap {
 
 @media (max-width: 1199px) {
   header .header-wrap {
+    max-width: 80rem;
     padding: 0 3.2rem;
   }
   main .top-section {
