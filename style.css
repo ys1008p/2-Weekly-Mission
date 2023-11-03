@@ -1,12 +1,5 @@
 @charset "UTF-8";
 /* $browser-font-size = 16px * 62.5% = 10px */
-/* 
-* PC ····························· 1024px ~
-* Laptop & Tablet 가로 ············ 1024px ~ 1279px 
-* Tablet 가로 ····················· 768px ~ 1023px
-* Mobile 가로 & Tablet 세로 ········ 480px ~ 767px
-* Mobile 세로 ····················· ~ 479px
-*/
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
 @font-face {
   font-family: "linkbrary";
@@ -570,6 +563,18 @@ ol {
   top: 0;
 }
 
+@media screen and (min-width: 768px) {
+  .sm-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sm-hidden {
+    display: none !important;
+  }
+}
+
 .btn-primary {
   display: inline-block;
   text-align: center;
@@ -666,9 +671,28 @@ ol {
   font-weight: 600;
   width: 120px;
 }
+@media screen and (max-width: 1199px) {
+  .gnb-container {
+    max-width: 799px;
+    padding: 0 32px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .gnb-container {
+    height: 63px;
+  }
+  .gnb-container .logo img {
+    width: 8rem;
+  }
+  .gnb-container .btn-login {
+    font-size: 1.4rem;
+    line-height: normal;
+    width: 80px;
+    padding: 10px 0;
+  }
+}
 
 footer {
-  height: 160px;
   margin-top: 120px;
   background-color: #111322;
 }
@@ -678,7 +702,7 @@ footer .footer-container {
   align-items: center;
   max-width: 192rem;
   margin: 0 auto;
-  padding: 32px 104px 0;
+  padding: 32px 104px 108px;
 }
 footer .corporate {
   font-size: 1.6rem;
@@ -725,6 +749,22 @@ footer .social-list-item a i::before {
 footer .social-list-item a:hover i::before {
   color: #9fa6b2;
 }
+@media screen and (max-width: 767px) {
+  footer {
+    height: 160px;
+    margin-top: 40px;
+    position: relative;
+  }
+  footer .footer-container {
+    padding: 32px 32px 0 32px;
+    flex-wrap: wrap;
+  }
+  footer .corporate {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+  }
+}
 
 .input-group .input-title {
   font-size: 1.4rem;
@@ -743,11 +783,38 @@ footer .social-list-item a:hover i::before {
   height: 16px;
 }
 
+/*
+🖥️ Desktop ( >= 1200px )
+fixture···················lg
+of columns················12
+margin····················auto
+container-size············1200px
+max-container-size········1200px
+
+💻 Tablet ( < 1200px )
+fixture···················md
+of columns················12
+margin····················auto
+container-size············698px
+max-container-size········698px
+
+📱 Mobile ( < 768px )
+fixture···················sm
+margin····················32px
+container-size·············100% - (32px * 2)
+*/
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  height: 100%;
 }
-@media screen and (min-width: 360px) and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
+  .container {
+    max-width: 698px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 767px) {
   .container {
     width: 100%;
     padding: 0 32px;
@@ -769,12 +836,26 @@ footer .social-list-item a:hover i::before {
   font-weight: 700;
   color: #000000;
   padding: 70px 0 40px;
+  width: 100%;
+  margin: 0 auto;
 }
-.landing-page .call-to-action .title span {
+.landing-page .call-to-action .title-gradient {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   background-image: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+}
+.landing-page .call-to-action .title-br {
+  display: block;
+}
+@media screen and (max-width: 1199px) {
+  .landing-page .call-to-action .title {
+    width: 472px;
+    padding: 40px 0;
+  }
+  .landing-page .call-to-action .title .br {
+    display: block;
+  }
 }
 .landing-page .call-to-action .btn-signup {
   font-size: 1.8rem;
@@ -785,6 +866,31 @@ footer .social-list-item a:hover i::before {
 .landing-page .call-to-action .btn-signup:hover {
   animation: gradientAnimation 2s linear infinite;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+@media screen and (max-width: 1199px) {
+  .landing-page .call-to-action {
+    height: 756px;
+    background-size: 69.8rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .landing-page .call-to-action {
+    height: 399px;
+    background-size: 32.5rem;
+  }
+  .landing-page .call-to-action .title {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+    font-weight: 700;
+    padding: 28px 0 24px;
+    width: 100%;
+  }
+  .landing-page .call-to-action .btn-signup {
+    font-size: 1.4rem;
+    line-height: normal;
+    width: 200px;
+    padding: 10px 0;
+  }
 }
 
 .landing-page {
@@ -826,6 +932,19 @@ footer .social-list-item a:hover i::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+}
+@media screen and (max-width: 1199px) {
+  .landing-page .feature-wrapper {
+    padding: 50px 0;
+  }
+  .landing-page .feature-wrapper .textbox {
+    width: 262px;
+  }
+  .landing-page .feature-wrapper .imgbox {
+    width: 385px;
+    height: 315px;
+  }
 }
 .landing-page .feature-save .feature-wrapper {
   padding-top: 120px;
@@ -857,6 +976,39 @@ footer .social-list-item a:hover i::before {
 .landing-page .feature-manage .textbox,
 .landing-page .feature-search .textbox {
   order: 2;
+}
+@media screen and (max-width: 767px) {
+  .landing-page {
+    margin-top: 63px;
+  }
+  .landing-page .feature-save .feature-wrapper {
+    padding-top: 0;
+  }
+  .landing-page .feature-wrapper {
+    display: block;
+    padding: 0 0 40px 0;
+  }
+  .landing-page .feature-wrapper .textbox {
+    width: 100%;
+    padding: 40px 0 24px;
+  }
+  .landing-page .feature-wrapper .textbox-sub-title {
+    font-size: 2.4rem;
+    line-height: normal;
+    font-weight: 700;
+  }
+  .landing-page .feature-wrapper .imgbox {
+    width: 100%;
+    height: 60vw;
+  }
+}
+
+/* mobile */
+.landing-page.sm-only .textbox-sub-title {
+  margin-bottom: 20px;
+}
+.landing-page.sm-only .textbox-desc {
+  margin-top: 16px;
 }
 
 #signin-wrapper,
@@ -896,7 +1048,9 @@ footer .social-list-item a:hover i::before {
   align-items: center;
 }
 #signin-wrapper .form-header .info-user .create-link,
-#signup-wrapper .form-header .info-user .create-link {
+#signin-wrapper .form-header .info-user .login-link,
+#signup-wrapper .form-header .info-user .create-link,
+#signup-wrapper .form-header .info-user .login-link {
   padding-bottom: 0;
   margin-left: 8px;
   color: #6d6afe;
