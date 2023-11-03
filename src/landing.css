@@ -84,17 +84,54 @@ header {
   height: 59rem;
 }
 
-@media only screen and (max-width: 1200px) {
-  .gnb {
-    padding: 0 15rem;
-  }
-
+@media only screen and (max-width: 1199px) {
   header .hero-header .hero-image {
     width: 650px;
     height: auto;
   }
-  .add_br {
+
+  header .hero-header .slogan .add_br {
     display: block;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  nav .gnb {
+    padding: 0 32px;
+  }
+
+  nav .gnb img {
+    width: 88px;
+  }
+
+  nav .gnb a.cta-short {
+    width: 80px;
+    height: auto;
+    padding: 10px 16px;
+  }
+
+  nav .gnb a.cta-short span {
+    font-size: 14px;
+  }
+
+  header .hero-header {
+    width: 100%;
+    padding: 28px 32px 0;
+  }
+
+  header .hero-header a.cta {
+    width: 200px;
+    height: 37px;
+    font-size: 14px;
+  }
+
+  header .hero-header .slogan {
+    font-size: 32px;
+    line-height: 4rem;
+  }
+
+  header .hero-header .hero-image {
+    width: 300px;
   }
 }
 
@@ -166,7 +203,7 @@ section:nth-of-type(even) {
   height: 45rem;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1199px) {
   section br {
     display: none;
   }
@@ -208,9 +245,43 @@ section:nth-of-type(even) {
     width: 20rem;
   }
 
-  .content-image {
+  section .content-image {
     width: 384px;
     height: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  article {
+    width: 100%;
+    padding: 0;
+  }
+
+  section:nth-of-type(odd),
+  section:nth-of-type(even) {
+    padding: 40px 32px 36px 32px;
+    display: grid;
+    row-gap: 0;
+    grid-template:
+      "title"
+      "image"
+      "description" /300px;
+  }
+
+  section .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    line-height: 30px;
+  }
+
+  section .description {
+    width: 100% !important;
+    font-size: 15px;
+  }
+
+  section .content-image {
+    width: 100%;
+    margin-bottom: 16px;
   }
 }
 
@@ -254,4 +325,27 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+@media only screen and (max-width: 767px) {
+  footer {
+    display: block;
+    margin-top: 40px;
+    padding: 0;
+  }
+
+  footer .footer-box {
+    position: relative;
+    padding: 32px 32px 64px 32px;
+    height: 100%;
+  }
+
+  footer .footer-links {
+    gap: 40px;
+  }
+
+  footer .footer-box .copyright {
+    position: absolute;
+    bottom: 30px;
+  }
 }
