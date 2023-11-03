@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  text-decoration: none;
 }
 
 html {
@@ -21,17 +22,20 @@ section {
 
 nav {
   background-color: var(--gray-bg-color, #edf7ff);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 2rem 20rem;
-  align-self: stretch;
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 192rem;
   z-index: 2;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 192rem;
+  margin: 0 auto;
 }
 
 .button {
@@ -42,6 +46,7 @@ nav {
   color: var(--white-color, #ffffff);
   font-weight: 600;
   border-radius: 0.8rem;
+  border: none;
   padding: 1.6rem 2.0rem;
   cursor: pointer
 }
@@ -171,8 +176,21 @@ footer {
 }
 
 /* Tablet */
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
+  nav {
+    padding: 2rem 0;
+  }
 
+  .nav {
+    max-width: 80rem;
+  }
+
+  .nav a:nth-child(1) {
+    padding-left: 3.2rem;
+  }
+  .nav a:nth-child(2) {
+    padding-right: 3.2rem;
+  }
 }
 
 /* mobile */
