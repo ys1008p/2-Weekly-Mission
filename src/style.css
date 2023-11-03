@@ -112,6 +112,7 @@ section:nth-of-type(even) {
 }
 
 .title {
+  width: 100%;
   grid-area: title;
   font-size: 48px;
   font-weight: 700;
@@ -133,6 +134,7 @@ section:nth-of-type(even) {
 }
 
 .description {
+  width: 100%;
   grid-area: description;
   font-size: 16px;
   font-weight: 500;
@@ -189,12 +191,56 @@ footer {
 }
 
 @media (max-width: 1199px) {
+  .hero-image{
+    width: 698px;
+    height: auto;
+  }
+
+  .section:nth-of-type(odd) {
+    grid-template:
+      'title image'
+      'description image';
+  }
+  
+  .section:nth-of-type(even) {
+    grid-template:
+      'image title'
+      'image description';
+  }
+
   section.section {
     column-gap: 51px;
+    padding-left: 100px;
+    padding-right: 100px;
+    align-items: center;
   }
+
+  .content-image{
+    height: 315px;
+    width: auto;
+  }
+
+  h2.title{
+    align-self:end;
+  }
+
+  p.description{
+    align-self: start;
+  }
+
 }
 
 @media (max-width: 767px) {
+
+  .logo-img{
+    height: 16px;
+  }
+
+  .cta-short{
+    width: 80px;
+    padding: 10px 16px;
+  }
+
   .slogan {
     display: flex;
     flex-direction: column;
@@ -211,15 +257,16 @@ footer {
     padding-top: 0;
   }
 
-  section.section {
+  .section.add-specificity {
     padding: 40px 32px;
     column-gap: 0px;
     justify-content: stretch;
     height: auto;
-    grid-template:
+    grid-template: 
       'title'
       'image'
-      'description';
+      'description'; 
+    
   }
 
   img.content-image {
@@ -231,19 +278,56 @@ footer {
   section.section {
     column-gap: 51px;
   }
-}
 
-@media (max-width: 767px) {
+  .hero-header{
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+
   .slogan {
     display: flex;
     flex-direction: column;
     padding: 0 32px;
   }
+}
+
+@media (max-width: 767px) {
+  .nav{
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hero-header{
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  h1.slogan{
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px; /* 131.25% */
+  }
+
+  .cta-long{
+    width: 200px;
+  }
 
   .hero-image {
     width: 100%;
     height: auto;
-    padding: 0 32px;
+  }
+
+  h2.title{
+    line-height: normal;
+    font-size: 24px;
+    letter-spacing: -0.3px;
+  }
+
+  p.description{
+    font-size: 15px;
+    line-height: 150%; /* 22.5px */
   }
 
   article {
@@ -263,6 +347,7 @@ footer {
 
   img.content-image {
     width: 100%;
+    height: auto;
   }
 
   .footer-box {
