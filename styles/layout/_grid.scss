@@ -1,15 +1,44 @@
+/*
+🖥️ Desktop ( >= 1200px )
+fixture···················lg
+of columns················12
+margin····················auto
+container-size············1200px
+max-container-size········1200px
+
+💻 Tablet ( < 1200px )
+fixture···················md
+of columns················12
+margin····················auto
+container-size············698px
+max-container-size········698px
+ 
+📱 Mobile ( < 768px )
+fixture···················sm
+margin····················32px
+container-size·············100% - (32px * 2)
+*/
+
+@use 'sass:math';
+
 $lg-max-container: 1200px;
-$sm-padding: 0 32px;
+
+$md-max-container: 698px;
+
+$sm-margin: 32px;
 
 .container {
-  max-width: 1200px;
+  max-width: $lg-max-container;
   margin: 0 auto;
+  height: 100%;
 
   @include responsive(T) {
+    max-width: $md-max-container;
+    padding: 0;
   }
 
   @include responsive(M) {
     width: 100%;
-    padding: $sm-padding;
+    padding: 0 $sm-margin;
   }
 }
