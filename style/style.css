@@ -206,19 +206,21 @@ footer {
   .content:nth-of-type(odd) { 
     grid-template:
       "title"
-      "description"
-      "image";
+      "image"
+      "description";
   }
   .content:nth-of-type(even) {
     grid-template:
       "title"
-      "description"
-      "image";
+      "image"
+      "description";
   }
 
   .image {
     width: 100%;
     height: auto;
+    padding-top: 2rem;
+    padding-bottom: 1.6rem;
   }
 
   .codeit {grid-area: codeit;}
