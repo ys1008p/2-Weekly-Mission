@@ -85,6 +85,11 @@ header {
 }
 
 @media only screen and (max-width: 1199px) {
+  nav .gnb {
+    padding: 0 32px;
+    width: 799px;
+  }
+
   header .hero-header .hero-image {
     width: 650px;
     height: auto;
@@ -98,6 +103,7 @@ header {
 @media only screen and (max-width: 767px) {
   nav .gnb {
     padding: 0 32px;
+    width: 326px;
   }
 
   nav .gnb img {
