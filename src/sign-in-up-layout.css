@@ -1,12 +1,14 @@
 @import "./global.css";
 body {
+  background-color: var(--gray-00-color);
+}
+.wrapper {
   margin: 23.8rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40rem;
-  background-color: var(--gray-00-color);
+  max-width: 40rem;
 }
 .logo-link-container {
   display: flex;
@@ -145,4 +147,26 @@ input:focus::placeholder {
 
 .social img {
   width: 4.2rem;
+}
+
+@media (max-width: 1199px) {
+  .wrapper {
+    margin: 20rem auto;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    margin: 0 3.2rem;
+  }
+  .wrapper {
+    margin: 12rem auto;
+  }
+  .form,
+  input,
+  .input-wrapper,
+  .button,
+  .social-link-container {
+    width: min(100%, 40rem);
+  }
 }
