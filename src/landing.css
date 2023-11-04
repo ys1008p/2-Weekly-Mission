@@ -239,4 +239,80 @@ footer {
 
 /* mobile */
 @media screen and (max-width: 767px) {
+  nav {
+    height: 63px;
+  }
+
+  .nav-contents {
+    padding: 13px 32px;
+  }
+
+  .nav-contents img {
+    width: 88.667px;
+    height: 16px;
+  }
+
+  .hero-header {
+    row-gap: 24px;
+    padding: 28px 32px 0;
+  }
+
+  .cta {
+    height: 37px;
+    font-size: 14px;
+  }
+
+  .cta-short {
+    width: 80px;
+  }
+
+  .cta-long {
+    width: 200px;
+  }
+
+  .slogan {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .title {
+    display: block;
+    font-size: 24px;
+  }
+
+  .description {
+    display: block;
+    order: 1;
+    font-size: 15px;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto; /*원본 비율처럼 나오지 않고 가로가 더 길어짐*/
+  }
+
+  article {
+    padding-bottom: 40px;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px 32px 41.09px 33px;
+    gap: 0;
+  } /*페이지 width 조절하면 겹치는 부분이 생김*/
+
+  section br {
+    display: none;
+  }
+
+  .content-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+
+  /* footer 구현 x */
 }
