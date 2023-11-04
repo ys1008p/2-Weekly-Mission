@@ -400,13 +400,17 @@ footer{
   }
 
   /* save-link */
-  #save-link{
-    padding: 2.5rem 0 2.63rem;
+  #save-link, #link-management, #link-share  {
+    padding: 2.5rem 0;
   }
 
-  /* link-management */
   #link-management .left, #link-search .left{
     order:1;
+  }
+
+  /* link-search */
+  #link-search {
+    padding: 2.5rem 0 5.5rem;
   }
 
   /* footer */
