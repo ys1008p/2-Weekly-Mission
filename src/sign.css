@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: var(--linkbrary-bg, #F0F6FF);
 }
 
 /* sign-top */
@@ -130,4 +131,12 @@ label{
 .kakao{
   background-color: var(--linkbrary-yellow, #F5E14B);
   background-image: url(/imgs/sign/sign_kakao.png);
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 375px) {
+ 
 }
