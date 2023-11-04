@@ -1,0 +1,357 @@
+/* 현재 못한거 모바일 사이즈 scetion 부분 이미지,글자 갭 조절 1rem, 2.4rem조절해야함 */
+
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #edf7ff;
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 9.4rem;
+  padding: 0 20rem;
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4rem;
+  padding-top: 7rem;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5.4rem;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+  grid-area: signin;
+}
+
+
+.cta-short {
+  width: 12.8rem;
+}
+
+.cta-long {
+  width: 35rem;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 8rem;
+}
+
+.slogan-gradient {
+  background-image: linear-gradient(119deg, #6d6afe 0%, #ff9f9f 100%);
+}
+
+.background-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-image {
+  width: 120rem;
+  height: 59rem;
+}
+
+article {
+  padding-top: 7rem;
+  padding-bottom: 12rem;
+}
+
+section {
+  display: grid;
+  justify-content: center;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
+  width: 100%;
+  height: 55rem;
+  padding: 50px 0;
+}
+
+section:nth-of-type(odd) {
+  grid-template:
+    ". image"
+    "title image"
+    "description image"
+    ". image"
+    /291px 55rem;
+}
+
+section:nth-of-type(even) {
+  grid-template:
+    "image ."
+    "image title"
+    "image description"
+    "image ."
+    /550px 29.1rem;
+}
+
+.title {
+  grid-area: title;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 5.8rem;
+  letter-spacing: -0.03rem;
+}
+
+.title-1-gradient {
+  background-image: linear-gradient(117deg, #fe8a8a 2.29%, #a4ceff 100%);
+}
+.title-2-gradient {
+  background-image: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
+}
+.title-3-gradient {
+  background-image: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
+}
+.title-4-gradient {
+  background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
+}
+
+.description {
+  grid-area: description;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #6b6b6b;
+  line-height: 150%;
+}
+
+.content-image {
+  grid-area: image;
+  width: 55rem;
+  height: 45rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 16rem;
+  padding-top: 3.2rem;
+  background-color: #111322;
+}
+
+
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 192rem;
+  height: fit-content;
+  padding: 0 10.4rem;
+}
+
+.copyright {
+  color: #676767;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.footer-links {
+  display: flex;
+  column-gap: 3rem;
+  padding-right: 1.8rem;
+}
+
+.footer-link {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.sns {
+  display: flex;
+  column-gap: 1.2rem;
+  height: 2rem;
+}
+
+@media (max-width: 767px) {
+  section {
+    height: 45rem;
+  }
+
+  .brHelperB {
+    display: block;
+  }
+  
+  .logo {
+    width: 8.8rem;
+    height: 1.6rem;
+}
+  .cta-short {
+    width: 8rem;
+    height: 3.7rem;
+    padding: 1rem 1.6rem;
+  }
+
+  .lineChange {
+    display: block;
+  }
+  .cta-long {
+    width: 20rem;
+    padding: 1rem 1.6rem;
+  }
+
+  .slogan {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  .hero-header {
+    gap: 2.4rem;
+  }
+
+  .hero-image{
+    width: 30.2rem;
+    height: 17.8rem;
+  }
+
+  .content-image{
+    margin-top: 2.4rem;
+    height: 26.6rem;
+    width: 32.5rem;
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+
+  .description {
+    margin-top: 1rem;
+    grid-row: 2 / 2;
+    grid-column: 1 / 3;
+  }
+
+  .title {
+    font-size: 2.4rem;
+    grid-row: 1 / 1;
+    grid-column: 1 / 3;
+    align-self: stretch;
+  }
+
+  article {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  section:nth-of-type(odd) {
+    row-gap: 1rem;
+    grid-template-areas: none;
+    padding: 4rem 3.2rem 3.6rem 3.3rem;
+    column-gap: 0;
+    grid-template-rows: 2.9rem 4.6rem 26.6rem;
+    grid-template-columns: 320px;
+    
+  }
+
+  section:nth-of-type(even) {
+    row-gap: 1rem;
+    grid-template-areas: none;
+    padding: 4rem 3.2rem 3.6rem 3.3rem;
+    column-gap: 0;
+    grid-template-rows: 2.9rem 2.8rem 25.2rem;
+    grid-template-columns: 320px;
+
+  }
+
+  nav {
+    padding: 1.3rem 3.2rem;
+  }
+
+  footer {
+  height: 16rem;
+  padding: 3.2rem 3.2rem 6.4rem 3.2rem;
+  }
+
+  .footer-box {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 6rem;
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  .lineChange {
+    display: block;
+  }
+
+  .article {
+    margin: 0;
+  }
+
+  section {
+    row-gap: 0;
+  }
+  
+  .hero-header {
+    max-width: 100%;
+  }
+
+  .hero-image{
+    width: 65rem;
+    height: 38.3rem;
+  }
+
+  .content-image{
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+
+  section:nth-of-type(odd) {
+    padding: 8rem 25rem 5rem 25rem;
+    column-gap: 5.1rem;
+    grid-template:
+    ". image"
+    "title image"
+    "title image"
+    "description image"
+    ". image"
+    ". image"      /258px 38.5rem
+  }
+
+  section:nth-of-type(even) {
+    padding: 1rem 25rem 5rem 25rem;
+    column-gap: 5.1rem;
+    grid-template:
+    "image ."
+    "image title"
+    "image description"
+    "image ."
+    "image ."
+    /38.5rem 29.1rem;
+  }
+
+  nav {
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 20rem;
+    display: grid;
+    grid-template: 
+    "logo . signin"
+    /400px 1fr;
+  }
+}
+
+
