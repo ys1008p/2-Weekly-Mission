@@ -6,11 +6,11 @@ header {
 }
 
 header > div {
-  max-width: 1920px;
+  max-width: 1584px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 200px;
+  padding: 20px 32px;
   margin: 0 auto;
 }
 
