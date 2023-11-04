@@ -217,7 +217,7 @@ header {
   box-sizing: content-box;
   border-radius: 0.9375rem;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
-  url(./imgs/main/link-share02.png);
+  url(/imgs/main/link-share02.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -237,7 +237,7 @@ header {
 }
 
 #link-search .decocolor{
-  background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background: var(linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -246,7 +246,7 @@ header {
 /* footer */
 footer{
   display: flex;
-  background: var(--the-julge-black, #111322);
+  background: var(--the-julge-black);
   color:#CFCFCF;
   padding: 2rem 6.5rem 4rem;
   align-items: center;
