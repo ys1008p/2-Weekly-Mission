@@ -188,11 +188,8 @@ header {
 
 #link-management img{
   width: 25.875rem;
-  height: 16.875rem;
-  padding: 7.125rem 4.25rem 4.125rem 4.25rem;
-  box-sizing: content-box;
-  border-radius: 0.9375rem;
-  background: #F0F6FF;
+  margin-top:2rem;
+  
 }
 
 #link-management .decocolor{
@@ -216,10 +213,8 @@ header {
 
 #link-share img{
   width: 26rem;
-  height: 16.9375rem;
   padding: 7.125rem 4.25rem 4.125rem 4.25rem;
   box-sizing: content-box;
-  border-radius: 0.9375rem;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
   url(/imgs/main/link-share02.png);
   background-repeat: no-repeat;
@@ -274,23 +269,56 @@ footer{
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-    /* header */
-    .gnb{
-      padding: 1.25rem 2rem;
-      max-width: 1199px;
-      width: 768px;
-    }
-  
-    /* home */
-    #home{
-      gap : 2.5rem;
-    }
-  
-    .tablet-size{
-      display: block;
-    }
-  
-    #home img{
-      width: 40.64394rem;
-    }
+    /* common */
+  section:not(#home) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.19rem;
+  }
+
+  .wrap{
+    width: 24.0625rem;
+    height: 19.6875rem;
+  }
+
+  /* header */
+  .gnb{
+    padding: 1.25rem 2rem;
+    max-width: 1199px;
+    width: 768px;
+  }
+
+  /* home */
+  #home{
+    gap : 2.5rem;
+  }
+
+  .tablet-size{
+    display: block;
+  }
+
+  #home img{
+    width: 40.64394rem;
+  }
+
+  /* save-link */
+  #save-link{
+    padding: 5rem 0 3.12rem;
+  }
+
+  .card-select {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+  }
+
+  .card-ico-save{
+    right: 0.29rem;
+  }
+
+  .card-ico-save img{
+    width: 2rem;
+    height: 2rem;
+  }
 }
