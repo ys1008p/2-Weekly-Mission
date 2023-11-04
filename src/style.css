@@ -321,4 +321,13 @@ footer{
     width: 2rem;
     height: 2rem;
   }
+  /* link-management */
+  #link-management img {
+    width: 17.875rem;
+  }
+
+  /* link-share */
+  #link-share img{
+    width: 18rem;
+  }
 }
