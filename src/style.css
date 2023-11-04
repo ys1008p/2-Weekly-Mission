@@ -129,6 +129,10 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
+.tablet-size{
+  display: none;
+}
+
 #home .btn{
   width: 21.875rem;
 }
@@ -270,10 +274,56 @@ footer{
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
+    /* common */
+  section:not(#home) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.19rem;
+  }
+
+  .wrap{
+    width: 24.0625rem;
+    height: 19.6875rem;
+  }
+
   /* header */
   .gnb{
     padding: 1.25rem 2rem;
     max-width: 1199px;
     width: 768px;
+  }
+
+  /* home */
+  #home{
+    gap : 2.5rem;
+  }
+
+  .tablet-size{
+    display: block;
+  }
+
+  #home img{
+    width: 40.64394rem;
+  }
+
+  /* save-link */
+  #save-link{
+    padding: 5rem 0 3.12rem;
+  }
+
+  .card-select {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+  }
+
+  .card-ico-save{
+    right: 0.29rem;
+  }
+
+  .card-ico-save img{
+    width: 2rem;
+    height: 2rem;
   }
 }
