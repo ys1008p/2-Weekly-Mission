@@ -36,3 +36,21 @@
   --blue-color-bg: #EDF7FF;
 }
 
+/* Responsive Global CSS */
+@media screen and (min-width: 1200px) {
+  .lg-hidden {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sm-hidden {
+    display: none;
+  }
+  
+  .button-primary {
+    height: 3.7rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+}
