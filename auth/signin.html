@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../src/reset.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
     <title>로그인</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="form-container">
-      <header>
-        <a href="/">
-          <img class="logo" src="../images/logo.svg" alt="Linkbrary" />
-        </a>
-        <span
-          >회원이 아니신가요? <a href="./signup.html">회원 가입하기</a></span
+    <header>
+      <a class="logo-link" href="/">
+        <img
+          class="header-logo"
+          src="../images/logo.svg"
+          alt="홈으로 연결된 Linkbrary 로고"
+        />
+      </a>
+      <p class="header-message">
+        회원이 아니신가요?<a class="header-link" href="signup.html"
+          >회원 가입하기</a
         >
-      </header>
-      <form action="/">
-        <div class="form-group">
-          <label for="email">이메일</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="codeit@codeit.com"
-          />
+      </p>
+    </header>
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="sign-inputs">
+          <div class="sign-input-box">
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" />
+          </div>
+          <div class="sign-input-box sign-password">
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" type="password" />
+            <button class="eye-button" type="button">
+              <img src="../images/eye-off.svg" />
+            </button>
+          </div>
         </div>
-        <div class="form-group password-wrapper">
-          <label for="password">비밀번호</label>
-          <input type="password" id="password" name="password" required />
-          <img class="eye-icon" src="../images/eye-off.svg" />
-        </div>
-        <button type="submit">로그인</button>
+        <button class="cta" type="submit">로그인</button>
       </form>
-      <div class="auth">
-        <span>다른 방식으로 가입하기</span>
-        <div class="icon">
-          <img class="auth-icon" src="../images/google.png" alt="google" />
-          <img class="auth-icon" src="../images/kakao.png" alt="kakao" />
+      <div class="sns-box">
+        <span class="sns-text">소셜 로그인</span>
+        <div class="sns-links">
+          <a class="sns-link google-link" href="https://www.google.com/">
+            <img src="../images/google.png" />
+          </a>
+          <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+            <img src="../images/kakao.png" />
+          </a>
         </div>
       </div>
     </div>
