@@ -151,9 +151,26 @@ div.social-icon-box {
   height: 2.625rem;
 }
 
+@media (min-width: 768px) and (max-width: 1199px) {
+  main {
+    padding: 12.5rem 25rem 18rem 25rem;
+  }
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   main {
     padding: 7.5rem 32px 14.5rem 32px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 464px) {
+  main .flex-column {
+    width: 100%;
+  }
+
+  .box-width,
+  .box-width input {
     width: 100%;
   }
 }
