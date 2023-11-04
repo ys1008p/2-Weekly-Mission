@@ -206,4 +206,43 @@ footer {
   .nav-box {
     padding: 0 3.2rem;
   }
+.section-box{
+  row-gap: 0;
+}
+  .hero-image,
+  .content-image {
+    padding: 0 10rem;
+    width: 575px;
+    height: auto;
+  }
+
+  section:nth-of-type(odd) {
+    grid-template:
+      "title"
+      "description"
+      "image"
+      /500px 10px;
+  }
+
+  section:nth-of-type(even) {
+    grid-template:
+      "title"
+      "description"
+      "image"
+      /455px 40px;
+  }
+.title{
+  padding-left: 100px;
+  font-size: 3.0rem;
+}
+
+
+.description{
+  padding-left: 100px;
+  font-size: 17px;
+}
+
+  .midea-br{
+    display: none;
+  }
 }
