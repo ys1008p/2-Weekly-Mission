@@ -90,7 +90,7 @@ footer > div {
   flex-direction: column;
   gap: 100px;
   max-width: 1062px;
-  margin: 120px auto;
+  margin: 120px auto 170px;
   padding: 0 32px;
 }
 
@@ -175,7 +175,7 @@ footer .sns img {
   }
 
   .contents {
-    margin: 80px auto 120px;
+    margin: 80px auto 170px;
   }
 
   .contents section {
