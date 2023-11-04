@@ -1,21 +1,6 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
 
-:root {
-  --blue-1: #6D6AFE;
-  --blue-2: #6AE3FE;
-  --red-1: #FF5B56;
-  --black-1: #111322;
-  --black-2: #000000;
-  --white-1: #FFFFFF;
-  --gray-1: #373740;
-  --gray-2: #9FA6B2;
-  --gray-3: #CCD5E3;
-  --gray-4: #E7EFFB;
-  --gray-5: #F0F6FF;
-  --gray-6: #F5F5F5;
-  --gray-7: #373740;
-  --gray-8: #394037;
-}
+@import url(./color.css);
 
 * {
   box-sizing: border-box;
@@ -61,13 +46,13 @@ main {
   height: 3.8rem;
 }
 
-.signup-link {
+.signin-link {
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
 }
 
-.signup-link>span {
+.signin-link>span {
   color: var(--black-1);
   font-family: Pretendard;
   font-size: 1.6rem;
@@ -76,7 +61,7 @@ main {
   line-height: 2.4rem;
 }
 
-.signup-link>a {
+.signin-link>a {
   color: var(--blue-1);
   font-family: Pretendard;
   font-size: 1.6rem;
@@ -133,7 +118,7 @@ input {
 
 input:focus {
   outline: none;
-  border: 0.2rem solid var(--blue-1);
+  border: 0.1rem solid var(--blue-1);
 }
 
 .password {
@@ -141,11 +126,13 @@ input:focus {
 }
 
 .eye-on {
+  background: url("../img/eye-on.svg");
   position: absolute;
   width: 1.6rem;
   height: 1.6rem;
   right: 2.3rem;
   bottom: 2.3rem;
+  border: 0;
 }
 
 .signup-button {
@@ -162,6 +149,7 @@ input:focus {
   border-radius: 0.8rem;
   background: linear-gradient(91deg, var(--blue-1) 0.12%, var(--blue-2) 101.84%);
   border: 0;
+  cursor: pointer;
 }
 
 .social-signup {
