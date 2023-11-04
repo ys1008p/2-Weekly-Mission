@@ -143,22 +143,22 @@ footer > div {
   -webkit-text-fill-color: transparent;
 }
 
-footer .company {
+.company {
   color: #676767;
 }
 
-footer .link {
+.link {
   display: flex;
   color: #cfcfcf;
   gap: 30px;
 }
 
-footer .sns {
+.sns {
   display: flex;
   gap: 12px;
 }
 
-footer .sns img {
+.sns img {
   width: 20px;
 }
 
