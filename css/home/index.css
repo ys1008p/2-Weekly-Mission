@@ -21,17 +21,6 @@
   align-items: center;
 }
 
-@media screen and (max-width: 1199px) {
-  .gnb {
-    inline-size: 100%;
-    padding-inline: var(--tablet-header-padding);
-    max-width: calc(
-      120rem - 2 * var(--desktop-header-padding) + var(--scrollbar-width) +
-        var(--tablet-header-padding)
-    );
-  }
-}
-
 .hero-header {
   display: flex;
   flex-direction: column;
@@ -84,13 +73,18 @@
 }
 
 .service-intro {
+  --text-size: 29.1rem;
+  --image-width-size: 55rem;
+  --image-height-size: 45rem;
+  --col-gap-size: 15.7rem;
+
   display: grid;
   justify-content: center;
-  column-gap: 15.7rem;
+  column-gap: var(--col-gap-size);
   row-gap: 1rem;
   width: 100%;
-  height: 55rem;
-  padding: 50px 0;
+  height: var(--image-width-size);
+  padding-block: 5rem;
 }
 
 .service-intro:nth-of-type(odd) {
@@ -99,7 +93,7 @@
     "title image"
     "description image"
     ". image"
-    /291px 55rem;
+    / var(--text-size) var(--image-width-size);
 }
 
 .service-intro:nth-of-type(even) {
@@ -108,7 +102,7 @@
     "image title"
     "image description"
     "image ."
-    /550px 29.1rem;
+    / var(--image-width-size) var(--text-size);
 }
 
 .service-intro-title {
@@ -142,8 +136,8 @@
 
 .content-image {
   grid-area: image;
-  width: 55rem;
-  height: 45rem;
+  width: var(--image-width-size);
+  height: var(--image-height-size);
 }
 
 .global-footer {
@@ -186,4 +180,39 @@
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+.tablet-br {
+  display: none;
+}
+
+@media screen and (max-width: 1199px) {
+  .gnb {
+    inline-size: 100%;
+    padding-inline: var(--tablet-header-padding);
+    max-width: calc(
+      120rem - 2 * var(--desktop-header-padding) + var(--scrollbar-width) +
+        var(--tablet-header-padding)
+    );
+  }
+
+  .hero-image {
+    width: 69.8rem;
+    height: 34.4rem;
+  }
+
+  .tablet-br {
+    display: block;
+  }
+
+  .service-intro {
+    --text-size: 26.2rem;
+    --image-width-size: 38.5rem;
+    --image-height-size: 31.5rem;
+    --col-gap-size: 5.1rem;
+  }
+
+  .description > br {
+    display: none;
+  }
 }
