@@ -47,7 +47,7 @@
 
 /* sign-middle */
 input{
-  width: 25rem;
+  width: 100%;
   padding: 1.125rem 0.9375rem;
   border-radius: 0.5rem;
   border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
@@ -65,6 +65,11 @@ label{
   font-size: 0.875rem;
 }
 
+.sign-middle{
+  max-width: 25rem;
+  width: 100%;
+  padding: 0 2rem;
+}
 .sign-userinfo{
   display: flex;
   flex-direction: column;
@@ -91,14 +96,20 @@ label{
 }
 
 .sign-middle .btn{
-  width: 25rem;
+  width: 100%;
   margin-bottom: 2rem;
+  font-size: 1.125rem;
 }
 
 /* sing-bottom */
 .sign-bottom{
+  width: 100%;
+  max-width: 25rem;
+  padding: 0 2rem;
+}
+.sign-bottom-in{
   display: flex;
-  width: 25rem;
+  width: 100%;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
   align-items: center;
@@ -133,10 +144,9 @@ label{
   background-image: url(/imgs/sign/sign_kakao.png);
 }
 
-@media screen and (max-width: 767px) {
-
-}
-
-@media screen and (max-width: 375px) {
- 
+@media screen and (max-width: 1199px){
+  .sign-middle .btn{
+    font-size: 1.125rem;
+    padding: 1rem 1.25rem;
+  }
 }
