@@ -546,7 +546,7 @@ ol {
 
 #skip_nav {
   position: relative;
-  z-index: -999;
+  z-index: 100;
 }
 #skip_nav a {
   position: absolute;
@@ -558,20 +558,23 @@ ol {
   color: #ffffff;
   font-size: 12px;
   padding: 0 6px;
+  opacity: 0;
 }
 #skip_nav a:focus, #skip_nav a:active {
   top: 0;
+  z-index: 100;
+  opacity: 1;
 }
 
 @media screen and (min-width: 768px) {
   .sm-only {
-    display: none !important;
+    display: none;
   }
 }
 
 @media screen and (max-width: 767px) {
   .sm-hidden {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -838,6 +841,7 @@ container-size·············100% - (32px * 2)
   padding: 70px 0 40px;
   width: 100%;
   margin: 0 auto;
+  white-space: nowrap;
 }
 .landing-page .call-to-action .title-gradient {
   background-clip: text;
@@ -943,12 +947,6 @@ container-size·············100% - (32px * 2)
     height: 315px;
   }
 }
-.landing-page .feature-wrapper.sm-only .textbox-sub-title {
-  margin: 40px 0 20px;
-}
-.landing-page .feature-wrapper.sm-only .textbox-desc {
-  margin-top: 16px;
-}
 .landing-page .feature-save .feature-wrapper {
   padding-top: 120px;
 }
@@ -1004,6 +1002,15 @@ container-size·············100% - (32px * 2)
     width: 100%;
     height: auto;
   }
+}
+.landing-page .sm-only .textbox-sub-title {
+  margin: 40px 0 20px;
+}
+.landing-page .sm-only .textbox-desc {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  font-weight: 500;
+  margin-top: 16px;
 }
 
 .wrapper {
@@ -1095,7 +1102,7 @@ container-size·············100% - (32px * 2)
 
 @media screen and (max-width: 1199px) {
   .form {
-    padding: 200px 0;
+    padding: 200px 0 0 0;
   }
 }
 @media screen and (max-width: 767px) {
