@@ -76,7 +76,9 @@ footer > div {
   -webkit-text-fill-color: transparent;
 }
 
-.third-line {
+.hide-on-pc,
+.show-only-tablet,
+.show-only-mobile {
   display: none;
 }
 
@@ -170,7 +172,8 @@ footer .sns img {
     padding-top: 39px;
   }
 
-  .third-line {
+  .hide-on-pc,
+  .show-only-tablet {
     display: inline;
   }
 
@@ -184,5 +187,77 @@ footer .sns img {
 
   .contents img {
     width: 385px;
+  }
+
+  .hide-on-tablet {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header > div {
+    padding: 13px 32px;
+  }
+
+  .logo {
+    width: 88px;
+  }
+
+  .banner-wrapper {
+    padding-top: 28px;
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .btn-gradient {
+    font-size: 14px;
+    padding: 10px 16px;
+    height: 37px;
+  }
+
+  .login {
+    width: 80px;
+  }
+
+  .add-link {
+    width: 200px;
+    margin: 24px auto;
+  }
+
+  .contents {
+    gap: 80px;
+    margin: 40px 0 80px;
+  }
+
+  .contents section {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contents img {
+    width: 100%;
+    order: 1;
+  }
+
+  .contents p {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .hide-on-mobile,
+  .show-only-tablet {
+    display: none;
+  }
+
+  .show-only-mobile {
+    display: inline;
+  }
+
+  h2 {
+    font-size: 24px;
   }
 }
