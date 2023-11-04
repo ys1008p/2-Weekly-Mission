@@ -141,8 +141,8 @@ section:nth-of-type(even) {
 
 .content-image {
   grid-area: image;
-  width: 55rem;
-  height: 45rem;
+  width: 550px;
+  height: 450px;
 }
 
 footer {
@@ -185,4 +185,73 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+@media (max-width: 1199px) {
+  nav {
+    max-width: 79.9rem;
+    padding: 0 3.2rem;
+  }
+
+  .slogan .span-tablet {
+    display: block;
+  }
+
+  .hero-header {
+    padding-top: 3.9rem;
+  }
+
+  .hero-image {
+    width: 650px;
+    height: 313.93px;
+  }
+
+  article {
+    padding-top: 3rem;
+  }
+  section {
+    height: 41.5rem;
+    column-gap: 5.1rem;
+  }
+
+  .title {
+    line-height: 5.7rem;
+  }
+
+  .break-tablet {
+    display: block;
+  }
+  .description .br-none-tablet {
+    display: none;
+  }
+
+  section:nth-of-type(odd) {
+    grid-template:
+      ". image"
+      "title image"
+      "description image"
+      ". image"
+      /262px 385px;
+  }
+
+  section:nth-of-type(even) {
+    grid-template:
+      "image ."
+      "image title"
+      "image description"
+      "image ."
+      /385px 262px;
+  }
+
+  .content-image {
+    grid-area: image;
+    width: 385px;
+    height: 315px;
+  }
+}
+
+@media (max-width: 767px) {
+  section .br-none-mobile {
+    display: none;
+  }
 }
