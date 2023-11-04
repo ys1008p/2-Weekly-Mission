@@ -12,13 +12,24 @@
 .gnb {
   position: fixed;
   top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   max-width: 192rem;
   height: 9.4rem;
-  padding: 0 20rem;
+  padding-inline: var(--desktop-header-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 1199px) {
+  .gnb {
+    inline-size: 100%;
+    padding-inline: var(--tablet-header-padding);
+    max-width: calc(
+      120rem - 2 * var(--desktop-header-padding) + var(--scrollbar-width) +
+        var(--tablet-header-padding)
+    );
+  }
 }
 
 .hero-header {
