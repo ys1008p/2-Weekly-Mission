@@ -65,7 +65,7 @@ footer > div {
   width: 133px;
 }
 
-.btn-login {
+.login {
   width: 128px;
 }
 
@@ -76,7 +76,7 @@ footer > div {
   -webkit-text-fill-color: transparent;
 }
 
-.btn-link {
+.add-link {
   width: 350px;
   margin: 40px auto;
 }
