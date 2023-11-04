@@ -122,10 +122,10 @@ label{
 
 .google{
   background-color: var(--linkbrary-white, #FFF);
-  background-image: url(imgs/sign/google.png);
+  background-image: url(imgs/sign/sign_google.png);
 }
 
 .kakao{
   background-color: var(--linkbrary-yellow, #F5E14B);
-  background-image: url(imgs/sign/kakao.png);
+  background-image: url(imgs/sign/sign_kakao.png);
 }
