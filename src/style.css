@@ -234,7 +234,7 @@ header {
 }
 
 #link-search .decocolor{
-  background: var(linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
