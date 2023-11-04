@@ -6,7 +6,13 @@ header {
   background-color: #edf7ff;
 }
 
-nav {
+.nav-container{
+  background-color: #EDF7FF;
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -191,6 +197,23 @@ footer {
 }
 
 @media (max-width: 1199px) {
+  .nav{
+    padding: 0;
+    width: 799px;
+    margin: 0 max(auto,32px);
+  }
+
+  .hero-header{
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+
+  .slogan {
+    display: flex;
+    flex-direction: column;
+    padding: 0 32px;
+  }
+
   .hero-image{
     width: 698px;
     height: auto;
@@ -230,69 +253,22 @@ footer {
 
 }
 
-@media (max-width: 767px) {
+@media (max-width:863px){
+  .nav{
+    padding: 0;
+    width: auto;
+    flex-grow: 1;
+    margin: 0 32px;
+  }
+}
 
+@media (max-width: 767px) {
   .logo-img{
     height: 16px;
   }
 
-  .cta-short{
-    width: 80px;
-    padding: 10px 16px;
-  }
-
-  .slogan {
-    display: flex;
-    flex-direction: column;
-    padding: 0 32px;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: auto;
-    padding: 0 32px;
-  }
-
-  article {
-    padding-top: 0;
-  }
-
-  .section.add-specificity {
-    padding: 40px 32px;
-    column-gap: 0px;
-    justify-content: stretch;
-    height: auto;
-    grid-template: 
-      'title'
-      'image'
-      'description'; 
-    
-  }
-
-  img.content-image {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1199px) {
-  section.section {
-    column-gap: 51px;
-  }
-
-  .hero-header{
-    padding-left: 250px;
-    padding-right: 250px;
-  }
-
-  .slogan {
-    display: flex;
-    flex-direction: column;
-    padding: 0 32px;
-  }
-}
-
-@media (max-width: 767px) {
   .nav{
+    margin: 0;
     padding: 0 32px;
     display: flex;
     justify-content: space-between;
@@ -310,6 +286,15 @@ footer {
     line-height: 42px; /* 131.25% */
   }
 
+  article {
+    padding-top: 0;
+  }
+
+  .cta-short{
+    width: 80px;
+    padding: 10px 16px;
+  }
+
   .cta-long{
     width: 200px;
   }
@@ -317,6 +302,13 @@ footer {
   .hero-image {
     width: 100%;
     height: auto;
+    padding: 0 32px;
+  }
+
+  .slogan {
+    display: flex;
+    flex-direction: column;
+    padding: 0 32px;
   }
 
   h2.title{
@@ -334,7 +326,7 @@ footer {
     padding-top: 0;
   }
 
-  section.section {
+  .section.add-specificity {
     padding: 40px 32px;
     column-gap: 0px;
     justify-content: stretch;
