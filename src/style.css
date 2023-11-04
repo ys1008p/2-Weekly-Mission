@@ -27,8 +27,7 @@
 }
 
 h1{
-  font-size: 3rem;
-  font-weight: 700;
+  font-weight: 700; 
   letter-spacing: -0.01875rem;
   font-size: 4rem;
   line-height: 5rem; /* 125% */
@@ -268,7 +267,7 @@ footer{
   gap: 0.75rem;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (max-width: 1199px) {
     /* common */
   section:not(#home) {
     display: flex;
@@ -291,6 +290,7 @@ footer{
 
   /* home */
   #home{
+    padding: 2.44rem 0 0;
     gap : 2.5rem;
   }
 
@@ -330,4 +330,50 @@ footer{
   #link-share img{
     width: 18rem;
   }
+}
+
+@media screen and (max-width: 767px) {
+  .btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  h1{
+    font-size: 2rem;
+    line-height: 2.625rem; /* 131.25% */
+  }
+  
+  section:not(#home) {
+    flex-direction: column;
+    gap: 3.19rem;
+}
+
+  /* header */
+  .gnb{
+    padding: 0.81rem 2rem;
+    width: auto;
+  }
+
+  .logo{
+    width: 5.54169rem;
+  }
+
+  .login{
+    width: 5rem;
+  } 
+
+  /* home */
+  #home {
+    padding: 1.75rem 0 0;
+    gap: 1.5rem;
+  }
+
+  #home .btn{
+    width: 12.5rem;
+  }
+
+  #home img{
+    width: 18.9245rem;
+  }
+ 
 }
