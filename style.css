@@ -5,6 +5,7 @@
 body {
   background: var(--linkbrary-bg, #f0f6ff);
   font-family: "Pretendard", sans-serif;
+  margin: 0;
 }
 
 h1,
@@ -68,7 +69,7 @@ main {
 }
 
 .info-title {
-  font-size: 4rem;
+  font-size: inherit;
   text-align: center;
 }
 
@@ -416,6 +417,12 @@ footer {
     width: 100%;
     padding-left: 32px;
     padding-right: 32px;
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 42px;
   }
 
   #first-section {
@@ -426,8 +433,8 @@ footer {
   .container {
     flex-direction: column;
     width: 100%;
-    padding-top: 7.5rem;
-    padding-bottom: 3.125rem;
+    padding-top: 40px;
+    padding-bottom: 40px;
     gap: 16px;
   }
 
@@ -483,6 +490,7 @@ footer {
     row-gap: 30px;
     column-gap: 30px;
     justify-items: left;
+    padding: 32px 32px 64px 32px;
   }
   .left-box {
     grid-area: codeit;
@@ -492,5 +500,25 @@ footer {
   }
   .right-box {
     grid-area: logo-link;
+  }
+  .image-box > img {
+    width: 100%;
+    height: 100%;
+  }
+  .image-box {
+    width: 100%;
+    height: 100%;
+  }
+  a.signup {
+    width: 200px;
+  }
+  .section-text > h2 {
+    font-size: 24px;
+  }
+  h2span {
+    font-size: 24px;
+  }
+  .break-br {
+    display: none;
   }
 }
