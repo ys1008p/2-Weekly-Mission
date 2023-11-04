@@ -64,21 +64,23 @@ label{
   font-size: 0.875rem;
 }
 
-.eye-off{
-  background: url(/imgs/sign/eye-off.svg) no-repeat;
-  background-position: center right 0.95rem;
-}
-
-.eye-on{
-  background: url(/imgs/sign/eye-on.png) no-repeat;
-  background-position: center right 0.95rem;
-  background-size: 1rem;
-}
 .sign-userinfo{
   display: flex;
   flex-direction: column;
   gap:1.5rem;
   padding:1.88rem 0;
+}
+
+.sign-userinput{
+  position: relative;
+}
+
+.eye-off, .eye-on{
+  position: absolute;
+  top: 3rem;
+  right: 0.95rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .password-err{
