@@ -274,3 +274,13 @@ footer > div {
     bottom: 0;
   }
 }
+
+@media screen and (max-width: 374px) {
+  .company {
+    position: static;
+  }
+
+  footer > div {
+    flex-direction: column;
+  }
+}
