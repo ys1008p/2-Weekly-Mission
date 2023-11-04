@@ -403,4 +403,9 @@ footer{
   #save-link{
     padding: 2.5rem 0 2.63rem;
   }
+
+  /* link-management */
+  #link-management .left, #link-search .left{
+    order:1;
+  }
 }
