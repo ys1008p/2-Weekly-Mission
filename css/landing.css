@@ -108,6 +108,7 @@ footer > div {
 .contents p {
   color: #6b6b6b;
   margin-top: 10px;
+  font-weight: 500;
 }
 
 .link-gradient {
