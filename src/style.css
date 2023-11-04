@@ -191,19 +191,19 @@ footer {
 }
 
 /* Tablet Size */
-@media (max-width:768px){
+@media (min-width:768px){
 
 }
 
-@media (min-width:1199px){
+@media (max-width:1199px){
 
 }
 
 /* Mobile Size */
-@media (max-width:375px){
+@media (min-width:375px){
 
 }
 
-@media (min-width:767px){
+@media (max-width:767px){
 
 }
