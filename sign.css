@@ -16,13 +16,13 @@
   gap: 1rem;
 }
 
-.sign-top_logo{
+.sign-top-logo{
   display: block;
   width: 13.16144rem;
   height: 2.375rem;
 }
 
-.sign-top_question{
+.sign-top-question{
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
@@ -30,12 +30,12 @@
 .sign-question p{
   color: var(--black, #000);
 }
-.sign-question_join{
+.sign-question-join{
   color: var(--linkbrary-primary-color, #6D6AFE);
   text-decoration-style : solid;
 }
 
-.sign-question_join::after{
+.sign-question-join::after{
   content: "";
   display: block;
   width: 100%;
@@ -44,7 +44,7 @@
 }
 
 
-/* sing-middle */
+/* sign-middle */
 input{
   width: 25rem;
   padding: 1.125rem 0.9375rem;
@@ -74,26 +74,26 @@ label{
   background-position: center right 0.95rem;
   background-size: 1rem;
 }
-.sing-userinfo{
+.sign-userinfo{
   display: flex;
   flex-direction: column;
   gap:1.5rem;
   padding:1.88rem 0;
 }
 
-.password_err{
+.password-err{
   color: var(--linkbrary-red, #FF5B56);
   font-size: 0.875rem;
   margin-top: 0.38rem;
 }
 
-.sing-middle .btn{
+.sign-middle .btn{
   width: 25rem;
   margin-bottom: 2rem;
 }
 
 /* sing-bottom */
-.sing-bottom{
+.sign-bottom{
   display: flex;
   width: 25rem;
   justify-content: space-between;
@@ -103,12 +103,12 @@ label{
   border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
   background: var(--linkbrary-gray-10, #E7EFFB);
 }
-.sing-bottom_tit{
+.sign-bottom-tit{
   color: var(--linkbrary-gray-100, #373740);
   font-size: 0.875rem;
 }
 
-.sing_sns{
+.sign-sns{
   display: inline-block;
   width: 2.625rem;
   height: 2.625rem;
