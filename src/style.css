@@ -72,19 +72,20 @@
 }
 
 .hero-image {
-  width: 120rem;
-  height: 59rem;
+  width: 698px;
+  height: 343px;
+  border-radius: 25px;
 }
 
-article {
+.section-container {
   padding-top: 7rem;
   padding-bottom: 12rem;
 }
 
-section {
+.section-box {
   display: grid;
   justify-content: center;
-  column-gap: 15.7rem;
+  column-gap: 51px;
   row-gap: 1rem;
   width: 100%;
   height: 55rem;
@@ -97,7 +98,7 @@ section:nth-of-type(odd) {
     "title image"
     "description image"
     ". image"
-    /291px 55rem;
+    /291px 41rem;
 }
 
 section:nth-of-type(even) {
@@ -106,7 +107,7 @@ section:nth-of-type(even) {
     "image title"
     "image description"
     "image ."
-    /550px 29.1rem;
+    /450px 29.1rem;
 }
 
 .title {
@@ -140,8 +141,8 @@ section:nth-of-type(even) {
 
 .content-image {
   grid-area: image;
-  width: 55rem;
-  height: 45rem;
+  width: 385px;
+  height: 315px;
 }
 
 footer {
