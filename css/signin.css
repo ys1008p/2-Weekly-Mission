@@ -1,13 +1,13 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: var(--gray-bg);
-  height: 100%;
+  min-height: 100svh;
 }
 
 .container {
   width: 400px;
-  margin-top: 238px;
 }
 
 .logo {
