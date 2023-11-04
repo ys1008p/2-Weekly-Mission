@@ -23,7 +23,6 @@
     }
 
     .imgbox {
-      position: relative;
       width: 550px;
       height: 450px;
       border-radius: 15px;
@@ -31,8 +30,9 @@
       overflow: hidden;
 
       img {
-        @include pos-center;
         width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -46,6 +46,17 @@
       .imgbox {
         width: 385px;
         height: 315px;
+      }
+    }
+
+    &.sm-only {
+      .textbox-sub-title {
+        margin: 40px 0 20px;
+      }
+
+      .textbox-desc {
+        @include text-style(15);
+        margin-top: 16px;
       }
     }
   }
@@ -117,19 +128,8 @@
 
       .imgbox {
         width: 100%;
-        height: 60vw;
+        height: auto;
       }
     }
-  }
-}
-
-/* mobile */
-.landing-page.sm-only {
-  .textbox-sub-title {
-    margin-bottom: 20px;
-  }
-
-  .textbox-desc {
-    margin-top: 16px;
   }
 }
