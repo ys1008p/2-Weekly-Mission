@@ -120,3 +120,76 @@ footer {
   border: 1px solid #ccd5e3;
   background-color: #e7effb;
 }
+
+/* PC 반응형 */
+@media (min-width: 1200px) {
+  body {
+    width: 100%;
+    padding: 238px 32px 252px 32px;
+  }
+
+  form {
+    max-width: 400px;
+  }
+
+  input {
+    max-width: 400px;
+  }
+
+  .login {
+    max-width: 400px;
+  }
+
+  footer {
+    max-width: 400px;
+  }
+}
+
+/* Tablet 반응형 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  body {
+    width: 100%;
+    padding: 238px 32px 252px 32px;
+  }
+
+  form {
+    max-width: 400px;
+  }
+
+  input {
+    max-width: 400px;
+  }
+
+  .login {
+    max-width: 400px;
+  }
+
+  footer {
+    max-width: 400px;
+  }
+}
+
+/* Mobile 반응형 */
+@media (min-width: 375px) and (max-width: 767px) {
+  body {
+    width: 100%;
+    padding: 238px 0 252px 0;
+  }
+
+  form {
+    width: 100%;
+    max-width: none;
+  }
+
+  input {
+    max-width: 400px;
+  }
+
+  .login {
+    max-width: 400px;
+  }
+
+  footer {
+    max-width: 100%;
+  }
+}

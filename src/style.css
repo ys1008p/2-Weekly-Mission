@@ -107,7 +107,7 @@ section:nth-of-type(even) {
     "image title"
     "image description"
     "image ."
-    /550px 29.1rem;
+    /550px 50.1rem;
 }
 
 .title {
@@ -185,4 +185,133 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+@media (max-width: 1199px) {
+  nav {
+    padding: 0 32px;
+  }
+
+  .cta-short {
+    width: auto;
+    padding: 0 32px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .hero-image {
+    width: 100%;
+    height: 300px;
+  }
+
+  .slogan {
+    font-size: 60px;
+  }
+  .section {
+    display: grid;
+    justify-content: center;
+    column-gap: 2em;
+    row-gap: 1em;
+    width: 100%;
+    height: 35rem;
+    padding: 50px 0;
+    z-index: 0;
+  }
+  section:nth-of-type(odd) {
+    grid-template:
+      ". ."
+      "title image"
+      "description image"
+      /200px 30rem;
+  }
+
+  section:nth-of-type(even) {
+    grid-template:
+      ". ."
+      "image title"
+      "image description"
+      "image ."
+      /100px 40rem;
+  }
+
+  .title {
+    grid-area: "title";
+    font-size: 37px;
+    text-align: center; /* 가운데 정렬 */
+    margin-bottom: -50px; /* 아래 마진 추가 */
+    line-height: 50px;
+  }
+
+  .description {
+    grid-area: "description";
+    font-size: 16px;
+    text-align: center; /* 가운데 정렬 */
+    line-height: 25px;
+  }
+
+  .content-image {
+    grid-area: "content-image";
+    width: 30rem; /* 이미지 너비를 100%로 설정하여 부모 요소에 맞게 조절 */
+    height: auto; /* 높이를 자동으로 조절하여 비율 유지 */
+    margin-top: 3px; /* 위쪽 마진 추가 */
+  }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .hero-image {
+    width: 100%;
+    height: 300px;
+  }
+  .slogan {
+    font-size: 43.5px;
+  }
+  .section {
+    display: grid;
+    justify-content: center;
+    column-gap: 2em;
+    row-gap: 1em;
+    width: 100%;
+    height: 35rem;
+    padding: 50px 0;
+    z-index: 0;
+  }
+  section:nth-of-type(odd) {
+    grid-template:
+      "title image"
+      "description image"
+      ". image"
+      /200px 30rem;
+  }
+
+  section:nth-of-type(even) {
+    grid-template:
+      "image title"
+      "image description"
+      ". ."
+      /100px 40rem;
+  }
+
+  .title {
+    grid-area: "title";
+    font-size: 35px;
+    text-align: center; /* 가운데 정렬 */
+    margin-bottom: -30px; /* 아래 마진 추가 */
+    line-height: 50px;
+  }
+
+  .description {
+    grid-area: "description";
+    font-size: 16px;
+    text-align: center; /* 가운데 정렬 */
+    line-height: 25px;
+  }
+
+  .content-image {
+    grid-area: "content-image";
+    width: 30rem; /* 이미지 너비를 100%로 설정하여 부모 요소에 맞게 조절 */
+    height: auto; /* 높이를 자동으로 조절하여 비율 유지 */
+    margin-top: 3px; /* 위쪽 마진 추가 */
+  }
 }
