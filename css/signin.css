@@ -60,7 +60,7 @@ input:focus {
 .eye-icon {
   position: absolute;
   top: calc(50% - 8px);
-  right: 15px;
+  right: 16px;
   width: 16px;
   cursor: pointer;
 }
