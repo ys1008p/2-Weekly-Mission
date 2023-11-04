@@ -1,59 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signup.css">
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup.css" />
     <title>Linkbrary</title>
-</head>
-<body>
-  <main>
-    <div class="mainContainer">
-      <div class="primaryContainer">
-        <div class="headerContainer">
-          <a href="./index.html"><img id="logo" src="./images/head_logo.svg"></a>
-          <div class="textContainer">
-            <span>이미 회원이신가요?</span>
-            <div class="linkContainer">
-              <a href="./signin.html">로그인 하기</a>
-              <div class="emptyContainer"></div>
+  </head>
+  <body>
+    <main>
+      <div class="mainContainer">
+        <div class="primaryContainer">
+          <div class="headerContainer">
+            <a href="./index.html"
+              ><img id="logo" src="./images/head_logo.svg"
+            /></a>
+            <div class="textContainer">
+              <span>이미 회원이신가요?</span>
+              <div class="linkContainer">
+                <a href="./signin.html">로그인 하기</a>
+                <div class="emptyContainer"></div>
+              </div>
             </div>
+          </div>
+          <form class="formContainer">
+            <div class="inputContainer">
+              <label>이메일</label>
+              <div class="inputFieldContainer">
+                <input
+                  type="email"
+                  name="email"
+                  value=""
+                  placeholder="codeit@codeit.com"
+                />
+              </div>
+            </div>
+            <div class="inputContainer">
+              <labal>비밀번호</labal>
+              <div class="inputFieldContainer">
+                <input
+                  type="password"
+                  name="password"
+                  value=""
+                  placeholder="linkbrary2023"
+                />
+                <img src="./images/eye-on.svg" />
+              </div>
+            </div>
+            <div class="inputContainer">
+              <label>비밀번호 확인</label>
+              <div class="inputFieldContainer">
+                <input
+                  type="password"
+                  name="password"
+                  value=""
+                  placeholder="linkbrary20245"
+                />
+                <img src="./images/eye-on.svg" />
+              </div>
+            </div>
+            <div>
+              <button>회원가입</button>
+            </div>
+          </form>
+        </div>
+        <div class="secondaryContainer">
+          다른 방식으로 가입하기
+          <div class="socialLoginContainer">
+            <a href="https://google.com"><img src="./images/google.png" /></a>
+            <a href="https://www.kakaocorp.com/page"
+              ><img src="./images/kakao.png"
+            /></a>
           </div>
         </div>
-        <form class="formContainer">
-          <div class="inputContainer">
-            <label>이메일</label>
-            <div class="inputFieldContainer">
-              <input type="email" name="email" value="" placeholder="codeit@codeit.com">
-            </div>
-          </div>
-          <div class="inputContainer">
-            <labal>비밀번호</labal>
-            <div class="inputFieldContainer">
-              <input type="password" name="password" value="" placeholder="linkbrary2023">
-              <img src="./images/eye-on.svg">
-            </div>
-          </div>
-          <div class="inputContainer">
-            <label>비밀번호 확인</label>
-            <div class="inputFieldContainer">
-              <input type="password" name="password" value="" placeholder="linkbrary20245">
-              <img src="./images/eye-on.svg">
-            </div>
-          </div>
-          <div>
-            <button>회원가입</button>
-          </div>
-        </form>
       </div>
-      <div class="secondaryContainer">
-        다른 방식으로 가입하기 
-        <div class="socialLoginContainer">
-          <a href="https://google.com"><img src="./images/google.png"></a>
-          <a href="https://www.kakaocorp.com/page"><img src="./images/kakao.png"></a>
-        </div>
-      </div>
-    </div>
-  </main>
-</body>
+    </main>
+  </body>
 </html>
