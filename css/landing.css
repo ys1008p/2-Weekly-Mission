@@ -166,6 +166,10 @@ footer .sns img {
     max-width: 762px;
   }
 
+  .banner-wrapper {
+    padding-top: 39px;
+  }
+
   .third-line {
     display: inline;
   }
