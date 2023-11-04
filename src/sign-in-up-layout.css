@@ -85,19 +85,22 @@ input:focus::placeholder {
 
 .check .diff {
   display: inline-block;
-  margin-top: 0.6rem;
+  padding-top: 0.6rem;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--red-color);
 }
 
-.label.password-container {
+.input-wrapper {
   position: relative;
+  width: 100%;
+  height: 6rem;
 }
 
-.label.password-container .eye {
+.input-wrapper .eye {
   position: absolute;
-  top: 51px;
+  transform: translateY(-50%);
+  top: 50%;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
