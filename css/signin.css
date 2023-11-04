@@ -7,7 +7,8 @@
 }
 
 .container {
-  width: 400px;
+  width: 464px;
+  padding: 0 32px;
 }
 
 .logo {
