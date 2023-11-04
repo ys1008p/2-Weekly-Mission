@@ -315,4 +315,28 @@ footer {
   }
 
   /* footer 구현 x */
+  footer {
+    padding: 32px;
+  }
+
+  .footer-box {
+    display: grid;
+    grid-template-areas:
+      "links sns"
+      "copyright .";
+    row-gap: 60px;
+    padding: 0;
+  }
+
+  .copyright {
+    grid-area: copyright;
+  }
+
+  .footer-links {
+    grid-area: links;
+  }
+
+  .sns {
+    grid-area: sns;
+  }
 }
