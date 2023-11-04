@@ -408,4 +408,17 @@ footer{
   #link-management .left, #link-search .left{
     order:1;
   }
+
+  /* footer */
+  footer{
+    padding: 2rem;
+    height: 10rem;
+    align-items: start;
+    position: relative;
+  }
+  .copyright{
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+  }
 }
