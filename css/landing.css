@@ -55,9 +55,9 @@ footer > div {
 }
 
 .banner-wrapper {
-  max-width: 1200px;
+  max-width: 1264px;
   margin: 0 auto;
-  padding-top: 70px;
+  padding: 70px 32px 0;
   text-align: center;
 }
 
@@ -76,6 +76,10 @@ footer > div {
   -webkit-text-fill-color: transparent;
 }
 
+.third-line {
+  display: none;
+}
+
 .add-link {
   width: 350px;
   margin: 40px auto;
@@ -85,8 +89,9 @@ footer > div {
   display: flex;
   flex-direction: column;
   gap: 100px;
+  max-width: 1062px;
   margin: 120px auto;
-  max-width: 998px;
+  padding: 0 32px;
 }
 
 .contents section {
@@ -156,4 +161,14 @@ footer .sns {
 
 footer .sns img {
   width: 20px;
+}
+
+@media screen and (max-width: 1199px) {
+  .banner-wrapper {
+    max-width: 762px;
+  }
+
+  .third-line {
+    display: inline;
+  }
 }
