@@ -28,9 +28,8 @@ body {
 
 .wrap {
   background-color: var(--home-bg);
-  width: 90rem;
   display: flex;
-  padding: 14.875rem 0 15.75rem 0;
+  padding-top: 14.875rem;
   justify-content: center;
   align-items: center;
 }
@@ -50,11 +49,15 @@ body {
 }
 
 /* header */
+.logo {
+  width: 21rem;
+  height: 3.8rem;
+}
 .header {
   margin: auto;
 }
 
-.main__signin {
+.main__signup {
   margin: 1rem 0 0 0;
   font-size: 1rem;
   font-weight: 400;
@@ -62,7 +65,7 @@ body {
   color: var(--color-black);
 }
 
-.main__signin {
+.main__signup {
   font-weight: 600;
   color: var(--color-primary);
 }
@@ -121,6 +124,7 @@ body {
   font-weight: 600;
   width: 100%;
   padding: 1rem 1.25rem;
+  border: none;
 }
 
 .social__container {
