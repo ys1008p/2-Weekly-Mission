@@ -1,20 +1,4 @@
-:root {
-  --primary-color: #6d6afe;
-  --red-color: #ff5b56;
-  --black-color: #111322;
-  --white-color: #ffffff;
-  --gray-40-color: #3e3e43;
-  --gray-30-color: #9fa6b2;
-  --gray-20-color: #ccd5e3;
-  --gray-10-color: #e7effb;
-  --gray-00-color: #f0f6ff;
-  --gra-purpleblue-to-skyblue: linear-gradient(
-    135deg,
-    #6d6afe 0%,
-    #6ae3fe 100%
-  );
-}
-
+@import "./global.css";
 body {
   margin: 23.8rem auto;
   display: flex;
@@ -24,7 +8,6 @@ body {
   width: 40rem;
   background-color: var(--gray-00-color);
 }
-
 .logo-link-container {
   display: flex;
   flex-direction: column;
