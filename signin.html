@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <title>로그인</title>
     <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
-    <link rel="stylesheet" href="signin.css" />
+    <link rel="stylesheet" href="./src/sign.css" />
   </head>
   <body>
-    <main id="main">
-      <section>
-        <header>
-          <div class="logo"><a href="index.html"><img class="logoImg" src="./images/logo.svg" /></a></div>
-          <div class="signupBox">
-            <p class="ask">회원이 아니신가요?</p>
-            <a class="toSignup" href="/signup.html">회원 가입하기</a>
+    <header>
+      <a class="logo-link" href="index.html">
+        <img class="header-logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+      </a>
+      <p class="header-message">
+        회원이 아니신가요?<a class="header-link" href="signup.html">회원 가입하기</a>
+      </p>
+    </header>
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="sign-inputs">
+          <div class="sign-input-box">
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" />
           </div>
-        </header>
-        <formBox class="formBox">
-          <div class="email">
-            <label for="emailInput">이메일</label>
-            <input id="emailInput" class="emailInput" />
+          <div class="sign-input-box sign-password">
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" type="password" />
+            <button class="eye-button" type="button">
+              <img src="./images/eye-off.svg" />
+            </button>
           </div>
-          <div class="pw">
-            <label for="pwInput">비밀번호</label>
-            <input id="pwInput" class="pwInput" type="password"/>
-          </div>
-        </formBox>
-        <div></div>
-      </section>
-      <div><button class="loginBtn"><label class="loginBtnLabel">로그인</label></button></div>
-      <div class="socialLoginBox">
-        <div><p>소셜 로그인</p></div>
-        <div class="siteLogo">
-          <div class="toGoogle">
-          <img class="googleImg" src=".\images\Google__G__Logo.svg.webp"/>
         </div>
-          <div class=toKakao><img class="kakaoImg" src="./images/kakaoImg.jpg"/></div>
+        <button class="cta" type="submit">로그인</button>
+      </form>
+      <div class="sns-box">
+        <span class="sns-text">소셜 로그인</span>
+        <div class="sns-links">
+          <a class="sns-link google-link" href="https://www.google.com/">
+            <img src="./images/google.png" />
+          </a>
+          <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+            <img src="./images/kakao.svg" />
+          </a>
         </div>
       </div>
-    </main>
+    </div>
   </body>
 </html>
