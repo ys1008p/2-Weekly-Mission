@@ -36,135 +36,137 @@
     <!-- css -->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-blue">
-    <div class="container">
-      <div class="form">
-        <header class="form-header">
-          <h1 class="logo">
-            <a href="/">
-              <img src="./assets/images/logo.svg" alt="linkbrary-logo" />
-            </a>
-          </h1>
-          <div class="info-user">
-            <span>이미 회원이신가요?</span>
-            <a class="login-link" href="signin.html">로그인 하기</a>
-          </div>
-        </header>
+  <body>
+    <div class="wrapper bg-blue">
+      <div class="container">
+        <div class="form">
+          <header class="form-header">
+            <h1 class="logo">
+              <a href="/">
+                <img src="./assets/images/logo.svg" alt="linkbrary-logo" />
+              </a>
+            </h1>
+            <div class="info-user">
+              <span>이미 회원이신가요?</span>
+              <a class="login-link" href="signin.html">로그인 하기</a>
+            </div>
+          </header>
 
-        <main class="form-inner">
-          <form action="/" method="post" class="signup-form">
-            <fieldset>
-              <legend>Create Linkbrary Account</legend>
+          <main class="form-inner">
+            <form action="/" method="post" class="signup-form">
+              <fieldset>
+                <legend>Create Linkbrary Account</legend>
 
-              <!-- 1. email -->
-              <div class="signup-email">
-                <div class="input-group">
-                  <label class="input-title" for="email">이메일</label>
-                  <div class="input-box">
-                    <input
-                      id="email"
-                      name="id"
-                      type="email"
-                      placeholder="이메일"
-                      maxlength="30"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="error-msg error-email hide"></div>
-              </div>
-
-              <!-- 2-1. password -->
-              <div class="signup-password">
-                <div class="input-group">
-                  <label class="input-title" for="password">비밀번호</label>
-                  <div class="input-box">
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      placeholder="비밀번호"
-                      maxlength="16"
-                      required
-                    />
-                    <button
-                      type="button"
-                      class="btn-signup-password-toggle"
-                      aria-checked="false"
-                      aria-label="비밀번호 숨기기"
-                      role="switch"
-                    >
-                      <img
-                        src="./assets/images/icon/eye-off.svg"
-                        alt="비밀번호 숨기기"
+                <!-- 1. email -->
+                <div class="signup-email">
+                  <div class="input-group">
+                    <label class="input-title" for="email">이메일</label>
+                    <div class="input-box">
+                      <input
+                        id="email"
+                        name="id"
+                        type="email"
+                        placeholder="이메일"
+                        maxlength="30"
+                        required
                       />
-                    </button>
+                    </div>
                   </div>
+                  <div class="error-msg error-email hide"></div>
                 </div>
-                <div class="error-msg error-password hide"></div>
-              </div>
 
-              <!-- 2-2. verify password -->
-              <div class="verify-password">
-                <div class="input-group">
-                  <label class="input-title" for="verify-password"
-                    >비밀번호 확인</label
-                  >
-                  <div class="input-box">
-                    <input
-                      id="verify-password"
-                      name="verify-password"
-                      type="password"
-                      placeholder="비밀번호 확인"
-                      maxlength="16"
-                      required
-                    />
-                    <button
-                      type="button"
-                      class="btn-verify-password-toggle"
-                      aria-checked="false"
-                      aria-label="비밀번호 숨기기"
-                      role="switch"
-                    >
-                      <img
-                        src="./assets/images/icon/eye-off.svg"
-                        alt="비밀번호 숨기기"
+                <!-- 2-1. password -->
+                <div class="signup-password">
+                  <div class="input-group">
+                    <label class="input-title" for="password">비밀번호</label>
+                    <div class="input-box">
+                      <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="비밀번호"
+                        maxlength="16"
+                        required
                       />
-                    </button>
+                      <button
+                        type="button"
+                        class="btn-signup-password-toggle"
+                        aria-checked="false"
+                        aria-label="비밀번호 숨기기"
+                        role="switch"
+                      >
+                        <img
+                          src="./assets/images/icon/eye-off.svg"
+                          alt="비밀번호 숨기기"
+                        />
+                      </button>
+                    </div>
                   </div>
+                  <div class="error-msg error-password hide"></div>
                 </div>
-                <div class="error-msg error-verify-password hide"></div>
-              </div>
 
-              <!-- submit -->
-              <button class="btn-signup btn-primary" type="submit">
-                회원가입
-              </button>
-            </fieldset>
-          </form>
+                <!-- 2-2. verify password -->
+                <div class="verify-password">
+                  <div class="input-group">
+                    <label class="input-title" for="verify-password"
+                      >비밀번호 확인</label
+                    >
+                    <div class="input-box">
+                      <input
+                        id="verify-password"
+                        name="verify-password"
+                        type="password"
+                        placeholder="비밀번호 확인"
+                        maxlength="16"
+                        required
+                      />
+                      <button
+                        type="button"
+                        class="btn-verify-password-toggle"
+                        aria-checked="false"
+                        aria-label="비밀번호 숨기기"
+                        role="switch"
+                      >
+                        <img
+                          src="./assets/images/icon/eye-off.svg"
+                          alt="비밀번호 숨기기"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                  <div class="error-msg error-verify-password hide"></div>
+                </div>
 
-          <div class="social-login">
-            <span class="social-login-title">다른 방식으로 가입하기</span>
-            <ul class="social-login-list">
-              <li class="social-login-item">
-                <a href="https://www.google.com/">
-                  <img
-                    src="./assets/images/icon/social-google.svg"
-                    alt="소셜 로그인-구글"
-                  />
-                </a>
-              </li>
-              <li class="social-login-item">
-                <a href="https://www.kakaocorp.com/page/">
-                  <img
-                    src="./assets/images/icon/social-kakao.svg"
-                    alt="소셜 로그인-카카오"
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </main>
+                <!-- submit -->
+                <button class="btn-signup btn-primary" type="submit">
+                  회원가입
+                </button>
+              </fieldset>
+            </form>
+
+            <div class="social-login">
+              <span class="social-login-title">다른 방식으로 가입하기</span>
+              <ul class="social-login-list">
+                <li class="social-login-item">
+                  <a href="https://www.google.com/">
+                    <img
+                      src="./assets/images/icon/social-google.svg"
+                      alt="소셜 로그인-구글"
+                    />
+                  </a>
+                </li>
+                <li class="social-login-item">
+                  <a href="https://www.kakaocorp.com/page/">
+                    <img
+                      src="./assets/images/icon/social-kakao.svg"
+                      alt="소셜 로그인-카카오"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </main>
+        </div>
       </div>
     </div>
   </body>

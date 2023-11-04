@@ -93,7 +93,10 @@
 }
 
 @include responsive(M) {
+  .bg-blue {
+    height: 100%;
+  }
   .form {
-    padding-top: 120px;
+    padding: 120px 0;
   }
 }
