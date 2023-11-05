@@ -854,7 +854,6 @@ container-size·············100% - (32px * 2)
 }
 @media screen and (max-width: 1199px) {
   .landing-page .call-to-action .title {
-    width: 472px;
     padding: 40px 0;
   }
   .landing-page .call-to-action .title .br {
