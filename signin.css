@@ -1,0 +1,138 @@
+.action-button{
+    border: 0;
+
+    padding: 16px 20px;
+
+    color: #F5F5F5;
+    border-radius: 8px;
+
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.action-button_signin{
+    width: 100%;
+}
+
+.action-button_grad_blue-sky{
+    background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+}
+
+.body{
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.header__logo-image{
+    height: 38px;
+}
+
+.html{
+    background-color: #F0F6FF;
+}
+
+.input-form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.input-form__input{
+    padding: 18px 15px;
+    border: 1px solid #373740;
+    border-radius: 8px;
+    width: inherit;
+    height: 60px;
+
+}
+.input-form__input:focus{
+    outline: 0;
+}
+.input-form__input:focus-visible{
+    border: 1px solid #6D6AFE;
+}
+.input-form__input-wrapper{
+    width: 100%;
+    position: relative;
+}
+.input-form__show-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main{
+    width: 100%;
+}
+
+.page_centered{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign__move-page{
+    text-decoration: underline;
+    color: #6D6AFE;
+}
+
+.sign-form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.social-signin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #E7EFFB;
+    border: 1px solid #CCD5E3;
+}
+
+.social-signin__sns-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.social-signin__sns-icon{
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    display: inline-flex;
+}
+
+.social-signin__sns-icon_img-google{
+    padding: 10px;
+}
+
+.social-signin__sns-icon_img-kakao{
+    padding: 8px;
+    padding-top: 10px;
+}
+
+.social-signin__sns-icon_background_google{
+    background-color: #FFFFFF;
+    border: 1px solid #D3D4DD;
+}
+.social-signin__sns-icon_background_kakao{
+    background-color: #F5E14B;
+  }
