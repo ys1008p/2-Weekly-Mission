@@ -217,10 +217,6 @@ html::-webkit-scrollbar{
     background-color: #F0F6FF;
 }
 
-.centered{
-    margin: 0 auto;
-}
-
 .service-description{
     display: flex;
     flex-direction: column;
