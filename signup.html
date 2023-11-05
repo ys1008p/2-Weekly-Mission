@@ -1,72 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html class="html page_centered">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="preconnect" type="text/css"
+    <link rel="stylesheet" type="text/css"
         href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
-
+    
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="signin-structure.css" />
-    <link rel="stylesheet" href="color-design.css" />
-    <link rel="stylesheet" href="font-design.css" />
-    <link rel="stylesheet" href="image-design.css" />
-    <link rel="stylesheet" href="action-design.css" />
+    <link rel="stylesheet" href="base.css"/>
+    <link rel="stylesheet" href="utility.css"/>
+    <link rel="stylesheet" href="signup.css"/>
     <title>로그인</title>
 </head>
 
-<body>
-    <header>
-        <section class="logo">
+<body class="body centered">
+    <header class="header">
+        <section class="header__logo">
             <a href="/">
-                <img class="logo-image" src="./image/logo.svg">
+                <img class="header__logo-image" src="./image/logo.svg">
             </a>
         </section>
         <section class="sign">
-            <p>이미 회원이신가요? <a class="move sign" href="/signin">로그인 하기</a></p>
+            <p class="sign__text">이미 회원이신가요? <a class="sign__move-page" href="/signin.html">로그인 하기</a></p>
         </section>
     </header>
-    <main class="sign">
-        <section class="signin">
-            <form class="sign-form" method="get">
-                <div class="form id">
-                    <label class="label" for="signin-email">
+    <main class="main">
+        <section class="main__signup mh_30px">
+            <form class="sign-form" method="post">
+                <div class="input-form">
+                    <label class="input-form__label" for="signup-email">
                         이메일
                     </label>
-                    <div class="input-group">
-                        <input class="input text" id="signin-email" name="email" type="email" autocomplete="email"
-                            required>
-                    </div>
+                    <input class="input-form__input" id="signup-email" name="email" type="email" autocomplete="email"
+                        required>
                 </div>
-                <div class="form password">
-                    <label class="label" for="signin-password">
+                <div class="input-form">
+                    <label class="input-form__label" for="signup-password">
                         비밀번호
                     </label>
-                    <div class="input-group">
-                        <input class="input text" id="signin-password" name="password" type="password" required>
-                        <img class="icon eye" src="./image/signin/eye-off.svg">
+                    <div class="input-form__input-wrapper">
+                        <input class="input-form__input" id="signup-password" name="password" type="password" required>
+                        <img class="input-form__show-icon" src="./image/signin/eye-off.svg">
                     </div>
                 </div>
-                <div class="form password-check">
-                    <label class="label" for="signin-password-check">
+                <div class="input-form">
+                    <label class="input-form__label" for="signup-password-check">
                         비밀번호확인
                     </label>
-                    <div class="input-group">
-                        <input class="input text" id="signin-password-check" name="password-check" type="password" required>
-                        <img class="icon eye" src="./image/signin/eye-off.svg">
+                    <div class="input-form__input-wrapper">
+                        <input class="input-form__input" id="signup-password-check" name="password-check" type="password" required>
+                        <img class="input-form__show-icon" src="./image/signin/eye-off.svg">
                     </div>
                 </div>
             </form>
         </section>
-        <button class="signup button">
+        <button class="action-button action-button_signup action-button_grad_blue-sky">
             회원가입
         </button>
-        <section class="social signup">
-            <label class="label">다른 방식으로 가입하기</label>
-            <div class="icons">
-                <a class="icon google-login" href="https://www.google.com"><img src="./image/social/google.png"
+        <section class="social-signup mt_32px">
+            <label class="social-signup__label">다른 방식으로 가입하기</label>
+            <div class="social-signup__sns-icons">
+                <a class="social-signup__sns-icon social-signup__sns-icon_background_google social-signup__sns-icon_img-google " href="https://www.google.com"><img src="./image/social/google.png"
                         alt="구글 로그인"></a>
-                <a class="icon kakao-login" href="https://www.kakaocorp.com/page/"><img src="./image/social/kakao.svg"
+                <a class="social-signup__sns-icon social-signup__sns-icon_background_kakao social-signup__sns-icon_img-kakao" href="https://www.kakaocorp.com/page/"><img src="./image/social/kakao.svg"
                         alt="카카오 로그인"></a>
             </div>
         </section>
