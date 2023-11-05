@@ -65,23 +65,19 @@ section:not(#home){
   gap: 9.8125rem;
 }
 
+.img-wrap{
+  width: 100%;
+}
+
+.img-wrap img{
+  max-width: 100%;
+  height: auto;
+  padding: 0 2rem;
+}
 
 #link-search{
   padding: 3.125rem, 7.5rem;
 }
-
-.wrap{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34.375rem;
-  height: 28.125rem;
-  border-radius: 15px;
-  background-color: #F0F6FF;
-  overflow: hidden;
-  position: relative;
-}
-
 
 /* header */
 header {
@@ -152,42 +148,9 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
-.card:nth-child(2){
-  position: relative;
-}
-
-.card-select{
-  position: absolute;
-  top: 13px;
-  left: 16px;
-}
-.card img{
-  width: 100%;
-}
-
-.card-select img{
-  width: 93%;
-}
-.card-ico-save{
-  position: absolute;
-  bottom: 0.29rem;
-  right: 0.38rem;
-}
-.card-ico-save img{
-  width: 2.875rem;
-  height: 2.875rem;
-}
-
-
 /* link-management */
 #link-management{
   padding: 3.125rem 0 ;
-}
-
-#link-management img{
-  width: 25.875rem;
-  margin-top:2rem;
-  
 }
 
 #link-management .decocolor{
@@ -208,30 +171,10 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
-
-#link-share img{
-  width: 26rem;
-  padding: 7.125rem 4.25rem 4.125rem 4.25rem;
-  box-sizing: content-box;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
-  url(/imgs/main/link-share02.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
-
-
 /* link-search */
 #link-search {
   padding: 3.125rem 0 7.5rem; 
   }
-#link-search img{
-  width: 32.6875rem;
-  position: absolute;
-  top: 1.44rem;
-  left: 1.75rem;
-}
 
 #link-search .decocolor{
   background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
@@ -275,7 +218,7 @@ footer{
     gap: 3.19rem;
   }
 
-  .wrap{
+  .img-wrap{
     width: 24.0625rem;
     height: 19.6875rem;
   }
@@ -297,37 +240,14 @@ footer{
     display: block;
   }
 
-  #home img{
+  #home .img-wrap{
     width: 40.64394rem;
+    height: auto;
   }
 
   /* save-link */
   #save-link{
     padding: 5rem 0 3.12rem;
-  }
-
-  .card-select {
-    position: absolute;
-    top: 9px;
-    left: 12px;
-  }
-
-  .card-ico-save{
-    right: 0.29rem;
-  }
-
-  .card-ico-save img{
-    width: 2rem;
-    height: 2rem;
-  }
-  /* link-management */
-  #link-management img {
-    width: 17.875rem;
-  }
-
-  /* link-share */
-  #link-share img{
-    width: 18rem;
   }
 }
 
@@ -366,9 +286,9 @@ footer{
     display: none;
   }
 
-  .wrap{
-    width: 20.3125rem;
-    height: 16.61931rem;
+  .img-wrap{
+    width: 100%;
+    height: auto;
   }
 
   /* header */
@@ -394,9 +314,9 @@ footer{
   #home .btn{
     width: 12.5rem;
   }
-
-  #home img{
-    width: 18.9245rem;
+  #home .img-wrap{
+    max-width: 100%;
+    height: auto;
   }
 
   /* save-link */
