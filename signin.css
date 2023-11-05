@@ -29,8 +29,7 @@ body {
 .wrap {
   background-color: var(--home-bg);
   display: flex;
-  width: 90rem;
-  padding: 14.875rem 0 15.75rem 0;
+  padding-top: 14.875rem;
   justify-content: center;
   align-items: center;
 }
@@ -50,6 +49,10 @@ body {
 }
 
 /* header */
+.logo {
+  width: 21rem;
+  height: 3.8rem;
+}
 .header {
   margin: auto;
 }
@@ -121,6 +124,7 @@ body {
   font-weight: 600;
   width: 100%;
   padding: 1rem 1.25rem;
+  border: none;
 }
 
 .social__container {
