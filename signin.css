@@ -160,3 +160,12 @@
 .social-signin__sns-icon_background_kakao{
     background-color: #F5E14B;
   }
+
+
+
+/* Mobile */
+@media all and (min-width:375px) and (max-width:767px) {
+    .body{
+        width: min(400px, calc(100% - 64px));
+    }
+}
