@@ -583,10 +583,15 @@ input[type="password"] {
     height: 100%;
   }
   footer .info-container .footer-info {
+    height: 2rem;
     gap: 3.75rem;
+  }
+  footer .info-container .footer-info a {
+    font-size: 2rem;
   }
 
   footer .info-container .footer-sns {
+    height: 2rem;
     gap: 1.5rem;
   }
   footer .info-container .footer-sns li {
@@ -598,9 +603,6 @@ input[type="password"] {
   footer .info-container span {
     position: absolute;
     bottom: 0;
-    font-size: 2rem;
-  }
-  footer .info-container .footer-info a {
     font-size: 2rem;
   }
 }
