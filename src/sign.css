@@ -1,5 +1,6 @@
 @import "./global.css";
 
+/* desktop and tablet */
 body {
   display: flex;
   justify-content: center;
@@ -136,4 +137,22 @@ input::placeholder {
   flex-shrink: 0;
   width: 42px;
   height: 42px;
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  body {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .inputs {
+    width: 100%;
+  }
 }
