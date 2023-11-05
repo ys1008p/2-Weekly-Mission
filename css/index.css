@@ -171,7 +171,7 @@ section .sub-text {
 .section3,
 .section4,
 .section5 {
-  padding: 3.125rem 0 3.125rem 0;
+  padding: 3.125rem 0;
 }
 
 .section3 .text-highlight {
@@ -355,10 +355,12 @@ div.footer-sns img {
   .link-add-button {
     width: 12.5rem;
   }
+
   .article-img_container {
     padding: 0rem 0.69rem 0 0.69rem;
     height: 14rem;
   }
+
   .article-img_container img {
     width: 100%;
     height: auto;
@@ -370,6 +372,7 @@ div.footer-sns img {
   section.section5 {
     padding: 2.5rem 32px 2.63rem 32px;
   }
+
   .container {
     flex-direction: column;
     gap: 1.5rem;
@@ -410,6 +413,7 @@ div.footer-sns img {
     height: auto;
     padding: 2rem;
   }
+
   footer > div {
     display: grid;
     grid-template-areas:

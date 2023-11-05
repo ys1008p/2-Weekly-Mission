@@ -32,11 +32,11 @@ main {
   flex-direction: column;
 }
 
-div.signin-box {
+.signin-box {
   gap: 1.875rem;
 }
 
-div.signup-check {
+.signup-check {
   align-items: center;
   gap: 1rem;
 }
