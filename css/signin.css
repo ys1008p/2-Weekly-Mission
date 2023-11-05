@@ -1,13 +1,14 @@
 .wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: var(--gray-bg);
-  height: 100%;
+  min-height: 100svh;
 }
 
 .container {
-  width: 400px;
-  margin-top: 238px;
+  width: 464px;
+  padding: 0 32px;
 }
 
 .logo {
@@ -60,7 +61,7 @@ input:focus {
 .eye-icon {
   position: absolute;
   top: calc(50% - 8px);
-  right: 15px;
+  right: 16px;
   width: 16px;
   cursor: pointer;
 }
@@ -90,4 +91,18 @@ input:focus {
 
 .sns-btn img {
   width: 42px;
+}
+
+@media screen and (max-width: 374px) {
+  .redirect a {
+    display: block;
+  }
+
+  .sns {
+    justify-content: center;
+  }
+
+  .sns > span {
+    display: none;
+  }
 }
