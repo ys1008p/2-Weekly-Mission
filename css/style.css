@@ -550,11 +550,15 @@ input[type="password"] {
     border-radius: 1rem;
   }
   .wrapper form .social-login {
+    height: 7rem;
     padding: 1.5rem 3rem;
     margin-top: 4rem;
   }
   .wrapper form .social-login span {
     font-size: 1.75rem;
+  }
+  .wrapper form .social-login .sns {
+    gap: 2rem;
   }
   .wrapper form .social-login .sns li {
     width: 5.25rem;
