@@ -299,6 +299,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: auto;
     padding: 40px 32px 41.09px 33px;
     gap: 0;
   } /*페이지 width 조절하면 겹치는 부분이 생김*/
