@@ -79,7 +79,7 @@ header {
   background-color: var(--linkbrary-bg);
 }
 
-.introduce {
+.hero {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -101,7 +101,7 @@ h1 {
   word-break: keep-all;
 }
 
-.introduce__title--gradient {
+.hero__title--gradient {
   background: var(--gra-title-hero);
   background-clip: text;
   -webkit-background-clip: text;
@@ -112,7 +112,7 @@ h1 {
   width: 35rem;
 }
 
-.introduce__img {
+.hero__img {
   width: 120rem;
   height: 59rem;
 }
@@ -210,21 +210,21 @@ footer {
   max-width: var(--size-pc-max-width);
 }
 
-.footer__codeit {
+.footer__copyright {
   color: #676767;
   font-family: Arial;
   font-size: 1.6rem;
   font-weight: 400;
 }
 
-.footer__infoes {
+.footer__links {
   display: flex;
   width: 18.1rem;
   align-items: flex-start;
   gap: 3rem;
 }
 
-.footer__info {
+.footer__link {
   color: #cfcfcf;
   font-family: Arial;
   font-size: 1.6rem;
