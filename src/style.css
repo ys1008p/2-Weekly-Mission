@@ -273,6 +273,13 @@ footer {
 .mobile_text {
   display: none;
 }
+footer .mobile_codeit {
+  display: none;
+  color: var(--color-text);
+  position: absolute;
+  bottom: 3.2rem;
+  font-size: 1.6rem;
+}
 
 /* tablet */
 @media screen and (max-width: 1199px) {
@@ -365,7 +372,7 @@ footer {
     display: none;
   }
 
-  footer .codeit_mobile {
+  footer .mobile_codeit {
     display: block;
   }
 }
