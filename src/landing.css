@@ -95,8 +95,8 @@ section {
   column-gap: 15.7rem;
   row-gap: 1rem;
   width: 100%;
-  height: 55rem;
   padding: 50px 0;
+  height: 55rem;
 }
 
 section:nth-of-type(odd) {

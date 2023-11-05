@@ -53,8 +53,8 @@ header {
 .sign-form {
   display: flex;
   flex-direction: column;
-  row-gap: 3rem;
   width: 100%;
+  row-gap: 3rem;
 }
 
 .sign-inputs {
