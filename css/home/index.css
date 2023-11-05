@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5.4rem;
+  padding: 1.6rem 2rem;
   cursor: pointer;
   background-image: var(--gradient-purple-skyblue);
   border-radius: 0.8rem;
@@ -167,7 +167,6 @@
 .footer-links {
   display: flex;
   column-gap: 3rem;
-  padding-right: 1.8rem;
 }
 
 .footer-link {
@@ -186,13 +185,17 @@
   display: none;
 }
 
+.dumb {
+  display: contents;
+}
+
 @media screen and (max-width: 1199px) {
   .gnb {
     inline-size: 100%;
-    padding-inline: var(--tablet-header-padding);
+    padding-inline: var(--safe-zone-size);
     max-width: calc(
       120rem - 2 * var(--desktop-header-padding) + var(--scrollbar-width) +
-        var(--tablet-header-padding)
+        var(--safe-zone-size)
     );
   }
 
@@ -212,7 +215,93 @@
     --col-gap-size: 5.1rem;
   }
 
-  .description > br {
+  .service-intro br {
     display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .gnb {
+    height: 6.3rem;
+  }
+
+  .logo {
+    width: 8.7rem;
+    height: 1.6rem;
+  }
+
+  .hero-header {
+    gap: 2.4rem;
+    margin-top: 6.3rem;
+    padding-top: 2.8rem;
+  }
+
+  .slogan {
+    font-size: 3.2rem;
+    line-height: 1.4;
+  }
+
+  .cta {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+  }
+
+  .cta-short {
+    width: 8rem;
+  }
+
+  .cta-long {
+    width: 20rem;
+  }
+
+  .hero-image {
+    width: 32.5rem;
+    height: 16rem;
+  }
+
+  .service-intros {
+    padding: 0;
+  }
+
+  .service-intro {
+    padding-inline: var(--safe-zone-size);
+    padding-block: 4rem;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    gap: 2rem;
+  }
+
+  .service-intro-title {
+    order: 0;
+    font-size: 2.4rem;
+    line-height: 1.3;
+  }
+
+  .description {
+    order: 2;
+  }
+
+  .content-image {
+    order: 1;
+    width: 100%;
+    height: auto;
+  }
+
+  .global-footer {
+    padding: var(--safe-zone-size);
+  }
+
+  .footer-box {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0;
+  }
+
+  .dumb {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
   }
 }

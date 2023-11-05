@@ -33,7 +33,7 @@
   html {
     --scrollbar-width: 15px;
     --desktop-header-padding: 20rem;
-    --tablet-header-padding: 3.2rem;
+    --safe-zone-size: 3.2rem;
   }
 }
 
@@ -46,6 +46,7 @@
   html {
     font-size: 10px;
     line-height: 1.5;
+    word-break: keep-all;
   }
 
   body {
