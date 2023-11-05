@@ -1,0 +1,41 @@
+@media screen and (max-width: 767px) {
+  .sign {
+    padding: 12rem 3.2rem 23.2rem;
+  }
+  
+  .sign-section {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .sign-frame {
+    width: 100%;
+    max-width: 400px;
+    align-items: stretch;
+  }
+ 
+  .sign-form-section {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .sign-form-section div {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  input {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .sign-button {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .social-sign {
+    width: 100%;
+    max-width: 400px;
+  }
+}
