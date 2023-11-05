@@ -120,3 +120,15 @@ input[type="password"]::-ms-reveal {
 .marGin {
     margin-right:16px;
 }
+/* 테블릿사이즈 반응형 */
+@media (max-width:1199px) {
+
+}
+/* 모바일 반응형 */
+@media (max-width:767px) {
+    /* #main */
+    #main {
+        width:325px;
+        margin:120px auto 232px;
+    } 
+}
