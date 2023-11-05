@@ -1,3 +1,7 @@
+body {
+  width: 100%;
+}
+
 .btn {
   cursor: pointer;
   display: flex;
@@ -19,8 +23,14 @@ header {
 
 header .container {
   width: 100%;
-  padding: 1.25rem 0;
-  margin: 0 12.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .container2 {
+  width: 100%;
+  padding: 1.25rem 12.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -170,6 +180,7 @@ div.posting form.search {
   font-weight: 400;
   line-height: 1.5rem;
   padding: 0 0.9375rem;
+  overflow: hidden;
 }
 
 .posting-card div > * {
@@ -200,7 +211,7 @@ div.posting form.search {
   align-items: center;
 }
 
-.page:nth-child(2n-1) .page-container {
+.page:nth-child(2n-1) .page_container {
   flex-direction: row-reverse;
 }
 

@@ -1,11 +1,11 @@
 /* Big Screen */
 @media (min-width: 1920px) {
-  html {
-    font-size: 14px;
+  header .container {
+    width: 93.75rem;
   }
 
-  header .container {
-    width: 95rem;
+  header .container2 {
+    padding: 1.25rem 0;
   }
 
   .page_container {
@@ -23,6 +23,15 @@
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
+  header .container {
+    padding: 0 2rem;
+  }
+
+  header .container2 {
+    width: 48.5rem;
+    padding: 1.25rem 0;
+  }
+
   .page_container {
     width: 50rem;
   }
@@ -35,4 +44,12 @@
 
 /* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
+  header .container {
+    padding: 0 2rem;
+  }
+
+  header .container2 {
+    width: 48.5rem;
+    padding: 1.25rem 0;
+  }
 }
