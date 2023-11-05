@@ -1,87 +1,87 @@
 @charset "utf-8";
 
-.sign-wrap{
+.sign-wrap {
   display: flex;
   padding: 14.875rem 0rem 15.75rem 0rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: var(--linkbrary-bg, #F0F6FF);
+  background: var(--linkbrary-bg, #f0f6ff);
 }
 
 /* sign-top */
-.sign-top{
+.sign-top {
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
 }
 
-.sign-top-logo{
+.sign-top-logo {
   display: block;
   width: 13.16144rem;
   height: 2.375rem;
 }
 
-.sign-top-question{
+.sign-top-question {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
 }
-.sign-question p{
+.sign-question p {
   color: var(--black, #000);
 }
-.sign-question-join{
-  color: var(--linkbrary-primary-color, #6D6AFE);
-  text-decoration-style : solid;
+.sign-question-join {
+  color: var(--linkbrary-primary-color, #6d6afe);
+  text-decoration-style: solid;
 }
 
-.sign-question-join::after{
+.sign-question-join::after {
   content: "";
   display: block;
   width: 100%;
   height: 0.01rem;
-  background-color: var(--linkbrary-primary-color, #6D6AFE);
+  background-color: var(--linkbrary-primary-color, #6d6afe);
 }
 
-
 /* sign-middle */
-input{
+input {
   width: 100%;
   padding: 1.125rem 0.9375rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-white, #FFF);
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-white, #fff);
 }
 
-input:focus{
-  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+input:focus {
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
 }
 
-label{
+label {
   display: block;
   margin-bottom: 0.75rem;
   color: var(--black, #000);
   font-size: 0.875rem;
 }
 
-.sign-middle{
+.sign-middle {
   max-width: 25rem;
   width: 100%;
   padding: 0 2rem;
 }
-.sign-userinfo{
+.sign-userinfo {
   display: flex;
   flex-direction: column;
-  gap:1.5rem;
-  padding:1.88rem 0;
+  gap: 1.5rem;
+  padding: 1.88rem 0;
 }
 
-.sign-userinput{
+.sign-userinput {
   position: relative;
 }
 
-.eye-off, .eye-on{
+.eye-off,
+.eye-on {
   position: absolute;
   top: 3rem;
   right: 0.95rem;
@@ -89,63 +89,63 @@ label{
   height: 1rem;
 }
 
-.password-err{
-  color: var(--linkbrary-red, #FF5B56);
+.password-err {
+  color: var(--linkbrary-red, #ff5b56);
   font-size: 0.875rem;
   margin-top: 0.38rem;
 }
 
-.sign-middle .btn{
+.sign-middle .btn {
   width: 100%;
   margin-bottom: 2rem;
   font-size: 1.125rem;
 }
 
 /* sing-bottom */
-.sign-bottom{
+.sign-bottom {
   width: 100%;
   max-width: 25rem;
   padding: 0 2rem;
 }
-.sign-bottom-in{
+.sign-bottom-in {
   display: flex;
   width: 100%;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
   align-items: center;
   border-radius: 0.5rem;
-  border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-  background: var(--linkbrary-gray-10, #E7EFFB);
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-gray-10, #e7effb);
 }
-.sign-bottom-tit{
+.sign-bottom-tit {
   color: var(--linkbrary-gray-100, #373740);
   font-size: 0.875rem;
 }
 
-.sign-sns{
+.sign-sns {
   display: inline-block;
   width: 2.625rem;
   height: 2.625rem;
-  border-radius: 50%; 
-  border: var(--linkbrary-gray-20, #CCD5E3);
+  border-radius: 50%;
+  border: var(--linkbrary-gray-20, #ccd5e3);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1.375rem;
-  text-indent : -9999px;
+  text-indent: -9999px;
 }
 
-.google{
-  background-color: var(--linkbrary-white, #FFF);
+.google {
+  background-color: var(--linkbrary-white, #fff);
   background-image: url(/imgs/sign/sign_google.png);
 }
 
-.kakao{
-  background-color: var(--linkbrary-yellow, #F5E14B);
+.kakao {
+  background-color: var(--linkbrary-yellow, #f5e14b);
   background-image: url(/imgs/sign/sign_kakao.png);
 }
 
-@media screen and (max-width: 1199px){
-  .sign-middle .btn{
+@media screen and (max-width: 1199px) {
+  .sign-middle .btn {
     font-size: 1.125rem;
     padding: 1rem 1.25rem;
   }

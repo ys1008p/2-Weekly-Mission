@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linkbrary</title>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <link rel="stylesheet" href="src/reset.css">
-  <link rel="stylesheet" href="src/style.css">
-  <link rel="stylesheet" href="src/sign.css">
-</head>
-<body>
-  <div class="sign-wrap">
-    <div class="sign-top">
-      <a href="/" class="sign-top-logo">
-        <img src="imgs/sign/logo.png" alt="로고">
-      </a>
-      <div class="sign-top-question">
-        <p>이미 회원이신가요?</p>
-        <a href="signin.html" class="sign-question-join">로그인 하기</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
+    <link rel="stylesheet" href="src/reset.css" />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/sign.css" />
+  </head>
+  <body>
+    <div class="sign-wrap">
+      <div class="sign-top">
+        <a href="/" class="sign-top-logo">
+          <img src="imgs/sign/logo.png" alt="로고" />
+        </a>
+        <div class="sign-top-question">
+          <p>이미 회원이신가요?</p>
+          <a href="signin.html" class="sign-question-join">로그인 하기</a>
+        </div>
+      </div>
+      <form class="sign-middle">
+        <div class="sign-userinfo">
+          <div class="sign-userinput">
+            <label for="useremail">이메일</label>
+            <input type="text" name="useremail" id="useremail" />
+          </div>
+          <div class="sign-userinput">
+            <label for="password">비밀번호</label>
+            <input type="password" name="password" />
+            <button class="eye-on">
+              <img src="imgs/sign/eye-on.png" />
+            </button>
+          </div>
+          <div class="sign-userinput">
+            <label for="password2">비밀번호 확인</label>
+            <input type="password" name="password2" />
+            <button class="eye-on">
+              <img src="imgs/sign/eye-on.png" />
+            </button>
+            <p class="password-err">비밀번호가 다릅니다</p>
+          </div>
+        </div>
+        <button type="submit" class="btn">회원가입</button>
+      </form>
+      <div class="sign-bottom">
+        <div class="sign-bottom-in">
+          <div class="sign-bottom-tit">다른방식으로 가입하기</div>
+          <div class="sign-buttom-sns">
+            <a href="https://www.google.com/" class="sign-sns google">구글</a>
+            <a href="https://www.kakaocorp.com/page/" class="sign-sns kakao">카카오</a>
+          </div>
+        </div>
       </div>
     </div>
-    <form class="sign-middle">
-      <div class="sign-userinfo">
-        <div class="sign-userinput">
-          <label for="useremail">이메일</label>
-          <input type="text" name="useremail" id="useremail" >
-        </div>
-        <div class="sign-userinput">
-          <label for="password">비밀번호</label>
-          <input type="password" name="password">
-          <button class="eye-on">
-            <img src="imgs/sign/eye-on.png" />
-          </button>
-        </div>
-        <div class="sign-userinput">
-          <label for="password2">비밀번호 확인</label>
-          <input type="password" name="password2">
-          <button class="eye-on">
-            <img src="imgs/sign/eye-on.png" />
-          </button>
-          <p class="password-err">비밀번호가 다릅니다</p>
-        </div>
-      </div>
-      <button type="submit" class="btn">회원가입</button>
-    </form>
-    <div class="sign-bottom">
-      <div class="sign-bottom-in">
-        <div class="sign-bottom-tit">다른방식으로 가입하기</div>
-        <div class="sign-buttom-sns">
-          <a href="https://www.google.com/" class="sign-sns google">구글</a>
-          <a href="https://www.kakaocorp.com/page/" class="sign-sns kakao">카카오</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
+  </body>
+</html>
