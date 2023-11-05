@@ -110,3 +110,22 @@ footer{
     display: flex;
     gap: 16px;
 }
+@media screen and (max-width: 1200px) {/*tablet*/
+    body{
+        margin: 20rem 39.9rem 40rem;
+    }
+    
+}
+@media screen and (max-width: 768px) {/*mobile*/
+    html{
+        display:inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12rem 3.2rem 23.2rem 3.3rem;
+    }
+    body{
+        width: 100%;
+        height: 492px;
+    }
+    
+}
