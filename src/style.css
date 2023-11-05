@@ -1,3 +1,20 @@
+/* Global */
+:root {
+  /* App Colors */
+  --color-primary: var(--color-purple);
+
+  /* Colors */
+  --color-blue: #6d6afe;
+  --color-red: #ff5b56;
+  --color-black: #111322;
+  --color-white: #ffffff;
+  --color-gray1: #3e3e43;
+  --color-gray2: #9fa6b2;
+  --color-gray3: #ccd5e3;
+  --color-gray4: #e7effb;
+  --color-gray5: #f0f6ff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,29 +31,31 @@ a {
   text-decoration: none;
 }
 
-header {
+.nav_wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #edf7ff;
+  height: 9.4rem;
+  background-color: #f0f6ff;
 }
 
 nav {
   background-color: #f0f6ff;
+  width: 100%;
   position: fixed;
   top: 0;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
   max-width: 192rem;
   height: 9.4rem;
+  display: flex;
+  justify-content: space-between;
   padding: 0 20rem;
+  margin: 0 auto;
 }
 
 .hero-header {
-  margin-top: 100px;
+  background-color: #f0f6ff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -198,10 +217,14 @@ footer {
 }
 
 @media (max-width: 1199px) {
-  header nav {
+  .nav_wrap {
     padding: 0 3.2rem;
-    /* nav bar 크기 지정 */
+    /* nav bar 크기 지정
+    꼭 max-width로 해야하는 이유 */
     max-width: 76.7rem;
+  }
+  section {
+    gap: 5.1rem;
   }
 }
 
