@@ -290,6 +290,7 @@ footer .info-container .footer-sns li:last-child a {
 .wrapper .signin-txt {
   display: flex;
   justify-content: center;
+  align-items: baseline;
   margin: 16px auto 0;
   gap: 8px;
 }
@@ -302,6 +303,7 @@ footer .info-container .footer-sns li:last-child a {
   color: var(--linkbrary-primary-color);
   font-weight: var(--weight-semi-bold);
   text-decoration: underline;
+  font-size: 16px;
 }
 
 .wrapper form {
@@ -508,6 +510,62 @@ input[type="password"] {
     /* border-radius: 1.875rem; */
   }
 
+  /* 로그인, 회원가입 폼 */
+  .wrapper {
+    width: 100%;
+    margin: 15rem auto 0;
+    padding: 0 4rem 5rem 4.125rem;
+  }
+  .wrapper .login-logo {
+    width: 26.25rem;
+    height: 4.75rem;
+  }
+  .wrapper form {
+    margin-top: 3.75rem;
+  }
+  .wrapper .signin-txt {
+    margin-top: 2rem;
+  }
+  .wrapper .signin-txt a {
+    font-size: 2rem;
+  }
+  .wrapper form .input-wrapper label {
+    font-size: 1.75rem;
+  }
+  .wrapper form .input-wrapper input {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    padding: 2.25rem 1.875rem;
+    border-radius: 1rem;
+  }
+  .wrapper form .input-wrapper:not(:first-child) {
+    margin-top: 3rem;
+  }
+  .wrapper form .login-btn button {
+    height: 6.75rem;
+    margin-top: 3.75rem;
+    font-size: 2.25rem;
+    border-radius: 1rem;
+  }
+  .wrapper form .social-login {
+    padding: 1.5rem 3rem;
+    margin-top: 4rem;
+  }
+  .wrapper form .social-login span {
+    font-size: 1.75rem;
+  }
+  .wrapper form .social-login .sns li {
+    width: 5.25rem;
+  }
+  .wrapper form .social-login .sns li a {
+    width: 100%;
+    height: 5.25rem;
+  }
+  .password-container + .wrong {
+    font-size: 1.75rem;
+    margin-top: 0.75rem;
+  }
+
   /* footer */
   footer {
     margin-top: 0;
@@ -526,6 +584,7 @@ input[type="password"] {
   }
 
   footer .info-container .footer-sns {
+    margin-top: 4rem;
     gap: 1.5rem;
   }
   footer .info-container .footer-sns li {
