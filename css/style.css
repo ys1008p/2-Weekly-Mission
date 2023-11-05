@@ -414,7 +414,7 @@ input[type="password"] {
   background-image: url(./../img/kakao.png);
 }
 
-/* 모바일 */
+/* 반응형 - 모바일 */
 @media screen and (max-width: 768px) {
   html,
   body {
@@ -437,6 +437,7 @@ input[type="password"] {
     height: 4.625rem;
     padding: 0;
     font-size: 1.75rem;
+    border-radius: 1rem;
   }
   header .navbar .logo {
     height: 2rem;
@@ -458,8 +459,9 @@ input[type="password"] {
   .main .signin-btn {
     width: 25rem;
     height: 4.624rem;
-    font-size: 1.75rem;
     padding: 0;
+    font-size: 1.75rem;
+    border-radius: 1rem;
   }
   .main h1 br:last-child {
     display: block;
@@ -568,6 +570,7 @@ input[type="password"] {
 
   /* footer */
   footer {
+    height: 20rem;
     margin-top: 0;
     padding: 4rem;
   }
@@ -584,14 +587,20 @@ input[type="password"] {
   }
 
   footer .info-container .footer-sns {
-    margin-top: 4rem;
     gap: 1.5rem;
   }
   footer .info-container .footer-sns li {
-    width: 2.5rem;
+    width: 2.25rem;
+  }
+  footer .info-container .footer-sns li a {
+    height: 2.25rem;
   }
   footer .info-container span {
     position: absolute;
     bottom: 0;
+    font-size: 2rem;
+  }
+  footer .info-container .footer-info a {
+    font-size: 2rem;
   }
 }
