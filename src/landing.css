@@ -193,3 +193,50 @@ footer {
   column-gap: 1.2rem;
   height: 2rem;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+
+
+  
+  .hero-header {
+    width: 500px;
+  }
+
+  .hero-image {
+    width: 698px;
+    height: 343px;
+  }
+
+  .content-image {
+    width: 385px;
+    height: 315px;
+  }
+
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+
+  .slogan {
+    width: 300px;
+    font-size: 3.8rem;
+  }
+
+  .hero-header {
+    width: 500px;
+  }
+
+  .hero-image {
+    width: 698px;
+    height: 343px;
+  }
+
+  .content-image {
+    width: 385px;
+    height: 315px;
+  }
+
+  section {
+    width: 500px;
+  }
+
+}
