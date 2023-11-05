@@ -66,6 +66,7 @@ section.first {
 .headline h1 {
   font-size: 4rem;
   font-weight: 700;
+  line-height: 5rem;
   color: var(--black);
 }
 
@@ -92,7 +93,7 @@ button.signup a {
 div.posting {
   margin: 0 auto;
   padding: 1.25rem 1.875rem 6rem;
-  width: 60%;
+  width: 80%;
   max-width: 70rem;
   border-radius: 1.5625rem;
   background: var(--white);
@@ -159,6 +160,7 @@ div.posting form.search {
   display: block;
   border-radius: 0.9375rem;
   box-shadow: 0 0.3125rem 1.5625rem 0 rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .posting-card img:first-child {
@@ -271,6 +273,10 @@ div.posting form.search {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+.page_img img {
+  width: 100%;
 }
 
 .page:nth-child(5) .page_img {

@@ -8,8 +8,32 @@
     padding: 1.25rem 0;
   }
 
+  .headline h1 {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  div.posting {
+    width: 70rem;
+    height: 41.25rem;
+  }
+
+  .posting-card img:first-child {
+    width: 20rem;
+  }
+
   .page_container {
     width: 70rem;
+  }
+
+  .page:nth-child(2n) .page_text {
+    width: 40%;
+    margin-right: 100px;
+  }
+
+  .page:nth-child(2n-1) .page_text {
+    width: 40%;
+    margin-left: 100px;
   }
 
   footer .bottom {
@@ -19,6 +43,29 @@
 
 /* PC */
 @media (min-width: 1200px) and (max-width: 1919px) {
+  .posting-card img:first-child {
+    width: 20rem;
+  }
+
+  .headline h1 {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  div.posting {
+    width: 70rem;
+    height: 41.25rem;
+  }
+
+  .page:nth-child(2n) .page_text {
+    width: 40%;
+    margin-right: 100px;
+  }
+
+  .page:nth-child(2n-1) .page_text {
+    width: 40%;
+    margin-left: 100px;
+  }
 }
 
 /* Tablet */
@@ -32,8 +79,28 @@
     padding: 1.25rem 0;
   }
 
+  .headline h1 {
+    margin: 0 auto;
+    width: 55%;
+  }
+
+  div.posting {
+    width: 80%;
+    height: 500px;
+  }
+
   .page_container {
     width: 50rem;
+  }
+
+  .page:nth-child(2n) .page_text {
+    width: 40%;
+    margin-right: 100px;
+  }
+
+  .page:nth-child(2n-1) .page_text {
+    width: 40%;
+    margin-left: 100px;
   }
 
   .page_img {
@@ -44,12 +111,60 @@
 
 /* Mobile */
 @media (min-width: 375px) and (max-width: 767px) {
-  header .container {
-    padding: 0 2rem;
+  html {
+    font-size: 12px;
   }
 
   header .container2 {
     width: 48.5rem;
     padding: 1.25rem 0;
+  }
+
+  .headline h1 {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  div.posting {
+    width: 80%;
+    height: 25rem;
+  }
+
+  .page {
+    display: flex;
+    margin-bottom: 5dvh;
+  }
+
+  .page .page_container,
+  .page:nth-child(2n-1) .page_container {
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .page_text,
+  .page_container .page_img {
+    width: 95%;
+  }
+
+  .page .page_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1.5rem 2rem;
+  }
+
+  .page_text .page_body {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    position: absolute;
+    bottom: -60px;
+    padding-right: 10px;
+  }
+
+  footer .bottom li,
+  footer .bottom li a {
+    font-size: 1rem;
   }
 }
