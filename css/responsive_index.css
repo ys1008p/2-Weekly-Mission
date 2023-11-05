@@ -1,0 +1,177 @@
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  nav {
+    width: 78.2rem;
+    padding: 2rem 3.2rem;
+  }
+
+  .header-section {
+    padding-top: 3.9rem;
+  }
+
+  .header-text {
+    width: 47.2rem;
+    height: 24rem;
+    word-break: keep-all;
+  }
+
+  .img-1 {
+    width: 69.8rem;
+    height: 34.3rem;
+  }
+
+  .main-section {
+    width: auto;
+    height: auto;
+    padding: 5rem 0;
+    gap: 5.1rem;
+  }
+
+  .main-section.first {
+    padding-top: 8rem;
+  }
+
+  .img-2,
+  .img-3,
+  .img-4,
+  .img-5 {
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+
+  .main-text {
+    width: 27.2rem;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  nav {
+    width: 100%;
+    padding: 1.3rem 3.2rem;
+  }
+
+  nav>img {
+    object-fit: cover;
+  }
+
+  .signin {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+    width: 8rem;
+  }
+
+  .header-section {
+    padding: 2.8rem 3.2rem 0 3.3rem;
+    width: 100%;
+    gap: 2.4rem;
+  }
+
+  .header-text {
+    width: 23.6rem;
+    height: 12.6rem;
+    word-break: keep-all;
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  .header-section>a {
+    width: 20rem;
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+  }
+
+  .img-1,
+  .img-2,
+  .img-3,
+  .img-4,
+  .img-5 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .main-section {
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 4rem 3.2rem 4.2rem 3.3rem;
+    gap: 2.4rem;
+  }
+
+  .main-section.first {
+    padding-bottom: 3.6rem;
+    padding-top: 4rem;
+  }
+
+  .main-text {
+    width: 100%;
+    gap: 1rem;
+    font-size: 2.4rem;
+    letter-spacing: -0.03rem;
+  }
+
+  .main-section>.main-text {
+    order: 1;
+  }
+
+  .main-section>img {
+    order: 2;
+  }
+
+  .main-text-gradient-1,
+  .main-text-gradient-2,
+  .main-text-gradient-3,
+  .main-text-gradient-4,
+  .main-text-gradient-5 {
+    font-size: 2.4rem;
+    letter-spacing: -0.03rem;
+  }
+
+  .main-text-explanation {
+    word-break: keep-all;
+  }
+
+  footer {
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 18.1rem 1fr 11.6rem;
+    grid-template-rows: 2rem 6rem 1.8rem;
+    padding: 3.2rem 3.2rem;
+  }
+
+  .codeit {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    justify-self: start;
+  }
+
+  .policy-faq {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .icon {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+}

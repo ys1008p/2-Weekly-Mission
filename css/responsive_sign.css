@@ -1,0 +1,30 @@
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  main {
+    padding: 0 3.2rem;
+    width: 100%;
+  }
+
+  .normal-signin,
+  .normal-signup,
+  .signin,
+  .signup,
+  .password-input,
+  .password-confirm-input,
+  input,
+  .signin-button,
+  .signup-button,
+  .social-signin,
+  .social-signup {
+    width: 100%;
+    max-width: 40rem;
+  }
+}
