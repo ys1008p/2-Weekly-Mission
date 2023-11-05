@@ -1,4 +1,4 @@
-main {
+.signin-main {
   display: flex;
   width: 1440px;
   padding: 238px 0px 252px 0px;
@@ -7,14 +7,14 @@ main {
   background: #f0f6ff;
 }
 
-article {
+.signin-article {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
 }
 
-section {
+.signin-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,7 +162,7 @@ input:hover {
 }
 
 .ico {
-  position:relative;
+  position: relative;
   display: flex;
   width: 23px;
   height: 23px;
