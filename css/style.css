@@ -71,7 +71,7 @@ header {
 header .navbar {
   display: flex;
   width: 100%;
-  max-width: 1520px;
+  /* max-width: 1520px; */
   height: 54px;
   margin: 0 auto;
   align-items: center;
@@ -86,6 +86,9 @@ header .navbar .login-btn {
   width: 128px;
   height: 54px;
   padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--grey-light);
   font-size: 18px;
   font-weight: var(--weight-semi-bold);
@@ -114,7 +117,13 @@ header .navbar .login-btn {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.main h1 br:last-child {
+  display: none;
+}
 .main .signin-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 350px;
   margin: 0 auto;
   padding: 16px 20px;
@@ -131,7 +140,7 @@ header .navbar .login-btn {
 
 .main .main-contents img {
   display: block;
-  width: 1118px;
+  width: 100%;
   /* box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08), 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
 }
 
@@ -196,12 +205,12 @@ header .navbar .login-btn {
   font-weight: var(--weight-medium);
   line-height: 150%; /* 24px */
 }
-.sub .sub-box .sub-img-box {
+/* .sub .sub-box .sub-img-box {
   border-radius: 15px;
-}
+} */
 .sub .sub-box .sub-img-box img {
   display: block;
-  width: 550px;
+  width: 100%;
   height: 450px;
 }
 /* Footer */
@@ -401,4 +410,129 @@ input[type="password"] {
 }
 .wrapper form .social-login .sns li:nth-child(2) a {
   background-image: url(./../img/kakao.png);
+}
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  html {
+    font-size: 2.0513vw;
+  }
+  /* 헤더 */
+  header {
+    height: 7.875rem;
+    padding: 1.625rem 4rem;
+  }
+  header .navbar {
+    max-width: initial;
+    height: 4.625rem;
+  }
+  header .navbar .login-btn {
+    height: 4.625rem;
+    padding: 0;
+    font-size: 1.75rem;
+  }
+  header .navbar .logo {
+    height: 2rem;
+  }
+  header .navbar .logo img {
+    width: 11rem;
+  }
+
+  /* section-main */
+  .main {
+    margin-top: 7.875rem;
+    padding: 3.5rem 4.0625rem 0;
+    gap: 3rem;
+  }
+  .main h1 {
+    font-size: 4rem;
+    line-height: 5.25rem;
+  }
+  .main .signin-btn {
+    width: 25rem;
+    height: 4.624rem;
+    font-size: 1.75rem;
+    padding: 0;
+  }
+  .main h1 br:last-child {
+    display: block;
+  }
+  .main .main-contents {
+    margin: 0;
+    padding: 1.687rem 1.375rem 0;
+  }
+
+  /*section-sub  */
+  .sub {
+    gap: 0;
+    margin: 0;
+    padding: 0 4rem 5rem 4.125rem;
+  }
+  .sub .sub-box {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 5rem;
+  }
+  .sub .sub-box:first-child {
+    padding-bottom: 4.5rem;
+  }
+  .sub .sub-box:nth-child(2),
+  .sub .sub-box:nth-child(3) {
+    padding-bottom: 5.25rem;
+  }
+
+  .sub .sub-box:nth-child(4) {
+    padding-bottom: 5.125rem;
+  }
+  .sub .sub-box .sub-text-box .descript {
+    font-size: 3rem;
+  }
+  .sub .sub-box .sub-text-box .sub-descript {
+    word-break: keep-all;
+    font-size: 1.875rem;
+    margin-top: 1.25rem;
+  }
+  .sub .sub-box .sub-text-box .descript br,
+  .sub .sub-box .sub-text-box .sub-descript br {
+    display: none;
+  }
+  .sub .sub-box .sub-img-box img {
+    height: 33.125rem;
+    margin-top: 3rem;
+    /* border-radius: 1.875rem; */
+  }
+
+  /* footer */
+  footer {
+    margin-top: 0;
+    padding: 4rem;
+  }
+  footer .info-container {
+    position: relative;
+    font-size: 2rem;
+  }
+  footer .info-container {
+    position: relative;
+    height: 100%;
+  }
+  footer .info-container .footer-info {
+    gap: 3.75rem;
+  }
+
+  footer .info-container .footer-sns {
+    gap: 1.5rem;
+  }
+  footer .info-container .footer-sns li {
+    width: 2.5rem;
+  }
+  footer .info-container span {
+    position: absolute;
+    bottom: 0;
+  }
 }
