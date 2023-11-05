@@ -404,6 +404,8 @@ footer {
 
   .imgs {
     width: 100%;
+    height: unset;
+    aspect-ratio: 550 / 450;
     margin: 2rem 0 1.6rem;
   }
 
