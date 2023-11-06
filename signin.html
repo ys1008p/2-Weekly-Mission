@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>signin</title>
-    <link rel="stylesheet" href="src/reset.css" />
+    <title>로그인</title>
     <link rel="stylesheet" href="src/sign.css" />
     <link
       rel="stylesheet"
@@ -13,64 +12,67 @@
     />
   </head>
   <body>
-    <main>
-      <article>
-        <section>
-          <a class="sign-img" href="./index.html"
-            ><img src="images/sign-logo.svg" alt="logo"
-          /></a>
+    <header>
+      <a class="header__logo-link" href="./index.html">
+        <img class="header__logo" src="images/logo.svg" alt="logo"
+      /></a>
 
-          <div class="sign-div">
-            <span class="sign-span">회원이 아니신가요?</span>
-            <div>
-              <a class="sign-link" href="./signup.html">회원 가입하기</a>
-              <hr class="sign-hr" />
-            </div>
-          </div>
-        </section>
+      <div class="header__sign-text-form">
+        <span class="header__sign-text">회원이 아니신가요?</span>
+        <div>
+          <a class="header__login-link" href="./signup.html">회원 가입하기</a>
+          <hr class="header__login-hr" />
+        </div>
+      </div>
+    </header>
 
-        <section>
-          <div class="sign-input">
-            <label for="emailCheck">이메일</label>
-            <div class="sign-input-type">
-              <input type="email" id="emailCheck" />
-            </div>
+    <section>
+      <div class="section__input-form">
+        <label for="emailCheck">이메일</label>
+        <div class="section__input-wrap">
+          <input type="email" id="emailCheck" />
+        </div>
 
-            <div class="sign-input-type">
-              <label for="pw">비밀번호</label>
-              <div class="sign-input-div">
-                <input type="password" id="pw" />
-                <img class="eye" src="images/eye-off.svg" alt="eye" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <button class="sign-btn">로그인</button>
-      </article>
-
-      <article>
-        <div class="sign-sns">
-          <span class="sign-sns-text">소셜 로그인</span>
-
-          <div class="sns-item-div">
-            <a target="_blank" href="https://www.google.com/">
-              <div class="sns-bg1 sign-sns-bg">
-                <img class="" src="images/google.png" alt="google" />
-              </div>
-            </a>
-
-            <a
-              target="_blank"
-              href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=ko"
-            >
-              <div class="sns-bg2 sign-sns-bg">
-                <img class="" src="images/kakako.svg" alt="kakao" />
-              </div>
-            </a>
+        <div class="section__input-wrap">
+          <label for="pw">비밀번호</label>
+          <div class="section__input">
+            <input type="password" id="pw" />
+            <img
+              class="password-toggled"
+              src="images/eye-off.svg"
+              alt="password-toggle"
+            />
           </div>
         </div>
-      </article>
-    </main>
+      </div>
+
+      <button class="sign-btn gradation1">로그인</button>
+
+      <div class="social-form">
+        <span class="font14-we4 social-sns-text">소셜 로그인</span>
+
+        <div class="social-link-form">
+          <a
+            target="_blank"
+            href="https://www.google.com/"
+            rel="noopener noreferrer"
+          >
+            <div class="sns-bg1 social-link-background">
+              <img class="" src="images/google.png" alt="google" />
+            </div>
+          </a>
+
+          <a
+            target="_blank"
+            href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=ko"
+            rel="noopener noreferrer"
+          >
+            <div class="sns-bg2 social-link-background">
+              <img class="" src="images/kakako.svg" alt="kakao" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
