@@ -2,30 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="og:url" content="https://www.linkbrary.com" />
+    <meta name="og:title" content="Linkbrary" />
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta
+      property="og:image"
+      content="https://i.namu.wiki/i/8JbLEOm1EezAZzdujEwIA8rvaHFgPyqA3lUfr0HQXQ3T9tVClLGppcw82RTpyguF18pYI4ysHX9C0yzkb6G_7A.webp"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linkbrary</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/index.css" />
-
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo"><a href="/"><img src="./images/logo.png" /></a></div>
-        <div class="login-button button pointer"><a href="/signin">로그인</a></div>
+        <div class="logo">
+          <a href="/"><img src="./images/logo.png" /></a>
+        </div>
+        <a href="/signin"
+          ><button class="login-button button">로그인</button></a
+        >
       </nav>
     </header>
 
     <main>
-      <article>
+      <article class="main-article">
         <div class="main-text">
           <span>
             <span class="text-highlight">세상의 모든 정보</span>를<br />
-            쉽게 저장하고 관리해보세요
+            쉽게 저장하고 관리해 보세요
           </span>
         </div>
-        <div class="link-add-button button pointer">링크 추가하기</div>
+        <button class="link-add-button button">링크 추가하기</button>
         <div class="article-img_container">
           <img src="./images/section1.png" />
         </div>
@@ -34,23 +51,16 @@
       <section class="section2 flex-center">
         <div class="container">
           <div class="sub-text">
-              <span>
-                <span class="text-highlight">원하는 링크</span>를 <br />
-                저장하세요
-              </span>
-              <p>
-                나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
-                싶은 모든 것을 한 공간에 저장하세요.
-              </p>
+            <span>
+              <span class="text-highlight">원하는 링크</span>를 저장하세요
+            </span>
+            <p>
+              나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
+              싶은 모든 것을 한 공간에 저장하세요.
+            </p>
           </div>
-          <div>
           <div class="sub-img">
-            <div class="flex-center">
-              <img src="./images/s2-left.png" />
-              <img class="bulldog" src="./images/s2-bulldog.png" />
-              <img src="./images/s2-right.png" />
-            </div>
-            <img class="icon" src="./images/Group 20.png" />
+            <img src="./images/section2.png" />
           </div>
         </div>
       </section>
@@ -58,79 +68,75 @@
       <section class="section3 flex-center">
         <div class="container">
           <div class="sub-img">
-            <img src="./images/sc3.png">
+            <img src="./images/section3.png" />
           </div>
           <div class="sub-text">
             <span>
-              링크를 폴더로 <br>
+              링크를 폴더로
               <span class="text-highlight">관리</span>하세요
             </span>
-            <p>
-              나만의 폴더를 무제한으로 만들고 
-              다양하게 활용할 수 있습니다.
-            </p>
+            <p>나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.</p>
           </div>
         </div>
       </section>
-      
+
       <section class="section4 flex-center">
         <div class="container">
           <div class="sub-text">
-              <span>
-                저장한 링크를<br>
-                <span class="text-highlight">공유</span>해보세요
-              </span>
-              <p>
-                나만의 폴더를 무제한으로 만들고 
-                다양하게 활용할 수 있습니다.
-              </p>
+            <span>
+              저장한 링크를
+              <span class="text-highlight">공유</span>해보세요
+            </span>
+            <p>나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.</p>
           </div>
           <div class="sub-img">
-            <div>
-              <div></div>
-              <img class="popup" src="./images/sc4.png">
-            </div>
+            <img src="./images/section4.png" />
           </div>
-
         </div>
       </section>
-      
+
       <section class="section5 flex-center">
         <div class="container">
           <div class="sub-img">
-            <div>
-              <img src="./images/sc5.png">
-            </div>
+            <img src="./images/section5.png" />
           </div>
           <div class="sub-text">
-              <span>
-                저장한 링크를<br>
-                <span class="text-highlight">검색</span>해 보세요
-              </span>
-              <p>
-                중요한 정보들을 검색으로 쉽게 찾아보세요.
-              </p>
+            <span>
+              저장한 링크를
+              <span class="text-highlight">검색</span>해 보세요
+            </span>
+            <p>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
           </div>
         </div>
       </section>
-
     </main>
 
     <footer>
       <div>
-        <span>©codeit - 2023</span>
+        <span class="codeit">©codeit - 2023</span>
         <div class="footer-privacy">
-          <span class="privacy"><a href="/privacy">Privacy Policy</a></span>
-          <span class="faq"><a href="/faq">FAQ</a></span>
+          <span class="privacy">
+            <a href="/privacy">Privacy Policy</a>
+          </span>
+          <span class="faq">
+            <a href="/faq">FAQ</a>
+          </span>
         </div>
         <div class="footer-sns">
-          <a href="https://www.facebook.com" target="_blank"><img src="./images/facebook.png"></a>
-          <a href="https://www.twitter.com" target="_blank"><img src="./images/twitter.png"></a>
-          <a href="https://www.youtube.com" target="_blank"><img src="./images/youtube.png"></a>
-          <a href="https://www.instagram.com" target="_blank"><img src="./images/instagram.png"></a>
+          <a href="https://www.facebook.com" target="_blank"
+            ><img src="./images/facebook.png"
+          /></a>
+          <a href="https://www.twitter.com" target="_blank"
+            ><img src="./images/twitter.png"
+          /></a>
+          <a href="https://www.youtube.com" target="_blank"
+            ><img src="./images/youtube.png"
+          /></a>
+          <a href="https://www.instagram.com" target="_blank"
+            ><img src="./images/instagram.png"
+          /></a>
         </div>
       </div>
     </footer>
-    
   </body>
 </html>

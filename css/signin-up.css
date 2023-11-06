@@ -16,13 +16,15 @@
   );
 }
 
+body {
+  background: var(--linkbrary-bg);
+}
+
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 14.88rem 0 15.75rem 0;
-
-  background: var(--linkbrary-bg);
 }
 
 .flex-column {
@@ -30,11 +32,11 @@ main {
   flex-direction: column;
 }
 
-div.signin-box {
+.signin-box {
   gap: 1.875rem;
 }
 
-div.signup-check {
+.signup-check {
   align-items: center;
   gap: 1rem;
 }
@@ -143,32 +145,32 @@ div.social-icon-box {
   gap: 1rem;
 }
 
-div.social-icon-box div {
-  position: relative;
-}
-
-img.circle-img {
+.google,
+.kakao {
   width: 2.625rem;
   height: 2.625rem;
-  flex-shrink: 0;
 }
 
-img.icon-img {
-  position: absolute;
-  flex-shrink: 0;
+@media (min-width: 768px) and (max-width: 1199px) {
+  main {
+    padding: 12.5rem 25rem 18rem 25rem;
+  }
 }
 
-.google {
-  width: 1.375rem;
-  height: 1.375rem;
-  inset: 0.62rem;
+@media (min-width: 375px) and (max-width: 767px) {
+  main {
+    padding: 7.5rem 32px 14.5rem 32px;
+    width: 100%;
+  }
 }
 
-.kakao {
-  width: 1.625rem;
-  height: 1.5rem;
-  top: 0.62rem;
-  right: 0.5rem;
-  bottom: 0.5rem;
-  left: 0.5rem;
+@media (min-width: 375px) and (max-width: 464px) {
+  main .flex-column {
+    width: 100%;
+  }
+
+  .box-width,
+  .box-width input {
+    width: 100%;
+  }
 }
