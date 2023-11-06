@@ -3,10 +3,10 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #edf7ff;
+  background-color: var(--skyblue);
 }
 
-nav {
+.loginBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,8 +15,9 @@ nav {
   height: 9.4rem;
   padding: 0 20rem;
   position: sticky;
+  background-color: var(--skyblue);
   top: 0;
-  background-color: #fff;
+  margin: 0 auto;
 }
 
 .hero-header {
@@ -178,4 +179,38 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .loginBar {
+    padding: 0 3.2rem;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: fit-content;
+  }
+}
+/* Mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .loginBar {
+    padding: 0 3.2rem;
+  }
+
+  section {
+    width: 100%;
+    height: fit-content;
+    padding: 4rem 3.2rem;
+    display: block;
+  }
+
+  .title,
+  .description,
+  .content-image {
+    display: block;
+    width: 100%;
+    height: fit-content;
+    margin: 2rem auto;
+  }
 }
