@@ -11,7 +11,12 @@ html {
 }
 
 body {
-  padding: 23.8rem 0 25.2rem;
+  padding-top: 23.8rem;
+  display: flex;
+  justify-content: center;
+}
+
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +31,7 @@ body {
   gap: 1.6rem
 }
 
-.signup {
+.sign {
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -34,8 +39,13 @@ body {
   font-weight: 400;
 }
 
-.email-box,
-.password-box {
+.sign a {
+  color: var(--primary-color, #6d6afe);
+}
+
+.email-container,
+.password,
+.password-check {
   display: flex;
   flex-direction: column;
   gap: 1.2rem
@@ -55,13 +65,7 @@ input {
 }
 
 input:focus {
-  outline: 1px solid var(--primary-color, #6D6AFE);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem
+  outline: 0.1rem solid var(--primary-color, #6d6afe);
 }
 
 .password-container {
@@ -72,6 +76,12 @@ form {
   position: absolute;
   top: 2em;
   right: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem
 }
 
 .button {

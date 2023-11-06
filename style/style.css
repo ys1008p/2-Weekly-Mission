@@ -1,34 +1,41 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  text-decoration: none;
 }
 
 html {
   font-family: Pretendard, Arial, sans-serif;
   font-size: 62.5%;
   background-color: var(--gray-bg-color, #edf7ff);
-
 }
 
-main {
+br {
+  display: block;
+}
+
+section {
   background-color: var(--white-color, #ffffff);
   padding-top: 7rem;
   padding-bottom: 12rem;
 }
 
-
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: var(--gray-bg-color, #edf7ff);
   padding: 2rem 20rem;
-  align-self: stretch;
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 2;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 192rem;
-  z-index: 1;
+  margin: 0 auto;
 }
 
 .button {
@@ -39,21 +46,20 @@ nav {
   color: var(--white-color, #ffffff);
   font-weight: 600;
   border-radius: 0.8rem;
+  border: none;
   padding: 1.6rem 2.0rem;
   cursor: pointer
 }
 
 .login {
   width: 12.8rem;
-  height: hug;
 }
 
-
-.header {
+header {
   padding-top: 7rem;
 }
 
-.intro {
+.hero {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +67,7 @@ nav {
   gap: 4rem;
 }
 
-.header-title {
+h1 {
   text-align: center;
   font-size: 6.4rem;
   line-height: 125%;
@@ -84,39 +90,9 @@ nav {
   width: 35rem;
 }
 
-.example {
+.hero-image {
   width: 120rem;
   height: 59rem;
-}
-
-.content:nth-of-type(odd) {
-  background-color: var(--white-color, #ffffff);
-  padding: 5rem 46.1rem;
-  display: grid;
-  justify-content: center;
-  column-gap: 15.7rem;
-  row-gap: 1rem;
-  width: 100%;
-  grid-template:
-    ". image"
-    "title image"
-    "description image"
-    ". image" /291px 55rem;
-}
-
-.content:nth-of-type(even) {
-  background-color: var(--white-color, #ffffff);
-  padding: 5rem 46.1rem;
-  display: grid;
-  justify-content: center;
-  column-gap: 15.7rem;
-  row-gap: 1rem;
-  width: 100%;
-  grid-template:
-    "image ."
-    "image title"
-    "image description"
-    "image ." /550px 29.1rem;
 }
 
 .title {
@@ -133,99 +109,49 @@ nav {
   grid-area: description;
 }
 
-.image1 {
+.image {
   width: 55rem;
   height: 45rem;
-  border-radius: 1.5rem;
-  background-color: var(--gray-bg-color, #f0f6ff);
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  align-items: center;
   grid-area: image;
 }
 
-.image1 .card {
-  width: 27.9rem;
-}
-
-.download {
-  position: relative;
-}
-
-.download-icon {
-  position: absolute;
-  top: 22.7rem;
-  left: 22.7rem;
-  z-index: 1;
-}
-
-.contents-02,
-.contents-03,
-.contents-04 {
+.content {
   background-color: var(--white-color, #ffffff);
   padding: 5rem 46.1rem;
-}
-
-.image2 {
-  width: 55rem;
-  height: 45rem;
-  border-radius: 1.5rem;
-  background-color: var(--gray-bg-color, #f0f6ff);
-  display: flex;
+  display: grid;
   justify-content: center;
-  align-items: center;
-  grid-area: image;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
+  width: 100%;
 }
 
-.image3 {
-  box-shadow: 0rem 0.4rem 2.5rem 0rem rgba(0, 0, 0, 0.08);
-  position: relative;
-  width: 57rem;
-  height: 46.9rem;
-  overflow: hidden;
-  border-radius: 2.5rem;
-  grid-area: image;
+.content:nth-of-type(odd) {
+  grid-template:
+  ". image"
+  "title image"
+  "description image"
+  ". image" /291px 55rem;
 }
 
-.share-background {
-  filter: brightness(40%);
-  position: absolute;
-  top: -20%;
-  left: -40%;
-}
-
-.pop-up {
-  position: absolute;
-  top: 12.1rem;
-  left: 7.7rem;
-}
-
-.image4 {
-  width: 55rem;
-  height: 45rem;
-  border-radius: 1.5rem;
-  background-color: var(--gray-bg-color, #f0f6ff);
-  position: relative;
-  overflow: hidden;
-  grid-area: image;
-}
-
-.screenshot {
-  position: absolute;
-  top: 3.4rem;
-  left: 3.5rem;
+.content:nth-of-type(even) {
+  grid-template:
+  "image ."
+  "image title"
+  "image description"
+  "image ." /550px 29.1rem;
 }
 
 footer {
   background-color: var(--black-color, #111322);
   padding: 3.2rem 10.4rem 6.4rem 10.4rem;
+  font-size: 1.6rem;
 }
 
 .info {
   display: flex;
   justify-content: space-between;
   height: 6.4rem;
+  width: 100%
 }
 
 .codeit {
@@ -241,7 +167,6 @@ footer {
   color: #CFCFCF;
   text-decoration: none;
   text-align: center;
-  cursor: pointer;
 }
 
 .sns {
