@@ -49,6 +49,8 @@ header {
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;
+  width: 8rem;
+  text-align: center;
 }
 
 main {
@@ -423,6 +425,15 @@ footer {
   .title {
     font-size: 32px;
     line-height: 42px;
+  }
+  .logo > img {
+    width: 88.666px;
+    height: 16px;
+  }
+  #login {
+    width: 80px;
+    padding: 10px 16px;
+    font-size: 14px;
   }
 
   #first-section {
