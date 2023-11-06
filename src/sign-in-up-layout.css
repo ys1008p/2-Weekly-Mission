@@ -1,30 +1,15 @@
-:root {
-  --primary-color: #6d6afe;
-  --red-color: #ff5b56;
-  --black-color: #111322;
-  --white-color: #ffffff;
-  --gray-40-color: #3e3e43;
-  --gray-30-color: #9fa6b2;
-  --gray-20-color: #ccd5e3;
-  --gray-10-color: #e7effb;
-  --gray-00-color: #f0f6ff;
-  --gra-purpleblue-to-skyblue: linear-gradient(
-    135deg,
-    #6d6afe 0%,
-    #6ae3fe 100%
-  );
-}
-
+@import "./global.css";
 body {
-  margin: 23.8rem auto 0;
+  background-color: var(--gray-00-color);
+}
+.wrapper {
+  margin: 23.8rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40rem;
-  background-color: var(--gray-00-color);
+  max-width: 40rem;
 }
-
 .logo-link-container {
   display: flex;
   flex-direction: column;
@@ -102,19 +87,22 @@ input:focus::placeholder {
 
 .check .diff {
   display: inline-block;
-  margin-top: 0.6rem;
+  padding-top: 0.6rem;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--red-color);
 }
 
-.label.password-container {
+.input-wrapper {
   position: relative;
+  width: 100%;
+  height: 6rem;
 }
 
-.label.password-container .eye {
+.input-wrapper .eye {
   position: absolute;
-  top: 51px;
+  transform: translateY(-50%);
+  top: 50%;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -159,4 +147,26 @@ input:focus::placeholder {
 
 .social img {
   width: 4.2rem;
+}
+
+@media (max-width: 1199px) {
+  .wrapper {
+    margin: 20rem auto;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    margin: 0 3.2rem;
+  }
+  .wrapper {
+    margin: 12rem auto;
+  }
+  .form,
+  input,
+  .input-wrapper,
+  .button,
+  .social-link-container {
+    width: min(100%, 40rem);
+  }
 }
