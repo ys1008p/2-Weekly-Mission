@@ -14,6 +14,7 @@ html {
 }
 body {
   font-family: Pretendard;
+  margin: 0;
 }
 section {
   display: flex;
