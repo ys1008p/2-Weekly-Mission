@@ -1,7 +1,7 @@
-@import url('global_styles.css');
+@import url("global_styles.css");
 
 body {
-  background-color: var(--linkbrary-bg);
+  background-color: var(--bg);
 }
 main {
   display: flex;
@@ -12,93 +12,110 @@ main {
   padding: 23.8rem 0 25.2rem;
   margin: 0 auto;
 }
-main .sign_wrap {
+.sign-wrap {
   display: flex;
   gap: 3rem;
   flex-direction: column;
   width: 100%;
 }
-main .sign_wrap .logo_wrap {
+.logo-wrap {
   display: flex;
   gap: 1.6rem;
   align-items: center;
   flex-direction: column;
 }
-main .sign_wrap .logo_wrap .logo img {
+.logo img {
   height: 3.8rem;
 }
-main .sign_wrap .logo_wrap p {
+.logo-wrap p {
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
-main .sign_wrap .logo_wrap p a {
-  border-bottom: 1px solid var(--linkbrary-primary);
+.logo-wrap p a {
+  border-bottom: 1px solid var(--primary);
   font-weight: 600;
-  color: var(--linkbrary-primary);
+  color: var(--primary);
 }
-main .sign_wrap form {
+.sign-wrap form {
   display: flex;
   gap: 2.4rem;
   flex-direction: column;
   width: 100%;
 }
-main .sign_wrap form .input_wrap {
+.input-wrap {
   display: flex;
   gap: 1.2rem;
   flex-direction: column;
 }
-main .sign_wrap form .input_wrap .input_tit {
+.input-wrap label {
   font-size: 1.4rem;
   font-weight: 400;
 }
-main .sign_wrap form .input_wrap input {
+.input-wrap input {
   width: 100%;
   padding: 1.8rem 4rem 1.8rem 1.5rem;
-  border: 1px solid var(--linkbrary-gray-20);
+  border: 1px solid var(--gray-20);
   border-radius: 0.8rem;
   outline: none;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  color: var(--linkbrary-gray-100);
+  color: var(--gray-100);
 }
-main .sign_wrap form .input_wrap input:focus {
-  border: 1px solid var(--linkbrary-primary);
+.input-wrap input:focus {
+  border: 1px solid var(--primary);
 }
-main .sign_wrap form .input_wrap .input_hidden_wrap {
+.input-hidden-wrap {
   position: relative;
 }
-main .sign_wrap form .input_wrap .input_hidden_wrap img {
+.input-hidden-wrap img {
   position: absolute;
   top: 50%;
-  right: 15px;
+  right: 1.5rem;
   cursor: pointer;
   transform: translateY(-50%);
 }
-main .sign_wrap .submit_btn {
+.submit-button {
   padding: 1.6rem 2rem;
+  margin-top: 0.6rem;
   border-radius: 0.8rem;
-  background: linear-gradient(91deg, var(--linkbrary-primary) 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
   font-size: 1.8rem;
   color: #f5f5f5;
 }
-main .sns_sign_wrap {
+.sns-sign-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 1.2rem 2.4rem;
-  border: 1px solid var(--linkbrary-gray-20);
+  border: 1px solid var(--gray-20);
   border-radius: 0.8rem;
-  background-color: var(--linkbrary-gray-10);
+  background-color: var(--gray-10);
   font-size: 1.4rem;
-  color: var(--linkbrary-gray-100);
+  color: var(--gray-100);
 }
-main .sns_sign_wrap .sns_logo_wrap {
+.sns-logo-wrap {
   display: flex;
   gap: 1.6rem;
   align-items: center;
 }
-main .sns_sign_wrap .sns_logo_wrap a {
+.sns-logo-wrap a {
   display: flex;
   align-items: center;
+}
+
+/* Tablet size (768px ~ 1199px) */
+@media (max-width: 1199px) {
+  main {
+    padding: 20rem 0;
+  }
+}
+
+/* Mobile size (375px ~ 767px) */
+@media (max-width: 767px) {
+  main {
+    width: 100%;
+    max-width: 40rem;
+    padding: 12rem 3.2rem;
+  }
 }

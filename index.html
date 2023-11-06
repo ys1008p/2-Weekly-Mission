@@ -2,105 +2,137 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>Linkbrary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css">
+    <!-- OG Facebook  -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://weekly-mission-ymj.netlify.app/" />
+    <meta property="og:title" content="Linkbrary" />
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta
+      property="og:image"
+      content="https://weekly-mission-ymj.netlify.app/img/index_preview.jpg"
+    />
+    <!-- OG Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://weekly-mission-ymj.netlify.app/"
+    />
+    <meta property="twitter:title" content="Linkbrary" />
+    <meta
+      property="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta
+      property="twitter:image"
+      content="https://weekly-mission-ymj.netlify.app/img/index_preview.jpg"
+    />
+    <title>Linkbrary</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
+    <!-- 1. header -->
     <header>
-      <div class="header_wrap">
+      <div class="header-wrap">
         <a href="index.html" class="logo">
           <img src="./img/logo.svg" alt="Linkbrary 로고" />
         </a>
-        <button class="login_btn"><a href="signin.html">로그인</a></button>
+        <a href="signin.html" class="login-button">로그인</a>
       </div>
     </header>
+    <!-- 2. main -->
     <main>
-      <section class="top_section">
-        <p class="top_section_tit">
-          <span>세상의 모든 정보</span>를 <br />쉽게 저장하고 관리해 보세요
+      <section class="top-section">
+        <div class="top-section-wrap">
+          <p class="top-section-title">
+            <span>세상의 모든 정보</span>를<br />쉽게 저장하고 관리해 보세요
+          </p>
+          <a href="signup.html" class="link-add-button">링크 추가하기</a>
+          <img
+            class="top-section-img"
+            src="./img/index_top_section.png"
+            alt="Linkbrary 서비스 소개"
+          />
+        </div>
+      </section>
+      <!-- 2-1. card-section1 -->
+      <section id="card-section1" class="card-section">
+        <p class="section-title"><span>원하는 링크</span>를 저장하세요</p>
+        <p class="section-text">
+          나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은
+          모든 것을 한 공간에 저장하세요.
         </p>
-        <button class="link_add_btn">
-          <a href="signup.html">링크 추가하기</a>
-        </button>
         <img
-          class="top_section_img"
-          src="./img/index_top_section.png"
-          alt="Linkbrary 서비스 소개"
+          class="section-img"
+          src="./img/index_section_save.png"
+          alt="원하는 링크를 저장 포스터"
         />
       </section>
-      <section class="card_section1 card_section">
-        <div class="section_desc_wrap">
-          <p class="section_tit"><span>원하는 링크</span>를<br />저장하세요</p>
-          <p class="section_txt">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상,
-            <br />사고 싶은 옷, 기억하고 싶은 모든 것을 <br />한 공간에
-            저장하세요.
-          </p>
-        </div>
-        <div class="section_img_wrap">
-          <img src="./img/index_section1.png" alt="원하는 링크를 저장 포스터" />
-        </div>
+      <!-- 2-2. card-section2 -->
+      <section id="card-section2" class="card-section">
+        <img
+          class="section-img"
+          src="./img/index_section_manage.png"
+          alt="링크를 폴더로 관리 포스터"
+        />
+        <p class="section-title">링크를 폴더로 <span>관리</span>하세요</p>
+        <p class="section-text">
+          나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
+        </p>
       </section>
-      <section class="card_section2 card_section">
-        <div class="section_img_wrap">
-          <img src="./img/index_section2.png" alt="링크를 폴더로 관리 포스터" />
-        </div>
-        <div class="section_desc_wrap">
-          <p class="section_tit">링크를 폴더로<br /><span>관리</span>하세요</p>
-          <p class="section_txt">
-            나만의 폴더를 무제한으로 만들고<br />
-            다양하게 활용할 수 있습니다.
-          </p>
-        </div>
+      <!-- 2-3. card-section3 -->
+      <section id="card-section3" class="card-section">
+        <p class="section-title">저장한 링크를 <span>공유</span>해 보세요</p>
+        <p class="section-text">
+          여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
+          쉽고 빠르게 링크를 공유해 보세요.
+        </p>
+        <img
+          class="section-img"
+          src="./img/index_section_share.png"
+          alt="저장한 링크를 공유 포스터"
+        />
       </section>
-      <section class="card_section3 card_section">
-        <div class="section_desc_wrap">
-          <p class="section_tit">
-            저장한 링크를<br /><span>공유</span>해 보세요
-          </p>
-          <p class="section_txt">
-            여러 링크를 폴더에 담고 공유할 수 있습니다.<br />가족, 친구,
-            동료들에게 쉽고 빠르게 링크를<br />
-            공유해 보세요.
-          </p>
-        </div>
-        <div class="section_img_wrap">
-          <img src="./img/index_section3.png" alt="저장한 링크를 공유 포스터" />
-        </div>
-      </section>
-      <section class="card_section4 card_section">
-        <div class="section_img_wrap">
-          <img src="./img/index_section4.png" alt="저장한 링크를 검색 포스터" />
-        </div>
-        <div class="section_desc_wrap">
-          <p class="section_tit">
-            저장한 링크를<br /><span>검색</span>해 보세요
-          </p>
-          <p class="section_txt">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
-        </div>
+      <!-- 2-4. card-section4 -->
+      <section id="card-section4" class="card-section">
+        <img
+          class="section-img"
+          src="./img/index_section_search.png"
+          alt="저장한 링크를 검색 포스터"
+        />
+        <p class="section-title">저장한 링크를 <span>검색</span>해 보세요</p>
+        <p class="section-text">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
       </section>
     </main>
+    <!-- 3. footer -->
     <footer>
-      <div class="footer_wrap">
-        <div class="corplogo_wrap">©codeit - 2023</div>
-        <div class="policy_faq_wrap">
+      <div class="footer-wrap">
+        <div class="corplogo-wrap">©codeit - 2023</div>
+        <div class="policy-faq-wrap">
           <a href="privacy.html">Privacy Policy</a>
           <a href="faq.html">FAQ</a>
         </div>
-        <div class="sns_wrap">
-          <a href="https://www.facebook.com/" target="_blank"
-            ><img src="./img/sns_icon_facebook.svg" alt="페이스북으로 이동"
+        <div class="sns-wrap">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            ><img
+              src="./img/icon/sns_icon_facebook.svg"
+              alt="페이스북으로 이동"
           /></a>
-          <a href="https://twitter.com/" target="_blank"
-            ><img src="./img/sns_icon_twitter.svg" alt="트위터로 이동"
+          <a href="https://twitter.com/" target="_blank" rel="noopener"
+            ><img src="./img/icon/sns_icon_twitter.svg" alt="트위터로 이동"
           /></a>
-          <a href="https://www.youtube.com/" target="_blank"
-            ><img src="./img/sns_icon_youtube.svg" alt="유튜브로 이동"
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener"
+            ><img src="./img/icon/sns_icon_youtube.svg" alt="유튜브로 이동"
           /></a>
-          <a href="https://www.instagram.com/" target="_blank"
-            ><img src="./img/sns_icon_instagram.svg" alt="인스타그램으로 이동"
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            ><img
+              src="./img/icon/sns_icon_instagram.svg"
+              alt="인스타그램으로 이동"
           /></a>
         </div>
       </div>
