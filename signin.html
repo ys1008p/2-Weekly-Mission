@@ -10,57 +10,60 @@
     />
     <link rel="stylesheet" href="./src/reset.css" />
     <link rel="stylesheet" href="./src/sign-in-up-layout.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <section class="logo-link-container">
-      <a href="/">
-        <img
-          class="logo"
-          src="./images/logo.svg"
-          alt="메인화면으로 가는 로고 이미지"
-        />
-      </a>
-      <div class="link-container">
-        <span class="link-text">회원이 아니신가요?</span>
-        <a class="link-connect" href="signup.html"> 회원 가입하기 </a>
-      </div>
-    </section>
-    <form class="form">
-      <div class="label-textfield">
-        <label class="label">
-          이메일
-          <input
-            type="email"
-            name="useremail"
-            placeholder="codeit@codeit.com"
-            required
-          />
-        </label>
-        <label class="label password-container">
-          비밀번호
-          <input type="password" name="password" placeholder="" required />
-          <object class="eye" data = "./images/eye-off.svg"></object>
-        </label>
-      </div>
-      <button class="button" type="submit"><span>로그인</button>
-    </form>
-
-    <section class="social-link-container">
-      <span> 소셜 로그인</span>
-      <div class="social">
-        <a href="https://www.google.com/">
+    <div class="wrapper">
+      <section class="logo-link-container">
+        <a href="/">
           <img
-            src="./images/google.svg"
-            alt="google 홈페이지로 연결된 google 로고"
+            class="logo"
+            src="./images/logo.svg"
+            alt="메인화면으로 가는 로고 이미지"
           />
         </a>
-        <a href="https://www.kakaocorp.com/page/">
-          <img
-            src="./images/kakaotalk.svg"
-            alt="kakao 홈페이지로 연결된 kakaotalk 로고"
-          />
-        </a>
-      </div>
-    </section>
+        <div class="link-container">
+          <span class="link-text">회원이 아니신가요?</span>
+          <a class="link-connect" href="/signup.html">회원 가입하기</a>
+        </div>
+      </section>
+      <form class="form">
+        <div class="label-textfield">
+          <label class="label">이메일
+            <input
+              type="email"
+              name="useremail"
+              placeholder="codeit@codeit.com"
+              required
+            />
+          </label>
+          <label class="label">
+            비밀번호
+            <div class="input-wrapper">
+            <input type="password" name="password" placeholder="" required />
+            <img class="eye" src ="./images/eye-off.svg" alt = "password eye"/>
+          </div>
+          </label>
+        </div>
+        <button class="button" type="submit"><span>로그인</button>
+      </form>
+      <section class="social-link-container">
+        <span>소셜 로그인</span>
+        <div class="social">
+          <a href="https://www.google.com/">
+            <img
+              src="./images/google.svg"
+              alt="google 홈페이지로 연결된 google 로고"
+            />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img
+              src="./images/kakaotalk.svg"
+              alt="kakao 홈페이지로 연결된 kakaotalk 로고"
+            />
+          </a>
+        </div>
+      </section>
+    </div>
   </body>
 </html>

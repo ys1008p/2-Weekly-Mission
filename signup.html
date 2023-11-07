@@ -10,70 +10,73 @@
     />
     <link rel="stylesheet" href="./src/reset.css" />
     <link rel="stylesheet" href="./src/sign-in-up-layout.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <section class="logo-link-container">
-      <a href="/">
-        <img
-          class="logo"
-          src="./images/logo.svg"
-          alt="메인화면으로 가는 로고 이미지"
-        />
-      </a>
-      <div class="link-container">
-        <span>이미 회원이신가요?</span>
-        <a class="link-connect" href="signin.html"> 로그인하기 </a>
-      </div>
-    </section>
-    <form class="form">
-      <div class="label-textfield">
-        <label class="label">
-          이메일
-          <input
-            type="email"
-            name="useremail"
-            placeholder="codeit@codeit.com"
-            required
+    <div class="wrapper">
+      <section class="logo-link-container">
+        <a href="/">
+          <img
+            class="logo"
+            src="./images/logo.svg"
+            alt="메인화면으로 가는 로고 이미지"
           />
-        </label>
-        <label class="password-container label">
-          비밀번호
-          <input type="password" name="password" placeholder="" required />
-          <object class="eye" data="./images/eye-off.svg"></object>
-        </label>
-        <label class="check password-container label">
-          <div class="label">
-            비밀번호 확인
+        </a>
+        <div class="link-container">
+          <span>이미 회원이신가요?</span>
+          <a class="link-connect" href="/signin.html">로그인하기</a>
+        </div>
+      </section>
+      <form class="form">
+        <div class="label-textfield">
+          <label class="label"
+            >이메일
             <input
-              type="password"
-              name="passwordcheck"
-              placeholder=""
+              type="email"
+              name="useremail"
+              placeholder="codeit@codeit.com"
               required
             />
-            <object class="eye" data="./images/eye-off.svg"></object>
-          </div>
-          <span class="diff">비밀번호가 다릅니다.</span>
-        </label>
-      </div>
-      <button class="button" type="submit">회원가입</button>
-    </form>
-
-    <section class="social-link-container">
-      <span> 다른 방식으로 가입하기</span>
-      <div class="social">
-        <a href="https://www.google.com/">
-          <img
-            src="./images/google.svg"
-            alt="google 홈페이지로 연결된 google 로고"
-          />
-        </a>
-        <a href="https://www.kakaocorp.com/page/">
-          <img
-            src="./images/kakaotalk.svg"
-            alt="kakao 홈페이지로 연결된 kakaotalk 로고"
-          />
-        </a>
-      </div>
-    </section>
+          </label>
+          <label class="label"
+            >비밀번호
+            <div class="input-wrapper">
+              <input type="password" name="password" placeholder="" required />
+              <img class="eye" src="./images/eye-off.svg" alt="password eye" />
+            </div>
+          </label>
+          <label class="check label"
+            >비밀번호 확인
+            <div class="input-wrapper">
+              <input
+                type="password"
+                name="password-check"
+                placeholder=""
+                required
+              />
+              <img class="eye" src="./images/eye-off.svg" alt="password eye" />
+            </div>
+          </label>
+        </div>
+        <button class="button" type="submit">회원가입</button>
+      </form>
+      <section class="social-link-container">
+        <span>다른 방식으로 가입하기</span>
+        <div class="social">
+          <a href="https://www.google.com/">
+            <img
+              src="./images/google.svg"
+              alt="google 홈페이지로 연결된 google 로고"
+            />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img
+              src="./images/kakaotalk.svg"
+              alt="kakao 홈페이지로 연결된 kakaotalk 로고"
+            />
+          </a>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
