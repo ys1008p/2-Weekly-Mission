@@ -32,7 +32,7 @@ body {
   font-weight: 600;
 }
 
-.container{
+.container {
   width: 400px;
 }
 
@@ -165,8 +165,8 @@ input:focus {
   display: inline-block;
 }
 
-@media(max-width:767px){
-  .container{
+@media (max-width: 767px) {
+  .container {
     max-width: 464px;
     width: 100vw;
     padding: 0 32px;

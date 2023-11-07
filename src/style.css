@@ -6,8 +6,8 @@ header {
   background-color: #edf7ff;
 }
 
-.nav-container{
-  background-color: #EDF7FF;
+.nav-container {
+  background-color: #edf7ff;
   display: flex;
   justify-content: center;
 }
@@ -197,13 +197,13 @@ footer {
 }
 
 @media (max-width: 1199px) {
-  .nav{
+  .nav {
     padding: 0;
     width: 799px;
-    margin: 0 max(auto,32px);
+    margin: 0 max(auto, 32px);
   }
 
-  .hero-header{
+  .hero-header {
     padding-left: 250px;
     padding-right: 250px;
   }
@@ -214,7 +214,7 @@ footer {
     padding: 0 32px;
   }
 
-  .hero-image{
+  .hero-image {
     width: 698px;
     height: auto;
   }
@@ -224,7 +224,7 @@ footer {
       'title image'
       'description image';
   }
-  
+
   .section:nth-of-type(even) {
     grid-template:
       'image title'
@@ -238,23 +238,22 @@ footer {
     align-items: center;
   }
 
-  .content-image{
+  .content-image {
     height: 315px;
     width: auto;
   }
 
-  h2.title{
-    align-self:end;
+  h2.title {
+    align-self: end;
   }
 
-  p.description{
+  p.description {
     align-self: start;
   }
-
 }
 
-@media (max-width:863px){
-  .nav{
+@media (max-width: 863px) {
+  .nav {
     padding: 0;
     width: auto;
     flex-grow: 1;
@@ -263,23 +262,23 @@ footer {
 }
 
 @media (max-width: 767px) {
-  .logo-img{
+  .logo-img {
     height: 16px;
   }
 
-  .nav{
+  .nav {
     margin: 0;
     padding: 0 32px;
     display: flex;
     justify-content: space-between;
   }
 
-  .hero-header{
+  .hero-header {
     padding-left: 32px;
     padding-right: 32px;
   }
 
-  h1.slogan{
+  h1.slogan {
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
@@ -290,12 +289,12 @@ footer {
     padding-top: 0;
   }
 
-  .cta-short{
+  .cta-short {
     width: 80px;
     padding: 10px 16px;
   }
 
-  .cta-long{
+  .cta-long {
     width: 200px;
   }
 
@@ -311,13 +310,13 @@ footer {
     padding: 0 32px;
   }
 
-  h2.title{
+  h2.title {
     line-height: normal;
     font-size: 24px;
     letter-spacing: -0.3px;
   }
 
-  p.description{
+  p.description {
     font-size: 15px;
     line-height: 150%; /* 22.5px */
   }
