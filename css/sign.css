@@ -2,28 +2,22 @@
 /* 페이지 기본 설정 */
 /* =================== */
 article {
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
   background: var(--linkbrary-bg, #f0f6ff);
-}
-
-.signin {
-  padding: 23.8rem 0 25.2rem;
-}
-
-.signup {
-  padding: 23.8rem 0 11.6rem;
 }
 
 section {
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
-  row-gap: 3.4rem;
+  row-gap: 3.2rem;
   color: #000000;
   font-size: 1.4rem;
   font-weight: 400;
+  max-width: 40rem;
+  width: 100%;
 }
 
 /* form */
@@ -89,6 +83,8 @@ section {
   flex-direction: column;
   flex: 0 0 auto;
   gap: 2.4rem;
+  max-width: 40rem;
+  width: 100%;
 }
 .inputs {
   display: flex;
@@ -100,7 +96,6 @@ section {
 
 .input-box {
   outline: none;
-  width: 40rem;
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
@@ -114,16 +109,12 @@ input:focus {
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
 }
 
-.btn-long-40 {
-  width: 40rem;
-}
-
 /* =================== */
 /* 소셜 로그인 */
 /* =================== */
 .social-content {
   display: flex;
-  width: 40rem;
+  max-width: 40rem;
   padding: 1.2rem 2.4rem;
   justify-content: space-between;
   align-items: center;
@@ -154,4 +145,50 @@ input:focus {
   position: absolute;
   top: 5.2rem;
   right: 1.5rem;
+}
+
+@media (min-width: 375px) {
+  .signin {
+    padding: 12rem 3.2rem 23.2rem;
+  }
+
+  .signup {
+    padding: 12rem 3.2rem 11.9rem;
+  }
+
+  .btn-long-40 {
+    height: 5.4rem;
+    font-size: 1.8rem;
+    width: 100%;
+    /* max-width: 40rem; */
+  }
+}
+
+/* for tablet, pc */
+@media (min-width: 768px) {
+  .signin {
+    padding: 20rem 0 29rem;
+  }
+
+  .signup {
+    padding: 20rem 0 17.7rem;
+  }
+
+  .btn-long-40 {
+    width: 40rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .signin {
+    padding: 23.8rem 0 25.2rem;
+  }
+
+  .signup {
+    padding: 23.8rem 0 11.6rem;
+  }
+
+  .btn-long-40 {
+    width: 40rem;
+  }
 }

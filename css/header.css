@@ -1,3 +1,6 @@
+/* ============================= */
+/* header 공통 스타일 */
+/* ============================= */
 header {
   background: var(--linkbrary-bg, #f0f6ff);
   display: flex;
@@ -7,54 +10,30 @@ header {
   align-items: center;
 }
 
-/* ============================= */
-/* nav-bar */
-/* ============================= */
 nav {
-  max-width: 192rem;
   width: 100%;
-  height: 9.4rem;
-  padding: 2rem 20rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   z-index: 1;
-  background-color: var(--linkbrary-bg, #f0f6ff);
-}
-
-.home-link {
-  width: 13.3rem;
-  height: 2.4rem;
+  /* background-color: var(--linkbrary-bg, #f0f6ff); */
 }
 
 .home-link img {
   width: 100%;
 }
 
-.btn-short {
-  width: 12.8rem;
-}
-
-/* ============================= */
-/* hero 구간 */
-/* ============================= */
-
 .hero {
-  max-width: 192rem;
-  padding-top: 16.4rem; /* 기존 nav의 높이만큼 추가 */
   display: flex;
   flex-direction: column;
-  row-gap: 4rem;
   align-items: center;
 }
 
 /* 슬로건 글자 설정 */
 .slogan {
   text-align: center;
-  font-size: 6.4rem;
   font-weight: 700;
-  line-height: 8rem;
 }
 
 /* 슬로건 강조 */
@@ -66,11 +45,102 @@ nav {
   );
 }
 
-.btn-long {
-  width: 35rem;
+/* for Mobile */
+@media (min-width: 375px) {
+  nav {
+    padding: 1.3rem 3.2rem;
+    height: 6.3rem;
+  }
+  .hero {
+    max-width: 76.8rem;
+    padding: 9.1rem 3.2rem 0; /* 기존 nav의 높이만큼 추가 */
+    row-gap: 2.4rem;
+  }
+  .hero-image {
+    width: 100%;
+  }
+  .btn-short {
+    width: 8rem;
+  }
+  .home-link {
+    width: 8.8rem;
+    height: 1.3rem;
+  }
+  .btn-long {
+    width: 20rem;
+  }
+  .slogan {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
 }
 
-.hero-image {
-  width: 120rem;
-  height: 59rem;
+/* for Tablet */
+@media (min-width: 768px) {
+  nav {
+    max-width: 86.4rem; /* 패딩이 32px 되기 전까지 로고와 로그인 간격 유지 */
+    padding: 2rem 3.2rem;
+    height: 9.4rem;
+  }
+  .hero {
+    max-width: 120rem;
+    padding-top: 13.1rem; /* 기존 nav의 높이만큼 추가 */
+    row-gap: 4rem;
+  }
+  .hero-image {
+    width: 69.8rem;
+    height: 34.3rem;
+  }
+  .br-toggle {
+    display: block;
+  }
+  .btn-short {
+    width: 12.8rem;
+  }
+  .home-link {
+    width: 13.3rem;
+    height: 2.4rem;
+  }
+  .btn-long {
+    width: 35rem;
+  }
+  .slogan {
+    font-size: 6.4rem;
+    line-height: 8rem;
+  }
+}
+
+/* for PC */
+@media (min-width: 1200px) {
+  nav {
+    max-width: 192rem;
+    padding: 2rem 20rem;
+    height: 9.4rem;
+  }
+  .hero {
+    max-width: 192rem;
+    padding-top: 16.4rem; /* 기존 nav의 높이만큼 추가 */
+    row-gap: 4rem;
+  }
+  .hero-image {
+    width: 120rem;
+    height: 59rem;
+  }
+  .br-toggle {
+    display: none;
+  }
+  .btn-short {
+    width: 12.8rem;
+  }
+  .home-link {
+    width: 13.3rem;
+    height: 2.4rem;
+  }
+  .btn-long {
+    width: 35rem;
+  }
+  .slogan {
+    font-size: 6.4rem;
+    line-height: 8rem;
+  }
 }

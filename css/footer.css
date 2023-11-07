@@ -8,19 +8,12 @@ footer {
   flex-shrink: 0;
 }
 
-.footer-container {
-  max-width: 192rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-
 .copyright {
   color: #676767;
   font-family: Arial, serif;
   font-size: 1.6rem;
   font-weight: 400;
+  grid-area: company;
 }
 
 .policies {
@@ -32,12 +25,14 @@ footer {
   width: 18.1111rem;
   align-items: flex-start;
   gap: 3rem;
+  grid-area: policy;
 }
 
 .sns-links {
   display: flex;
   align-items: flex-start;
   gap: 1.2rem;
+  grid-area: sns;
 }
 
 .sns-link {
@@ -48,4 +43,32 @@ footer {
 
 .sns-link img {
   width: 100%;
+}
+@media (min-width: 375px) {
+  footer {
+    padding: 3.2rem 3.2rem 6.4rem;
+  }
+  .footer-container {
+    max-width: 192rem;
+    display: grid;
+    grid-template-areas:
+      "policy sns"
+      "company .";
+    row-gap: 6rem;
+  }
+  .sns-links {
+    justify-content: flex-end;
+  }
+}
+@media (min-width: 768px) {
+  footer {
+    padding: 3.2rem 10.4rem 6.4rem;
+  }
+  .footer-container {
+    max-width: 192rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
 }
