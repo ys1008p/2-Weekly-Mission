@@ -29,6 +29,14 @@
   }
 }
 
+@layer vars.layout {
+  html {
+    --scrollbar-width: 15px;
+    --desktop-header-padding: 20rem;
+    --safe-zone-size: 3.2rem;
+  }
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -38,6 +46,7 @@
   html {
     font-size: 10px;
     line-height: 1.5;
+    word-break: keep-all;
   }
 
   body {
