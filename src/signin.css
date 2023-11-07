@@ -151,8 +151,8 @@ body {
   background-color: #f5e14b;
 }
 
-@media(max-width:767px){
-  .sign-box{
+@media (max-width: 767px) {
+  .sign-box {
     max-width: 464px;
     width: 100vw;
     padding: 0 32px 0px 32px;
