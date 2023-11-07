@@ -1,7 +1,7 @@
 @import "./global.css";
 
 body {
-  padding-top: 238px;
+  padding-top: 30px;
   background-color: var(--background);
   display: flex;
   flex-direction: column;
@@ -155,6 +155,6 @@ body {
   .sign-box{
     max-width: 464px;
     width: 100vw;
-    padding: 0 32px 119px 33px;
+    padding: 0 32px 0px 32px;
   }
 }
