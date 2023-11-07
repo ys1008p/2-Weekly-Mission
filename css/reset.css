@@ -1,36 +1,20 @@
-@import url('./fonts.css');
-
-:root{
-  --linkbrary-primary-color:#6d6afe;
-  --linkbrary-red:#ff5b56;
-  --the-julge-black:#111322;
-  --linkbrary-white:#fff;
-  --linkbrary-gray-100:#3e3e43;
-  --linkbrary-gray-60:#9fa6b2;
-  --linkbrary-gray-20:#ccd5e3;
-  --linkbrary-gray-10:#e7effb;
-  --linkbrary-bg:#f0f6ff;
-
-}
-
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-
   font-family: Pretendard;
 }
 
-html{
-  font-size:10px;
+html {
+  font-size: 10px;
 }
 
-ol, ul{
-  list-style:none;
+ol,
+ul {
+  list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
-
