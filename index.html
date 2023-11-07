@@ -3,6 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://3weekly-codeit-bbobboman.netlify.app/"
+    />
+    <meta property="og:title" content="Linkbrary" />
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta
+      property="og:image"
+      content="https://3weekly-codeit-bbobboman.netlify.app/images/image2.jpg"
+    />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://3weekly-codeit-bbobboman.netlify.app/"
+    />
+    <meta property="twitter:title" content="Linkbrary" />
+    <meta
+      property="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta
+      property="twitter:image"
+      content="https://3weekly-codeit-bbobboman.netlify.app/images/image2.jpg"
+    />
     <title>Linkbrary</title>
     <link
       rel="stylesheet"
@@ -14,14 +44,23 @@
   </head>
   <body>
     <header class="header">
-      <div class="header-img-div"></div>
-      <a href="/signin/signin.html " class="login-button button">로그인</a>
+      <div class="nav-box">
+        <div class="header-img-div"></div>
+        <a href="/signin/signin.html " class="login-button button">로그인</a>
+      </div>
     </header>
     <section class="section1 num1">
-      <h1 class="subject font">
-        <span class="num1-span">세상의 모든 정보</span>를
-        쉽게 저장하고 관리해 보세요
-      </h1>
+      <div>
+        <h1 class="subject font">
+          <span class="num1-span">세상의 모든 정보</span>를
+        </h1>
+        <div>
+          <h1 class="subject font">
+            쉽게 저장하고<span class="mobile-block-span"></span
+            ><span class="tablet-block-span"></span> 관리해 보세요
+          </h1>
+        </div>
+      </div>
       <a href="/signup/signup.html" class="link-button button">링크 추가하기</a>
       <div class="section-num1-imgdiv">
         <div class="num1-imgdiv">
@@ -30,15 +69,38 @@
         </div>
       </div>
     </section>
-
+    <!--script를 이용한 필요부분 복사하고 필요한 위치에 append 시킴 -->
     <section class="section num2">
       <div class="num2-subject">
-        <h1 class="font2"><span>원하는 링크</span>를 <br />저장하세요</h1>
-        나중에 읽고 싶은 글, 다시 고보 싶은 영상,<br />사고 싶은 옷, 기억하고
-        싶은 모든 것을 <br />한 공간에 저장하세요
+        <h1 class="font2" id="first-section-change-location">
+          <span class="num2-span">원하는 링크</span>를<span
+            class="main-block-span"
+          ></span
+          ><span class="tablet-block-span"></span>저장하세요
+        </h1>
+        <div class="num2-imgdiv" id="first-section1">
+          <div class="gapdiv">
+            <div class="num2-img img1"></div>
+            <div class="num2-img img2">
+              <img class="absolute-icon" src="Images/Group 20.jpg" alt="" />
+              <div class="num2-border"></div>
+            </div>
+            <div class="num2-img img3"></div>
+          </div>
+        </div>
+        <p>
+          나중에 읽고 싶은 글, 다시 고보 싶은 영상,<span
+            class="tablet-block-span"
+          ></span
+          ><span class="main-block-span"></span>사고 싶은 옷,<span
+            class="mobile-block-span"
+          ></span>
+          기억하고 싶은 모든 것을<span class="tablet-block-span"></span
+          ><span class="main-block-span"></span>한 공간에 저장하세요
+        </p>
       </div>
-      <div class="num2-imgdiv">
-        <div>
+      <div class="num2-imgdiv" id="first-section">
+        <div class="gapdiv">
           <div class="num2-img img1"></div>
           <div class="num2-img img2">
             <img class="absolute-icon" src="Images/Group 20.jpg" alt="" />
@@ -48,53 +110,102 @@
         </div>
       </div>
     </section>
-
-    <section class="section num2">
-      <div class="num2-imgdiv">
+    <!-- 같은 이미지 div 하나더 만들어서 필요할때 display보여주는 방식 본인이 나와야 할때 제외하고 none -->
+    <section class="section num2 reverse paddiv">
+      <div class="num2-imgdiv foldername">
         <div id="foldername"></div>
       </div>
       <div class="num2-subject">
         <h1 class="font2">
-          링크를 폴더로<br />
-          <span id="linkspan">관리</span>하세요
+          링크를 폴더로<span class="tablet-block-span"></span
+          ><span class="main-block-span"></span
+          ><span id="linkspan">관리</span>하세요
         </h1>
-        나만의 폴더를 무제한으로 만들고<br />
-        다양하게 활용할 수 있습니다
+        <div class="num2-imgdiv foldername-phone">
+          <div id="foldername"></div>
+        </div>
+        <p>
+          나만의 폴더를 무제한으로 만들고<span class="tablet-block-span"></span
+          ><span class="main-block-span"></span> 다양하게 활용할 수<span
+            class="mobile-block-span"
+          ></span
+          >있습니다
+        </p>
       </div>
     </section>
-
-    <section class="section num2">
+    <!--flex를 처리할 방법으로 div 를 하나더 만들어서 reverse 화면이 mobile 화면외 문제가 생김 
+해결방법 div 똑같은것을 하나 더 만들어서 특정 크기에서 보여주고 안보여주고를 보여줌
+-->
+    <section class="section num2 paddiv">
       <div class="num2-subject">
         <h1 class="font2">
-          저장한 링크를<br /><span id="sharedspan">공유</span>해보세요.
+          저장한 링크를<span class="tablet-block-span"></span
+          ><span class="main-block-span"></span>
+          <span id="sharedspan">공유</span>해보세요.<br />
         </h1>
-        여러 링크를 폴더에 담고 공유할 수 있습니다. <br />가족, 친구, 동료들에게
-        쉽고 빠르게 링크를 <br />공유해보세요
+        <div class="flex-reversediv-subsub">
+          <p>
+            여러 링크를 폴더에 담고 공유할 수<span
+              class="tablet-block-span"
+            ></span>
+            있습니다.<span class="main-block-span"></span> 가족,<span
+              class="mobile-block-span"
+            ></span>
+            친구, 동료들에게 쉽고<span class="tablet-block-span"></span> 빠르게
+            링크를 <span class="main-block-span"></span>공유해보세요
+          </p>
+        </div>
       </div>
-      <div class="num2-imgdiv num2-backgroundimg">
-        <div class="num2-imgdiv num2-backgroundimg1">
-          <img src="Images/share.png" alt="" />
-          <div class="num2-background-opacity"></div>
+      <div class="flex-reversediv">
+        <div class="flex-reversediv-subsub2">
+          <p>
+            여러 링크를 폴더에 담고 공유할 수<span
+              class="tablet-block-span"
+            ></span>
+            있습니다.<span class="main-block-span"></span> 가족,<span
+              class="mobile-block-span"
+            ></span>
+            친구, 동료들에게 쉽고<span class="tablet-block-span"></span> 빠르게
+            링크를 <span class="main-block-span"></span>공유해보세요
+          </p>
+        </div>
+        <div class="num2-imgdiv num2-backgroundimg">
+          <div class="num2-imgdiv num2-backgroundimg1">
+            <img src="Images/share.png" alt="" />
+            <div class="num2-background-opacity"></div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="section num2 last">
+    <section class="section num2 reverse last">
       <div class="num2-imgdiv last">
         <img src="Images/5.png" alt="" class="codeit" />
       </div>
       <div class="num2-subject">
         <h1 class="font2">
-          저장한 링크를<br />
+          저장한 링크를<span class="main-block-span"></span
+          ><span class="tablet-block-span"></span>
           <span id="searchspan">검색</span>해 보세요
         </h1>
-        중요한 정보들을 검색으로 쉽게 찾아보세요.
+        <p class="blink-p">
+          중요한 정보들을 검색으로 쉽게
+          <span class="tablet-block-span"></span>찾아보세요.
+        </p>
+      </div>
+      <div class="last-contents">
+        <p class="blink-p1 add-margin">
+          중요한 정보들을 검색으로 쉽게
+          <span class="tablet-block-span"></span>찾아보세요.
+        </p>
       </div>
     </section>
     <footer class="footer">
-      <div class="footer1 ">©codeit - 2023</div>
-      <div class="footer1 policy">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/faq">FAQ</a>
+      <div class="footer1 reverse">
+        <div class="footer1">©codeit - 2023</div>
+        <div class="footer1 policy">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/faq">FAQ</a>
+        </div>
       </div>
       <div class="footer1 logo">
         <a href="https://www.facebook.com/" alt="페이스북" target="_blank">
@@ -108,5 +219,12 @@
         /></a>
       </div>
     </footer>
+    <audio
+      src="/music/ALoversConcerto.mp3"
+      type="audio/mpeg"
+      autoplay
+      loop
+    ></audio>
+    <script src="indexdfd.js"></script>
   </body>
 </html>

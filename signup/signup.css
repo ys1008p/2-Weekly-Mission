@@ -79,7 +79,7 @@ input:focus {
     border-radius: 8px;
     border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
     background: var(--linkbrary-white, #FFF);
-    margin: 12px 0;
+    margin: 12px 0 24px;
     position: relative;
 }
 
@@ -130,7 +130,7 @@ form {
 input:focus::placeholder {
     color: transparent;
 }
-#password-diff{margin-top: -6px;
+#password-diff{
     color: #FF5B56;
     /* Linkbrary/body2-regular */
     font-family: Pretendard;
@@ -141,8 +141,8 @@ input:focus::placeholder {
     visibility: hidden;
 
 }
-
-#password-check:focus::#password-diff{display: block;}
+#div3{margin-bottom: 6px;}
+#password-check:focus+#password-diff{display: block;}
 #password::placeholder {
     font-size: 7px;
 
@@ -176,8 +176,6 @@ input:focus::placeholder {
 
 
 
-
-
 .login-button {
     color: var(--grey-light, #F5F5F5);
     font-family: Pretendard;
@@ -190,7 +188,6 @@ input:focus::placeholder {
     border-radius: 8px;
     border: none;
     background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-    margin-bottom: 32px;
     margin-top: 30px;
 }
 
@@ -261,3 +258,42 @@ input:focus::placeholder {
 
     flex-shrink: 0;
 }
+
+
+@media (min-width: 768px) {
+  /* 요구사항 없음*/
+}
+
+/* Mobile 사이즈 스타일 */
+@media (max-width: 767px) {
+  /* 좌우 여백 32px 제외하고 내부 요소가 너비를 모두 차지하도록 스타일을 설정합니다. */
+   
+  body {
+    padding: 120px 32px 119px;
+    height: 844px;
+}
+
+.all-div {
+    min-width: 0px;
+    max-width: 400px;
+    padding: 0;
+}
+.logo-div {
+  width: 210px;
+  height: 38px;
+}
+.input-div.div1 {
+ 
+ width: 100%; min-width: 325px;
+}
+.input-div.div2 {  
+    width:100%; min-width: 325px;
+}
+.login-button{max-width:  100%;min-width: 325px;}
+.social-login {
+    min-width: 325px;
+    max-width:  100%;
+
+}
+form{margin: 30px 0;}
+form>div:nth-child(1){width: 100%};}
