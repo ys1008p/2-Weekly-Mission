@@ -1,8 +1,10 @@
-@import url(./init/reset.css);
+@import url(./init/normalize.css);
 @import url(./init/reset.css);
 
 @import url(./theme.css);
 
 @import url(./pages/landing.css);
-@import url(./pages/signin.css);
-@import url(./pages/signup.css);
+@import url(./pages/account.css);
+
+@import url(./pages/tablet.css) screen and (min-width: 768px) and (max-width: 1199px);
+@import url(./pages/mobile.css) screen and (min-width: 375px) and (max-width: 767px);

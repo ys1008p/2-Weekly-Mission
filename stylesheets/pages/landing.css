@@ -13,10 +13,9 @@
   align-items: center;
   max-width: 1920px;
   margin: 0 auto;
-  
 }
 
-.logo {
+.landing--logo {
   width: 133px;
   height: 24px;
 }
@@ -40,7 +39,7 @@
   line-height: normal;
 }
 
-.login {
+.login--btn {
   width: 128px;
 }
 
@@ -63,7 +62,7 @@
 
 .main--image {
   width: 1118px;
-  height: 659px;
+  height: 540px;
   flex-shrink: 0;
 }
 
@@ -79,11 +78,15 @@
   line-height: 80px;
 
   width: 708px;
-  height: 160px;
+  height: fit-content;
 
   text-align: center;
 
   margin: 0;
+}
+
+.break {
+  display: none;
 }
 
 .title .gradient {
@@ -117,6 +120,8 @@
   letter-spacing: -0.3px;
 
   margin: 0;
+
+  grid-area: subtitle;
 }
 
 .description {
@@ -126,21 +131,36 @@
   font-weight: 500;
   line-height: 150%; /* 24px */
   margin: 0;
+
+  grid-area: description;
+}
+
+.image {
+  grid-area: image;
 }
 
 .content {
-  display: flex;
-  align-items: center;
-  gap: 157px;
+  display: grid;
+  justify-content: center;
+  column-gap: 157px;
+  row-gap: 10px;
   padding: 50px 0;
 }
 
-.content:nth-of-type(even) .image-container {
-  order: 1;
+.content:nth-of-type(odd) {
+  grid-template:
+    "image ."
+    "image subtitle"
+    "image description"
+    "image .";
 }
 
-.content:nth-of-type(even) .subtitle-description {
-  order: 2;
+.content:nth-of-type(even) {
+  grid-template:
+    ". image"
+    "subtitle image"
+    "description image"
+    ". image";
 }
 
 .content-01 {
@@ -159,21 +179,9 @@
   -webkit-text-fill-color: transparent;
 }
 
-.image-container {
+.content-02 img {
   width: 550px;
   height: 450px;
-  border-radius: 15px;
-  background: #F0F6FF;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.content-02 img {
-  width: 414px;
-  height: 270px;
 }
 
 .content-02 .gradient {
@@ -196,14 +204,9 @@
   -webkit-text-fill-color: transparent;
 }
 
-.content-04 .image-container {
-  justify-content: flex-end;
-  align-items: end;
-}
-
 .content-04 img {
-  width: 490px;
-  height: 395px;
+  width: 550px;
+  height: 450px;
 }
 
 .content-04 .gradient {
@@ -253,7 +256,8 @@ footer {
   gap: 30px;
 }
 
-.icons {
+.sns-reference-links {
   display: flex;
   gap: 12px;
 }
+

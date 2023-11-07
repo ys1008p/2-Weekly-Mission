@@ -1,0 +1,31 @@
+.header-bar {
+  padding: 20px 32px;
+  margin: 0 auto;
+  max-width: 799px;
+}
+
+.break {
+  display: inline-block;
+}
+
+.main--image {
+  width: 650px;
+  height: 313px;
+  flex-shrink: 0;
+}
+
+.content {
+  justify-content: center;
+  column-gap: 51px;
+  row-gap: 10px;
+  padding: 50px 0;
+}
+
+.content-01 img, .content-02 img, .content-03 img, .content-04 img {
+  width: 385px;
+  height: 315px;
+}
+
+.account--main {
+  padding-top: 200px;
+}

@@ -1,0 +1,108 @@
+.header-bar {
+  width: 100%;
+  padding: 13px 32px;
+  margin: 0 auto;
+}
+
+.landing--logo {
+  width: 88.667px;
+  height: 16px;
+}
+
+.landing--logo img{
+  width: 100%;
+}
+
+.login--btn {
+  width: 80px;
+  font-size: 14px;
+}
+
+.break {
+  display: inline-block;
+}
+
+.title {
+  font-size: 32px;
+  line-height: 42px;
+}
+
+.add-link {
+  width: 200px;
+}
+
+.main-content {
+  gap: 24px;
+  padding-top: 28px;
+}
+
+.main--image{
+  width: calc(100% - 64px);
+  height: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px 32px;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 24px;
+  order: 1;
+}
+
+.description {
+  font-size: 15px;
+  order: 3;
+  word-break: keep-all;
+}
+
+.mobile--break {
+  display: none;
+}
+
+.content-01 img, .content-02 img, .content-03 img, .content-04 img {
+  width: 100%;
+  height: auto;
+  order: 2;
+  margin-top: 4px;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 32px;
+}
+
+.info {
+  display: grid;
+  grid-template-areas: 
+  "privacy-faq sns"
+  "copyright .";
+  row-gap: 60px;
+}
+
+.copyright {
+  grid-area: copyright;
+  text-align: start;
+}
+
+.privacy-faq {
+  grid-area: privacy-faq;
+}
+
+.sns-reference-links {
+  grid-area: sns;
+}
+
+.account--main {
+  padding: 120px 32px 0;
+}
+
+.account--form input, .social-login {
+  max-width: 400px;
+  width: calc(100vw - 64px);
+}
