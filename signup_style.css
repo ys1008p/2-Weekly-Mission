@@ -7,6 +7,8 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background: var(--linkbrary-bg, #F0F6FF);
 }
 
@@ -14,7 +16,6 @@ input:focus {
   outline: none;
   border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
 }
-/* body에 폰트 입히기. */
 
 .login {
   display: flex;
@@ -45,20 +46,18 @@ input:focus {
   gap: 16px;
 }
 
-.nomember {
+.noMember {
   color: var(--black, #000);
 /* Linkbrary/body1-regular */
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
 }
 
-.gomember {
+.goMember {
   color: var(--linkbrary-primary-color, #6D6AFE);
 /* Linkbrary/body 1-semibold */
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -124,7 +123,6 @@ input:focus {
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
   color: var(--grey-light, #F5F5F5);
-  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -164,3 +162,54 @@ input:focus {
   justify-content: center;
   align-items: center;
 }
+
+
+
+/* 767px 이하일 때 */
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding: 120px 32px 232px 33px;
+    }
+  
+    .main {
+      width: 100%
+    }
+  
+    .button {
+      width: 100%
+    }
+  
+    .form {
+      width: 100%
+    }
+  
+    .login {
+      max-width: 400px;
+      width: 100%
+    }
+  
+    .footer {
+      max-width: 400px;
+      width: 100%
+    }
+  
+    .emaillPwGap {
+      width: 100%
+    }
+    form {
+      width: 100%;
+    }
+  
+    .enter {
+      width: 100%;
+    }
+
+    .eyediv {
+      width: 100%;
+    }
+
+    .logoSignin {
+      width: 100%;
+    }
+  };
