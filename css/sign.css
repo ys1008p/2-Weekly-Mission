@@ -98,6 +98,8 @@ body {
   padding: 1.6rem 2rem;
   border: none;
   border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 500;
   color: var(--color-gray-light);
   background: var(--gra-purpleblue-to-skyblue);
 }
