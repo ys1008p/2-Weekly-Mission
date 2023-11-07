@@ -2,7 +2,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 23.8rem;
   background-color: var(--linkbrary-bg);
 }
 
@@ -11,6 +10,8 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+  margin-top: 16rem;
+  margin-bottom: 4rem;
   width: 40rem;
 }
 
@@ -97,6 +98,8 @@ body {
   padding: 1.6rem 2rem;
   border: none;
   border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 500;
   color: var(--color-gray-light);
   background: var(--gra-purpleblue-to-skyblue);
 }
@@ -131,4 +134,12 @@ body {
   align-items: center;
   width: 4.2rem;
   height: 4.2rem;
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .container {
+    max-width: 40rem;
+    margin: 10rem 3.2rem 4rem 3.2rem;
+    padding: 0;
+  }
 }
