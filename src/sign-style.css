@@ -42,6 +42,15 @@ form {
   flex-direction: column;
 }
 
+.alert {
+  color: var(--red, #ff5b56);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 6px;
+}
+
 label {
   color: var(--black, #000);
   font-size: 14px;
@@ -64,8 +73,8 @@ input:focus {
   outline-color: var(--linkbrary-primary-color, #6d6afe);
 }
 
-.email-input {
-  margin-bottom: 24px;
+.password-label {
+  margin-top: 24px;
 }
 
 .password-input {
