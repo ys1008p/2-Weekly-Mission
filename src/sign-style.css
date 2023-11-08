@@ -117,6 +117,10 @@ input:focus {
   display: flex;
 }
 
+.invisible {
+  opacity: 0;
+}
+
 .sns-signin {
   display: flex;
   width: 100%;

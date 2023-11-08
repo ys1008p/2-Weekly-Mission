@@ -1,5 +1,7 @@
 const emailInput = document.querySelector('.email-input');
 const pswdInput = document.querySelector('.password-input');
+const pswdEye = document.querySelector('.button-eye');
+let eyeMode = 'invisible';
 const alertMessageBox = {
   email: {
     noInput: '이메일을 입력해주세요.',
@@ -50,5 +52,16 @@ function errorAlertPswd(e) {
   }
 }
 
+function seeOrNotPassword(e) {
+  if (pswdInput.type === 'password') {
+    pswdInput.type = 'text';
+    e.target.src = '/images/eye-on.svg';
+  } else if (pswdInput.type === 'text') {
+    pswdInput.type = 'password';
+    e.target.src = '/images/eye-off.svg';
+  }
+}
+
 emailInput.addEventListener('focusout', errorAlertEmail);
 pswdInput.addEventListener('focusout', errorAlertPswd);
+pswdEye.addEventListener('click', seeOrNotPassword);
