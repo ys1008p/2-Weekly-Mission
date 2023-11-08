@@ -1,0 +1,423 @@
+nav {
+  position: sticky;
+  display: flex;
+  width: 100%;
+  top: 0;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  width: 100%;
+  height: 6.3rem;
+  padding: 0 12.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo > img {
+  height: 1.6rem;
+}
+
+.logo > img:hover,
+.login_bt > span:hover {
+  cursor: pointer;
+}
+
+.nav > a {
+  text-decoration: none;
+}
+
+.login_bt {
+  display: flex;
+  width: 8rem;
+  height: 3.4rem;
+  color: #F5F5F5;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  font-size: 1.4rem;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 900px;
+  padding-top: 100px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header_box {
+  display: flex;
+  padding-top: 7rem;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.header_box > h1 {
+  width: 80rem;
+  height: fit-content;
+  color: #000000;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 5rem;
+  text-align: center;
+}
+
+.header_box > h1 > span {
+  color: transparent;
+  background-image: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.signup_btn {
+  display: flex;
+  width: 21.875rem;
+  height: 3.375rem;
+  padding: 16px 20px;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.signup_btn:hover {
+  cursor: pointer;
+}
+
+.header_img {
+  width: 75rem;
+  border-radius: 25px;
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #f0f6ff 94.76%);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.00);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+section {
+  display: grid;
+  width: 100%;
+  height: fit-content;
+  padding: 4rem 3.2rem;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5.1rem;
+  row-gap: 1rem;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1920px) {
+  section:nth-of-type(odd) {
+    grid-template-areas: 
+      ". image"
+      "title image"
+      "description image"
+      ". image";
+    grid-template-columns: 26.2rem 38.5rem;
+  }
+  
+  section:nth-of-type(even) {
+    grid-template-areas:
+      "image ."
+      "image title"
+      "image description"
+      "image .";
+    grid-template-columns: 38.5rem 26.2rem;
+  } 
+}
+
+.title {
+  width: 291px;
+  margin: 0;
+  color: #000000;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03rem;
+  grid-area: title;
+}
+
+.title:nth-of-type(even) {
+  text-align: left;
+}
+
+.title > span {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.description {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 150%;
+  grid-area: description;
+}
+
+.header_line_break {
+  display: none;
+}
+
+.line_break {
+  display: inline;
+}
+@media screen and (min-width: 1200px) and (max-width: 1920px) {
+  .content-image {
+    width: 34.375rem;
+    height: 28.125rem;
+    grid-area: image;
+  } 
+}
+
+.title1_gradient {
+  background-image: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+}
+
+.title2_gradient {
+  background-image: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+}
+
+.title3_gradient {
+  background-image: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+}
+
+.title4_gradient {
+  background-image: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+}
+
+footer {
+  width: 100%;
+  height: 10rem;
+  background-color: #111322;
+}
+
+.foot {
+  display: flex;
+  height: fit-content;
+  padding: 2rem 6.5rem 0;
+  justify-content: space-between;
+}
+
+.company {
+  color: #676767;
+  font-family: Arial;
+  font-size: 1rem;
+  font-weight: 400;
+  grid-area: company;
+}
+
+.foot_link {
+  display: flex;
+  column-gap: 3rem;
+  grid-area: foot_link;
+  padding-right: 1.8rem;
+}
+
+.foot_link>a {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.sns {
+  display: flex;
+  height: 2rem;
+  column-gap: 1.2rem;
+  grid-area: sns;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .nav {
+    max-width: 53.9375rem;
+    height: 5.875rem;
+    padding: 0 2rem;
+  }
+
+  header {
+    height: 760px;
+  }
+
+  .header_box {
+    padding-top: 2.4375rem;
+  }
+
+  .header_box > h1 {
+    width: 30rem;
+    font-size: 4.05rem;
+    line-height: 125%;
+  }
+
+  .header_line_break, .line_break {
+    display: inline;
+  }
+
+  .signup_btn {
+    width: 21.875rem;
+    height: 3.375rem;
+  }
+  
+  .header_img {
+    width: 43.625rem;
+  }
+
+  section {
+    padding: 5rem 3.2rem;
+  }
+
+  section:nth-of-type(odd) {
+    grid-template-areas: 
+      ". image"
+      "title image"
+      "description image"
+      ". image";
+    grid-template-columns: 16.375rem 24.0625rem;
+  }
+  
+  section:nth-of-type(even) {
+    grid-template-areas: 
+      "image ."
+      "image title"
+      "image description"
+      "image .";
+    grid-template-columns: 24.0625rem 16.375rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+  
+  .description {
+    font-size: .9rem;
+  }
+  
+  .content-image {
+    width: 24.0625rem;
+    height: 19.6875rem;
+    grid-area: image;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .nav {
+    height: 3.9375rem;
+    padding: 0 2rem;
+  }
+
+  .login_bt {
+    width: 5rem;
+    height: 2.3125rem;
+    font-size: 1rem;
+  }
+
+  .logo > img {
+    width: 5.541rem;
+    height: 1rem;
+  }
+
+  header {
+    height: 530px;
+  }
+
+  .header_box {
+    padding: 0 2rem;
+    gap: 1.5rem;
+  }
+
+  .header_box > h1 {
+    width: 15rem;
+    font-size: 2rem;
+    line-height: 131.25%;
+  }
+
+  .header_line_break {
+    display: inline;
+  }
+
+  .line_break {
+    display: none;
+  }
+
+  .signup_btn {
+    width: 12.5rem;
+    height: 2.3125rem;
+    font-size: 1rem;
+  }
+
+  .header_img {
+    width: 39.0625rem;
+    height: 19.2051rem;
+  }
+
+  section {
+    padding: 2.5rem 2rem;
+    row-gap: 1.6rem;
+    grid-template-areas: 
+      "title"
+      "image"
+      "description";
+      justify-content: center;
+  }
+  
+  .title {
+    width: 39.0625rem;
+    height: 1.8125rem;
+    font-size: 2rem;
+  }
+  
+  .description {
+    width: 39.0625rem;
+    font-size: .875rem;
+  }
+  
+  .content-image {
+    width: 100%;
+    padding-top: .25rem;
+    grid-area: image;
+  }
+
+  footer {
+    height: 10rem;
+  }
+  
+  .foot {
+    display: grid;
+    width: 100%;
+    padding: 2rem;
+    grid-template: 
+      "foot_link sns"
+      "none none" 1fr
+      "company .";
+    justify-content: space-between;
+    row-gap: 2rem;
+  }
+
+  .company {
+    text-align: left;
+    grid-area: company;
+  }
+
+  .foot_link {
+    grid-area: foot_link;
+  }
+
+  .sns {
+    grid-area: sns;
+  }
+}
