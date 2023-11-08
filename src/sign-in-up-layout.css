@@ -75,6 +75,7 @@ input {
 input:focus {
   outline: 1px solid var(--primary-color);
 }
+
 input::placeholder {
   font-size: 1.6rem;
   font-weight: 400;
@@ -96,7 +97,6 @@ input:focus::placeholder {
 .input-wrapper {
   position: relative;
   width: 100%;
-  height: 6rem;
 }
 
 .input-wrapper .eye {
@@ -167,6 +167,6 @@ input:focus::placeholder {
   .input-wrapper,
   .button,
   .social-link-container {
-    width: min(100%, 40rem);
+    max-width: 40rem;
   }
 }
