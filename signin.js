@@ -12,7 +12,7 @@ const alertMessageBox = {
   },
 };
 
-function errorAlert(e) {
+function errorAlertEmail(e) {
   if (emailInput.value.length === 0) {
     if (emailInput.nextElementSibling.className !== 'alert') {
       const message = document.createElement('div');
@@ -35,4 +35,20 @@ function errorAlert(e) {
   }
 }
 
-emailInput.addEventListener('focusout', errorAlert);
+function errorAlertPswd(e) {
+  if (pswdInput.value.length === 0) {
+    if (pswdInput.nextElementSibling.className !== 'alert') {
+      const message = document.createElement('div');
+      message.classList.toggle('alert');
+      message.textContent = alertMessageBox.password.noInput;
+      pswdInput.after(message);
+    }
+  } else {
+    if (pswdInput.nextElementSibling.className === 'alert') {
+      pswdInput.nextElementSibling.remove();
+    }
+  }
+}
+
+emailInput.addEventListener('focusout', errorAlertEmail);
+pswdInput.addEventListener('focusout', errorAlertPswd);

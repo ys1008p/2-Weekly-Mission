@@ -77,17 +77,13 @@ input:focus {
   margin-top: 24px;
 }
 
-.password-input {
-  margin-bottom: 24px;
-}
-
 .button-submit {
   border: none;
   display: flex;
   cursor: pointer;
   width: 100%;
   padding: 16px 20px;
-  margin-top: 30px;
+  margin-top: 54px;
   margin-bottom: 32px;
   justify-content: center;
   align-items: center;
