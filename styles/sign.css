@@ -127,3 +127,16 @@
 .sns-login__link:nth-child(odd) {
   margin-right: 1.6rem;
 }
+
+@media only screen and (max-width: 767px) and (min-width: 375px) {
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 32px;
+  }
+
+  .cta {
+    padding: 1.6rem 2rem;
+    font-size: 1.8rem;
+  }
+}

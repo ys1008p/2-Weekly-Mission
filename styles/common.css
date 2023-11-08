@@ -15,6 +15,7 @@
 html {
   font-family: Pretendard, sans-serif;
   font-size: 62.5%;
+  word-break: keep-all;
 }
 
 @media screen and (min-width: 0\0) {
@@ -36,6 +37,10 @@ button {
   cursor: pointer;
 }
 
+img {
+  display: block;
+}
+
 a:focus {
   outline: 0.2rem solid var(--color-gray4);
 }
@@ -45,7 +50,6 @@ button:focus {
 }
 
 .cta {
-  padding: 1.6rem 2rem;
   border-radius: 8px;
   background: linear-gradient(
     91deg,
@@ -53,7 +57,6 @@ button:focus {
     #6ae3fe 101.84%
   );
   color: #f5f5f5;
-  font-size: 1.8rem;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
@@ -69,12 +72,46 @@ button:focus {
   color: transparent;
 }
 
-.wrap {
-  width: 100%;
-  max-width: 192rem;
-  margin: 0 auto;
-}
-
 .bgc-blue {
   background: var(--color-gray2);
+}
+
+/* PC */
+@media only screen and (min-width: 1200px) {
+  .wrap {
+    width: 100%;
+    max-width: 192rem;
+    margin: 0 auto;
+  }
+
+  .cta {
+    padding: 1.6rem 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablet */
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+  .wrap {
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+
+  .cta {
+    padding: 1.6rem 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) and (min-width: 375px) {
+  .wrap {
+    margin: 0 32px;
+  }
+
+  .cta {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+  }
 }
