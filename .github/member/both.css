@@ -170,3 +170,52 @@ input::placeholder {
   margin-top: 10px;
   z-index: 1;
 }
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  body {
+    justify-content: center;
+    align-items: center;
+  }
+  .content {
+    width: 100%;
+    padding: 120px 0;
+  }
+
+  .main {
+    width: 100%;
+    max-width: 464px;
+    height: auto;
+   }
+
+   .inputbox {
+    height: auto;
+    margin: 0 32px;
+   }
+
+   .inputbox > input {
+    width: 100%;
+   }
+
+   .pw > img {
+    left: 340px;
+   }
+
+   .button {
+    width: calc(100% - 64px);
+    height: 56px;
+    padding: 0 32px;
+   }
+
+   .foot {
+    width: calc(100% - 48px);
+    max-width: 400px;
+    height: 56px;
+    justify-content: end;
+    position: relative;
+   }
+
+   .foot_text {
+    position: absolute;
+    left: 24px;
+   }
+}
