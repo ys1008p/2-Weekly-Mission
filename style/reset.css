@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+}
+
+html {
+  font-family: Pretendard, Arial, sans-serif;
+  font-size: 62.5%;
+  background-color: var(--gray-bg-color, #edf7ff);
+}
