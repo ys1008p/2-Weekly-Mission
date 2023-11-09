@@ -2,6 +2,7 @@ const emailInput = document.querySelector('.email-input');
 const pswdInput = document.querySelector('.password-input');
 const pswdEye = document.querySelector('.button-eye');
 const loginBtn = document.querySelector('.button-submit');
+
 const TEST_USER = {
   email: 'test@codeit.com',
   password: 'codeit101',
@@ -19,41 +20,57 @@ const alertMessageBox = {
   },
 };
 
+// 에러 메세지가 발생해야 하는 위치, 에러 종류를 파라미터로 받고 메세지를 생성
+const makeErrorMessage = function (errorPlace, messageType) {
+  const message = document.createElement('div');
+  message.classList.toggle('alert');
+  message.textContent = alertMessageBox[errorPlace][messageType];
+  switch (errorPlace) {
+    case 'email':
+      emailInput.after(message);
+      break;
+    case 'password':
+      pswdInput.after(message);
+      break;
+  }
+};
+
+// 에러 메세지를 삭제할 위치를 파라미터로 받고 메세지를 삭제
+const eraseErrorMessage = function (errorPlace) {
+  let placeToErase;
+  switch (errorPlace) {
+    case 'email':
+      placeToErase = emailInput;
+      break;
+    case 'password':
+      placeToErase = pswdInput;
+      break;
+  }
+  if (placeToErase.nextElementSibling.className === 'alert') {
+    placeToErase.nextElementSibling.remove();
+  }
+};
+
 function errorAlertEmail(e) {
   if (emailInput.value.length === 0) {
     if (emailInput.nextElementSibling.className !== 'alert') {
-      const message = document.createElement('div');
-      message.classList.toggle('alert');
-      message.textContent = alertMessageBox.email.noInput;
-      emailInput.after(message);
+      makeErrorMessage('email', 'noInput');
     }
   } else if (!emailInput.value.includes('@')) {
-    if (emailInput.nextElementSibling.className === 'alert') {
-      emailInput.nextElementSibling.remove();
-    }
-    const message = document.createElement('div');
-    message.classList.toggle('alert');
-    message.textContent = alertMessageBox.email.inappropriateValue;
-    emailInput.after(message);
+    eraseErrorMessage('email');
+    makeErrorMessage('email', 'inappropriateValue');
   } else {
-    if (emailInput.nextElementSibling.className === 'alert') {
-      emailInput.nextElementSibling.remove();
-    }
+    eraseErrorMessage('email');
   }
 }
 
 function errorAlertPswd(e) {
   if (pswdInput.value.length === 0) {
     if (pswdInput.nextElementSibling.className !== 'alert') {
-      const message = document.createElement('div');
-      message.classList.toggle('alert');
-      message.textContent = alertMessageBox.password.noInput;
-      pswdInput.after(message);
+      makeErrorMessage('password', 'noInput');
     }
   } else {
-    if (pswdInput.nextElementSibling.className === 'alert') {
-      pswdInput.nextElementSibling.remove();
-    }
+    eraseErrorMessage('password');
   }
 }
 
@@ -76,21 +93,13 @@ function submit(e) {
   if (checkTestUser(emailInput.value, pswdInput.value)) {
     window.location.href = '/folder';
   } else {
+    // 연속된 로그인 시도 오류시 에러메세지가 쌓이는 현상 방지
     if (
-      // 잘못된 로그인 시도를 연속해서 진행할 경우에 에러메세지가 쌓이는 현상 방지
       emailInput.nextElementSibling.className !== 'alert' &&
       pswdInput.nextElementSibling.className !== 'alert'
     ) {
-      // 에러 메세지 생성
-      const messageE = document.createElement('div');
-      messageE.classList.toggle('alert');
-      messageE.textContent = alertMessageBox.email.loginFail;
-      emailInput.after(messageE);
-
-      const messageP = document.createElement('div');
-      messageP.classList.toggle('alert');
-      messageP.textContent = alertMessageBox.password.loginFail;
-      pswdInput.after(messageP);
+      makeErrorMessage('email', 'loginFail');
+      makeErrorMessage('password', 'loginFail');
     }
   }
 }
