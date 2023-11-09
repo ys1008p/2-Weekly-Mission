@@ -1,7 +1,12 @@
 const emailInput = document.querySelector('.email-input');
 const pswdInput = document.querySelector('.password-input');
 const pswdEye = document.querySelector('.button-eye');
-let eyeMode = 'invisible';
+const loginBtn = document.querySelector('.button-submit');
+const TEST_USER = {
+  email: 'test@codeit.com',
+  password: 'codeit101',
+};
+
 const alertMessageBox = {
   email: {
     noInput: '이메일을 입력해주세요.',
@@ -62,6 +67,35 @@ function seeOrNotPassword(e) {
   }
 }
 
+const checkTestUser = function (email, password) {
+  return email === TEST_USER.email && password === TEST_USER.password;
+};
+
+function submit(e) {
+  e.preventDefault();
+  if (checkTestUser(emailInput.value, pswdInput.value)) {
+    window.location.href = '/folder';
+  } else {
+    if (
+      // 잘못된 로그인 시도를 연속해서 진행할 경우에 에러메세지가 쌓이는 현상 방지
+      emailInput.nextElementSibling.className !== 'alert' &&
+      pswdInput.nextElementSibling.className !== 'alert'
+    ) {
+      // 에러 메세지 생성
+      const messageE = document.createElement('div');
+      messageE.classList.toggle('alert');
+      messageE.textContent = alertMessageBox.email.loginFail;
+      emailInput.after(messageE);
+
+      const messageP = document.createElement('div');
+      messageP.classList.toggle('alert');
+      messageP.textContent = alertMessageBox.password.loginFail;
+      pswdInput.after(messageP);
+    }
+  }
+}
+
 emailInput.addEventListener('focusout', errorAlertEmail);
 pswdInput.addEventListener('focusout', errorAlertPswd);
 pswdEye.addEventListener('click', seeOrNotPassword);
+loginBtn.addEventListener('click', submit);
