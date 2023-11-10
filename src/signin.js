@@ -64,5 +64,5 @@ function submit(e) {
 
 emailInput.addEventListener('focusout', errorAlertEmail);
 pswdInput.addEventListener('focusout', errorAlertPswd);
-pswdEye.addEventListener('click', seeOrNotPassword);
+pswdEye[0].addEventListener('click', seeOrNotPassword);
 loginBtn.addEventListener('click', submit);
