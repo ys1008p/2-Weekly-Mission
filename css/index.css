@@ -410,29 +410,16 @@ div.footer-sns img {
 
   footer {
     width: 100%;
-    height: auto;
+    /* height: auto; */
     padding: 2rem;
   }
 
   footer > div {
-    display: grid;
-    grid-template-areas:
-      "footer-left footer-right"
-      "footer-left-below .";
-    row-gap: 3.75rem;
-    justify-items: start;
-    align-items: start;
+    position: relative;
   }
 
   .codeit {
-    grid-area: footer-left-below;
-  }
-
-  .footer-privacy {
-    grid-area: footer-left;
-  }
-
-  .footer-sns {
-    grid-area: footer-right;
+    position: absolute;
+    top: 6rem;
   }
 }
