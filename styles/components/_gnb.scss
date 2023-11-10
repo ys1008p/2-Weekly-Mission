@@ -8,12 +8,35 @@
 
   &-container {
     @include flexbox(between);
+    max-width: 192rem;
+    margin: 0 auto;
     height: 93px;
     padding: 0 200px;
 
     .btn-login {
       @include text-style(18);
       width: 120px;
+    }
+
+    @include responsive(T) {
+      max-width: 799px;
+      padding: 0 32px;
+    }
+
+    @include responsive(M) {
+      height: 63px;
+
+      .logo {
+        img {
+          width: 8rem;
+        }
+      }
+
+      .btn-login {
+        @include text-style(14);
+        width: 80px;
+        padding: 10px 0;
+      }
     }
   }
 }

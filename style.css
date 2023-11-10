@@ -1,12 +1,5 @@
 @charset "UTF-8";
 /* $browser-font-size = 16px * 62.5% = 10px */
-/* 
-* PC ····························· 1024px ~
-* Laptop & Tablet 가로 ············ 1024px ~ 1279px 
-* Tablet 가로 ····················· 768px ~ 1023px
-* Mobile 가로 & Tablet 세로 ········ 480px ~ 767px
-* Mobile 세로 ····················· ~ 479px
-*/
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
 @font-face {
   font-family: "linkbrary";
@@ -553,7 +546,7 @@ ol {
 
 #skip_nav {
   position: relative;
-  z-index: -999;
+  z-index: 100;
 }
 #skip_nav a {
   position: absolute;
@@ -565,9 +558,24 @@ ol {
   color: #ffffff;
   font-size: 12px;
   padding: 0 6px;
+  opacity: 0;
 }
 #skip_nav a:focus, #skip_nav a:active {
   top: 0;
+  z-index: 100;
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .sm-only {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sm-hidden {
+    display: none;
+  }
 }
 
 .btn-primary {
@@ -655,6 +663,8 @@ ol {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 192rem;
+  margin: 0 auto;
   height: 93px;
   padding: 0 200px;
 }
@@ -664,9 +674,28 @@ ol {
   font-weight: 600;
   width: 120px;
 }
+@media screen and (max-width: 1199px) {
+  .gnb-container {
+    max-width: 799px;
+    padding: 0 32px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .gnb-container {
+    height: 63px;
+  }
+  .gnb-container .logo img {
+    width: 8rem;
+  }
+  .gnb-container .btn-login {
+    font-size: 1.4rem;
+    line-height: normal;
+    width: 80px;
+    padding: 10px 0;
+  }
+}
 
 footer {
-  height: 160px;
   margin-top: 120px;
   background-color: #111322;
 }
@@ -674,7 +703,9 @@ footer .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 104px 0;
+  max-width: 192rem;
+  margin: 0 auto;
+  padding: 32px 104px 108px;
 }
 footer .corporate {
   font-size: 1.6rem;
@@ -721,6 +752,22 @@ footer .social-list-item a i::before {
 footer .social-list-item a:hover i::before {
   color: #9fa6b2;
 }
+@media screen and (max-width: 767px) {
+  footer {
+    height: 160px;
+    margin-top: 40px;
+    position: relative;
+  }
+  footer .footer-container {
+    padding: 32px 32px 0 32px;
+    flex-wrap: wrap;
+  }
+  footer .corporate {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+  }
+}
 
 .input-group .input-title {
   font-size: 1.4rem;
@@ -739,11 +786,38 @@ footer .social-list-item a:hover i::before {
   height: 16px;
 }
 
+/*
+🖥️ Desktop ( >= 1200px )
+fixture···················lg
+of columns················12
+margin····················auto
+container-size············1200px
+max-container-size········1200px
+
+💻 Tablet ( < 1200px )
+fixture···················md
+of columns················12
+margin····················auto
+container-size············698px
+max-container-size········698px
+
+📱 Mobile ( < 768px )
+fixture···················sm
+margin····················32px
+container-size·············100% - (32px * 2)
+*/
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  height: 100%;
 }
-@media screen and (min-width: 360px) and (max-width: 767px) {
+@media screen and (max-width: 1199px) {
+  .container {
+    max-width: 698px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 767px) {
   .container {
     width: 100%;
     padding: 0 32px;
@@ -754,7 +828,7 @@ footer .social-list-item a:hover i::before {
   height: 953px;
   text-align: center;
   background-color: #f0f6ff;
-  background-image: url("../../assets/images/_img-mainBanner.png");
+  background-image: url("./assets/images/_img-mainBanner.png");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: auto;
@@ -765,12 +839,26 @@ footer .social-list-item a:hover i::before {
   font-weight: 700;
   color: #000000;
   padding: 70px 0 40px;
+  width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
 }
-.landing-page .call-to-action .title span {
+.landing-page .call-to-action .title-gradient {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   background-image: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+}
+.landing-page .call-to-action .title-br {
+  display: block;
+}
+@media screen and (max-width: 1199px) {
+  .landing-page .call-to-action .title {
+    padding: 40px 0;
+  }
+  .landing-page .call-to-action .title .br {
+    display: block;
+  }
 }
 .landing-page .call-to-action .btn-signup {
   font-size: 1.8rem;
@@ -781,6 +869,31 @@ footer .social-list-item a:hover i::before {
 .landing-page .call-to-action .btn-signup:hover {
   animation: gradientAnimation 2s linear infinite;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+@media screen and (max-width: 1199px) {
+  .landing-page .call-to-action {
+    height: 756px;
+    background-size: 69.8rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .landing-page .call-to-action {
+    height: 399px;
+    background-size: 32.5rem;
+  }
+  .landing-page .call-to-action .title {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+    font-weight: 700;
+    padding: 28px 0 24px;
+    width: 100%;
+  }
+  .landing-page .call-to-action .btn-signup {
+    font-size: 1.4rem;
+    line-height: normal;
+    width: 200px;
+    padding: 10px 0;
+  }
 }
 
 .landing-page {
@@ -810,7 +923,6 @@ footer .social-list-item a:hover i::before {
   word-break: keep-all;
 }
 .landing-page .feature-wrapper .imgbox {
-  position: relative;
   width: 550px;
   height: 450px;
   border-radius: 15px;
@@ -818,10 +930,21 @@ footer .social-list-item a:hover i::before {
   overflow: hidden;
 }
 .landing-page .feature-wrapper .imgbox img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (max-width: 1199px) {
+  .landing-page .feature-wrapper {
+    padding: 50px 0;
+  }
+  .landing-page .feature-wrapper .textbox {
+    width: 262px;
+  }
+  .landing-page .feature-wrapper .imgbox {
+    width: 385px;
+    height: 315px;
+  }
 }
 .landing-page .feature-save .feature-wrapper {
   padding-top: 120px;
@@ -854,36 +977,65 @@ footer .social-list-item a:hover i::before {
 .landing-page .feature-search .textbox {
   order: 2;
 }
+@media screen and (max-width: 767px) {
+  .landing-page {
+    margin-top: 63px;
+  }
+  .landing-page .feature-save .feature-wrapper {
+    padding-top: 0;
+  }
+  .landing-page .feature-wrapper {
+    display: block;
+    padding: 0 0 40px 0;
+  }
+  .landing-page .feature-wrapper .textbox {
+    width: 100%;
+    padding: 40px 0 24px;
+  }
+  .landing-page .feature-wrapper .textbox-sub-title {
+    font-size: 2.4rem;
+    line-height: normal;
+    font-weight: 700;
+  }
+  .landing-page .feature-wrapper .imgbox {
+    width: 100%;
+    height: auto;
+  }
+}
+.landing-page .sm-only .textbox-sub-title {
+  margin: 40px 0 20px;
+}
+.landing-page .sm-only .textbox-desc {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  font-weight: 500;
+  margin-top: 16px;
+}
 
-#signin-wrapper,
-#signup-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+.wrapper.bg-blue {
   background-color: #f0f6ff;
 }
-#signin-wrapper .form,
-#signup-wrapper .form {
-  width: 400px;
-  margin: 238px auto 0;
+
+.form {
+  max-width: 400px;
+  padding: 238px 0;
+  margin: 0 auto;
 }
-#signin-wrapper .form-header,
-#signup-wrapper .form-header {
+.form-header {
   text-align: center;
   margin-bottom: 30px;
 }
-#signin-wrapper .form-header .logo,
-#signup-wrapper .form-header .logo {
+.form-header .logo {
   margin-bottom: 16px;
 }
-#signin-wrapper .form-header .logo img,
-#signup-wrapper .form-header .logo img {
+.form-header .logo img {
   height: 38px;
 }
-#signin-wrapper .form-header .info-user,
-#signup-wrapper .form-header .info-user {
+.form-header .info-user {
   font-size: 1.6rem;
   line-height: 1.5em;
   color: #000000;
@@ -891,44 +1043,36 @@ footer .social-list-item a:hover i::before {
   justify-content: center;
   align-items: center;
 }
-#signin-wrapper .form-header .info-user .create-link,
-#signup-wrapper .form-header .info-user .create-link {
+.form-header .info-user .create-link,
+.form-header .info-user .login-link {
   padding-bottom: 0;
   margin-left: 8px;
   color: #6d6afe;
   line-height: 2rem;
   border-bottom: 1px solid;
 }
-#signin-wrapper .form-inner .login-email,
-#signin-wrapper .form-inner .signup-email,
-#signin-wrapper .form-inner .signup-password,
-#signup-wrapper .form-inner .login-email,
-#signup-wrapper .form-inner .signup-email,
-#signup-wrapper .form-inner .signup-password {
+.form-inner .login-email,
+.form-inner .signup-email,
+.form-inner .signup-password {
   margin-bottom: 24px;
 }
-#signin-wrapper .form-inner .error-msg,
-#signup-wrapper .form-inner .error-msg {
+.form-inner .error-msg {
   font-size: 1.4rem;
   line-height: normal;
   color: #ff5b56;
   margin-top: 6px;
 }
-#signin-wrapper .form-inner .error-msg.hide,
-#signup-wrapper .form-inner .error-msg.hide {
+.form-inner .error-msg.hide {
   display: none;
 }
-#signin-wrapper .form-inner .btn-signin,
-#signin-wrapper .form-inner .btn-signup,
-#signup-wrapper .form-inner .btn-signin,
-#signup-wrapper .form-inner .btn-signup {
+.form-inner .btn-signin,
+.form-inner .btn-signup {
   font-size: 1.6rem;
   line-height: 1.5em;
   width: 100%;
   margin: 30px 0 32px;
 }
-#signin-wrapper .form-inner .social-login,
-#signup-wrapper .form-inner .social-login {
+.form-inner .social-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -938,27 +1082,33 @@ footer .social-list-item a:hover i::before {
   border-radius: 8px;
   border: 1px solid #ccd5e3;
 }
-#signin-wrapper .form-inner .social-login-title,
-#signup-wrapper .form-inner .social-login-title {
+.form-inner .social-login-title {
   font-size: 1.4rem;
   line-height: normal;
   color: #373740;
 }
-#signin-wrapper .form-inner .social-login-list,
-#signup-wrapper .form-inner .social-login-list {
+.form-inner .social-login-list {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#signin-wrapper .form-inner .social-login-item,
-#signup-wrapper .form-inner .social-login-item {
+.form-inner .social-login-item {
   margin-right: 16px;
 }
-#signin-wrapper .form-inner .social-login-item:last-child,
-#signup-wrapper .form-inner .social-login-item:last-child {
+.form-inner .social-login-item:last-child {
   margin-right: 0;
 }
 
+@media screen and (max-width: 1199px) {
+  .form {
+    padding: 200px 0 0 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .form {
+    padding: 120px 0;
+  }
+}
 .overlay {
   position: fixed;
   top: 0;

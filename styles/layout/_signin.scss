@@ -1,89 +1,102 @@
-#signin-wrapper,
-#signup-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: $light-blue;
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
 
-  .form {
-    width: 400px;
-    margin: 238px auto 0;
+  &.bg-blue {
+    background-color: $light-blue;
+  }
+}
 
-    &-header {
-      text-align: center;
-      margin-bottom: 30px;
+.form {
+  max-width: 400px;
+  padding: 238px 0;
+  margin: 0 auto;
 
-      .logo {
-        margin-bottom: 16px;
+  &-header {
+    text-align: center;
+    margin-bottom: 30px;
 
-        img {
-          height: 38px;
-        }
+    .logo {
+      margin-bottom: 16px;
+
+      img {
+        height: 38px;
+      }
+    }
+
+    .info-user {
+      @include text-style(16, $black);
+      @include flexbox;
+
+      .create-link,
+      .login-link {
+        padding-bottom: 0;
+        margin-left: 8px;
+        color: $primary;
+        line-height: 2rem;
+        border-bottom: 1px solid;
+      }
+    }
+  }
+
+  &-inner {
+    .login-email,
+    .signup-email,
+    .signup-password {
+      margin-bottom: 24px;
+    }
+
+    .error-msg {
+      @include text-style(14, $red);
+      margin-top: 6px;
+
+      &.hide {
+        display: none;
+      }
+    }
+
+    .btn-signin,
+    .btn-signup {
+      @include text-style(16);
+      width: 100%;
+      margin: 30px 0 32px;
+    }
+
+    .social-login {
+      @include flexbox(between);
+      width: 100%;
+      padding: 12px 24px;
+      background-color: $blue-gray-40;
+      border-radius: 8px;
+      border: 1px solid $blue-gray-60;
+
+      &-title {
+        @include text-style(14, $blue-gray-100);
       }
 
-      .info-user {
-        @include text-style(16, $black);
+      &-list {
         @include flexbox;
+      }
 
-        .create-link {
-          padding-bottom: 0;
-          margin-left: 8px;
-          color: $primary;
-          line-height: 2rem;
-          border-bottom: 1px solid;
+      &-item {
+        margin-right: 16px;
+
+        &:last-child {
+          margin-right: 0;
         }
       }
     }
+  }
+}
 
-    &-inner {
-      .login-email,
-      .signup-email,
-      .signup-password {
-        margin-bottom: 24px;
-      }
+@include responsive(T) {
+  .form {
+    padding: 200px 0 0 0;
+  }
+}
 
-      .error-msg {
-        @include text-style(14, $red);
-        margin-top: 6px;
-
-        &.hide {
-          display: none;
-        }
-      }
-
-      .btn-signin,
-      .btn-signup {
-        @include text-style(16);
-        width: 100%;
-        margin: 30px 0 32px;
-      }
-
-      .social-login {
-        @include flexbox(between);
-        width: 100%;
-        padding: 12px 24px;
-        background-color: $blue-gray-40;
-        border-radius: 8px;
-        border: 1px solid $blue-gray-60;
-
-        &-title {
-          @include text-style(14, $blue-gray-100);
-        }
-
-        &-list {
-          @include flexbox;
-        }
-
-        &-item {
-          margin-right: 16px;
-
-          &:last-child {
-            margin-right: 0;
-          }
-        }
-      }
-    }
+@include responsive(M) {
+  .form {
+    padding: 120px 0;
   }
 }

@@ -19,14 +19,14 @@
 
 @mixin text-style-32() {
   font-size: $font-size-32;
-  line-height: normal;
-  font-weight: 600;
+  line-height: 4.2rem;
+  font-weight: 700;
 }
 
 @mixin text-style-24() {
   font-size: $font-size-24;
   line-height: normal;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 @mixin text-style-18() {
@@ -40,15 +40,15 @@
   line-height: 1.5em;
 }
 
-@mixin text-style-14() {
-  font-size: $font-size-14;
-  line-height: normal;
-}
-
 @mixin text-style-15() {
   font-size: $font-size-15;
   line-height: 1.5em;
   font-weight: 500;
+}
+
+@mixin text-style-14() {
+  font-size: $font-size-14;
+  line-height: normal;
 }
 
 @mixin text-style-13() {
@@ -63,6 +63,9 @@
   }
   @if ($size == 14) {
     @include text-style-14;
+  }
+  @if ($size == 15) {
+    @include text-style-15;
   }
   @if ($size == 16) {
     @include text-style-16;

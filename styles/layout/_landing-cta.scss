@@ -3,7 +3,7 @@
     height: 953px;
     text-align: center;
     background-color: $light-blue;
-    background-image: url('../../assets/images/_img-mainBanner.png');
+    background-image: url('./assets/images/_img-mainBanner.png');
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: auto;
@@ -11,14 +11,29 @@
     .title {
       @include text-style(64, $black);
       padding: 70px 0 40px;
+      width: 100%;
+      margin: 0 auto;
+      white-space: nowrap;
 
-      span {
+      &-gradient {
         @include gradient-text;
         background-image: linear-gradient(
           91deg,
           #6d6afe 17.28%,
           #ff9f9f 74.98%
         );
+      }
+
+      &-br {
+        display: block;
+      }
+
+      @include responsive(T) {
+        padding: 40px 0;
+
+        .br {
+          display: block;
+        }
       }
     }
 
@@ -29,6 +44,28 @@
       &:hover {
         animation: gradientAnimation 2s linear infinite;
         box-shadow: $drop-shadow;
+      }
+    }
+
+    @include responsive(T) {
+      height: 756px;
+      background-size: 69.8rem;
+    }
+
+    @include responsive(M) {
+      height: 399px;
+      background-size: 32.5rem;
+
+      .title {
+        @include text-style(32);
+        padding: 28px 0 24px;
+        width: 100%;
+      }
+
+      .btn-signup {
+        @include text-style(14);
+        width: 200px;
+        padding: 10px 0;
       }
     }
   }
