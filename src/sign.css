@@ -110,13 +110,16 @@
   height: 16px;
 }
 
+.check-off,
 .off-img{
 display:block;
 }
 
+.check-on,
 .on-img{
   display: none;
 }
+
 
 
 .cta {
