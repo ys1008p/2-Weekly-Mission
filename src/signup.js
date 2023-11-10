@@ -93,7 +93,6 @@ function submit(e) {
 emailInput.addEventListener('focusout', errorAlertEmail);
 emailInput.addEventListener('focusout', takenEmail);
 pswdInput.addEventListener('focusout', errorAlertPswd);
-pswdInput.addEventListener('focusout', matchFailPswdCheck);
 pswdCheck.addEventListener('focusout', matchFailPswdCheck);
 pswdEye[0].addEventListener('click', seeOrNotPassword);
 pswdEye[1].addEventListener('click', seeOrNotPasswordCheck);
