@@ -1,17 +1,10 @@
-:root {
-    --linkbrary-purple: #6D6AFE;
-    --linkbrary-gray: #CCD5E3;
-    --linkbrary-white: #FFFFFF; 
-    --linkbrary-light-gray: #F5F5F5;
-    --linkbrary-background-gray: #E7EFFB;
-    --linkbrary-background: #F0F6FF;
-    --gra-purpleblue-to-skyblue: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
-    --common-text: #000000;
-    --gray-text: #373740;
-}
+/* Tablet 사이즈에서 디자인은 PC사이즈와 동일합니다.
+Mobile 사이즈에서 좌우 여백 32px 제외하고 내부 요소들이 너비를 모두 차지합니다.
+Mobile 사이즈에서 내부 요소들의 너비는 기기의 너비가 커지는 만큼 커지지만 400px을 넘지 않습니다. */
+@import url("variable.css");
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -25,11 +18,20 @@ body {
   background-color: var(--linkbrary-background);
   width: 100%;
 }
+
+@media (max-width: 767px) {
+  .signLayout {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+}
+
 .signContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;;
 }
 .signHeader {
   width: 21.8rem;

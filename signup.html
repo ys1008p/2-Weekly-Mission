@@ -2,19 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>회원가입</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
     <link rel="stylesheet" href="./src/reset.css" />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
     <link rel="stylesheet" href="./src/signin-signup.css" />
   </head>
   <body>
     <div class="signLayout">
-      <div class="signContainer">
-        <div class="signHeader">
+      <main class="signContainer">
+        <section class="signHeader">
           <a href="/">
             <img class="signHeader_logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고"/>
           </a>
@@ -22,7 +23,7 @@
             이미 회원이신가요?
             <a class="signHeader_anchorToSignup" href="/signin.html">로그인 하기</a>
           </p>
-        </div>
+        </section>
         <form class="signForm">
           <label class="signForm_label">
           이메일
@@ -55,7 +56,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </body>
 </html>
