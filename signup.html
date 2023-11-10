@@ -7,6 +7,7 @@
   <title>SignUp</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style_signup.css">
+  <link rel="stylesheet" href="./css/responsive_sign.css">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     <div class="normal-signup">
       <div class="signup-header">
         <a class="logo" href="./index.html"><img src="./img/logo.svg" alt="logo"></a>
-        <div class="signup-link">
+        <div class="signin-link">
           <span>이미 회원이신가요?</span>
           <a href="./signin.html">로그인 하기</a>
         </div>
@@ -26,13 +27,17 @@
         </div>
         <div class="password">
           <label for="password">비밀번호</label>
-          <input id="password" type="password">
-          <img class="eye-on" src="./img/eye-on.svg" alt="eye-on">
+          <div class="password-input">
+            <input id="password" type="password">
+            <button class="eye-on" type="button"></button>
+          </div>
         </div>
         <div class="password confirm">
-          <label for="password">비밀번호 확인</label>
-          <input id="password-confirm" type="password">
-          <img class="eye-on" src="./img/eye-on.svg" alt="eye-on">
+          <label for="password-confirm">비밀번호 확인</label>
+          <div class="password-confirm-input">
+            <input id="password-confirm" type="password">
+            <button class="eye-on" type="button"></button>
+          </div>
         </div>
         <button class="signup-button">회원가입</button>
       </form>
