@@ -114,6 +114,7 @@ label.common_title {
 }
 
 .email_error_text,
+.pw_error_text,
 .signup_pw_error_text,
 .signup_pw_check_error_text {
   margin-top: -0.36rem;
