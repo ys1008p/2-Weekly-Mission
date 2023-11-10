@@ -5,17 +5,17 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3.2rem;
   align-items: center;
-  width: 25rem;
-  margin: 14.88rem auto;
+  width: 40rem;
+  margin: 23.8rem auto;
 }
 
 .sign {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.88rem;
+  gap: 3rem;
   width: 100%;
 }
 
@@ -23,17 +23,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.6rem;
 }
 
 .header-logo img {
-  width: 13.16144rem;
-  height: 2.375rem;
+  width: 21.06rem;
+  height: 3.8rem;
 }
 
 .header-signup {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
 
 .signup-link {
@@ -46,25 +46,25 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.4rem;
   width: 100%;
 }
 
 .login-button {
   width: 100%;
-  padding: 1rem 1.25rem;
-  border-radius: 0.5rem;
+  padding: 1.6rem 2rem;
+  border-radius: 0.8rem;
   text-align: center;
   background-image: linear-gradient(135deg, var(--linkbrary-primary-color) 0%, #6ae3fe 100%);
   color: #F5F5F5;
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
 label {
   display: block;
-  margin-bottom: 0.75rem;
-  font-size: 0.875rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .input-container {
@@ -73,45 +73,64 @@ label {
 
 input {
   display: block;
-  padding: 1.12rem 0.94rem;
+  padding: 1.79rem 1.5rem;
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
   border: 1px solid var(--linkbrary-gray-20);
   outline: none;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
 
 input:focus {
-  border-radius: 0.5rem;
   border: 1px solid var(--linkbrary-primary-color);
 }
 
 .eyeoff-icon {
   position: absolute;
-  top: 1.375rem;
-  right: 0.94rem;
-  width: 1rem;
-  height: 1rem;
+  top: 2.2rem;
+  right: 1.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 .social {
   display: flex;
-  padding: 0.75rem 1.5rem;
+  padding: 1.2rem 2.4rem;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
   border: 1px solid var(--linkbrary-gray-20);
   background: var(--linkbrary-gray-10);
 }
 
 .social-text {
   color: var(--linkbrary-gray-100);
-  font-size: 0.875rem;
+  font-size: 1.4rem;
+}
+
+.social-logo {
+  display: flex;
+  gap: 1.6rem;
 }
 
 .social-logo img {
-  width: 2.625rem;
-  height: 2.625rem;
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    margin-top: 20rem;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .container {
+    margin-top: 12rem;
+    padding: 0 3.2rem;
+    width: 100%;
+    max-width: 46.4rem;
+  }
 }
