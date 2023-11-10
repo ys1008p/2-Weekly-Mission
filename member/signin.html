@@ -15,7 +15,7 @@
         <a href="../index.html"><img src="../img/big_logo.svg"/></a>
         <div class="if_not">회원이 아니신가요? <a href="signup.html">회원 가입하기</a></div>
       </div>
-      <form action="">
+      <form id="signupForm" action="">
         <div class="id inputbox">
           <label for="email">이메일</label>
           <input id="email" type="email" placeholder="codeit@codeit.com">
@@ -23,10 +23,10 @@
         <div class="pw inputbox">
           <label for="password">비밀번호</label>
           <input id="password" type="password" placeholder="&#149&#149&#149&#149&#149&#149&#149&#149">
-          <img src="../img/eye-off.svg"/>
+          <img id="togglePwd" src="../img/eye-off.svg"/>
         </div>
+        <button id="loginButton" class="button" type="submit">로그인</button>
       </form>
-      <a href="#" class="button">로그인</a>
     </main>
     <div class="foot">
       <div class="foot_text">소셜 로그인</div>
@@ -42,6 +42,7 @@
       </div>
     </div>
   </div>
+  <script src="signin.js"></script>
 </body>
 
 </html>
