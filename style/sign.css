@@ -112,7 +112,7 @@ header {
   height: 1.6rem;
 }
 
-.login-btn {
+.cta {
   display: flex;
   justify-content: center;
   align-items: center;

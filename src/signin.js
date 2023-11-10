@@ -1,49 +1,41 @@
-import { ERROR_MESSAGE, USER_EMAIL, USER_PASSWORD } from './../constants.js';
+import { ERROR_MESSAGE, USER_EMAIL, USER_PASSWORD } from '../common/constants.js';
+import { variable } from '../common/variables.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  let emailInput = document.querySelector('.sign-input[type="email"]');
-  let passwordInput = document.querySelector('.sign-input[type="password');
-  let emailWarningMessage = document.querySelector('.email-warning-message');
-  let passwordWarningMessage = document.querySelector('.password-warning-message');
-  let loginBtn = document.querySelector('.login-btn');
-  let eyeBtn = document.querySelector('.eye-button');
-  let eyeBtnIcon = eyeBtn.firstElementChild;
-
-  emailInput.addEventListener('focusout', validateEmail);
-  passwordInput.addEventListener('focusout', validatePassWord);
-  loginBtn.addEventListener('click', performLogin);
-  eyeBtn.addEventListener('click', showAndHidePassword);
+  variable.emailInput.addEventListener('focusout', validateEmail);
+  variable.passwordInput.addEventListener('focusout', validatePassWord);
+  variable.signInBtn.addEventListener('click', performLogin);
+  variable.eyeBtn.addEventListener('click', showAndHidePassword);
 
   function validateEmail() {
-    if (emailInput.value != '' && isEmail(emailInput.value)) {
-      //코드 상단에 선언한 DOM 파라미터로 전달
-      resetErrorMessage(emailInput, emailWarningMessage);
-    } else if (emailInput.value == '') {
-      printErrorMessage(emailInput, emailWarningMessage, ERROR_MESSAGE.emptyEmail);
-    } else if (!isEmail(emailInput.value)) {
-      printErrorMessage(emailInput, emailWarningMessage, ERROR_MESSAGE.isNotVaildEmail);
+    if (variable.emailInput.value != '' && isEmail(variable.emailInput.value)) {
+      resetErrorMessage(variable.emailInput, variable.emailWarningMessage);
+    } else if (variable.emailInput.value == '') {
+      printErrorMessage(variable.emailInput, variable.emailWarningMessage, ERROR_MESSAGE.emptyEmail);
+    } else if (!isEmail(variable.emailInput.value)) {
+      printErrorMessage(variable.emailInput, variable.emailWarningMessage, ERROR_MESSAGE.isNotVaildEmail);
     }
   }
 
   function validatePassWord() {
-    if (passwordInput.value == '') {
-      printErrorMessage(passwordInput, passwordWarningMessage, ERROR_MESSAGE.emptyPassWord);
+    if (variable.passwordInput.value == '') {
+      printErrorMessage(variable.passwordInput, variable.passwordWarningMessage, ERROR_MESSAGE.emptyPassWord);
     }
   }
 
   function performLogin(e) {
     e.preventDefault();
 
-    if (emailInput.value != USER_EMAIL) {
-      printErrorMessage(emailInput, emailWarningMessage, ERROR_MESSAGE.wrongEmail);
+    if (variable.emailInput.value != USER_EMAIL) {
+      printErrorMessage(variable.emailInput, variable.emailWarningMessage, ERROR_MESSAGE.wrongEmail);
     }
-    if (passwordInput.value != USER_PASSWORD) {
-      printErrorMessage(passwordInput, passwordWarningMessage, ERROR_MESSAGE.wrongPassWord);
+    if (variable.passwordInput.value != USER_PASSWORD) {
+      printErrorMessage(variable.passwordInput, variable.passwordWarningMessage, ERROR_MESSAGE.wrongPassWord);
     }
-    if (passwordInput.value != '' && passwordInput.value == USER_PASSWORD) {
-      resetErrorMessage(passwordInput, passwordWarningMessage);
+    if (variable.passwordInput.value != '' && variable.passwordInput.value == USER_PASSWORD) {
+      resetErrorMessage(variable.passwordInput, variable.passwordWarningMessage);
     }
-    if (emailInput.value === USER_EMAIL && passwordInput.value === USER_PASSWORD) {
+    if (variable.emailInput.value === USER_EMAIL && variable.passwordInput.value === USER_PASSWORD) {
       window.location.href = '/folder.html';
     }
   }
@@ -65,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showAndHidePassword() {
-    if (passwordInput.type == 'password') {
-      passwordInput.type = 'text';
-      eyeBtnIcon.src = './images/eye-on.svg';
-    } else if (passwordInput.type == 'text') {
-      passwordInput.type = 'password';
-      eyeBtnIcon.src = './images/eye-off.svg';
+    if (variable.passwordInput.type == 'password') {
+      variable.passwordInput.type = 'text';
+      variable.eyeBtnIcon.src = './images/eye-on.svg';
+    } else if (variable.passwordInput.type == 'text') {
+      variable.passwordInput.type = 'password';
+      variable.eyeBtnIcon.src = './images/eye-off.svg';
     }
   }
 
