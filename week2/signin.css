@@ -38,7 +38,7 @@ p a {
   color:var(--linkbrary-primary-color);
 }
 
-form {
+#join {
   position: relative;
   text-align: left;
   margin:1.875rem 0;
@@ -59,16 +59,17 @@ input:focus {
   outline: 1px solid var(--linkbrary-primary-color);
 }
 
-input#password {
-  position: relative;
-}
-
-#login_form img {
+.eye {
   position: absolute;
   bottom: 5.75rem;
   right: 0.9375rem;
 }
 
+.check_eye {
+  position: relative;
+  bottom: 6.65rem;
+  right: 2.2rem;
+}
 button {
   width: 100%;
   padding: 1rem 1.5rem;
