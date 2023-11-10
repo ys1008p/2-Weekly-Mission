@@ -113,7 +113,9 @@ label.common_title {
   border: 1px soild #ff5b56;
 }
 
-.email_error_text {
+.email_error_text,
+.signup_pw_error_text,
+.signup_pw_check_error_text {
   margin-top: -0.36rem;
   color: var(--linkbrary-red, #ff5b56);
   font-size: 0.875rem;
