@@ -89,7 +89,7 @@ label {
   height: 1rem;
 }
 
-.password-err {
+.input-err {
   color: var(--linkbrary-red, #ff5b56);
   font-size: 0.875rem;
   margin-top: 0.38rem;
