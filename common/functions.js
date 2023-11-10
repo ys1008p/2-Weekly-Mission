@@ -53,12 +53,14 @@ export function performLogin(e) {
   }
 }
 
-export function showAndHidePassword() {
-  if (variable.passwordInput.type == 'password') {
-    variable.passwordInput.type = 'text';
+export function showAndHidePassword(index) {
+  let passwordType = variable.eyeBtn[index].previousElementSibling;
+
+  if (passwordType.type == 'password') {
+    passwordType.type = 'text';
     variable.eyeBtnIcon.src = './images/eye-on.svg';
-  } else if (variable.passwordInput.type == 'text') {
-    variable.passwordInput.type = 'password';
+  } else if (passwordType.type == 'text') {
+    passwordType.type = 'password';
     variable.eyeBtnIcon.src = './images/eye-off.svg';
   }
 }

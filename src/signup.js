@@ -6,5 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   variable.passwordInput.addEventListener('focusout', functions.validatePassword);
   variable.checkPasswordInput.addEventListener('focusout', functions.checkSamePassword);
   variable.signInBtn.addEventListener('click', functions.performLogin);
-  variable.eyeBtn.addEventListener('click', functions.showAndHidePassword);
+  for (let i = 0; i < variable.eyeBtn.length; i++) {
+    variable.eyeBtn[i].addEventListener('click', () => {
+      functions.showAndHidePassword(i);
+    });
+  }
 });

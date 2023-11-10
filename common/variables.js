@@ -6,6 +6,6 @@ export const variable = {
   passwordWarningTag: document.querySelector('.password-warning-message'),
   passwordCheckWarningTag: document.querySelector('.password-check-warning-message'),
   signInBtn: document.querySelector('.cta'),
-  eyeBtn: document.querySelector('.eye-button'),
+  eyeBtn: document.querySelectorAll('.eye-button'),
   eyeBtnIcon: document.querySelector('.eye-button').firstElementChild,
 };
