@@ -3,7 +3,7 @@ import { variable } from '../common/variables.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   variable.emailInput.addEventListener('focusout', validateEmail);
-  variable.passwordInput.addEventListener('focusout', validatePassWord);
+  variable.passwordInput.addEventListener('focusout', validatePassword);
   variable.signInBtn.addEventListener('click', performLogin);
   variable.eyeBtn.addEventListener('click', showAndHidePassword);
 
@@ -13,13 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (variable.emailInput.value == '') {
       printErrorMessage(variable.emailInput, variable.emailWarningMessage, ERROR_MESSAGE.emptyEmail);
     } else if (!isEmail(variable.emailInput.value)) {
-      printErrorMessage(variable.emailInput, variable.emailWarningMessage, ERROR_MESSAGE.isNotVaildEmail);
+      printErrorMessage(variable.emailInput, variable.emailWarningMessage, ERROR_MESSAGE.invaildEmail);
     }
   }
 
-  function validatePassWord() {
+  function validatePassword() {
     if (variable.passwordInput.value == '') {
-      printErrorMessage(variable.passwordInput, variable.passwordWarningMessage, ERROR_MESSAGE.emptyPassWord);
+      printErrorMessage(variable.passwordInput, variable.passwordWarningMessage, ERROR_MESSAGE.emptyPassword);
     }
   }
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       printErrorMessage(variable.emailInput, variable.emailWarningMessage, ERROR_MESSAGE.wrongEmail);
     }
     if (variable.passwordInput.value != USER_PASSWORD) {
-      printErrorMessage(variable.passwordInput, variable.passwordWarningMessage, ERROR_MESSAGE.wrongPassWord);
+      printErrorMessage(variable.passwordInput, variable.passwordWarningMessage, ERROR_MESSAGE.wrongPassword);
     }
     if (variable.passwordInput.value != '' && variable.passwordInput.value == USER_PASSWORD) {
       resetErrorMessage(variable.passwordInput, variable.passwordWarningMessage);
