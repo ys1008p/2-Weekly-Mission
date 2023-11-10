@@ -133,8 +133,7 @@
   .page {
     height: auto;
     display: flex;
-    padding: 40px 0;
-    padding-bottom: 80px;
+    padding: 40px 0 76px 0;
   }
 
   .page .page_container {
@@ -157,7 +156,7 @@
     width: 100%;
   }
 
-  .page .page_text {
+  .page_text {
     width: 100%;
     margin-bottom: 20px;
   }
@@ -174,9 +173,9 @@
   .page_text .page_body {
     font-size: 15px;
     font-weight: 700;
-    line-height: 24px;
     position: absolute;
-    bottom: -40px;
+    bottom: -64px;
+    height: 40px;
     padding-right: 10px;
     display: inline-block;
   }
