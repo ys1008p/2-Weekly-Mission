@@ -33,6 +33,14 @@ export function isPasswordValid(password) {
   return isEightLettersOrMore && hasNumberAndCharacter;
 }
 
+export function redBoxOn(whichBox) {
+  whichBox.classList.add('redBox');
+}
+
+export function redBoxOff(whichBox) {
+  whichBox.classList.remove('redBox');
+}
+
 // 에러 메세지가 발생해야 하는 위치, 에러 종류를 파라미터로 받고 메세지를 생성
 export function makeErrorMessage(errorPlace, messageType) {
   const message = document.createElement('div');
@@ -41,12 +49,15 @@ export function makeErrorMessage(errorPlace, messageType) {
   switch (errorPlace) {
     case 'email':
       emailInput.after(message);
+      redBoxOn(emailInput);
       break;
     case 'password':
       pswdInput.after(message);
+      redBoxOn(pswdInput);
       break;
     case 'passwordCheck':
       pswdCheck.after(message);
+      redBoxOn(pswdCheck);
       break;
   }
 }
@@ -57,12 +68,15 @@ export function eraseErrorMessage(errorPlace) {
   switch (errorPlace) {
     case 'email':
       placeToErase = emailInput;
+      redBoxOff(emailInput);
       break;
     case 'password':
       placeToErase = pswdInput;
+      redBoxOff(pswdInput);
       break;
     case 'passwordCheck':
       placeToErase = pswdCheck;
+      redBoxOff(pswdCheck);
       break;
   }
   if (placeToErase.nextElementSibling.className === 'alert') {

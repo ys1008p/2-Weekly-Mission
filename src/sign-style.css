@@ -51,6 +51,10 @@ form {
   margin-top: 6px;
 }
 
+.redBox {
+  border: 1px solid var(--red, #ff5b56);
+}
+
 label {
   color: var(--black, #000);
   font-size: 14px;
