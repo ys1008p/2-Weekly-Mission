@@ -46,7 +46,8 @@ body {
 }
 
 /* form */
-#sign-in {
+#sign-in,
+#sign-up {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
@@ -92,14 +93,10 @@ body {
 }
 
 .hide-password {
-  border: none;
-  background: transparent;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  right: 1.5rem;
-  bottom: 2rem;
+  bottom: 40%;
+  right: 1.6rem;
+  cursor: pointer;
 }
 
 .btn__sign-in {

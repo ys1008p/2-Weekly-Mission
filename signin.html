@@ -13,6 +13,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/sign.css" />
+    <!-- Javascript -->
+    <script type="module" src="./src/sign-in.js" defer></script>
   </head>
   <body>
     <section class="container">
@@ -29,16 +31,16 @@
           <a class="link-to-signup" href="signup.html">회원 가입하기</a>
         </p>
       </header>
-      <form id="sign-in" action="">
+      <form id="sign-in" action="./folder.html">
         <div class="input__container">
           <label class="input__label" for="email">이메일</label>
           <input class="input" id="email" type="email" name="user-email" />
-          <div class="error-msg"></div>
+          <div class="error-msg email-error-msg"></div>
         </div>
         <div class="input__container">
           <label class="input__label" for="password">비밀번호</label>
           <input
-            class="input"
+            class="input password-field"
             id="password"
             type="password"
             name="user-password"
@@ -48,7 +50,7 @@
             src="./images/sign/icon/blindpassword.svg"
             alt="비밀번호 숨김"
           />
-          <div class="error-msg"></div>
+          <div class="error-msg password-error-msg"></div>
         </div>
       </form>
       <button class="btn__sign-in" type="submit" form="sign-in">로그인</button>
