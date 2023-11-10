@@ -54,7 +54,6 @@ form {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  position: relative;
 }
 
 .sign-input-box {
@@ -62,6 +61,7 @@ form {
   flex-direction: column;
   justify-content: center;
   gap: 0.6rem;
+  position: relative;
 }
 
 label {
@@ -90,21 +90,21 @@ input:focus {
   border: 1px solid var(--primary);
 }
 
-.eye-off,
-.eye-on {
+.eye-button {
   width: 1.6rem;
   height: 1.6rem;
+  background-image: url(../images/sign/eye-off.svg);
+  cursor: pointer;
   position: absolute;
   right: 1.5rem;
-  bottom: 10.5rem;
+  top: 5rem;
+  border: none;
+  display: flex;
+  justify-content: center;
 }
 
-.eye-on.first {
-  width: 1.6rem;
-  height: 1.6rem;
-  position: absolute;
-  right: 1.5rem;
-  top: 16.5rem;
+.eye-button.active {
+  background-image: url(../images/sign/eye-on.svg);
 }
 
 .login-button,

@@ -1,6 +1,7 @@
 const inputEmail = document.querySelector('#useremail');
 const inputPassword = document.querySelector('#password');
 const btn = document.querySelector('.login-button');
+const eyeBtn = document.querySelector('.eye-button');
 let emailValid, passwordValid, checkValid = false;
 
 function enterEmailMessage(e) {
@@ -61,23 +62,17 @@ function enterEmailMessageForBtn(e) {
     message.textContent = '이메일을 입력해주세요.'
     message.classList.add('message');
     inputEmail.after(message);
-  } else if (inputEmail.value === 'test@codeit.com'){
+  } else if (inputPassword.value === 'codeit101' && inputEmail.value === 'test@codeit.com'){
     emailValid = true;
     inputEmail.classList.remove('redBox');
   } else {
     inputEmail.classList.add('redBox');
     inputPassword.classList.add('redBox');
 
-    let message = document.createElement('div');
+    const message = document.createElement('div');
     message.textContent = '이메일을 확인해주세요.'
     message.classList.add('message');
     inputEmail.after(message);
-
-    message = document.createElement('div');
-    message.textContent = '비밀번호를 확인해주세요.';
-    message.classList.add('message');
-    inputPassword.after(message);
-    return "wrong email";
   }
   
 }
@@ -96,19 +91,14 @@ function enterPasswordMessageForBtn(e) {
     message.textContent = '비밀번호를 입력해주세요.'
     message.classList.add('message');
     inputPassword.after(message);
-  } else if (inputPassword.value === 'codeit101'){
+  } else if (inputPassword.value === 'codeit101' && inputEmail.value === 'test@codeit.com'){
     passwordValid = true;
     inputPassword.classList.remove('redBox');
   } else {
     inputEmail.classList.add('redBox');
     inputPassword.classList.add('redBox');
 
-    let message = document.createElement('div');
-    message.textContent = '이메일을 확인해주세요.'
-    message.classList.add('message');
-    inputEmail.after(message);
-
-    message = document.createElement('div');
+    const message = document.createElement('div');
     message.textContent = '비밀번호를 확인해주세요.';
     message.classList.add('message');
     inputPassword.after(message);
@@ -119,12 +109,23 @@ inputEmail.addEventListener('focusout', enterEmailMessage);
 inputPassword.addEventListener('focusout', enterPasswordMessage);
 btn.addEventListener('click', function(e) {
   e.preventDefault();
-  const worngEmail = enterEmailMessageForBtn();
-  if (!worngEmail) {
-    enterPasswordMessageForBtn();
-  }
+  enterEmailMessageForBtn();
+  enterPasswordMessageForBtn();
+
   if (emailValid && passwordValid) {
     window.open("/folder", "_self");
-    emailValid, passwordValid = false;
   }
+  emailValid, passwordValid = false;
+  
 });
+
+function changePasswordVision (e) {
+  e.target.classList.toggle('active');
+  if (e.target.className.includes('active')) {
+    e.target.parentElement.children[1].type = 'text';
+  } else {
+    e.target.parentElement.children[1].type = 'password';
+  }
+}
+
+eyeBtn.addEventListener('click', changePasswordVision);

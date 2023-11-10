@@ -4,6 +4,7 @@ const inputEmail = document.querySelector('#useremail');
 const inputPassword = document.querySelector('#password');
 const inputPasswordCheck = document.querySelector('#password-check');
 const btn = document.querySelector('.join-button');
+const eyeBtn = document.querySelectorAll('.eye-button');
 let emailValid, passwordValid, checkValid = false;
 
 function enterEmailMessage(e) {
@@ -94,3 +95,15 @@ btn.addEventListener('click', function(e) {
     emailValid, passwordValid, checkValid = false;
   }
 });
+
+function changePasswordVision (e) {
+  e.target.classList.toggle('active');
+  if (e.target.className.includes('active')) {
+    e.target.parentElement.children[1].type = 'text';
+  } else {
+    e.target.parentElement.children[1].type = 'password';
+  }
+}
+
+eyeBtn[0].addEventListener('click', changePasswordVision);
+eyeBtn[1].addEventListener('click', changePasswordVision);
