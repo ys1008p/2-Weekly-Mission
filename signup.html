@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="./css/var.css" />
   </head>
   <body>
-    <main>
+    <main class="signup_container">
       <section class="title">
         <div class="logo btn">
-          <a href="/"><img src="./src/Linkbrary.png" alt="Linkbrary" /></a>
+          <a href="/"><img src="./assets//Linkbrary.png" alt="Linkbrary" /></a>
         </div>
         <p>
           이미 회원이신가요?
@@ -20,30 +20,33 @@
         </p>
       </section>
       <section class="input-area">
-        <h2>이메일</h2>
-        <form action="" class="id">
-          <input type="email" id="email" />
+        <form action="" class="signup_form">
+          <div class="form_email">
+            <h2>이메일</h2>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div action="" class="form_pw">
+            <h2>비밀번호</h2>
+            <input type="text" id="pw" name="password" />
+            <button><img src="./assets/eye-on.svg" alt="open-eye" /></button>
+          </div>
+          <div action="" class="form_pw-check">
+            <h2>비밀번호 확인</h2>
+            <input type="text" id="pw-check" name="password-check" />
+            <button><img src="./assets/eye-on.svg" alt="eye" /></button>
+            <p>비밀번호가 다릅니다.</p>
+          </div>
         </form>
-        <h2>비밀번호</h2>
-        <form action="" class="pw">
-          <input type="text" id="pw" />
-          <img src="./src/eye-on.svg" alt="open-eye" />
-        </form>
-        <h2>비밀번호 확인</h2>
-        <form action="" class="pw-check">
-          <input type="text" id="pw-check" />
-          <img src="./src/eye-on.svg" alt="eye" />
-        </form>
-        <button class="signup btn">회원가입</button>
+        <button class="signup-btn btn">회원가입</button>
         <div class="social btn">
           <h3>다른 방식으로 가입하기</h3>
           <div class="simple-signup">
-            <a href="https://www.google.com/"
-              ><img src="./src/google.svg" alt="google"
-            /></a>
-            <a href="https://www.kakaocorp.com/page/"
-              ><img src="./src//kakao.svg" alt="kakao"
-            /></a>
+            <a href="https://www.google.com/">
+              <img src="./assets/google.svg" alt="google" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="./assets/kakao.svg" alt="kakao" />
+            </a>
           </div>
         </div>
       </section>

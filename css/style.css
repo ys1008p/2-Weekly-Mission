@@ -1,3 +1,7 @@
+body {
+  width: 100%;
+}
+
 .btn {
   cursor: pointer;
   display: flex;
@@ -8,13 +12,28 @@
 
 header {
   width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: var(--light-blue);
+  z-index: 2;
+}
+
+header .container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .container2 {
+  width: 100%;
   padding: 1.25rem 12.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
-  position: fixed;
-  z-index: 2;
 }
 
 .login {
@@ -36,7 +55,7 @@ section.first {
   width: 100%;
   background-color: var(--light-blue);
   overflow: hidden;
-  padding-top: 1.25rem;
+  padding-top: 5.875rem;
 }
 
 .headline {
@@ -47,6 +66,7 @@ section.first {
 .headline h1 {
   font-size: 4rem;
   font-weight: 700;
+  line-height: 5rem;
   color: var(--black);
 }
 
@@ -73,7 +93,7 @@ button.signup a {
 div.posting {
   margin: 0 auto;
   padding: 1.25rem 1.875rem 6rem;
-  width: 60%;
+  width: 80%;
   max-width: 70rem;
   border-radius: 1.5625rem;
   background: var(--white);
@@ -140,6 +160,7 @@ div.posting form.search {
   display: block;
   border-radius: 0.9375rem;
   box-shadow: 0 0.3125rem 1.5625rem 0 rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .posting-card img:first-child {
@@ -161,6 +182,7 @@ div.posting form.search {
   font-weight: 400;
   line-height: 1.5rem;
   padding: 0 0.9375rem;
+  overflow: hidden;
 }
 
 .posting-card div > * {
@@ -184,16 +206,22 @@ div.posting form.search {
 }
 
 .page {
-  margin: 0 auto;
-  width: 70rem;
+  width: 100%;
   height: 40rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
-.page:nth-child(2n-1) {
+.page:nth-child(2n-1) .page_container {
   flex-direction: row-reverse;
+}
+
+.page_container {
+  width: 70rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .page_text .page_title {
@@ -247,6 +275,10 @@ div.posting form.search {
   overflow: hidden;
 }
 
+.page_img img {
+  width: 100%;
+}
+
 .page:nth-child(5) .page_img {
   justify-content: flex-end;
   align-items: end;
@@ -263,7 +295,7 @@ footer {
 
 footer .bottom {
   list-style: none;
-  width: 90%;
+  width: 100%;
   height: 4rem;
   margin: 0 6.5rem;
   margin-top: 2rem;
@@ -290,6 +322,6 @@ footer .bottom .icons {
   text-align: right;
 }
 
-footer .bottom .icons * {
-  margin: 0 0.5rem;
+footer .bottom .icons a {
+  margin-left: 0.75rem;
 }

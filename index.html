@@ -3,33 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" conetnt="/" />
+    <meta property="og:title" conetnt="Linkbrary" />
+    <meta property="og:image" conetnt="/" />
+    <meta
+      property="og:description"
+      conetnt="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta property="og:title_name" conetnt="Linkbrary" />
+    <meta property="og:locale" conetnt="ko_KR" />
+
+    <meta name="twitter:card" conetnt="" />
+    <meta name="twitter:title" conetnt="Linkbrary" />
+    <meta
+      name="twitter:description"
+      conetnt="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta name="twitter:image" conetnt="/" />
+
     <title>Linkbrary</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/var.css" />
+    <link rel="stylesheet" href="./css/media.css" />
   </head>
   <body>
     <header>
-      <div class="logo btn">
-        <a href="/"><img src="./src/Linkbrary.png" alt="Linkbrary" /> </a>
+      <div class="container">
+        <div class="container2">
+          <div class="logo btn">
+            <a href="/">
+              <img src="./assets/Linkbrary.png" alt="Linkbrary" />
+            </a>
+          </div>
+          <button class="login btn"><a href="./signin.html">로그인</a></button>
+        </div>
       </div>
-      <button class="login btn"><a href="./signin.html">로그인</a></button>
     </header>
     <main>
       <section class="first">
         <div class="headline">
-          <h1>
-            <span>세상의 모든 정보</span>를<br />
-            쉽게 저장하고 관리해 보세요
-          </h1>
+          <h1><span>세상의 모든 정보</span>를 쉽게 저장하고 관리해 보세요</h1>
           <button class="signup btn">
             <a href="./signup.html">링크 추가하기</a>
           </button>
         </div>
         <div class="posting">
           <form action="" class="search">
-            <img src="./src/magnifier.png" alt="magnifier" />
-            <input type="text" placeholder="링크를 검색해보세요" />
+            <img src="./assets/magnifier.png" alt="magnifier" />
+            <input
+              type="text"
+              placeholder="링크를 검색해보세요"
+              name="search"
+            />
           </form>
           <div class="posting-option">
             <div>
@@ -41,8 +68,8 @@
           </div>
           <ul class="posting-cards">
             <li class="posting-card btn">
-              <img src="./src/car.png" alt="car" />
-              <img src="./src/empty_star.svg" alt="빈별" class="star" />
+              <img src="./assets/car.png" alt="car" />
+              <img src="./assets/empty_star.svg" alt="빈별" class="star" />
               <div>
                 <p class="posting-time">10 minutes ago</p>
                 <h3 class="posting-content">
@@ -53,8 +80,8 @@
               </div>
             </li>
             <li class="posting-card btn">
-              <img src="./src/dog.png" alt="dog" />
-              <img src="./src/empty_star.svg" alt="빈별" class="star" />
+              <img src="./assets/dog.png" alt="dog" />
+              <img src="./assets/empty_star.svg" alt="빈별" class="star" />
               <div>
                 <p class="posting-time">10 minutes ago</p>
                 <h3 class="posting-content">
@@ -65,8 +92,8 @@
               </div>
             </li>
             <li class="posting-card btn">
-              <img src="./src/building.png" alt="building" />
-              <img src="./src/empty_star.svg" alt="빈별" class="star" />
+              <img src="./assets/building.png" alt="building" />
+              <img src="./assets/empty_star.svg" alt="빈별" class="star" />
               <div>
                 <p class="posting-time">10 minutes ago</p>
                 <h3 class="posting-content">
@@ -77,8 +104,8 @@
               </div>
             </li>
             <li class="posting-card btn">
-              <img src="./src/light.png" alt="light" />
-              <img src="./src/empty_star.svg" alt="빈별" class="star" />
+              <img src="./assets/light.png" alt="light" />
+              <img src="./assets/empty_star.svg" alt="빈별" class="star" />
               <div>
                 <p class="posting-time">10 minutes ago</p>
                 <h3 class="posting-content">
@@ -89,8 +116,8 @@
               </div>
             </li>
             <li class="posting-card btn">
-              <img src="./src/table.png" alt="table" />
-              <img src="./src/empty_star.svg" alt="빈별" class="star" />
+              <img src="./assets/table.png" alt="table" />
+              <img src="./assets/empty_star.svg" alt="빈별" class="star" />
               <div>
                 <p class="posting-time">10 minutes ago</p>
                 <h3 class="posting-content">
@@ -101,8 +128,8 @@
               </div>
             </li>
             <li class="posting-card btn">
-              <img src="./src/sunset.png" alt="sunset" />
-              <img src="./src/empty_star.svg" alt="빈별" class="star" />
+              <img src="./assets/sunset.png" alt="sunset" />
+              <img src="./assets/empty_star.svg" alt="빈별" class="star" />
               <div>
                 <p class="posting-time">10 minutes ago</p>
                 <h3 class="posting-content">
@@ -116,62 +143,64 @@
         </div>
       </section>
       <section class="page">
-        <div class="page_text">
-          <h2 class="page_title">
-            <span>원하는 링크</span>를 <br />
-            저장하세요
-          </h2>
-          <p class="page_body">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상, <br />
-            사고 싶은 옷, 기억하고 싶은 모든 것을 <br />
-            한 공간에 저장하세요.
-          </p>
-        </div>
-        <div class="page_img">
-          <img src="./assets/page_img1.png" alt="page_img1" />
+        <div class="page_container">
+          <div class="page_text">
+            <h2 class="page_title"><span>원하는 링크</span>를 저장하세요</h2>
+            <p class="page_body">
+              나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
+              싶은 모든 것을 한 공간에 저장하세요.
+            </p>
+          </div>
+          <div class="page_img">
+            <img src="./assets/page_img1.png" alt="page_img1" />
+          </div>
         </div>
       </section>
       <section class="page">
-        <div class="page_text">
-          <h2 class="page_title">
-            링크를 폴더로 <br />
-            <span>관리</span>하세요
-          </h2>
-          <p class="page_body">
-            나만의 폴더를 무제한으로 만들고 <br />
-            다양하게 활용할 수 있습니다.
-          </p>
-        </div>
-        <div class="page_img">
-          <img src="./assets/page_img2.png" alt="page_img2" />
-        </div>
-      </section>
-      <section class="page">
-        <div class="page_text">
-          <h2 class="page_title">
-            저장한 링크를 <br />
-            <span>공유</span>해 보세요.
-          </h2>
-          <p class="page_body">
-            여러 링크를 폴더에 담고 공유할 수 있습니다. <br />
-            가족, 친구, 동료들에게 쉽고 빠르게 링크를 <br />
-            공유해 보세요.
-          </p>
-        </div>
-        <div class="page_img">
-          <img src="./assets/page_img3.png" alt="page_img3" />
+        <div class="page_container">
+          <div class="page_text">
+            <h2 class="page_title">
+              링크를 폴더로
+              <span>관리</span>하세요
+            </h2>
+            <p class="page_body">
+              나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
+            </p>
+          </div>
+          <div class="page_img">
+            <img src="./assets/page_img2.png" alt="page_img2" />
+          </div>
         </div>
       </section>
       <section class="page">
-        <div class="page_text">
-          <h2 class="page_title">
-            저장한 링크를 <br />
-            <span>검색</span>해 보세요
-          </h2>
-          <p class="page_body">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+        <div class="page_container">
+          <div class="page_text">
+            <h2 class="page_title">
+              저장한 링크를
+              <span>공유</span>해 보세요.
+            </h2>
+            <p class="page_body">
+              여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
+              쉽고 빠르게 링크를 공유해 보세요.
+            </p>
+          </div>
+          <div class="page_img">
+            <img src="./assets/page_img3.png" alt="page_img3" />
+          </div>
         </div>
-        <div class="page_img">
-          <img src="./assets/page_img4.png" alt="page_img4" />
+      </section>
+      <section class="page">
+        <div class="page_container">
+          <div class="page_text">
+            <h2 class="page_title">
+              저장한 링크를
+              <span>검색</span>해 보세요
+            </h2>
+            <p class="page_body">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+          </div>
+          <div class="page_img">
+            <img src="./assets/page_img4.png" alt="page_img4" />
+          </div>
         </div>
       </section>
     </main>
@@ -184,16 +213,16 @@
         </li>
         <li class="icons">
           <a href="https://www.facebook.com" target="_blank">
-            <img src="./src/facebook.svg" alt="facebook" />
+            <img src="./assets/facebook.svg" alt="facebook" />
           </a>
           <a href="https://www.twitter.com" target="_blank"
-            ><img src="./src/twitter.svg" alt="twitter"
+            ><img src="./assets/twitter.svg" alt="twitter"
           /></a>
           <a href="https://www.youtube.com" target="_blank"
-            ><img src="./src/youtube.svg" alt="youtube"
+            ><img src="./assets/youtube.svg" alt="youtube"
           /></a>
           <a href="https://www.instagram.com" target="_blank"
-            ><img src="./src/instagram.svg" alt="instagram"
+            ><img src="./assets/instagram.svg" alt="instagram"
           /></a>
         </li>
       </ul>
