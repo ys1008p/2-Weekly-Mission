@@ -1,5 +1,6 @@
 import {
   alertMessageBox,
+  isPasswordValid,
   makeErrorMessage,
   eraseErrorMessage,
   TEST_USER,
@@ -33,6 +34,11 @@ function errorAlertPswd(e) {
   if (pswdInput.value.length === 0) {
     if (pswdInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('password', 'noInput');
+    }
+  } else if (!isPasswordValid(pswdInput.value)) {
+    console.log(isPasswordValid(pswdInput.value));
+    if (pswdInput.nextElementSibling.className !== 'alert') {
+      makeErrorMessage('password', 'simple');
     }
   } else {
     eraseErrorMessage('password');

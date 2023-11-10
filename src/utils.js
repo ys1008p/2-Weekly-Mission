@@ -26,6 +26,13 @@ export const pswdCheck = document.querySelector('#password-check');
 export const pswdEye = document.querySelectorAll('.button-eye');
 export const loginBtn = document.querySelector('.button-submit');
 
+export function isPasswordValid(password) {
+  const isEightLettersOrMore = password.length >= 8;
+  const hasNumberAndCharacter =
+    password.match(/[0-9]/g) && password.match(/[a-zA-Z]/gi);
+  return isEightLettersOrMore && hasNumberAndCharacter;
+}
+
 // 에러 메세지가 발생해야 하는 위치, 에러 종류를 파라미터로 받고 메세지를 생성
 export function makeErrorMessage(errorPlace, messageType) {
   const message = document.createElement('div');
