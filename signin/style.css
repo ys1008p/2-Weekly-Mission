@@ -1,15 +1,11 @@
 * {
     box-sizing: border-box;
-  }
+}
 
 /* 전체 페이지 스타일링 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Pretendard, Arial, sans-serif;
     background-color: #EDF7FF;
-    margin: 0;
-    padding: 0;
-    gap: 8px;
-    align-items: flex-start; 
 }
 
 a {
@@ -29,119 +25,127 @@ label {
 input {
     border-radius: 8px;
     border: 1px solid var(--linkbrary-primary-color, #d4d4d4);
-    background: var(--linkbrary-white, #FFF); 
+    background: var(--linkbrary-white, #FFF);
     display: flex;
-    width: 400px;
+    width: 100%;
     padding: 18px 15px;
     justify-content: center;
-    align-items: center; 
-    outline : none;
+    align-items: center;
+    outline: none;
 }
 
 input:focus {
     border-color: blue;
-}  
+}
 
 /* 로그인과 회원가입 페이지 전체 */
 .signin {
-    display: flex;    
-    padding: 238px 0px 252px 0px;
-    justify-content: center;
-    align-items: center; 
-}
-
-.signincontents {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 400px;  
+    margin: 0 auto;
+    margin-top: 200px;
+    gap: 30px; 
+}
+
+.signin-contents {
+    display: flex;        
+    flex-direction: column;
+    width: 100%;  
     gap: 30px; 
 }
 
 /* 로고 이미지와 텍스트 */
-.signheader {
+.sign-header {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     gap: 16px;
 }
 
-.signlogoimage {
-    width: 100%;    
-    height: 38px;   
+.sign-logo-image {
+    width: 100%;
+    height: 38px;
 }
 
-.signheadertext {
+.sign-header-text {
     color: var(--black, #000);
-    /* Linkbrary/body1-regular */
-    font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 24px;    
     text-align: center;
 }
 
-.signheaderlink {
+.sign-header-link {
     text-decoration: underline;
 }
 
 /* 로그인과 회원가입 버튼 */
-.signloginButton {
+.sign-login-Button {
+
     border: none;
     border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
     display: flex;
-    width: 400px;
+    width: 100%;
     padding: 16px 20px;
     justify-content: center;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
     color: var(--grey-light, #F5F5F5);
-    font-family: Pretendard;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;    
+    line-height: normal;
 }
 
 /* 소셜 부분 */
-.sociallogin {
+.social-login {
     display: flex;
-    width: 400px;
+    width: 100%;
     padding: 12px 24px;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     border-radius: 8px;
     border: 1px solid var(--linkbrary-gray-20, #CCD5E3);
-    background: var(--linkbrary-gray-10, #E7EFFB); 
-    color: var(--linkbrary-gray-100, #373740);
-    /* Linkbrary/body2-regular */
-    font-family: Pretendard;
+    background: var(--linkbrary-gray-10, #E7EFFB);
+    color: var(--linkbrary-gray-100, #373740);    
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal; 
+    line-height: normal;
 }
 
-.socialloginicons {
+.social-login-icons {
     display: flex;
     align-items: flex-start;
-    gap: 16px; 
+    gap: 16px;
 }
 
-.socialicon {
+.social-icon {
     position: relative;
     width: 42px;
-    height: 42px;    
+    height: 42px;
 }
 
-.socialiconinner {
+.social-icon-inner {
     position: absolute;
     top: 25%;
     left: 25%;
 }
 
-.socialiconinner-kakao {
+.social-icon-inner-kakao {
     position: absolute;
     top: 23%;
     left: 22%;
+}
+
+/* Mobile 사이즈 스타일 적용 */
+@media (max-width: 767px) {
+  .signin {
+    width: 100%;
+    max-width: 400px;        
+    padding: 0 32px;
+  }
 }
