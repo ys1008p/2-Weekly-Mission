@@ -1,16 +1,15 @@
+@media (min-width: 768px) {
+  main {
+  max-width: 40rem;
+}
+}
+
 @media (max-width: 767px) {
   body {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
   }
   main {
-    width: 100%;
-  }
-
-  form,
-  input,
-  .button,
-  .sns {
-    width: min(100%, 40rem);
+    max-width: 40rem;
   }
 }
