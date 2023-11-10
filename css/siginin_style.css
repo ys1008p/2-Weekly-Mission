@@ -57,17 +57,12 @@ a {
     border-radius:8px;
     border:1px solid #CCD5E3;
 }
-#s2 input:focus {
-    outline:none;
-    border:1px solid #6D6AFE;
-}
 /* #s2 개별 */
-#s2 .userPass {
+#join .formControl:nth-child(2) {
     margin-top:24px;
 }
 #s2 button {
     display:block;
-    /* pr1) display:block을 해줬는데 width100%를 해줘야 하는이유 */
     width:100%;
     padding:16px 20px;
     margin-top:30px;
@@ -87,7 +82,7 @@ input[type="password"]::-ms-reveal {
 #join {
     position:relative;
 }
-.eye_off {
+.eyeOff {
     position:absolute;
     top:150px;
     right:15px;
@@ -120,13 +115,13 @@ input[type="password"]::-ms-reveal {
 .marGin {
     margin-right:16px;
 }
+
 /* 테블릿사이즈 반응형 */
 @media (max-width:1199px) {
 
 }
 /* 모바일 반응형 */
 @media (max-width:767px) {
-    /* #main */
     #main {
         width:325px;
         margin:120px auto 232px;
