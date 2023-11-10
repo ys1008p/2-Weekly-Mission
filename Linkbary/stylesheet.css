@@ -4,158 +4,149 @@ header{
     flex-direction: column;
     background-color: #f0f6ff ;
 }
-nav{/*상단의 로고와 로그인 버튼 부분*/
+nav{
     position: fixed;
     display: flex;
     justify-content: space-between;
-    background-color: #f0f6ff;
     align-self: stretch;
-    width: 100%;
     align-items: center;
-    padding: 20px 200px;
-    max-width: 192rem;
     height: 9.4rerm;
+    width: 100%;
+    max-width: 192rem;
+    padding: 20px 200px;
+    background-color: #f0f6ff;
 }
-main{/*4개의 블록이 있는 흰 부분 전체*/
+main{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 7rem;
     padding-bottom: 12rem;
 }
-.head-content{/*상단의 제목과 링크 추가하기 버튼을 묶어놓음*/
+.head-content{
     display: flex;
     align-items: center;
-    margin-top: 70px;
     flex-direction: column;
+    margin-top: 70px;
 }
-.button{/*로그인하기, 링크 추가하기 버튼*/
+.logo{
+    width: 133px;
+    height: 24px;
+}
+.button{
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     height: 5.4rem;
     border-radius: 0.8rem;
+    color: #F5F5F5;
     background-image: 
     linear-gradient(135deg, #6D6AFE, #6AE3FE );
-    color: #F5F5F5;
-    text-decoration: none;
     font-weight: 600;
     font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
 }
-.login{/*로그인버튼의 넓이*/
+.login{
     width: 12.8rem;
 }
-.link{/*링크추가하기 버튼의 넓이와 마진*/
-    margin: 40px 0 40px;
+.link{
+    margin: 40px 0;
     width: 35rem;
 }
-.head-gradient{/*상단 제목의 그래디언트*/
+.head-gradient{
     background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.head-title{/*상단 제목*/
+.head-title{
     text-align: center;
-    font-family: Pretendard;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 80px; /* 125% */
     color: #000;
-    margin-top:70px;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 80px; 
 }
-.background-clip-text{/*제목들의 그래디언트 공통 기능*/
+.background-clip-text{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.img{/*이미지들의 크기*/
+.img-head,
+.img-section{
     width: 550px;
     height: 450px;
 }
 
-section{/*흰 메인 부분을 4개로 나눈 섹션*/
+.img-head{
+    border-radius: 2.5rem;
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0.00), #F0F6FF);
+    box-shadow: 0 0.4rem 1.2rem 0 rgba(0, 0, 0, 0.08);
+}
+
+section{
     display: flex;
     align-items: center;
-    gap: 157px;
     justify-content: center;
-    column-gap: 15.7rem;
-    row-gap: 1rem;
     width: 100%;
     height: 55rem;
     padding: 50px 0;
+    gap: 157px;
+    column-gap: 15.7rem;
+    row-gap: 1rem;
+   
 }
-section:nth-child(odd){/*홀수 번째의 섹션은 정상적으로 row로 방향설정*/
-    flex-direction: row;
-}
-section:nth-child(even){/*짝수 번째의 섹션은 이미지가 먼저 오도록 반전시킴*/
+
+section:nth-child(even){
     flex-direction: row-reverse;
 }
 
-  
-
-h2{/*흰 부분의 제목들 기본 설정*/
+h2{
     color: #000;
-    font-family: Pretendard;
     font-size: 48px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     letter-spacing: -0.3px;
 }
-.content-title1{/* 첫 번째 단의 그래디언트*/
+.content-imgdog{
     background: linear-gradient(96deg, #FE8A8A, #A4CEFF);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.content-title2{/*두 번째 단의 그래디언트*/
-    background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+.content-imgname{
+    background: linear-gradient(277deg, #6FBAFF, #FFD88B);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Pretendard;
     font-size: 48px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     letter-spacing: -0.3px;
 }
-.content-title3{/* 세 번째 단의 그래디언트*/
-    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+.content-imgsearch{
+    background: linear-gradient(99deg, #6D7CCD, rgba(82, 136, 133, 0.22));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Pretendard;
     font-size: 48px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
 }
-.content-title4{/* 네 번째 단의 그래디언트*/
-    background: var(--fandom-k-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+.content-imgshare{
+    background: linear-gradient(271deg, #FE578F, #68E8F9);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Pretendard;
     font-size: 48px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
 
 }
-.description{/* 각 단의 조그만한 내용*/
+.description{
     display: flex;
     color: #6B6B6B;
-    font-family: Pretendard;
     font-size: 16px;
-    font-style: normal;
     font-weight: 500;
-    line-height: 150%; /* 24px */
+    line-height: 150%; 
 }
-footer{/* 푸터 부분의 전체 기본 설정*/
+footer{
     display: flex;
     justify-content: center;
     width: 100%;
@@ -163,24 +154,21 @@ footer{/* 푸터 부분의 전체 기본 설정*/
     padding: 3.2rem;
     background:  #111322;
 }
-.footer-box{/* copyright, footer-links, footer-icon을 가로로 펼치기 위함*/
+.footer-box{
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-self:stretch;
     max-width: 192rem;
-    height: fit-content;
-    padding: 0 10.4rem;
+    padding: 0 10.4rem; 
 }
 .copyright{
-    color: #676767;
     text-align: center;
+    color: #6B6B6B;
     font-family: Arial;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
 }
-.footer-links{/*링크들의 모음*/
+.footer-links{
     display: flex;
     column-gap: 3rem;
 }
@@ -190,8 +178,139 @@ footer{/* 푸터 부분의 전체 기본 설정*/
     font-size: 1.6rem;
     
 }
-.footer-icon{/*아이콘들의 모음*/
+.footer-icon{
     display: flex;
     column-gap: 1.2rem;
     height: 2rem;
+}
+@media screen and (max-width: 1200px){ /*tablet*/
+    nav{
+        padding: 2rem 3.2rem; 
+        
+    }
+
+    .img-head{
+        width: 69.8rem;
+    }
+
+
+    .img-section{
+        width: 38.5rem;
+        height: 31.5rem;
+
+    }
+   
+    section{
+        gap: 5.1rem;
+        padding: 8rem 25rem 5rem 25.1rem;
+
+    }
+    footer{
+        padding: 3.2rem 10.4rem 6.4rem;
+    }
+}
+@media screen and (max-width: 768px) {/*mobile*/
+    nav{
+        height: 6.3rem;
+        padding: 1.3rem 3.2rem; 
+       
+   }
+   main{
+        
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    header{
+        width: 100%;
+        height: 399px;
+   }
+   .logo{
+        width: 8.9rem;
+        height: 1.6rem;
+    }
+    .button-label{
+        font-size: 14px;
+    }
+    .login.button{
+        width: 8rem;
+        height: 3.7rem;
+        padding: 1rem 1.6rem;
+        gap: 1rem;
+    }
+   .head-content{
+        padding:2.8rem 3.2rem 0 3.3rem;
+   }
+   .link{
+        margin:2.4rem 0;
+   }
+   .link.button{
+        width: 20rem;
+        height: 3.7rem;
+   }
+
+   .img-head {
+       width: 30.3rem;
+       height: 17.9rem;
+       flex-shrink: 0;
+   }
+   .head-title{
+        height: 12.6rem;
+        font-size: 3.2rem;
+        line-height: 4.2rem;
+   }
+
+   section{
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+        width: 100%;
+        height: 45.1rem;
+        padding: 4rem 3.2rem  3.3rem;
+        gap: 0;
+    }
+    section:nth-child(even){
+        flex-direction: column;
+    }
+   .main-head > span{
+        width: 32.5rem;
+        height: 2.9rem;
+   }
+   .img-section{
+       width: 32.5rem;
+       height: 26.6rem;
+   }
+    .main-head{
+        font-size: 2.4rem;
+    }
+    .content-imgdog,
+    .content-imgname,
+    .content-imgsearch,
+    .content-imgshare{
+      font-size: 24px;
+    }
+    .description{
+        margin: 10px 0 24px;
+        font-size: 15px;
+    }
+    footer{
+        height: 16rem;
+        margin-top: 4rem;
+        padding: 3.2rem 3.2rem 6.4rem;
+    }
+    .footer-box{
+        width: 100%;
+        height: 9.6rem;
+        /* padding: 0 0; */
+    }
+    .footer-icon{
+        width: 2rem;
+        height: 2rem;
+
+    }
+    .column-box{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 60px;
+    }
 }
