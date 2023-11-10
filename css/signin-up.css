@@ -109,6 +109,17 @@ label.common_title {
   border: 1px solid var(--linkbrary-primary-color);
 }
 
+.inputError {
+  border: 1px soild #ff5b56;
+}
+
+.email_error_text {
+  margin-top: -0.36rem;
+  color: var(--linkbrary-red, #ff5b56);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
 img.eye-on-img {
   position: absolute;
   top: 3rem;
