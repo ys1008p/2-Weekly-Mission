@@ -1,9 +1,9 @@
 // 비밀번호 input
-const eyeBtn = document.getElementById('eye-btn')
+const eyeBtn = document.getElementById('eye-btn');
 const pwInput = document.getElementById('pwd');
 // 비밀번호 확인 input
-const eyeBtnCheck =document.getElementById('eye-btn-check')
-const pwCheckInput = document.getElementById('pwd-check') 
+const eyeBtnCheck =document.getElementById('eye-btn-check');
+const pwCheckInput = document.getElementById('pwd-check'); 
 // eye icon 
 const eyeOff = document.querySelector('.off-img');
 const eyeOn = document.querySelector('.on-img');
