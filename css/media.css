@@ -153,8 +153,30 @@
     height: auto;
   }
 
+  footer {
+    height: 160px;
+  }
+
+  footer .bottom {
+    height: 100%;
+    padding: 32px;
+    margin: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: normal;
+  }
+
+  footer .bottom .company {
+    order: 3;
+    align-self: self-end;
+  }
+
+  footer .bottom .guide {
+    text-align: left;
+  }
+
   footer .bottom li,
   footer .bottom li a {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
