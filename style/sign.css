@@ -87,7 +87,9 @@ header {
 }
 
 .sign-input-box .email-warning-message,
-.sign-input-box .password-warning-message {
+.sign-input-box .password-warning-message,
+.sign-input-box .password-check-warning-message {
+  display: none;
   color: #ff5b56;
   font-family: Pretendard;
   font-size: 14px;
