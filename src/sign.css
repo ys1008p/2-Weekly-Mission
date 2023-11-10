@@ -111,16 +111,14 @@
 }
 
 .check-off,
-.off-img{
-display:block;
+.off-img {
+  display: block;
 }
 
 .check-on,
-.on-img{
+.on-img {
   display: none;
 }
-
-
 
 .cta {
   display: flex;
