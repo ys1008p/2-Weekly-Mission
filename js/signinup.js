@@ -7,25 +7,28 @@ const email_input = document.querySelector("#username");
 const email_error_text = document.querySelector(".email_error_text");
 
 function checkEmail() {
-  console.log("d");
   if (email_input.value === "") {
     email_input.classList.add("inputError");
-    console.log("여기");
     email_error_text.innerHTML = "이메일을 입력해주세요.";
+  } else {
+    // 이메일 input에서 focus out 할 때, 이메일 형식에 맞지 않는 값이 있는 경우
+    // input에 빨강색 테두리와 아래에
+    // “올바른 이메일 주소가 아닙니다.” 빨강색 에러 메세지가 보입니다
+    if (email_input.value.includes("@") == false) {
+      email_input.classList.add("inputError");
+      email_error_text.innerHTML = "올바른 이메일 주소가 아닙니다.";
+    }
+  }
+
+  // 이메일 input에서 focus out 일 때, input 값이 test@codeit.com 일 경우
+  // input에 빨강색 테두리와 아래에 “이미 사용 중인 이메일입니다.” 빨강색 에러 메세지가 보입니다.
+  if (email_input.value === "test@codeit.com") {
+    email_input.classList.add("inputError");
+    email_error_text.innerHTML = "이미 사용 중인 이메일입니다.";
   }
 }
 
 email_input.addEventListener("focusout", checkEmail);
-
-// function checkEmail() {
-//   console.log(email_input.outerHTML);
-// }
-
-// email_input.addEventListener("click", checkEmail);
-
-// 이메일 input에서 focus out 할 때, 이메일 형식에 맞지 않는 값이 있는 경우 input에 빨강색 테두리와 아래에
-// “올바른 이메일 주소가 아닙니다.” 빨강색 에러 메세지가 보입니다
-// 이메일 input에서 focus out 일 때, input 값이 test@codeit.com 일 경우 input에 빨강색 테두리와 아래에 “이미 사용 중인 이메일입니다.” 빨강색 에러 메세지가 보입니다.
 
 // 비밀번호 input에서 focus out 할 때, 값이 8자 미만으로 있거나 문자열만 있거나 숫자만 있는 경우, input에 빨강색 테두리와 아래에 “비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.” 빨강색 에러 메세지가 보입니다.
 // 비밀번호 input과 비밀번호 확인 input의 값이 다른 경우, 비밀번호 확인 input에 빨강색 테두리와 아래에 “비밀번호가 일치하지 않아요.” 빨강색 에러 메세지가 보입니다.
