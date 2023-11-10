@@ -217,10 +217,6 @@ div.posting form.search {
   padding-top: 7.5rem;
 }
 
-.page:nth-child(2n-1) .page_container {
-  flex-direction: row-reverse;
-}
-
 .page_container {
   width: 70rem;
   display: flex;
@@ -228,11 +224,25 @@ div.posting form.search {
   align-items: center;
 }
 
+.page:nth-child(2n-1) .page_container {
+  flex-direction: row-reverse;
+}
+
 .page_text .page_title {
   font-size: 3rem;
   font-weight: 700;
   color: var(--black);
   margin-bottom: 1.25rem;
+}
+
+.page:nth-child(2n) .page_text {
+  width: 40%;
+  margin-right: 100px;
+}
+
+.page:nth-child(2n-1) .page_text {
+  width: 40%;
+  margin-left: 100px;
 }
 
 .page:nth-child(2) .page_text .page_title span {
@@ -265,7 +275,9 @@ div.posting form.search {
 }
 
 .page_text .page_body {
-  line-height: 1.6rem;
+  display: inline-block;
+  line-height: 150%;
+  font-weight: 500;
 }
 
 .page_img {

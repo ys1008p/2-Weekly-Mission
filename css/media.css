@@ -22,20 +22,6 @@
     width: 20rem;
   }
 
-  .page_container {
-    width: 70rem;
-  }
-
-  .page:nth-child(2n) .page_text {
-    width: 40%;
-    margin-right: 100px;
-  }
-
-  .page:nth-child(2n-1) .page_text {
-    width: 40%;
-    margin-left: 100px;
-  }
-
   footer .bottom {
     width: 95rem;
   }
@@ -55,16 +41,6 @@
   div.posting {
     width: 70rem;
     height: 41.25rem;
-  }
-
-  .page:nth-child(2n) .page_text {
-    width: 40%;
-    margin-right: 100px;
-  }
-
-  .page:nth-child(2n-1) .page_text {
-    width: 40%;
-    margin-left: 100px;
   }
 }
 
@@ -97,16 +73,6 @@
     width: 50rem;
   }
 
-  .page:nth-child(2n) .page_text {
-    width: 40%;
-    margin-right: 100px;
-  }
-
-  .page:nth-child(2n-1) .page_text {
-    width: 40%;
-    margin-left: 100px;
-  }
-
   .page_img {
     width: 24.0625rem;
     height: 19.6875rem;
@@ -124,7 +90,6 @@
   }
 
   section.first {
-    width: 100%;
     padding: 94px 32px 0;
   }
 
@@ -145,7 +110,6 @@
 
   .page {
     height: auto;
-    display: flex;
     padding: 40px 0 76px 0;
   }
 
@@ -154,28 +118,18 @@
   }
 
   .page .page_container {
-    padding: 0 32px;
+    margin: 0 32px;
+    position: relative;
+    flex-direction: column;
   }
 
-  .page .page_container,
   .page:nth-child(2n-1) .page_container {
     flex-direction: column;
-    justify-content: space-between;
-    position: relative;
   }
 
-  .page_img {
+  .page .page_container .page_text {
     width: 100%;
-    height: auto;
-  }
-
-  .page_img img {
-    width: 100%;
-  }
-
-  .page_text {
-    width: 100%;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
   }
 
   .page_text .page_title {
@@ -189,12 +143,14 @@
 
   .page_text .page_body {
     font-size: 15px;
-    font-weight: 700;
     position: absolute;
     bottom: -64px;
     height: 40px;
-    padding-right: 10px;
-    display: inline-block;
+  }
+
+  .page_img {
+    width: 100%;
+    height: auto;
   }
 
   footer .bottom li,
