@@ -33,13 +33,14 @@
 
     <title>Linkbrary</title>
     <link
-      rel="preload"
-      as="style"
+      rel="stylesheet"
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/common.css" />
     <link rel="stylesheet" href="/styles/sign.css" />
+
+    <script defer type="module" src="/scripts/sign.js"></script>
   </head>
   <body class="bgc-blue">
     <main>
@@ -67,6 +68,7 @@
               name="email"
               required
               placeholder="이메일을 입력해주세요." />
+            <span class="input-error__message hide-element"></span>
           </div>
           <div class="form__password">
             <label class="form__label" for="input-password">비밀번호</label>
@@ -81,6 +83,7 @@
               class="form__input--eye-off eye-icon"
               type="button"
               aria-label="패스워드 보이기"></button>
+            <span class="input-error__message hide-element"></span>
           </div>
 
           <button class="cta form__submit" type="submit">로그인</button>
