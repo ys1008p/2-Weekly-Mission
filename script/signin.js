@@ -78,7 +78,7 @@ eyeImg.addEventListener("click", () => {
 
 
 
-//회원가입에 관련한 요구사항 구현 및 페이지 이동 잘못입력시 각 input 태그 css변경 및 오류메시지
+//로그인에 관련한 요구사항 구현 및 페이지 이동 잘못입력시 각 input 태그 css변경 및 오류메시지
 let userInfo = [{ email: "test@codeit.com", password: "codeit101" }];
 const button = document.querySelector(".cta");
 function buttonClickEvent(e) {

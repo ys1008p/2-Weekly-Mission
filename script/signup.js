@@ -150,10 +150,9 @@ function buttonClickEvent(e) {
     window.location.href = "/folder/folder.html";
   }
   else{  
-
     emailInputFocusoutEvent();
-    passwordInputFocusoutEvent();    
-
+    passwordInputFocusoutEvent();
+    userDuplicateCheck();    
   }
 }
 button.addEventListener("click", buttonClickEvent);
