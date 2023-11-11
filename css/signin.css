@@ -8,18 +8,18 @@ body {
   border-radius: 0.5rem;
 }
 
-main.signin_container {
+.signin-main {
   width: 70%;
   margin: 0 auto;
   margin-top: 10rem;
   max-width: 25rem;
 }
 
-section {
+.section {
   width: 100%;
 }
 
-.title {
+.signin__title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,19 +27,19 @@ section {
   margin-bottom: 1.875rem;
 }
 
-.title .logo {
+.signin__title--logo {
   padding: 0;
 }
 
-.title .logo a img {
+.signin__title--logo a img {
   width: 13rem;
 }
 
-.title p {
+.signin__title--text {
   line-height: 1.5rem;
 }
 
-.title p a {
+.signin__title--text a {
   padding: 0;
   margin-left: 0.5rem;
   border-bottom: 1px solid var(--purple);
@@ -47,29 +47,29 @@ section {
   color: var(--purple);
 }
 
-.input-area {
+.signin__input-area {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.input-area .signin_form h2 {
+.signin__input-area--form h2 {
   font-size: 0.875rem;
   color: var(--black);
   margin-bottom: 0.75rem;
 }
 
-.input-area .signin_form {
+.signin__input-area--form {
   width: 100%;
   margin-bottom: 0.75rem;
 }
 
-.input-area .form_pw {
+.signin__input-area--form-pw {
   position: relative;
 }
 
-.input-area .form_pw button {
+.signin__input-area--form-pw button {
   position: absolute;
   top: 2.8125rem;
   right: 0.9375rem;
@@ -78,7 +78,7 @@ section {
   align-items: center;
 }
 
-.input-area input {
+.signin__input-area--form input {
   width: 100%;
   background-color: var(--white);
   border: 1px solid var(--blue-gray-60);
@@ -86,11 +86,11 @@ section {
   padding: 1.125rem 0.9375rem;
 }
 
-.input-area input:focus {
+.signin__input-area--form input:focus {
   border: 1px solid var(--purple);
 }
 
-.input-area .login-btn {
+.signin__input-area--login {
   background: linear-gradient(
     91deg,
     var(--purple) 0.12%,
@@ -99,15 +99,11 @@ section {
   color: var(--gray-20);
 }
 
-.input-area div {
-  width: 100%;
-}
-
-.input-area .form_email {
+.signin__input-area--form-email {
   margin-bottom: 1.5rem;
 }
 
-.social {
+.signin__input-area--social {
   display: flex;
   width: 100%;
   padding: 0.75rem 1.5rem;
@@ -118,12 +114,12 @@ section {
   background-color: var(--blue-gray-40);
 }
 
-.social h3 {
+.signin__input-area--social h3 {
   font-size: 0.875rem;
   color: var(--blue-gray-100);
 }
 
-.social .simple-login {
+.signin__input-area--social-img {
   width: 6.25rem;
   display: flex;
   align-items: flex-start;

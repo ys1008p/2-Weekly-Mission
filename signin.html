@@ -9,23 +9,23 @@
     <link rel="stylesheet" href="./css/var.css" />
   </head>
   <body>
-    <main class="signin_container">
-      <section class="title">
-        <div class="logo btn">
+    <main class="signin-main">
+      <section class="signin__title section">
+        <div class="signin__title--logo btn">
           <a href="/"><img src="./assets/Linkbrary.png" alt="Linkbrary" /></a>
         </div>
-        <p>
+        <p class="signin__title--text">
           회원이 아니신가요?
           <a href="./signup.html" class="btn">회원 가입하기</a>
         </p>
       </section>
-      <section class="input-area">
-        <form action="" class="signin_form">
-          <div class="form_email">
+      <section class="signin__input-area section">
+        <form action="" class="signin__input-area--form">
+          <div class="signin__input-area--form-email">
             <h2>이메일</h2>
             <input type="email" id="email" name="email" />
           </div>
-          <div class="form_pw">
+          <div class="signin__input-area--form-pw">
             <h2>비밀번호</h2>
             <input type="password" id="pw" name="password" />
             <button>
@@ -33,10 +33,10 @@
             </button>
           </div>
         </form>
-        <button class="login-btn btn">로그인</button>
-        <div class="social btn">
+        <button class="signin__input-area--login btn">로그인</button>
+        <div class="signin__input-area--social btn">
           <h3>소셜 로그인</h3>
-          <div class="simple-login">
+          <div class="signin__input-area--social-img">
             <a href="https://www.google.com/">
               <img src="./assets/google.svg" alt="google" />
             </a>

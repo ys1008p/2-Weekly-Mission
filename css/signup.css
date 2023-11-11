@@ -9,18 +9,18 @@ body {
   border-radius: 0.5rem;
 }
 
-main.signup_container {
+.signup-main {
   width: 70%;
   margin: 0 auto;
   margin-top: 10rem;
   max-width: 25rem;
 }
 
-section {
+.section {
   width: 100%;
 }
 
-.title {
+.signup__title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,19 +28,19 @@ section {
   margin-bottom: 1.875rem;
 }
 
-.title .logo {
+.signup__title--logo {
   padding: 0;
 }
 
-.title .logo a img {
+.signup__title--logo a img {
   width: 13rem;
 }
 
-.title p {
+.signup__title--text {
   line-height: 1.5rem;
 }
 
-.title p a {
+.signup__title--text a {
   padding: 0;
   margin-left: 0.5rem;
   border-bottom: 1px solid var(--purple);
