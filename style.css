@@ -530,6 +530,16 @@ ol {
   list-style: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #000;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .visually-hidden {
   width: 1px !important;
   height: 1px !important;
@@ -777,6 +787,9 @@ footer .social-list-item a:hover i::before {
   position: relative;
   margin-top: 12px;
 }
+.input-group .input-box input.error {
+  border-color: #ff5b56;
+}
 .input-group .input-box button {
   position: absolute;
   top: 50%;
@@ -1022,7 +1035,7 @@ container-size·············100% - (32px * 2)
 
 .form {
   max-width: 400px;
-  padding: 238px 0;
+  padding: 238px 0 0 0;
   margin: 0 auto;
 }
 .form-header {
