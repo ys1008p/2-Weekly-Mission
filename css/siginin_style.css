@@ -37,7 +37,6 @@ a {
     color:#6D6AFE;
     font-weight:600;
 }
-
 /* #s2 */
 #join {
     margin:30px 0;
@@ -48,7 +47,6 @@ a {
     font-size:14px;
     font-weight:400;
 }
-
 #s2 input {
     display:block;
     width: 100%;
@@ -56,6 +54,10 @@ a {
     margin-top:12px;
     border-radius:8px;
     border:1px solid #CCD5E3;
+}
+#s2 input:focus {
+    outline:none;
+    border:1px solid #6D6AFE;
 }
 /* #s2 개별 */
 #join .formControl:nth-child(2) {
@@ -86,6 +88,13 @@ input[type="password"]::-ms-reveal {
     position:absolute;
     top:150px;
     right:15px;
+}
+/* 에러 메시지  */
+.errorMessage.on {
+    margin-top:8px;
+    display:block;
+    font-size:14px;
+    color:#FF5B56;
 }
 /* #s3 */
 /* #s3 공통 */
