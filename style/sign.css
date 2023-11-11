@@ -1,4 +1,4 @@
-@import "./global.css";
+@import './global.css';
 
 body {
   padding-top: 23.8rem;
@@ -68,16 +68,13 @@ header {
   row-gap: 1.2rem;
 }
 
-.sign-password {
-  position: relative;
-}
-
 .sign-input-label {
   font-size: 1.4rem;
   font-weight: 400;
 }
 
 .sign-input {
+  width: 100%;
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray20);
@@ -89,10 +86,30 @@ header {
   border-color: var(--primary);
 }
 
-.eye-button {
+.sign-input-box .email-warning-message,
+.sign-input-box .password-warning-message,
+.sign-input-box .password-check-warning-message {
+  display: none;
+  color: #ff5b56;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sign-input-box .sign-input-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+}
+
+.sign-input-box .sign-input-field .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 50%;
   right: 1.5rem;
+  transform: translateY(-50%);
   width: 1.6rem;
   height: 1.6rem;
 }
