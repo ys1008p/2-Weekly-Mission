@@ -26,21 +26,25 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <form action="/folder.html" class="sign-form" novalidate>
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input class="sign-input" type="email" name="email" />
           </div>
-          <div class="sign-input-box sign-password">
+          <div class="error-message"></div>
+          <div class="sign-input-box">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="../images/eye-off.svg" />
-            </button>
+            <div class="sign-password">
+              <input class="sign-input" type="password" name="password" />
+              <button class="eye-button" type="button">
+                <img src="../images/eye-off.svg" />
+              </button>
+            </div>
+            <div class="error-message"></div>
           </div>
         </div>
-        <button class="cta" type="submit">로그인</button>
+        <button class="cta" type="submit" data-auth="signin">로그인</button>
       </form>
       <div class="sns-box">
         <span class="sns-text">소셜 로그인</span>
@@ -54,5 +58,7 @@
         </div>
       </div>
     </div>
+    <script type="module" src="main.js"></script>
+    <script src="./utill/toggle.js"></script>
   </body>
 </html>
