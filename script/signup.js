@@ -62,25 +62,18 @@ function emailInputFocusoutEvent() {
 }
 emailInput.addEventListener("focusout", emailInputFocusoutEvent);
 
-//passwordInput 관한 css스타일 id pattern check 및 오류 메시지
-function passwordFocusoutEvent() {
-  if (passwordInput.value === "") {
-    passwordAddClass();
-    passwordError.textContent = "비밀번호를 입력해주세요.";
-  } else {
-    passwordRemoveClass();
-  }
-}
-passwordInput.addEventListener("focusout", passwordFocusoutEvent);
+
+
 
 //비밀번호 입력란의 눈모양 클릭시 이미지 변경 및 type 변경으로 글자표시 가림을 확인할수 있는 코드
 const signInput = document.querySelector("#password-input");
 const eyeImg = document.querySelector("#eye-img");
-const signInput1 = document.querySelector("#password-input-check");
-const eyeImg1 = document.querySelector("#eye-img1");
+const signInput2 = document.querySelector("#password-input-check");
+const eyeImg2 = document.querySelector("#eye-img2");
 
 let eyeBool = false;
 function eyeImgClickEvent(input, img) {
+
   if (eyeBool) {
     img.src = "/images/eye-off.svg";
     input.setAttribute("type", "password");
@@ -94,11 +87,12 @@ eyeImg.addEventListener("click", () => {
   eyeImgClickEvent(signInput, eyeImg);
 });
 
-eyeImg1.addEventListener("click", () => {
-  eyeImgClickEvent(signInput1, eyeImg1);
+eyeImg2.addEventListener("click", () => {
+  eyeImgClickEvent(signInput2, eyeImg2);
 });
 
 //비밀번호 형식체크
+//passwordInput 관한 css스타일 id pattern check 및 오류 메시지
 function passwordInputFocusoutEvent() {
   const password = passwordInput.value;
   const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
@@ -122,7 +116,13 @@ function passwordMachingEvent() {
   const password = passwordInput.value;
   const passwordCheck = passwordInputCheck.value;
 
-  if (password !== passwordCheck) {
+  if (password === "" || passwordCheck === "") {
+    
+    passwordErrorCheck.classList.remove("confirm-message");
+    passwordAddClass();
+    passwordErrorCheck.textContent = "비밀번호를 입력해주세요.";
+    passwordInputCheckAddClass();
+  } else if (password !== passwordCheck) {
     passwordErrorCheck.classList.remove("confirm-message");
     passwordAddClass();
     passwordErrorCheck.textContent = "비밀번호가 일치하지 않습니다.";
@@ -135,6 +135,7 @@ function passwordMachingEvent() {
     return true;
   }
 }
+
 passwordInputCheck.addEventListener("focusout", passwordMachingEvent);
 
 //회원가입 버튼에 관련한 요구사항 구현 및 페이지 이동 잘못입력시 각 input 태그 css변경 및 오류메시지
@@ -148,11 +149,11 @@ function buttonClickEvent(e) {
   if (userConfirmCheck && passwordConfirmCheck && passwordMachingCheck) {
     window.location.href = "/folder/folder.html";
   }
-  else{
-    /*각각의 serConfirmCheck
-    passwordConfirmCheck 
-    passwordMachingCheck
-    사항을 파악해서 넣어줘야하는지 모르겠습니다*/
+  else{  
+
+    emailInputFocusoutEvent();
+    passwordInputFocusoutEvent();    
+
   }
 }
 button.addEventListener("click", buttonClickEvent);
