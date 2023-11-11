@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/reset.css" rel="stylesheet" />
+    <link href="./src/signup.css" rel="stylesheet" />
+    <title>signup</title>
+  </head>
+  <body>
+    <header>
+      <a href="/"
+        ><image class="logo" src="img/logo.svg" alt="connecting to login"
+      /></a>
+      <div class="checking_user">
+        <p class="signup">이미 회원이신가요?</p>
+        <span class="loginLink"
+          ><a href="signin.html" class="login_text">로그인 하기</a></span
+        >
+      </div>
+    </header>
+    <form>
+      <div class="login_form">
+        <div class="email">
+          <label for="username">이메일</label>
+          <input
+            id="username"
+            name="username"
+            placeholder="codeit@codeit.com"
+          />
+        </div>
+        <div>
+          <label for="password">비밀번호</label>
+          <input id="password" name="password" type="password" />
+          <div class="eyesdiv">
+            <img src="img/eye-off.png" class="eyes" />
+          </div>
+        </div>
+        <div class="chenking_password">
+          <label for="checking_pwd">비밀번호 확인</label>
+          <input id="checking_pwd" name="checking_pwd" type="password" />
+          <div class="eyesdiv">
+            <img src="img/eye-off.png" class="eyes" />
+          </div>
+        </div>
+      </div>
+      <button class="login" href="signin.html"><span>회원가입</span></button>
+    </form>
+    <div>
+      <footer>
+        <span>다른 방식으로 가입하기</span>
+        <div class="icons">
+          <a href="https://www.google.com" type="_blank">
+            <img src="img/google.png" alt="click to google"
+          /></a>
+          <a href="https://www.kakaocorp.com/page/" type="_blank">
+            <img src="img/kakao.png" alt="click to kakao"
+          /></a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
