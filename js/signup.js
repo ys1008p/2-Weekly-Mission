@@ -1,33 +1,22 @@
 const email_input = document.querySelector("#username");
 const email_error_text = document.querySelector(".email_error_text");
-const signin_pw_input = document.querySelector("#signin_password");
-const signin_pw_error_text = document.querySelector(".signin_pw_error_text");
 
 const pw_input = document.querySelector("#signup_password");
-const signup_pw_error_text = document.querySelector(".signup_pw_error_text");
+const pw_error_text = document.querySelector(".pw_error_text");
 const pw_check_input = document.querySelector("#password_check");
-const signup_pw_check_error_text = document.querySelector(
-  ".signup_pw_check_error_text"
-);
+const pw_check_error_text = document.querySelector(".pw_check_error_text");
 
 function checkEmail() {
-  // 이메일 input에서 focus out 할 때, 값이 없을 경우 input에 빨강색 테두리와
-  // 아래에 “이메일을 입력해주세요.” 빨강색 에러 메세지가 보입니다
   if (email_input.value === "") {
     email_input.classList.add("inputError");
     email_error_text.innerHTML = "이메일을 입력해주세요.";
   } else {
-    // 이메일 input에서 focus out 할 때, 이메일 형식에 맞지 않는 값이 있는 경우
-    // input에 빨강색 테두리와 아래에
-    // “올바른 이메일 주소가 아닙니다.” 빨강색 에러 메세지가 보입니다
     if (email_input.value.includes("@") == false) {
       email_input.classList.add("inputError");
       email_error_text.innerHTML = "올바른 이메일 주소가 아닙니다.";
     }
   }
 
-  // 이메일 input에서 focus out 일 때, input 값이 test@codeit.com 일 경우
-  // input에 빨강색 테두리와 아래에 “이미 사용 중인 이메일입니다.” 빨강색 에러 메세지가 보입니다.
   if (email_input.value === "test@codeit.com") {
     email_input.classList.add("inputError");
     email_error_text.innerHTML = "이미 사용 중인 이메일입니다.";
