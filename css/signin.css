@@ -9,10 +9,10 @@ body {
 }
 
 .signin-main {
-  width: 70%;
   margin: 0 auto;
   margin-top: 10rem;
-  max-width: 25rem;
+  max-width: 29rem;
+  padding: 0 2rem;
 }
 
 .section {
