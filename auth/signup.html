@@ -30,15 +30,15 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <div>
-              <input class="sign-input" type="email" />
+            <div class="sign-email">
+              <input class="sign-input" type="email" name="email" />
             </div>
             <div class="error-message"></div>
           </div>
           <div class="sign-input-box">
             <label class="sign-input-label">비밀번호</label>
             <div class="sign-password">
-              <input class="sign-input" type="password" />
+              <input class="sign-input" type="password" name="password" />
               <button class="eye-button" type="button">
                 <img src="../images/eye-off.svg" />
               </button>
@@ -48,7 +48,11 @@
           <div class="sign-input-box">
             <label class="sign-input-label">비밀번호 확인</label>
             <div class="sign-password">
-              <input class="sign-input confirm-password" type="password" />
+              <input
+                class="sign-input confirm-password"
+                type="password"
+                name="confirm-password"
+              />
               <button class="eye-button" type="button">
                 <img src="../images/eye-off.svg" />
               </button>

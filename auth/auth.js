@@ -1,112 +1,146 @@
 const form = document.querySelector(".sign-form");
-const submit = document.querySelector(".cta");
+const inputs = form.querySelectorAll("input");
 
-const type = submit.dataset.auth;
+const submit = document.querySelector(".cta");
+const authType = submit.dataset.auth;
+
+const SUCCESS_ACCOUNT = {
+  email: "test@codeit.com",
+  password: "codeit101",
+};
 
 const ERROR_MESSAGE = {
   signin: {
     EMPTY_EMAIL: "이메일을 입력해주세요.",
     EMPTY_PASSWORD: "비밀번호를 입력해주세요.",
-    INVALID_EMAIL: "올바른 이메일 주소가 아닙니다.",
-    INVALID_PASSWORD: "비밀번호가 일치하지 않습니다.",
-    CHECK_EMAIL: "이메일을 확인해주세요.",
-    CHECK_PASSWORD: "비밀번호를 확인해주세요.",
+    INVALID_EMAIL: "이메일을 확인해주세요",
+    INVALID_PASSWORD: "비밀번호를 확인해주세요.",
   },
   signup: {
     EMPTY_EMAIL: "이메일을 입력해주세요.",
     EMPTY_PASSWORD: "비밀번호를 입력해주세요.",
     INVALID_EMAIL: "올바른 이메일 주소가 아닙니다.",
     INVALID_PASSWORD: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
+    EXIST_EMAIL: "이미 존재하는 이메일입니다.",
     PASSWORD_EQUAL: "비밀번호가 일치하지 않아요.",
   },
+};
+
+const PATTERN = {
+  email:
+    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+  password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
 };
 
 const emailInput = document.querySelector('.sign-input[type="email"]');
 const passwordInput = document.querySelector('.sign-input[type="password"]');
 const confirmPasswordInput = document.querySelector(".confirm-password");
 
-const emailError = emailInput.parentNode.nextElementSibling;
-const passwordError = passwordInput.parentNode.nextElementSibling;
-const confirmPasswordError =
-  confirmPasswordInput?.parentNode.nextElementSibling;
-
-form.addEventListener("focusout", (e) => {
-  setTimeout(() => {
-    if (e.target === emailInput) {
-      validateEmail();
-    }
-    if (e.target === passwordInput) {
-      validatePassword();
-    }
-    if (type === "signup" && e.target === confirmPasswordInput) {
-      validateConfirmPassword();
-    }
-  }, 300);
-});
-
-form.addEventListener("submit", (e) => {
-  const isEmailValid = validateEmail();
-  const isPasswordValid = validatePassword();
-  const isConfirmPasswordValid =
-    type === "signup" ? validateConfirmPassword() : true;
-
-  if (!isEmailValid || !isPasswordValid || !isConfirmPasswordValid) {
-    e.preventDefault();
-    if (type === "signin") {
-      emailError.textContent = ERROR_MESSAGE[type].CHECK_EMAIL;
-      passwordError.textContent = ERROR_MESSAGE[type].CHECK_PASSWORD;
-    }
-  }
-});
-
-function validateEmail() {
-  let isValid = true;
-  if (emailInput.value === "") {
-    emailError.textContent = ERROR_MESSAGE[type].EMPTY_EMAIL;
-    isValid = false;
-  } else if (!isEmailValid(emailInput.value)) {
-    emailError.textContent = ERROR_MESSAGE[type].INVALID_EMAIL;
-    isValid = false;
-  }
-  return isValid;
-}
-
-function validatePassword() {
-  let isValid = true;
-  if (passwordInput.value === "") {
-    passwordError.textContent = ERROR_MESSAGE[type].EMPTY_PASSWORD;
-    isValid = false;
-  } else if (!isPasswordValid(passwordInput.value)) {
-    passwordError.textContent = ERROR_MESSAGE[type].INVALID_PASSWORD;
-    isValid = false;
-  }
-  return isValid;
-}
-
-function validateConfirmPassword() {
-  if (passwordInput.value !== confirmPasswordInput.value) {
-    confirmPasswordError.textContent = ERROR_MESSAGE[type].PASSWORD_EQUAL;
-    return false;
-  }
-  return true;
-}
-
 function resetErrorMessage() {
   const errorMessages = document.querySelectorAll(".error-message");
   errorMessages.forEach((message) => (message.textContent = ""));
 }
 
-function isEmailValid(email) {
-  const patten =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-  return patten.test(email);
+const getErrorMessage = (type, condition) => {
+  const errorType = condition ? "EMPTY_" : "INVALID_";
+  return ERROR_MESSAGE[authType][errorType + type.toUpperCase()];
+};
+
+function displayError(input, errorMessage) {
+  const errorDisplay = input.parentNode.nextElementSibling;
+  errorDisplay.textContent = errorMessage;
 }
 
-function isPasswordValid(password) {
-  const patten = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-  return patten.test(password);
+const validationState = {};
+
+function validateInput(input) {
+  const { type, value } = input;
+  let errorMessage = "";
+
+  if (value === "") {
+    errorMessage = getErrorMessage(type, true);
+  } else if (!PATTERN[type].test(value)) {
+    errorMessage = getErrorMessage(type, false);
+  } else if (authType === "signup" && value === SUCCESS_ACCOUNT.email) {
+    errorMessage = ERROR_MESSAGE[authType]["EXIST_EMAIL"];
+  }
+
+  validationState[input.name] = errorMessage ? false : true;
+
+  return errorMessage;
 }
 
-function isConfirmValid(password, confirmPassword) {
-  return password && password === confirmPassword;
-}
+const focusHandler = (e) => {
+  if (e.target.tagName === "INPUT") {
+    const errorMessage = validateInput(e.target);
+    displayError(e.target, errorMessage);
+  }
+};
+
+const submitHandler = (e) => {
+  e.preventDefault();
+  resetErrorMessage();
+  let isValid = true;
+  let account = {};
+
+  inputs.forEach((input) => {
+    const { type, value } = input;
+    if (validationState[input.name] === undefined) {
+      const errorMessage = validateInput(input);
+      if (errorMessage) {
+        displayError(input, errorMessage);
+        isValid = false;
+      }
+    } else if (!validationState[input.name]) {
+      displayError(
+        input,
+        ERROR_MESSAGE[authType]["INVALID_" + type.toUpperCase()]
+      );
+      isValid = false;
+    }
+    account[type] = value;
+  });
+
+  let isSubmit = false;
+
+  if (authType === "signin" && isValid) {
+    if (account.email !== SUCCESS_ACCOUNT.email) {
+      displayError(emailInput, ERROR_MESSAGE[authType]["INVALID_EMAIL"]);
+      isValid = false;
+    } else if (account.password !== SUCCESS_ACCOUNT.password) {
+      displayError(passwordInput, ERROR_MESSAGE[authType]["INVALID_PASSWORD"]);
+      isValid = false;
+    } else {
+      isSubmit = true;
+    }
+  }
+
+  if (authType === "signup" && isValid) {
+    if (account.email === SUCCESS_ACCOUNT.email) {
+      displayError(emailInput, ERROR_MESSAGE[authType]["EXIST_EMAIL"]);
+      isValid = false;
+    } else if (passwordInput.value !== confirmPasswordInput.value) {
+      displayError(
+        confirmPasswordInput,
+        ERROR_MESSAGE[authType]["PASSWORD_EQUAL"]
+      );
+      isValid = false;
+    }
+    if (isValid) {
+      isSubmit = true;
+    }
+  }
+  if (isSubmit) {
+    form.submit();
+  }
+};
+
+const keyupHandler = (e) => {
+  if (e.key === "Enter") {
+    submit.click();
+  }
+};
+
+form.addEventListener("focusout", focusHandler);
+form.addEventListener("submit", submitHandler);
+document.addEventListener("keyup", keyupHandler);
