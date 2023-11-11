@@ -59,6 +59,18 @@ input:focus {
   outline: 0.1rem solid var(--primary-color, #6d6afe);
 }
 
+.error {
+  outline: 0.1rem solid var(--red-color, #ff5b56)
+}
+
+.email-error-message,
+.password-error-message,
+.password-check-error-message {
+  display: none;
+  color: var(--red-color, #ff5b56);
+  font-size: 1.6rem;
+}
+
 .password {
   position: relative;
 }
