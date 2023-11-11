@@ -75,7 +75,27 @@ function doubleCheakingPassword(){
   }
 }
 
+// 로그인, 회원가입
+const signForm = document.querySelector('.sign-middle');
+
+function submitForm (e) {
+  e.preventDefault();
+  if (useremail.value && (password.value || password2.value)){
+    if (signInputEmail.lastChild.tagName !== "P" && (signInputPassword.lastChild.tagName !== "P" || signInputPassword2.lastChild !== "P")){
+      location.href = "/folder";
+      return; 
+    }
+  }
+  if (useremail.value === 'test@codeit.com' && password.value === 'codeit101'){
+    location.href = "/folder";
+    return;
+  }
+}
+
+
+
 useremail.addEventListener('focusout', chackingEmail);
 password.addEventListener('focusout', chackingPassword);
 
+signForm.addEventListener('submit', submitForm);
 password2.addEventListener('focusout', doubleCheakingPassword);
