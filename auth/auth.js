@@ -41,7 +41,7 @@ form.addEventListener("focusout", (e) => {
     if (type === "signup" && e.target === confirmPasswordInput) {
       validateConfirmPassword();
     }
-  }, 500);
+  }, 300);
 });
 
 form.addEventListener("submit", (e) => {
