@@ -7,4 +7,4 @@ export const passwordError = document.querySelector('.password-error-message');
 export const passwordCheckError = document.querySelector('.password-check-error-message');
 
 
-export const signBtn = document.querySelector('.button');
+export const signBtn = document.querySelector('button');

@@ -92,7 +92,8 @@ button {
   border: none;
 }
 
-.button {
+.signin-button,
+.signup-button {
   background-image: linear-gradient(90deg, #6d6afe, #6ae3fe);
   font-size: 1.8rem;
   text-align: center;
