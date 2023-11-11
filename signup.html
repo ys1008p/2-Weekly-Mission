@@ -24,11 +24,16 @@
           <div class="signup__input-area--form-email">
             <h2>이메일</h2>
             <input type="email" id="email" name="email" />
-            <p>이메일을 입력해주세요</p>
+            <p class="error-message__null">이메일을 입력해주세요</p>
+            <p class="error-message__wrong">올바른 이메일 주소가 아닙니다.</p>
+            <p class="error-message__used">이미 사용 중인 이메일입니다.</p>
           </div>
           <div action="" class="signup__input-area--form-pw">
             <h2>비밀번호</h2>
             <input type="password" id="pw" name="password" />
+            <p class="error-message__eight">
+              비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.
+            </p>
             <button><img src="./assets/eye-on.svg" alt="open-eye" /></button>
           </div>
           <div action="" class="signup__input-area--form-pw-check">

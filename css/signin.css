@@ -103,13 +103,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.signin__input-area--form-email p {
-  margin-top: 6px;
-  font-size: 0.875rem;
-  color: var(--red);
-  display: none;
-}
-
 .signin__input-area--social {
   display: flex;
   width: 100%;
@@ -131,13 +124,4 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-}
-
-/* 에러 발생 시 클래스 이름  */
-.signin__input-area--form .error-input {
-  border: 1px solid var(--red);
-}
-
-.signin__input-area--form .display {
-  display: block;
 }

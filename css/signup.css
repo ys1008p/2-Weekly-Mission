@@ -93,13 +93,6 @@ body {
   align-items: center;
 }
 
-.signup__input-area--form-pw-check p {
-  color: var(--red);
-  font-size: 14px;
-  font-weight: 400;
-  margin-top: 0.375rem;
-}
-
 .signup__input-area--form input {
   width: 100%;
   background-color: var(--white);
@@ -143,6 +136,16 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+}
+
+/* 에러 발생 시 보여주는 태그 */
+.signup__input-area--form-email p,
+.signup__input-area--form-pw p,
+.signup__input-area--form-pw-check p {
+  margin-top: 6px;
+  font-size: 0.875rem;
+  color: var(--red);
+  display: none;
 }
 
 /* 에러 발생 시 클래스 이름  */
