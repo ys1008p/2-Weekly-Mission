@@ -60,6 +60,13 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.signup__input-area--form-email p {
+  margin-top: 6px;
+  font-size: 0.875rem;
+  color: var(--red);
+  display: none;
+}
+
 .signup__input-area--form h2 {
   font-size: 0.875rem;
   color: var(--black);
@@ -136,4 +143,13 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+}
+
+/* 에러 발생 시 클래스 이름  */
+.signup__input-area--form .error-input {
+  border: 1px solid var(--red);
+}
+
+.signup__input-area--form .display {
+  display: block;
 }
