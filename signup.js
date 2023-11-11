@@ -4,8 +4,9 @@ import { enterEmailMessage, enterPasswordMessage, enterPasswordCheckMessage, cha
 inputEmail.addEventListener('focusout', enterEmailMessage);
 inputPassword.addEventListener('focusout', enterPasswordMessage);
 inputPasswordCheck.addEventListener('input', enterPasswordCheckMessage);
-btn.addEventListener('click', function(e) {
+btn.addEventListener('click', e => {
   e.preventDefault();
+
   enterEmailMessage(e);
   enterPasswordMessage(e);
   enterPasswordCheckMessage(e);
@@ -16,5 +17,4 @@ btn.addEventListener('click', function(e) {
   }
 });
 
-eyeBtn[0].addEventListener('click', changePasswordVision);
-eyeBtn[1].addEventListener('click', changePasswordVision);
+eyeBtn.forEach(el => el.addEventListener('click', changePasswordVision));

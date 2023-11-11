@@ -1,33 +1,27 @@
 import { inputPassword } from "../tags.js";
+import { removeRedMessage, createRedMessage } from './error_message.js';
 
 let passwordValid = false;
 
-// 인풋 박스에 나타난 에러를 초기화하는 함수
-function removeRedMessage(inputBox) {
-  if (inputBox.nextSibling.className == 'message') {
-    inputBox.nextSibling.remove();
-    inputBox.classList.remove('redBox');
-  }
+function printEmpty () {
+  createRedMessage(inputPassword, '비밀번호를 입력해주세요.');
 }
 
-// 인풋 박스에 에러 메세지를 나타내는 함수
-function createRedMessage (inputBox, notice){
-  inputBox.classList.add('redBox');
-
-  const message = document.createElement('div');
-  message.textContent = notice;
-  message.classList.add('message');
-  inputBox.after(message);
+function printWorng () {
+  createRedMessage(inputPassword, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
 }
 
 // 비밀번호 유효성을 검증하는 함수
 function enterPasswordMessage(e) {
-  const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+  const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  const passwordValue = inputPassword.value;
 
   removeRedMessage(inputPassword);
 
-  if (!passwordFormat.test(inputPassword.value)) {
-    createRedMessage (inputPassword, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
+  if (!passwordValue) {
+    printEmpty();
+  } else  if (!passwordFormat.test(passwordValue)) {
+    printWorng();
   } else {
     passwordValid = true;
   }

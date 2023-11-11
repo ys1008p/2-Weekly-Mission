@@ -3,8 +3,9 @@ import { enterEmailMessage, enterPasswordMessage, changePasswordVision } from ".
 
 inputEmail.addEventListener('focusout', enterEmailMessage);
 inputPassword.addEventListener('focusout', enterPasswordMessage);
-btn.addEventListener('click', function(e) {
+btn.addEventListener('click', e => {
   e.preventDefault();
+
   enterEmailMessage(e);
   enterPasswordMessage(e);
 });

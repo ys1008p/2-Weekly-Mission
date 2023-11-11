@@ -1,35 +1,27 @@
 import { inputEmail, inputPassword } from "../tags.js";
+import { removeRedMessage, createRedMessage } from './error_message.js';
 
-// 인풋 박스에 나타난 에러를 초기화하는 함수
-function removeRedMessage(inputBox) {
-  if (inputBox.nextSibling.className == 'message') {
-    inputBox.nextSibling.remove();
-    inputBox.classList.remove('redBox');
-  }
-}
+const userInfo = { 'test@codeit.com': 'codeit101' };
 
-// 인풋 박스에 에러 메세지를 나타내는 함수
-function createRedMessage (inputBox, notice){
-  inputBox.classList.add('redBox');
+function printEmpty () {
+  createRedMessage(inputEmail, '이메일을 입력해주세요.');
+} 
 
-  const message = document.createElement('div');
-  message.textContent = notice;
-  message.classList.add('message');
-  inputBox.after(message);
+function printCheck () {
+  createRedMessage(inputEmail, '이메일을 확인해주세요.');
 }
 
 // 이메일 유효성을 검증하는 함수
 function enterEmailMessage(e) {
+  const emailValue = inputEmail.value;
+  const passwordValue = inputPassword.value;
+
   removeRedMessage(inputEmail);
 
-  if (!inputEmail.value) {
-    createRedMessage(inputEmail, '이메일을 입력해주세요.');
+  if (!emailValue) {
+    printEmpty();
   } else if (e.type === 'click') {
-    if (inputPassword.value === 'codeit101' && inputEmail.value === 'test@codeit.com') {
-      window.open("/folder", "_self");
-    } else {
-      createRedMessage(inputEmail, '이메일을 확인해주세요.')
-    }
+    (userInfo[emailValue] === passwordValue) ? window.open("/folder", "_self") : printCheck();
   }
 }
 
