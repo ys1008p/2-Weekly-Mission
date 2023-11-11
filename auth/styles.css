@@ -90,6 +90,11 @@ header {
   border-color: var(--primary);
 }
 
+.error-message {
+  font-size: 1.4rem;
+  color: var(--Red);
+}
+
 .eye-button {
   position: absolute;
   top: 50%;
