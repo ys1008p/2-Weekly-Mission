@@ -1,8 +1,8 @@
 import { emailInput, passwordInput, passwordCheckInput, emailError, passwordError, signBtn } from "./seletors.js";
-import { emailErrorMessage, passwordCheckErrorMessage, passwordErrorMessage } from "./functions.js";
+import { signupEmailErrorMessage, passwordCheckErrorMessage, passwordErrorMessage } from "./functions.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-  emailInput.addEventListener('focusout', emailErrorMessage);
+  emailInput.addEventListener('focusout', signupEmailErrorMessage);
   passwordInput.addEventListener('focusout', passwordErrorMessage);
   passwordCheckInput.addEventListener('focusout', passwordCheckErrorMessage);
 })

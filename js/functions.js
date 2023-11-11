@@ -6,13 +6,28 @@ import { emailInput, passwordInput, passwordCheckInput, emailError, passwordErro
 
 
 
-// 이메일 에러메세지
-export function emailErrorMessage() {
+// signin 이메일 에러메세지
+export function signinEmailErrorMessage() {
   const emailValue = emailInput.value.trim();
   if (emailValue === '') {
     showEmailError(ERROR_MESSAGES.emptyEmail);
   } else if (!isValidEmail(emailValue)) {
     showEmailError(ERROR_MESSAGES.wrongEmail);
+  } else {
+    hideError(emailInput, emailError);
+  }
+};
+
+// signup 이메일 에러메세지
+export function signupEmailErrorMessage() {
+  const emailValue = emailInput.value.trim();
+  if (emailValue === '') {
+    showEmailError(ERROR_MESSAGES.emptyEmail);
+  } else if (!isValidEmail(emailValue)) {
+    showEmailError(ERROR_MESSAGES.wrongEmail);
+  } else if (emailValue === USER_DATA[0].email) { 
+  // 나중에 user@codeit.com 말고 다른 회원가입 정보들이 추가되면 [0]으로 지정하면 안될 것 같은데 어떻게 해야하지.... 반복문...?
+    showEmailError(ERROR_MESSAGES.exsistEmail);
   } else {
     hideError(emailInput, emailError);
   }
