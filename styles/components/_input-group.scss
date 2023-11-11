@@ -9,6 +9,10 @@
 
     input {
       @extend %input-base;
+
+      &.error {
+        border-color: $red;
+      }
     }
 
     button {
