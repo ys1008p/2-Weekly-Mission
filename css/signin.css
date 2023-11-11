@@ -90,7 +90,7 @@ body {
   border: 1px solid var(--purple);
 }
 
-.signin__input-area--login {
+.signin__input-area--btn {
   background: linear-gradient(
     91deg,
     var(--purple) 0.12%,
