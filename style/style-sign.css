@@ -75,10 +75,21 @@ input:focus {
   position: relative;
 }
 
-.eye {
+.eye-button {
   position: absolute;
-  top: 2em;
+  top: 50%;
   right: 2rem;
+  transform: translateY(-50%);
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.eye-on {
+  background-image: url("../images/eye-on.svg");
+}
+
+.eye-off {
+  background-image: url("../images/eye-off.svg");
 }
 
 form {
@@ -90,10 +101,10 @@ form {
 
 button {
   border: none;
+  cursor: pointer;
 }
 
-.signin-button,
-.signup-button {
+.sign-button {
   background-image: linear-gradient(90deg, #6d6afe, #6ae3fe);
   font-size: 1.8rem;
   text-align: center;
@@ -101,7 +112,6 @@ button {
   font-weight: 600;
   border-radius: 0.8rem;
   padding: 1.6rem 2rem;
-  cursor: pointer;
   width: 100%;
 }
 
