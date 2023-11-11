@@ -6,8 +6,7 @@
     <title>sigup</title>
     <link rel="stylesheet" href="signin.css" />
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-gov-dynamic-subset.css" />
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-gov.css" />
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-gov.css" />
+    <script defer src="signin.js"></script>
   </head>
   <body>
     <div class="signin_box">
@@ -29,11 +28,11 @@
         <input id="email" name="email" placeholder="codeit@codeit.com" type="email"><br>
 
         <label for="password">비밀번호</label><br>
-        <input id="password" placeholder="linkbrary2023" type="password">
+        <input id="password" name="password" placeholder="linkbrary2023" type="password">
         <img class="eye" src="img/eye-on.png" alt="비밀번호 보이게 하기"><br>
 
         <label for="password_check">비밀번호 확인</label><br>
-        <input id="password_check" placeholder="linkbrary20245" type="password">
+        <input id="password_check" name="password" placeholder="linkbrary20245" type="password">
         <img class="eye check_eye" src="img/eye-on.png" alt="비밀번호 확인 보이게 하기" ><br>
 
         <button>회원가입</button>
@@ -48,6 +47,6 @@
         <a href="https://www.kakaocorp.com/page/"><img class="sns" src="img/kakao.png" alt="카카오톡 계정으로 가입하기"></a>
       </section>  
     </footer>
-    </div>
+   </div>
   </body>
 </html>
