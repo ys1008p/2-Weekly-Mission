@@ -8,8 +8,8 @@ const pwCheckInput = document.getElementById("pwd-check");
 const eyeOff = document.querySelector(".off-img");
 const eyeOn = document.querySelector(".on-img");
 //eye check
-const eyeCheckOn = document.querySelector(".check-off");
-const eyeCheckOff = document.querySelector(".check-on");
+const eyeCheckOn = document.querySelector(".check-on");
+const eyeCheckOff = document.querySelector(".check-off");
 
 //비밀번호 input
 eyeBtn.addEventListener("click", () => {
