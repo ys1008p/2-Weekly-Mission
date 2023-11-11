@@ -21,8 +21,10 @@ const handleSubmit = (e) => {
   isValidSignup() && redirectToPage()
 }
 
-emailInput.addEventListener('focusout', validateEmail)
-emailInput.addEventListener('focusout', checkEmail)
+emailInput.addEventListener('focusout', () => {
+  validateEmail()
+  checkEmail()
+})
 passwordInput.addEventListener('focusout', validatePassword)
 passwordConfirmInput.addEventListener('focusout', checkPassword)
 eyeToggle.forEach((item) => item.addEventListener('click', activeShowMode))
