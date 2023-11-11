@@ -48,6 +48,13 @@ function validateEmailInput(email) {
     );
     return;
   }
+  if (email === "test@codeit.com"){
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      "이미 사용 중인 이메일입니다."
+    );
+    return;
+  }
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
 
