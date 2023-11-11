@@ -39,18 +39,38 @@
 }
 
 .service {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  justify-content: center;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
+  grid-template-areas: 
+    '. image'
+    'title image'
+    'description image'
+    '. image';  
   width: 99.8rem;
+  height: 55rem;
+  margin: 0 auto;
 }
 
-.service:nth-child(even) {
-  flex-direction: row-reverse;
+.service:nth-of-type(even) {
+  grid-template:
+    "image ."
+    "image title"
+    "image description"
+    "image ." / 55rem 1fr;
+}
+
+.service:nth-of-type(odd) {
+  grid-template:
+    ". image"
+    "title image"
+    "description image"
+    ". image" / 1fr 55rem;
 }
 
 .service .title {
-  margin-bottom: 1rem;
+  grid-area: title;
   font-size: 4.8rem;
   font-weight: 700;
   line-height: 5.8rem;
@@ -58,6 +78,7 @@
 }
 
 .service .description {
+  grid-area: description;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
@@ -65,7 +86,7 @@
 }
 
 .service-content {
-  flex-basis: 55rem;
+  grid-area: image;
 }
 
 .service .image {
@@ -146,11 +167,25 @@
   }
 
   .service {
+    column-gap: 5.1rem;
     width: 69.8rem;
+    height: 31.5rem;
   }
 
-  .service-content {
-    flex-basis: 38.5rem;
+  .service:nth-of-type(even) {
+    grid-template: 
+      "image ."
+      "image title"
+      "image description"
+      "image ." / 38.5rem 1fr;
+  }
+
+  .service:nth-of-type(odd) {
+    grid-template: 
+      ". image"
+      "title image"
+      "description image" 
+      ". image" / 1fr 38.5rem;
   }
 }
 
@@ -184,31 +219,37 @@
   }
 
   .service {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     width: 100%;
-    row-gap: 2.4rem;
+    height: auto;
+    gap: 0;
   }
 
-  .service:nth-child(even) {
-    flex-direction: column;
+  .service:nth-of-type(even) {
+    grid-template: 
+      "title"
+      "image"
+      "description";
   }
 
+  .service:nth-of-type(odd) {
+    grid-template: 
+      "title"
+      "image"
+      "description";
+  }
+  
   .service .title {
-    order: 1;
+    margin-bottom: 20px;
     font-size: 2.4rem;
     line-height: 2.9rem;
   }
-  
-  .service .description {
-    order: 3;
-    font-size: 1.5rem;
-  }
 
   .service-content {
-    order: 2;
-    flex-basis: auto;
+    margin-bottom: 16px;
+  }
+  
+  .service .description {
+    font-size: 1.5rem;
   }
 
   .button-primary.signin {
