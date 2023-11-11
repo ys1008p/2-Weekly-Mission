@@ -13,7 +13,7 @@
 }
 
 html {
-  font-family: Pretendard, sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 62.5%;
   word-break: keep-all;
 }
@@ -74,6 +74,19 @@ button:focus {
 
 .bgc-blue {
   background: var(--color-gray2);
+}
+
+/* 접근성을 지키며 요소 숨김 */
+.hide-element {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /* PC */

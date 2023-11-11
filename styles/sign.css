@@ -66,12 +66,13 @@
   position: relative;
 }
 
-#input-password-chk {
-  /* border: 1px solid var(--color-red); */
+.input-error {
+  border: 1px solid var(--color-red);
 }
 
-.form__password-chk--error {
-  margin-top: -1.6rem;
+.input-error__message {
+  display: inline-block;
+  margin-top: 0.6rem;
   color: var(--color-red);
   font-size: 1.4rem;
 }
@@ -88,6 +89,10 @@
   height: 1.6rem;
   background-size: 1.6rem;
   cursor: pointer;
+}
+
+.eye-icon__error {
+  bottom: 4.6rem;
 }
 
 .form__input--eye-off {
