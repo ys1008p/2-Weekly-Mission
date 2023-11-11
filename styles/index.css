@@ -12,12 +12,12 @@
 
 .landing {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  row-gap: 4rem;
+  flex-direction: column;
   padding-top: 7rem;
   background-color: var(--blue-color-bg);
   text-align: center;
+  row-gap: 4rem;
 }
 
 .landing .title {
@@ -32,25 +32,25 @@
 
 .services {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  row-gap: 10rem;
+  flex-direction: column;
   padding: 12rem 0;
+  row-gap: 10rem;
 }
 
 .service {
   display: grid;
   justify-content: center;
+  margin: 0 auto;  
+  width: 99.8rem;
+  height: 55rem;
   column-gap: 15.7rem;
   row-gap: 1rem;
   grid-template-areas: 
     '. image'
     'title image'
     'description image'
-    '. image';  
-  width: 99.8rem;
-  height: 55rem;
-  margin: 0 auto;
+    '. image';
 }
 
 .service:nth-of-type(even) {
@@ -70,19 +70,19 @@
 }
 
 .service .title {
-  grid-area: title;
   font-size: 4.8rem;
   font-weight: 700;
   line-height: 5.8rem;
   letter-spacing: -0.03rem;
+  grid-area: title;
 }
 
 .service .description {
-  grid-area: description;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
   color: #6B6B6B;
+  grid-area: description;
 }
 
 .service-content {
@@ -102,8 +102,8 @@
 }
 
 .footer .container {
-  height: 16rem;
   padding: 3.2rem 10.4rem;
+  height: 16rem;
 }
 
 .footer .copyright {
@@ -167,9 +167,9 @@
   }
 
   .service {
-    column-gap: 5.1rem;
     width: 69.8rem;
     height: 31.5rem;
+    column-gap: 5.1rem;
   }
 
   .service:nth-of-type(even) {
@@ -200,8 +200,8 @@
   }
 
   .landing {
-    row-gap: 2.4rem;
     padding: 2.8rem 2rem 0;
+    row-gap: 2.4rem;
   }
 
   .landing .title {
@@ -214,14 +214,14 @@
   }
 
   .services {
-    row-gap: 4.2rem;
     padding: 4rem 3.2rem;
+    row-gap: 4.2rem;
   }
 
   .service {
+    gap: 0;
     width: 100%;
     height: auto;
-    gap: 0;
   }
 
   .service:nth-of-type(even) {
@@ -262,14 +262,14 @@
 
   .footer .container {
     display: grid;
-    grid-template: 1fr 1fr / 2fr 1fr;
     padding: 3.2rem;
+    grid-template: 1fr 1fr / 2fr 1fr;
   }
 
   .footer .copyright {
+    align-self: end;
     grid-row: 2;
     grid-column: 1;
-    align-self: end;
   }
 
   .footer-info {
@@ -278,9 +278,9 @@
   }
 
   .footer-sns {
+    justify-content: end;
     grid-row: 1;
     grid-column: 2;
-    justify-content: end;
   }
 
 }
