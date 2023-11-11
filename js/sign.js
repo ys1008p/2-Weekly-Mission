@@ -18,7 +18,7 @@ function emailTypeChacking (useremail){
 function errPaint(massage, append, signInput){
   const p = document.createElement('p');
   p.innerText = massage;
-  p.classList.add('input-err')
+  p.classList.add('input-err');
   append.appendChild(p);
   signInput.value = ""
 }
@@ -63,3 +63,19 @@ function chackingPassword () {
 
 useremail.addEventListener('focusout', chackingEmail);
 password.addEventListener('focusout', chackingPassword);
+
+//비밀번호 재확인
+const password2 = document.querySelector('#password2');
+const signInputPassword2 = document.querySelector('.sign-input-password2');
+
+password2.addEventListener('focusout', doubleCheakingPassword);
+
+function doubleCheakingPassword(){
+  // 에어코드 중복 방지
+  if (password2.parentNode.childNodes[7]){
+    password2.parentNode.childNodes[7].remove();
+  }
+  if (password.value !== password2.value){
+    errPaint('비밀번호가 일치하지 않아요', signInputPassword2, password2);
+  }
+}
