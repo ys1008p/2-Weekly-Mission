@@ -105,7 +105,7 @@ header {
 
 .eye-button {
   position: absolute;
-  bottom: 40%;
+  bottom: 41%;
   right: 1.5rem;
   width: 2rem;
   height: 2rem;
@@ -181,5 +181,14 @@ font-weight: 400;
 line-height: normal;
 height: 14px;
 }
+.confirm-message{
+  color: mediumblue;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 14px;
+  }
 #email-error{visibility: visible;}
 #password-error{visibility: visible;}
