@@ -4,7 +4,6 @@ const signInputEmail = document.querySelector('.sign-input-email');
 const password = document.querySelector('#password');
 const signInputPassword = document.querySelector('.sign-input-password');
 
-
 // 이메일 타입이 잘못되었는지 확인하는 함수
 function emailTypeChacking (useremail){
   const exptext = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
