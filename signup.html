@@ -13,37 +13,41 @@
   </head>
 </html>
 <body>
-  <main>
+  <div class="main-margin">
     <header>
       <a href="index.html">
         <img class="logo" alt="로그인페이지 로고" src="./images/logologin.svg">
       </a>
-      <p>
-        dlal 회원이 아니신가요?
-        <a class="signup" href="signin.html">로그인 하기</a>
+      <p class="already">
+        이미 회원이신가요?
+        <a class="linkToLogin" href="signin.html">로그인 하기</a>
       </p>  
     </header>
-    <form>
-      <label for="email">이메일</label>
-      <input id="email" name="username">
-      <label for="password">비밀번호</label>
-      <input id="password" name="password" type="password">
-      <label for="password-check">비밀번호 확인</label>
-      <input id="password-check" name="password-check" type="password">
-      <button>로그인</button>
-    </form>
-    <section class="login-social">
-      <div class="login-detail">
-        <p>소셜 로그인</p>
-        <div class="social-icon">
-          <a href="https://www.google.com/">
-            <img class="icon-google" alt="구글로 로그인" src="./images/login_google.png">
-          </a>
-          <a href="https://www.kakaocorp.com/page/">
-            <img class="icon-kakao" alt="카카오로 로그인" src="./images/kakao.png">
-          </a> 
+    <main>
+      <section>
+        <form>
+          <label for="email">이메일</label>
+          <input id="email" name="username">
+          <label for="password">비밀번호</label>
+          <input id="password" name="password" type="password">
+          <label for="password-check">비밀번호 확인</label>
+          <input id="password-check" name="password-check" type="password">
+          <button>로그인</button>
+        </form>
+      </section>
+      <section class="login-social">
+        <div class="login-detail">
+          <p>소셜 로그인</p>
+          <div class="social-icon">
+            <a href="https://www.google.com/">
+              <img class="icon-google" alt="구글로 로그인" src="./images/login_google.png">
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img class="icon-kakao" alt="카카오로 로그인" src="./images/kakao.png">
+            </a> 
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 </body>
