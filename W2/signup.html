@@ -13,49 +13,50 @@
     />
   </head>
   <body>
-    <div class="container">
-      <div class="logo">
-        <a href="index.html">
-          <img src="./img/logo.svg" alt="Linkbrary logo to home page" />
-        </a>
-        <h1>이미 회원이신가요? <a href="./signin.html">로그인하기</a></h1>
-      </div>
-      <form class="id-password">
-        <h2>이메일</h2>
-        <input class="input" type="email" />
-        <h2>비밀번호</h2>
-        <div class="password">
-          <input class="input" type="password" />
-          <img class="eye-off" src="./img/signin/eye-off.png" alt="eye-off" />
-          <h2>비밀번호 확인</h2>
-          <input class="input" type="password" />
-          <img class="eye-off" src="./img/signin/eye-off.png" alt="eye-off" />
-          <h2 class="wrong-password">비밀번호가 다릅니다</h2>
+    <header>
+      <a class="logo" href="index.html">
+        <img src="./img/logo.svg" alt="Linkbrary logo to home page" />
+      </a>
+      <h1 class="header-message">
+        회원이 아니신가요?
+        <a class="header-link" href="./signin.html">로그인 하기</a>
+      </h1>
+    </header>
+
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="sign-inputs">
+          <div class="sign-input-box">
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" />
+          </div>
+
+          <div class="sign-input-box sign-password">
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" type="password" />
+            <button class="eye-button" type="button">
+              <img src="./img/signin/eye-off.svg" alt="eye-off" />
+            </button>
+          </div>
+          <div class="sign-input-box sign-password">
+            <label class="sign-input-label">비밀번호 확인</label>
+            <input class="sign-input" type="password" />
+            <button class="eye-button" type="button">
+              <img src="./img/signin/eye-off.svg" />
+            </button>
+          </div>
         </div>
+        <button class="cta" type="submit">로그인</button>
       </form>
-      <a class="login" href="./signin.html"><span>회원가입</span></a>
-      <div class="sns">
-        <h2>다른 방식으로 가입하기</h2>
-        <div class="sns-logos">
-          <a
-            href="https://www.google.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="./img/signin/google.png"
-              alt="google 홈페이지로 연결된 google 로고"
-            />
+
+      <div class="sns-box">
+        <h2 class="sns-text">소셜로그인</h2>
+        <div class="sns-links">
+          <a class="sns-link google-link" href="https://www.google.com/">
+            <img src="./img/signin/google.png" />
           </a>
-          <a
-            href="https://www.kakaocorp.com/page/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="./img/signin/kakaotalk.png"
-              alt="kakaocorp 홈페이지로 연결된 kakao 로고"
-            />
+          <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+            <img src="./img/signin/kakaotalk.png" />
           </a>
         </div>
       </div>

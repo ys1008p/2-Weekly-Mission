@@ -13,3 +13,10 @@ body {
 a {
   text-decoration: none;
 }
+
+button {
+  border: none;
+  padding: unset;
+  background-color: unset;
+  cursor: pointer;
+}

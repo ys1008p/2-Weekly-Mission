@@ -8,13 +8,23 @@ header {
 
 nav {
   display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #edf7ff;
+}
+
+.gnb {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 192rem;
   height: 9.4rem;
+  max-width: 192rem;
   padding: 0 20rem;
 }
+
 .head-content {
   display: flex;
   flex-direction: column;
@@ -176,4 +186,100 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1200px) {
+  nav {
+    padding: 0 32px;
+  }
+
+  .head-image {
+    width: 650.303px;
+    height: 383.114px;
+    flex-shrink: 0;
+  }
+
+  section {
+    padding: 80px 250px 50px 251px;
+    height: auto;
+    flex-shrink: 0;
+    gap: 51px;
+  }
+
+  .content-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 400px) {
+  nav {
+    padding: 0 32px;
+  }
+
+  .head-content {
+    padding: 28px 32px 0px 33px;
+  }
+
+  .head-image {
+    width: 100%;
+    height: auto;
+    padding: 0 32px 0;
+  }
+
+  .content-image {
+    width: 100%;
+    height: auto;
+    padding: 0 32px;
+  }
+
+  .main-text {
+    font-size: 32px;
+  }
+
+  section {
+    padding: 40px 32px 40px 33px;
+    gap: 8px;
+    height: auto;
+    width: 100%;
+  }
+
+  article {
+    margin-top: 0;
+    padding-top: 70px;
+    padding-bottom: 120px;
+  }
+
+  section:nth-of-type(odd) {
+    grid-template:
+      "title"
+      "image"
+      "description";
+  }
+
+  section:nth-of-type(even) {
+    grid-template:
+      "title"
+      "image"
+      "description";
+  }
+
+  .description {
+    font-size: 3rem;
+  }
+
+  .footer-box {
+    gap: 100px;
+    padding: 10px;
+  }
 }
