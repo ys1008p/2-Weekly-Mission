@@ -26,11 +26,10 @@ function hideError(input, errorType) {
 
 // [공통]비밀번호 보기, 숨기기 모드
 function activeShowMode() {
+  const { on, off } = PASSWORD_SHOW_MODE
+
   const currentType = this.previousElementSibling.type // default -> type: password /mode: off
-  const showMode =
-    currentType === PASSWORD_SHOW_MODE.off.type
-      ? PASSWORD_SHOW_MODE.on
-      : PASSWORD_SHOW_MODE.off
+  const showMode = currentType === off.type ? on : off
 
   this.previousElementSibling.type = showMode.type
   this.setAttribute('aria-label', showMode.label)
