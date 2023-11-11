@@ -8,4 +8,4 @@ btn.addEventListener('click', function(e) {
   enterEmailMessage(e);
   enterPasswordMessage(e);
 });
-eyeBtn.addEventListener('click', changePasswordVision);
+eyeBtn[0].addEventListener('click', changePasswordVision);

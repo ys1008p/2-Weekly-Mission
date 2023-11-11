@@ -1,4 +1,7 @@
-import { inputPassword } from "../tags.js";
+
+import { inputPassword, inputPasswordCheck } from "../tags.js";
+
+let checkValid = false;
 
 // 인풋 박스에 나타난 에러를 초기화하는 함수
 function removeRedMessage(inputBox) {
@@ -18,15 +21,16 @@ function createRedMessage (inputBox, notice){
   inputBox.after(message);
 }
 
-// 비밀번호 유효성을 검증하는 함수
-function enterPasswordMessage(e) {
-  removeRedMessage(inputPassword);
+// 비밀번호 확인 유효성을 검증하는 함수
+function enterPasswordCheckMessage(e) {
 
-  if (!inputPassword.value) {
-    createRedMessage (inputPassword, '비밀번호를 입력해주세요.');
-  } else if (e.type === 'click') {
-      createRedMessage(inputPassword, '비밀번호를 확인해주세요.')
-    }
+  removeRedMessage(inputPasswordCheck);
+
+  if (inputPassword.value !== inputPasswordCheck.value) {
+    createRedMessage (inputPasswordCheck, '비밀번호가 일치하지 않아요.');
+  } else {
+    checkValid = true;
   }
+}
 
-  export default enterPasswordMessage;
+export { enterPasswordCheckMessage, checkValid };

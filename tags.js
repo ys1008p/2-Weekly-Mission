@@ -1,6 +1,7 @@
 const inputEmail = document.querySelector('#useremail');
 const inputPassword = document.querySelector('#password');
-const btn = document.querySelector('.login-button');
-const eyeBtn = document.querySelector('.eye-button');
+const inputPasswordCheck = document.querySelector('#password-check');
+const btn = document.querySelector('.sign-button');
+const eyeBtn = document.querySelectorAll('.eye-button');
 
-export { inputEmail, inputPassword, btn, eyeBtn };
+export { inputEmail, inputPassword, inputPasswordCheck, btn, eyeBtn };

@@ -107,8 +107,7 @@ input:focus {
   background-image: url(../images/sign/eye-on.svg);
 }
 
-.login-button,
-.join-button {
+.sign-button {
   border: none;
   border-radius: 8px;
   background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
