@@ -102,9 +102,29 @@
   border-color: var(--primary);
 }
 
+.sign-input.sign-input-error {
+  border-color: var(--red);
+}
+
+.sign-input.sign-input-error:focus {
+  border-color: var(--red);
+}
+
+.error-message {
+  display: none;
+  margin-top: -4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--red);
+}
+
+.error-message.error-message-on {
+  display: inline-block;
+}
+
 .eye-button {
   position: absolute;
-  bottom: 22px;
+  top: 51px;
   right: 15px;
   width: 16px;
   height: 16px;
