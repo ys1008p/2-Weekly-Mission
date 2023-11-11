@@ -1,6 +1,7 @@
 /* Reset CSS */
 * {
     margin: 0;
+    word-break: keep-all;
     box-sizing: border-box;
 }
 
@@ -18,8 +19,8 @@ button,
 input,
 select,
 textarea {
-  background-color: transparent;
   border: 0;
+  background-color: transparent;
   &:focus {
     outline: none;
     box-shadow: none;

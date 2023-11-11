@@ -11,15 +11,12 @@
 }
 
 .landing {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   padding-top: 7rem;
   background-color: var(--blue-color-bg);
   text-align: center;
-}
-
-.landing {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   row-gap: 4rem;
 }
 
@@ -35,29 +32,49 @@
 
 .services {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  row-gap: 10rem;
+  flex-direction: column;
   padding: 12rem 0;
+  row-gap: 10rem;
 }
 
 .service {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  justify-content: center;
+  margin: 0 auto;  
   width: 99.8rem;
+  height: 55rem;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
+  grid-template-areas: 
+    '. image'
+    'title image'
+    'description image'
+    '. image';
 }
 
-.service:nth-child(even) {
-  flex-direction: row-reverse;
+.service:nth-of-type(even) {
+  grid-template:
+    "image ."
+    "image title"
+    "image description"
+    "image ." / 55rem 1fr;
+}
+
+.service:nth-of-type(odd) {
+  grid-template:
+    ". image"
+    "title image"
+    "description image"
+    ". image" / 1fr 55rem;
 }
 
 .service .title {
-  margin-bottom: 1rem;
   font-size: 4.8rem;
   font-weight: 700;
   line-height: 5.8rem;
   letter-spacing: -0.03rem;
+  grid-area: title;
 }
 
 .service .description {
@@ -65,10 +82,11 @@
   font-weight: 500;
   line-height: 1.5;
   color: #6B6B6B;
+  grid-area: description;
 }
 
 .service-content {
-  flex-basis: 55rem;
+  grid-area: image;
 }
 
 .service .image {
@@ -81,17 +99,15 @@
   font-size: 1.6rem;
   font-weight: 400;
   color: #CFCFCF;
-  text-align: center;
 }
 
 .footer .container {
-  height: 16rem;
   padding: 3.2rem 10.4rem;
+  height: 16rem;
 }
 
 .footer .copyright {
-  font-size: 1.6rem;
-  font-weight: 400;
+  color: #676767;
 }
 
 .footer-info .privacy {
@@ -139,4 +155,132 @@
 
 .button-primary.signup {
   width: 35rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .header .container {
+    padding: 0 3.2rem; 
+  }
+
+  .landing .image {
+    width: 69.8rem;
+  }
+
+  .service {
+    width: 69.8rem;
+    height: 31.5rem;
+    column-gap: 5.1rem;
+  }
+
+  .service:nth-of-type(even) {
+    grid-template: 
+      "image ."
+      "image title"
+      "image description"
+      "image ." / 38.5rem 1fr;
+  }
+
+  .service:nth-of-type(odd) {
+    grid-template: 
+      ". image"
+      "title image"
+      "description image" 
+      ". image" / 1fr 38.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header .container {
+    padding: 0 2rem;
+    height: 6.3rem;
+  }
+
+  .image-logo {
+    height: 1.6rem;
+  }
+
+  .landing {
+    padding: 2.8rem 2rem 0;
+    row-gap: 2.4rem;
+  }
+
+  .landing .title {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  .landing .image {
+    width: 100%;
+  }
+
+  .services {
+    padding: 4rem 3.2rem;
+    row-gap: 4.2rem;
+  }
+
+  .service {
+    gap: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .service:nth-of-type(even) {
+    grid-template: 
+      "title"
+      "image"
+      "description";
+  }
+
+  .service:nth-of-type(odd) {
+    grid-template: 
+      "title"
+      "image"
+      "description";
+  }
+  
+  .service .title {
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+  }
+
+  .service-content {
+    margin-bottom: 16px;
+  }
+  
+  .service .description {
+    font-size: 1.5rem;
+  }
+
+  .button-primary.signin {
+    width: 8rem;
+  }
+
+  .button-primary.signup {
+    width: 20rem;
+  }
+
+  .footer .container {
+    display: grid;
+    padding: 3.2rem;
+    grid-template: 1fr 1fr / 2fr 1fr;
+  }
+
+  .footer .copyright {
+    align-self: end;
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .footer-info {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .footer-sns {
+    justify-content: end;
+    grid-row: 1;
+    grid-column: 2;
+  }
+
 }
