@@ -9,6 +9,8 @@ const ERROR_MESSAGE = {
     EMPTY_PASSWORD: "비밀번호를 입력해주세요.",
     INVALID_EMAIL: "올바른 이메일 주소가 아닙니다.",
     INVALID_PASSWORD: "비밀번호가 일치하지 않습니다.",
+    CHECK_EMAIL: "이메일을 확인해주세요.",
+    CHECK_PASSWORD: "비밀번호를 확인해주세요.",
   },
   signup: {
     EMPTY_EMAIL: "이메일을 입력해주세요.",
@@ -27,17 +29,19 @@ const emailError = emailInput.parentNode.nextElementSibling;
 const passwordError = passwordInput.parentNode.nextElementSibling;
 const confirmPasswordError =
   confirmPasswordInput?.parentNode.nextElementSibling;
-  
+
 form.addEventListener("focusout", (e) => {
-  if (e.target === emailInput) {
-    validateEmail();
-  }
-  if (e.target === passwordInput) {
-    validatePassword();
-  }
-  if (type === "signup" && e.target === confirmPasswordInput) {
-    validateConfirmPassword();
-  }
+  setTimeout(() => {
+    if (e.target === emailInput) {
+      validateEmail();
+    }
+    if (e.target === passwordInput) {
+      validatePassword();
+    }
+    if (type === "signup" && e.target === confirmPasswordInput) {
+      validateConfirmPassword();
+    }
+  }, 500);
 });
 
 form.addEventListener("submit", (e) => {
@@ -48,6 +52,10 @@ form.addEventListener("submit", (e) => {
 
   if (!isEmailValid || !isPasswordValid || !isConfirmPasswordValid) {
     e.preventDefault();
+    if (type === "signin") {
+      emailError.textContent = ERROR_MESSAGE[type].CHECK_EMAIL;
+      passwordError.textContent = ERROR_MESSAGE[type].CHECK_PASSWORD;
+    }
   }
 });
 
