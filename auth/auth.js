@@ -30,6 +30,7 @@ const PATTERN = {
   email:
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
   password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+  "confirm-password": /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
 };
 
 const emailInput = document.querySelector('.sign-input[type="email"]');
@@ -54,18 +55,22 @@ function displayError(input, errorMessage) {
 const validationState = {};
 
 function validateInput(input) {
-  const { type, value } = input;
+  const { name, value } = input;
   let errorMessage = "";
 
   if (value === "") {
-    errorMessage = getErrorMessage(type, true);
-  } else if (!PATTERN[type].test(value)) {
-    errorMessage = getErrorMessage(type, false);
-  } else if (authType === "signup" && value === SUCCESS_ACCOUNT.email) {
+    errorMessage = getErrorMessage(name, true);
+  } else if (!PATTERN[name].test(value)) {
+    errorMessage = getErrorMessage(name, false);
+  } else if (
+    authType === "signup" &&
+    name === "email" &&
+    value === SUCCESS_ACCOUNT.email
+  ) {
     errorMessage = ERROR_MESSAGE[authType]["EXIST_EMAIL"];
   }
 
-  validationState[input.name] = errorMessage ? false : true;
+  validationState[name] = errorMessage ? false : true;
 
   return errorMessage;
 }
@@ -140,6 +145,21 @@ const keyupHandler = (e) => {
     submit.click();
   }
 };
+
+document.querySelectorAll(".eye-button").forEach((button) => {
+  button.addEventListener("click", function () {
+    const input = this.previousElementSibling;
+    const img = this.querySelector("img");
+
+    if (input.type === "password") {
+      input.type = "text";
+      img.src = "../images/eye-on.svg";
+    } else {
+      input.type = "password";
+      img.src = "../images/eye-off.svg";
+    }
+  });
+});
 
 form.addEventListener("focusout", focusHandler);
 form.addEventListener("submit", submitHandler);
