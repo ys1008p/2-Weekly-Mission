@@ -9,6 +9,7 @@ import {
   passwordInputFocusoutEvent,
   passwordMatchingEvent,
   emailInputFocusoutEvent,
+
 } from "../script/function.js";
 
 function buttonClickEvent(e) {
@@ -19,13 +20,17 @@ function buttonClickEvent(e) {
   console.log(userConfirmCheck);
   console.log(passwordConfirmCheck);
   console.log(passwordMachingCheck);
-
-  if (userConfirmCheck && passwordConfirmCheck && passwordMachingCheck) {
+  if (
+    userConfirmCheck &&
+    passwordConfirmCheck &&
+    passwordMachingCheck
+  ) {
     window.location.href = "/folder/folder.html";
   } else {
     emailInputFocusoutEvent;
     passwordInputFocusoutEvent;
     userDuplicateCheck;
+
   }
 }
 export { buttonClickEvent };
