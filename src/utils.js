@@ -1,3 +1,10 @@
+export const emailInput = document.querySelector('.email-input');
+export const pswdInput = document.querySelector('.password-input');
+export const pswdCheck = document.querySelector('#password-check');
+export const pswdEye = document.querySelectorAll('.button-eye');
+export const loginBtn = document.querySelector('.button-submit');
+const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
 export const TEST_USER = {
   email: 'test@codeit.com',
   password: 'codeit101',
@@ -20,13 +27,6 @@ export const alertMessageBox = {
   },
 };
 
-export const emailInput = document.querySelector('.email-input');
-export const pswdInput = document.querySelector('.password-input');
-export const pswdCheck = document.querySelector('#password-check');
-export const pswdEye = document.querySelectorAll('.button-eye');
-export const loginBtn = document.querySelector('.button-submit');
-const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-
 export function isEmailValid(email) {
   return new RegExp(EMAIL_REGEX).test(email);
 }
@@ -38,11 +38,11 @@ export function isPasswordValid(password) {
   return isEightLettersOrMore && hasNumberAndCharacter;
 }
 
-export function redBoxOn(whichBox) {
+function redBoxOn(whichBox) {
   whichBox.classList.add('redBox');
 }
 
-export function redBoxOff(whichBox) {
+function redBoxOff(whichBox) {
   whichBox.classList.remove('redBox');
 }
 
