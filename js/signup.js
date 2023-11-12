@@ -1,6 +1,8 @@
 const email = document.getElementById("email");
 const pw = document.getElementById("pw");
 const pwCheck = document.getElementById("pw-check");
+const signupBtn = document.querySelector(".signup__input-area--btn");
+
 const emailError = {
   null: document.querySelector(".error-message__null"),
   wrong: document.querySelector(".error-message__wrong"),
@@ -49,6 +51,7 @@ function validPassword() {
   }
 }
 
+// 비밀번호 확인 유효성 검증
 function validPwCheck() {
   // 에러 메시지 초기화
   pwCheck.classList.remove("error-input");
@@ -61,6 +64,22 @@ function validPwCheck() {
   }
 }
 
+// 회원가입 버튼 클릭 이벤트
+function signup() {
+  validEmail();
+  validPassword();
+  validPwCheck();
+  if (
+    email.classList.length === 0 &&
+    pw.classList.length === 0 &&
+    pwCheck.classList.length === 0
+  ) {
+    const targetPage = "./folder.html";
+    window.location.href = targetPage;
+  }
+}
+
 email.addEventListener("focusout", validEmail);
 pw.addEventListener("focusout", validPassword);
 pwCheck.addEventListener("focusout", validPwCheck);
+signupBtn.addEventListener("click", signup);
