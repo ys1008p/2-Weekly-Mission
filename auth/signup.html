@@ -27,7 +27,7 @@
         <div class="auth-inputs">
           <div class="auth-input">
             <label for="email"> 이메일 </label>
-            <div class="input-wrapper">
+            <div data-state="normal" class="input-wrapper">
               <input
                 id="email"
                 name="email"
@@ -36,10 +36,11 @@
                 required
               />
             </div>
+            <small data-state="normal" class="input-message"></small>
           </div>
           <div class="auth-input">
             <label for="password"> 비밀번호 </label>
-            <div class="input-wrapper">
+            <div data-state="normal" class="input-wrapper">
               <input
                 id="password"
                 name="password"
@@ -59,10 +60,11 @@
                 />
               </button>
             </div>
+            <small data-state="normal" class="input-message"></small>
           </div>
           <div class="auth-input">
             <label for="password-confirm"> 비밀번호 확인 </label>
-            <div class="input-wrapper">
+            <div data-state="normal" class="input-wrapper">
               <input
                 id="password-confirm"
                 name="password-confirm"
@@ -82,6 +84,7 @@
                 />
               </button>
             </div>
+            <small data-state="normal" class="input-message"></small>
           </div>
           <button type="submit" class="auth-submit">회원가입</button>
         </div>

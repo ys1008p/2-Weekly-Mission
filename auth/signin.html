@@ -27,19 +27,14 @@
         <div class="auth-inputs">
           <div class="auth-input">
             <label for="id"> 이메일 </label>
-            <div class="input-wrapper">
-              <input
-                id="id"
-                name="id"
-                type="email"
-                placeholder="이메일을 입력해주세요."
-                required
-              />
+            <div data-state="normal" class="input-wrapper">
+              <input id="id" name="id" placeholder="이메일을 입력해주세요." />
             </div>
+            <small data-state="normal" class="input-message"></small>
           </div>
           <div class="auth-input">
             <label for="password"> 비밀번호 </label>
-            <div class="input-wrapper">
+            <div data-state="normal" class="input-wrapper">
               <input
                 id="password"
                 name="password"
@@ -59,6 +54,7 @@
                 />
               </button>
             </div>
+            <small data-state="normal" class="input-message"></small>
           </div>
           <button type="submit" class="auth-submit">로그인</button>
         </div>
