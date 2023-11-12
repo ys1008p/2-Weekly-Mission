@@ -1,6 +1,6 @@
 const inputEventHandler = document.querySelector("#memberInfo-form");
 
-const membersInfo = [
+const membersList = [
   {
     email: "test@codeit.com",
     password: "codeit101",
@@ -26,7 +26,7 @@ const createWaringText = (inputValue, isEmailInput, isSignUp) => {
       return "올바른 이메일 주소가 아닙니다.";
     }
     // 회원가입시 추가되는 검증
-    else if (isSignUp && membersInfo.some((el) => el.email === inputValue)) {
+    else if (isSignUp && membersList.some((el) => el.email === inputValue)) {
       return "이미 사용 중인 이메일입니다.";
     }
     return null;
@@ -49,8 +49,10 @@ const createCheckPwdText = (check, pwd) => {
 
 const checkInputData = (e) => {
   const inputData = e.target;
-  const isWaringMsg =
-    inputData.parentElement.lastElementChild.className === "waring-msg";
+  if (inputData.tagName === "BUTTON") {
+    return;
+  }
+  const isWaringMsg = inputData.parentElement.lastElementChild.tagName === "P";
   if (isWaringMsg) {
     inputData.parentElement.lastElementChild.remove();
     inputData.classList.toggle("error-input");
@@ -73,6 +75,42 @@ const checkInputData = (e) => {
   inputData.classList.toggle("error-input");
 };
 
-//
+const joinMember = (e) => {
+  const inputEmailData = document.querySelector("#email");
+  const inputPwdData = document.querySelector("#pw");
+  const inputPwdCheckData = document.querySelector("#pw-check");
+  const pwdReg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
-inputEventHandler.addEventListener("focusout", checkInputData);
+  if (
+    membersList.some((el) => el.email === inputEmailData.value) ||
+    inputPwdData.value !== inputPwdCheckData.value ||
+    !pwdReg.test(inputPwdData.value)
+  ) {
+    e.preventDefault();
+  }
+};
+
+const login = (e) => {
+  const inputEmailData = document.querySelector("#email");
+  const inputPwdData = document.querySelector("#pw");
+  if (
+    membersList.some(
+      (el) =>
+        el.email === inputEmailData.value && el.password === inputPwdData.value
+    )
+  ) {
+  } else {
+    e.preventDefault();
+  }
+};
+
+export {
+  inputEventHandler,
+  membersList,
+  checkInputData,
+  createCheckPwdText,
+  createTextTag,
+  createWaringText,
+  joinMember,
+  login,
+};
