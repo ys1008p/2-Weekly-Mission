@@ -26,7 +26,7 @@ function checkPw() {
 
 function login() {
   if (emailInput === "test@codeit.com" && passwordInput === "codeit101") {
-    location.href = "./folder";
+    location.href = "/folder";
   } else {
     emailErrorTxt.innerHTML = "이메일을 확인해주세요.";
     pw_error_text.innerHTML = "비밀번호를 확인해주세요.";

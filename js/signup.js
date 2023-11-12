@@ -59,9 +59,9 @@ function comparePw() {
 function signup(e) {
   if (validEmail && validPw) {
     if (e.key === "Enter") {
-      location.href = "./folder";
+      location.href = "/folder";
     } else {
-      location.href = "./folder";
+      location.href = "/folder";
     }
   }
 }
