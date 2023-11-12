@@ -5,6 +5,8 @@ import {
   isPasswordValid,
   userList,
 } from "./import.js";
+
+//이메일
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 emailInput.addEventListener("focusout", (event) =>
@@ -35,6 +37,7 @@ function validateEmailInput(email) {
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
 
+//비밀번호
 const passwordInput = document.querySelector("#pwd");
 const passwordErrorMessage = document.querySelector("#password-error-message");
 passwordInput.addEventListener("focusout", (event) =>
@@ -61,6 +64,7 @@ function validatePasswordInput(password) {
   });
 }
 
+//비밀번호 확인
 const checkPasswordInput = document.querySelector("#pwd-check");
 const checkPasswordErrorMessage = document.querySelector(
   "#check-error-message"
@@ -85,6 +89,8 @@ function validateCheckPasswordInput(checkPassword) {
   });
   return true;
 }
+
+//회원가입
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
