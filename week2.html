@@ -21,21 +21,25 @@
 <form>
 <div class="email">
 <label for="signup-email">이메일</label>
-<input class="signup-input" name="email" type="email">
+<input id="signup-email" name="signup-email" type="email">
+<div class="error-message" id="error-message"></div>
 </div>
 <div class="password">
 <label for="signup-password">비밀번호</label>
-<input class="signup-input" name="password" type="password"/>
-<img src="signin/eye-off.png">
+<input id="signup-password" name="signup-password" type="password">
+<div class="eye-icon" onclick="togglePasswordVisibility()"></div>
+<img src="signin/eye-off.png" id="eye-icon">
+<div class="error-message2" id="error-message2"></div>
+
 </div>
 </div><!--main_gap-->
 
 <button type="submit">
 로그인
 </button>
-
+<div class="login-message"></div>
 </form>
-
+ 
 
 <div class="social_login">
   소셜 로그인
@@ -46,5 +50,6 @@
 </div>
 
 </div>
+<script src="week2.js"></script>
 </body>
 </html>

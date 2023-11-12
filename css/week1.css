@@ -122,6 +122,9 @@ section {
   line-height: 150%;
   width: 20rem;
 }
+.mobileText {
+  display: none;
+}
 
 .content-image {
   grid-area: image;
@@ -129,12 +132,6 @@ section {
 }
 
 footer {
-  /*display: flex;
-  width: 100%;
-  height: 16rem;
-  padding-top: 3.2rem;
-  background-color:#111322; 
-  justify-content: center;*/
   display: flex;
   justify-content: center;
   width: 100%;
@@ -264,7 +261,12 @@ footer {
     width: 22rem;
     margin-top: 0.6rem;
   }
-
+  .ex > .description {
+    display: none;
+  }
+  .mobileText {
+    display: flex;
+  }
   section {
     flex-direction: column;
     align-items: center;
@@ -287,6 +289,7 @@ footer {
   }
   .footer_box {
     padding: 2rem 2rem 4rem 2rem;
+    position: relative;
   }
   .footer_left {
     display: flex;
@@ -303,7 +306,13 @@ footer {
   }
   .copyright {
     margin-top: 6.875rem;
-    position: relative;
-    bottom: -3.13rem;
+    position: absolute;
+  }
+
+  .sec2 {
+    order: 2;
+  }
+  .sec3 {
+    order: 1;
   }
 }
