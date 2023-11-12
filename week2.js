@@ -69,23 +69,22 @@ passwordInput.addEventListener("focusout", function () {
   }
 });
 
-function validateLogin() {
-  const userEmail = "test@codeit.com"; // 기존 이메일
-  const userPassword = "codeit101"; // 기존 비밀번호
+for (let i = 0; i < loginButtons.length; i++) {
+  loginButtons[i].addEventListener("click", function (event) {
+    event.preventDefault(); // 폼 제출 방지
 
-  // 이메일 확인
-  if (emailInput.value !== userEmail) {
-    showError(emailInput, errorMessage, "이메일을 확인해주세요.");
-  } else {
-    clearError(emailInput, errorMessage);
-  }
-
-  // 비밀번호 확인
-  if (passwordInput.value !== userPassword) {
-    showError(passwordInput, errorMessage2, "비밀번호를 확인해주세요.");
-  } else {
-    clearError(passwordInput, errorMessage2);
-  }
+    // 이메일 유효성 검사
+    if (
+      (emailInput.value === "" &&
+        !emailRegex.test(emailInput.value) &&
+        emailInput.value === "test@codeit.com") ||
+      !/^(?=.*[a-zA-Z])(?=.*\d)/.test(passwordInput.value) ||
+      passwordInput.value.length < 8
+    ) {
+      showError(emailInput, errorMessage, "이메일을 확인하세요.");
+      showError(passwordInput, errorMessage2, "비밀번호를 확인하세요.");
+    }
+  });
 }
 
 function togglePasswordVisibility() {
