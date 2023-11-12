@@ -19,6 +19,7 @@ const signinForm = document.querySelector(".signin");
 const [_, emailInputEl, emailMessageEl] = getChildElementsAsNode(".email");
 const [__, passwordInputEl, passwordMessageEl] =
   getChildElementsAsNode(".password");
+const passwordToggleButtonEl = document.querySelector(".password-toggle");
 
 const showInputErrorMessage = (inputEl, message) => {
   const messageEl = inputEl.parentElement.lastElementChild;
@@ -40,6 +41,14 @@ const validatePassword = (password) => {
   if (password === "")
     return { ok: false, message: InputMessage.ERROR_EMPTY_PASSWORD };
   return { ok: true, message: "" };
+};
+
+const togglePassword = (inputEl) => {
+  if (inputEl.type === "password") {
+    inputEl.type = "text";
+  } else {
+    inputEl.type = "password";
+  }
 };
 
 const handleEmailFocusOut = (e) => {
@@ -95,6 +104,14 @@ const handleSubmitSignin = (e) => {
   location.href = "/folder";
 };
 
+const handlePasswordToggle = (e) => {
+  const [inputEl] = Array.from(e.currentTarget.parentElement.children).filter(
+    (el) => el.nodeName === "INPUT"
+  );
+  togglePassword(inputEl);
+};
+
 emailInputEl.addEventListener("focusout", handleEmailFocusOut);
 passwordInputEl.addEventListener("focusout", handlePasswordFocusOut);
 signinForm.addEventListener("submit", handleSubmitSignin);
+passwordToggleButtonEl.addEventListener("click", handlePasswordToggle);

@@ -21,6 +21,7 @@ const [__, passwordInputEl, passwordMessageEl] =
   getChildElementsAsNode(".password");
 const [___, passwordConfirmInputEl, passwordConfirmMessageEl] =
   getChildElementsAsNode(".password-confirm");
+const passwordToggleButtonEls = document.querySelectorAll(".password-toggle");
 
 const showInputErrorMessage = (inputEl, message) => {
   const messageEl = inputEl.parentElement.lastElementChild;
@@ -61,6 +62,14 @@ const validatePasswordConfirm = (passwordConfirm) => {
   if (passwordConfirm !== password)
     return { ok: false, message: InputMessage.ERROR_DIFFER_PASSWORD_CONFIRM };
   return { ok: true, message: "" };
+};
+
+const togglePassword = (inputEl) => {
+  if (inputEl.type === "password") {
+    inputEl.type = "text";
+  } else {
+    inputEl.type = "password";
+  }
 };
 
 const handleEmailFocusOut = (e) => {
@@ -124,6 +133,13 @@ const handleSubmitSignup = (e) => {
   location.href = "/folder";
 };
 
+const handlePasswordToggle = (e) => {
+  const [inputEl] = Array.from(e.currentTarget.parentElement.children).filter(
+    (el) => el.nodeName === "INPUT"
+  );
+  togglePassword(inputEl);
+};
+
 emailInputEl.addEventListener("focusout", handleEmailFocusOut);
 passwordInputEl.addEventListener("focusout", handlePasswordFocusOut);
 passwordConfirmInputEl.addEventListener(
@@ -131,3 +147,6 @@ passwordConfirmInputEl.addEventListener(
   handlePasswordConfirmFocusOut
 );
 signupForm.addEventListener("submit", handleSubmitSignup);
+passwordToggleButtonEls.forEach((el) =>
+  el.addEventListener("click", handlePasswordToggle)
+);
