@@ -16,7 +16,7 @@ function errorAlertEmail(e) {
     if (emailInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('email', 'noInput');
     }
-  } else if (!emailInput.value.includes('@')) {
+  } else if (!isEmailValid(emailInput.value)) {
     eraseErrorMessage('email');
     makeErrorMessage('email', 'inappropriateValue');
   } else {

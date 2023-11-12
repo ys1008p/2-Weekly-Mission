@@ -25,6 +25,11 @@ export const pswdInput = document.querySelector('.password-input');
 export const pswdCheck = document.querySelector('#password-check');
 export const pswdEye = document.querySelectorAll('.button-eye');
 export const loginBtn = document.querySelector('.button-submit');
+const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
+export function isEmailValid(email) {
+  return new RegExp(EMAIL_REGEX).test(email);
+}
 
 export function isPasswordValid(password) {
   const isEightLettersOrMore = password.length >= 8;
