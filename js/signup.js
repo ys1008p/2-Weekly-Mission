@@ -84,6 +84,7 @@ pw.addEventListener("focusout", validPassword);
 pwCheck.addEventListener("focusout", validPwCheck);
 signupBtn.addEventListener("click", signup);
 
+// input들과 button에서 enter를 인식하고 signup()를 호출
 for (let element of [email, pw, pwCheck, signupBtn]) {
   element.addEventListener("keypress", (e) => {
     e.preventDefault();

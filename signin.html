@@ -31,12 +31,19 @@
             <input type="password" id="pw" name="password" />
             <p class="error-message__null">비밀번호를 입력해주세요.</p>
             <p class="error-message__check-pw">비밀번호를 확인해주세요.</p>
-            <button>
-              <img src="./assets/eye-off.svg" alt="closed-eye" />
+            <button type="button">
+              <img class="open-eye" src="./assets/eye-on.svg" alt="open-eye" />
+              <img
+                class="closed-eye display"
+                src="./assets/eye-off.svg"
+                alt="closed-eye"
+              />
             </button>
           </div>
         </form>
-        <button class="signin__input-area--btn btn">로그인</button>
+        <button type="button" class="signin__input-area--btn btn">
+          로그인
+        </button>
         <div class="signin__input-area--social btn">
           <h3>소셜 로그인</h3>
           <div class="signin__input-area--social-img">
