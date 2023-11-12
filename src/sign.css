@@ -1,12 +1,20 @@
 @import "./global.css";
 
-body {
-  padding-top: 238px;
+#body {
   background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 30px;
+  padding: 120px 32px 0;
+
+  @media (min-width: 768px) {
+    padding: 200px 0 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 238px 0 0;
+  }
 }
 
 .sign-header {
@@ -47,6 +55,11 @@ body {
   align-items: center;
   row-gap: 32px;
   width: 400px;
+  max-width: 400px;
+
+  @media (min-width: 767px) {
+    width: 400px;
+  }
 }
 
 .sign-form {
@@ -89,12 +102,42 @@ body {
   border-color: var(--primary);
 }
 
+.sign-input.sign-input-error {
+  border-color: var(--red);
+}
+
+.sign-input.sign-input-error:focus {
+  border-color: var(--red);
+}
+
+.error-message {
+  display: none;
+  margin-top: -4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--red);
+}
+
+.error-message.error-message-on {
+  display: inline-block;
+}
+
 .eye-button {
   position: absolute;
-  bottom: 22px;
+  top: 51px;
   right: 15px;
   width: 16px;
   height: 16px;
+}
+
+.check-off,
+.off-img {
+  display: block;
+}
+
+.check-on,
+.on-img {
+  display: none;
 }
 
 .cta {
@@ -149,12 +192,4 @@ body {
 .kakao-link {
   padding-top: 2px;
   background-color: #f5e14b;
-}
-
-@media(max-width:767px){
-  .sign-box{
-    max-width: 464px;
-    width: 100vw;
-    padding: 0 32px 119px 33px;
-  }
 }
