@@ -34,10 +34,11 @@ export function validatingMachine(
 
     if (!isEmptyString(result)) {
       failAction(message);
-      return;
+      return false;
     }
   }
   successAction();
+  return true;
 }
 
 export function setInputStyleError(target) {

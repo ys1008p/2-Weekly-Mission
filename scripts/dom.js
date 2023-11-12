@@ -15,5 +15,3 @@ export function hideElement(target) {
 export function setElementTextContent(target, text) {
   target.textContent = text;
 }
-
-// sign

@@ -18,9 +18,9 @@ import {
  * email input
  */
 const emailInput = document.querySelector("#input-email");
-emailInput.addEventListener("focusout", checkEmailFocusout);
+emailInput.addEventListener("focusout", emailFocusoutValid);
 
-function checkEmailFocusout({ target }) {
+function emailFocusoutValid({ target }) {
   const validators = [
     {
       validator: checkEmailNotEmpty,
@@ -36,7 +36,7 @@ function checkEmailFocusout({ target }) {
     },
   ];
 
-  validatingMachine(
+  return validatingMachine(
     target,
     validators,
     emailValidationFailed(target),
@@ -82,7 +82,6 @@ function emailValidationSucceeded(target) {
 /**
  * password input
  */
-
 const passwordInput = document.querySelector("#input-password");
 const passwordEyeIcon = document.querySelector(
   ".form__password .form__input--eye-off"
@@ -102,7 +101,7 @@ function passwordFocusoutValid({ target }) {
     },
   ];
 
-  validatingMachine(
+  return validatingMachine(
     target,
     validators,
     passwordValidationFailed(target, passwordEyeIcon),
@@ -158,7 +157,7 @@ function passwordChkFocusoutValid({ target }) {
     },
   ];
 
-  validatingMachine(
+  return validatingMachine(
     target,
     validators,
     passwordValidationFailed(target, passwordChkEyeIcon),
@@ -178,4 +177,19 @@ function checkPasswordChkSame(target, message) {
  */
 const form = document.querySelector(".form");
 
-// form.addEventListener("submit", onSubmitValid);
+form.addEventListener("submit", onSubmitValid);
+
+function onSubmitValid(e) {
+  e.preventDefault();
+
+  let result =
+    emailFocusoutValid({ target: emailInput }) &&
+    passwordFocusoutValid({ target: passwordInput }) &&
+    passwordChkFocusoutValid({ target: passwordInputChk });
+
+  if (!result) {
+    return;
+  }
+
+  location.href = "/folder.html";
+}
