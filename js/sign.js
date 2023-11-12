@@ -1,0 +1,101 @@
+const useremail = document.querySelector('#useremail')
+const signInputEmail = document.querySelector('.sign-input-email');
+
+// 이메일 타입이 잘못되었는지 확인하는 함수
+function emailTypeChacking (useremail){
+  const exptext = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+  if(exptext.test(useremail) === false){
+  //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
+  errPaint('올바른 이메일 주소가 아닙니다', signInputEmail)
+  return false;
+  }
+}
+
+// 에러문구 표기 함수
+function errPaint(massage, append){
+  const p = document.createElement('p');
+  p.innerText = massage;
+  p.classList.add('input-err');
+  append.appendChild(p);
+}
+
+// 메일 이상 유무 체크
+function chackingEmail () {
+  // 에러코드 중복 방지
+  if (useremail.nextSibling){
+    useremail.nextSibling.remove();
+  }
+  if (!useremail.value){
+    errPaint('이메일을 입력해주세요', signInputEmail);
+  } else if (useremail.value === 'test@codeit.com'){
+    errPaint('이미 사용중인 이메일입니다', signInputEmail);
+  } else{
+    emailTypeChacking(useremail.value);
+  }   
+}
+
+
+// 비밀번호 타입이 잘못되었는지 확인하는 함수
+const password = document.querySelector('#password');
+const signInputPassword = document.querySelector('.sign-input-password');
+
+function passwordTypeChacking (password){
+  const exptext = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  if(exptext.test(password) === false){
+  //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
+  errPaint('비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.', signInputPassword)
+  return false;
+  }
+}
+
+// 비밀번호 이상 유무 체크
+function chackingPassword () {
+  // 에러코드 중복 방지
+  if (password.parentNode.childNodes[7]){
+    password.parentNode.childNodes[7].remove();
+  }  
+  if (!password.value){
+    errPaint('비밀번호를 입력해주세요', signInputPassword);
+  } else{
+    passwordTypeChacking(password.value);
+  } 
+}
+
+//비밀번호 재확인
+const password2 = document.querySelector('#password2');
+const signInputPassword2 = document.querySelector('.sign-input-password2');
+
+function doubleCheakingPassword(){
+  // 에러코드 중복 방지
+  if (password2.parentNode.childNodes[7]){
+    password2.parentNode.childNodes[7].remove();
+  }
+  if (password.value !== password2.value){
+    errPaint('비밀번호가 일치하지 않아요', signInputPassword2);
+  }
+}
+
+// 로그인, 회원가입
+const signForm = document.querySelector('.sign-middle');
+
+function submitForm (e) {
+  e.preventDefault();
+  if (useremail.value && (password.value || password2.value)){
+    if (signInputEmail.lastChild.tagName !== "P" && (signInputPassword.lastChild.tagName !== "P" || signInputPassword2.lastChild !== "P")){
+      location.href = "/folder";
+      return; 
+    }
+  }
+  if (useremail.value === 'test@codeit.com' && password.value === 'codeit101'){
+    location.href = "/folder";
+    return;
+  }
+}
+
+
+
+useremail.addEventListener('focusout', chackingEmail);
+password.addEventListener('focusout', chackingPassword);
+
+signForm.addEventListener('submit', submitForm);
+password2.addEventListener('focusout', doubleCheakingPassword);
