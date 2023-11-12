@@ -1,5 +1,6 @@
 import {
   alertMessageBox,
+  isEmailValid,
   isPasswordValid,
   makeErrorMessage,
   eraseErrorMessage,
