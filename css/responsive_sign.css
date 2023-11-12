@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @media screen and (min-width: 375px) and (max-width: 767px) {
+=======
+@media screen and (max-width: 767px) {
+>>>>>>> part1-지현기-week4-temp
   * {
     box-sizing: border-box;
     text-decoration: none;

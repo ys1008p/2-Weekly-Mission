@@ -16,6 +16,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 23.8rem 0 25.2rem;
+}
+
+body.signup-body {
   padding: 23.8rem 0 11.6rem;
 }
 
@@ -26,7 +30,8 @@ main {
   gap: 3.2rem;
 }
 
-.normal-signup {
+.normal-signin,
+.noraml-signup {
   width: 40rem;
   display: flex;
   flex-direction: column;
@@ -34,6 +39,7 @@ main {
   gap: 3rem;
 }
 
+.signin-header,
 .signup-header {
   display: flex;
   flex-direction: column;
@@ -41,19 +47,30 @@ main {
   gap: 1.6rem;
 }
 
+.signin-header img,
 .signup-header img {
   width: 21.0583rem;
   height: 3.8rem;
 }
 
+<<<<<<< HEAD:css/style_signup.css
+=======
+.signup-link,
+>>>>>>> part1-지현기-week4-temp:css/style_sign.css
 .signin-link {
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
 }
 
+<<<<<<< HEAD:css/style_signup.css
 .signin-link>span {
   color: var(--black-1);
+=======
+.signup-link>span,
+.signin-link>span {
+  color: var(--black-2);
+>>>>>>> part1-지현기-week4-temp:css/style_sign.css
   font-family: Pretendard;
   font-size: 1.6rem;
   font-style: normal;
@@ -61,6 +78,10 @@ main {
   line-height: 2.4rem;
 }
 
+<<<<<<< HEAD:css/style_signup.css
+=======
+.signup-link>a,
+>>>>>>> part1-지현기-week4-temp:css/style_sign.css
 .signin-link>a {
   color: var(--blue-1);
   font-family: Pretendard;
@@ -71,6 +92,7 @@ main {
   text-decoration: underline;
 }
 
+.signin,
 .signup {
   display: flex;
   flex-direction: column;
@@ -82,21 +104,26 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.2rem;
+}
+
+.email,
+.signup-body .password {
   margin-bottom: 2.4rem;
 }
 
+.signin-body .password,
 .password.confirm {
   margin-bottom: 3rem;
 }
 
 label {
-  color: var(--black-1);
+  color: var(--black-2);
   font-family: Pretendard;
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 1.2rem;
 }
 
 input {
@@ -108,7 +135,7 @@ input {
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray-3);
   background: var(--white-1);
-  color: #394037;
+  color: var(--gray-8);
   font-family: Pretendard;
   font-size: 1.6rem;
   font-style: normal;
@@ -119,6 +146,19 @@ input {
 input:focus {
   outline: none;
   border: 0.1rem solid var(--blue-1);
+<<<<<<< HEAD:css/style_signup.css
+=======
+}
+
+.error-message {
+  display: none;
+  color: var(--red-1);
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 0.6rem;
+>>>>>>> part1-지현기-week4-temp:css/style_sign.css
 }
 
 .password {
@@ -131,10 +171,28 @@ input:focus {
   width: 1.6rem;
   height: 1.6rem;
   right: 2.3rem;
+<<<<<<< HEAD:css/style_signup.css
   bottom: 2.3rem;
   border: 0;
+=======
+  top: 5.2rem;
+  border: 0;
+  cursor: pointer;
+>>>>>>> part1-지현기-week4-temp:css/style_sign.css
 }
 
+.eye-off {
+  background: url("../img/eye-off.svg");
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  right: 2.3rem;
+  top: 5.2rem;
+  border: 0;
+  cursor: pointer;
+}
+
+.signin-button,
 .signup-button {
   color: var(--gray-6);
   font-family: Pretendard;
@@ -152,6 +210,7 @@ input:focus {
   cursor: pointer;
 }
 
+.social-signin,
 .social-signup {
   display: flex;
   justify-content: space-between;
