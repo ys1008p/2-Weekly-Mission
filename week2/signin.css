@@ -85,14 +85,6 @@ input:focus {
   bottom: 7rem;
 }
 
-.err_eye {
-  bottom: 15.56rem;
-}
-
-.err_eye2 {
-  bottom: 9.66rem;
-}
-
 button {
   width: 100%;
   padding: 1rem 1.5rem;
@@ -107,6 +99,9 @@ button {
   margin-top: 1rem;
 } 
  
+button:focus {
+  outline: 1px solid var(--linkbrary-primary-color);
+}
 
 footer {
   width: 25rem;
@@ -138,7 +133,6 @@ footer {
 
 .err {
   outline: 1px solid var(--red);
-  border: none;
 }
 
 .errText{

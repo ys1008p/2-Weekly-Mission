@@ -6,10 +6,9 @@ const password = document.querySelector('#password')
 const checkPassword = document.querySelector('#password_check')
 const btn = document.querySelector('button');
 const eye1 = document.querySelector('.eye1');
-const eye2 = document.querySelector('.eye2')
+const eye2 = document.querySelector('.eye2');
+const text = document.createElement('p');
 import { usersData } from "./userData.js";
-
-const pwArray = Array.from(passwordInputs);
 
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -22,14 +21,14 @@ function isValidPassword(password) {
 }
 
 function errActionAll (e) {
-  const text = document.createElement('p');
   text.classList.add('errText')
   const deleteErrText = document.querySelector('.errText');
 
-  if (deleteErrText) {
-    deleteErrText.previousElementSibling.classList.remove('err');
-    deleteErrText.remove(); 
-    };
+  if (e.target.nextElementSibling === deleteErrText) {
+   e.target.nextElementSibling.remove(); 
+    }else {
+      return;
+    }
 
   if (e.target === email) {
     if (email.value === '') {
@@ -44,7 +43,7 @@ function errActionAll (e) {
     e.target.classList.add('err');
     email.after(text);
   } else if (e.target === checkPassword) {
-    if (pwArray[0].value !== pwArray[1].value) {
+    if (password.value !== checkPassword.value) {
       text.textContent = '비밀번호가 일치하지 않아요.';
       e.target.classList.add('err');
       e.target.after(text);
@@ -69,14 +68,10 @@ function eyeToggle (e) {
     e.target.nextElementSibling.setAttribute('type','password');
   }
 }
-// forEach 로 묶어봤지만 중복적용이 안됩니다...
+//  eyeToggle 함수를 forEach 로 묶어봤지만 중복적용이 안됩니다...
 
 inputs.forEach(input => {
   input.addEventListener('focusout',errActionAll);
 });
 
-
 export {email, password, btn, checkPassword, inputs,eye1 ,eye2, isValidEmail, isValidPassword, errActionAll, eyeToggle};
-
-
-

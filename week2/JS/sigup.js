@@ -1,10 +1,6 @@
  import { btn,inputs , email, password, isValidEmail, isValidPassword,checkPassword, eye1, eye2, eyeToggle } from "./common.js";
  import { usersData } from "./userData.js";
 
-//  errActionAll(e.target === password)? e.target.previousElementSibling.classList.add('err_eye1'): e.target.previousElementSibling.classList.remove('err_eye1') ; 
-//  errActionAll(e.target === checkPassword)? e.target.previousElementSibling.classList.add('err_eye2'): e.target.previousElementSibling.classList.remove('err_eye2'); 
-//적용안됨..
-
  function joinMembers (e) {
   for(let user of usersData){
     if (e.target === email) {
@@ -24,15 +20,17 @@
 }
 
 function join (e) {
-  if (e) {
+  for (let user of usersData){
     e.preventDefault()
-    if (!isValidEmail(email.value)){
+   if (!isValidEmail(email.value)){
+      email.classList.add('err')
       alert('이메일을 확인해주세요');
-    }if (password.value !== checkPassword.value) {
+    }else if (password.value !== checkPassword.value || !isValidPassword(password.value)) {
       checkPassword.classList.add('err')
+      password.classList.add('err');
       alert('비밀번호를 확인해주세요');
-    } else {
-        window.location.href = 'folder.html';
+    } else if (user[0] !== email.value) {
+      window.location.href = 'folder.html';
     }
   }
 }
@@ -44,13 +42,9 @@ btn.addEventListener('keydown', function (e) {
   } 
 });
 
-
 inputs.forEach(inputElement => {
   inputElement.addEventListener('focusout',joinMembers);
 });
 
-
 eye1.addEventListener('click', eyeToggle);
 eye2.addEventListener('click', eyeToggle);
-
-
