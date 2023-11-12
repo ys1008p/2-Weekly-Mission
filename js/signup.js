@@ -36,8 +36,6 @@ function checkPw() {
     isNaN(pw_input.value) !== true ||
     engOnly.test(pw_input.value)
   ) {
-    console.log(false);
-    console.log(pw_input.value);
     pw_input.classList.add("inputError");
     pw_error_text.innerHTML =
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
