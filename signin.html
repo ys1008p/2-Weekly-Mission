@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="/styles/common.css" />
     <link rel="stylesheet" href="/styles/sign.css" />
 
-    <script defer type="module" src="/scripts/sign.js"></script>
+    <script defer type="module" src="/scripts/signin.js"></script>
   </head>
   <body class="bgc-blue">
     <main>
@@ -68,7 +68,7 @@
               name="email"
               required
               placeholder="이메일을 입력해주세요." />
-            <span class="input-error__message hide-element"></span>
+            <span class="input-error__message hide"></span>
           </div>
           <div class="form__password">
             <label class="form__label" for="input-password">비밀번호</label>
@@ -83,7 +83,7 @@
               class="form__input--eye-off eye-icon"
               type="button"
               aria-label="패스워드 보이기"></button>
-            <span class="input-error__message hide-element"></span>
+            <span class="input-error__message hide"></span>
           </div>
 
           <button class="cta form__submit" type="submit">로그인</button>
