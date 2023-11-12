@@ -28,6 +28,11 @@
     width: 400px;
 }
 
+.input-form__input_error{
+    border-color: #FF5B56;
+    color: #FF5B56;
+}
+
 .header{
     display: flex;
     flex-direction: column;

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="base.css"/>
     <link rel="stylesheet" href="utility.css"/>
     <link rel="stylesheet" href="signin.css"/>
+
+    <script defer type="module" src="./script/SignErrorEventHandler.js"></script>
 </head>
 
 <body class="body centered">
@@ -33,8 +35,11 @@
                     <label class="input-form__label" for="signin-email">
                         이메일
                     </label>
-                    <input class="input-form__input" id="signin-email" name="email" type="email" autocomplete="email"
-                        required>
+                    <div class="input-form__input-wrapper">
+                        <input class="input-form__input" id="signin-email" name="email" type="email" autocomplete="email"
+                            required>
+                    </div>
+
                 </div>
                 <div class="input-form">
                     <label class="input-form__label" for="signin-password">
@@ -60,6 +65,8 @@
             </div>
         </section>
     </main>
+    
+    <script defer type="module" src="./script/SignIn.js"></script>
 </body>
 
 </html>
