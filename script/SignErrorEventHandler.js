@@ -5,7 +5,6 @@
 export function inputError(event, errorCheckFunction, errorClass = "", errorComment = ""){
     
     const element = event.target;
-    console.dir(element);
 
     if(!errorCheckFunction(element)){
         element.classList.remove(errorClass);
@@ -28,24 +27,37 @@ export function inputError(event, errorCheckFunction, errorClass = "", errorComm
 }
 
 export function SignInButtonError(event, idInputElement, pwInputElement,  errorCheckFunction, errorClass = "", idErrorComment="", pwErrorComment=""){
-
+    
     if(!errorCheckFunction(idInputElement, pwInputElement)){
+        idInputElement.classList.remove(errorClass);
+        idInputElement.parentElement.nextElementSibling.remove();
+        pwInputElement.classList.remove(errorClass);
+        pwInputElement.parentElement.nextElementSibling.remove();
         return;
     }
 
+    if(idInputElement.classList.contains(errorClass)){
+        return;
+    }
+    if(pwInputElement.classList.contains(errorClass)){
+        return;
+    }
+    
     idInputElement.classList.add(errorClass);
     pwInputElement.classList.add(errorClass);
 
     if(idErrorComment !==""){
         const comment = document.createElement('p');
         comment.textContent = idErrorComment;
-        idInputElement.after(comment);
+        comment.classList.add(errorClass);
+        idInputElement.parentElement.after(comment);
     }
 
     if(pwErrorComment !==""){
         const comment = document.createElement('p');
         comment.textContent = pwErrorComment;
-        pwInputElement.after(comment);
+        comment.classList.add(errorClass);
+        pwInputElement.parentElement.after(comment);
     }
 
 }

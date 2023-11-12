@@ -30,6 +30,7 @@ function invalidEmailErrorCheck(element){
 }
 
 function testloginCheck(idInput, pwInput){
+
     const idInputContent= idInput.value;
     const pwInputContent= pwInput.value;
                                            
@@ -39,10 +40,10 @@ function testloginCheck(idInput, pwInput){
 
     if(idInputContent === "test@codeit.com" && pwInputContent === "codeit101"){
         location.replace("./folder.html");
-        return true;
+        return false;
     }
 
-    return false;
+    return true;
 }
 
 const errorComments = {
@@ -68,6 +69,7 @@ InputFormInputPassword.addEventListener('focusout', (event) =>{
 
 
 const InputFormButton = document.querySelector(`.action-button_signin`);
+console.log(InputFormButton)
 
 InputFormButton.addEventListener('click', (event)=>{
     SignInButtonError(event, InputFormInputEmail, InputFormInputPassword,
