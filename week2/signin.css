@@ -38,7 +38,7 @@ body {
 }
 
 .question {
-  margin: 1rem 0 1.875rem ;
+  margin: 0.3rem 0 1.875rem ;
 }
 
 p a {
@@ -54,17 +54,18 @@ p a {
 }
 
 label {
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 0;
 }
 
 input {
-  margin: 0.75rem auto 0.375rem;
+  margin: 0.75rem auto 0;
   padding: 1.125rem 15px;
   border-radius: 8px;
   width: 100%;
   border: 1px solid var(--linkbrary-gray-20);
   background:var(--linkbrary-white);
   color: var(--linkbrary-gray-100);
+  margin-bottom: 1.5rem;
 }
 
 input:focus {
@@ -75,13 +76,13 @@ input:focus {
 .eye {
   position: absolute;
   cursor: pointer;
-  bottom: 12.77rem;
+  bottom: 14rem;
   right: 0.9375rem;
 }
 
 .eye2 {
   position: absolute;
-  bottom: 6.77rem;
+  bottom: 7rem;
 }
 
 .err_eye {
@@ -103,7 +104,7 @@ button {
   border: none;
   font-family:"Pretendard GOV Variable";
   cursor: pointer;
-  margin-top: 1.875rem;
+  margin-top: 1rem;
 } 
  
 
@@ -141,13 +142,11 @@ footer {
 }
 
 .errText{
+  position: relative;
+  bottom: 1.3rem;
   color: var(--red);
-  margin: 0;
+  margin: 0 0 -3rem;
 }
-
-/* position: relative;
-bottom: 8.65rem;
-right: 2.2rem; */
 
 @media (max-width: 767px) {
 
