@@ -72,7 +72,7 @@ export function signinBtn() {
   const passwordValue = passwordInput.value.trim();
 
   if (emailValue === USER_DATA[0].email && passwordValue === USER_DATA[0].password) {
-    window.location.href = '/folder';
+    window.location.href = '../folder.html';
   } else {
     showEmailError(ERROR_MESSAGES.checkEmail);
     showPasswordError(ERROR_MESSAGES.checkPassword);
@@ -87,7 +87,7 @@ export function signupBtn() {
   const passwordCheckValue = passwordCheckInput.value.trim();
 
   if (isValidEmail(emailValue) && isValidPassword(passwordValue) && passwordValue === passwordCheckValue) {
-    window.location.href = '/folder';
+    window.location.href = '../folder.html';
   } else {
     showEmailError(ERROR_MESSAGES.checkEmail);
     showPasswordError(ERROR_MESSAGES.checkPassword);
