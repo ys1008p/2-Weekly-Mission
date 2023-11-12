@@ -74,6 +74,7 @@ input:focus {
 
 .eye {
   position: absolute;
+  cursor: pointer;
   bottom: 6.77rem;
   right: 0.9375rem;
 }
