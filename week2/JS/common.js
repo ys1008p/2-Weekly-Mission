@@ -3,18 +3,29 @@ const email = document.querySelector('#email');
 const inputs = document.querySelectorAll('input')
 const passwordInputs = document.querySelectorAll('.password');
 const password = document.querySelector('#password')
-const checkPassword = document.querySelector('#passWord_check')
+const checkPassword = document.querySelector('#password_check')
 const btn = document.querySelector('button');
-const eyes = document.querySelectorAll('.eye');
+const eye1 = document.querySelector('.eye1');
+const eye2 = document.querySelector('.eye2')
+import { usersData } from "./userData.js";
 
-export {email, password, btn, checkPassword, inputs};
-const pwIp = Array.from(passwordInputs);
+const pwArray = Array.from(passwordInputs);
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+function isValidPassword(password) {
+  const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])[A-Za-z\d]{8,}$/;
+  return passwordRegex.test(password);
+}
 
 function errActionAll (e) {
   const text = document.createElement('p');
   text.classList.add('errText')
   const deleteErrText = document.querySelector('.errText');
- 
+
   if (deleteErrText) {
     deleteErrText.previousElementSibling.classList.remove('err');
     deleteErrText.remove(); 
@@ -25,17 +36,21 @@ function errActionAll (e) {
       text.textContent = '이메일을 입력해 주세요.';
     } else if (!isValidEmail(email.value)) {
       text.textContent = '올바른 이메일 주소가 아닙니다.';
+    }for(let user of usersData){
+      if (email.value === user[0] && checkPassword) {
+        text.textContent = '이미 사용 중인 이메일입니다.';
+        }
     }
     e.target.classList.add('err');
     email.after(text);
-  } else if (pwIp.includes(e.target)) {
-    if (pwIp[0].value !== pwIp[1].value) {
+  } else if (e.target === checkPassword) {
+    if (pwArray[0].value !== pwArray[1].value) {
       text.textContent = '비밀번호가 일치하지 않아요.';
       e.target.classList.add('err');
       e.target.after(text);
     }
-  } else if (e.target === password || e.target === checkPassword) {
-    if (e.target.value.length < 8 || /^\d+$/.test(e.target.value) || /^[a-zA-Z]+$/.test(e.target.value)) {
+  } else if (e.target === checkPassword || e.target == password) {
+    if (!isValidPassword(e.target.value)) {
       text.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
     } else if (e.target.value === '') {
       text.textContent = '비밀번호를 입력해 주세요.';
@@ -44,21 +59,24 @@ function errActionAll (e) {
     e.target.after(text);
   }
 }
-  
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-};
 
-inputs.forEach(inputElement => {
-  inputElement.addEventListener('focusout', errActionAll);
+function eyeToggle (e) {
+  if (e.target.nextElementSibling.getAttribute('type') === 'password') {
+    e.target.src = "../img/eye-on.png";
+    e.target.nextElementSibling.setAttribute('type','text');
+  } else {
+    e.target.src = "../img/eye-off.png"
+    e.target.nextElementSibling.setAttribute('type','password');
+  }
+}
+// forEach 로 묶어봤지만 중복적용이 안됩니다...
+
+inputs.forEach(input => {
+  input.addEventListener('focusout',errActionAll);
 });
 
-// eyes.forEach ((eye,index) =>{
-//   eye.addEventListener('click', function () {
-//     const passwordInput = pwIp[index];
-//     const type = passwordInput.getAttribute('type');
-//     eye.src = type === 'password' ? 'img/eye-off.png' : 'img/eye-on.png';
-//     passwordInput.setAttribute('type', type === 'password' ? 'text' : 'password');
-//   });
-// })
+
+export {email, password, btn, checkPassword, inputs,eye1 ,eye2, isValidEmail, isValidPassword, errActionAll, eyeToggle};
+
+
+
