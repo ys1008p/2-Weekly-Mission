@@ -1,9 +1,10 @@
 import users from "../data/users.js";
 import {
+  addElementClass,
   getParentsChildElement,
-  hideElement,
+  removeElementClass,
   setElementTextContent,
-  showElement,
+  toggleElementClass,
 } from "./dom.js";
 import { isEmptyString } from "./utils.js";
 
@@ -13,7 +14,7 @@ export function showErrorMessage(target, message) {
     ".input-error__message"
   );
   setElementTextContent(errorMessageSpan, message);
-  showElement(errorMessageSpan);
+  removeElementClass(errorMessageSpan, "hide");
 }
 
 export function hideErrorMessage(target) {
@@ -21,7 +22,7 @@ export function hideErrorMessage(target) {
     target,
     ".input-error__message"
   );
-  hideElement(errorMessageSpan);
+  addElementClass(errorMessageSpan, "hide");
 }
 
 export function validatingMachine(
@@ -65,14 +66,14 @@ export function checkEmailNotExist(target, message) {
 
 export function emailValidationFailed(target) {
   return function (message) {
-    setInputStyleError(target);
+    addElementClass(target, "input-error");
     showErrorMessage(target, message);
   };
 }
 
 export function emailValidationSucceeded(target) {
   return function () {
-    setInputStyleNormal(target);
+    removeElementClass(target, "input-error");
     hideErrorMessage(target);
   };
 }
@@ -100,19 +101,26 @@ export function checkPasswordChkSame(password) {
   };
 }
 
+export function checkIsOurMember(member, message) {
+  if (isMemberExist(member)) {
+    return "";
+  }
+  return message;
+}
+
 export function passwordValidationFailed(target, eyeIcon) {
   return function (message) {
-    setInputStyleError(target);
+    addElementClass(target, "input-error");
     showErrorMessage(target, message);
-    setEyeIconPositionError(eyeIcon);
+    addElementClass(eyeIcon, "eye-icon__error");
   };
 }
 
 export function passwordValidationSucceeded(target, eyeIcon) {
   return function () {
-    setInputStyleNormal(target);
+    removeElementClass(target, "input-error");
     hideErrorMessage(target);
-    setEyeIconPositionNormal(eyeIcon);
+    removeElementClass(eyeIcon, "eye-icon__error");
   };
 }
 
@@ -131,31 +139,15 @@ export function isEmailExist(email) {
 }
 
 export function isMemberExist(member) {
-  console.log(member);
   return users.some(
     (user) => user.email === member.email && user.password === member.password
   );
 }
 
-export function setInputStyleError(target) {
-  target.classList.add("input-error");
-}
-
-export function setInputStyleNormal(target) {
-  target.classList.remove("input-error");
-}
-
-export function setEyeIconPositionError(eyeIcon) {
-  eyeIcon.classList.add("eye-icon__error");
-}
-
-export function setEyeIconPositionNormal(eyeIcon) {
-  eyeIcon.classList.remove("eye-icon__error");
-}
-
 export function changePasswordVisibility(passwordInput) {
   return function ({ target }) {
-    target.classList.toggle("form__input--eye-on");
+    toggleElementClass(target, "form__input--eye-on");
+
     if (passwordInput.getAttribute("type") === "password") {
       passwordInput.setAttribute("type", "text");
       return;

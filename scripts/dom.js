@@ -4,14 +4,18 @@ export function getParentsChildElement(target, selector) {
   return parent.querySelector(selector);
 }
 
-export function showElement(target) {
-  target.classList.remove("hide");
-}
-
-export function hideElement(target) {
-  target.classList.add("hide");
-}
-
 export function setElementTextContent(target, text) {
   target.textContent = text;
+}
+
+export function addElementClass(target, className) {
+  target.classList.add(className);
+}
+
+export function removeElementClass(target, className) {
+  target.classList.remove(className);
+}
+
+export function toggleElementClass(target, className) {
+  target.classList.toggle(className);
 }
