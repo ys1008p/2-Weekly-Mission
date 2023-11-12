@@ -83,3 +83,12 @@ email.addEventListener("focusout", validEmail);
 pw.addEventListener("focusout", validPassword);
 pwCheck.addEventListener("focusout", validPwCheck);
 signupBtn.addEventListener("click", signup);
+
+for (let element of [email, pw, pwCheck, signupBtn]) {
+  element.addEventListener("keypress", (e) => {
+    e.preventDefault();
+    if (e.key === "Enter") {
+      signup();
+    }
+  });
+}
