@@ -2,11 +2,11 @@ import {
   changePasswordVisibility,
   checkEmailNotEmpty,
   checkEmailValid,
+  checkIsOurMember,
   checkPasswordNotEmpty,
   checkPasswordValid,
   emailValidationFailed,
   emailValidationSucceeded,
-  isMemberExist,
   passwordValidationFailed,
   passwordValidationSucceeded,
   validatingMachine,
@@ -80,13 +80,37 @@ const form = document.querySelector(".form");
 
 form.addEventListener("submit", onSubmitValid);
 
+function checkMemberExist() {
+  let result = false;
+  result = validatingMachine(
+    {
+      email: emailInput.value,
+      password: passwordInput.value,
+    },
+    [{ validator: checkIsOurMember, message: "이메일을 확인해주세요." }],
+    emailValidationFailed(emailInput),
+    emailValidationSucceeded(emailInput)
+  );
+
+  result = validatingMachine(
+    {
+      email: emailInput.value,
+      password: passwordInput.value,
+    },
+    [{ validator: checkIsOurMember, message: "비밀번호를 확인해주세요." }],
+    passwordValidationFailed(passwordInput, passwordEyeIcon),
+    passwordValidationSucceeded(passwordInput, passwordEyeIcon)
+  );
+  return result;
+}
+
 function onSubmitValid(e) {
   e.preventDefault();
 
   let result =
     onEmailFocusoutValid({ target: emailInput }) &&
     onPasswordFocusoutValid({ target: passwordInput }) &&
-    isMemberExist({ email: emailInput.value, password: passwordInput.value });
+    checkMemberExist();
 
   if (!result) {
     return;
