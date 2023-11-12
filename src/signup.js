@@ -1,7 +1,7 @@
 const SIGN_INPUT_ERROR_CLASSNAME = "sign-input-error";
 const ERROR_MESSAGE_CLASSNAME = "error-message-on";
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const PASSWORD_REGEX = /^[a-zA-Z0-9](?=.*[a-zA-Z])(?=.*[0-9]).{8,20}$/g;;
+const PASSWORD_REGEX = /^[a-zA-Z0-9](?=.*[a-zA-Z])(?=.*[0-9]).{8,20}$/g;
 
 function setInputError(elements, message) {
   elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
@@ -48,6 +48,13 @@ function validateEmailInput(email) {
     );
     return;
   }
+  if (email === userList.email) {
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      "이미 사용 중인 이메일입니다."
+    );
+    return;
+  }
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
 
@@ -77,19 +84,45 @@ function validatePasswordInput(password) {
   });
 }
 
+const checkPasswordInput = document.querySelector("#pwd-check");
+const checkPasswordErrorMessage = document.querySelector(
+  "#check-error-message"
+);
+checkPasswordInput.addEventListener("focusout", (event) =>
+  validateCheckPasswordInput(event.target.value)
+);
+function validateCheckPasswordInput(checkPassword) {
+  if (passwordInput.value !== checkPassword) {
+    setInputError(
+      {
+        input: checkPasswordInput,
+        errorMessage: checkPasswordErrorMessage,
+      },
+      "비밀번호가 일치하지 않아요."
+    );
+    return false;
+  }
+  removeInputError({
+    input: checkPasswordInput,
+    errorMessage: checkPasswordErrorMessage,
+  });
+  return true;
+}
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
   event.preventDefault();
+  const signUpSuccess =
+    emailInput.value && passwordInput.value && checkPasswordInput.value;
 
-  const usersignin =
-    emailInput.value === userList.email && passwordInput.value === userList.password;
-
-  if (usersignin) {
+  if (signUpSuccess) {
     location.href = "/folder";
     return;
   }
-  setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
+  setInputError(
+    { input: emailInput, errorMessage: emailErrorMessage },
+    "이메일을 확인해주세요."
+  );
   setInputError(
     { input: passwordInput, errorMessage: passwordErrorMessage },
     "비밀번호를 확인해주세요."
