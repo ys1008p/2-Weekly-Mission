@@ -8,7 +8,7 @@ import {
 } from "./dom.js";
 import { isEmptyString } from "./utils.js";
 
-export function showErrorMessage(target, message) {
+function showErrorMessage(target, message) {
   const errorMessageSpan = getParentsChildElement(
     target,
     ".input-error__message"
@@ -17,7 +17,7 @@ export function showErrorMessage(target, message) {
   removeElementClass(errorMessageSpan, "hide");
 }
 
-export function hideErrorMessage(target) {
+function hideErrorMessage(target) {
   const errorMessageSpan = getParentsChildElement(
     target,
     ".input-error__message"
@@ -25,12 +25,7 @@ export function hideErrorMessage(target) {
   addElementClass(errorMessageSpan, "hide");
 }
 
-export function validatingMachine(
-  target,
-  validators,
-  failAction,
-  successAction
-) {
+function validatingMachine(target, validators, failAction, successAction) {
   for (const { validator, message } of validators) {
     const result = validator(target, message);
 
@@ -43,56 +38,55 @@ export function validatingMachine(
   return true;
 }
 
-export function checkEmailNotEmpty(target, message) {
+function checkEmailNotEmpty(target, message) {
   if (!isEmptyString(target.value)) {
     return "";
   }
   return message;
 }
-
-export function checkEmailValid(target, message) {
+function checkEmailValid(target, message) {
   if (isEmailValid(target.value)) {
     return "";
   }
   return message;
 }
 
-export function checkEmailNotExist(target, message) {
+function checkEmailNotExist(target, message) {
   if (!isEmailExist(target.value)) {
     return "";
   }
   return message;
 }
 
-export function emailValidationFailed(target) {
+function emailValidationFailed(target) {
   return function (message) {
     addElementClass(target, "input-error");
     showErrorMessage(target, message);
   };
 }
 
-export function emailValidationSucceeded(target) {
+function emailValidationSucceeded(target) {
   return function () {
     removeElementClass(target, "input-error");
     hideErrorMessage(target);
   };
 }
 
-export function checkPasswordNotEmpty(target, message) {
+function checkPasswordNotEmpty(target, message) {
   if (!isEmptyString(target.value)) {
     return "";
   }
   return message;
 }
 
-export function checkPasswordValid(target, message) {
+function checkPasswordValid(target, message) {
   if (isPasswordValid(target.value)) {
     return "";
   }
   return message;
 }
 
-export function checkPasswordChkSame(password) {
+function checkPasswordChkSame(password) {
   return function (passwordChk, message) {
     if (password.value === passwordChk.value) {
       return "";
@@ -101,14 +95,14 @@ export function checkPasswordChkSame(password) {
   };
 }
 
-export function checkIsOurMember(member, message) {
+function checkIsOurMember(member, message) {
   if (isMemberExist(member)) {
     return "";
   }
   return message;
 }
 
-export function passwordValidationFailed(target, eyeIcon) {
+function passwordValidationFailed(target, eyeIcon) {
   return function (message) {
     addElementClass(target, "input-error");
     showErrorMessage(target, message);
@@ -116,7 +110,7 @@ export function passwordValidationFailed(target, eyeIcon) {
   };
 }
 
-export function passwordValidationSucceeded(target, eyeIcon) {
+function passwordValidationSucceeded(target, eyeIcon) {
   return function () {
     removeElementClass(target, "input-error");
     hideErrorMessage(target);
@@ -124,27 +118,27 @@ export function passwordValidationSucceeded(target, eyeIcon) {
   };
 }
 
-export function isEmailValid(email) {
+function isEmailValid(email) {
   const regex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
   return regex.test(email);
 }
 
-export function isPasswordValid(password) {
+function isPasswordValid(password) {
   const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   return password.trim().length >= 8 && regex.test(password);
 }
 
-export function isEmailExist(email) {
+function isEmailExist(email) {
   return users.some((user) => user.email === email);
 }
 
-export function isMemberExist(member) {
+function isMemberExist(member) {
   return users.some(
     (user) => user.email === member.email && user.password === member.password
   );
 }
 
-export function changePasswordVisibility(passwordInput) {
+function changePasswordVisibility(passwordInput) {
   return function ({ target }) {
     toggleElementClass(target, "form__input--eye-on");
 
@@ -155,3 +149,19 @@ export function changePasswordVisibility(passwordInput) {
     passwordInput.setAttribute("type", "password");
   };
 }
+
+export {
+  changePasswordVisibility,
+  checkEmailNotEmpty,
+  checkEmailNotExist,
+  checkEmailValid,
+  checkIsOurMember,
+  checkPasswordChkSame,
+  checkPasswordNotEmpty,
+  checkPasswordValid,
+  emailValidationFailed,
+  emailValidationSucceeded,
+  passwordValidationFailed,
+  passwordValidationSucceeded,
+  validatingMachine,
+};

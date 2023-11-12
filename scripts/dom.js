@@ -1,21 +1,29 @@
 // 공통
-export function getParentsChildElement(target, selector) {
+function getParentsChildElement(target, selector) {
   const parent = target.parentElement;
   return parent.querySelector(selector);
 }
 
-export function setElementTextContent(target, text) {
+function setElementTextContent(target, text) {
   target.textContent = text;
 }
 
-export function addElementClass(target, className) {
+function addElementClass(target, className) {
   target.classList.add(className);
 }
 
-export function removeElementClass(target, className) {
+function removeElementClass(target, className) {
   target.classList.remove(className);
 }
 
-export function toggleElementClass(target, className) {
+function toggleElementClass(target, className) {
   target.classList.toggle(className);
 }
+
+export {
+  addElementClass,
+  getParentsChildElement,
+  removeElementClass,
+  setElementTextContent,
+  toggleElementClass,
+};
