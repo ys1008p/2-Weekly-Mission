@@ -1,26 +1,25 @@
 import {
-  showErrorMessage,
-  hideErrorMessage,
+  changePasswordVisibility,
+  checkEmailNotEmpty,
+  checkEmailNotExist,
+  checkEmailValid,
+  checkPasswordChkSame,
+  checkPasswordNotEmpty,
+  checkPasswordValid,
+  emailValidationFailed,
+  emailValidationSucceeded,
+  passwordValidationFailed,
+  passwordValidationSucceeded,
   validatingMachine,
-  setInputStyleError,
-  setInputStyleNormal,
-  setEyeIconPositionError,
-  setEyeIconPositionNormal,
 } from "./sign.js";
-import {
-  isEmptyString,
-  isEmailValid,
-  isPasswordValid,
-  isExistsEmail,
-} from "./utils.js";
 
 /**
  * email input
  */
 const emailInput = document.querySelector("#input-email");
-emailInput.addEventListener("focusout", emailFocusoutValid);
+emailInput.addEventListener("focusout", onEmailFocusoutValid);
 
-function emailFocusoutValid({ target }) {
+function onEmailFocusoutValid({ target }) {
   const validators = [
     {
       validator: checkEmailNotEmpty,
@@ -31,7 +30,7 @@ function emailFocusoutValid({ target }) {
       message: "올바른 이메일 주소가 아닙니다.",
     },
     {
-      validator: checkEmailNotExists,
+      validator: checkEmailNotExist,
       message: "이미 사용 중인 이메일입니다.",
     },
   ];
@@ -44,41 +43,6 @@ function emailFocusoutValid({ target }) {
   );
 }
 
-function checkEmailNotEmpty(target, message) {
-  if (!isEmptyString(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function checkEmailValid(target, message) {
-  if (isEmailValid(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function checkEmailNotExists(target, message) {
-  if (!isExistsEmail(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function emailValidationFailed(target) {
-  return function (message) {
-    setInputStyleError(target);
-    showErrorMessage(target, message);
-  };
-}
-
-function emailValidationSucceeded(target) {
-  return function () {
-    setInputStyleNormal(target);
-    hideErrorMessage(target);
-  };
-}
-
 /**
  * password input
  */
@@ -87,9 +51,9 @@ const passwordEyeIcon = document.querySelector(
   ".form__password .form__input--eye-off"
 );
 
-passwordInput.addEventListener("focusout", passwordFocusoutValid);
+passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
 
-function passwordFocusoutValid({ target }) {
+function onPasswordFocusoutValid({ target }) {
   const validators = [
     {
       validator: checkPasswordNotEmpty,
@@ -109,35 +73,10 @@ function passwordFocusoutValid({ target }) {
   );
 }
 
-function checkPasswordNotEmpty(target, message) {
-  if (!isEmptyString(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function checkPasswordValid(target, message) {
-  if (isPasswordValid(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function passwordValidationFailed(target, eyeIcon) {
-  return function (message) {
-    setInputStyleError(target);
-    showErrorMessage(target, message);
-    setEyeIconPositionError(eyeIcon);
-  };
-}
-
-function passwordValidationSucceeded(target, eyeIcon) {
-  return function () {
-    setInputStyleNormal(target);
-    hideErrorMessage(target);
-    setEyeIconPositionNormal(eyeIcon);
-  };
-}
+passwordEyeIcon.addEventListener(
+  "click",
+  changePasswordVisibility(passwordInput)
+);
 
 /**
  * password check input
@@ -147,12 +86,12 @@ const passwordChkEyeIcon = document.querySelector(
   ".form__password-chk .form__input--eye-off"
 );
 
-passwordInputChk.addEventListener("focusout", passwordChkFocusoutValid);
+passwordInputChk.addEventListener("focusout", onPasswordChkFocusoutValid);
 
-function passwordChkFocusoutValid({ target }) {
+function onPasswordChkFocusoutValid({ target }) {
   const validators = [
     {
-      validator: checkPasswordChkSame,
+      validator: checkPasswordChkSame(passwordInput),
       message: "비밀번호가 일치하지 않아요.",
     },
   ];
@@ -165,12 +104,10 @@ function passwordChkFocusoutValid({ target }) {
   );
 }
 
-function checkPasswordChkSame(target, message) {
-  if (passwordInput.value === target.value) {
-    return "";
-  }
-  return message;
-}
+passwordChkEyeIcon.addEventListener(
+  "click",
+  changePasswordVisibility(passwordInputChk)
+);
 
 /**
  * form
@@ -183,9 +120,9 @@ function onSubmitValid(e) {
   e.preventDefault();
 
   let result =
-    emailFocusoutValid({ target: emailInput }) &&
-    passwordFocusoutValid({ target: passwordInput }) &&
-    passwordChkFocusoutValid({ target: passwordInputChk });
+    onEmailFocusoutValid({ target: emailInput }) &&
+    onPasswordFocusoutValid({ target: passwordInput }) &&
+    onPasswordChkFocusoutValid({ target: passwordInputChk });
 
   if (!result) {
     return;

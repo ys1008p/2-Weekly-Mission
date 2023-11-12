@@ -1,26 +1,24 @@
 import {
-  showErrorMessage,
-  hideErrorMessage,
+  changePasswordVisibility,
+  checkEmailNotEmpty,
+  checkEmailValid,
+  checkPasswordNotEmpty,
+  checkPasswordValid,
+  emailValidationFailed,
+  emailValidationSucceeded,
+  isMemberExist,
+  passwordValidationFailed,
+  passwordValidationSucceeded,
   validatingMachine,
-  setInputStyleError,
-  setInputStyleNormal,
-  setEyeIconPositionError,
-  setEyeIconPositionNormal,
 } from "./sign.js";
-import {
-  isEmptyString,
-  isEmailValid,
-  isPasswordValid,
-  isExistsEmail,
-} from "./utils.js";
 
 /**
  * email input
  */
 const emailInput = document.querySelector("#input-email");
-emailInput.addEventListener("focusout", checkEmailFocusout);
+emailInput.addEventListener("focusout", onEmailFocusoutValid);
 
-function checkEmailFocusout({ target }) {
+function onEmailFocusoutValid({ target }) {
   const validators = [
     {
       validator: checkEmailNotEmpty,
@@ -32,7 +30,7 @@ function checkEmailFocusout({ target }) {
     },
   ];
 
-  validatingMachine(
+  return validatingMachine(
     target,
     validators,
     emailValidationFailed(target),
@@ -40,53 +38,17 @@ function checkEmailFocusout({ target }) {
   );
 }
 
-function checkEmailNotEmpty(target, message) {
-  if (!isEmptyString(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function checkEmailValid(target, message) {
-  if (isEmailValid(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function checkEmailNotExists(target, message) {
-  if (!isExistsEmail(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function emailValidationFailed(target) {
-  return function (message) {
-    setInputStyleError(target);
-    showErrorMessage(target, message);
-  };
-}
-
-function emailValidationSucceeded(target) {
-  return function () {
-    setInputStyleNormal(target);
-    hideErrorMessage(target);
-  };
-}
-
 /**
  * password input
  */
-
 const passwordInput = document.querySelector("#input-password");
 const passwordEyeIcon = document.querySelector(
   ".form__password .form__input--eye-off"
 );
 
-passwordInput.addEventListener("focusout", passwordFocusoutValid);
+passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
 
-function passwordFocusoutValid({ target }) {
+function onPasswordFocusoutValid({ target }) {
   const validators = [
     {
       validator: checkPasswordNotEmpty,
@@ -98,7 +60,7 @@ function passwordFocusoutValid({ target }) {
     },
   ];
 
-  validatingMachine(
+  return validatingMachine(
     target,
     validators,
     passwordValidationFailed(target, passwordEyeIcon),
@@ -106,32 +68,29 @@ function passwordFocusoutValid({ target }) {
   );
 }
 
-function checkPasswordNotEmpty(target, message) {
-  if (!isEmptyString(target.value)) {
-    return "";
+passwordEyeIcon.addEventListener(
+  "click",
+  changePasswordVisibility(passwordInput)
+);
+
+/**
+ * form
+ */
+const form = document.querySelector(".form");
+
+form.addEventListener("submit", onSubmitValid);
+
+function onSubmitValid(e) {
+  e.preventDefault();
+
+  let result =
+    onEmailFocusoutValid({ target: emailInput }) &&
+    onPasswordFocusoutValid({ target: passwordInput }) &&
+    isMemberExist({ email: emailInput.value, password: passwordInput.value });
+
+  if (!result) {
+    return;
   }
-  return message;
-}
 
-function checkPasswordValid(target, message) {
-  if (isPasswordValid(target.value)) {
-    return "";
-  }
-  return message;
-}
-
-function passwordValidationFailed(target, eyeIcon) {
-  return function (message) {
-    setInputStyleError(target);
-    showErrorMessage(target, message);
-    setEyeIconPositionError(eyeIcon);
-  };
-}
-
-function passwordValidationSucceeded(target, eyeIcon) {
-  return function () {
-    setInputStyleNormal(target);
-    hideErrorMessage(target);
-    setEyeIconPositionNormal(eyeIcon);
-  };
+  location.href = "/folder.html";
 }
