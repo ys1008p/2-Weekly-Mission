@@ -52,7 +52,7 @@ function redirectToPage() {
   location.href = '/folder.html'
 }
 
-// [로그인]이메일 유효성 검사
+// [공통]이메일 유효성 검사
 function validateEmail() {
   const email = emailInput.value
   if (!email) {
@@ -67,7 +67,7 @@ function validateEmail() {
   }
 }
 
-// [로그인]패스워드 유효성 검사
+// [공통]패스워드 유효성 검사
 function validatePassword() {
   const password = passwordInput.value
   if (!password) {
