@@ -22,7 +22,7 @@ function checkEmail() {
     email_input.classList.add("inputError");
     email_error_text.innerHTML = "올바른 이메일 주소가 아닙니다.";
   } else {
-    email_input.classList.toggle("inputError");
+    email_input.classList.remove("inputError");
     email_error_text.innerHTML = "";
     validEmail = true;
   }
@@ -45,7 +45,7 @@ function checkPw() {
     pw_input.classList.add("inputError");
     pw_error_text.innerHTML = "비밀번호를 입력해주세요.";
   } else {
-    pw_input.classList.toggle("inputError");
+    pw_input.classList.remove("inputError");
     pw_error_text.innerHTML = "";
   }
 }
@@ -56,8 +56,8 @@ function comparePw() {
     pw_input.classList.add("inputError");
     pw_check_error_text.innerHTML = "비밀번호가 일치하지 않아요";
   } else {
-    pw_input.classList.toggle("inputError");
-    pw_check_input.classList.toggle("inputError");
+    pw_input.classList.remove("inputError");
+    pw_check_input.classList.remove("inputError");
     pw_check_error_text.innerHTML = "";
     validPw = true;
   }
@@ -72,8 +72,9 @@ function signup(e) {
     }
   }
 }
+
 email_input.addEventListener("focusout", checkEmail);
 pw_input.addEventListener("focusout", checkPw);
 pw_check_input.addEventListener("focusout", comparePw);
 login_button.addEventListener("click", signup);
-pw_input.addEventListener("keydown", signup);
+pw_check_input.addEventListener("keydown", signup);
