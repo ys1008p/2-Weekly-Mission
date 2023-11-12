@@ -1,7 +1,7 @@
 /*기본제공 let userInfo = [{ email: "test@codeit.com", password: "codeit101" }];에서
 emailinputValue와 test@codeit.com 비교하여 중복시 오류메시지 표시에 관한 함수*/
-
-import { userInfo, emailInput, emailError } from "../tag.js";
+import { userInfo } from "../registerUser.js";
+import { emailInput, emailError } from "../tag.js";
 import { emailAddClass } from "../function/AddRemoveFunction.js";
 
 function userDuplicateCheck() {
