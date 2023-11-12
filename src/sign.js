@@ -1,33 +1,10 @@
-const SIGN_INPUT_ERROR_CLASSNAME = "sign-input-error";
-const ERROR_MESSAGE_CLASSNAME = "error-message-on";
-const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const PASSWORD_REGEX = /^[a-zA-Z0-9](?=.*[a-zA-Z])(?=.*[0-9]).{8,20}$/g;;
-
-function setInputError(elements, message) {
-  elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
-  elements.errorMessage.className += ` ${ERROR_MESSAGE_CLASSNAME}`;
-  elements.errorMessage.textContent = message;
-}
-
-function removeInputError(elements) {
-  elements.input.classList.remove(SIGN_INPUT_ERROR_CLASSNAME);
-  elements.errorMessage.classList.remove(ERROR_MESSAGE_CLASSNAME);
-  elements.errorMessage.textContent = "";
-}
-
-function isEmailValid(email) {
-  return new RegExp(EMAIL_REGEX).test(email);
-}
-
-function isPasswordValid(password) {
-  return new RegExp(PASSWORD_REGEX).test(password);
-}
-
-const userList = {
-  email: "test@codeit.com",
-  password: "codeit101",
-};
-
+import {
+  setInputError,
+  removeInputError,
+  isEmailValid,
+  isPasswordValid,
+  userList,
+} from "./import.js";
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 emailInput.addEventListener("focusout", (event) =>
