@@ -51,7 +51,7 @@ function signin() {
   }
 }
 
-// 비밀번호의 눈 버튼 이벤트
+// 비밀번호의 눈 버튼 클릭 이벤트
 function eyeToggle() {
   if (pw.type === "password") {
     pwOpenEye.classList.add("display");
