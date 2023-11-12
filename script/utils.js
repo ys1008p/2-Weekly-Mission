@@ -54,12 +54,15 @@ function redirectToPage() {
 
 // [공통]이메일 유효성 검사
 function validateEmail() {
-  const email = emailInput.value
-  if (!email) {
-    showError(emailInput, emailError, ERROR_MSG.email.empty)
+  const { email } = ERROR_MSG
+  const { empty, invalid } = email
+  const value = emailInput.value
+
+  if (!value) {
+    showError(emailInput, emailError, empty)
     return false
-  } else if (!isEmail(email)) {
-    showError(emailInput, emailError, ERROR_MSG.email.invalid)
+  } else if (!isEmail(value)) {
+    showError(emailInput, emailError, invalid)
     return false
   } else {
     hideError(emailInput, emailError)
@@ -69,12 +72,15 @@ function validateEmail() {
 
 // [공통]패스워드 유효성 검사
 function validatePassword() {
-  const password = passwordInput.value
-  if (!password) {
-    showError(passwordInput, passwordError, ERROR_MSG.password.empty)
+  const { password } = ERROR_MSG
+  const { empty, invalid } = password
+  const value = passwordInput.value
+
+  if (!value) {
+    showError(passwordInput, passwordError, empty)
     return false
-  } else if (!isPassword(password)) {
-    showError(passwordInput, passwordError, ERROR_MSG.password.invalid)
+  } else if (!isPassword(value)) {
+    showError(passwordInput, passwordError, invalid)
     return false
   } else {
     hideError(passwordInput, passwordError)
@@ -91,32 +97,32 @@ function isValidSignin() {
 }
 // [로그인]로그인 에러
 function handleSigninError() {
-  showError(emailInput, emailError, ERROR_MSG.email.check)
-  showError(passwordInput, passwordError, ERROR_MSG.password.check)
+  const { email, password } = ERROR_MSG
+
+  showError(emailInput, emailError, email.check)
+  showError(passwordInput, passwordError, password.check)
 }
 
 // [회원가입]이메일 확인
 function checkEmail() {
+  const { email } = ERROR_MSG
   const isValid = emailInput.value === AUTH_DATA.email
 
   if (isValid) {
-    showError(emailInput, emailError, ERROR_MSG.email.confrim)
+    showError(emailInput, emailError, email.confrim)
   }
   return !isValid
 }
 
 // [회원가입]비밀번호 확인
 function checkPassword() {
+  const { password } = ERROR_MSG
   const isValid = passwordInput.value === passwordConfirmInput.value
 
   if (isValid) {
     hideError(passwordConfirmInput, passwordConfirmError)
   } else {
-    showError(
-      passwordConfirmInput,
-      passwordConfirmError,
-      ERROR_MSG.password.confirm
-    )
+    showError(passwordConfirmInput, passwordConfirmError, password.confirm)
   }
   return isValid
 }

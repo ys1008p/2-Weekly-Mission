@@ -1035,7 +1035,7 @@ container-size·············100% - (32px * 2)
 
 .form {
   max-width: 400px;
-  padding: 238px 0 0 0;
+  padding: 238px 0 0;
   margin: 0 auto;
 }
 .form-header {
@@ -1114,7 +1114,7 @@ container-size·············100% - (32px * 2)
 
 @media screen and (max-width: 1199px) {
   .form {
-    padding: 200px 0 0 0;
+    padding: 200px 0;
   }
 }
 @media screen and (max-width: 767px) {
