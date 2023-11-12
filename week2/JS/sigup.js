@@ -12,7 +12,7 @@
         e.target.classList.remove('err')
       } ; 
     }else if(e.target === password ){
-      if (isValidPassword(e.target)){
+      if (isValidPassword(e.target.value)){
         e.target.classList.remove('err')
       }
     }else if (e.target === checkPassword) {
