@@ -26,7 +26,7 @@
         <div class="primaryContainer">
           <div class="headerContainer">
             <a href="./index.html"
-              ><img id="logo" src="./images/head_logo.svg"
+              ><img id="logo" src="./images/head_logo.svg" alt="로고"
             /></a>
             <div class="textContainer">
               <span>이미 회원이신가요?</span>
@@ -38,55 +38,48 @@
           </div>
           <form class="formContainer">
             <div class="inputContainer">
-              <label>이메일</label>
+              <label for="email">이메일</label>
               <div class="inputFieldContainer">
                 <input
+                  id="email"
                   type="email"
                   name="email"
-                  value=""
                   placeholder="codeit@codeit.com"
                 />
               </div>
             </div>
             <div class="inputContainer">
-              <labal>비밀번호</labal>
+              <labal for="password">비밀번호</labal>
               <div class="inputFieldContainer">
-                <input
-                  type="password"
-                  name="password"
-                  value=""
-                  placeholder="linkbrary2023"
-                />
-                <img src="./images/eye-on.svg" />
+                <img class="eyeIcon" src="./images/eye-on.svg" alt="뜬 눈" />
+                <input id="password" type="text" name="password" />
               </div>
             </div>
             <div class="inputContainer">
-              <label>비밀번호 확인</label>
+              <label for="passwordCheck">비밀번호 확인</label>
               <div class="inputFieldContainer">
-                <input
-                  type="password"
-                  name="password"
-                  value=""
-                  placeholder="linkbrary20245"
-                />
-                <img src="./images/eye-on.svg" />
+                <img class="eyeIcon" src="./images/eye-on.svg" alt="뜬 눈" />
+                <input id="passwordCheck" type="text" name="password" />
               </div>
             </div>
             <div>
-              <button>회원가입</button>
+              <button id="button">회원가입</button>
             </div>
           </form>
         </div>
         <div class="secondaryContainer">
           다른 방식으로 가입하기
           <div class="socialLoginContainer">
-            <a href="https://google.com"><img src="./images/google.png" /></a>
-            <a href="https://www.kakaocorp.com/page"
+            <a href="https://google.com"
+              ><img src="./images/google.png" alt="구글 로고"
+            /></a>
+            <a href="https://www.kakaocorp.com/page" alt="카톡 로고"
               ><img src="./images/kakao.png"
             /></a>
           </div>
         </div>
       </div>
     </section>
+    <script type="module" src="./script/signup.js"></script>
   </body>
 </html>

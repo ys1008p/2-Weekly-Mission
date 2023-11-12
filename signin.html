@@ -41,21 +41,14 @@
           <form class="formContainer">
             <div class="inputGroup">
               <label for="email"> 이메일 </label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="codeit@codeit.com"
-              />
+              <input id="email" type="email" name="email" />
             </div>
             <div class="inputGroup">
               <label for="password"> 비밀번호 </label>
-              <div class="inputField">
-                <input id="password" type="password" name="password" />
                 <img class="eyeIcon" src="./images/eye_off.svg" alt="감은 눈" />
-              </div>
+                <input id="password" type="password" name="password" /></input>
             </div>
-            <button>로그인</button>
+            <button id="button">로그인</button>
           </form>
         </div>
         <div class="secondaryContainer">
@@ -71,5 +64,6 @@
         </div>
       </div>
     </section>
+    <script type="module" src="./script/signin.js"></script>
   </body>
 </html>
