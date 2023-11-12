@@ -76,7 +76,7 @@
   margin-top: 1.2rem;
 }
 
-.icon.eyetoggle {
+.icon.password-toggle {
   padding: 0.8rem;
   margin-right: 0.7rem;
 
@@ -84,7 +84,7 @@
   align-items: center;
 }
 
-.eyetoggle > img {
+.password-toggle > img {
   width: 1.6rem;
   height: 1.6rem;
 }
