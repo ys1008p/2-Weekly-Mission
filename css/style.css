@@ -71,7 +71,7 @@ header {
 header .navbar {
   display: flex;
   width: 100%;
-  max-width: 1520px;
+  /* max-width: 1520px; */
   height: 54px;
   margin: 0 auto;
   align-items: center;
@@ -82,10 +82,13 @@ header .navbar .logo {
   width: 100%;
   height: 24px;
 }
-header .navbar .login-button {
+header .navbar .login-btn {
   width: 128px;
   height: 54px;
   padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--grey-light);
   font-size: 18px;
   font-weight: var(--weight-semi-bold);
@@ -114,7 +117,13 @@ header .navbar .login-button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.main .signup-btn {
+.main h1 br:last-child {
+  display: none;
+}
+.main .signin-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 350px;
   margin: 0 auto;
   padding: 16px 20px;
@@ -131,7 +140,7 @@ header .navbar .login-button {
 
 .main .main-contents img {
   display: block;
-  width: 1118px;
+  width: 100%;
   /* box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08), 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
 }
 
@@ -196,12 +205,12 @@ header .navbar .login-button {
   font-weight: var(--weight-medium);
   line-height: 150%; /* 24px */
 }
-.sub .sub-box .sub-img-box {
+/* .sub .sub-box .sub-img-box {
   border-radius: 15px;
-}
+} */
 .sub .sub-box .sub-img-box img {
   display: block;
-  width: 550px;
+  width: 100%;
   height: 450px;
 }
 /* Footer */
@@ -261,6 +270,12 @@ footer .info-container .footer-sns li:last-child a {
 }
 
 /* 회원가입 */
+
+.error {
+  border: 1px solid #ff0000;
+  /* 에러났을 시 input 테두리 빨간색 */
+}
+
 .bg-blue {
   background: var(--linkbrary-bg);
 }
@@ -281,6 +296,7 @@ footer .info-container .footer-sns li:last-child a {
 .wrapper .signin-txt {
   display: flex;
   justify-content: center;
+  align-items: baseline;
   margin: 16px auto 0;
   gap: 8px;
 }
@@ -293,6 +309,7 @@ footer .info-container .footer-sns li:last-child a {
   color: var(--linkbrary-primary-color);
   font-weight: var(--weight-semi-bold);
   text-decoration: underline;
+  font-size: 16px;
 }
 
 .wrapper form {
@@ -401,4 +418,201 @@ input[type="password"] {
 }
 .wrapper form .social-login .sns li:nth-child(2) a {
   background-image: url(./../img/kakao.png);
+}
+
+/* 반응형 - 모바일 */
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  html {
+    font-size: 2.0513vw;
+  }
+  /* 헤더 */
+  header {
+    height: 7.875rem;
+    padding: 1.625rem 4rem;
+  }
+  header .navbar {
+    max-width: initial;
+    height: 4.625rem;
+  }
+  header .navbar .login-btn {
+    height: 4.625rem;
+    padding: 0;
+    font-size: 1.75rem;
+    border-radius: 1rem;
+  }
+  header .navbar .logo {
+    height: 2rem;
+  }
+  header .navbar .logo img {
+    width: 11rem;
+  }
+
+  /* section-main */
+  .main {
+    margin-top: 7.875rem;
+    padding: 3.5rem 4.0625rem 0;
+    gap: 3rem;
+  }
+  .main h1 {
+    font-size: 4rem;
+    line-height: 5.25rem;
+  }
+  .main .signin-btn {
+    width: 25rem;
+    height: 4.624rem;
+    padding: 0;
+    font-size: 1.75rem;
+    border-radius: 1rem;
+  }
+  .main h1 br:last-child {
+    display: block;
+  }
+  .main .main-contents {
+    margin: 0;
+    padding: 1.687rem 1.375rem 0;
+  }
+
+  /*section-sub  */
+  .sub {
+    gap: 0;
+    margin: 0;
+    padding: 0 4rem 5rem 4.125rem;
+  }
+  .sub .sub-box {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 5rem;
+  }
+  .sub .sub-box:first-child {
+    padding-bottom: 4.5rem;
+  }
+  .sub .sub-box:nth-child(2),
+  .sub .sub-box:nth-child(3) {
+    padding-bottom: 5.25rem;
+  }
+
+  .sub .sub-box:nth-child(4) {
+    padding-bottom: 5.125rem;
+  }
+  .sub .sub-box .sub-text-box .descript {
+    font-size: 3rem;
+  }
+  .sub .sub-box .sub-text-box .sub-descript {
+    word-break: keep-all;
+    font-size: 1.875rem;
+    margin-top: 1.25rem;
+  }
+  .sub .sub-box .sub-text-box .descript br,
+  .sub .sub-box .sub-text-box .sub-descript br {
+    display: none;
+  }
+  .sub .sub-box .sub-img-box img {
+    height: 33.125rem;
+    margin-top: 3rem;
+    /* border-radius: 1.875rem; */
+  }
+
+  /* 로그인, 회원가입 폼 */
+  .wrapper {
+    width: 100%;
+    margin: 15rem auto 0;
+    padding: 0 4rem 5rem 4.125rem;
+  }
+  .wrapper .login-logo {
+    width: 26.25rem;
+    height: 4.75rem;
+  }
+  .wrapper form {
+    margin-top: 3.75rem;
+  }
+  .wrapper .signin-txt {
+    margin-top: 2rem;
+  }
+  .wrapper .signin-txt a {
+    font-size: 2rem;
+  }
+  .wrapper form .input-wrapper label {
+    font-size: 1.75rem;
+  }
+  .wrapper form .input-wrapper input {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    padding: 2.25rem 1.875rem;
+    border-radius: 1rem;
+  }
+  .wrapper form .input-wrapper:not(:first-child) {
+    margin-top: 3rem;
+  }
+  .wrapper form .login-btn button {
+    height: 6.75rem;
+    margin-top: 3.75rem;
+    font-size: 2.25rem;
+    border-radius: 1rem;
+  }
+  .wrapper form .social-login {
+    height: 8.25rem;
+    padding: 1.5rem 3rem;
+    margin-top: 4rem;
+  }
+  .wrapper form .social-login span {
+    font-size: 1.75rem;
+  }
+  .wrapper form .social-login .sns {
+    gap: 2rem;
+  }
+  .wrapper form .social-login .sns li {
+    width: 5.25rem;
+  }
+  .wrapper form .social-login .sns li a {
+    width: 100%;
+    height: 5.25rem;
+  }
+  .password-container + .wrong {
+    font-size: 1.75rem;
+    margin-top: 0.75rem;
+  }
+
+  /* footer */
+  footer {
+    height: 20rem;
+    margin-top: 0;
+    padding: 4rem;
+  }
+  footer .info-container {
+    position: relative;
+    font-size: 2rem;
+  }
+  footer .info-container {
+    position: relative;
+    height: 100%;
+  }
+  footer .info-container .footer-info {
+    height: 2rem;
+    gap: 3.75rem;
+  }
+  footer .info-container .footer-info a {
+    font-size: 2rem;
+  }
+
+  footer .info-container .footer-sns {
+    height: 2rem;
+    gap: 1.5rem;
+  }
+  footer .info-container .footer-sns li {
+    width: 2.25rem;
+  }
+  footer .info-container .footer-sns li a {
+    height: 2.25rem;
+  }
+  footer .info-container span {
+    position: absolute;
+    bottom: 0;
+    font-size: 2rem;
+  }
 }
