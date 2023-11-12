@@ -1,63 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html class="html page_centered">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="preconnect" type="text/css"
-        href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="signin-structure.css" />
-    <link rel="stylesheet" href="color-design.css" />
-    <link rel="stylesheet" href="font-design.css" />
-    <link rel="stylesheet" href="image-design.css" />
-    <link rel="stylesheet" href="action-design.css" />
     <title>로그인</title>
+
+    <link rel="stylesheet" type="text/css"
+        href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="base.css"/>
+    <link rel="stylesheet" href="utility.css"/>
+    <link rel="stylesheet" href="signin.css"/>
 </head>
 
-<body>
-    <header>
-        <section class="logo">
+<body class="body centered">
+    <header class="header">
+        <section class="header__logo">
             <a href="/">
-                <img class="logo-image" src="./image/logo.svg">
+                <img class="header__logo-image" src="./image/logo.svg">
             </a>
         </section>
         <section class="sign">
-            <p>회원이 아니신가요? <a class="move sign" href="/signup">회원 가입하기</a></p>
+            <p class="sign__text">회원이 아니신가요? <a class="sign__move-page" href="/signup.html">회원 가입하기</a></p>
         </section>
     </header>
-    <main class="sign">
-        <section class="signin">
+    <main class="main">
+        <section class="main__signin mh_30px">
             <form class="sign-form" method="get">
-                <div class="form id">
-                    <label class="label" for="signin-email">
+                <div class="input-form">
+                    <label class="input-form__label" for="signin-email">
                         이메일
                     </label>
-                    <div class="input-group">
-                        <input class="input text" id="signin-email" name="email" type="email" autocomplete="email"
-                            required>
-                    </div>
+                    <input class="input-form__input" id="signin-email" name="email" type="email" autocomplete="email"
+                        required>
                 </div>
-                <div class="form password">
-                    <label class="label" for="signin-password">
+                <div class="input-form">
+                    <label class="input-form__label" for="signin-password">
                         비밀번호
                     </label>
-                    <div class="input-group">
-                        <input class="input text" id="signin-password" name="password" type="password" required>
-                        <img class="icon eye" src="./image/signin/eye-off.svg">
+                    <div class="input-form__input-wrapper">
+                        <input class="input-form__input" id="signin-password" name="password" type="password" required>
+                        <img class="input-form__show-icon" src="./image/signin/eye-off.svg">
                     </div>
                 </div>
             </form>
         </section>
-        <button class="signin button">
+        <button class="action-button action-button_signin action-button_grad_blue-sky">
             로그인
         </button>
-        <section class="social signin">
-            <label class="label">소셜 로그인</label>
-            <div class="icons">
-                <a class="icon google-login" href="https://www.google.com"><img src="./image/social/google.png"
+        <section class="social-signin mt_32px">
+            <label class="social-signin__label">소셜 로그인</label>
+            <div class="social-signin__sns-icons">
+                <a class="social-signin__sns-icon social-signin__sns-icon_background_google social-signin__sns-icon_img-google " href="https://www.google.com"><img src="./image/social/google.png"
                         alt="구글 로그인"></a>
-                <a class="icon kakao-login" href="https://www.kakaocorp.com/page/"><img src="./image/social/kakao.svg"
+                <a class="social-signin__sns-icon social-signin__sns-icon_background_kakao social-signin__sns-icon_img-kakao" href="https://www.kakaocorp.com/page/"><img src="./image/social/kakao.svg"
                         alt="카카오 로그인"></a>
             </div>
         </section>

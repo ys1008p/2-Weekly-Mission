@@ -1,147 +1,143 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="index-structure.css" />
-    <link rel="stylesheet" href="color-design.css" />
-    <link rel="stylesheet" href="font-design.css" />
-    <link rel="stylesheet" href="image-design.css" />
-    <link rel="stylesheet" href="action-design.css" />
-    <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- meta tag -->
+    <meta name="title" content="Linkbrary" />
+    <meta name="description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nakyoung-weeklymission.netlify.app" />
+    <meta property="og:title" content="Linkbrary" />
+    <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요." />
+    <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://nakyoung-weeklymission.netlify.app" />
+    <meta property="twitter:title" content="Linkbrary" />
+    <meta property="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요." />
+    <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
     <title>Linkbrary</title>
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="base.css"/>
+    <link rel="stylesheet" href="utility.css"/>
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+
   </head>
   <body>
-    <nav class="gnb">
-      <img class="logo" src="./image/logo.svg" alt="로고" />
-      <a class="button login-button" href="/signin">로그인</a>
-      </nav>
-    <main>
-      <section class="main-content">
-        <div class="content contents-01">
-          <h1>
-            <span>세상의 모든 정보를</span><br />
-            쉽게 저장하고 관리해 보세요
-          </h1>
-          <a class="button add-link-button" href="/signup">링크 추가하기</a>
-          <div class="content-box">
-            <div class="image-case"></div>
-          </div>
-        </div>
-      </section>
+    <nav class="header">
+      <img class="header__logo" src="./image/logo.svg" alt="로고 이미지" />
+      <a class="action-button action-button_nav_signin action-button_grad_blue-sky" href="/signin.html">로그인</a>
+    </nav>
+    <main class="main">
+      <section class="service-description centered">
+        <h1 class="service-description__title">
+          <span class="service-description__embrace-text service-description__embrace-text_grad_blue-red">
+            세상의 모든 정보를
+          </span><br>
+          쉽게 저장하고 관리해 보세요
+        </h1>
+        <a class="action-button action-button_nav_add-link action-button_grad_blue-sky" href="/signup">링크 추가하기</a>
+        <div class="service-description__sample-image-background service-description__sample-image-background_img_landing"></div>
+    </section>
 
-      <section class="sub-content">
-        <div class="content contents-02">
-          <div class="content-text">
-            <h2>
-              <span>원하는 링크</span>를<br />
+      <section class="feature-descriptions">
+
+        <article class="feature-description centered">
+          <div class="feature-description__text-box">
+            <h2 class="feature-description__title">
+              <span class="feature-description__embrace-text feature-description__embrace-text_grad_pink-blue">원하는 링크</span>를 
               저장하세요
             </h2>
-            <p>
-              나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br />
-              사고 싶은 옷, 기억하고 싶은 모든 것을<br />
+            <p class="feature-description__detail-text">
+              나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+              사고 싶은 옷, 기억하고 싶은 모든 것을
               한 공간에 저장하세요.
             </p>
           </div>
-          <div class="content-box">
-            <div class="cards">
-              <div id="card1" class="card"></div>
-              <div id="card2" class="card">
-                <img class="download" src="./image/card/download.svg" alt="download">
-              </div>
-              <div id="card3" class="card"></div>
-            </div>
+          <div class="feature-description__sample-image-background feature-description__sample-image-background_img_save-link">
           </div>
-        </div>
-      </section>
-
-      <section class="sub-content">
-        <div class="content contents-03">
-          <div class="content-box">
-            <img id="folder-change" src="./image/img2.png" alt="폴더이름변경하기">
-          </div>
-          <div class="content-text">
-            <h2>
-              링크를 폴더로<br>
-              <span>관리</span>하세요
+        </article>
+      
+        <article class="feature-description feature-description_reverse centered">
+          <div class="feature-description__text-box">
+            <h2 class="feature-description__title">
+              링크를 폴더로
+              <span class="feature-description__embrace-text feature-description__embrace-text_grad_yellow_blue">관리</span>하세요
             </h2>
-            <p>
-              나만의 폴더를 무제한으로 만들고<br>
-              다양하게 활용할 수 있습니다.
+            <p class="feature-description__detail-text">
+              나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
             </p>
           </div>
-        </div>
-      </section>
+          <div class="feature-description__sample-image-background feature-description__sample-image-background_img_manage-folder"></div>
+        </article>
 
-      <section class="sub-content">
-        <div class="content contents-04">
-          <div class="content-text">
-            <h2>
-              저장한 링크를<br />
-              <span>공유</span>해 보세요.
+        <article class="feature-description centered">
+          <div class="feature-description__text-box">
+            <h2 class="feature-description__title">
+              저장한 링크를
+              <span class="feature-description__embrace-text feature-description__embrace-text_grad_pink-blue">공유</span>해 보세요
             </h2>
-            <p>
-              여러 링크를 폴더에 담고 공유할 수 있습니다.<br />
-              가족, 친구, 동료들에게 쉽고 빠르게 링크를<br />
-              공유해 보세요.
+            <p class="feature-description__detail-text">
+              여러 링크를 폴더에 담고 공유할 수 있습니다.
+              가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.
             </p>
           </div>
-          <div class="content-box">
-            <div id="folder-share-background">
-              <img id="folder-sharing" src="./image/img3.png" alt="폴더공유하기">
-            </div>
-          </div>
-        </div>
-      </section>
+          <div class="feature-description__sample-image-background feature-description__sample-image-background_img_share-link"></div>
+        </article>
 
-      <section class="sub-content">
-        <div class="content contents-05">
-          <div class="content-box">
-            <div class="image-case"></div>
-          </div>
-          <div class="content-text">
-            <h2>
-              저장한 링크를<br />
-              <span>검색</span>해 보세요
+        <article class="feature-description feature-description_reverse centered">
+          <div class="feature-description__text-box">
+            <h2 class="feature-description__title">
+              저장한 링크를
+              <span class="feature-description__embrace-text feature-description__embrace-text_grad_pink-blue">검색</span>해 보세요
             </h2>
-            <p>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+            <p class="feature-description__detail-text">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
           </div>
-        </div>
-      </section>
+          <div class="feature-description__sample-image-background feature-description__sample-image-background_img_search-link"></div>
+        </article>
+
     </main>
     <footer class="footer">
-      <p id="company-title">©codeit - 2023</p>
-      <div class="more-information">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/faq">FAQ</a>
+      <p class="footer__company-info">©codeit - 2023</p>
+      <div class="footer__policy-faq">
+        <a class="footer__policy" href="/privacy">Privacy Policy</a>
+        <a class="footer__faq" href="/faq">FAQ</a>
       </div>
-      <div class="SNS-icons">
+      <div class="footer__sns-icons">
         <a href="https://www.facebook.com" target="_blank">
           <img
-            class="SNS-icon"
+            class="footer__sns-icon footer__sns-icon_img-facebook"
             src="./image/akar-icons_facebook-fill.svg"
-            alt="facebook-icon"
+            alt="페이스북 아이콘"
           />
         </a>
         <a href="https://www.twitter.com" target="_blank">
           <img
-            class="SNS-icon"
+            class="footer__sns-icon footer__sns-icon_img-twitter"
             src="./image/akar-icons_twitter-fill.svg"
-            alt="twitter-icon"
+            alt="트위터 아이콘"
           />
         </a>
         <a href="https://www.youtube.com" target="_blank">
           <img
-            class="SNS-icon"
+            class="footer__sns-icon footer__sns-icon_img-youtube"
             src="./image/akar-icons_youtube-fill.svg"
-            alt="youtube-icon"
+            alt="유튜브 아이콘"
           />
         </a>
         <a href="https://www.instagram.com" target="_blank">
           <img
-            class="SNS-icon"
+            class="footer__sns-icon footer__sns-icon_img-instagram"
             src="./image/ant-design_instagram-filled.svg"
-            alt="instagram-icon"
+            alt="인스타그램 아이콘"
           />
         </a>
       </div>
