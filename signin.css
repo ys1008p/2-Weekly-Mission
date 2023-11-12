@@ -6,9 +6,7 @@
     border-radius: 8px;
 
     font-size: 18px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     text-align: center;
     text-decoration: none;
 }
@@ -53,9 +51,7 @@
 }
 .input-form__label{
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
 }
 .input-form__input{
     padding: 18px 15px;
@@ -67,7 +63,6 @@
     border-radius: 8px;
 
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
     line-height: 24px;
 }
@@ -104,7 +99,6 @@
     color: #6D6AFE;
 
     font-size: 16px;
-    font-style: normal;
     font-weight: 500;
     line-height: 24px;
     text-decoration: underline;
