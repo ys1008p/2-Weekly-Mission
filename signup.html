@@ -23,23 +23,26 @@
       <form class="signup">
         <div class="email">
           <label for="email">이메일</label>
-          <input id="email" type="email">
+          <input id="email" type="email" placeholder="이메일 입력">
+          <div class="error-message"></div>
         </div>
         <div class="password">
           <label for="password">비밀번호</label>
           <div class="password-input">
-            <input id="password" type="password">
-            <button class="eye-on" type="button"></button>
+            <input id="password" type="password" placeholder="비밀번호 입력">
+            <button class="eye-off" type="button"></button>
           </div>
+          <div class="error-message"></div>
         </div>
         <div class="password confirm">
           <label for="password-confirm">비밀번호 확인</label>
           <div class="password-confirm-input">
-            <input id="password-confirm" type="password">
-            <button class="eye-on" type="button"></button>
+            <input id="password-confirm" type="password" placeholder="비밀번호 확인">
+            <button class="eye-off" type="button"></button>
           </div>
+          <div class="error-message"></div>
         </div>
-        <button class="signup-button">회원가입</button>
+        <button class="signup-button" type="submit">회원가입</button>
       </form>
     </div>
     <div class="social-signup">
@@ -50,6 +53,7 @@
       </div>
     </div>
   </main>
+  <script type="module" src="./js/signup.js"></script>
 </body>
 
 </html>
