@@ -21,7 +21,7 @@ function validEmail() {
 
   if (!email.value.includes("@")) {
     email.classList.add("error-input");
-    if (email.value == "") {
+    if (!email.value) {
       // 이메일이 비어있다.
       emailError.null.classList.add("display");
     } else {

@@ -125,3 +125,20 @@ body {
   align-items: flex-start;
   gap: 16px;
 }
+
+/* 에러 발생 시 보여주는 태그 */
+.signin__input-area--form-pw p {
+  margin-top: 6px;
+  font-size: 0.875rem;
+  color: var(--red);
+  display: none;
+}
+
+/* 에러 발생 시 클래스 이름  */
+.signin__input-area--form .error-input {
+  border: 1px solid var(--red);
+}
+
+.signin__input-area--form .display {
+  display: block;
+}
