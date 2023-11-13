@@ -79,7 +79,6 @@ footer > div {
 }
 
 .hide-on-pc,
-.show-only-tablet,
 .show-only-mobile {
   display: none;
 }
@@ -176,8 +175,7 @@ footer > div {
     padding-top: 39px;
   }
 
-  .hide-on-pc,
-  .show-only-tablet {
+  .hide-on-pc {
     display: unset;
   }
 
@@ -191,10 +189,6 @@ footer > div {
 
   .contents img {
     width: 385px;
-  }
-
-  .hide-on-tablet {
-    display: none;
   }
 }
 
@@ -258,8 +252,7 @@ footer > div {
     margin: 0;
   }
 
-  .hide-on-mobile,
-  .show-only-tablet {
+  .hide-on-mobile {
     display: none;
   }
 
