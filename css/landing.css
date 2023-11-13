@@ -174,7 +174,7 @@ footer > div {
 
   .hide-on-pc,
   .show-only-tablet {
-    display: inline;
+    display: unset;
   }
 
   .contents {
@@ -260,7 +260,7 @@ footer > div {
   }
 
   .show-only-mobile {
-    display: inline;
+    display: unset;
   }
 
   h2 {
