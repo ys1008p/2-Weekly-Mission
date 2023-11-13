@@ -105,6 +105,10 @@ footer > div {
   align-items: center;
 }
 
+.contents .text {
+  width: 290px;
+}
+
 .contents img {
   width: 550px;
 }
