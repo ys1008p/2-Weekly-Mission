@@ -79,32 +79,22 @@ function signUp(e) {
 }
 
 function emailCheckBeforeSubmit() {
-  if (!printEmailErrorMessage()) {
-    printEmailErrorMessage();
-  } else if (!isUnresisteredEmail()) {
-    isUnresisteredEmail();
+  const isCorrectEmail = printEmailErrorMessage();
+  if (!isCorrectEmail) {
     return false;
-  } else {
-    return true;
   }
+  const unresisteredEmail = isUnresisteredEmail();
+  unresisteredEmail ? true : false;
 }
 
 function passwordCheckBeforeSubmit() {
-  if (!createPasswordErrorMessage()) {
-    createPasswordErrorMessage();
-    return false;
-  } else {
-    return true;
-  }
+  const isCorrectPassword = createPasswordErrorMessage();
+  isCorrectPassword ? true : false;
 }
 
 function doubleCheckPasswordBeforeSubmit() {
-  if (!doubleCheckPasswordErrormessage()) {
-    doubleCheckPasswordErrormessage();
-    return false;
-  } else {
-    return true;
-  }
+  const isCorrectdoubleCheck = doubleCheckPasswordErrormessage();
+  isCorrectdoubleCheck ? true : false;
 }
 
 inputEmail.addEventListener('focusout', printEmailErrorMessage);
