@@ -1,5 +1,5 @@
 export const changePwViewMode = (e) => {
-  console.log(e.target);
+  // pw on off 버튼 이벤트
   if (e.target.className === "pw-onoff") {
     if (e.target.previousElementSibling.type === "password") {
       e.target.src = "../imgs/eye-on.svg";
