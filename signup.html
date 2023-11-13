@@ -1,52 +1,103 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>회원가입</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
-    <link rel="stylesheet" href="./src/styles/normarlize.css" />
-    <link rel="stylesheet" href="./src/styles/signup.css" />
-  </head>
-  <body>
-    <section>
-      <div class="logoContainer">
-        <a href="/">
-          <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" class="logo" />
-        </a>
-        <div class="signinLinkContainer">
-          이미 회원이신가요? <a href="/signin.html" class="signinLink">로그인 하기</a>
-        </div>
-      </div>
-      <div class="inputContainer">
-        <form class="inputWrapper">
-          <div class="inputTitle">이메일</div>
-          <input type="text" class="idInput" />
-        </form>
-        <form class="inputWrapper">
-          <div class="inputTitle">비밀번호</div>
-          <input type="password" class="passwordInput" />
-        </form>
-        <form class="inputWrapper">
-          <div class="inputTitle">비밀번호 확인</div>
-          <input type="text" class="idInput" />
-        </form>
-      </div>
-      <input type="button" class="signinButton" value="회원가입" />
-      <div class="socialContainer">
-        <div class="socialText">다른 방식으로 가입하기</div>
-        <div class="socialButtons">
-          <a class="iconWrapper" href="https:/www.google.com/">
-            <img src="/images/google.png" />
-          </a>
-          <a class="iconWrapper" href="https://www.kakaocorp.com/">
-            <img src="/images/kakao.png" />
-          </a>
-        </div>
-      </div>
-    </section>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>회원가입</title>
+		<meta
+			name="viewport"
+			content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+		/>
+		<link rel="stylesheet" href="./src/styles/sign.css" />
+	</head>
+	<body>
+		<header>
+			<a class="logo-link" href="index.html">
+				<img
+					class="header-logo"
+					src="./images/logo.svg"
+					alt="홈으로 연결된 Linkbrary 로고"
+				/>
+			</a>
+			<p class="header-message">
+				이미 회원이신가요?<a class="header-link" href="signin.html">로그인 하기</a>
+			</p>
+		</header>
+		<div class="sign-box">
+			<form class="sign-form">
+				<div class="sign-inputs">
+					<div class="sign-input-box">
+						<label class="sign-input-label">이메일</label>
+						<input
+							id="emailInput"
+							class="sign-input"
+							onblur="handleEmailInput(event)"
+						/>
+						<div id="emailEmptyMessage" class="error-message">
+							이메일을 입력해주세요.
+						</div>
+						<div id="emailInvalidMessage" class="error-message">
+							올바른 이메일 주소가 아닙니다.
+						</div>
+						<div id="emailDuplicateMessage" class="error-message">
+							이미 사용 중인 이메일입니다.
+						</div>
+					</div>
+					<div class="sign-input-box sign-password">
+						<label class="sign-input-label">비밀번호</label>
+						<div class="input-eye-wrapper">
+							<input
+								id="passwordInput"
+								class="sign-input password-input"
+								type="password"
+								onblur="handlePasswordInput(event)"
+							/>
+							<div class="eye-button" type="button">
+								<img src="./images/eye-off.svg" />
+							</div>
+						</div>
+						<div id="passwordInvalidMessage" class="error-message">
+							비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.
+						</div>
+					</div>
+					<div class="sign-input-box sign-password">
+						<label class="sign-input-label">비밀번호 확인</label>
+						<div class="input-eye-wrapper">
+							<input
+								id="confirmPasswordInput"
+								class="sign-input password-input"
+								type="password"
+								onblur="handleConfirmPasswordInput(event)"
+							/>
+							<div class="eye-button" type="button">
+								<img src="./images/eye-off.svg" />
+							</div>
+						</div>
+						<div id="passwordMismatchMessage" class="error-message">
+							비밀번호가 일치하지 않아요.
+						</div>
+					</div>
+				</div>
+				<button class="cta" type="submit" onclick="onClickSignUpButton(event)">
+					회원가입
+				</button>
+			</form>
+			<div class="sns-box">
+				<span class="sns-text">다른 방식으로 가입하기</span>
+				<div class="sns-links">
+					<a class="sns-link google-link" href="https://www.google.com/">
+						<img src="./images/google.png" />
+					</a>
+					<a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+						<img src="./images/kakao.svg" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<script src="/src/js/signup.js"></script>
+	</body>
 </html>
