@@ -1,6 +1,6 @@
 'use strict';
 
-export { printEmailErrorMessage };
+export { printEmailErrorMessage, isEmail };
 
 const inputEmail = document.querySelector('#email');
 const emailErrorMessage = document.querySelector('.email-error-msg');

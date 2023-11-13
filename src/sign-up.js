@@ -26,13 +26,16 @@ function createPasswordErrorMessage() {
   if (value === '') {
     passwordErrorMessage.textContent = '비밀번호를 입력해주세요.';
     inputPassword.classList.add('input__error');
+    return false;
   } else if (!isStrongPassword(value)) {
     passwordErrorMessage.textContent =
       '비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.';
     inputPassword.classList.add('input__error');
+    return false;
   } else {
     passwordErrorMessage.textContent = '';
     inputPassword.classList.remove('input__error');
+    return true;
   }
 }
 
@@ -43,9 +46,11 @@ function doubleCheckPasswordErrormessage() {
   if (checkPassword === '' || password !== checkPassword) {
     checkPasswordErrorMessage.textContent = '비밀번호가 일치하지 않아요.';
     inputCheckPassword.classList.add('input__error');
+    return false;
   } else {
     checkPasswordErrorMessage.textContent = '';
     inputCheckPassword.classList.remove('input__error');
+    return true;
   }
 }
 
@@ -65,9 +70,40 @@ function isUnresisteredEmail() {
 
 function signUp(e) {
   e.preventDefault();
-  isUnresisteredEmail();
-  if (isUnresisteredEmail() === true) {
+  const checkEmail = emailCheckBeforeSubmit();
+  const checkPassword = passwordCheckBeforeSubmit();
+  const doubleCheckPassword = doubleCheckPasswordBeforeSubmit();
+  if (checkEmail && checkPassword && doubleCheckPassword) {
     window.location.href = '../folder.html';
+  }
+}
+
+function emailCheckBeforeSubmit() {
+  if (!printEmailErrorMessage()) {
+    printEmailErrorMessage();
+  } else if (!isUnresisteredEmail()) {
+    isUnresisteredEmail();
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function passwordCheckBeforeSubmit() {
+  if (!createPasswordErrorMessage()) {
+    createPasswordErrorMessage();
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function doubleCheckPasswordBeforeSubmit() {
+  if (!doubleCheckPasswordErrormessage()) {
+    doubleCheckPasswordErrormessage();
+    return false;
+  } else {
+    return true;
   }
 }
 

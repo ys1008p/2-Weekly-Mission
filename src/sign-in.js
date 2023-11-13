@@ -1,6 +1,6 @@
 'use strict';
 
-import { printEmailErrorMessage } from './email.js';
+import { printEmailErrorMessage, isEmail } from './email.js';
 import { printPasswordErrorMessage } from './password.js';
 import { toggleEyeIcon } from './password-icon.js';
 
