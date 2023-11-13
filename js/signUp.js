@@ -25,21 +25,21 @@ const comparePw = (e) => {
   // 비밀번호 인풋에서 비밀번호확인과 값이 달라질 때
   const inputPwData = e.target; //비밀번호 인풋
   const inputPwCheckData = document.querySelector("#pw-check"); //비밀번호 비교 인풋
+  const pwCheckWaringTag = inputPwCheckData.parentElement.lastElementChild; //비밀번호 비교 경고메시지 태그
   if (
     // 비밀번호 비교인풋에서 경고메시지가 있는 상태에서, 비밀번호가 같아질 때
-    inputPwCheckData.parentElement.lastElementChild.textContent &&
+    pwCheckWaringTag.textContent &&
     inputPwData.value === inputPwCheckData.value
   ) {
-    inputPwCheckData.parentElement.lastElementChild.textContent = ""; //경고메시지 초기화
+    pwCheckWaringTag.textContent = ""; //경고메시지 초기화
     inputPwCheckData.classList.toggle("error-input"); //인풋 레이아웃 변경
   } else if (
     // 비밀번호 비교인풋에서 경고메시지가 없고, 비밀번호가 다르며, 비밀번호 비교 인풋에 값이 있을 때
-    !inputPwCheckData.parentElement.lastElementChild.textContent &&
+    !pwCheckWaringTag.textContent &&
     inputPwData.value !== inputPwCheckData.value &&
     inputPwCheckData.value
   ) {
-    inputPwCheckData.parentElement.lastElementChild.textContent =
-      "비밀번호가 일치하지 않아요."; //비밀번호 불일치 경고문
+    pwCheckWaringTag.textContent = "비밀번호가 일치하지 않아요."; //비밀번호 불일치 경고문
     inputPwCheckData.classList.toggle("error-input"); //비밀번호 비교 인풋 레이아웃 변경
   }
 };
