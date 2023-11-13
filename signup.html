@@ -7,6 +7,7 @@
   <title>signup</title>
   <link rel="stylesheet" type="text/css"
     href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css' />
+  <link rel="stylesheet" href="style/reset.css" />
   <link rel="stylesheet" href="style/colors.css" /> 
   <link rel="stylesheet" href="style/style-sign.css" />
   <link rel="stylesheet" href="style/media-sign.css" />
@@ -28,27 +29,29 @@
       <div class="email-container">
         <label for="email">이메일</label>
         <input id="email" name="email" type="email">
+        <p class="email-error-message"></p>
       </div>
-      <div class="password">
+      <div class="password-container">
         <label for="password">비밀번호</label>
-        <div class="password-container">
-          <input id="password" name="password" type="text">
-          <img class="eye" src="images/eye-on.svg">
+        <div class="password">
+          <input id="password" class="password-type" name="password" type="password">
+          <button class="eye-button eye-off"></button>
         </div>
+        <p class="password-error-message"></p>
       </div>
       <div class="password-check">
         <label for="password-check">비밀번호 확인</label>
-        <div class="password-container">
-          <input id="password-check" name="password-check" type="text">
-          <img class="eye" src="images/eye-on.svg">
-          <!-- <div class="worng-message">비밀번호가 다릅니다</div> -->
+        <div class="password">
+          <input id="password-check" class="password-type" name="password-check" type="password">
+          <button class="eye-button eye-off"></button>
         </div>
+        <p class="password-check-error-message"></p>
       </div>
     </form>
 
-    <div class="button">
+    <button class="sign-button">
       회원가입
-    </div>
+    </button>
 
     <div class="sns">
       <div class="sns-title">다른 방식으로 가입하기</div>
@@ -67,5 +70,6 @@
     </div>
   </main>
 </body>
+<script type="module" src="./js/signup.js"></script>
 
 </html>
