@@ -42,6 +42,19 @@ form {
   flex-direction: column;
 }
 
+.alert {
+  color: var(--red, #ff5b56);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 6px;
+}
+
+.redBox {
+  border: 1px solid var(--red, #ff5b56);
+}
+
 label {
   color: var(--black, #000);
   font-size: 14px;
@@ -64,12 +77,12 @@ input:focus {
   outline-color: var(--linkbrary-primary-color, #6d6afe);
 }
 
-.email-input {
-  margin-bottom: 24px;
+.password-label {
+  margin-top: 24px;
 }
 
-.password-input {
-  margin-bottom: 24px;
+label.password-check {
+  margin-top: 24px;
 }
 
 .button-submit {
@@ -78,7 +91,7 @@ input:focus {
   cursor: pointer;
   width: 100%;
   padding: 16px 20px;
-  margin-top: 30px;
+  margin-top: 54px;
   margin-bottom: 32px;
   justify-content: center;
   align-items: center;
@@ -110,6 +123,10 @@ input:focus {
   top: 19px;
   border: none;
   display: flex;
+}
+
+.invisible {
+  opacity: 0;
 }
 
 .sns-signin {
