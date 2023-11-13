@@ -38,6 +38,7 @@ const validateEmail = (email) => {
 };
 
 const validatePassword = (password) => {
+  console.log("password: ", password);
   if (password === "")
     return { ok: false, message: InputMessage.ERROR_EMPTY_PASSWORD };
   return { ok: true, message: "" };
@@ -49,6 +50,15 @@ const togglePassword = (inputEl) => {
   } else {
     inputEl.type = "password";
   }
+};
+
+const togglePasswordIcon = (inputEl, buttonEl) => {
+  const isShown = inputEl.type === "password";
+  const baseUrl =
+    "https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/";
+  const iconEl = buttonEl.children[0];
+  iconEl.src = isShown ? `${baseUrl}/eye-off` : `${baseUrl}/eye-on`;
+  iconEl.alt = isShown ? "패스워드 숨기기" : "패스워드 보이기";
 };
 
 const handleEmailFocusOut = (e) => {
@@ -109,6 +119,7 @@ const handlePasswordToggle = (e) => {
     (el) => el.nodeName === "INPUT"
   );
   togglePassword(inputEl);
+  togglePasswordIcon(inputEl, e.currentTarget);
 };
 
 emailInputEl.addEventListener("focusout", handleEmailFocusOut);
