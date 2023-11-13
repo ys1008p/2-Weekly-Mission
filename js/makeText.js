@@ -1,3 +1,5 @@
+import { membersList } from "./membersList.js";
+
 export const createWarningText = (inputValue, isEmailInput, isSignUp) => {
   //email, pwd 검증후 텍스트 반환
   if (isEmailInput) {
