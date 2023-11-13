@@ -1,4 +1,5 @@
 import { inputEventHandler, membersList, checkInputData } from "./app.js";
+import { changePwViewMode } from "./pwdOnOff.js";
 
 const pwInput = document.querySelector("#pw");
 
@@ -41,3 +42,4 @@ const comparePw = (e) => {
 inputEventHandler.addEventListener("focusout", checkInputData);
 pwInput.addEventListener("change", comparePw);
 inputEventHandler.addEventListener("submit", joinMember);
+inputEventHandler.addEventListener("click", changePwViewMode);

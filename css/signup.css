@@ -168,6 +168,7 @@ main {
   right: 15px;
   bottom: 31px;
   transform: translateY(50%);
+  cursor: pointer;
 }
 
 /* 추가 클래스 */

@@ -1,4 +1,5 @@
 import { inputEventHandler, membersList, checkInputData } from "./app.js";
+import { changePwViewMode } from "./pwdOnOff.js";
 
 const login = (e) => {
   const inputEmailData = document.querySelector("#email");
@@ -27,3 +28,4 @@ const login = (e) => {
 
 inputEventHandler.addEventListener("focusout", checkInputData);
 inputEventHandler.addEventListener("submit", login);
+inputEventHandler.addEventListener("click", changePwViewMode);
