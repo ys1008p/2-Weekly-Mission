@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입</title>
-    <link rel="stylesheet" href="src/sign.css" />
+    <link rel="stylesheet" href="src/css/sign.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -28,39 +28,33 @@
       <div class="section__input-form">
         <label for="emailCheck">이메일</label>
         <div class="section__input-wrap">
-          <input type="email" id="emailCheck" />
+          <input type="email" id="signEmail" />
+          <span id="signEmailText"></span>
         </div>
 
         <div class="section__input-wrap">
-          <label for="pw">비밀번호</label>
+          <label for="sign-pw">비밀번호</label>
           <div class="section__input">
-            <input type="password" id="pw" />
-            <img
-              class="password-toggled"
-              src="images/eye-off.svg"
-              alt="password-toggled"
-            />
+            <input type="password" id="signPw" />
+            <button class="password-toggled">
+              <img src="images/eye-off.svg" alt="password-toggled" />
+            </button>
           </div>
+          <span id="signPwText"></span>
         </div>
         <div class="section__input-wrap">
-          <label for="pwCheck">비밀번호 확인</label>
+          <label for="sign-pwCheck">비밀번호 확인</label>
           <div class="section__input">
-            <input type="password" id="pwCheck" />
-            <img
-              class="password-toggled"
-              src="images/eye-off.svg"
-              alt="password-toggled"
-            />
+            <input type="password" id="sign-pwCheck" />
+            <button class="password-toggled">
+              <img src="images/eye-off.svg" alt="password-toggled" />
+            </button>
           </div>
+          <span id="sign-pwCheck-text"></span>
         </div>
       </div>
-      <!-- <div class="section__input-check-form">
-        <span class="font14-we4 section__input-check-text"
-          >비밀번호가 다릅니다.</span
-        >
-      </div> -->
 
-      <button class="sign-btn gradation1">회원가입</button>
+      <button id="signBtn" class="sign-btn gradation1">회원가입</button>
 
       <div class="social-form">
         <span class="font14-we4 social-sns-text">다른 방식으로 가입하기</span>
@@ -88,4 +82,5 @@
       </div>
     </section>
   </body>
+  <script type="module" src="./src/js/signup.js"></script>
 </html>

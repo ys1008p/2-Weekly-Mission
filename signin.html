@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인</title>
-    <link rel="stylesheet" href="src/sign.css" />
+    <link rel="stylesheet" href="src/css/sign.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -30,23 +30,23 @@
       <div class="section__input-form">
         <label for="emailCheck">이메일</label>
         <div class="section__input-wrap">
-          <input type="email" id="emailCheck" />
+          <input type="email" id="signEmail" />
+          <span id="signEmailText"></span>
         </div>
 
         <div class="section__input-wrap">
-          <label for="pw">비밀번호</label>
+          <label for="sign-pw">비밀번호</label>
           <div class="section__input">
-            <input type="password" id="pw" />
-            <img
-              class="password-toggled"
-              src="images/eye-off.svg"
-              alt="password-toggle"
-            />
+            <input type="password" id="signPw" />
+            <button class="password-toggled">
+              <img src="images/eye-off.svg" alt="password-toggle" />
+            </button>
           </div>
+          <span id="signPwText"></span>
         </div>
       </div>
 
-      <button class="sign-btn gradation1">로그인</button>
+      <button id="signBtn" class="sign-btn gradation1">로그인</button>
 
       <div class="social-form">
         <span class="font14-we4 social-sns-text">소셜 로그인</span>
@@ -75,4 +75,5 @@
       </div>
     </section>
   </body>
+  <script type="module" src="./src/js/signin.js"></script>
 </html>
