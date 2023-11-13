@@ -8,16 +8,15 @@ import { ERROR_MESSAGE } from "./utill/constant.js";
 import { user } from "./utill/db.js";
 
 const form = document.querySelector(".sign-form");
-const inputs = form.querySelectorAll("input");
-
-const submit = document.querySelector(".cta");
-const authType = submit.dataset.auth;
+const inputs = form.getElementsByTagName("input");
+const submitBtn = document.querySelector(".cta");
+const authType = submitBtn.dataset.auth;
 
 const emailInput = document.querySelector('.sign-input[type="email"]');
 const passwordInput = document.querySelector('.sign-input[type="password"]');
 const confirmPasswordInput = document.querySelector(".confirm-password");
 
-const focusHandler = (e) => {
+const focusoutHandler = (e) => {
   if (e.target.tagName === "INPUT") {
     const errorMessage = validateInput(e.target);
     displayError(e.target, errorMessage);
@@ -27,7 +26,7 @@ const focusHandler = (e) => {
 const submitHandler = (e) => {
   e.preventDefault();
   resetError();
-  let isValid = true;
+  let isFormValid = true;
   let account = {};
 
   inputs.forEach((input) => {
@@ -36,59 +35,76 @@ const submitHandler = (e) => {
       const errorMessage = validateInput(input);
       if (errorMessage) {
         displayError(input, errorMessage);
-        isValid = false;
+        isFormValid = false;
       }
     } else if (!validationState[name]) {
       displayError(
         input,
         ERROR_MESSAGE[authType]["INVALID_" + type.toUpperCase()]
       );
-      isValid = false;
+      isFormValid = false;
     }
     account[name] = value;
   });
 
-  let isSubmit = false;
+  let shouldSubmit = false;
 
-  if (authType === "signin" && isValid) {
+  if (authType === "signin" && isFormValid) {
     if (account.email !== user.email) {
       displayError(emailInput, ERROR_MESSAGE[authType]["INVALID_EMAIL"]);
-      isValid = false;
+      isFormValid = false;
     } else if (account.password !== user.password) {
       console.log(account, user);
       displayError(passwordInput, ERROR_MESSAGE[authType]["INVALID_PASSWORD"]);
-      isValid = false;
+      isFormValid = false;
     } else {
-      isSubmit = true;
+      shouldSubmit = true;
     }
   }
 
-  if (authType === "signup" && isValid) {
+  if (authType === "signup" && isFormValid) {
     if (account.email === user.email) {
       displayError(emailInput, ERROR_MESSAGE[authType]["EXIST_EMAIL"]);
-      isValid = false;
+      isFormValid = false;
     } else if (passwordInput.value !== confirmPasswordInput.value) {
       displayError(
         confirmPasswordInput,
         ERROR_MESSAGE[authType]["PASSWORD_EQUAL"]
       );
-      isValid = false;
+      isFormValid = false;
     }
-    if (isValid) {
-      isSubmit = true;
+    if (isFormValid) {
+      shouldSubmit = true;
     }
   }
-  if (isSubmit) {
+  if (shouldSubmit) {
     form.submit();
   }
 };
 
 const keyupHandler = (e) => {
   if (e.key === "Enter") {
-    submit.click();
+    submitBtn.click();
   }
 };
 
-form.addEventListener("focusout", focusHandler);
+const toggleEyesHandler = function () {
+  const input = this.previousElementSibling;
+  const img = this.querySelector("img");
+
+  if (input.type === "password") {
+    input.type = "text";
+    img.src = "../images/eye-on.svg";
+  } else {
+    input.type = "password";
+    img.src = "../images/eye-off.svg";
+  }
+};
+
+form.addEventListener("focusout", focusoutHandler);
 form.addEventListener("submit", submitHandler);
-document.addEventListener("keyup", keyupHandler);
+form.addEventListener("keyup", keyupHandler);
+
+document.querySelectorAll(".eye-button").forEach(function (button) {
+  button.addEventListener("click", toggleEyesHandler.bind(button));
+});
