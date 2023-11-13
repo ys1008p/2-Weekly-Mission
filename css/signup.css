@@ -120,6 +120,7 @@ main {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 }
 
 .sns-signup {
@@ -170,7 +171,7 @@ main {
 }
 
 /* 추가 클래스 */
-.waring-msg {
+.warning-msg {
   position: absolute;
   left: 0;
   bottom: -2rem;

@@ -7,16 +7,9 @@ const membersList = [
   },
 ];
 
-const createTextTag = (text) => {
-  const newTag = document.createElement("p");
-  newTag.className = "waring-msg";
-  newTag.textContent = text;
-  return newTag;
-};
-
 //
 
-const createWaringText = (inputValue, isEmailInput, isSignUp) => {
+const createWarningText = (inputValue, isEmailInput, isSignUp) => {
   if (isEmailInput) {
     const emailRegex =
       /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -49,59 +42,31 @@ const createCheckPwdText = (check, pwd) => {
 
 const checkInputData = (e) => {
   const inputData = e.target;
+  const warningTag = inputData.parentElement.lastElementChild;
   if (inputData.tagName === "BUTTON") {
     return;
   }
-  const isWaringMsg = inputData.parentElement.lastElementChild.tagName === "P";
-  if (isWaringMsg) {
-    inputData.parentElement.lastElementChild.remove();
+  const isWarningMsg = inputData.parentElement.lastElementChild.textContent;
+  if (isWarningMsg) {
+    warningTag.textContent = "";
     inputData.classList.toggle("error-input");
   }
   const isSignUp = inputData.parentElement.parentElement.children.length === 4;
   const isEmailInput = inputData.id === "email";
   const isPwdCheckBox = inputData.id === "pw-check";
-  let waringMsg = "";
+  let warningMsg = "";
   if (!isPwdCheckBox) {
-    waringMsg = createWaringText(inputData.value, isEmailInput, isSignUp);
+    warningMsg = createWarningText(inputData.value, isEmailInput, isSignUp);
   } else {
     const pwInput = document.querySelector("#pw");
-    waringMsg = createCheckPwdText(inputData.value, pwInput.value);
+    warningMsg = createCheckPwdText(inputData.value, pwInput.value);
   }
-  if (!waringMsg) {
+  if (!warningMsg) {
     return;
   }
-  const waringTag = createTextTag(waringMsg);
-  inputData.parentElement.append(waringTag);
+  console.log(isWarningMsg, warningMsg);
+  warningTag.textContent = warningMsg;
   inputData.classList.toggle("error-input");
-};
-
-const joinMember = (e) => {
-  const inputEmailData = document.querySelector("#email");
-  const inputPwdData = document.querySelector("#pw");
-  const inputPwdCheckData = document.querySelector("#pw-check");
-  const pwdReg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-
-  if (
-    membersList.some((el) => el.email === inputEmailData.value) ||
-    inputPwdData.value !== inputPwdCheckData.value ||
-    !pwdReg.test(inputPwdData.value)
-  ) {
-    e.preventDefault();
-  }
-};
-
-const login = (e) => {
-  const inputEmailData = document.querySelector("#email");
-  const inputPwdData = document.querySelector("#pw");
-  if (
-    membersList.some(
-      (el) =>
-        el.email === inputEmailData.value && el.password === inputPwdData.value
-    )
-  ) {
-  } else {
-    e.preventDefault();
-  }
 };
 
 export {
@@ -109,8 +74,5 @@ export {
   membersList,
   checkInputData,
   createCheckPwdText,
-  createTextTag,
-  createWaringText,
-  joinMember,
-  login,
+  createWarningText,
 };
