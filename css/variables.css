@@ -2,10 +2,11 @@
   --primary-color: #6d6afe;
   --black-color: #111322;
   --white-color: #ffffff;
-  /* 숫자가 높을수록 흐려짐 */
-  --gray-color-1: #3e3e43;
-  --gray-color-2: #9fa6b2;
-  --gray-color-3: #ccd5e3;
-  --gray-color-4: #e7effb;
+  --focus-alert: #ff5b56;
+  /* gray-color */
+  --gray-darkest: #3e3e43;
+  --gray-darker: #9fa6b2;
+  --gray-lighter: #ccd5e3;
+  --gray-lightest: #e7effb;
   --gray-bg-color: #f0f6ff;
 }

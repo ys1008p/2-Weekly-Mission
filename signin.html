@@ -13,21 +13,21 @@
   <body>
     <header>
       <a href="/" class="pointer"><img id="logo-img" src="./images/login-logo.png" alt="로그인 로고이미지" /></a>
-      <div id="signup-text">회원이 아니신가요?<a id="signup-link" href="signup.html">회원 가입하기</a></div>
+      <div id="join-text">회원이 아니신가요?<a id="join-link" href="signup.html">회원 가입하기</a></div>
     </header>
     <form>
-      <div class="email">
-        <label for="email">이메일</label>
-        <input id="email" type="email" placeholder="이메일을 입력해주세요" />
+      <div id="login-email" class="email">
+        <label for="login-email__input">이메일</label>
+        <input id="login-email__input" placeholder="이메일을 입력해주세요" />
       </div>
-      <div class="password">
+      <div id="login-password" class="password">
         <label for="password">비밀번호</label>
         <div class="password__input-area">
-          <input id="password" type="password" placeholder="비밀번호를 입력해주세요" />
-          <img src="./images/password-icon.png" alt="비빌번호 비활성화 아이콘" />
+          <input id="login-password__input" type="password" placeholder="비밀번호를 입력해주세요" />
+          <img class="password-icon" src="./images/password-icon.png" alt="비빌번호 비활성화 아이콘" />
         </div>
       </div>
-      <button>로그인</button>
+      <button id="login-page-button">로그인</button>
       <div class="login-sns">
         <div class="login-sns__text">소셜 로그인</div>
         <div class="login-sns__icons">
@@ -36,5 +36,6 @@
         </div>
       </div>
     </form>
+    <script type="module" src="./functions/signin.js"></script>
   </body>
 </html>
