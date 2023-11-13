@@ -1,85 +1,49 @@
-import {
-  displayError,
-  resetError,
-  validateInput,
-  validationState,
-} from "./utill/validation.js";
-import { ERROR_MESSAGE } from "./utill/constant.js";
-import { user } from "./utill/db.js";
+import { resetError, validateInput } from "./utill/validation.js";
+import { signin, signup } from "../api.js";
+import { getStorage, setStorage } from "../storage.js";
 
 const form = document.querySelector(".sign-form");
+const submitBtn = form.querySelector(".cta");
+
 const inputs = form.getElementsByTagName("input");
-const submitBtn = document.querySelector(".cta");
+const toggleEyes = form.getElementsByClassName("eye-button");
+
 const authType = submitBtn.dataset.auth;
 
-const emailInput = document.querySelector('.sign-input[type="email"]');
-const passwordInput = document.querySelector('.sign-input[type="password"]');
-const confirmPasswordInput = document.querySelector(".confirm-password");
+const account = {};
 
 const focusoutHandler = (e) => {
-  const errorMessage = validateInput(e.target);
-  displayError(e.target, errorMessage);
+  validateInput(authType, e.target);
 };
 
-const submitHandler = (e) => {
+const handleAuth = async (authFunction) => {
+  try {
+    const result = await authFunction(account);
+    if (result) {
+      window.location.href = "/folder.html";
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const submitHandler = async (e) => {
   e.preventDefault();
   resetError();
   let isFormValid = true;
-  let account = {};
-
-  Array.from(inputs).forEach((input) => {
-    const { type, value, name } = input;
-    if (!value) {
-      const errorMessage = validateInput(input);
-      if (errorMessage) {
-        displayError(input, errorMessage);
-        isFormValid = false;
-      }
-    } else if (!validationState[name]) {
-      displayError(
-        input,
-        ERROR_MESSAGE[authType]["INVALID_" + type.toUpperCase()]
-      );
+  for (const input of inputs) {
+    const valid = validateInput(authType, input);
+    if (!valid) {
       isFormValid = false;
-    }
-    account[name] = value;
-  });
-
-  let shouldSubmit = false;
-
-  if (authType === "signin" && isFormValid) {
-    if (account.email !== user.email) {
-      displayError(emailInput, ERROR_MESSAGE[authType]["INVALID_EMAIL"]);
-      isFormValid = false;
-    } else if (account.password !== user.password) {
-      console.log(account, user);
-      displayError(passwordInput, ERROR_MESSAGE[authType]["INVALID_PASSWORD"]);
-      isFormValid = false;
-    } else {
-      shouldSubmit = true;
+      break;
     }
   }
-
-  if (authType === "signup" && isFormValid) {
-    if (account.email === user.email) {
-      displayError(emailInput, ERROR_MESSAGE[authType]["EXIST_EMAIL"]);
-      isFormValid = false;
-    } else if (
-      passwordInput.value !== confirmPasswordInput.value &&
-      passwordInput
-    ) {
-      displayError(
-        confirmPasswordInput,
-        ERROR_MESSAGE[authType]["PASSWORD_EQUAL"]
-      );
-      isFormValid = false;
+  if (isFormValid) {
+    if (authType === "signin") {
+      await handleAuth(signin);
+    } else if (authType === "signup") {
+      await handleAuth(signup);
     }
-    if (isFormValid) {
-      shouldSubmit = true;
-    }
-  }
-  if (shouldSubmit) {
-    form.submit();
   }
 };
 
@@ -101,11 +65,23 @@ const toggleEyesHandler = function () {
     img.src = "../images/eye-off.svg";
   }
 };
+
+const changeHanlder = function () {
+  const { name, value } = this;
+  account[name] = value;
+};
+
+//submit 버튼 클릭 시, focuseout 이벤트 중지.
 submitBtn.addEventListener("mousedown", (e) => e.preventDefault());
+
 form.addEventListener("focusout", focusoutHandler);
 form.addEventListener("submit", submitHandler);
 form.addEventListener("keyup", keyupHandler);
 
-document.querySelectorAll(".eye-button").forEach(function (button) {
+Array.from(inputs).forEach(function (input) {
+  input.addEventListener("change", changeHanlder.bind(input));
+});
+
+Array.from(toggleEyes).forEach(function (button) {
   button.addEventListener("click", toggleEyesHandler.bind(button));
 });
