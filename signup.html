@@ -1,5 +1,5 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="ko">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Linkbrary-signin</title>
@@ -31,16 +31,19 @@
                 <div class="box-width flex-column">
                   <label class="common_title">이메일</label>
                   <input
+                    class="input"
                     type="text"
                     id="username"
                     name="username"
                     required
                     alt="이메일 주소"
                   />
+                  <div class="email_error_text"></div>
                 </div>
                 <div class="box-width flex-column">
                   <label class="common_title">비밀번호</label>
                   <input
+                    class="input"
                     type="password"
                     id="password"
                     name="password"
@@ -48,20 +51,23 @@
                     alt="비밀번호"
                   />
                   <img class="eye-on-img" src="./images/eye-off.png" />
+                  <div class="pw_error_text"></div>
                 </div>
                 <div class="box-width flex-column">
                   <label class="common_title">비밀번호 확인</label>
                   <input
+                    class="input"
                     type="password"
-                    id="password-check"
+                    id="password_check"
                     name="password-check"
                     required
                     alt="비밀번호 확인"
                   />
                   <img class="eye-on-img" src="./images/eye-on.png" />
+                  <div class="pw_check_error_text"></div>
                 </div>
               </div>
-              <div class="login-button box-width">회원가입</div>
+              <button class="login-button box-width" type="button">회원가입</button>
             </form>
           </div>
         </div>
@@ -82,5 +88,6 @@
         </div>
       </div>
     </main>
+    <script type="module" src="./js/signup.js"></script>
   </body>
 </html>
