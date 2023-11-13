@@ -1,6 +1,6 @@
 'use strict';
 
-import { printEmailErrorMessage, isEmail } from './email.js';
+import { printEmailErrorMessage } from './email.js';
 import { printPasswordErrorMessage } from './password.js';
 import { toggleEyeIcon } from './password-icon.js';
 
@@ -42,9 +42,9 @@ function unResisteredPasswordErrorMessage() {
 // 로그인 시도 시 등록된 데이터일 경우 /folder 파일로 이동
 function signIn(e) {
   e.preventDefault();
-  if (!printEmailErrorMessage() || !printPasswordErrorMessage()) {
-    printEmailErrorMessage();
-    printPasswordErrorMessage();
+  const checkEmail = printEmailErrorMessage();
+  const checkPassword = printPasswordErrorMessage();
+  if (!checkEmail || !checkPassword) {
     return;
   }
   const isResisteredEmail = unResisteredEmailErrorMessage();
