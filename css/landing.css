@@ -84,10 +84,6 @@ footer > div {
   -webkit-text-fill-color: transparent;
 }
 
-.show-on-mobile {
-  display: none;
-}
-
 .add-link {
   width: 350px;
   margin: 40px auto;
@@ -263,19 +259,6 @@ footer > div {
   .contents p {
     font-size: 15px;
     margin-bottom: 24px;
-  }
-
-  .contents p.show-on-mobile {
-    order: 2;
-    margin: 0;
-  }
-
-  .hide-on-mobile {
-    display: none;
-  }
-
-  .show-on-mobile {
-    display: unset;
   }
 
   h2 {
