@@ -17,10 +17,8 @@ const passwordInput = document.querySelector('.sign-input[type="password"]');
 const confirmPasswordInput = document.querySelector(".confirm-password");
 
 const focusoutHandler = (e) => {
-  if (e.target.tagName === "INPUT") {
-    const errorMessage = validateInput(e.target);
-    displayError(e.target, errorMessage);
-  }
+  const errorMessage = validateInput(e.target);
+  displayError(e.target, errorMessage);
 };
 
 const submitHandler = (e) => {
@@ -29,9 +27,9 @@ const submitHandler = (e) => {
   let isFormValid = true;
   let account = {};
 
-  inputs.forEach((input) => {
+  Array.from(inputs).forEach((input) => {
     const { type, value, name } = input;
-    if (validationState[name] === undefined) {
+    if (!value) {
       const errorMessage = validateInput(input);
       if (errorMessage) {
         displayError(input, errorMessage);
@@ -66,7 +64,10 @@ const submitHandler = (e) => {
     if (account.email === user.email) {
       displayError(emailInput, ERROR_MESSAGE[authType]["EXIST_EMAIL"]);
       isFormValid = false;
-    } else if (passwordInput.value !== confirmPasswordInput.value) {
+    } else if (
+      passwordInput.value !== confirmPasswordInput.value &&
+      passwordInput
+    ) {
       displayError(
         confirmPasswordInput,
         ERROR_MESSAGE[authType]["PASSWORD_EQUAL"]
@@ -100,7 +101,7 @@ const toggleEyesHandler = function () {
     img.src = "../images/eye-off.svg";
   }
 };
-
+submitBtn.addEventListener("mousedown", (e) => e.preventDefault());
 form.addEventListener("focusout", focusoutHandler);
 form.addEventListener("submit", submitHandler);
 form.addEventListener("keyup", keyupHandler);
