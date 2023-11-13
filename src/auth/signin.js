@@ -38,7 +38,6 @@ const validateEmail = (email) => {
 };
 
 const validatePassword = (password) => {
-  console.log("password: ", password);
   if (password === "")
     return { ok: false, message: InputMessage.ERROR_EMPTY_PASSWORD };
   return { ok: true, message: "" };
@@ -73,6 +72,7 @@ const handleEmailFocusOut = (e) => {
 };
 
 const handlePasswordFocusOut = (e) => {
+  if (e.target.nodeName !== "INPUT") return;
   const { ok, message } = validatePassword(e.target.value);
   if (!ok) {
     passwordInputEl.dataset.state = "error";

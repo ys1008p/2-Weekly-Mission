@@ -93,6 +93,7 @@ const handleEmailFocusOut = (e) => {
 };
 
 const handlePasswordFocusOut = (e) => {
+  if (e.target.nodeName !== "INPUT") return;
   const { ok, message } = validatePassword(e.target.value);
   if (!ok) {
     passwordInputEl.dataset.state = "error";
@@ -104,6 +105,7 @@ const handlePasswordFocusOut = (e) => {
 };
 
 const handlePasswordConfirmFocusOut = (e) => {
+  if (e.target.nodeName !== "INPUT") return;
   const { ok, message } = validatePasswordConfirm(e.target.value);
   if (!ok) {
     passwordConfirmInputEl.dataset.state = "error";
