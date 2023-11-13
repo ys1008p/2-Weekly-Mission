@@ -7,8 +7,8 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
-    <link rel="stylesheet" href="./src/signstyle.css" />
     <link rel="stylesheet" href="./src/reset.css" />
+    <link rel="stylesheet" href="./src/SignStyle.css" />
     <title>로그인</title>
   </head>
   <body class="sign_body">
@@ -31,10 +31,10 @@
             <div class="input_section">
               <label for="password">비밀번호</label>
               <input id="password" name="password" type="password">
-              <img src="./images/eye-on.png">
+              <img class="eye" src="./images/eye-on.png">
             </div>
           </div>  
-          <button>로그인</button>
+          <button id="btn" type="button">로그인</button>
       </div>
       <div class="social_login_button">
         <p>소셜 로그인</p>
@@ -48,5 +48,6 @@
         </div>          
       </div>
     </form>
+    <script type="module" src="./src/signin.js"></script>
   </body>
 </html>
