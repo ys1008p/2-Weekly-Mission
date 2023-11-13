@@ -107,3 +107,18 @@ formSignUp.addEventListener('submit', signUp);
 eyeIcon.forEach((icon) => {
   icon.addEventListener('click', toggleEyeIcon);
 });
+
+// 비밀번호 확인란에 이미 입력 후, 비밀번호란에 추가로 입력 시, 비밀번호 확인란에 에러 메시지 표시
+inputPassword.addEventListener('keyup', checkAgainDoubleCheckPassword);
+
+function checkAgainDoubleCheckPassword(e) {
+  const password = e.target.value;
+  const doubleCheckPassword = inputCheckPassword.value;
+  if (doubleCheckPassword !== '' && password !== doubleCheckPassword) {
+    checkPasswordErrorMessage.textContent = '비밀번호가 일치하지 않아요.';
+    inputCheckPassword.classList.add('input__error');
+  } else {
+    checkPasswordErrorMessage.textContent = '';
+    inputCheckPassword.classList.remove('input__error');
+  }
+}
