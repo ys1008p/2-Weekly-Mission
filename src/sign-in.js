@@ -42,6 +42,11 @@ function unResisteredPasswordErrorMessage() {
 // 로그인 시도 시 등록된 데이터일 경우 /folder 파일로 이동
 function signIn(e) {
   e.preventDefault();
+  if (!printEmailErrorMessage() || !printPasswordErrorMessage()) {
+    printEmailErrorMessage();
+    printPasswordErrorMessage();
+    return;
+  }
   const isResisteredEmail = unResisteredEmailErrorMessage();
   const isResisteredPassword = unResisteredPasswordErrorMessage();
   if (isResisteredEmail && isResisteredPassword) {

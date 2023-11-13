@@ -17,11 +17,14 @@ function printEmailErrorMessage() {
   if (value === '') {
     emailErrorMessage.textContent = '이메일을 입력해주세요.';
     inputEmail.classList.add('input__error');
+    return false;
   } else if (!isEmail(value)) {
     emailErrorMessage.textContent = '올바른 이메일 주소가 아닙니다.';
     inputEmail.classList.add('input__error');
+    return false;
   } else {
     emailErrorMessage.textContent = '';
     inputEmail.classList.remove('input__error');
+    return true;
   }
 }

@@ -11,8 +11,10 @@ function printPasswordErrorMessage() {
   if (value === '') {
     passwordErrorMessage.textContent = '비밀번호를 입력해주세요.';
     inputPassword.classList.add('input__error');
+    return false;
   } else {
     passwordErrorMessage.textContent = '';
     inputPassword.classList.remove('input__error');
+    return true;
   }
 }
