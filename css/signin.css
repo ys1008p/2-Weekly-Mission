@@ -58,6 +58,21 @@ input:focus {
   border-color: var(--primary-color);
 }
 
+.error {
+  border: 1px solid var(--red);
+}
+
+.error-text {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: normal;
+  color: var(--red);
+}
+
+.hidden {
+  display: none;
+}
+
 .eye-icon {
   position: absolute;
   top: calc(50% - 8px);
