@@ -1,7 +1,7 @@
 @import url("global_styles.css");
 
 body {
-  background-color: var(--bg);
+  background-color: var(--main-background-color);
 }
 main {
   display: flex;
@@ -27,60 +27,71 @@ main {
 .logo img {
   height: 3.8rem;
 }
-.logo-wrap p {
+.logo-wrap > p {
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
-.logo-wrap p a {
-  border-bottom: 1px solid var(--primary);
+.logo-wrap > p > a {
+  border-bottom: 1px solid var(--main-color);
   font-weight: 600;
-  color: var(--primary);
+  color: var(--main-color);
 }
-.sign-wrap form {
+.sign-wrap > form {
   display: flex;
   gap: 2.4rem;
   flex-direction: column;
   width: 100%;
 }
-.input-wrap {
+.label-input-wrap {
   display: flex;
   gap: 1.2rem;
   flex-direction: column;
+  position: relative;
 }
-.input-wrap label {
+.label-input-wrap > label {
   font-size: 1.4rem;
   font-weight: 400;
 }
-.input-wrap input {
+.label-input-wrap input {
   width: 100%;
   padding: 1.8rem 4rem 1.8rem 1.5rem;
-  border: 1px solid var(--gray-20);
+  border: 1px solid var(--gray-light-color);
   border-radius: 0.8rem;
   outline: none;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  color: var(--gray-100);
+  color: var(--gray-darker-color);
 }
-.input-wrap input:focus {
-  border: 1px solid var(--primary);
+.label-input-wrap input:focus {
+  border: 1px solid var(--main-color);
 }
-.input-hidden-wrap {
+.label-input-wrap input.alert {
+  border: 1px solid var(--alert-color);
+}
+.input-wrap {
   position: relative;
 }
-.input-hidden-wrap img {
+.input-wrap > img {
   position: absolute;
   top: 50%;
   right: 1.5rem;
   cursor: pointer;
   transform: translateY(-50%);
 }
+.input-alert {
+  position: absolute;
+  bottom: -0.6rem;
+  font-size: 1.4rem;
+  color: var(--alert-color);
+  transform: translateY(100%);
+}
 .submit-button {
   padding: 1.6rem 2rem;
   margin-top: 0.6rem;
   border-radius: 0.8rem;
-  background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
+  background: linear-gradient(91deg, var(--main-color) 0.12%, #6ae3fe 101.84%);
   font-size: 1.8rem;
-  color: #f5f5f5;
+  color: var(--white-text-color);
 }
 .sns-sign-wrap {
   display: flex;
@@ -88,18 +99,18 @@ main {
   justify-content: space-between;
   width: 100%;
   padding: 1.2rem 2.4rem;
-  border: 1px solid var(--gray-20);
+  border: 1px solid var(--gray-light-color);
   border-radius: 0.8rem;
-  background-color: var(--gray-10);
+  background-color: var(--gray-lighter-color);
   font-size: 1.4rem;
-  color: var(--gray-100);
+  color: var(--gray-darker-color);
 }
 .sns-logo-wrap {
   display: flex;
   gap: 1.6rem;
   align-items: center;
 }
-.sns-logo-wrap a {
+.sns-logo-wrap > a {
   display: flex;
   align-items: center;
 }
