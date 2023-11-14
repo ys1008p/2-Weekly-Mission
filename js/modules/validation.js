@@ -8,3 +8,6 @@ export const isValidEmail = (email) => EMAIL_REGEXP.test(email);
 export const verifyEmail = (email) => email === 'test@codeit.com';
 
 export const verifyPassword = (password) => password === 'codeit101';
+
+export const isAllObjectValueTrue = (object) =>
+  Object.values(object).every((value) => value);
