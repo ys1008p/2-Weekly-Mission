@@ -1,230 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta charset="utf-8" />
+    <title>Linkbrary</title>
+    <meta property="og:title" content="Linkbrary" key="title" />
     <meta
-      property="og:url"
-      content="https://3weekly-codeit-bbobboman.netlify.app/"
-    />
-    <meta property="og:title" content="Linkbrary" />
-    <meta
+      name="description"
       property="og:description"
       content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+      key="description"
     />
     <meta
       property="og:image"
-      content="https://3weekly-codeit-bbobboman.netlify.app/images/image2.jpg"
+      content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+      key="image"
     />
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@linkbrary" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
     <meta
-      property="twitter:url"
-      content="https://3weekly-codeit-bbobboman.netlify.app/"
-    />
-    <meta property="twitter:title" content="Linkbrary" />
-    <meta
-      property="twitter:description"
-      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+      name="twitter:image"
+      content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
     />
     <meta
-      property="twitter:image"
-      content="https://3weekly-codeit-bbobboman.netlify.app/images/image2.jpg"
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <title>Linkbrary</title>
     <link
       rel="stylesheet"
-      as="style"
-      crossorigin=""
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/src/landing.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="nav-box">
-        <div class="header-img-div"></div>
-        <a href="/signin/signin.html " class="login-button button">로그인</a>
+    <nav>
+      <div class="gnb">
+        <a href="index.html">
+          <img class="logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+        </a>
+        <a class="cta cta-short" href="/signin/signin.html">
+          <span>로그인</span>
+        </a>
+      </div>
+    </nav>
+    <header>
+      <div class="hero-header">
+        <h1 class="slogan">
+          <span class="slogan-gradient background-clip-text"> 세상의 모든 정보</span>를
+          <br />
+          쉽게 저장하고 관리해 보세요
+        </h1>
+        <a class="cta cta-long" href="/signup/signup.html">
+          <span>링크 추가하기</span>
+        </a>
+        <img src="./images/hero.png" class="hero-image" alt="Linkbrary 서비스 소개" />
       </div>
     </header>
-    <section class="section1 num1">
-      <div>
-        <h1 class="subject font">
-          <span class="num1-span">세상의 모든 정보</span>를
-        </h1>
-        <div>
-          <h1 class="subject font">
-            쉽게 저장하고<span class="mobile-block-span"></span
-            ><span class="tablet-block-span"></span> 관리해 보세요
-          </h1>
-        </div>
-      </div>
-      <a href="/signup/signup.html" class="link-button button">링크 추가하기</a>
-      <div class="section-num1-imgdiv">
-        <div class="num1-imgdiv">
-          <img src="Images/1.png" alt="" />
-          <div class="gradient-div"></div>
-        </div>
-      </div>
-    </section>
-    <!--script를 이용한 필요부분 복사하고 필요한 위치에 append 시킴 -->
-    <section class="section num2">
-      <div class="num2-subject">
-        <h1 class="font2" id="first-section-change-location">
-          <span class="num2-span">원하는 링크</span>를<span
-            class="main-block-span"
-          ></span
-          ><span class="tablet-block-span"></span>저장하세요
-        </h1>
-        <div class="num2-imgdiv" id="first-section1">
-          <div class="gapdiv">
-            <div class="num2-img img1"></div>
-            <div class="num2-img img2">
-              <img class="absolute-icon" src="Images/Group 20.jpg" alt="" />
-              <div class="num2-border"></div>
-            </div>
-            <div class="num2-img img3"></div>
-          </div>
-        </div>
-        <p>
-          나중에 읽고 싶은 글, 다시 고보 싶은 영상,<span
-            class="tablet-block-span"
-          ></span
-          ><span class="main-block-span"></span>사고 싶은 옷,<span
-            class="mobile-block-span"
-          ></span>
-          기억하고 싶은 모든 것을<span class="tablet-block-span"></span
-          ><span class="main-block-span"></span>한 공간에 저장하세요
+    <article>
+      <section>
+        <h2 class="title">
+          <span class="title-1-gradient background-clip-text"> 원하는 링크</span>를 저장하세요
+        </h2>
+        <p class="description">
+          나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+          <br class="line-break-tablet-desktop" />
+          사고 싶은 옷, 기억하고 싶은 모든 것을
+          <br class="line-break-tablet-desktop" />
+          한 공간에 저장하세요.
         </p>
-      </div>
-      <div class="num2-imgdiv" id="first-section">
-        <div class="gapdiv">
-          <div class="num2-img img1"></div>
-          <div class="num2-img img2">
-            <img class="absolute-icon" src="Images/Group 20.jpg" alt="" />
-            <div class="num2-border"></div>
-          </div>
-          <div class="num2-img img3"></div>
-        </div>
-      </div>
-    </section>
-    <!-- 같은 이미지 div 하나더 만들어서 필요할때 display보여주는 방식 본인이 나와야 할때 제외하고 none -->
-    <section class="section num2 reverse paddiv">
-      <div class="num2-imgdiv foldername">
-        <div id="foldername"></div>
-      </div>
-      <div class="num2-subject">
-        <h1 class="font2">
-          링크를 폴더로<span class="tablet-block-span"></span
-          ><span class="main-block-span"></span
-          ><span id="linkspan">관리</span>하세요
-        </h1>
-        <div class="num2-imgdiv foldername-phone">
-          <div id="foldername"></div>
-        </div>
-        <p>
-          나만의 폴더를 무제한으로 만들고<span class="tablet-block-span"></span
-          ><span class="main-block-span"></span> 다양하게 활용할 수<span
-            class="mobile-block-span"
-          ></span
-          >있습니다
+        <img src="./images/image1.png" class="content-image" alt="링크의 내용이 담긴 카드들" />
+      </section>
+      <section>
+        <h2 class="title">
+          링크를 폴더로
+          <span class="title-2-gradient background-clip-text">관리</span>하세요
+        </h2>
+        <p class="description">
+          나만의 폴더를 무제한으로 만들고
+          <br class="line-break-tablet-desktop" />
+          다양하게 활용할 수 있습니다.
         </p>
-      </div>
-    </section>
-    <!--flex를 처리할 방법으로 div 를 하나더 만들어서 reverse 화면이 mobile 화면외 문제가 생김 
-해결방법 div 똑같은것을 하나 더 만들어서 특정 크기에서 보여주고 안보여주고를 보여줌
--->
-    <section class="section num2 paddiv">
-      <div class="num2-subject">
-        <h1 class="font2">
-          저장한 링크를<span class="tablet-block-span"></span
-          ><span class="main-block-span"></span>
-          <span id="sharedspan">공유</span>해보세요.<br />
-        </h1>
-        <div class="flex-reversediv-subsub">
-          <p>
-            여러 링크를 폴더에 담고 공유할 수<span
-              class="tablet-block-span"
-            ></span>
-            있습니다.<span class="main-block-span"></span> 가족,<span
-              class="mobile-block-span"
-            ></span>
-            친구, 동료들에게 쉽고<span class="tablet-block-span"></span> 빠르게
-            링크를 <span class="main-block-span"></span>공유해보세요
-          </p>
-        </div>
-      </div>
-      <div class="flex-reversediv">
-        <div class="flex-reversediv-subsub2">
-          <p>
-            여러 링크를 폴더에 담고 공유할 수<span
-              class="tablet-block-span"
-            ></span>
-            있습니다.<span class="main-block-span"></span> 가족,<span
-              class="mobile-block-span"
-            ></span>
-            친구, 동료들에게 쉽고<span class="tablet-block-span"></span> 빠르게
-            링크를 <span class="main-block-span"></span>공유해보세요
-          </p>
-        </div>
-        <div class="num2-imgdiv num2-backgroundimg">
-          <div class="num2-imgdiv num2-backgroundimg1">
-            <img src="Images/share.png" alt="" />
-            <div class="num2-background-opacity"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section num2 reverse last">
-      <div class="num2-imgdiv last">
-        <img src="Images/5.png" alt="" class="codeit" />
-      </div>
-      <div class="num2-subject">
-        <h1 class="font2">
-          저장한 링크를<span class="main-block-span"></span
-          ><span class="tablet-block-span"></span>
-          <span id="searchspan">검색</span>해 보세요
-        </h1>
-        <p class="blink-p">
-          중요한 정보들을 검색으로 쉽게
-          <span class="tablet-block-span"></span>찾아보세요.
+        <img src="./images/image2.png" class="content-image" alt="폴더 이름 변경 기능" />
+      </section>
+      <section>
+        <h2 class="title">
+          저장한 링크를
+          <span class="title-3-gradient background-clip-text">공유</span>해 보세요
+        </h2>
+        <p class="description">
+          여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를
+          공유해 보세요.
         </p>
-      </div>
-      <div class="last-contents">
-        <p class="blink-p1 add-margin">
-          중요한 정보들을 검색으로 쉽게
-          <span class="tablet-block-span"></span>찾아보세요.
-        </p>
-      </div>
-    </section>
-    <footer class="footer">
-      <div class="footer1 reverse">
-        <div class="footer1">©codeit - 2023</div>
-        <div class="footer1 policy">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/faq">FAQ</a>
+        <img src="./images/image3.png" class="content-image" alt="폴더 공유 기능" />
+      </section>
+      <section>
+        <h2 class="title">
+          저장한 링크를
+          <span class="title-4-gradient background-clip-text">검색</span>해 보세요
+        </h2>
+        <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+        <img src="./images/image4.png" class="content-image" alt="링크 검색 기능" />
+      </section>
+    </article>
+    <footer>
+      <div class="footer-box">
+        <span class="copyright">©codeit - 2023</span>
+        <div class="footer-links">
+          <a class="footer-link" href="/privacy/privacy.html">Privacy Policy</a>
+          <a class="footer-link" href="/faq/faq.html">FAQ</a>
         </div>
-      </div>
-      <div class="footer1 logo">
-        <a href="https://www.facebook.com/" alt="페이스북" target="_blank">
-          <img src="Images/akar-icons_facebook-fill.png" /></a
-        ><a href="https://twitter.com" alt="트위터" target="sns"
-          ><img src="Images/akar-icons_twitter-fill.png" /></a
-        ><a href="https://youtube.com" alt="유튜브" target="sns"
-          ><img src="Images/akar-icons_youtube-fill.png" /></a
-        ><a href="https://instagram.com" alt="인스타" target="sns"
-          ><img src="Images/ant-design_instagram-filled.png"
-        /></a>
+        <div class="sns">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/facebook.svg" alt="facebook 홈페이지로 연결된 facebook 로고" />
+          </a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/twitter.svg" alt="twitter 홈페이지로 연결된 twitter 로고" />
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/youtube.svg" alt="youtube 홈페이지로 연결된 youtube 로고" />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/instagram.svg" alt="instagram 홈페이지로 연결된 instagram 로고" />
+          </a>
+        </div>
       </div>
     </footer>
-    <audio
-      src="/music/ALoversConcerto.mp3"
-      type="audio/mpeg"
-      autoplay
-      loop
-    ></audio>
-    <script src="indexdfd.js"></script>
   </body>
 </html>
