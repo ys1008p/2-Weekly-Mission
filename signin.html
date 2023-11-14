@@ -29,34 +29,39 @@
         </div>
         <form>
           <div class="form">
-            <label>이메일</label>
-            <div class="emaillPwGap">
-              <input type="email" class="enter" placeholder="codeit@codeit.com">
-              <div class="form">
-                <label>비밀번호</label>
-                <input type="password" class="enter" placeholder="* * * * * * * *">
-                <img src="images/eye-off.png" alt="눈사진" class="eye">
-              </div>
-            </div>
+            <span class="inputBox-errMsg">
+              <label for="email">이메일</label>
+              <!-- <div class="emaillPwGap"> -->
+                <input name="email" type="email" class="enter" id="useremail" placeholder="codeit@codeit.com">
+            </span>
+            <div class="form">
+              <span class="inputBox-errMsg-margin">
+                <label for="password">비밀번호</label>
+                <input name="password" type="password" class="enter" id="userpassword" placeholder="* * * * * * * *">
+              </span>
+              <img src="images/eye-off.png" alt="눈사진" class="eye">
+            <!-- </div> -->
           </div>
-        </form>
-        <button type="submit" class="button">로그인</button>
       </div>
-      <div class="footer">
-        <div class="socialLogin">소셜 로그인</div>
-        <div class="imgFlex">
-          <a href="https://www.google.com/" class="companyFlex">
-            <img src="images/googlBack.png" alt="구글흰색배경" class="socialBack">
-            <img src="images/google.png" alt="구글" class="socialLogo">
-          </a>
-          <a href="https://www.kakaocorp.com/page/" class="companyFlex">
-            <img src="images/kakaoBack.png" alt="카카오노란배경" class="socialBack">
-            <img src="images/kakao.png" alt="카카오" class="socialLogo">
-          </a>
-        </div>
+      </form>
+      <button type="submit" class="button">로그인</button>
+    </div>
+    <div class="footer">
+      <div class="socialLogin">소셜 로그인</div>
+      <div class="imgFlex">
+        <a href="https://www.google.com/" class="companyFlex">
+          <img src="images/googlBack.png" alt="구글흰색배경" class="socialBack">
+          <img src="images/google.png" alt="구글" class="socialLogo">
+        </a>
+        <a href="https://www.kakaocorp.com/page/" class="companyFlex">
+          <img src="images/kakaoBack.png" alt="카카오노란배경" class="socialBack">
+          <img src="images/kakao.png" alt="카카오" class="socialLogo">
+        </a>
       </div>
     </div>
   </div>
+  </div>
+  <script src="./JavaScript/signin.js"></script>
 </body>
 
 </html>

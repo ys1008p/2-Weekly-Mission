@@ -70,18 +70,27 @@ input:focus {
 }
 
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
 }
 
-.emaillPwGap {
+label {
+  margin-bottom: 12px;
+}
+
+/* .emaillPwGap {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
+} */
+
+.inputBox-errMsg-margin {
+  margin-top: 24px;
 }
 
 .enter {
@@ -151,6 +160,29 @@ input:focus {
   justify-content: center;
   align-items: center;
 }
+
+.message {
+  margin-top: 6px;
+  color: var(--linkbrary-red, #FF5B56);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.redBox {
+  border-radius: 8px;
+  border: 1px solid var(--linkbrary-red, #FF5B56);
+  background: var(--linkbrary-white, #FFF);
+}
+
+/* .inputBox-errMsg {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+} */
 
 
 
