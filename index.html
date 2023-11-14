@@ -36,9 +36,9 @@
       rel="stylesheet"
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/common.css" />
-    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <header class="bgc-blue">
@@ -51,10 +51,10 @@
             tabindex="1">
             <img
               class="gnb__logo--img"
-              src="./images/icons/logo.svg"
+              src="images/icons/logo.svg"
               alt="링크브러리 로고" />
           </a>
-          <a class="cta gnb__signin" href="/signin.html">로그인</a>
+          <a class="cta gnb__signin" href="pages/member/signin">로그인</a>
         </div>
       </nav>
 
@@ -65,11 +65,11 @@
           >를<br />
           쉽게 저장하고 관리해 보세요
         </h1>
-        <a class="cta hero__signup" href="/signup.html">링크 추가하기</a>
+        <a class="cta hero__signup" href="pages/member/signup">링크 추가하기</a>
         <div class="hero__img">
           <img
             class="hero__img--img"
-            src="/images/landing/main-capture.webp"
+            src="images/landing/main-capture.webp"
             alt="링크브러리 메인화면 캡쳐" />
         </div>
       </section>
@@ -90,7 +90,7 @@
           <div class="content__img">
             <img
               class="content__img--img"
-              src="/images/landing/cards.webp"
+              src="images/landing/cards.webp"
               alt="링크 저장 기능 이미지" />
           </div>
         </div>
@@ -110,7 +110,7 @@
           <div class="content__img">
             <img
               class="content__img--img"
-              src="/images/landing/folder-name-change-popup.webp"
+              src="images/landing/folder-name-change-popup.webp"
               alt="폴더명 변경 팝업" />
           </div>
         </div>
@@ -132,7 +132,7 @@
           <div class="content__img">
             <img
               class="content__img--img"
-              src="/images/landing/folder-share-popup.webp"
+              src="images/landing/folder-share-popup.webp"
               alt="폴더 공유 팝업" />
           </div>
         </div>
@@ -153,7 +153,7 @@
           <div class="content__img">
             <img
               class="content__img--img"
-              src="/images/landing/search-capture.webp"
+              src="images/landing/search-capture.webp"
               alt="링크 검색 결과 확대" />
           </div>
         </div>
@@ -164,8 +164,10 @@
       <div class="wrap footer__container">
         <div class="footer__copy-right">©codeit - 2023</div>
         <div class="footer__pages">
-          <a class="footer__pages--link" href="privacy.html">Privacy Policy</a>
-          <a class="footer__pages--link" href="faq.html">FAQ</a>
+          <a class="footer__pages--link" href="pages/privacy/"
+            >Privacy Policy</a
+          >
+          <a class="footer__pages--link" href="pages/faq/">FAQ</a>
         </div>
         <div class="footer__sns-links">
           <a class="footer__sns-links--anchor" href="https://www.facebook.com/">

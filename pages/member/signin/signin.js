@@ -1,9 +1,8 @@
 import {
   changePasswordVisibility,
   checkEmailNotEmpty,
-  checkEmailNotExist,
   checkEmailValid,
-  checkPasswordChkSame,
+  checkIsOurMember,
   checkPasswordNotEmpty,
   checkPasswordValid,
   emailValidationFailed,
@@ -11,7 +10,7 @@ import {
   passwordValidationFailed,
   passwordValidationSucceeded,
   validatingMachine,
-} from "./sign.js";
+} from "../sign.js";
 
 /**
  * email input
@@ -28,10 +27,6 @@ function onEmailFocusoutValid({ target }) {
     {
       validator: checkEmailValid,
       message: "올바른 이메일 주소가 아닙니다.",
-    },
-    {
-      validator: checkEmailNotExist,
-      message: "이미 사용 중인 이메일입니다.",
     },
   ];
 
@@ -79,42 +74,35 @@ passwordEyeIcon.addEventListener(
 );
 
 /**
- * password check input
- */
-const passwordInputChk = document.querySelector("#input-password-chk");
-const passwordChkEyeIcon = document.querySelector(
-  ".form__password-chk .form__input--eye-off"
-);
-
-passwordInputChk.addEventListener("focusout", onPasswordChkFocusoutValid);
-
-function onPasswordChkFocusoutValid({ target }) {
-  const validators = [
-    {
-      validator: checkPasswordChkSame(passwordInput),
-      message: "비밀번호가 일치하지 않아요.",
-    },
-  ];
-
-  return validatingMachine(
-    target,
-    validators,
-    passwordValidationFailed(target, passwordChkEyeIcon),
-    passwordValidationSucceeded(target, passwordChkEyeIcon)
-  );
-}
-
-passwordChkEyeIcon.addEventListener(
-  "click",
-  changePasswordVisibility(passwordInputChk)
-);
-
-/**
  * form
  */
 const form = document.querySelector(".form");
 
 form.addEventListener("submit", onSubmitValid);
+
+function checkMemberExist() {
+  let result = false;
+  result = validatingMachine(
+    {
+      email: emailInput.value,
+      password: passwordInput.value,
+    },
+    [{ validator: checkIsOurMember, message: "이메일을 확인해주세요." }],
+    emailValidationFailed(emailInput),
+    emailValidationSucceeded(emailInput)
+  );
+
+  result = validatingMachine(
+    {
+      email: emailInput.value,
+      password: passwordInput.value,
+    },
+    [{ validator: checkIsOurMember, message: "비밀번호를 확인해주세요." }],
+    passwordValidationFailed(passwordInput, passwordEyeIcon),
+    passwordValidationSucceeded(passwordInput, passwordEyeIcon)
+  );
+  return result;
+}
 
 function onSubmitValid(e) {
   e.preventDefault();
@@ -122,11 +110,11 @@ function onSubmitValid(e) {
   let result =
     onEmailFocusoutValid({ target: emailInput }) &&
     onPasswordFocusoutValid({ target: passwordInput }) &&
-    onPasswordChkFocusoutValid({ target: passwordInputChk });
+    checkMemberExist();
 
   if (!result) {
     return;
   }
 
-  location.href = "/folder.html";
+  location.href = "/pages/folder";
 }

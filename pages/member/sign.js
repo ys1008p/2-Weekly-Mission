@@ -1,12 +1,12 @@
-import users from "../data/users.js";
+import users from "/data/users.js";
 import {
   addElementClass,
   getParentsChildElement,
   removeElementClass,
   setElementTextContent,
   toggleElementClass,
-} from "./dom.js";
-import { isEmptyString } from "./utils.js";
+} from "/scripts/dom.js";
+import { isEmptyString } from "/scripts/utils.js";
 
 function showErrorMessage(target, message) {
   const errorMessageSpan = getParentsChildElement(
