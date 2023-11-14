@@ -5,29 +5,33 @@ let emailEnable = false; //이메일 사용 가능 여부
 let passwordEnable = false; //패스워드 사용 가능 여부
 function emailCheck(e) {
   //이메일 확인 함수
-  let input = e.target;
-  if (input.value === "") {
-    createTag(input, "이메일을 입력해주세요");
-  } else if (!checkEmail(input.value)) {
-    createTag(input, "올바른 이메일이 아닙니다.");
-  } else {
-    emailEnable = true;
+  if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
+    let input = e.target;
+    if (input.value === "") {
+      createTag(input, "이메일을 입력해주세요");
+    } else if (!checkEmail(input.value)) {
+      createTag(input, "올바른 이메일이 아닙니다.");
+    } else {
+      emailEnable = true;
+    }
   }
 }
 
 function passwordCheck(e) {
   //패스워드 확인 함수
-  let input = e.target;
-  if (input.value === "") {
-    createTag(input, "비밀번호를 입력해주세요");
-  } else if (
-    input.value.length < 9 ||
-    !/[a-zA-Z]/.test(input.value) ||
-    !/\d/.test(input.value)
-  ) {
-    createTag(input, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
-  } else {
-    passwordEnable = true;
+  if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
+    let input = e.target;
+    if (input.value === "") {
+      createTag(input, "비밀번호를 입력해주세요");
+    } else if (
+      input.value.length < 9 ||
+      !/[a-zA-Z]/.test(input.value) ||
+      !/\d/.test(input.value)
+    ) {
+      createTag(input, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+    } else {
+      passwordEnable = true;
+    }
   }
 }
 function login(e) {
@@ -64,7 +68,9 @@ function passwordOpen() {
 }
 //이벤트 리스너
 inputEmail.addEventListener("focusout", (e) => emailCheck(e, "이메일"));
-inputPassword.addEventListener("change", (e) => passwordCheck(e, "비밀번호"));
+inputEmail.addEventListener("keyup", (e) => emailCheck(e, "이메일"));
+inputPassword.addEventListener("focusout", (e) => passwordCheck(e, "비밀번호"));
+inputPassword.addEventListener("keyup", (e) => passwordCheck(e, "비밀번호"));
 inputEmail.addEventListener("focusin", init);
 inputPassword.addEventListener("focusin", init);
 eyeIcon[0].addEventListener("click", passwordOpen);

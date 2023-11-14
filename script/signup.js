@@ -17,35 +17,39 @@ let emailEnable = false; //이메일 사용 가능 여부
 let passwordEnable = false; // 패스워드 사용 가능 여부
 function emailCheck(e) {
   //이메일 사용 가능 여부 판단 함수
-  let input = e.target;
-  if (input.value === "") {
-    createTag(input, "이메일을 입력해주세요");
-  } else if (!checkEmail(input.value)) {
-    createTag(input, "올바른 이메일이 아닙니다.");
-  } else {
-    const user = emailDuplicateCheck(input.value);
-    if (user) {
-      createTag(input, "이미 사용중인 이메일입니다.");
+  if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
+    let input = e.target;
+    if (input.value === "") {
+      createTag(input, "이메일을 입력해주세요");
+    } else if (!checkEmail(input.value)) {
+      createTag(input, "올바른 이메일이 아닙니다.");
+    } else {
+      const user = emailDuplicateCheck(input.value);
+      if (user) {
+        createTag(input, "이미 사용중인 이메일입니다.");
+      }
+      emailEnable = true;
     }
-    emailEnable = true;
   }
 }
 
 function PasswordCheck(e, type) {
   //패스워드 사용 가능 여부 판단 함수
-  let input = e.target;
-  if (input.value === "" && type === "비밀번호") {
-    createTag(input, "비밀번호를 입력해주세요");
-  } else if (
-    input.value.length < 9 ||
-    !/[a-zA-Z]/.test(input.value) ||
-    !/\d/.test(input.value)
-  ) {
-    createTag(input, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
-  } else if (type === "비밀번호체크" && input.value !== inputPassword.value) {
-    createTag(input, "비밀번호가 일치하지 않습니다.");
+  if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
+    let input = e.target;
+    if (input.value === "" && type === "비밀번호") {
+      createTag(input, "비밀번호를 입력해주세요");
+    } else if (
+      input.value.length < 9 ||
+      !/[a-zA-Z]/.test(input.value) ||
+      !/\d/.test(input.value)
+    ) {
+      createTag(input, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+    } else if (type === "비밀번호체크" && input.value !== inputPassword.value) {
+      createTag(input, "비밀번호가 일치하지 않습니다.");
+    }
+    passwordEnable = true;
   }
-  passwordEnable = true;
 }
 function init(e) {
   //에러로 판단 된 내용 삭제
@@ -86,8 +90,11 @@ function signup(e) {
   });
 } //이벤트 리스너
 inputEmail.addEventListener("focusout", (e) => emailCheck(e, "이메일"));
+inputEmail.addEventListener("keyup", (e) => emailCheck(e, "이메일"));
 inputPassword.addEventListener("focusout", (e) => PasswordCheck(e, "비밀번호"));
+inputPassword.addEventListener("keyup", (e) => PasswordCheck(e, "비밀번호"));
 inputEmail.addEventListener("focusin", init);
+inputEmail.addEventListener("keyup", init);
 inputPassword.addEventListener("focusin", init);
 inputPasswordCheck.addEventListener("change", (e) =>
   PasswordCheck(e, "비밀번호체크")
