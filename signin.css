@@ -99,7 +99,14 @@ input {
   position: relative;
   outline: none;
 }
-
+.redBorder {
+  border-color: var(--red);
+}
+.redMessage {
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 400;
+}
 input:focus {
   border: 1px solid var(--primary);
 }
@@ -128,7 +135,8 @@ img.eyeIcon {
   width: 1rem;
   height: 1rem;
   right: 1rem;
-  bottom: 1rem;
+  top: 3rem;
+  z-index: 1;
 }
 .secondaryContainer {
   display: flex;
@@ -186,9 +194,6 @@ a.socialLoginLink > img {
     .secondaryContainer {
       width: 100%;
       max-width: 400px;
-    }
-    .inputField {
-      width: 100%;
     }
   }
 }
