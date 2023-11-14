@@ -74,36 +74,9 @@
 
 .auth-input > .input-wrapper {
   margin-top: 1.2rem;
-  border: 1px solid var(--color-gray-3);
-  border-radius: 0.8rem;
-  background-color: var(--color-white);
 }
 
-.auth-input > .input-wrapper:focus-within {
-  border: 1px solid var(--color-primary);
-}
-
-.auth-input > .input-wrapper > input {
-  padding: 1.8rem 1.5rem;
-}
-
-.input-wrapper {
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.input-wrapper > input {
-  flex-grow: 1;
-  height: 100%;
-  border: 0;
-  background-color: inherit;
-}
-
-.icon.eyetoggle {
+.icon.password-toggle {
   padding: 0.8rem;
   margin-right: 0.7rem;
 
@@ -111,7 +84,7 @@
   align-items: center;
 }
 
-.eyetoggle > img {
+.password-toggle > img {
   width: 1.6rem;
   height: 1.6rem;
 }

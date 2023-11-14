@@ -25,31 +25,25 @@
           </nav>
         </header>
         <div class="auth-inputs">
-          <div class="auth-input">
+          <div class="auth-input email">
             <label for="id"> 이메일 </label>
-            <div class="input-wrapper">
-              <input
-                id="id"
-                name="id"
-                type="email"
-                placeholder="이메일을 입력해주세요."
-                required
-              />
+            <div data-state="normal" class="input-wrapper">
+              <input id="id" name="id" placeholder="이메일을 입력해주세요." />
             </div>
+            <small data-state="normal" class="input-message"></small>
           </div>
-          <div class="auth-input">
+          <div class="auth-input password">
             <label for="password"> 비밀번호 </label>
-            <div class="input-wrapper">
+            <div data-state="normal" class="input-wrapper">
               <input
                 id="password"
                 name="password"
                 placeholder="비밀번호를 입력해주세요."
-                required
                 type="password"
               />
               <button
                 type="button"
-                class="icon eyetoggle"
+                class="icon password-toggle"
                 aria-label="패스워드 숨기기"
               >
                 <img
@@ -59,6 +53,7 @@
                 />
               </button>
             </div>
+            <small data-state="normal" class="input-message"></small>
           </div>
           <button type="submit" class="auth-submit">로그인</button>
         </div>
@@ -92,4 +87,5 @@
       </nav>
     </main>
   </body>
+  <script type="module" src="/src/auth/signin.js"></script>
 </html>
