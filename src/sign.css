@@ -53,7 +53,14 @@ form {
   grid-area: form;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 2.4rem;
+}
+
+.sign-input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
   position: relative;
 }
 
@@ -63,6 +70,7 @@ label {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 0.6rem;
 }
 
 input {
@@ -75,7 +83,6 @@ input {
   font-weight: 400;
   line-height: 2.4rem;
   padding: 1.8rem 1.5rem;
-  margin-bottom: 1.2rem;
 }
 
 input:focus {
@@ -83,25 +90,24 @@ input:focus {
   border: 1px solid var(--primary);
 }
 
-.eye-off,
-.eye-on {
+.eye-button {
   width: 1.6rem;
   height: 1.6rem;
+  background-image: url(../images/sign/eye-off.svg);
+  cursor: pointer;
   position: absolute;
   right: 1.5rem;
-  bottom: 10.5rem;
+  top: 5rem;
+  border: none;
+  display: flex;
+  justify-content: center;
 }
 
-.eye-on.first {
-  width: 1.6rem;
-  height: 1.6rem;
-  position: absolute;
-  right: 1.5rem;
-  top: 16.5rem;
+.eye-button.active {
+  background-image: url(../images/sign/eye-on.svg);
 }
 
-.login-button,
-.join-button {
+.sign-button {
   border: none;
   border-radius: 8px;
   background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
@@ -151,4 +157,21 @@ input:focus {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
   }
+}
+
+.redBox {
+  border: 1px solid var(--red);
+}
+
+.redBox:focus {
+  outline: none;
+  border: 1px solid var(--red);
+}
+
+.message {
+  color: var(--red);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

@@ -24,27 +24,27 @@
         </div>
       </div>
       <form>
-        <label for="useremail">이메일</label>
-        <input
-          id="useremail"
-          name="useremail"
-          type="email"
-          autocomplete="on"
-          placeholder="이메일"
-        />
-        <label for="password">비밀번호</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="비밀번호"
-        />
-        <img
-          class="eye-off"
-          src="images/sign/eye-off.svg"
-          alt="비밀번호 창 감은 눈 모양"
-        />
-        <button class="login-button">로그인</button>
+        <div class="sign-input-box">
+          <label for="useremail">이메일</label>
+          <input
+            id="useremail"
+            name="useremail"
+            type="email"
+            placeholder="이메일"
+          />
+        </div>
+        <div class="sign-input-box">
+          <label for="password">비밀번호</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="email"
+            placeholder="비밀번호"
+          />
+          <button class="eye-button" type="button"></button>
+        </div>
+        <button class="sign-button" type="submit">로그인</button>
       </form>
       <div class="social-login">
         <span class="social-title">소셜 로그인</span>
@@ -58,5 +58,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="./signin.js"></script>
   </body>
 </html>

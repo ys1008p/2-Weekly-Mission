@@ -49,15 +49,9 @@ nav {
   width: 35rem;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .hero-header {
   height: 95.3rem;
-  padding: 7rem 36rem;
+  padding-top: 7rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
