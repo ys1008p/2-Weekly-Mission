@@ -125,10 +125,6 @@ label.password-check {
   display: flex;
 }
 
-.invisible {
-  opacity: 0;
-}
-
 .sns-signin {
   display: flex;
   width: 100%;

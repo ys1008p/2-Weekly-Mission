@@ -1,16 +1,18 @@
 import {
-  alertMessageBox,
+  ALERT_MESSAGE_BOX,
+  TEST_USER,
+  EYE_ON_PATH,
+  EYE_OFF_PATH,
   isEmailValid,
   isPasswordValid,
   makeErrorMessage,
   eraseErrorMessage,
-  TEST_USER,
   emailInput,
   pswdInput,
   pswdCheck,
   pswdEye,
   loginBtn,
-} from './utils.js';
+} from './sign-service.js';
 
 function errorAlertEmail(e) {
   if (emailInput.value.length === 0) {
@@ -57,13 +59,13 @@ function matchFailPswdCheck(e) {
   }
 }
 
-function seeOrNotPassword(e) {
+function togglePassword(e) {
   if (pswdInput.type === 'password') {
     pswdInput.type = 'text';
-    e.target.src = '/images/eye-on.svg';
+    e.target.src = EYE_ON_PATH;
   } else if (pswdInput.type === 'text') {
     pswdInput.type = 'password';
-    e.target.src = '/images/eye-off.svg';
+    e.target.src = EYE_OFF_PATH;
   }
 }
 
@@ -95,6 +97,6 @@ emailInput.addEventListener('focusout', errorAlertEmail);
 emailInput.addEventListener('focusout', takenEmail);
 pswdInput.addEventListener('focusout', errorAlertPswd);
 pswdCheck.addEventListener('focusout', matchFailPswdCheck);
-pswdEye[0].addEventListener('click', seeOrNotPassword);
+pswdEye[0].addEventListener('click', togglePassword);
 pswdEye[1].addEventListener('click', seeOrNotPasswordCheck);
 loginBtn.addEventListener('click', submit);

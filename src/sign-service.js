@@ -3,6 +3,8 @@ export const pswdInput = document.querySelector('.password-input');
 export const pswdCheck = document.querySelector('#password-check');
 export const pswdEye = document.querySelectorAll('.button-eye');
 export const loginBtn = document.querySelector('.button-submit');
+export const EYE_ON_PATH = '/images/eye-on.svg';
+export const EYE_OFF_PATH = '/images/eye-off.svg';
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
 export const TEST_USER = {
@@ -10,7 +12,7 @@ export const TEST_USER = {
   password: 'codeit101',
 };
 
-export const alertMessageBox = {
+export const ALERT_MESSAGE_BOX = {
   email: {
     noInput: '이메일을 입력해주세요.',
     inappropriateValue: '올바른 이메일 주소가 아닙니다.',
@@ -38,11 +40,11 @@ export function isPasswordValid(password) {
   return isEightLettersOrMore && hasNumberAndCharacter;
 }
 
-function redBoxOn(whichBox) {
+function MakeRedBoxOn(whichBox) {
   whichBox.classList.add('redBox');
 }
 
-function redBoxOff(whichBox) {
+function MakeRedBoxOff(whichBox) {
   whichBox.classList.remove('redBox');
 }
 
@@ -50,19 +52,19 @@ function redBoxOff(whichBox) {
 export function makeErrorMessage(errorPlace, messageType) {
   const message = document.createElement('div');
   message.classList.toggle('alert');
-  message.textContent = alertMessageBox[errorPlace][messageType];
+  message.textContent = ALERT_MESSAGE_BOX[errorPlace][messageType];
   switch (errorPlace) {
     case 'email':
       emailInput.after(message);
-      redBoxOn(emailInput);
+      MakeRedBoxOn(emailInput);
       break;
     case 'password':
       pswdInput.after(message);
-      redBoxOn(pswdInput);
+      MakeRedBoxOn(pswdInput);
       break;
     case 'passwordCheck':
       pswdCheck.after(message);
-      redBoxOn(pswdCheck);
+      MakeRedBoxOn(pswdCheck);
       break;
   }
 }
@@ -73,15 +75,15 @@ export function eraseErrorMessage(errorPlace) {
   switch (errorPlace) {
     case 'email':
       placeToErase = emailInput;
-      redBoxOff(emailInput);
+      MakeRedBoxOff(emailInput);
       break;
     case 'password':
       placeToErase = pswdInput;
-      redBoxOff(pswdInput);
+      MakeRedBoxOff(pswdInput);
       break;
     case 'passwordCheck':
       placeToErase = pswdCheck;
-      redBoxOff(pswdCheck);
+      MakeRedBoxOff(pswdCheck);
       break;
   }
   if (placeToErase.nextElementSibling.className === 'alert') {
