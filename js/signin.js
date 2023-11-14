@@ -1,40 +1,40 @@
-const email_input = document.querySelector("#username");
-const email_error_text = document.querySelector(".email_error_text");
+const emailInput = document.querySelector("#username");
+const emailErrorText = document.querySelector(".email_error_text");
 
-const pw_input = document.querySelector("#password");
-const pw_error_text = document.querySelector(".pw_error_text");
+const pwInput = document.querySelector("#password");
+const pwErrorText = document.querySelector(".pw_error_text");
 
-const login_button = document.querySelector(".login-button");
+const loginButton = document.querySelector(".login-button");
 
 function checkEmail() {
-  if (email_input.value === "") {
-    email_input.classList.add("inputError");
-    email_error_text.innerHTML = "이메일을 입력해주세요.";
-  } else if (email_input.value.includes("@") == false) {
-    email_input.classList.add("inputError");
-    email_error_text.innerHTML = "올바른 이메일 주소가 아닙니다.";
+  if (emailInput.value === "") {
+    emailInput.classList.add("inputError");
+    emailErrorText.innerHTML = "이메일을 입력해주세요.";
+  } else if (emailInput.value.includes("@") == false) {
+    emailInput.classList.add("inputError");
+    emailErrorText.innerHTML = "올바른 이메일 주소가 아닙니다.";
   } else {
-    email_input.classList.remove("inputError");
-    email_error_text.innerHTML = "";
+    emailInput.classList.remove("inputError");
+    emailErrorText.innerHTML = "";
   }
 }
 
 function checkPw() {
-  if (pw_input.value === "") {
-    pw_input.classList.add("inputError");
-    pw_error_text.innerHTML = "비밀번호를 입력해주세요.";
+  if (pwInput.value === "") {
+    pwInput.classList.add("inputError");
+    pwErrorText.innerHTML = "비밀번호를 입력해주세요.";
   }
 }
 
 function login() {
-  if (email_input === "test@codeit.com" && pw_input === "codeit101") {
+  if (emailInput === "test@codeit.com" && pwInput === "codeit101") {
     location.href = "./folder";
   } else {
-    email_error_text.innerHTML = "이메일을 확인해주세요.";
-    pw_error_text.innerHTML = "비밀번호를 확인해주세요.";
+    emailErrorText.innerHTML = "이메일을 확인해주세요.";
+    pwErrorText.innerHTML = "비밀번호를 확인해주세요.";
   }
 }
 
-email_input.addEventListener("focusout", checkEmail);
-pw_input.addEventListener("focusout", checkPw);
+emailInput.addEventListener("focusout", checkEmail);
+pwInput.addEventListener("focusout", checkPw);
 login_button.addEventListener("click", login);
