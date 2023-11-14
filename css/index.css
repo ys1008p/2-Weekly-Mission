@@ -268,10 +268,11 @@ div.footer-sns img {
 
 @media (min-width: 768px) and (max-width: 1199px) {
   nav {
-    gap: 35rem;
-    justify-content: center;
-    padding: 1.25rem 0;
-    margin: 0 32px;
+    min-width: 768px;
+    max-width: 864px;
+    justify-content: space-between;
+    padding: 1.25rem 32px;
+    margin: 0 auto;
   }
 
   .main-text {
@@ -307,13 +308,6 @@ div.footer-sns img {
   .section5 .sub-img > img {
     width: 24rem;
     height: 19.6rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 886px) {
-  nav {
-    justify-content: space-between;
-    gap: 0;
   }
 }
 
