@@ -2,6 +2,10 @@ import { resetError, validateInput } from "./utill/validation.js";
 import { signin, signup } from "../api.js";
 import { getStorage, setStorage } from "../storage.js";
 
+if (getStorage("accessToken")) {
+  window.location.href = "/folder.html";
+}
+
 const form = document.querySelector(".sign-form");
 const submitBtn = form.querySelector(".cta");
 
@@ -20,6 +24,7 @@ const handleAuth = async (authFunction) => {
   try {
     const result = await authFunction(account);
     if (result) {
+      setStorage("accessToken", result.accessToken);
       window.location.href = "/folder.html";
     }
   } catch (e) {
