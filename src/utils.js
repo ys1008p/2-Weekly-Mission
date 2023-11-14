@@ -79,4 +79,30 @@ const signInCheck = function (e) {
   });
 };
 
-export { emailFormCheck, passwordFormCheck, signInCheck };
+const signUpEmailCheck = function () {
+  const emailValue = {
+    email: emailInput.value,
+  };
+  fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(emailValue),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      const email = result;
+      if (email.error && emailInput.value) {
+        signErrorCase(emailErrorTag, email.error.message, emailInput);
+        return false;
+      } else if (!emailInput.value) {
+        signErrorCase(emailErrorTag, emailNull, emailInput);
+        return false;
+      }
+    });
+  errorMessageClear(emailErrorTag, emailInput);
+  return true;
+};
+
+export { emailFormCheck, passwordFormCheck, signInCheck, signUpEmailCheck };
