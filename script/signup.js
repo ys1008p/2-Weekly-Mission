@@ -94,9 +94,11 @@ inputEmail.addEventListener("keyup", (e) => emailCheck(e, "이메일"));
 inputPassword.addEventListener("focusout", (e) => PasswordCheck(e, "비밀번호"));
 inputPassword.addEventListener("keyup", (e) => PasswordCheck(e, "비밀번호"));
 inputEmail.addEventListener("focusin", init);
-inputEmail.addEventListener("keyup", init);
 inputPassword.addEventListener("focusin", init);
-inputPasswordCheck.addEventListener("change", (e) =>
+inputPasswordCheck.addEventListener("focusout", (e) =>
+  PasswordCheck(e, "비밀번호체크")
+);
+inputPasswordCheck.addEventListener("keyup", (e) =>
   PasswordCheck(e, "비밀번호체크")
 );
 inputPasswordCheck.addEventListener("focusin", init);
