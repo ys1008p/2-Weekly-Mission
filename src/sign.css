@@ -73,7 +73,13 @@ input {
 }
 
 input:focus {
-  outline: 1px solid var(--primary-color);
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.sign-error-color {
+  border-color: var(--red-color);
+  outline: none;
 }
 
 input::placeholder {
@@ -84,14 +90,6 @@ input::placeholder {
 
 input:focus::placeholder {
   color: transparent;
-}
-
-.check .diff {
-  display: inline-block;
-  padding-top: 0.6rem;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--red-color);
 }
 
 .input-wrapper {
@@ -149,6 +147,16 @@ input:focus::placeholder {
   width: 4.2rem;
 }
 
+.sign-error-hidden {
+  display: none;
+}
+
+.sign-error {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--red-color);
+  margin-top: -0.6rem;
+}
 @media (max-width: 1199px) {
   .wrapper {
     margin: 20rem auto;
