@@ -6,23 +6,27 @@ const pwErrorText = document.querySelector(".pw_error_text");
 
 const loginButton = document.querySelector(".login-button");
 
-function checkEmail() {
-  if (emailInput.value === "") {
-    emailInput.classList.add("inputError");
+function checkEmail(e) {
+  if (e.target.value === "") {
+    e.target.classList.add("inputError");
     emailErrorText.innerHTML = "이메일을 입력해주세요.";
-  } else if (emailInput.value.includes("@") == false) {
-    emailInput.classList.add("inputError");
+  } else if (e.target.value.includes("@") == false) {
+    e.target.classList.add("inputError");
     emailErrorText.innerHTML = "올바른 이메일 주소가 아닙니다.";
   } else {
-    emailInput.classList.remove("inputError");
+    e.target.classList.remove("inputError");
     emailErrorText.innerHTML = "";
   }
 }
 
-function checkPw() {
-  if (pwInput.value === "") {
-    pwInput.classList.add("inputError");
+function checkPw(e) {
+  console.log(e.target.value);
+  if (e.target.value === "") {
+    e.target.classList.add("inputError");
     pwErrorText.innerHTML = "비밀번호를 입력해주세요.";
+  } else {
+    e.target.classList.remove("inputError");
+    pwErrorText.innerHTML = "";
   }
 }
 
@@ -37,4 +41,4 @@ function login() {
 
 emailInput.addEventListener("focusout", checkEmail);
 pwInput.addEventListener("focusout", checkPw);
-login_button.addEventListener("click", login);
+loginButton.addEventListener("click", login);
