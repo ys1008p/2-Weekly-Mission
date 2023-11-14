@@ -3,6 +3,7 @@ import {
   isAllObjectValueTrue,
   isEmpty,
   isValidEmail,
+  toggleInputVisibility,
   verifyEmail,
   verifyPassword,
 } from './modules/validation.js';
@@ -12,6 +13,7 @@ const emailError = document.querySelector('#emailError');
 const password = document.querySelector('#password');
 const passwordError = document.querySelector('#passwordError');
 const signin = document.querySelector('#signin');
+const eye = document.querySelector('.eye-icon');
 
 const formState = {
   email: false,
@@ -50,6 +52,13 @@ const verifyForm = () => {
   }
 };
 
+const togglePassword = (e) => {
+  const eyeBtn = e.target;
+  const targetInput = document.querySelector(`#${eyeBtn.dataset.id}`);
+
+  toggleInputVisibility(eyeBtn, targetInput);
+};
+
 email.addEventListener('focusout', checkEmail);
 email.addEventListener('focusin', () => removeErrorMessage(email, emailError));
 password.addEventListener('focusout', checkPassword);
@@ -57,3 +66,4 @@ password.addEventListener('focusin', () =>
   removeErrorMessage(password, passwordError)
 );
 signin.addEventListener('click', verifyForm);
+eye.addEventListener('click', togglePassword);
