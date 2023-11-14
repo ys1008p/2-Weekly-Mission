@@ -1,4 +1,3 @@
-import { removeErrorMessage, setErrorMessage } from './modules/handleError.js';
 import {
   isAllObjectValueTrue,
   isEmpty,
@@ -6,7 +5,8 @@ import {
   toggleInputVisibility,
   verifyEmail,
   verifyPassword,
-} from './modules/validation.js';
+} from './modules/checkInput.js';
+import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
 const email = document.querySelector('#email');
 const emailError = document.querySelector('#emailError');
