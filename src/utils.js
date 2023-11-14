@@ -105,4 +105,13 @@ const signUpEmailCheck = function () {
   return true;
 };
 
-export { emailFormCheck, passwordFormCheck, signInCheck, signUpEmailCheck };
+const passwordMatchCheck = function () {
+  if (passwordInput.value !== passwordMatchInput.value) {
+    signErrorCase(passwordMatchErrorTag, passwordMatch, passwordMatchInput);
+    return false;
+  }
+  errorMessageClear(passwordMatchErrorTag, passwordMatchInput);
+  return true;
+};
+
+export { emailFormCheck, passwordFormCheck, signInCheck, signUpEmailCheck, passwordMatchCheck };
