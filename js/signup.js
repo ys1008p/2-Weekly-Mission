@@ -5,7 +5,10 @@ import {
   isValidEmail,
   isValidPassword,
 } from './modules/checkInput.js';
-import { isEnterKeyPressed } from './modules/handleEvent.js';
+import {
+  isEnterKeyPressed,
+  toggleInputVisibility,
+} from './modules/handleEvent.js';
 import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
 const email = document.querySelector('#email');
@@ -15,7 +18,7 @@ const passwordError = document.querySelector('#passwordError');
 const confirm = document.querySelector('#confirm');
 const confirmError = document.querySelector('#confirmError');
 const signup = document.querySelector('#signup');
-const eye = document.querySelectorAll('.eye-icon');
+const eyes = document.querySelectorAll('.eye-icon');
 
 const formState = {
   email: false,
@@ -76,12 +79,12 @@ const verifyForm = () => {
     setErrorMessage(confirm, confirmError, '비밀번호를 확인해주세요.');
 };
 
-// const togglePassword = (e) => {
-//   const eyeBtn = e.target;
-//   const targetInput = document.querySelector(`#${eyeBtn.dataset.id}`);
+const togglePassword = (e) => {
+  const eyeBtn = e.target;
+  const targetInput = document.querySelector(`#${eyeBtn.dataset.id}`);
 
-//   toggleInputVisibility(eyeBtn, targetInput);
-// };
+  toggleInputVisibility(eyeBtn, targetInput);
+};
 
 email.addEventListener('focusout', checkEmail);
 email.addEventListener('focusin', () => removeErrorMessage(email, emailError));
@@ -109,4 +112,6 @@ email.addEventListener(
 );
 
 signup.addEventListener('click', verifyForm);
-// eye.addEventListener('click', togglePassword);
+eyes.forEach((eye) => {
+  eye.addEventListener('click', togglePassword);
+});

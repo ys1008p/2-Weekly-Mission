@@ -5,6 +5,7 @@ import {
   isPasswordCorrect,
   isValidEmail,
 } from './modules/checkInput.js';
+import { toggleInputVisibility } from './modules/handleEvent.js';
 import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
 const email = document.querySelector('#email');
