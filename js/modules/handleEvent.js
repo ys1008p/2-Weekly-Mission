@@ -9,5 +9,3 @@ export const toggleInputVisibility = (eyeBtn, inputElement) => {
     inputElement.type = 'password';
   }
 };
-
-export const isEnterKeyPressed = (key) => key === 'Enter';

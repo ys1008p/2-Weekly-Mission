@@ -5,10 +5,7 @@ import {
   isValidEmail,
   isValidPassword,
 } from './modules/checkInput.js';
-import {
-  isEnterKeyPressed,
-  toggleInputVisibility,
-} from './modules/handleEvent.js';
+import { toggleInputVisibility } from './modules/handleEvent.js';
 import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
 const email = document.querySelector('#email');
@@ -88,28 +85,22 @@ const togglePassword = (e) => {
 
 email.addEventListener('focusout', checkEmail);
 email.addEventListener('focusin', () => removeErrorMessage(email, emailError));
-email.addEventListener(
-  'keydown',
-  (e) => isEnterKeyPressed(e.key) && verifyForm()
-);
 
 password.addEventListener('focusout', checkPassword);
 password.addEventListener('focusin', () =>
   removeErrorMessage(password, passwordError)
-);
-email.addEventListener(
-  'keydown',
-  (e) => isEnterKeyPressed(e.key) && verifyForm()
 );
 
 confirm.addEventListener('focusout', checkConfirm);
 confirm.addEventListener('focusin', () =>
   removeErrorMessage(confirm, confirmError)
 );
-email.addEventListener(
-  'keydown',
-  (e) => isEnterKeyPressed(e.key) && verifyForm()
-);
+confirm.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    checkConfirm(e);
+    verifyForm();
+  }
+});
 
 signup.addEventListener('click', verifyForm);
 eyes.forEach((eye) => {
