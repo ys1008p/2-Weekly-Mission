@@ -1,9 +1,7 @@
 import {
   changePasswordVisibility,
-  checkEmailNotEmpty,
   checkEmailValid,
   checkIsOurMember,
-  checkPasswordNotEmpty,
   checkPasswordValid,
   emailValidationFailed,
   emailValidationSucceeded,
@@ -21,12 +19,8 @@ emailInput.addEventListener("focusout", onEmailFocusoutValid);
 function onEmailFocusoutValid({ target }) {
   const validators = [
     {
-      validator: checkEmailNotEmpty,
-      message: "이메일을 입력해주세요.",
-    },
-    {
       validator: checkEmailValid,
-      message: "올바른 이메일 주소가 아닙니다.",
+      checkExist: false,
     },
   ];
 
@@ -51,12 +45,7 @@ passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
 function onPasswordFocusoutValid({ target }) {
   const validators = [
     {
-      validator: checkPasswordNotEmpty,
-      message: "비밀번호를 입력해주세요.",
-    },
-    {
       validator: checkPasswordValid,
-      message: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
     },
   ];
 

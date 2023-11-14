@@ -1,27 +1,20 @@
 import users from "/data/users.js";
 import { isEmptyString } from "/scripts/utils.js";
 
-function showErrorMessage(target, message) {
-  const parent = target.parentElement;
+function handleErrorMessage(element, errorMessage = "", addOrRemoveHide) {
+  const parent = element.parentElement;
   const errorMessageSpan = parent.querySelector(".input-error__message");
 
-  errorMessageSpan.textContent = message;
-  errorMessageSpan.classList.remove("hide");
-}
-
-function hideErrorMessage(target) {
-  const parent = target.parentElement;
-  const errorMessageSpan = parent.querySelector(".input-error__message");
-
-  errorMessageSpan.classList.add("hide");
+  errorMessageSpan.textContent = errorMessage;
+  errorMessageSpan.classList[addOrRemoveHide]("hide");
 }
 
 function validatingMachine(target, validators, failAction, successAction) {
-  for (const { validator, message } of validators) {
-    const result = validator(target, message);
+  for (const { validator, checkExist } of validators) {
+    const errorMessage = validator(target, checkExist);
 
-    if (!isEmptyString(result)) {
-      failAction(message);
+    if (!isEmptyString(errorMessage)) {
+      failAction(errorMessage);
       return false;
     }
   }
@@ -29,52 +22,41 @@ function validatingMachine(target, validators, failAction, successAction) {
   return true;
 }
 
-function checkEmailNotEmpty(target, message) {
-  if (!isEmptyString(target.value)) {
-    return "";
+function checkEmailValid(element, checkExist = true) {
+  if (isEmptyString(element.value)) {
+    return "이메일을 입력해주세요.";
   }
-  return message;
-}
-function checkEmailValid(target, message) {
-  if (isEmailValid(target.value)) {
-    return "";
+  if (!isEmailValid(element.value)) {
+    return "올바른 이메일 주소가 아닙니다.";
   }
-  return message;
-}
-
-function checkEmailNotExist(target, message) {
-  if (!isEmailExist(target.value)) {
-    return "";
+  if (checkExist && isEmailExist(element.value)) {
+    return "이미 사용 중인 이메일입니다.";
   }
-  return message;
+  return "";
 }
 
 function emailValidationFailed(target) {
   return function (message) {
     target.classList.add("input-error");
-    showErrorMessage(target, message);
+    handleErrorMessage(target, message, "remove");
   };
 }
 
 function emailValidationSucceeded(target) {
   return function () {
     target.classList.remove("input-error");
-    hideErrorMessage(target);
+    handleErrorMessage(target, "", "add");
   };
 }
 
-function checkPasswordNotEmpty(target, message) {
-  if (!isEmptyString(target.value)) {
-    return "";
+function checkPasswordValid(element) {
+  if (isEmptyString(element.value)) {
+    return "비밀번호를 입력해주세요.";
   }
-  return message;
-}
-
-function checkPasswordValid(target, message) {
-  if (isPasswordValid(target.value)) {
-    return "";
+  if (!isPasswordValid(element.value)) {
+    return "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
   }
-  return message;
+  return "";
 }
 
 function checkPasswordChkSame(password) {
@@ -96,7 +78,7 @@ function checkIsOurMember(member, message) {
 function passwordValidationFailed(target, eyeIcon) {
   return function (message) {
     target.classList.add("input-error");
-    showErrorMessage(target, message);
+    handleErrorMessage(target, message, "remove");
     eyeIcon.classList.add("eye-icon__error");
   };
 }
@@ -104,7 +86,7 @@ function passwordValidationFailed(target, eyeIcon) {
 function passwordValidationSucceeded(target, eyeIcon) {
   return function () {
     target.classList.remove("input-error");
-    hideErrorMessage(target);
+    handleErrorMessage(target, "", "add");
     eyeIcon.classList.remove("eye-icon__error");
   };
 }
@@ -143,12 +125,9 @@ function changePasswordVisibility(passwordInput) {
 
 export {
   changePasswordVisibility,
-  checkEmailNotEmpty,
-  checkEmailNotExist,
   checkEmailValid,
   checkIsOurMember,
   checkPasswordChkSame,
-  checkPasswordNotEmpty,
   checkPasswordValid,
   emailValidationFailed,
   emailValidationSucceeded,
