@@ -37,7 +37,10 @@ function PasswordCheck(e, type) {
   //패스워드 사용 가능 여부 판단 함수
   if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
     let input = e.target;
-    if (input.value === "" && type === "비밀번호") {
+    if (
+      input.value === "" &&
+      (type === "비밀번호" || type === "비밀번호체크")
+    ) {
       createTag(input, "비밀번호를 입력해주세요");
     } else if (
       input.value.length < 9 ||
