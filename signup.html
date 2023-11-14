@@ -25,7 +25,7 @@
           <label for="password">비밀번호</label>
           <div class="input">
             <input type="password" id="password">
-            <img class="eye-icon" src="./images/icon/eye-on.svg" alt="비밀번호 숨김/표시">
+            <img class="eye-icon" data-id="password" src="./images/icon/eye-off.svg" alt="비밀번호 표시">
           </div>
           <div id="passwordError" class="error-text hidden"></div>
         </div>
@@ -33,12 +33,12 @@
           <label for="confirm">비밀번호 확인</label>
           <div class="input">
             <input type="password" id="confirm">
-            <img class="eye-icon" src="./images/icon/eye-on.svg" alt="비밀번호 숨김/표시">
+            <img class="eye-icon" data-id="confirm" src="./images/icon/eye-off.svg" alt="비밀번호 표시">
           </div>
           <div id="confirmError" class="error-text hidden"></div>
         </div>
       </div>
-      <button class="btn-gradient">회원가입</button>
+      <button class="btn-gradient" id="signup">회원가입</button>
       <div class="sns">
         <span>다른 방식으로 가입하기</span>
         <div class="sns-btn">
@@ -52,6 +52,8 @@
       </div>
     </div>
   </div>
+
+  <script src="./js/signup.js" type="module"></script>
 </body>
 
 </html>
