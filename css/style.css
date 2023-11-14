@@ -276,7 +276,7 @@ footer {
   gap: 1.2rem;
 }
 
-.sns svg {
+.sns img {
   width: 2rem;
   height: 2rem;
 }
@@ -404,6 +404,8 @@ footer {
 
   .imgs {
     width: 100%;
+    height: unset;
+    aspect-ratio: 550 / 450;
     margin: 2rem 0 1.6rem;
   }
 

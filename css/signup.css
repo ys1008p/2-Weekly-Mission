@@ -21,7 +21,7 @@ main {
   gap: 16px;
 }
 
-.logo-signin svg {
+.logo {
   width: 21.0583rem;
   height: 3.8rem;
 }
@@ -71,6 +71,7 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 1.2rem;
+  position: relative;
 }
 
 .input-container label {
@@ -119,6 +120,7 @@ main {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 }
 
 .sns-signup {
@@ -151,35 +153,6 @@ main {
 .sns-logo {
   width: 4.2rem;
   height: 4.2rem;
-  position: relative;
-}
-
-.sns-logo > svg {
-  width: 4.2rem;
-  height: 4.2rem;
-  flex-shrink: 0;
-}
-
-.google-logo {
-  background: url("../imgs/google.png") no-repeat center / cover;
-  width: 2.2rem;
-  height: 2.2rem;
-  flex-shrink: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.kakao-logo {
-  margin-top: 1px;
-  width: 2.6rem;
-  height: 2.4rem;
-  flex-shrink: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .pw-box,
@@ -195,7 +168,26 @@ main {
   right: 15px;
   bottom: 31px;
   transform: translateY(50%);
+  cursor: pointer;
 }
+
+/* 추가 클래스 */
+.warning-msg {
+  position: absolute;
+  left: 0;
+  bottom: -2rem;
+  color: var(--linkbrary-red, #ff5b56);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.input-container .error-input {
+  border: 1px solid var(--linkbrary-red, #ff5b56);
+}
+
+/* 반응형 */
 
 @media (max-width: 767px) {
   main {
