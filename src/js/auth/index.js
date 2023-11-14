@@ -1,6 +1,6 @@
-import { resetError, validateInput } from "./utill/validation.js";
-import { signin, signup } from "../api.js";
-import { getStorage, setStorage } from "../storage.js";
+import { resetError, validateInput } from "../utill/validation.js";
+import { signin, signup } from "../utill/api.js";
+import { getStorage, setStorage } from "../utill/storage.js";
 
 if (getStorage("accessToken")) {
   window.location.href = "/folder.html";

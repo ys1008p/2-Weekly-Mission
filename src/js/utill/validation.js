@@ -1,4 +1,4 @@
-import { checkEmailExist } from "../../api.js";
+import { checkEmailExist } from "./api.js";
 import { ERROR_MESSAGE } from "./constant.js";
 
 const ERROR_PREFIX = {

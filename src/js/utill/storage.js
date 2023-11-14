@@ -1,5 +1,3 @@
-//storage는 공용으로 사용할 수 있을 것 같아 root요소에서 생성하였습니다.
-
 export function getStorage(key) {
   try {
     const res = localStorage.getItem(key);
