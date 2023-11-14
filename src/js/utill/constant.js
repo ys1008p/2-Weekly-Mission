@@ -18,6 +18,7 @@ export const ERROR_MESSAGE = {
 export const ERROR_PREFIX = {
   empty: "EMPTY_",
   invalid: "INVALID_",
+  exist: "EXIST_",
   mismatch: "MISMATCH_",
 };
 

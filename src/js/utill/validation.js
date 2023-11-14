@@ -1,19 +1,5 @@
 import { checkEmailExist } from "./api.js";
-import { ERROR_MESSAGE } from "./constant.js";
-
-const ERROR_PREFIX = {
-  empty: "EMPTY_",
-  invalid: "INVALID_",
-  mismatch: "MISMATCH_",
-  exist: "EXIST_",
-};
-
-const PATTERN = {
-  email:
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
-  password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-  "confirm-password": /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-};
+import { ERROR_MESSAGE, ERROR_PREFIX, PATTERN } from "./constant.js";
 
 const validationState = {
   email: false,
@@ -21,8 +7,8 @@ const validationState = {
   "confirm-password": false,
 };
 
-const getErrorMessage = (authType, name, prefix) => {
-  return ERROR_MESSAGE[authType][prefix + name.toUpperCase()];
+const getErrorMessage = (authType, type, prefix) => {
+  return ERROR_MESSAGE[authType][prefix + type.toUpperCase()];
 };
 
 const displayError = (input, errorMessage) => {
