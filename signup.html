@@ -9,38 +9,50 @@
     <link rel="stylesheet" href="./css/var.css" />
   </head>
   <body>
-    <main class="signup_container">
-      <section class="title">
-        <div class="logo btn">
+    <main class="signup-main">
+      <section class="signup__title section">
+        <div class="signup__title--logo btn">
           <a href="/"><img src="./assets//Linkbrary.png" alt="Linkbrary" /></a>
         </div>
-        <p>
+        <p class="signup__title--text">
           이미 회원이신가요?
           <a href="./signin.html" class="btn">로그인 하기</a>
         </p>
       </section>
-      <section class="input-area">
-        <form action="" class="signup_form">
-          <div class="form_email">
+      <section class="signup__input-area section">
+        <form action="" class="signup__input-area--form">
+          <div class="signup__input-area--form-email">
             <h2>이메일</h2>
             <input type="email" id="email" name="email" />
+            <p class="error-message__null">이메일을 입력해주세요</p>
+            <p class="error-message__wrong">올바른 이메일 주소가 아닙니다.</p>
+            <p class="error-message__used">이미 사용 중인 이메일입니다.</p>
           </div>
-          <div action="" class="form_pw">
+          <div action="" class="signup__input-area--form-pw">
             <h2>비밀번호</h2>
-            <input type="text" id="pw" name="password" />
-            <button><img src="./assets/eye-on.svg" alt="open-eye" /></button>
+            <input type="password" id="pw" name="password" />
+            <p class="error-message__eight">
+              비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.
+            </p>
+            <button type="button">
+              <img src="./assets/eye-on.svg" alt="open-eye" />
+            </button>
           </div>
-          <div action="" class="form_pw-check">
+          <div action="" class="signup__input-area--form-pw-check">
             <h2>비밀번호 확인</h2>
-            <input type="text" id="pw-check" name="password-check" />
-            <button><img src="./assets/eye-on.svg" alt="eye" /></button>
-            <p>비밀번호가 다릅니다.</p>
+            <input type="password" id="pw-check" name="password-check" />
+            <p class="error-message__diff">비밀번호가 일치하지 않아요.</p>
+            <button type="button">
+              <img src="./assets/eye-on.svg" alt="eye" />
+            </button>
           </div>
         </form>
-        <button class="signup-btn btn">회원가입</button>
-        <div class="social btn">
+        <button type="button" class="signup__input-area--btn btn">
+          회원가입
+        </button>
+        <div class="signup__input-area--social btn">
           <h3>다른 방식으로 가입하기</h3>
-          <div class="simple-signup">
+          <div class="signup__input-area--social-img">
             <a href="https://www.google.com/">
               <img src="./assets/google.svg" alt="google" />
             </a>
@@ -51,5 +63,6 @@
         </div>
       </section>
     </main>
+    <script type="text/javascript" src="./js/signup.js"></script>
   </body>
 </html>
