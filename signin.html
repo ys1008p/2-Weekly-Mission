@@ -18,19 +18,19 @@
       <div class="input-area">
         <div>
           <label for="email">이메일</label>
-          <input type="text" name="email" id="email">
+          <input type="text" id="email">
           <div id="emailError" class="error-text hidden"></div>
         </div>
         <div>
           <label for="password">비밀번호</label>
           <div class="input">
-            <input type="password" name="password" id="password">
+            <input type="password" id="password">
             <img class="eye-icon" src="images/icon/eye-on.svg" alt="비밀번호 보이기">
           </div>
           <div id="passwordError" class="error-text hidden"></div>
         </div>
       </div>
-      <button class="btn-gradient">로그인</button>
+      <button class="btn-gradient" id="signin">로그인</button>
       <div class="sns">
         <span>소셜 로그인</span>
         <div class="sns-btn">
@@ -44,6 +44,8 @@
       </div>
     </div>
   </div>
+
+  <script src="./js/signin.js" type="module"></script>
 </body>
 
 </html>
