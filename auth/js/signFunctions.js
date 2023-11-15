@@ -1,7 +1,7 @@
 import { ERROR_MESSAGES } from "./errorMessage.js";
 import { USER_DATA } from "./userData.js";
 import { isValidEmail, isValidPassword } from "./regPatterns.js";
-import { emailInput, passwordInput, passwordCheckInput, passwordType, emailError, passwordError, passwordCheckError, eyeBtn } from "./seletors.js";
+import { emailInput, passwordInput, passwordCheckInput, passwordType, emailError, passwordError, passwordCheckError, eyeBtns } from "./seletors.js";
   
 
 // signin 이메일 에러메세지
@@ -123,23 +123,14 @@ function hideError (input, error) {
 
 
 // 눈모양 아이콘 변경
-export function toggleVisibility(event) {
-  event.preventDefault();
-  if (passwordType.type === 'password') {
-    passwordType.type = 'text';
-    eyeOn();
+export const toggleVisibility = function () {
+  const img = this.querySelector("img");
+
+  if (passwordType.type === "password") {
+    passwordType.type = "text";
+    img.src = "../images/eye-on.svg";
   } else {
-    passwordType.type = 'password';
-    eyeOff();
+    passwordType.type = "password";
+    img.src = "../images/eye-off.svg";
   }
-}
-
-function eyeOn() {
-  eyeBtn.classList.remove('eye-off');
-  eyeBtn.classList.add('eye-on');
-}
-
-function eyeOff() {
-  eyeBtn.classList.remove('eye-on');
-  eyeBtn.classList.add('eye-off');
-}
+};
