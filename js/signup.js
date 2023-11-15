@@ -2,6 +2,7 @@ const emailInput = document.querySelector("#username");
 const pwInput = document.querySelector("#password");
 const pwCheckInput = document.querySelector("#password_check");
 const loginButton = document.querySelector(".login-button");
+const form = document.querySelector("form");
 
 const formState = {
   email: false,
@@ -79,13 +80,12 @@ function checkPwConfirmation(e) {
 }
 
 function signup(e) {
-  console.log(e.key, formState);
   if (!formState.email && !formState.pw && !formState.pwConfirmation) return;
-  if (!e.key === "Enter" || e.key === "Enter") location.href = "./folder";
+  e.preventDefault();
+  location.href = "/folder";
 }
 
 emailInput.addEventListener("focusout", checkEmail);
 pwInput.addEventListener("focusout", checkPw);
 pwCheckInput.addEventListener("focusout", checkPwConfirmation);
-loginButton.addEventListener("click", signup);
-pwCheckInput.addEventListener("keydown", signup);
+form.addEventListener("submit", signup);
