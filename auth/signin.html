@@ -28,9 +28,17 @@
           <div class="auth-input email">
             <label for="id"> 이메일 </label>
             <div data-state="normal" class="input-wrapper">
-              <input id="id" name="id" placeholder="이메일을 입력해주세요." />
+              <input
+                id="id"
+                name="id"
+                placeholder="이메일을 입력해주세요."
+                class="email-input"
+              />
             </div>
-            <small data-state="normal" class="input-message"></small>
+            <small
+              data-state="normal"
+              class="input-message email-error-message"
+            ></small>
           </div>
           <div class="auth-input password">
             <label for="password"> 비밀번호 </label>
@@ -40,6 +48,7 @@
                 name="password"
                 placeholder="비밀번호를 입력해주세요."
                 type="password"
+                class="password-input"
               />
               <button
                 type="button"
@@ -50,10 +59,14 @@
                   src="https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/eye-off"
                   alt="패스워드 숨기기"
                   aria-hidden
+                  class="password-toggle-icon"
                 />
               </button>
             </div>
-            <small data-state="normal" class="input-message"></small>
+            <small
+              data-state="normal"
+              class="input-message password-error-message"
+            ></small>
           </div>
           <button type="submit" class="auth-submit">로그인</button>
         </div>
