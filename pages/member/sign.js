@@ -19,7 +19,8 @@ const errorMessage = {
 };
 
 function handleErrorMessage(element, addOrRemoveHide, errorMessage = "") {
-  const errorMessageSpan = element.nextElementSibling;
+  const parent = element.parentElement;
+  const errorMessageSpan = parent.querySelector(".input-error__message");
 
   errorMessageSpan.textContent = errorMessage;
   errorMessageSpan.classList[addOrRemoveHide]("hide");

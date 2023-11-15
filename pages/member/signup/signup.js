@@ -39,7 +39,7 @@ passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
 function onPasswordFocusoutValid({ target }) {
   const errorMessage = checkPasswordValid(target);
   if (!isEmptyString(errorMessage)) {
-    inputValidationFailed(target, passwordEyeIcon, errorMessage);
+    inputValidationFailed(target, errorMessage, passwordEyeIcon);
     return false;
   }
 

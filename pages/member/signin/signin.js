@@ -85,8 +85,8 @@ function checkMemberExist() {
     inputValidationFailed(emailInput, errorMessage.email.loginFailed);
     inputValidationFailed(
       passwordInput,
-      passwordEyeIcon,
-      errorMessage.password.loginFailed
+      errorMessage.password.loginFailed,
+      passwordEyeIcon
     );
     return false;
   }
