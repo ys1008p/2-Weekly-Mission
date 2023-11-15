@@ -2,12 +2,10 @@ import {
   changePasswordVisibility,
   checkEmailValid,
   checkPasswordValid,
-  emailValidationFailed,
-  emailValidationSucceeded,
   errorMessage,
+  inputValidationFailed,
+  inputValidationSucceeded,
   isMemberExist,
-  passwordValidationFailed,
-  passwordValidationSucceeded,
 } from "../sign.js";
 
 import { isEmptyString } from "/scripts/utils.js";
@@ -21,11 +19,11 @@ emailInput.addEventListener("focusout", onEmailFocusoutValid);
 function onEmailFocusoutValid({ target }) {
   const errorMessage = checkEmailValid(target, false);
   if (!isEmptyString(errorMessage)) {
-    emailValidationFailed(target, errorMessage);
+    inputValidationFailed(target, errorMessage);
     return false;
   }
 
-  emailValidationSucceeded(target);
+  inputValidationSucceeded(target);
   return true;
 }
 
@@ -42,11 +40,11 @@ passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
 function onPasswordFocusoutValid({ target }) {
   const errorMessage = checkPasswordValid(target);
   if (!isEmptyString(errorMessage)) {
-    passwordValidationFailed(target, passwordEyeIcon, errorMessage);
+    inputValidationFailed(target, errorMessage, passwordEyeIcon);
     return false;
   }
 
-  passwordValidationSucceeded(target, passwordEyeIcon);
+  inputValidationSucceeded(target, passwordEyeIcon);
   return true;
 }
 
@@ -62,27 +60,6 @@ const form = document.querySelector(".form");
 
 form.addEventListener("submit", onSubmitValid);
 
-function checkMemberExist() {
-  const isOurMember = isMemberExist({
-    email: emailInput.value,
-    password: passwordInput.value,
-  });
-
-  if (!isOurMember) {
-    emailValidationFailed(emailInput, errorMessage.email.loginFailed);
-    passwordValidationFailed(
-      passwordInput,
-      passwordEyeIcon,
-      errorMessage.password.loginFailed
-    );
-    return false;
-  }
-
-  emailValidationSucceeded(emailInput);
-  passwordValidationSucceeded(passwordInput, passwordEyeIcon);
-  return true;
-}
-
 function onSubmitValid(e) {
   e.preventDefault();
 
@@ -96,4 +73,25 @@ function onSubmitValid(e) {
   }
 
   location.href = "/pages/folder";
+}
+
+function checkMemberExist() {
+  const isOurMember = isMemberExist({
+    email: emailInput.value,
+    password: passwordInput.value,
+  });
+
+  if (!isOurMember) {
+    inputValidationFailed(emailInput, errorMessage.email.loginFailed);
+    inputValidationFailed(
+      passwordInput,
+      passwordEyeIcon,
+      errorMessage.password.loginFailed
+    );
+    return false;
+  }
+
+  inputValidationSucceeded(emailInput);
+  inputValidationSucceeded(passwordInput, passwordEyeIcon);
+  return true;
 }

@@ -19,11 +19,26 @@ const errorMessage = {
 };
 
 function handleErrorMessage(element, errorMessage = "", addOrRemoveHide) {
-  const parent = element.parentElement;
-  const errorMessageSpan = parent.querySelector(".input-error__message");
+  const errorMessageSpan = element.nextElementSibling;
 
   errorMessageSpan.textContent = errorMessage;
   errorMessageSpan.classList[addOrRemoveHide]("hide");
+}
+
+function inputValidationFailed(target, errorMessage, eyeIcon) {
+  target.classList.add("input-error");
+  handleErrorMessage(target, errorMessage, "remove");
+  if (eyeIcon) {
+    eyeIcon.classList.add("eye-icon__error");
+  }
+}
+
+function inputValidationSucceeded(target, eyeIcon) {
+  target.classList.remove("input-error");
+  handleErrorMessage(target, "", "add");
+  if (eyeIcon) {
+    eyeIcon.classList.remove("eye-icon__error");
+  }
 }
 
 function checkEmailValid(element, checkExist = true) {
@@ -39,16 +54,6 @@ function checkEmailValid(element, checkExist = true) {
   return "";
 }
 
-function emailValidationFailed(target, errorMessage) {
-  target.classList.add("input-error");
-  handleErrorMessage(target, errorMessage, "remove");
-}
-
-function emailValidationSucceeded(target) {
-  target.classList.remove("input-error");
-  handleErrorMessage(target, "", "add");
-}
-
 function checkPasswordValid(element) {
   if (isEmptyString(element.value)) {
     return errorMessage.password.empty;
@@ -60,30 +65,10 @@ function checkPasswordValid(element) {
 }
 
 function checkPasswordsMatch(passwordChk, password) {
-  if (password.value !== passwordChk.value) {
+  if (passwordChk.value !== password.value) {
     return errorMessage.passwordMatch.unmatched;
   }
   return "";
-}
-
-function checkIsOurMember(inputUser) {
-  console.log(isMemberExist(inputUser));
-  if (isMemberExist(inputUser)) {
-    return "";
-  }
-  return message;
-}
-
-function passwordValidationFailed(target, eyeIcon, errorMessage) {
-  target.classList.add("input-error");
-  handleErrorMessage(target, errorMessage, "remove");
-  eyeIcon.classList.add("eye-icon__error");
-}
-
-function passwordValidationSucceeded(target, eyeIcon) {
-  target.classList.remove("input-error");
-  handleErrorMessage(target, "", "add");
-  eyeIcon.classList.remove("eye-icon__error");
 }
 
 function isEmailValid(email) {
@@ -121,13 +106,10 @@ function changePasswordVisibility(passwordInput) {
 export {
   changePasswordVisibility,
   checkEmailValid,
-  checkIsOurMember,
   checkPasswordValid,
   checkPasswordsMatch,
-  emailValidationFailed,
-  emailValidationSucceeded,
   errorMessage,
+  inputValidationFailed,
+  inputValidationSucceeded,
   isMemberExist,
-  passwordValidationFailed,
-  passwordValidationSucceeded,
 };

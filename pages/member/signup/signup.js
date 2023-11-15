@@ -3,10 +3,8 @@ import {
   checkEmailValid,
   checkPasswordValid,
   checkPasswordsMatch,
-  emailValidationFailed,
-  emailValidationSucceeded,
-  passwordValidationFailed,
-  passwordValidationSucceeded,
+  inputValidationFailed,
+  inputValidationSucceeded,
 } from "../sign.js";
 
 import { isEmptyString } from "/scripts/utils.js";
@@ -20,11 +18,11 @@ emailInput.addEventListener("focusout", onEmailFocusoutValid);
 function onEmailFocusoutValid({ target }) {
   const errorMessage = checkEmailValid(target);
   if (!isEmptyString(errorMessage)) {
-    emailValidationFailed(target, errorMessage);
+    inputValidationFailed(target, errorMessage);
     return false;
   }
 
-  emailValidationSucceeded(target);
+  inputValidationSucceeded(target);
   return true;
 }
 
@@ -41,11 +39,11 @@ passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
 function onPasswordFocusoutValid({ target }) {
   const errorMessage = checkPasswordValid(target);
   if (!isEmptyString(errorMessage)) {
-    passwordValidationFailed(target, passwordEyeIcon, errorMessage);
+    inputValidationFailed(target, passwordEyeIcon, errorMessage);
     return false;
   }
 
-  passwordValidationSucceeded(target, passwordEyeIcon);
+  inputValidationSucceeded(target, passwordEyeIcon);
   return true;
 }
 
@@ -67,11 +65,11 @@ passwordInputChk.addEventListener("focusout", onPasswordChkFocusoutValid);
 function onPasswordChkFocusoutValid({ target }) {
   const errorMessage = checkPasswordsMatch(target, passwordInput);
   if (!isEmptyString(errorMessage)) {
-    passwordValidationFailed(target, passwordChkEyeIcon, errorMessage);
+    inputValidationFailed(target, errorMessage, passwordChkEyeIcon);
     return false;
   }
 
-  passwordValidationSucceeded(target, passwordChkEyeIcon);
+  inputValidationSucceeded(target, passwordChkEyeIcon);
   return true;
 }
 
