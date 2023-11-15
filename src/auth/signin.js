@@ -10,6 +10,7 @@ import {
 } from "/src/commons/Validator.js";
 import Icon from "/src/commons/Icon.js";
 import { PATH_FOLDER } from "/src/constants/routes.js";
+import { postSignin } from "/src/auth/api.js";
 
 const signinFormEl = document.querySelector(".signin");
 const passwordToggleButtonEl = document.querySelector(".password-toggle");
@@ -72,11 +73,15 @@ const handlePasswordFocusOut = (e) => {
   }
 };
 
-const handleSubmitSignin = (e) => {
+const handleSubmitSignin = async (e) => {
   e.preventDefault();
   try {
     emailInput.validate();
     passwordInput.validate();
+    const { accessToken, refreshToken } = await postSignin(
+      emailInput.getValue(),
+      passwordInput.getValue()
+    );
     location.href = PATH_FOLDER;
   } catch (err) {
     if (err instanceof EmailValidationError) {
