@@ -58,6 +58,7 @@ const passwordFormCheck = function () {
 
 const signInCheck = function (e) {
   e.preventDefault();
+
   const userValue = {
     email: emailInput.value,
     password: passwordInput.value,
@@ -69,14 +70,18 @@ const signInCheck = function (e) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(userValue),
-  }).then((response) => {
-    if (response.status === 200) {
-      return goToFolderPage();
-    } else {
-      signErrorCase(emailErrorTag, emailCheck, emailInput);
-      signErrorCase(passwordErrorTag, passwordCheck, passwordInput);
-    }
-  });
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        return goToFolderPage();
+      } else {
+        signErrorCase(emailErrorTag, emailCheck, emailInput);
+        signErrorCase(passwordErrorTag, passwordCheck, passwordInput);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 const signUpEmailCheck = function () {
@@ -92,14 +97,18 @@ const signUpEmailCheck = function () {
   })
     .then((response) => response.json())
     .then((result) => {
-      const email = result;
-      if (email.error && emailInput.value) {
-        signErrorCase(emailErrorTag, email.error.message, emailInput);
+      const emailCheck = result;
+      if (emailCheck.error && emailInput.value) {
+        signErrorCase(emailErrorTag, emailCheck.error.message, emailInput);
         return false;
       } else if (!emailInput.value) {
         signErrorCase(emailErrorTag, emailNull, emailInput);
         return false;
       }
+    })
+    .catch((error) => {
+      console.log(error);
+      return false;
     });
   errorMessageClear(emailErrorTag, emailInput);
   return true;
