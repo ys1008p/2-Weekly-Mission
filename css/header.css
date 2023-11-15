@@ -17,7 +17,6 @@ nav {
   align-items: center;
   position: fixed;
   z-index: 1;
-  /* background-color: var(--linkbrary-bg, #f0f6ff); */
 }
 
 .home-link img {
@@ -91,7 +90,7 @@ nav {
     width: 69.8rem;
     height: 34.3rem;
   }
-  .br-toggle {
+  .min-1200px-show-toggle {
     display: block;
   }
   .btn-short {
@@ -126,7 +125,7 @@ nav {
     width: 120rem;
     height: 59rem;
   }
-  .br-toggle {
+  .min-1200px-show-toggle {
     display: none;
   }
   .btn-short {
