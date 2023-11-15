@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SignIn</title>
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style_signin.css">
+  <link rel="stylesheet" href="./css/style_sign.css">
   <link rel="stylesheet" href="./css/responsive_sign.css">
 </head>
 
-<body>
+<body class="signin-body">
   <main>
     <div class="normal-signin">
       <div class="signin-header">
@@ -23,16 +23,18 @@
       <form class="signin">
         <div class="email">
           <label for="email">이메일</label>
-          <input id="email" type="email">
+          <input id="email" type="email" placeholder="이메일  입력">
+          <div class="error-message"></div>
         </div>
         <div class="password">
           <label for="password">비밀번호</label>
           <div class="password-input">
-            <input id="password" type="password">
-            <button class="eye-on" type="button"></button>
+            <input id="password" type="password" placeholder="비밀번호 입력">
+            <button class="eye-off" type="button"></button>
           </div>
+          <div class="error-message"></div>
         </div>
-        <button class="signin-button">로그인</button>
+        <button class="signin-button" type="submit">로그인</button>
       </form>
     </div>
     <div class="social-signin">
@@ -43,6 +45,7 @@
       </div>
     </div>
   </main>
+  <script type="module" src="./js/signin.js"></script>
 </body>
 
 </html>
