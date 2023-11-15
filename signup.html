@@ -33,31 +33,37 @@
           <div class="form-container">
             <label>이메일</label>
             <input
+            id="email"
             name="username"
             type="text"
             placeholder=" "
             />
+            <span class="error-massage"></span>
           </div>
           <div class="form-container">
             <label>비밀번호</label>
             <div class="input-container">
               <input
+              id="password"
               name="password"
-              type="text"
+              type="password"
               placeholder=" "
               />
-              <img class="eyeon-icon" src="./images/eye-on.png" alt="비밀번호 가리기 icon">
+              <span class="error-massage"></span>
+              <img class="eye-icon" src="./images/eye-off.png" alt="비밀번호 가리기 icon">
             </div>
           </div>
           <div class="form-container">
             <label>비밀번호 확인</label>
             <div class="input-container">
               <input
+              id="check-password"
               name="password"
-              type="text"
+              type="password"
               placeholder=" "
               />
-              <img class="eyeon-icon" src="./images/eye-on.png" alt="비밀번호 가리기 icon">
+              <span class="error-massage"></span>
+              <img class="eye-icon" src="./images/eye-off.png" alt="비밀번호 가리기 icon">
             </div>
           </div>
         </form>
@@ -69,7 +75,7 @@
         <div class="social-text">
           다른 방식으로 가입하기
         </div>
-        <div class="social-logo">
+        <div class="social-logo-container">
           <a href="https://www.google.com">
             <img src="./images/google.svg" alt="google 홈페이지로 연결된 google 로고" />
           </a>
@@ -79,5 +85,6 @@
         </div>
       </div>
     </div>
+    <script src="signup.js"></script>
   </body>
 </html>

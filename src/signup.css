@@ -86,7 +86,18 @@ input:focus {
   border: 1px solid var(--linkbrary-primary-color);
 }
 
-.eyeon-icon {
+.input-error {
+  border-color: var(--linkbrary-red);
+}
+
+.error-massage {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  color: var(--linkbrary-red);
+}
+
+.eye-icon {
   position: absolute;
   top: 2.2rem;
   right: 1.8rem;
@@ -110,12 +121,12 @@ input:focus {
   font-size: 1.4rem;
 }
 
-.social-logo {
+.social-logo-container {
   display: flex;
   gap: 1.6rem;
 }
 
-.social-logo img {
+.social-logo-container img {
   width: 4.2rem;
   height: 4.2rem;
 }
