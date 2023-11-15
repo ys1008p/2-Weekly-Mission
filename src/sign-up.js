@@ -8,8 +8,8 @@ const inputEmail = document.querySelector('#email');
 const emailErrorMessage = document.querySelector('.email-error-msg');
 const inputPassword = document.querySelector('#password');
 const passwordErrorMessage = document.querySelector('.password-error-msg');
-const inputCheckPassword = document.querySelector('#check-password');
-const checkPasswordErrorMessage = document.querySelector(
+const inputDoubleCheckPassword = document.querySelector('#check-password');
+const doubleCheckPasswordErrorMessage = document.querySelector(
   '.check-password-error-msg'
 );
 const eyeIcon = document.querySelectorAll('.hide-password');
@@ -21,7 +21,7 @@ function isStrongPassword(value) {
 }
 
 // 비밀번호 생성 유효성 검사 후 에러 메시지 표시
-function createPasswordErrorMessage() {
+function printPasswordErrorMessage() {
   const value = inputPassword.value;
 
   if (!value) {
@@ -43,18 +43,18 @@ function createPasswordErrorMessage() {
 }
 
 // 비밀번호와 비밀번호 확인이 같지 않다면 에러 메시지 표시
-function doubleCheckPasswordErrormessage() {
+function printDoubleCheckPasswordErrormessage() {
   const password = inputPassword.value;
-  const checkPassword = inputCheckPassword.value;
+  const checkPassword = inputDoubleCheckPassword.value;
 
   if (checkPassword === '' || password !== checkPassword) {
-    checkPasswordErrorMessage.textContent = '비밀번호가 일치하지 않아요.';
-    inputCheckPassword.classList.add('input__error');
+    doubleCheckPasswordErrorMessage.textContent = '비밀번호가 일치하지 않아요.';
+    inputDoubleCheckPassword.classList.add('input__error');
     return false;
   }
 
-  checkPasswordErrorMessage.textContent = '';
-  inputCheckPassword.classList.remove('input__error');
+  doubleCheckPasswordErrorMessage.textContent = '';
+  inputDoubleCheckPassword.classList.remove('input__error');
   return true;
 }
 
@@ -76,15 +76,15 @@ function isUnresisteredEmail() {
 // 비밀번호 확인란에 이미 입력 후, 비밀번호란에 추가로 입력 시, 비밀번호 확인란에 에러 메시지 표시
 function checkAgainDoubleCheckPassword(e) {
   const password = e.target.value;
-  const doubleCheckPassword = inputCheckPassword.value;
+  const doubleCheckPassword = inputDoubleCheckPassword.value;
 
   if (doubleCheckPassword !== '' && password !== doubleCheckPassword) {
-    checkPasswordErrorMessage.textContent = '비밀번호가 일치하지 않아요.';
-    inputCheckPassword.classList.add('input__error');
+    doubleCheckPasswordErrorMessage.textContent = '비밀번호가 일치하지 않아요.';
+    inputDoubleCheckPassword.classList.add('input__error');
   }
 
-  checkPasswordErrorMessage.textContent = '';
-  inputCheckPassword.classList.remove('input__error');
+  doubleCheckPasswordErrorMessage.textContent = '';
+  inputDoubleCheckPassword.classList.remove('input__error');
 }
 
 // 회원가입 시도 시, 한번 더 에러 요소 확인 후, 성공시 folder로 이동
@@ -109,20 +109,20 @@ function emailCheckBeforeSubmit() {
 }
 
 function passwordCheckBeforeSubmit() {
-  const isCorrectPassword = createPasswordErrorMessage();
+  const isCorrectPassword = printPasswordErrorMessage();
   isCorrectPassword ? true : false;
 }
 
 function doubleCheckPasswordBeforeSubmit() {
-  const isCorrectdoubleCheck = doubleCheckPasswordErrormessage();
+  const isCorrectdoubleCheck = printDoubleCheckPasswordErrormessage();
   isCorrectdoubleCheck ? true : false;
 }
 
 inputEmail.addEventListener('focusout', printEmailErrorMessage);
-inputPassword.addEventListener('focusout', createPasswordErrorMessage);
-inputCheckPassword.addEventListener(
+inputPassword.addEventListener('focusout', printPasswordErrorMessage);
+inputDoubleCheckPassword.addEventListener(
   'focusout',
-  doubleCheckPasswordErrormessage
+  printDoubleCheckPasswordErrormessage
 );
 inputPassword.addEventListener('keyup', checkAgainDoubleCheckPassword);
 eyeIcon.forEach((icon) => {
