@@ -1,4 +1,4 @@
-import { $memberInfoForm, checkInputData } from "./app.js";
+import { $memberInfoForm, checkWarningMsg } from "./add-warning-msg.js";
 import { changePwViewMode } from "./pwdOnOff.js";
 import { membersList } from "./membersList.js";
 
@@ -14,8 +14,7 @@ const login = (e) => {
   );
   const isCorrectPw = membersList.some(
     //회원의 비밀번호가 맞는지 확인
-    (el) =>
-      el.email === inputEmailData.value && el.password === inputPwdData.value
+    (el) => el.email === inputEmailData.value && el.password === inputPwdData.value
   );
 
   if (!isCorrectEmail) {
@@ -31,6 +30,6 @@ const login = (e) => {
   }
 };
 
-$memberInfoForm.addEventListener("focusout", checkInputData);
+$memberInfoForm.addEventListener("focusout", checkWarningMsg);
 $memberInfoForm.addEventListener("submit", login);
 $memberInfoForm.addEventListener("click", changePwViewMode);
