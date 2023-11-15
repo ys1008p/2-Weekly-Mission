@@ -1,5 +1,5 @@
 * {
-  box-sizing: border-box 
+  box-sizing: border-box; 
 } 
 
 :root {
@@ -14,7 +14,7 @@
   --gray5-color : #f0f6ff;
   --gray5-color : #f0f6ff;
   --skyblue-color : #6AE3FE;
- }
+}
 
 body {
   display: flex;
@@ -103,6 +103,15 @@ button {
   line-height: normal;
 }
 
+.error-message {
+  color: red;
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .cell {
   display: flex;
   width: 25rem;
@@ -111,6 +120,19 @@ button {
   align-items: center;
   border-radius: 0.5rem;
   border: 1px solid var(--gray3-color);
+  background-color: var(--white-color);
+  font-size: 1rem;
+  line-height: 1.5rem
+}
+
+.cell-error {
+  display: flex;
+  width: 25rem;
+  padding: 1.125rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid red;
   background-color: var(--white-color);
   font-size: 1rem;
   line-height: 1.5rem
