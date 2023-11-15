@@ -9,23 +9,40 @@ const formState = {
   pwConfirmation: false,
 };
 
+// 유효성 검사 후 에러 메시지 띄워야 할 때
+function checkError(e, errorText, errorMsg, input) {
+  e.target.classList.add("error");
+  errorText.classList.add("error");
+  errorText.innerHTML = `${errorMsg}`;
+  formState[`${input}`] = false;
+}
+
 function checkEmail(e) {
   const emailErrorText = e.target.nextElementSibling;
+  const errorMsg = [
+    "이메일을 입력해주세요.",
+    "이미 사용 중인 이메일입니다.",
+    "올바른 이메일 주소가 아닙니다.",
+  ];
+
   if (e.target.value === "") {
-    e.target.classList.add("error");
-    emailErrorText.classList.add("error");
-    emailErrorText.innerHTML = "이메일을 입력해주세요.";
-    formState.email = false;
+    checkError(e, emailErrorText, errorMsg[0], "email");
+    // e.target.classList.add("error");
+    // emailErrorText.classList.add("error");
+    // emailErrorText.innerHTML = "이메일을 입력해주세요.";
+    // formState.email = false;
   } else if (e.target.value === "test@codeit.com") {
-    e.target.classList.add("error");
-    emailErrorText.classList.add("error");
-    emailErrorText.innerHTML = "이미 사용 중인 이메일입니다.";
-    formState.email = false;
+    checkError(e, emailErrorText, errorMsg[1], "email");
+    // e.target.classList.add("error");
+    // emailErrorText.classList.add("error");
+    // emailErrorText.innerHTML = "이미 사용 중인 이메일입니다.";
+    // formState.email = false;
   } else if (e.target.value.includes("@") == false) {
-    e.target.classList.add("error");
-    emailErrorText.classList.add("error");
-    emailErrorText.innerHTML = "올바른 이메일 주소가 아닙니다.";
-    formState.email = false;
+    checkError(e, emailErrorText, errorMsg[2], "email");
+    // e.target.classList.add("error");
+    // emailErrorText.classList.add("error");
+    // emailErrorText.innerHTML = "올바른 이메일 주소가 아닙니다.";
+    // formState.email = false;
   } else {
     e.target.classList.remove("error");
     emailErrorText.classList.remove("error");
