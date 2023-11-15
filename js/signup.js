@@ -1,7 +1,6 @@
 const emailInput = document.querySelector("#username");
 const pwInput = document.querySelector("#password");
 const pwCheckInput = document.querySelector("#password_check");
-const loginButton = document.querySelector(".login-button");
 const form = document.querySelector("form");
 
 const formState = {
