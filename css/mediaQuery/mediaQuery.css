@@ -2,7 +2,7 @@
 
 /* PC */
 @media all and (min-width: 1200px) {
-  .br-none {
+  .min1200px-display-none {
     display: none;
   }
 }
@@ -30,7 +30,7 @@
     white-space: normal;
   }
 
-  .br-none-mobile {
+  .min375px-max767px-display-none {
     display: none;
   }
 
@@ -79,11 +79,13 @@
   }
 
   .main-container section {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-areas:
+      "h2"
+      "img"
+      "p";
     margin: 4rem 0;
-    gap: 2.4rem;
-    align-items: normal;
-    justify-content: flex-start;
+    row-gap: 2rem;
   }
 
   .main-container section img {
@@ -98,11 +100,8 @@
     font-size: 1.4rem;
   }
 
-  .main-container-section2 {
-    flex-direction: column-reverse;
-  }
-  .main-container-section4 {
-    flex-direction: column-reverse;
+  .footer-container {
+    margin-top: 80px;
   }
 
   .footer-section {

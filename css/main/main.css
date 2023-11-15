@@ -7,17 +7,28 @@
   margin: 0 auto;
 }
 
-.main-container section {
-  display: flex;
+.main-container-section1,
+.main-container-section3 {
+  display: grid;
+  grid-template-areas:
+    "h2 img"
+    "p img";
+  row-gap: 1rem;
+  column-gap: 15.7rem;
   justify-content: center;
-  gap: 15.7rem;
-  align-items: center;
   margin: 5rem 0;
 }
 
-.main-container section div {
-  display: flex;
-  flex-direction: column;
+.main-container-section2,
+.main-container-section4 {
+  display: grid;
+  grid-template-areas:
+    "img h2"
+    "img p";
+  row-gap: 1rem;
+  column-gap: 15.7rem;
+  justify-content: center;
+  margin: 5rem 0;
 }
 
 .main-container h2 {
@@ -25,7 +36,8 @@
   font-size: 4.8rem;
   font-weight: 700;
   letter-spacing: -0.3px;
-  margin-bottom: 1rem;
+  grid-area: h2;
+  align-self: end;
 }
 
 .main-container p {
@@ -34,31 +46,33 @@
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 150%; /* 24px */
+  grid-area: p;
 }
 
 .main-container img {
   width: 550px;
+  grid-area: img;
 }
 
 .main-container-section1 {
   margin-top: 0;
 }
 
-.main-container > section h2 span {
+.main-container-section1 h2 span {
   background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main-container section:nth-child(2) h2 span {
+.main-container-section2 h2 span {
   background: linear-gradient(277deg, #6fbaff 5%, #ffd88b 95%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main-container section:nth-child(3) h2 span {
+.main-container-section3 h2 span {
   background: linear-gradient(
     103deg,
     #6d7ccd 50%,
@@ -69,7 +83,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.main-container section:nth-child(4) h2 span {
+.main-container-section4 h2 span {
   background: linear-gradient(271deg, #fe578f -75%, #68e8f9 25%);
   background-clip: text;
   -webkit-background-clip: text;

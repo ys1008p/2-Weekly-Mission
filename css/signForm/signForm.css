@@ -10,6 +10,7 @@
 
 .header a img {
   margin-bottom: 1.6rem;
+  width: 21rem;
 }
 .header p {
   font-size: 1.6rem;
@@ -37,6 +38,21 @@
   margin-bottom: 1.2rem;
 }
 
+.email_container {
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 1.6rem;
+}
+
+.password_container {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.password_check_label {
+  margin-top: 2.4rem;
+}
+
 .login_form form input[type="text"],
 .login_form form input[type="password"] {
   width: 100%;
@@ -60,7 +76,8 @@
   transform: translate(0, -50%);
 }
 
-.login_form form input[type="submit"] {
+.login_button {
+  margin: 3rem 0 3.2rem;
   width: 100%;
   padding: 1.6rem 2rem;
   border-radius: 8px;
@@ -102,4 +119,16 @@
 .login_form form input:focus {
   outline: none;
   border-color: var(--primary);
+}
+
+/* js error event */
+.errorMsg_style {
+  margin: 0.6rem 0;
+  color: var(--red);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.errorInput_style {
+  border: 1px solid var(--red) !important;
 }

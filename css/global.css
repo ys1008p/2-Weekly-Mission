@@ -25,3 +25,11 @@ body {
   --gray-200: #e7effb;
   --gray-100: #f0f6ff;
 }
+
+.show {
+  display: block;
+}
+
+.done {
+  display: none;
+}

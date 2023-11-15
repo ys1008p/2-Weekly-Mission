@@ -5,59 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>signin</title>
     <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="./css/signinup/signinup.css" />
-    <link rel="stylesheet" href="./css/mediaQuery/mediaQuery_signinup.css" />
+    <link rel="stylesheet" href="./css/signForm/signForm.css" />
+    <link rel="stylesheet" href="./css/mediaQuery/signForm.css" />
     <link
       rel="stylesheet"
       as="style"
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css"
     />
+    <script type="module" defer src="script/signup.js"></script>
   </head>
   <body>
     <!-- ================================== -->
     <main class="background">
       <!-- ================================== -->
       <section class="header">
-        <a href="/"
-          ><img src="img/main/logo.png" alt="logo" style="width: 21rem"
-        /></a>
-        <p>회원이 아니신가요? <a href="/signup.html ">회원 가입하기</a></p>
+        <a href="/"><img src="img/main/logo.png" alt="logo" /></a>
+        <p>이미 회원이신가요? <a href="/signin.html ">로그인 하기</a></p>
       </section>
       <!-- ================================== -->
       <section class="login_form">
-        <form action="">
-          <label for="email">이메일</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            style="margin-bottom: 2.4rem"
-          />
-
-          <label for="password">비밀번호 </label>
-          <div class="password_eyes_container">
-            <input type="text" id="password" name="password" />
-            <img
-              src="svg/signinup/eye-on.svg"
-              alt="eye_on"
-              class="password_eyes"
-            />
+        <form action="/folder" method="post">
+          <div class="email_container">
+            <label for="email">이메일</label>
+            <input type="text" id="email" name="email" class="email_input" />
+            <p id="email_error" class="errorMsg_style done"></p>
           </div>
 
-          <label for="password_check" style="margin-top: 2.4rem"
+          <div class="password_container">
+            <label for="password">비밀번호 </label>
+            <div class="password_eyes_container">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="off"
+              />
+              <img
+                src="svg/signinup/eye-off.svg"
+                alt="eyes"
+                class="password_eyes"
+              />
+            </div>
+            <p id="pw_error" class="errorMsg_style done"></p>
+          </div>
+
+          <label for="password_check" class="password_check_label"
             >비밀번호 확인
           </label>
           <div class="password_eyes_container">
-            <input type="text" id="password_check" name="password_check" />
+            <input
+              type="password"
+              id="password_check"
+              name="password_check"
+              autocomplete="off"
+            />
             <img
-              src="svg/signinup/eye-on.svg"
-              alt="eye_on"
+              src="svg/signinup/eye-off.svg"
+              alt="eyes"
               class="password_eyes"
             />
           </div>
+          <p id="pwCheck_error" class="errorMsg_style"></p>
 
-          <input type="submit" value="로그인" style="margin: 3rem 0 3.2rem" />
+          <input
+            type="submit"
+            value="회원가입"
+            id="signup_btn"
+            class="login_button"
+          />
         </form>
       </section>
       <!-- ================================== -->
