@@ -24,7 +24,7 @@
           <a href="./signup.html" class="account--link">회원 가입하기</a>
         </div>
       </div>
-      <form action="" class="account--form">
+      <form action="" class="account--form" id="signInForm">
         <div class="email-password">
           <div class="email--box form--box">
             <label for="email">이메일</label>
@@ -33,10 +33,10 @@
           <div class="password--box form--box">
             <label for="password">비밀번호</label>
             <input type="password" id="password">
-            <img src="./assets/icon/eye-off.svg" alt="eye-off" class="eye-off">
+            <img src="./assets/icon/eye-off.svg" alt="eye-off" class="eye-off eye">
           </div>
         </div>
-        <button class="account--btn btn" type="submit">로그인</button>
+        <button class="account--btn btn signin--btn" type="button">로그인</button>
       </form>
     </div>
     <div class="social-login">
@@ -55,5 +55,6 @@
       </div>
     </div>
   </main>
+  <script type="module" src="./js/signin.js"></script>
 </body>
 </html>
