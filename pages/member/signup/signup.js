@@ -1,14 +1,15 @@
 import {
   changePasswordVisibility,
   checkEmailValid,
-  checkPasswordChkSame,
   checkPasswordValid,
+  checkPasswordsMatch,
   emailValidationFailed,
   emailValidationSucceeded,
   passwordValidationFailed,
   passwordValidationSucceeded,
-  validatingMachine,
 } from "../sign.js";
+
+import { isEmptyString } from "/scripts/utils.js";
 
 /**
  * email input
@@ -17,18 +18,14 @@ const emailInput = document.querySelector("#input-email");
 emailInput.addEventListener("focusout", onEmailFocusoutValid);
 
 function onEmailFocusoutValid({ target }) {
-  const validators = [
-    {
-      validator: checkEmailValid,
-    },
-  ];
+  const errorMessage = checkEmailValid(target);
+  if (!isEmptyString(errorMessage)) {
+    emailValidationFailed(target, errorMessage);
+    return false;
+  }
 
-  return validatingMachine(
-    target,
-    validators,
-    emailValidationFailed(target),
-    emailValidationSucceeded(target)
-  );
+  emailValidationSucceeded(target);
+  return true;
 }
 
 /**
@@ -42,18 +39,14 @@ const passwordEyeIcon = document.querySelector(
 passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
 
 function onPasswordFocusoutValid({ target }) {
-  const validators = [
-    {
-      validator: checkPasswordValid,
-    },
-  ];
+  const errorMessage = checkPasswordValid(target);
+  if (!isEmptyString(errorMessage)) {
+    passwordValidationFailed(target, passwordEyeIcon, errorMessage);
+    return false;
+  }
 
-  return validatingMachine(
-    target,
-    validators,
-    passwordValidationFailed(target, passwordEyeIcon),
-    passwordValidationSucceeded(target, passwordEyeIcon)
-  );
+  passwordValidationSucceeded(target, passwordEyeIcon);
+  return true;
 }
 
 passwordEyeIcon.addEventListener(
@@ -72,19 +65,14 @@ const passwordChkEyeIcon = document.querySelector(
 passwordInputChk.addEventListener("focusout", onPasswordChkFocusoutValid);
 
 function onPasswordChkFocusoutValid({ target }) {
-  const validators = [
-    {
-      validator: checkPasswordChkSame(passwordInput),
-      message: "비밀번호가 일치하지 않아요.",
-    },
-  ];
+  const errorMessage = checkPasswordsMatch(target, passwordInput);
+  if (!isEmptyString(errorMessage)) {
+    passwordValidationFailed(target, passwordChkEyeIcon, errorMessage);
+    return false;
+  }
 
-  return validatingMachine(
-    target,
-    validators,
-    passwordValidationFailed(target, passwordChkEyeIcon),
-    passwordValidationSucceeded(target, passwordChkEyeIcon)
-  );
+  passwordValidationSucceeded(target, passwordChkEyeIcon);
+  return true;
 }
 
 passwordChkEyeIcon.addEventListener(

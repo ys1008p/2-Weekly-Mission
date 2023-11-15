@@ -1,14 +1,16 @@
 import {
   changePasswordVisibility,
   checkEmailValid,
-  checkIsOurMember,
   checkPasswordValid,
   emailValidationFailed,
   emailValidationSucceeded,
+  errorMessage,
+  isMemberExist,
   passwordValidationFailed,
   passwordValidationSucceeded,
-  validatingMachine,
 } from "../sign.js";
+
+import { isEmptyString } from "/scripts/utils.js";
 
 /**
  * email input
@@ -17,19 +19,14 @@ const emailInput = document.querySelector("#input-email");
 emailInput.addEventListener("focusout", onEmailFocusoutValid);
 
 function onEmailFocusoutValid({ target }) {
-  const validators = [
-    {
-      validator: checkEmailValid,
-      checkExist: false,
-    },
-  ];
+  const errorMessage = checkEmailValid(target, false);
+  if (!isEmptyString(errorMessage)) {
+    emailValidationFailed(target, errorMessage);
+    return false;
+  }
 
-  return validatingMachine(
-    target,
-    validators,
-    emailValidationFailed(target),
-    emailValidationSucceeded(target)
-  );
+  emailValidationSucceeded(target);
+  return true;
 }
 
 /**
@@ -43,18 +40,14 @@ const passwordEyeIcon = document.querySelector(
 passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
 
 function onPasswordFocusoutValid({ target }) {
-  const validators = [
-    {
-      validator: checkPasswordValid,
-    },
-  ];
+  const errorMessage = checkPasswordValid(target);
+  if (!isEmptyString(errorMessage)) {
+    passwordValidationFailed(target, passwordEyeIcon, errorMessage);
+    return false;
+  }
 
-  return validatingMachine(
-    target,
-    validators,
-    passwordValidationFailed(target, passwordEyeIcon),
-    passwordValidationSucceeded(target, passwordEyeIcon)
-  );
+  passwordValidationSucceeded(target, passwordEyeIcon);
+  return true;
 }
 
 passwordEyeIcon.addEventListener(
@@ -70,27 +63,24 @@ const form = document.querySelector(".form");
 form.addEventListener("submit", onSubmitValid);
 
 function checkMemberExist() {
-  let result = false;
-  result = validatingMachine(
-    {
-      email: emailInput.value,
-      password: passwordInput.value,
-    },
-    [{ validator: checkIsOurMember, message: "이메일을 확인해주세요." }],
-    emailValidationFailed(emailInput),
-    emailValidationSucceeded(emailInput)
-  );
+  const isOurMember = isMemberExist({
+    email: emailInput.value,
+    password: passwordInput.value,
+  });
 
-  result = validatingMachine(
-    {
-      email: emailInput.value,
-      password: passwordInput.value,
-    },
-    [{ validator: checkIsOurMember, message: "비밀번호를 확인해주세요." }],
-    passwordValidationFailed(passwordInput, passwordEyeIcon),
-    passwordValidationSucceeded(passwordInput, passwordEyeIcon)
-  );
-  return result;
+  if (!isOurMember) {
+    emailValidationFailed(emailInput, errorMessage.email.loginFailed);
+    passwordValidationFailed(
+      passwordInput,
+      passwordEyeIcon,
+      errorMessage.password.loginFailed
+    );
+    return false;
+  }
+
+  emailValidationSucceeded(emailInput);
+  passwordValidationSucceeded(passwordInput, passwordEyeIcon);
+  return true;
 }
 
 function onSubmitValid(e) {
