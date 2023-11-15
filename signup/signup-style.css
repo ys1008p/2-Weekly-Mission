@@ -152,18 +152,27 @@ button {
   gap: 1rem;
 }
 
-.icon {
+.kakao-icon {
   width: 2.625rem;
   height: 2.625rem;
   position: relative;
 }
 
-.icon-google {
+.google-icon{
+  width: 2.625rem;
+  height: 2.625rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-icon-main {
   position: absolute;
   inset: 0.63rem;
 }
 
-.icon-kakao {
+.kakao-icon-main {
   position: absolute;
   top: 0.63rem;
   right: 0.5rem;
