@@ -1,4 +1,4 @@
-import { inputEventHandler, checkInputData } from "./app.js";
+import { $memberInfoForm, checkInputData } from "./app.js";
 import { changePwViewMode } from "./pwdOnOff.js";
 import { membersList } from "./membersList.js";
 
@@ -31,6 +31,6 @@ const login = (e) => {
   }
 };
 
-inputEventHandler.addEventListener("focusout", checkInputData);
-inputEventHandler.addEventListener("submit", login);
-inputEventHandler.addEventListener("click", changePwViewMode);
+$memberInfoForm.addEventListener("focusout", checkInputData);
+$memberInfoForm.addEventListener("submit", login);
+$memberInfoForm.addEventListener("click", changePwViewMode);
