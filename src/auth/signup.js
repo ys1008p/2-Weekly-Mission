@@ -11,7 +11,7 @@ import {
   PasswordConfirmValidationError,
   PasswordValidationError,
 } from "/src/commons/ValidationError.js";
-import { PATH_FOLDER } from "/constants/routes.js";
+import { PATH_FOLDER } from "/src/constants/routes.js";
 
 const signupFormEl = document.querySelector(".signup");
 const passwordToggleButtonEl = document.querySelector(".password-toggle");

@@ -9,7 +9,7 @@ import {
   SigninPasswordValidator,
 } from "/src/commons/Validator.js";
 import Icon from "/src/commons/Icon.js";
-import { PATH_FOLDER } from "/constants/routes.js";
+import { PATH_FOLDER } from "/src/constants/routes.js";
 
 const signinFormEl = document.querySelector(".signin");
 const passwordToggleButtonEl = document.querySelector(".password-toggle");
