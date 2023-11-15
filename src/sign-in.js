@@ -18,11 +18,11 @@ function unResisteredEmailErrorMessage() {
     emailErrorMessage.textContent = '이메일을 확인해주세요.';
     inputEmail.classList.add('input__error');
     return false;
-  } else {
-    emailErrorMessage.textContent = '';
-    inputEmail.classList.remove('input__error');
-    return true;
   }
+
+  emailErrorMessage.textContent = '';
+  inputEmail.classList.remove('input__error');
+  return true;
 }
 
 // 로그인 시도 시 등록된 비밀번호가 아닐 경우 에러 메시지를 표시하는 함수
@@ -32,11 +32,11 @@ function unResisteredPasswordErrorMessage() {
     passwordErrorMessage.textContent = '비밀번호를 확인해주세요.';
     inputPassword.classList.add('input__error');
     return false;
-  } else {
-    passwordErrorMessage.textContent = '';
-    inputPassword.classList.remove('input__error');
-    return true;
   }
+
+  passwordErrorMessage.textContent = '';
+  inputPassword.classList.remove('input__error');
+  return true;
 }
 
 // 로그인 시도 시 등록된 데이터일 경우 /folder 파일로 이동
@@ -47,6 +47,7 @@ function signIn(e) {
   if (!checkEmail || !checkPassword) {
     return;
   }
+
   const isResisteredEmail = unResisteredEmailErrorMessage();
   const isResisteredPassword = unResisteredPasswordErrorMessage();
   if (isResisteredEmail && isResisteredPassword) {
@@ -56,6 +57,5 @@ function signIn(e) {
 
 inputEmail.addEventListener('focusout', printEmailErrorMessage);
 inputPassword.addEventListener('focusout', printPasswordErrorMessage);
-formSignIn.addEventListener('submit', signIn);
-
 eyeIcon.addEventListener('click', toggleEyeIcon);
+formSignIn.addEventListener('submit', signIn);
