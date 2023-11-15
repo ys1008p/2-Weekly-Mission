@@ -227,11 +227,16 @@ footer {
   nav {
     padding: 1.25rem auto;
     justify-content: center;
+    padding: 0 32px;
+    min-width: 799px;
+    max-width: 864px;
+    padding: 0 32px;
+
   }
   .navigator {
-    width: 933px;
-    margin-left: 32px;
-    margin-right: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -240,15 +245,9 @@ footer {
     padding: 0.81rem 32px;
     width: 100%;
     height: auto;
+    min-width: 0;
     }
   
-  .navigator {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .cta {
     padding: 0.62rem 1rem;
     background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
