@@ -18,7 +18,7 @@ const errorMessage = {
   },
 };
 
-function handleErrorMessage(element, errorMessage = "", addOrRemoveHide) {
+function handleErrorMessage(element, addOrRemoveHide, errorMessage = "") {
   const errorMessageSpan = element.nextElementSibling;
 
   errorMessageSpan.textContent = errorMessage;
@@ -27,7 +27,7 @@ function handleErrorMessage(element, errorMessage = "", addOrRemoveHide) {
 
 function inputValidationFailed(target, errorMessage, eyeIcon) {
   target.classList.add("input-error");
-  handleErrorMessage(target, errorMessage, "remove");
+  handleErrorMessage(target, "remove", errorMessage);
   if (eyeIcon) {
     eyeIcon.classList.add("eye-icon__error");
   }
@@ -35,7 +35,7 @@ function inputValidationFailed(target, errorMessage, eyeIcon) {
 
 function inputValidationSucceeded(target, eyeIcon) {
   target.classList.remove("input-error");
-  handleErrorMessage(target, "", "add");
+  handleErrorMessage(target, "add");
   if (eyeIcon) {
     eyeIcon.classList.remove("eye-icon__error");
   }
