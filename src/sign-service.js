@@ -48,44 +48,27 @@ function MakeRedBoxOff(whichBox) {
   whichBox.classList.remove('redBox');
 }
 
-// 에러 메세지가 발생해야 하는 위치, 에러 종류를 파라미터로 받고 메세지를 생성
+const targetMap = {
+  email: emailInput,
+  password: pswdInput,
+  passwordCheck: pswdCheck,
+};
+
 export function makeErrorMessage(errorPlace, messageType) {
   const message = document.createElement('div');
   message.classList.toggle('alert');
   message.textContent = ALERT_MESSAGE_BOX[errorPlace][messageType];
-  switch (errorPlace) {
-    case 'email':
-      emailInput.after(message);
-      MakeRedBoxOn(emailInput);
-      break;
-    case 'password':
-      pswdInput.after(message);
-      MakeRedBoxOn(pswdInput);
-      break;
-    case 'passwordCheck':
-      pswdCheck.after(message);
-      MakeRedBoxOn(pswdCheck);
-      break;
-  }
+  const placeToMakeMessage = targetMap[errorPlace];
+
+  placeToMakeMessage.after(message);
+  MakeRedBoxOn(placeToMakeMessage);
 }
 
-// 에러 메세지를 삭제할 위치를 파라미터로 받고 메세지를 삭제
 export function eraseErrorMessage(errorPlace) {
-  let placeToErase;
-  switch (errorPlace) {
-    case 'email':
-      placeToErase = emailInput;
-      MakeRedBoxOff(emailInput);
-      break;
-    case 'password':
-      placeToErase = pswdInput;
-      MakeRedBoxOff(pswdInput);
-      break;
-    case 'passwordCheck':
-      placeToErase = pswdCheck;
-      MakeRedBoxOff(pswdCheck);
-      break;
-  }
+  const placeToErase = targetMap[errorPlace];
+
+  MakeRedBoxOff(placeToErase);
+
   if (placeToErase.nextElementSibling.className === 'alert') {
     placeToErase.nextElementSibling.remove();
   }
