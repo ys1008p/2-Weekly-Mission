@@ -46,11 +46,6 @@ function togglePassword(e) {
   }
 }
 
-const checkTestUser = function (email, password) {
-  return email === TEST_USER.email && password === TEST_USER.password;
-  /*checkTestUser(emailInput.value, pswdInput.value)*/
-};
-
 async function submit(e) {
   e.preventDefault();
   const signinAccount = {
