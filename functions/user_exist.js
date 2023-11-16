@@ -1,13 +1,22 @@
-const registeredUsers = [{ email: "test@codeit.com", password: "codeit101" }];
+const link = "https://bootcamp-api.codeit.kr/api"
 
-const isExistEmail = function (emailValue) {
-  return registeredUsers.find ((el) => el.email === emailValue);
+const isExistUser = async function (email, password) {
+  const tryloginUser = {
+    "email": email,
+    "password": password,
+  }
+  try {
+    const response = await fetch(`${link}/sign-in`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(tryloginUser),
+    });
+    return response.status
+  } catch(e) {
+    console.error(e);
+  }
 }
 
-const isExistUser = function (emailValue, passwordValue) {
-  const isExistEmail= registeredUsers.find ((el) => el.email === emailValue);
-  
-  return (isExistEmail?.password === passwordValue) ? true : false;
-}
-
-export { isExistEmail, isExistUser };
+export { isExistUser };

@@ -2,17 +2,32 @@ import { inputEmail, inputPassword, submitFormatBtn, eyeBtn } from "./tags.js";
 import {
   enterMessage,
   changePasswordVision,
+  isExistUser,
 } from "./signin_functions.js";
 
-const inputTypeEmail = "이메일";
-const inputTypePassword = "비밀번호";
-
-inputEmail.addEventListener("focusout", (e) => enterMessage(e, inputTypeEmail, inputEmail, inputPassword ));
-inputPassword.addEventListener("focusout", (e) => enterMessage(e, inputTypePassword, inputPassword, inputEmail ));
+inputEmail.addEventListener("focusout", ({ target, type }) => enterMessage(target, type));
+inputPassword.addEventListener("focusout", ({ target, type }) => enterMessage(target, type));
 submitFormatBtn.addEventListener("click", (e) => {
+  const emailValue = inputEmail.value;
+  const passwordValue = inputPassword.value;
+
   e.preventDefault();
 
-  enterMessage(e, inputTypeEmail, inputEmail, inputPassword );
-  enterMessage(e, inputTypePassword, inputPassword, inputEmail );
+  const promise = isExistUser(emailValue, passwordValue);
+
+  const getData = () => {
+    promise.then((promiseResult) => {
+
+      if (promiseResult === 200) {
+        window.open("/folder", "_self");
+      } else {
+        enterMessage(inputEmail, e.type)
+        enterMessage(inputPassword, e.type)
+      }
+    })
+  }
+
+  getData();
+  
 });
 eyeBtn[0].addEventListener("click", changePasswordVision);

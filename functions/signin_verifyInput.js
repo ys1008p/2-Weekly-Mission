@@ -1,27 +1,20 @@
 import { removeRedMessage, createRedMessage } from "./error_message.js";
-import { isExistUser } from "./user_exist.js";
-
-function printMessage(inputCurrent, inputType, action) {
-  createRedMessage(inputCurrent, `${inputType}을 ${action}해주세요.`);
-}
+// import { signinValid } from "./user_exist.js";
 
 // 이메일과 비밀번호 유효성을 검증하는 함수
-function enterMessage(e, inputType, inputCurrent, inputPair) {
-  const currentValue = inputCurrent.value;
-  const pairValue = inputPair.value;
+function enterMessage(input, eventType) {
+  const inputType = input.id;
+  const inputValue = input.value;
 
-  removeRedMessage(inputCurrent);
+  removeRedMessage(input);
 
-  if (!currentValue) {
-    printMessage(inputCurrent, inputType, "입력");
-  } else if (e.type === "click") {
-    if (inputType === "이메일") {
-      isExistUser(currentValue, pairValue) ? window.open("/folder", "_self") : printMessage(inputCurrent, inputType, "확인");
-    } else if (inputType === "비밀번호") {
-      isExistUser(pairValue, currentValue) ? window.open("/folder", "_self") : printMessage(inputCurrent, inputType, "확인");
-    }
-    
+  if (!inputValue) {
+    if (inputType === 'useremail') createRedMessage(input, "이메일을 입력해주세요.");
+    else if (inputType === 'password') createRedMessage(input, "비밀번호를 입력해주세요.");
+  } else if (eventType === "click") {
+    if (inputType === 'useremail') createRedMessage(input, "이메일을 확인해주세요.");
+    else if (inputType === 'password') createRedMessage(input, "비밀번호를 확인해주세요.");
   }
 }
 
-export default enterMessage;
+export { enterMessage };
