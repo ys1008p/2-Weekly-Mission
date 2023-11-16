@@ -1,5 +1,6 @@
- import { btn,inputs , email, password, isValidEmail, isValidPassword,checkPassword, eye1, eye2, eyeToggle } from "./common.js";
- import { usersData } from "./userData.js";
+ import { email, password, checkPassword, eye1, eye2, inputs } from "../sig_all/contants.js";
+ import {isValidEmail, isValidPassword, eyeToggle } from "../sig_all/utils/sig_errAction.js";
+ import { usersData } from "../sig_all/utils/userData.js";
 
  function joinMembers (e) {
   for(let user of usersData){
@@ -35,12 +36,7 @@ function join (e) {
   }
 }
 
-btn.addEventListener('click', join);
-btn.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') {
-    join()
-  } 
-});
+btn.addEventListener('submit', join);
 
 inputs.forEach(inputElement => {
   inputElement.addEventListener('focusout',joinMembers);

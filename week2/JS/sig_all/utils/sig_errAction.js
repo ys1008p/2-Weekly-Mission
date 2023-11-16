@@ -1,16 +1,9 @@
-const form = document.querySelector('#login_form');
-const email = document.querySelector('#email');
-const inputs = document.querySelectorAll('.insert')
-const passwordInputs = document.querySelectorAll('.password');
-const password = document.querySelector('#password')
-const checkPassword = document.querySelector('#password_check')
-const btn = document.querySelector('.btn');
-const eye1 = document.querySelector('.eye1');
-const eye2 = document.querySelector('.eye2');
+import { usersData } from "./userData.js";
+import { email, password, checkPassword  } from "../contants.js";
 
 const text = document.createElement('p');
 
-import { usersData } from "./userData.js";
+
 
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -76,4 +69,4 @@ inputs.forEach(input => {
   input.addEventListener('focusout',errActionAll);
 });
 
-export {email, password, btn, checkPassword, inputs,eye1 ,eye2, isValidEmail, isValidPassword, errActionAll, eyeToggle};
+export {isValidEmail, isValidPassword, errActionAll, eyeToggle};

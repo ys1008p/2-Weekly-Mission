@@ -1,5 +1,6 @@
-import { btn, inputs, email, password, isValidEmail, isValidPassword, errActionAll, eye2, eyeToggle } from "./common.js";
-import { usersData } from "./userData.js";
+import { email, password, btn, eye2 } from "../sig_all/contants.js";
+import {isValidEmail, isValidPassword, eyeToggle } from "../sig_all/utils/common.js";
+import { usersData } from "../sig_all/userData.js";
 
 function checkTemplate (e) {
   if (e.target === email) {
@@ -28,17 +29,11 @@ function ourMembers (e) {
     }
   }
 }
-// 알림창 두번뜨는 오류 있음
 
 inputs.forEach(inputElement => {
   inputElement.addEventListener('focusout',checkTemplate);
 });
 
-btn.addEventListener('click', ourMembers)
-btn.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') {
-    ourMembers()
-  } 
-})
+btn.addEventListener('submit', ourMembers )
 
 eye2.addEventListener('click', eyeToggle);
