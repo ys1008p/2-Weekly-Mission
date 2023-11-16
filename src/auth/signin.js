@@ -12,6 +12,8 @@ import Icon from "/src/commons/Icon.js";
 import { PATH_FOLDER } from "/src/constants/routes.js";
 import { postSignin } from "/src/auth/api.js";
 
+if (localStorage.getItem("accessToken")) location.replace(PATH_FOLDER);
+
 const signinFormEl = document.querySelector(".signin");
 const passwordToggleButtonEl = document.querySelector(".password-toggle");
 
@@ -79,7 +81,7 @@ const handleSubmitSignin = async (e) => {
     emailInput.validate();
     passwordInput.validate();
     await postSignin(emailInput.getValue(), passwordInput.getValue());
-    location.href = PATH_FOLDER;
+    location.replace(PATH_FOLDER);
   } catch (err) {
     if (err instanceof EmailValidationError) {
       emailInput.showErrorMessage(err.message);

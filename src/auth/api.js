@@ -25,8 +25,12 @@ const fetcher = new Fetcher({
 export const postSignin = async (email, password) => {
   const body = { email, password };
   try {
-    const data = await fetcher.post("/sign-in", body);
+    const { data } = await fetcher.post("/sign-in", body);
     // schema 검증 필요
+    localStorage.setItem("accessToken", data.accessToken);
+    fetcher.setHeaders({
+      Authorization: `Bearer ${accessToken}`,
+    });
   } catch (err) {
     console.error(err);
   }
@@ -35,7 +39,7 @@ export const postSignin = async (email, password) => {
 export const postCheckEmail = async (email) => {
   const body = { email };
   try {
-    const data = await fetcher.post("/check-email", body);
+    const { data } = await fetcher.post("/check-email", body);
 
     return { isUsableNickname: data.isUsableNickname };
   } catch (err) {
@@ -47,7 +51,11 @@ export const postCheckEmail = async (email) => {
 export const postSignup = async (email, password) => {
   const body = { email, password };
   try {
-    const data = await fetcher.post("/sign-up", body);
+    const { data } = await fetcher.post("/sign-up", body);
+    localStorage.setItem("accessToken", data.accessToken);
+    fetcher.setHeaders({
+      Authorization: `Bearer ${accessToken}`,
+    });
   } catch (err) {
     console.error(err);
   }

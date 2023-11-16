@@ -14,6 +14,8 @@ import {
 import { PATH_FOLDER } from "/src/constants/routes.js";
 import { postCheckEmail, postSignup } from "/src/auth/api.js";
 
+if (localStorage.getItem("accessToken")) location.replace(PATH_FOLDER);
+
 const signupFormEl = document.querySelector(".signup");
 const passwordToggleButtonEl = document.querySelector(".password-toggle");
 const passwordConfirmToggleButtonEl = document.querySelector(
@@ -107,7 +109,7 @@ const handleSubmitSignup = async (e) => {
     passwordInput.validate();
     passwordConfirmInput.validate(passwordInput.getValue());
     await postSignup(emailInput.getValue(), passwordInput.getValue());
-    location.href = PATH_FOLDER;
+    location.replace(PATH_FOLDER);
   } catch (err) {
     if (err instanceof EmailValidationError) {
       emailInput.showErrorMessage(err.message);

@@ -1,24 +1,28 @@
 export default class Fetcher {
   #baseURL;
   #handlers;
+  #headers;
 
   /**
    * Create fetcher
    * @param {{baseURL: string, handlers: (response: Response) => Response}}
    */
-  constructor({ baseURL, handlers = [] }) {
+  constructor({
+    baseURL,
+    handlers = [],
+    headers = { "Content-Type": "application/json" },
+  }) {
     if (!handlers instanceof Array) throw new Error("Handlers should be array");
     this.#baseURL = baseURL;
-    this.#handlers = handlers;
+    this.#handlers = [...handlers];
+    this.#headers = structuredClone(headers);
   }
 
   async post(url, body) {
     const res = await fetch(`${this.#baseURL}${url}`, {
       method: "POST",
       body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: this.#headers,
     });
 
     const handledRes = this._handleResponse(res);
@@ -30,6 +34,13 @@ export default class Fetcher {
     const data = await handledRes.json();
 
     return data;
+  }
+
+  /**
+   * @param {HeadersInit} headers
+   */
+  setHeaders(headers) {
+    this.#headers = structuredClone(headers);
   }
 
   /**
