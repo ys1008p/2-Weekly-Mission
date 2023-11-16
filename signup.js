@@ -2,7 +2,7 @@ import {
   inputEmail,
   inputPassword,
   inputPasswordCheck,
-  btn,
+  submitFormatBtn,
   eyeBtn,
 } from "./tags.js";
 import {
@@ -18,7 +18,7 @@ import {
 inputEmail.addEventListener("focusout", enterEmailMessage);
 inputPassword.addEventListener("focusout", enterPasswordMessage);
 inputPasswordCheck.addEventListener("input", enterPasswordCheckMessage);
-btn.addEventListener("click", (e) => {
+submitFormatBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   enterEmailMessage();

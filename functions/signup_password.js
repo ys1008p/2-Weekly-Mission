@@ -1,7 +1,7 @@
 import { inputPassword } from "../tags.js";
 import { removeRedMessage, createRedMessage } from "./error_message.js";
 
-let passwordValid = "";
+let passwordValid = false;
 
 function printEmpty() {
   createRedMessage(inputPassword, "비밀번호를 입력해주세요.");

@@ -1,16 +1,18 @@
-import { inputEmail, inputPassword, btn, eyeBtn } from "./tags.js";
+import { inputEmail, inputPassword, submitFormatBtn, eyeBtn } from "./tags.js";
 import {
-  enterEmailMessage,
-  enterPasswordMessage,
+  enterMessage,
   changePasswordVision,
 } from "./signin_functions.js";
 
-inputEmail.addEventListener("focusout", enterEmailMessage);
-inputPassword.addEventListener("focusout", enterPasswordMessage);
-btn.addEventListener("click", (e) => {
+const inputTypeEmail = "이메일";
+const inputTypePassword = "비밀번호";
+
+inputEmail.addEventListener("focusout", (e) => enterMessage(e, inputTypeEmail, inputEmail, inputPassword ));
+inputPassword.addEventListener("focusout", (e) => enterMessage(e, inputTypePassword, inputPassword, inputEmail ));
+submitFormatBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  enterEmailMessage(e);
-  enterPasswordMessage(e);
+  enterMessage(e, inputTypeEmail, inputEmail, inputPassword );
+  enterMessage(e, inputTypePassword, inputPassword, inputEmail );
 });
 eyeBtn[0].addEventListener("click", changePasswordVision);

@@ -1,8 +1,8 @@
 import { inputEmail } from "../tags.js";
 import { removeRedMessage, createRedMessage } from "./error_message.js";
+import { isExistEmail } from "./user_exist.js";
 
-const userInfo = { "test@codeit.com": "codeit101" };
-let emailValid = "";
+let emailValid = false;
 
 function printEmpty() {
   createRedMessage(inputEmail, "이메일을 입력해주세요.");
@@ -27,7 +27,7 @@ function enterEmailMessage() {
 
   if (!emailValue) {
     printEmpty();
-  } else if (userInfo[emailValue]) {
+  } else if (isExistEmail(emailValue)) {
     printTaken();
   } else if (!emailFormat.test(emailValue)) {
     printWrong();

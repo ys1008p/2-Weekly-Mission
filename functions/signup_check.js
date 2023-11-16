@@ -1,7 +1,7 @@
 import { inputPassword, inputPasswordCheck } from "../tags.js";
 import { removeRedMessage, createRedMessage } from "./error_message.js";
 
-let checkValid = "";
+let checkValid = false;
 
 function printDiff() {
   createRedMessage(inputPasswordCheck, "비밀번호가 일치하지 않아요.");
