@@ -8,11 +8,11 @@ import {
   isEmailValid,
   emailInput,
   pswdInput,
-  pswdEye,
+  passwordVisiblilityToggleButtons,
   loginBtn,
 } from './sign-service.js';
 
-function errorAlertEmail(e) {
+function validateEmailInput(e) {
   if (emailInput.value.length === 0) {
     if (emailInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('email', 'noInput');
@@ -25,7 +25,7 @@ function errorAlertEmail(e) {
   }
 }
 
-function errorAlertPswd(e) {
+function validatePasswordInput(e) {
   if (pswdInput.value.length === 0) {
     if (pswdInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('password', 'noInput');
@@ -52,7 +52,7 @@ const checkTestUser = function (email, password) {
 function submit(e) {
   e.preventDefault();
   if (checkTestUser(emailInput.value, pswdInput.value)) {
-    window.location.href = '/folder';
+    window.location.href = '/folder.html';
   } else {
     // 연속된 로그인 시도 오류시 에러메세지가 쌓이는 현상 방지
     if (
@@ -65,7 +65,7 @@ function submit(e) {
   }
 }
 
-emailInput.addEventListener('focusout', errorAlertEmail);
-pswdInput.addEventListener('focusout', errorAlertPswd);
-pswdEye[0].addEventListener('click', togglePassword);
+emailInput.addEventListener('focusout', validateEmailInput);
+pswdInput.addEventListener('focusout', validatePasswordInput);
+passwordVisiblilityToggleButtons[0].addEventListener('click', togglePassword);
 loginBtn.addEventListener('click', submit);

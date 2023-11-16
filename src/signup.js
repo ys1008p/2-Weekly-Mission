@@ -10,7 +10,7 @@ import {
   emailInput,
   pswdInput,
   pswdCheck,
-  pswdEye,
+  passwordVisiblilityToggleButtons,
   loginBtn,
 } from './sign-service.js';
 
@@ -97,6 +97,9 @@ emailInput.addEventListener('focusout', errorAlertEmail);
 emailInput.addEventListener('focusout', takenEmail);
 pswdInput.addEventListener('focusout', errorAlertPswd);
 pswdCheck.addEventListener('focusout', matchFailPswdCheck);
-pswdEye[0].addEventListener('click', togglePassword);
-pswdEye[1].addEventListener('click', seeOrNotPasswordCheck);
+passwordVisiblilityToggleButtons[0].addEventListener('click', togglePassword);
+passwordVisiblilityToggleButtons[1].addEventListener(
+  'click',
+  seeOrNotPasswordCheck
+);
 loginBtn.addEventListener('click', submit);

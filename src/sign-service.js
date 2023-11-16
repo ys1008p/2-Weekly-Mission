@@ -1,7 +1,8 @@
 export const emailInput = document.querySelector('.email-input');
 export const pswdInput = document.querySelector('.password-input');
 export const pswdCheck = document.querySelector('#password-check');
-export const pswdEye = document.querySelectorAll('.button-eye');
+export const passwordVisiblilityToggleButtons =
+  document.querySelectorAll('.button-eye');
 export const loginBtn = document.querySelector('.button-submit');
 export const EYE_ON_PATH = '/images/eye-on.svg';
 export const EYE_OFF_PATH = '/images/eye-off.svg';
