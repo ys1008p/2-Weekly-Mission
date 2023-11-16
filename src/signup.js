@@ -79,17 +79,17 @@ function seeOrNotPasswordCheck(e) {
   }
 }
 
-let checkNoError = function () {
-  let emailError = emailInput.nextElementSibling.className !== 'alert';
-  let pswdError = pswdInput.nextElementSibling.className !== 'alert';
-  let pswdCheckError = pswdCheck.nextElementSibling.className !== 'alert';
+const checkNoError = function () {
+  const emailError = emailInput.nextElementSibling.className !== 'alert';
+  const pswdError = pswdInput.nextElementSibling.className !== 'alert';
+  const pswdCheckError = pswdCheck.nextElementSibling.className !== 'alert';
   return emailError && pswdError && pswdCheckError;
 };
 
 function submit(e) {
   e.preventDefault();
   if (checkNoError()) {
-    window.location.href = '/folder';
+    window.location.href = '/folder.html';
   }
 }
 
