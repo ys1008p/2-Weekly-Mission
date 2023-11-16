@@ -1,4 +1,5 @@
 import {
+  didSigninSucceed,
   ALERT_MESSAGE_BOX,
   TEST_USER,
   EYE_ON_PATH,
@@ -47,14 +48,19 @@ function togglePassword(e) {
 
 const checkTestUser = function (email, password) {
   return email === TEST_USER.email && password === TEST_USER.password;
+  /*checkTestUser(emailInput.value, pswdInput.value)*/
 };
 
-function submit(e) {
+async function submit(e) {
   e.preventDefault();
-  if (checkTestUser(emailInput.value, pswdInput.value)) {
+  const signinAccount = {
+    email: emailInput.value,
+    password: pswdInput.value,
+  };
+
+  if (await didSigninSucceed(signinAccount)) {
     window.location.href = '/folder.html';
   } else {
-    // 연속된 로그인 시도 오류시 에러메세지가 쌓이는 현상 방지
     if (emailInput.nextElementSibling.className !== 'alert' && pswdInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('email', 'loginFail');
       makeErrorMessage('password', 'loginFail');

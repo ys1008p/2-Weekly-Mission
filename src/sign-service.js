@@ -72,3 +72,17 @@ export function eraseErrorMessage(errorPlace) {
     placeToErase.nextElementSibling.remove();
   }
 }
+
+const SIGNIN_API = 'https://bootcamp-api.codeit.kr/api/sign-in';
+const SIGNUP_API = 'https://bootcamp-api.codeit.kr/api/sign-up';
+
+export async function didSigninSucceed(auth) {
+  const response = await fetch(SIGNIN_API, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(auth),
+  });
+  return response.status === 200 ? true : false;
+}
