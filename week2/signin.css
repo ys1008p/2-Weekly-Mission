@@ -41,7 +41,7 @@ body {
   margin: 0.3rem 0 1.875rem ;
 }
 
-p a {
+.change_link {
   font-weight: 600;
   color:var(--linkbrary-primary-color);
 }
@@ -57,7 +57,7 @@ label {
   margin: 1.5rem 0 0;
 }
 
-input {
+.insert {
   margin: 0.75rem auto 0;
   padding: 1.125rem 15px;
   border-radius: 8px;
@@ -68,7 +68,7 @@ input {
   margin-bottom: 1.5rem;
 }
 
-input:focus {
+.insert:focus {
   outline: 1px solid var(--linkbrary-primary-color);
   border: none;
 }
@@ -85,7 +85,7 @@ input:focus {
   bottom: 7rem;
 }
 
-button {
+.btn {
   width: 100%;
   padding: 1rem 1.5rem;
   border-radius: 8px;
@@ -99,11 +99,11 @@ button {
   margin-top: 1rem;
 } 
  
-button:focus {
+.btn:focus {
   outline: 1px solid var(--linkbrary-primary-color);
 }
 
-footer {
+.sns_login_box {
   width: 25rem;
   display: flex;
   justify-content: space-between;
@@ -115,7 +115,7 @@ footer {
   font-size: 0.875rem;
  }
 
- footer p {
+ .sns_login_box p {
   margin: 0.75rem 0;
  }
 
@@ -150,7 +150,7 @@ footer {
     padding: 2rem;
   }
 
-  footer {
+  .sns_login_box {
     width: 100%;
     max-width: 25rem;
   }

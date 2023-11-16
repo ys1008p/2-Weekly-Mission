@@ -4,7 +4,7 @@
  function joinMembers (e) {
   for(let user of usersData){
     if (e.target === email) {
-      if (isValidEmail(e.target.value) && email.value !== user[0]){
+      if (isValidEmail(e.target.value) && email.value !== user.userEmail){
         e.target.classList.remove('err')
       } ; 
     }else if(e.target === password ){

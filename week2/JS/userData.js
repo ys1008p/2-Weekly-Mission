@@ -1,7 +1,7 @@
 export const usersData = [];
-const test = ['test@codeit.com', 'codeit101']
+const test = {userEmail:'test@codeit.com', userPassword: 'codeit101',}
 
-usersData.push(test)
+usersData.push(test);
 
     // function pushUserData () {
     //   if (newUserData){
