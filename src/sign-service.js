@@ -1,8 +1,7 @@
 export const emailInput = document.querySelector('.email-input');
 export const pswdInput = document.querySelector('.password-input');
 export const pswdCheck = document.querySelector('#password-check');
-export const passwordVisiblilityToggleButtons =
-  document.querySelectorAll('.button-eye');
+export const passwordVisiblilityToggleButtons = document.querySelectorAll('.button-eye');
 export const loginBtn = document.querySelector('.button-submit');
 export const EYE_ON_PATH = '/images/eye-on.svg';
 export const EYE_OFF_PATH = '/images/eye-off.svg';
@@ -36,8 +35,7 @@ export function isEmailValid(email) {
 
 export function isPasswordValid(password) {
   const isEightLettersOrMore = password.length >= 8;
-  const hasNumberAndCharacter =
-    password.match(/[0-9]/g) && password.match(/[a-zA-Z]/gi);
+  const hasNumberAndCharacter = password.match(/[0-9]/g) && password.match(/[a-zA-Z]/gi);
   return isEightLettersOrMore && hasNumberAndCharacter;
 }
 

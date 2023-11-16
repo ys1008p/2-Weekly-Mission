@@ -98,8 +98,5 @@ emailInput.addEventListener('focusout', takenEmail);
 pswdInput.addEventListener('focusout', errorAlertPswd);
 pswdCheck.addEventListener('focusout', matchFailPswdCheck);
 passwordVisiblilityToggleButtons[0].addEventListener('click', togglePassword);
-passwordVisiblilityToggleButtons[1].addEventListener(
-  'click',
-  seeOrNotPasswordCheck
-);
+passwordVisiblilityToggleButtons[1].addEventListener('click', seeOrNotPasswordCheck);
 loginBtn.addEventListener('click', submit);

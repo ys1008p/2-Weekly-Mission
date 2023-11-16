@@ -55,10 +55,7 @@ function submit(e) {
     window.location.href = '/folder.html';
   } else {
     // 연속된 로그인 시도 오류시 에러메세지가 쌓이는 현상 방지
-    if (
-      emailInput.nextElementSibling.className !== 'alert' &&
-      pswdInput.nextElementSibling.className !== 'alert'
-    ) {
+    if (emailInput.nextElementSibling.className !== 'alert' && pswdInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('email', 'loginFail');
       makeErrorMessage('password', 'loginFail');
     }
