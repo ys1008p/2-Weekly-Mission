@@ -12,7 +12,7 @@ const handleDuplicatedUser = (res) => {
 };
 
 const handleUnauthorizedUser = (res) => {
-  if (res.status === 401) throw new UnauthorizedError();
+  if (res.status === 401) console.error(new UnauthorizedError());
 
   return res;
 };
@@ -27,7 +27,6 @@ export const postSignin = async (email, password) => {
   try {
     const data = await fetcher.post("/sign-in", body);
     // schema 검증 필요
-    return { accessToken: data.accessToken, refreshToken: data.refreshToken };
   } catch (err) {
     console.error(err);
   }
@@ -41,6 +40,15 @@ export const postCheckEmail = async (email) => {
     return { isUsableNickname: data.isUsableNickname };
   } catch (err) {
     if (err instanceof ValidationError) throw err;
+    console.error(err);
+  }
+};
+
+export const postSignup = async (email, password) => {
+  const body = { email, password };
+  try {
+    const data = await fetcher.post("/sign-up", body);
+  } catch (err) {
     console.error(err);
   }
 };

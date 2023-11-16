@@ -22,12 +22,20 @@ export default class Fetcher {
     });
 
     const handledRes = this._handleResponse(res);
+    if (!handledRes.ok)
+      throw new Error(
+        `Error occured while fetching ${handledRes.url}. Status: ${handledRes.status}.`
+      );
 
     const data = await handledRes.json();
 
     return data;
   }
 
+  /**
+   * @param {Response} res
+   * @returns {Response}
+   */
   _handleResponse(res) {
     return this.#handlers.reduce((prevRes, handle) => handle(prevRes), res);
   }

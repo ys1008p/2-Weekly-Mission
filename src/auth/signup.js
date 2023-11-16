@@ -12,7 +12,7 @@ import {
   PasswordValidationError,
 } from "/src/commons/ValidationError.js";
 import { PATH_FOLDER } from "/src/constants/routes.js";
-import { postCheckEmail } from "/src/auth/api.js";
+import { postCheckEmail, postSignup } from "/src/auth/api.js";
 
 const signupFormEl = document.querySelector(".signup");
 const passwordToggleButtonEl = document.querySelector(".password-toggle");
@@ -100,12 +100,13 @@ const handlePasswordConfirmFocusOut = (e) => {
   }
 };
 
-const handleSubmitSignup = (e) => {
+const handleSubmitSignup = async (e) => {
   e.preventDefault();
   try {
     emailInput.validate();
     passwordInput.validate();
     passwordConfirmInput.validate(passwordInput.getValue());
+    await postSignup(emailInput.getValue(), passwordInput.getValue());
     location.href = PATH_FOLDER;
   } catch (err) {
     if (err instanceof EmailValidationError) {

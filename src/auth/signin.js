@@ -78,10 +78,7 @@ const handleSubmitSignin = async (e) => {
   try {
     emailInput.validate();
     passwordInput.validate();
-    const { accessToken, refreshToken } = await postSignin(
-      emailInput.getValue(),
-      passwordInput.getValue()
-    );
+    await postSignin(emailInput.getValue(), passwordInput.getValue());
     location.href = PATH_FOLDER;
   } catch (err) {
     if (err instanceof EmailValidationError) {

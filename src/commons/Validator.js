@@ -65,7 +65,6 @@ export class SignupPasswordValidator extends Validator {
 
 export class SignupPasswordConfirmValidator extends Validator {
   validate(passwordConfirm, password) {
-    console.log(passwordConfirm, password);
     if (passwordConfirm !== password) throw new DifferentPasswordConfirmError();
 
     return true;
