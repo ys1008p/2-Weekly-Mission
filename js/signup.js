@@ -1,22 +1,22 @@
-const emailInput = document.querySelector("#username");
-const pwInput = document.querySelector("#password");
+export const emailInput = document.querySelector("#username");
+export const pwInput = document.querySelector("#password");
 const pwCheckInput = document.querySelector("#password_check");
-const form = document.querySelector("form");
+export const form = document.querySelector("form");
 
-const formState = {
+export const formState = {
   email: false,
   pw: false,
   pwConfirmation: false,
 };
 
-function ifError(e, errorText, errorMsg, input) {
+export function ifError(e, errorText, errorMsg, input) {
   e.target.classList.add("error");
   errorText.classList.add("error");
   errorText.innerHTML = `${errorMsg}`;
   formState[`${input}`] = false;
 }
 
-function ifOk(e, errorText, input) {
+export function ifOk(e, errorText, input) {
   e.target.classList.remove("error");
   errorText.classList.remove("error");
   errorText.innerHTML = "";
@@ -76,8 +76,9 @@ function checkPwConfirmation(e) {
 }
 
 function signup(e) {
-  if (!formState.email && !formState.pw && !formState.pwConfirmation) return;
   e.preventDefault();
+  console.log("나실행ㅇ");
+  if (!formState.email && !formState.pw && !formState.pwConfirmation) return;
   location.href = "/folder";
 }
 

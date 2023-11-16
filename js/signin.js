@@ -1,44 +1,60 @@
+// import { ifError, ifOk } from "./signup.js";
+
 const emailInput = document.querySelector("#username");
-const emailErrorText = document.querySelector(".email_error_text");
-
 const pwInput = document.querySelector("#password");
-const pwErrorText = document.querySelector(".pw_error_text");
+const form = document.querySelector("form");
 
-const loginButton = document.querySelector(".login-button");
+function ifError(e, errorText, errorMsg) {
+  e.target.classList.add("error");
+  errorText.classList.add("error");
+  errorText.innerHTML = `${errorMsg}`;
+  // formState[`${input}`] = false;
+}
+
+export function ifOk(e, errorText) {
+  e.target.classList.remove("error");
+  errorText.classList.remove("error");
+  errorText.innerHTML = "";
+  // formState[`${input}`] = true;
+}
 
 function checkEmail(e) {
+  const emailErrorText = e.target.nextElementSibling;
+  const errorMsg = ["이메일을 입력해주세요.", "올바른 이메일 주소가 아닙니다."];
+
   if (e.target.value === "") {
-    e.target.classList.add("inputError");
-    emailErrorText.innerHTML = "이메일을 입력해주세요.";
+    ifError(e, emailErrorText, errorMsg[0], "email");
   } else if (e.target.value.includes("@") == false) {
-    e.target.classList.add("inputError");
-    emailErrorText.innerHTML = "올바른 이메일 주소가 아닙니다.";
+    ifError(e, emailErrorText, errorMsg[1], "email");
   } else {
-    e.target.classList.remove("inputError");
-    emailErrorText.innerHTML = "";
+    ifOk(e, emailErrorText, "email");
   }
 }
 
 function checkPw(e) {
-  console.log(e.target.value);
+  const pwErrorText = e.target.parentElement.lastElementChild;
+  const errorMsg = "비밀번호를 입력해주세요.";
   if (e.target.value === "") {
-    e.target.classList.add("inputError");
-    pwErrorText.innerHTML = "비밀번호를 입력해주세요.";
+    ifError(e, pwErrorText, errorMsg);
   } else {
-    e.target.classList.remove("inputError");
-    pwErrorText.innerHTML = "";
+    ifOk(e, pwErrorText, "");
   }
 }
 
-function login() {
-  if (emailInput === "test@codeit.com" && pwInput === "codeit101") {
+function login(e) {
+  const emailErrorText = emailInput.nextElementSibling;
+  const pwErrorText = pwInput.parentElement.lastElementChild;
+  e.preventDefault();
+  if (emailInput.value === "test@codeit.com" && pwInput.value === "codeit101") {
     location.href = "./folder";
   } else {
-    emailErrorText.innerHTML = "이메일을 확인해주세요.";
-    pwErrorText.innerHTML = "비밀번호를 확인해주세요.";
+    ifError(e, emailErrorText, "이메일을 확인해주세요");
+    emailErrorText.classList.add("error");
+    ifError(e, pwErrorText, "비밀번호를 확인해주세요.");
+    pwErrorText.classList.add("error");
   }
 }
 
 emailInput.addEventListener("focusout", checkEmail);
 pwInput.addEventListener("focusout", checkPw);
-loginButton.addEventListener("click", login);
+form.addEventListener("submit", login);
