@@ -1,14 +1,18 @@
-import { FetchError } from "/src/commons/FetchError.js";
-
 export default class Fetcher {
   #baseURL;
+  #handlers;
 
-  constructor({ baseURL }) {
+  /**
+   * Create fetcher
+   * @param {{baseURL: string, handlers: (response: Response) => Response}}
+   */
+  constructor({ baseURL, handlers = [] }) {
+    if (!handlers instanceof Array) throw new Error("Handlers should be array");
     this.#baseURL = baseURL;
+    this.#handlers = handlers;
   }
 
   async post(url, body) {
-    console.log(JSON.stringify(body));
     const res = await fetch(`${this.#baseURL}${url}`, {
       method: "POST",
       body: JSON.stringify(body),
@@ -16,15 +20,15 @@ export default class Fetcher {
         "Content-Type": "application/json",
       },
     });
-    if (!res.ok)
-      throw new FetchError(
-        `Error occured while fetching ${this.#baseURL}${url}. Status: ${
-          res.status
-        }.`
-      );
 
-    const data = await res.json();
+    const handledRes = this._handleResponse(res);
+
+    const data = await handledRes.json();
 
     return data;
+  }
+
+  _handleResponse(res) {
+    return this.#handlers.reduce((prevRes, handle) => handle(prevRes), res);
   }
 }

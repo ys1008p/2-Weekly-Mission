@@ -12,6 +12,7 @@ import {
   PasswordValidationError,
 } from "/src/commons/ValidationError.js";
 import { PATH_FOLDER } from "/src/constants/routes.js";
+import { postCheckEmail } from "/src/auth/api.js";
 
 const signupFormEl = document.querySelector(".signup");
 const passwordToggleButtonEl = document.querySelector(".password-toggle");
@@ -54,9 +55,10 @@ const togglePasswordIcon = (input, icon) => {
   isShown ? icon.setIcon("eye-off") : icon.setIcon("eye-on");
 };
 
-const handleEmailFocusOut = (e) => {
+const handleEmailFocusOut = async (e) => {
   try {
     emailInput.validate();
+    await postCheckEmail(emailInput.getValue());
     emailInput.changeStateToValid();
     emailInput.hideErrorMessage();
   } catch (err) {
