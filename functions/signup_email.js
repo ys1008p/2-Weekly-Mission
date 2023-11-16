@@ -25,15 +25,22 @@ function enterEmailMessage() {
 
   removeRedMessage(inputEmail);
 
-  if (!emailValue) {
-    printEmpty();
-  } else if (isExistEmail(emailValue)) {
-    printTaken();
-  } else if (!emailFormat.test(emailValue)) {
-    printWrong();
-  } else {
-    emailValid = true;
+  const promise = isExistEmail(emailValue);
+
+  const getData = async () => {
+    await promise.then((promiseResult) => {
+      if (!emailValue) {
+        printEmpty();
+      } else if (promiseResult === 409) {
+        printTaken();
+      } else if (!emailFormat.test(emailValue)) {
+        printWrong();
+      } else if (promiseResult === 200){
+        emailValid = true;
+      }
+    })
   }
+  getData();
 }
 
 export { enterEmailMessage, emailValid };
