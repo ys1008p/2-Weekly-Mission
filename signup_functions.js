@@ -8,6 +8,7 @@ import {
   checkValid,
 } from "./functions/signup_check.js";
 import changePasswordVision from "./functions/password_visibility.js";
+import { isValidNewUser } from "./functions/user_exist.js";
 
 export {
   enterEmailMessage,
@@ -17,4 +18,5 @@ export {
   emailValid,
   passwordValid,
   checkValid,
+  isValidNewUser,
 };

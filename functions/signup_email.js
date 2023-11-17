@@ -17,30 +17,27 @@ function printWrong() {
 }
 
 // 이메일 유효성을 검증하는 함수
-function enterEmailMessage() {
+async function enterEmailMessage() {
   const emailFormat =
     /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   const emailValue = inputEmail.value;
-  emailValid = false;
 
   removeRedMessage(inputEmail);
 
-  const promise = isExistEmail(emailValue);
-
-  const getData = async () => {
-    await promise.then((promiseResult) => {
-      if (!emailValue) {
-        printEmpty();
-      } else if (promiseResult === 409) {
-        printTaken();
-      } else if (!emailFormat.test(emailValue)) {
-        printWrong();
-      } else if (promiseResult === 200){
-        emailValid = true;
-      }
-    })
+  if (!emailValue) {
+    printEmpty();
+  } else if (!emailFormat.test(emailValue)) {
+    printWrong();
   }
-  getData();
+
+  const responseStatus = await isExistEmail(emailValue);
+  console.log(responseStatus);
+
+  if (responseStatus === 409) {
+    printTaken();
+  } else if (responseStatus === 200) {
+    emailValid = true;
+  }
 }
 
 export { enterEmailMessage, emailValid };

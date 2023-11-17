@@ -18,7 +18,7 @@ function printWorng() {
 function enterPasswordMessage() {
   const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   const passwordValue = inputPassword.value;
-  passwordValid = false;
+  // passwordValid = false;
 
   removeRedMessage(inputPassword);
 

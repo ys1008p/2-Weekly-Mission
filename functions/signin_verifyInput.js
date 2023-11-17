@@ -9,11 +9,15 @@ function enterMessage(input, eventType) {
   removeRedMessage(input);
 
   if (!inputValue) {
-    if (inputType === 'useremail') createRedMessage(input, "이메일을 입력해주세요.");
-    else if (inputType === 'password') createRedMessage(input, "비밀번호를 입력해주세요.");
+    if (inputType === "useremail")
+      createRedMessage(input, "이메일을 입력해주세요.");
+    else if (inputType === "password")
+      createRedMessage(input, "비밀번호를 입력해주세요.");
   } else if (eventType === "click") {
-    if (inputType === 'useremail') createRedMessage(input, "이메일을 확인해주세요.");
-    else if (inputType === 'password') createRedMessage(input, "비밀번호를 확인해주세요.");
+    if (inputType === "useremail")
+      createRedMessage(input, "이메일을 확인해주세요.");
+    else if (inputType === "password")
+      createRedMessage(input, "비밀번호를 확인해주세요.");
   }
 }
 

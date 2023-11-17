@@ -11,7 +11,6 @@ function printDiff() {
 function enterPasswordCheckMessage() {
   const passwordValue = inputPassword.value;
   const passwordCheckValue = inputPasswordCheck.value;
-  checkValid = false;
 
   removeRedMessage(inputPasswordCheck);
 
