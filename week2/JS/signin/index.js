@@ -35,8 +35,10 @@ function goServer () {
 
 function ourMembers (e) {
   e.preventDefault()
-  if (testData.some((member) => member.email === 'test@codeit.com' && member.password === "sprint101")) {
-    goServer()
+  if (testData.some((member) => member.email === email.value)){
+    if(testData.some((member) =>member.password === password.value)) {
+      goServer()
+    }
   } else if(testData.some((member) => member.email !== email.valuel)){
     e.preventDefault()
     email.classList.add('err');

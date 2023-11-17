@@ -1,7 +1,7 @@
- import { email, password, checkPassword, btn, eye1, eye2, inputs,testData} from "../sig_all/contants.js";
- import {errText ,isValidEmail, isValidPassword,passwordError ,eyeToggle,} from "../sig_all/utils/sig_all_func.js";
+import { email, password, checkPassword, btn, eye1, eye2, inputs,testData} from "../sig_all/contants.js";
+import {errText ,isValidEmail, isValidPassword,passwordError ,eyeToggle,} from "../sig_all/utils/sig_all_func.js";
 
- function joinMembers (e) {
+function joinMembers (e) {
   if (e.target === email) {
     if (isValidEmail(e.target.value) && testData.some((member) => member.email !== email.value)){
       e.target.classList.remove('err')
@@ -18,13 +18,12 @@
       e.target.nextElementSibling === errText? errText.remove() : undefined;
     }
   } 
- }
+}
 
- const newMember = {}
-
-function goServer () {
+const newMember = {}
 newMember.email = email.value;
 
+function goServer() {
 fetch('https://bootcamp-api.codeit.kr/api/check-email',{
   method: 'POST',
   headers: {
@@ -33,9 +32,8 @@ fetch('https://bootcamp-api.codeit.kr/api/check-email',{
   body: JSON.stringify(newMember)
   })
   .then((response) => response.json())
-  .catch((err) => email.classList.add('err') )
   .then(() => (newMember.password = password.value))
-  .then( () => fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+  .then(() => fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,8 +43,8 @@ fetch('https://bootcamp-api.codeit.kr/api/check-email',{
         .then((response) => response.json())
         .then((a)=> {return a.data.accessToken})
         .then((token) => localStorage.setItem('accessToken', token))
-        .then(localStorage.getItem('accessToken')? location.replace('/folder'): undefined)
-  }
+        .then(localStorage.getItem('accessToken')? location.replace('/folder'): undefined)        
+      }
 
 function join (e) {
   e.preventDefault()
@@ -61,8 +59,8 @@ function join (e) {
     alert('비밀번호를 확인해주세요');
 
   } else if (testData.some((member) => member.email !== email.value)) {
-    goServer()
-    }
+   goServer()
+  }
   }
 
 password.addEventListener('focusout', passwordError)
