@@ -1,131 +1,100 @@
 const emailInput = document.getElementById('email');
-const noneEmailError = createErrorMessage('이메일을 입력해주세요.');
-const emailError = createErrorMessage('올바른 이메일 주소가 아닙니다.');
-const wrongEmail = createErrorMessage('가입되지 않은 이메일입니다.');
-
 const passwordInput = document.getElementById('password');
-const nonePw = createErrorMessage('비밀번호를 입력해주세요.');
-const wrongPw = createErrorMessage('비밀번호를 확인해주세요.');
-const passwordError = createErrorMessage('비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
 
-const loginButton = document.getElementById('loginButton');
+const errorMessageList = {
+  empty: {
+    email: "이메일을 입력해주세요",
+    password: "비밀번호를 입력해주세요",
+  },
+  valid: {
+    email: "올바른 이메일 주소가 아닙니다.",
+    password: "비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.",
+  },
+  incorrect: {
+    email: "이메일을 확인해주세요",
+    password: "비밀번호를 확인해주세요",
+  },
+};
 
-function createErrorMessage(messageText) {
-  const errorMessage = document.createElement('div');
-  errorMessage.textContent = messageText;
-  errorMessage.style.color = '#ff5b56';
-  errorMessage.style.display = 'none';
-  return errorMessage;
-}
+const validList = {
+  email: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i,
+  password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+};
 
-function displayErrorMessage(element, message) {
-  element.parentNode.appendChild(message);
-  message.style.display = 'block';
-  element.style.borderColor = '#ff5b56';
-}
+const sampleUserList = {
+  email: "test@codeit.com",
+  password: "codeit101",
+};
 
-function hideErrorMessage(message) {
-  message.style.display = 'none';
-}
+function createErrorMessage(target, msg) {
+  const errorMsg = document.createElement('p');
+  errorMsg.className = 'errorMsg';
+  errorMsg.textContent = msg;
 
-function isValidEmail(email) {
-  let regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-  return regExp.test(email);
-}
-
-function isValidPassword(password) {
-  return password.length >= 8 && /\d/.test(password) && /[a-zA-Z]/.test(password);
-}
-
-function handleEmailValidation() {
-  const emailValue = emailInput.value.trim();
-
-  if (emailValue === '') {
-    displayErrorMessage(emailInput, noneEmailError);
-    hideErrorMessage(emailError);
-    hideErrorMessage(wrongEmail);
-  } else if (!isValidEmail(emailValue)) {
-    displayErrorMessage(emailInput, emailError);
-    hideErrorMessage(noneEmailError);
-    hideErrorMessage(wrongEmail);
-  } else if (emailValue !== 'test@codeit.com') {
-    displayErrorMessage(emailInput, wrongEmail);
-    hideErrorMessage(noneEmailError);
-    hideErrorMessage(emailError);
-  } else {
-    hideErrorMessage(noneEmailError);
-    hideErrorMessage(emailError);
-    hideErrorMessage(wrongEmail);
+  const existingErrorMsg = target.parentNode.querySelector('.errorMsg');
+  if(existingErrorMsg) {
+    existingErrorMsg.remove();
   }
+
+  target.after(errorMsg);
 }
 
-function handlePasswordValidation() {
-  const password = passwordInput.value.trim();
-  const emailValue = emailInput.value.trim();
+function showErrorMsg({target}) {
+  const {value, name} = target;
 
-  if(password === ''){
-    displayErrorMessage(passwordInput, nonePw);
-    hideErrorMessage(passwordError);
-    hideErrorMessage(wrongPw)
-  } else if (!isValidPassword(password)) {
-    displayErrorMessage(passwordInput, passwordError);
-    hideErrorMessage(nonePw);
-    hideErrorMessage(wrongPw);
-  } else if(emailValue === 'test@codeit.com' && password !== 'codeit101') {
-    displayErrorMessage(passwordInput, wrongPw);
-    hideErrorMessage(nonePw);
-    hideErrorMessage(passwordError);
-  } else {
-    hideErrorMessage(passwordError);
-    hideErrorMessage(nonePw);
-    hideErrorMessage(wrongPw);
+  if (value.trim() === '') {
+    createErrorMessage(target, errorMessageList.empty[name]);
+    target.classList.add('inputError');
+    return;
   }
-}
-
-function isFormValid() {
-  const userEmail = emailInput.value.trim();
-  const userPassword = passwordInput.value.trim();
-  return (
-    userEmail !== '' && isValidEmail(emailInput.value) && emailInput.value === 'test@codeit.com' && 
-    isValidPassword(userPassword) && userPassword === 'codeit101'
-  );
-}
-
-function redirectToFolderPage() {
-  location.href = '../folder.html';
-}
-
-emailInput.addEventListener('blur', function(){
-  handleEmailValidation();
-});
-
-passwordInput.addEventListener('blur', function(){
-  handlePasswordValidation();
-});
-
-loginButton.addEventListener('click', function (event) {
-  event.preventDefault();
-
-  handleEmailValidation();
-  handlePasswordValidation();
-
-  if (isFormValid()) {
-    redirectToFolderPage();
+  if (!validList[name].test(value)) {
+    createErrorMessage(target, errorMessageList.valid[name]);
+    target.classList.add('inputError');
+    return;
   }
-});
+  if (value.trim() !== sampleUserList[name]) {
+    createErrorMessage(target, errorMessageList.incorrect[name]);
+    target.classList.add('inputError');
+    return;
+  }
+
+  target.classList.remove('inputError');
+  target.nextElementSibling.remove();
+}
+
+emailInput.addEventListener("focusout", showErrorMsg);
+passwordInput.addEventListener("focusout", showErrorMsg);
+
 
 const togglePwdButton = document.getElementById('togglePwd');
 
 function togglePasswordVisibility() {
-  const passwordInput = document.getElementById('password');
-  const type = passwordInput.type === 'password' ? 'text' : 'password';
+  const isPasswordType = passwordInput.type === "password"
+  
+   togglePwdButton.setAttribute(
+    "src",
+    `../img/eye-${isPasswordType ? "on" : "off"}.svg`
+    );
 
-  passwordInput.type = type;
-
-  const eyeIconSrc = type === 'password' ? '../img/eye-off.svg' : '../img/eye-on.svg';
-  togglePwdButton.src = eyeIconSrc;
+    passwordInput.setAttribute("type", `${isPasswordType ? "text" : "password"}`);
 }
 
 togglePwdButton.addEventListener('click', function () {
   togglePasswordVisibility();
 });
+
+const loginButton = document.getElementById('loginButton');
+
+function loginSubmit(event) {
+  event.preventDefault();
+  const isSampleUser = emailInput.value === sampleUserList.email && passwordInput.value === sampleUserList.password;
+  if(isSampleUser){
+    location.href = '../folder.html';
+    return;
+  } else {
+    showErrorMsg({ target: emailInput });
+    showErrorMsg({ target: passwordInput });
+  }
+}
+
+loginButton.addEventListener("click", loginSubmit);

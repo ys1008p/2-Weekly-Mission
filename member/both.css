@@ -101,6 +101,16 @@ input::placeholder {
   line-height: 24px;
 }
 
+.inputbox > input.inputError {
+  border: 1px solid #ff5b56;
+}
+
+.errorMsg {
+  margin: 0;
+  color: #ff5b56;
+  font-size: 1rem;
+}
+
 .pw {
   position: relative;
   margin-top: 20px;
