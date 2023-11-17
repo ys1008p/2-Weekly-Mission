@@ -109,3 +109,22 @@ function addErrorMessagePasswordCheck() {
 $inputPasswordCheck.addEventListener("focusout", function () {
   addErrorMessagePasswordCheck();
 });
+
+// 4. 회원가입 시도 시
+
+function isValidSignup() {
+  // true: 진행시켜 false: 멈춰!
+  if (
+    // 사용자가 아무것도 입력하지 않은 경우
+    !($inputEmail.value && $inputPassword.value && $inputPasswordCheck.value)
+  ) {
+    return false;
+  } else {
+    // 진행: 에러메세지가 없는 경우 (내용이 모두 ""인 경우) / 중단: 하나라도 에러메세지가 있는 경우
+    return ($errorMessageEmail.innerHTML &&
+      $errorMessagePassword.innerHTML &&
+      $errorMessagePasswordCheck.innerHTML) === ""
+      ? true
+      : false;
+  }
+}
