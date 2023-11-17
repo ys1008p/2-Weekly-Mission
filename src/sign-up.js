@@ -2,7 +2,7 @@
 
 import { printEmailErrorMessage } from './email.js';
 import { toggleEyeIcon } from './password-icon.js';
-import { postCheckEmail } from './fetch.js';
+import { postCheckEmail, postSignup } from './fetch.js';
 
 const formSignUp = document.querySelector('#sign-up');
 const inputEmail = document.querySelector('#email');
@@ -87,14 +87,23 @@ function checkAgainDoubleCheckPassword(e) {
 }
 
 // 회원가입 시도 시, 한번 더 에러 요소 확인 후, 성공시 folder로 이동
-function signUp(e) {
+async function signUp(e) {
   e.preventDefault();
   const checkEmail = emailCheckBeforeSubmit();
   const checkPassword = passwordCheckBeforeSubmit();
   const doubleCheckPassword = doubleCheckPasswordBeforeSubmit();
+  if (!checkEmail || !checkPassword || !doubleCheckPassword) {
+    return;
+  }
 
-  if (checkEmail && checkPassword && doubleCheckPassword) {
-    window.location.href = '../folder.html';
+  try {
+    const email = inputEmail.value;
+    const password = inputPassword.value;
+    await postSignup(email, password);
+    location.href = '../folder.html';
+  } catch (error) {
+    // 이메일은 일치하지만, 비밀번호가 일치하지 않는 여부는??
+    console.error(error);
   }
 }
 

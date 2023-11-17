@@ -1,4 +1,4 @@
-export { getAccessToken, postCheckEmail };
+export { getAccessToken, postCheckEmail, postSignup };
 
 class Fetcher {
   #baseURL;
@@ -34,4 +34,10 @@ const postCheckEmail = async (email) => {
   const userData = { email };
   const { data } = await fetcher.post('/check-email', userData);
   return data.isUsableNickname;
+};
+
+const postSignup = async (email, password) => {
+  const userData = { email, password };
+  const { data } = await fetcher.post('/sign-up', userData);
+  localStorage.setItem('accessToken', data.accessToken);
 };
