@@ -47,7 +47,6 @@ function errorAlertPswd(e) {
       makeErrorMessage('password', 'noInput');
     }
   } else if (!isPasswordValid(pswdInput.value)) {
-    console.log(isPasswordValid(pswdInput.value));
     if (pswdInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('password', 'simple');
     }
@@ -100,7 +99,7 @@ async function submit(e) {
     email: emailInput.value,
     password: pswdInput.value,
   };
-  if ((await didSignupSucceed(signupAccount)) && checkNoError) {
+  if ((await didSignupSucceed(signupAccount)) && checkNoError()) {
     window.location.href = '/folder.html';
   } else {
     if (emailInput.nextElementSibling.className !== 'alert' && pswdInput.nextElementSibling.className !== 'alert') {

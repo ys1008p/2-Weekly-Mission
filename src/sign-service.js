@@ -85,7 +85,13 @@ export async function didSigninSucceed(auth) {
     },
     body: JSON.stringify(auth),
   });
-  return response.status === 200 ? true : false;
+  if (response.ok) {
+    const responseBody = await response.json();
+    console.log(responseBody.data.accessToken);
+    localStorage.setItem('accessToken', responseBody.data.accessToken);
+    return true;
+  }
+  return false;
 }
 
 export async function isTakenEmail(email) {
@@ -107,5 +113,11 @@ export async function didSignupSucceed(auth) {
     },
     body: JSON.stringify(auth),
   });
-  return response.status === 200 ? true : false;
+  if (response.ok) {
+    const responseBody = await response.json();
+    console.log(responseBody.data.accessToken);
+    localStorage.setItem('accessToken', responseBody.data.accessToken);
+    return true;
+  }
+  return false;
 }
