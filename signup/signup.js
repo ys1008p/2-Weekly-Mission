@@ -4,7 +4,7 @@ import {
   inputPasswordCheck,
   submitFormatBtn,
   eyeBtn,
-} from "./tags.js";
+} from "../tags.js";
 import {
   enterEmailMessage,
   enterPasswordMessage,
@@ -22,6 +22,8 @@ if (accessToken) window.open("/folder", "_self");
 inputEmail.addEventListener("focusout", enterEmailMessage);
 inputPassword.addEventListener("focusout", enterPasswordMessage);
 inputPasswordCheck.addEventListener("input", enterPasswordCheckMessage);
+eyeBtn.forEach((el) => el.addEventListener("click", changePasswordVision));
+
 submitFormatBtn.addEventListener("click", async (e) => {
   const emailValue = inputEmail.value;
   const passwordValue = inputPassword.value;
@@ -44,5 +46,3 @@ submitFormatBtn.addEventListener("click", async (e) => {
     }
   }
 });
-
-eyeBtn.forEach((el) => el.addEventListener("click", changePasswordVision));

@@ -1,5 +1,4 @@
-import { removeRedMessage, createRedMessage } from "./error_message.js";
-// import { signinValid } from "./user_exist.js";
+import { removeRedMessage, createRedMessage } from "./common.js";
 
 // 이메일과 비밀번호 유효성을 검증하는 함수
 function enterMessage(input, eventType) {

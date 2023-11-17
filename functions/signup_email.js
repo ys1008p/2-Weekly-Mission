@@ -1,6 +1,5 @@
 import { inputEmail } from "../tags.js";
-import { removeRedMessage, createRedMessage } from "./error_message.js";
-import { isValidAccess } from "./user_exist.js";
+import { removeRedMessage, createRedMessage, isValidAccess } from "./common.js";
 
 let emailValid = false;
 
@@ -19,7 +18,7 @@ function printWrong() {
 // 이메일 유효성을 검증하는 함수
 async function enterEmailMessage() {
   const emailFormat =
-    /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[a-zA-Z_-]+){1,2}$/;
   const emailValue = inputEmail.value;
   const tryAccessUser = {
     email: emailValue,
@@ -35,7 +34,6 @@ async function enterEmailMessage() {
   }
 
   const responseStatus = await isValidAccess(tryAccessUser, local);
-  console.log(responseStatus);
 
   if (responseStatus === 409) {
     printTaken();

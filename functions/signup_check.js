@@ -1,5 +1,5 @@
 import { inputPassword, inputPasswordCheck } from "../tags.js";
-import { removeRedMessage, createRedMessage } from "./error_message.js";
+import { removeRedMessage, createRedMessage } from "./common.js";
 
 let checkValid = false;
 
