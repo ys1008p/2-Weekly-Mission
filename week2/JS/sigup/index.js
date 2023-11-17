@@ -1,21 +1,21 @@
- import { email, password, checkPassword, btn, eye1, eye2, inputs} from "../sig_all/contants.js";
- import {existEmail,errText ,isValidEmail, isValidPassword,passwordError ,eyeToggle,} from "../sig_all/utils/sig_all_func.js";
+ import { email, password, checkPassword, btn, eye1, eye2, inputs,testData} from "../sig_all/contants.js";
+ import {errText ,isValidEmail, isValidPassword,passwordError ,eyeToggle,} from "../sig_all/utils/sig_all_func.js";
 
  function joinMembers (e) {
   if (e.target === email) {
-    if (isValidEmail(e.target.value) && !existEmail){
+    if (isValidEmail(e.target.value) && testData.some((member) => member.userEmail !== email.value)){
       e.target.classList.remove('err')
-      e.target.nextElementSibling === errText? errText.textContent = '' : undefined;
+      e.target.nextElementSibling === errText? errText.remove() : undefined;
     } ; 
   }else if(e.target === password ){
     if (isValidPassword(e.target.value)){
       e.target.classList.remove('err')
-      e.target.nextElementSibling === errText? errText.textContent = '' : undefined;
+      e.target.nextElementSibling === errText? errText.remove() : undefined;
     }
   }else if (e.target === checkPassword) {
     if(password.value === checkPassword.value){
       e.target.classList.remove('err')
-      e.target.nextElementSibling === errText? errText.textContent = '' : undefined;
+      e.target.nextElementSibling === errText? errText.remove() : undefined;
     }
   } 
  }
@@ -23,7 +23,7 @@
 function join (e) {
   e.preventDefault()
 
-  if (!isValidEmail(email.value) || existEmail){
+  if (!isValidEmail(email.value) || testData.some((member) => member.userEmail === email.value)){
     email.classList.add('err')
     alert('이메일을 확인해주세요');
 
@@ -32,7 +32,7 @@ function join (e) {
     password.classList.add('err');
     alert('비밀번호를 확인해주세요');
 
-  } else if (!existEmail) {
+  } else if (testData.some((member) => member.userEmail !== email.value)) {
     window.location.href = 'folder.html';
   }
 }

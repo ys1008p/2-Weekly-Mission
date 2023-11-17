@@ -3,8 +3,8 @@ import { email, password, checkPassword, passwordInputs, testData } from "../con
 const errText = document.createElement('p');
 errText.classList.add('errText')
 
-const existEmail = testData.some((member) => member.userEmail === email.value);
-const existPWd = testData.some((member) => member.userPwd === password.value)
+console.log(testData.some((member) => member.userEmail === email.value))
+testData.some((member) => member.userPwd === password.value)
 
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,7 +23,7 @@ function emailError (e) {
       errText.textContent = '이메일을 입력해 주세요.';
     } else if (!isValidEmail(e.target.value)) {
       errText.textContent = '올바른 이메일 주소가 아닙니다.';
-    } else if(existEmail && checkPassword) {
+    } else if(testData.some((member) => member.userEmail === email.value) && checkPassword) {
       errText.textContent = '이미 사용 중인 이메일입니다.';
     }  
     e.target.classList.add('err')
@@ -38,10 +38,10 @@ function passwordError (e) {
     }
     e.target.classList.add('err')
     e.target.after(errText);
-  }else if(e.target === password){
-    if(password.value === '') {
+  }else if( e.target === checkPassword || e.target === password){
+    if(e.target.value === '' ) {
       errText.textContent = '비밀번호를 입력해 주세요.';
-    }else if (!isValidPassword(password.value)) {
+    }else if (!isValidPassword(e.target.value)) {
       errText.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
     }
     e.target.classList.add('err')
@@ -63,4 +63,4 @@ function eyeToggle (e) {
 email.addEventListener('focusout', emailError)
 
 
-export {existEmail, existPWd , errText, isValidEmail, isValidPassword, passwordError, eyeToggle};
+export { errText, isValidEmail, isValidPassword, passwordError, eyeToggle};
