@@ -1,6 +1,6 @@
 import { inputEmail } from "../tags.js";
 import { removeRedMessage, createRedMessage } from "./error_message.js";
-import { isExistEmail } from "./user_exist.js";
+import { isValidAccess } from "./user_exist.js";
 
 let emailValid = false;
 
@@ -21,6 +21,10 @@ async function enterEmailMessage() {
   const emailFormat =
     /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   const emailValue = inputEmail.value;
+  const tryAccessUser = {
+    email: emailValue,
+  };
+  const local = "check-email";
 
   removeRedMessage(inputEmail);
 
@@ -30,7 +34,7 @@ async function enterEmailMessage() {
     printWrong();
   }
 
-  const responseStatus = await isExistEmail(emailValue);
+  const responseStatus = await isValidAccess(tryAccessUser, local);
   console.log(responseStatus);
 
   if (responseStatus === 409) {

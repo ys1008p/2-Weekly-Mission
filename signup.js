@@ -13,8 +13,11 @@ import {
   emailValid,
   passwordValid,
   checkValid,
-  isValidNewUser,
+  isValidAccess,
 } from "./signup_functions.js";
+
+const accessToken = localStorage.getItem("accessToken");
+if (accessToken) window.open("/folder", "_self");
 
 inputEmail.addEventListener("focusout", enterEmailMessage);
 inputPassword.addEventListener("focusout", enterPasswordMessage);
@@ -22,6 +25,11 @@ inputPasswordCheck.addEventListener("input", enterPasswordCheckMessage);
 submitFormatBtn.addEventListener("click", async (e) => {
   const emailValue = inputEmail.value;
   const passwordValue = inputPassword.value;
+  const tryAccessUser = {
+    email: emailValue,
+    password: passwordValue,
+  };
+  const local = "sign-up";
 
   e.preventDefault();
 
@@ -30,7 +38,7 @@ submitFormatBtn.addEventListener("click", async (e) => {
   enterPasswordCheckMessage();
 
   if (emailValid && passwordValid && checkValid) {
-    const responseStatus = await isValidNewUser(emailValue, passwordValue);
+    const responseStatus = await isValidAccess(tryAccessUser, local);
     if (responseStatus === 200) {
       window.open("/folder", "_self");
     }

@@ -2,8 +2,11 @@ import { inputEmail, inputPassword, submitFormatBtn, eyeBtn } from "./tags.js";
 import {
   enterMessage,
   changePasswordVision,
-  isExistUser,
+  isValidAccess,
 } from "./signin_functions.js";
+
+const accessToken = localStorage.getItem("accessToken");
+if (accessToken) window.open("/folder", "_self");
 
 inputEmail.addEventListener("focusout", ({ target, type }) =>
   enterMessage(target, type),
@@ -14,10 +17,15 @@ inputPassword.addEventListener("focusout", ({ target, type }) =>
 submitFormatBtn.addEventListener("click", async (e) => {
   const emailValue = inputEmail.value;
   const passwordValue = inputPassword.value;
+  const tryAccessUser = {
+    email: emailValue,
+    password: passwordValue,
+  };
+  const local = "sign-in";
 
   e.preventDefault();
-  
-  const responseStatus = await isExistUser(emailValue, passwordValue);
+
+  const responseStatus = await isValidAccess(tryAccessUser, local);
 
   if (responseStatus === 200) {
     window.open("/folder", "_self");

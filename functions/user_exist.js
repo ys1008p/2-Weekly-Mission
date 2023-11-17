@@ -1,59 +1,24 @@
 const link = "https://bootcamp-api.codeit.kr/api";
 
-const isExistUser = async function (email, password) {
-  const tryloginUser = {
-    email: email,
-    password: password,
-  };
+const isValidAccess = async function (tryacessUser, local) {
   try {
-    const response = await fetch(`${link}/sign-in`, {
+    const response = await fetch(`${link}/${local}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(tryloginUser),
+      body: JSON.stringify(tryacessUser),
     });
+    const userInfoCount = Object.keys(tryacessUser).length;
+    if (response.ok && userInfoCount === 2) {
+      const result = await response.json();
+      const accessToken = result.data.accessToken;
+      localStorage.setItem("accessToken", accessToken);
+    }
     return response.status;
   } catch (e) {
     console.error(e);
   }
 };
 
-const isExistEmail = async function (email) {
-  const tryloginUser = {
-    email: email,
-  };
-  try {
-    const response = await fetch(`${link}/check-email`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(tryloginUser),
-    });
-    return response.status;
-  } catch (e) {
-    console.error(e);
-  }
-};
-
-const isValidNewUser = async function (email, password) {
-  const tryloginUser = {
-    email: email,
-    password: password,
-  };
-  try {
-    const response = await fetch(`${link}/sign-up`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(tryloginUser),
-    });
-    return response.status;
-  } catch (e) {
-    console.error(e);
-  }
-};
-
-export { isExistUser, isExistEmail, isValidNewUser };
+export { isValidAccess };
