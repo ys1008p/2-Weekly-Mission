@@ -56,66 +56,63 @@ const passwordFormCheck = function () {
   return true;
 };
 
-const signInCheck = function (e) {
+const signInCheck = async function (e) {
   e.preventDefault();
-
   const userValue = {
     email: emailInput.value,
     password: passwordInput.value,
   };
-
-  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userValue),
-  })
-    .then((response) => {
-      if (response.status === 200) {
-        return goToFolderPage();
-      } else {
-        signErrorCase(emailErrorTag, emailCheck, emailInput);
-        signErrorCase(passwordErrorTag, passwordCheck, passwordInput);
-      }
-    })
-    .catch((error) => {
-      console.log(error);
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userValue),
     });
+    if (response.status === 200) {
+      return goToFolderPage();
+    } else {
+      signErrorCase(emailErrorTag, emailCheck, emailInput);
+      signErrorCase(passwordErrorTag, passwordCheck, passwordInput);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-const signUpEmailCheck = function () {
+const signUpEmailCheck = async function () {
   const emailValue = {
     email: emailInput.value,
   };
-  fetch("https://bootcamp-api.codeit.kr/api/check-email", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(emailValue),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      const emailCheck = result;
-      if (emailCheck.error && emailInput.value) {
-        signErrorCase(emailErrorTag, emailCheck.error.message, emailInput);
-        return false;
-      } else if (!emailInput.value) {
-        signErrorCase(emailErrorTag, emailNull, emailInput);
-        return false;
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-      return false;
+  try {
+    const emailJSON = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(emailValue),
     });
-  errorMessageClear(emailErrorTag, emailInput);
-  return true;
+    const emailCheck = await emailJSON.json();
+    if (emailCheck.error && emailInput.value) {
+      signErrorCase(emailErrorTag, emailCheck.error.message, emailInput);
+      return false;
+    } else if (!emailInput.value) {
+      signErrorCase(emailErrorTag, emailNull, emailInput);
+      return false;
+    } else {
+      errorMessageClear(emailErrorTag, emailInput);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const passwordMatchCheck = function () {
-  if (passwordInput.value !== passwordMatchInput.value) {
+  if (!passwordMatchInput.value) {
+    signErrorCase(passwordMatchErrorTag, passwordNull, passwordMatchInput);
+    return false;
+  } else if (passwordInput.value !== passwordMatchInput.value) {
     signErrorCase(passwordMatchErrorTag, passwordMatch, passwordMatchInput);
     return false;
   }
@@ -123,4 +120,35 @@ const passwordMatchCheck = function () {
   return true;
 };
 
-export { emailFormCheck, passwordFormCheck, signInCheck, signUpEmailCheck, passwordMatchCheck };
+const signUpCheck = async function (e) {
+  e.preventDefault();
+  const passwordForm = passwordFormCheck();
+  const passwordMatch = passwordMatchCheck();
+  const userValue = {
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
+  if (passwordForm && passwordMatch) {
+    try {
+      const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userValue),
+      });
+      if (response.status === 200) {
+        goToFolderPage();
+      } else {
+        signUpEmailCheck();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    passwordFormCheck();
+    passwordMatchCheck();
+  }
+};
+
+export { emailFormCheck, passwordFormCheck, signInCheck, signUpEmailCheck, passwordMatchCheck, signUpCheck };
