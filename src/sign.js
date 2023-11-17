@@ -1,19 +1,51 @@
-//에러 발생 시 테두리 색 변경 및 에러 메세지 추가: 이메일
-function addRedBorder(el) {
-  el.classList.add("error-border");
+// 이메일 유효성 검사
+function isValidEmail(emailValue) {
+  const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+  return pattern.test(emailValue) ? true : false;
 }
 
-// 이메일 유효성 검사
-function isValidEmail(email) {
-  const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
-  if (!pattern.test(email)) {
-    return false;
+// 에러 발생시 인풋 박스에 빨간 테두리
+function addRedBorder($input) {
+  $input.classList.add("error-border");
+}
+
+function removeRedBorder($input) {
+  $input.classList.remove("error-border");
+}
+
+// 1. 이메일
+
+const $inputEmail = document.querySelector("#email"); // 이메일 인풋 요소
+const $errorMessageEmail = document.querySelector(".error-message"); //너에게 에러메세지를 추가해줄게
+
+// 올바른 값이 아닌 경우 빨간 테두리와 에러메세지
+function addErrorMessageEmail() {
+  const userEmailValue = $inputEmail.value; // 사용자가 입력한 이메일 인풋 값
+
+  if (!isValidEmail(userEmailValue) && userEmailValue) {
+    // 1) 형식에 맞지 않을 때 - ?
+    addRedBorder($inputEmail);
+    $errorMessageEmail.textContent = "올바른 이메일 주소가 아닙니다.";
+  } else if (userEmailValue === "test@codeit.com") {
+    // 2) test@codeit.com일 때 - ?
+    addRedBorder($inputEmail);
+    $errorMessageEmail.textContent = "이미 사용 중인 이메일입니다.";
+  } else if (!userEmailValue) {
+    // 3) 값이 없을 때 - ok
+    addRedBorder($inputEmail);
+    $errorMessageEmail.textContent = "이메일을 입력해주세요.";
   } else {
-    return true;
+    // 4) 정상
+    removeRedBorder($inputEmail);
+    $errorMessageEmail.textContent = "";
   }
 }
 
-// 비밀번호 유효성 검사
+$inputEmail.addEventListener("focusout", function () {
+  addErrorMessageEmail();
+});
+
+/* // 비밀번호 유효성 검사
 function isValidPassword(password) {
   const pattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   if (!pattern.test(password)) {
@@ -95,3 +127,4 @@ function checkPassword() {
 inputPasswordCheck.addEventListener("focusout", () => {
   addErrorMessagePasswordCheck();
 });
+ */
