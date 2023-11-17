@@ -14,7 +14,10 @@ import {
   pswdCheck,
   passwordVisiblilityToggleButtons,
   loginBtn,
+  redirectToIfAccessTokenExists,
 } from './sign-service.js';
+
+redirectToIfAccessTokenExists('/folder.html');
 
 function errorAlertEmail(e) {
   if (emailInput.value.length === 0) {

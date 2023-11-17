@@ -121,3 +121,10 @@ export async function didSignupSucceed(auth) {
   }
   return false;
 }
+
+export function redirectToIfAccessTokenExists(destination) {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+    location.replace(destination);
+  }
+}

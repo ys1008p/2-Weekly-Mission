@@ -11,7 +11,10 @@ import {
   pswdInput,
   passwordVisiblilityToggleButtons,
   loginBtn,
+  redirectToIfAccessTokenExists,
 } from './sign-service.js';
+
+redirectToIfAccessTokenExists('/folder.html');
 
 function validateEmailInput(e) {
   if (emailInput.value.length === 0) {
