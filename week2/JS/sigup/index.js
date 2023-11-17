@@ -1,5 +1,5 @@
 import { email, password, checkPassword, btn, eye1, eye2, inputs,testData} from "../sig_all/contants.js";
-import {errText ,isValidEmail, isValidPassword,passwordError ,eyeToggle,} from "../sig_all/utils/sig_all_func.js";
+import {errText ,isValidEmail, isValidPassword,passwordError ,eyeToggle, checkPWDError} from "../sig_all/utils/sig_all_func.js";
 
 function joinMembers (e) {
   if (e.target === email) {
@@ -61,10 +61,10 @@ function join (e) {
   } else if (testData.some((member) => member.email !== email.value)) {
    goServer()
   }
-  }
+}
 
 password.addEventListener('focusout', passwordError)
-checkPassword.addEventListener('focusout', passwordError)
+checkPassword.addEventListener('focusout', checkPWDError)
 
 btn.addEventListener('click',join)
  

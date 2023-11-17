@@ -29,13 +29,7 @@ function emailError (e) {
 }
 
 function passwordError (e) {
-  if (e.target === checkPassword) {
-    if (password.value !== checkPassword.value) {
-      errText.textContent = '비밀번호가 일치하지 않아요.'; 
-    }
-    e.target.classList.add('err')
-    e.target.after(errText);
-  }else if( e.target === checkPassword || e.target === password){
+  if(e.target === password){
     if(e.target.value === '' ) {
       errText.textContent = '비밀번호를 입력해 주세요.';
     }else if (!isValidPassword(e.target.value)) {
@@ -44,7 +38,20 @@ function passwordError (e) {
     e.target.classList.add('err')
     e.target.after(errText);
   }
-  
+}
+
+function checkPWDError(e) {
+  if (e.target === checkPassword) {
+    if (password.value !== checkPassword.value) {
+      errText.textContent = '비밀번호가 일치하지 않아요.'; 
+    } else  if(e.target.value === '' ) {
+      errText.textContent = '비밀번호를 입력해 주세요.';
+    }else if (!isValidPassword(e.target.value)) {
+      errText.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+    }
+    e.target.classList.add('err')
+    e.target.after(errText);
+  }
 }
 
 function eyeToggle (e) {
@@ -60,4 +67,4 @@ function eyeToggle (e) {
 email.addEventListener('focusout', emailError)
 
 
-export { errText, isValidEmail, isValidPassword, passwordError, eyeToggle};
+export { errText, isValidEmail, isValidPassword, passwordError, checkPWDError, eyeToggle};
