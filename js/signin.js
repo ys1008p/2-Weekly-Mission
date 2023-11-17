@@ -25,8 +25,10 @@ const checkEmail = (e) => {
 
   if (isEmpty(value)) {
     setErrorMessage(email, emailError, '이메일을 입력해주세요.');
+    formState.email = false;
   } else if (!isValidEmail(value)) {
     setErrorMessage(email, emailError, '올바른 이메일 주소가 아닙니다.');
+    formState.email = false;
   } else {
     formState.email = isEmailExist(value);
   }
@@ -37,6 +39,7 @@ const checkPassword = (e) => {
 
   if (isEmpty(value)) {
     setErrorMessage(password, passwordError, '비밀번호를 입력해주세요');
+    formState.password = false;
   } else {
     formState.password = isPasswordCorrect(value);
   }

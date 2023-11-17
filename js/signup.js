@@ -28,10 +28,13 @@ const checkEmail = (e) => {
 
   if (isEmpty(value)) {
     setErrorMessage(email, emailError, '이메일을 입력해주세요.');
+    formState.email = false;
   } else if (!isValidEmail(value)) {
     setErrorMessage(email, emailError, '올바른 이메일 주소가 아닙니다.');
+    formState.email = false;
   } else if (isEmailExist(value)) {
     setErrorMessage(email, emailError, '이미 사용 중인 이메일입니다.');
+    formState.email = false;
   } else {
     formState.email = true;
   }
@@ -42,12 +45,14 @@ const checkPassword = (e) => {
 
   if (isEmpty(value)) {
     setErrorMessage(password, passwordError, '비밀번호를 입력해주세요.');
+    formState.password = false;
   } else if (!isValidPassword(value)) {
     setErrorMessage(
       password,
       passwordError,
       '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
     );
+    formState.password = false;
   } else {
     formState.password = true;
   }
@@ -58,6 +63,7 @@ const checkConfirm = (e) => {
 
   if (password.value !== value) {
     setErrorMessage(confirm, confirmError, '비밀번호가 일치하지 않아요.');
+    formState.confirm = false;
   } else {
     formState.confirm = true;
   }
