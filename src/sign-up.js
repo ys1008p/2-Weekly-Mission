@@ -15,6 +15,11 @@ const doubleCheckPasswordErrorMessage = document.querySelector(
 );
 const eyeIcon = document.querySelectorAll('.hide-password');
 
+// 회원가입 페이지 접슨 시, 로컬스토리지에 accessToken이 있는 경우 "/folder" 페이지로 이동
+if (localStorage.getItem('accessToken')) {
+  location.href = '../folder.html';
+}
+
 // 비밀번호 생성 유효성 검사
 function isStrongPassword(value) {
   let regExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;

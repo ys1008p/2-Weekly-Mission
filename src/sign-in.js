@@ -12,6 +12,11 @@ const inputPassword = document.querySelector('#password');
 const passwordErrorMessage = document.querySelector('.password-error-msg');
 const eyeIcon = document.querySelector('.hide-password');
 
+// 로그인 페이지 접슨 시, 로컬스토리지에 accessToken이 있는 경우 "/folder" 페이지로 이동
+if (localStorage.getItem('accessToken')) {
+  location.href = '../folder.html';
+}
+
 // 로그인 시도 시 등록된 이메일이 아닐 경우 에러 메시지를 표시하는 함수
 function unResisteredEmailErrorMessage() {
   emailErrorMessage.textContent = '이메일을 확인해주세요.';
