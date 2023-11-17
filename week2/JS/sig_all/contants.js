@@ -7,7 +7,7 @@ const checkPassword = document.querySelector('#password_check')
 const btn = document.querySelector('.btn');
 const eye1 = document.querySelector('.eye1');
 const eye2 = document.querySelector('.eye2');
-const testData = [{userEmail: 'test@codeit.com', userPwd: 'codeit101'}, ]
+const testData = [{email: 'test@codeit.com', password: 'sprint101'}, ]
 
 //input에 클래스네임을 부여하고 클래스 네임으로 querySelectAll을 했는데 적용이 안돼요ㅠㅠㅠ
 

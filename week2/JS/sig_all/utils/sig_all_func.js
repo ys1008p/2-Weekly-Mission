@@ -3,9 +3,6 @@ import { email, password, checkPassword, passwordInputs, testData } from "../con
 const errText = document.createElement('p');
 errText.classList.add('errText')
 
-console.log(testData.some((member) => member.userEmail === email.value))
-testData.some((member) => member.userPwd === password.value)
-
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -23,7 +20,7 @@ function emailError (e) {
       errText.textContent = '이메일을 입력해 주세요.';
     } else if (!isValidEmail(e.target.value)) {
       errText.textContent = '올바른 이메일 주소가 아닙니다.';
-    } else if(testData.some((member) => member.userEmail === email.value) && checkPassword) {
+    } else if(testData.some((member) => member.email === email.value) && checkPassword) {
       errText.textContent = '이미 사용 중인 이메일입니다.';
     }  
     e.target.classList.add('err')

@@ -17,26 +17,42 @@ function checkTemplate (e) {
   }
 }
 
+const {0: testAdress} = testData
+
+function goServer () {
+  fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(testAdress)
+    })
+    .then((response) => response.json())
+    .then((a)=> {return a.data.accessToken})
+    .then((token) => localStorage.setItem('accessToken', token))
+    .then(localStorage.getItem('accessToken')? location.replace('/folder'): undefined)
+}
+
 function ourMembers (e) {
   e.preventDefault()
-    if (testData.some((member) => member.userEmail === email.valuel && member.userPwd === password.value)) {
-      window.location.href = 'folder.html';
-
-    } else if(!testData.some((member) => member.userEmail === email.valuel)){
-      email.classList.add('err');
-      return alert('이메일을 확인해 주세요');
-    } else {
-      password.classList.add('err');
-      return alert ('비밀번호를 확인해 주세요')
-    }
+  if (testData.some((member) => member.email === 'test@codeit.com' && member.password === "sprint101")) {
+    goServer()
+  } else if(testData.some((member) => member.email !== email.valuel)){
+    e.preventDefault()
+    email.classList.add('err');
+    return alert('이메일을 확인해 주세요');
+  } else {
+    e.preventDefault()
+    password.classList.add('err');
+    return alert ('비밀번호를 확인해 주세요')
   }
+}
 
 password.addEventListener('focusout', passwordError)
 inputs.forEach(inputElement => {
   inputElement.addEventListener('focusout',checkTemplate);
 });
 
-btn.addEventListener('submit', ourMembers )
-
+btn.addEventListener('click', ourMembers);
 
 eye2.addEventListener('click', eyeToggle);

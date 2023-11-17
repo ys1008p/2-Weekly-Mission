@@ -3,7 +3,7 @@
 
  function joinMembers (e) {
   if (e.target === email) {
-    if (isValidEmail(e.target.value) && testData.some((member) => member.userEmail !== email.value)){
+    if (isValidEmail(e.target.value) && testData.some((member) => member.email !== email.value)){
       e.target.classList.remove('err')
       e.target.nextElementSibling === errText? errText.remove() : undefined;
     } ; 
@@ -20,10 +20,38 @@
   } 
  }
 
+ const newMember = {}
+
+function goServer () {
+newMember.email = email.value;
+
+fetch('https://bootcamp-api.codeit.kr/api/check-email',{
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(newMember)
+  })
+  .then((response) => response.json())
+  .catch((err) => email.classList.add('err') )
+  .then(() => (newMember.password = password.value))
+  .then( () => fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMember)
+        }))
+        .then((response) => response.json())
+        .then((a)=> {return a.data.accessToken})
+        .then((token) => localStorage.setItem('accessToken', token))
+        .then(localStorage.getItem('accessToken')? location.replace('/folder'): undefined)
+  }
+
 function join (e) {
   e.preventDefault()
 
-  if (!isValidEmail(email.value) || testData.some((member) => member.userEmail === email.value)){
+  if (!isValidEmail(email.value) || testData.some((member) => member.email === email.value)){
     email.classList.add('err')
     alert('이메일을 확인해주세요');
 
@@ -32,19 +60,16 @@ function join (e) {
     password.classList.add('err');
     alert('비밀번호를 확인해주세요');
 
-  } else if (testData.some((member) => member.userEmail !== email.value)) {
-    window.location.href = 'folder.html';
+  } else if (testData.some((member) => member.email !== email.value)) {
+    goServer()
+    }
   }
-}
 
 password.addEventListener('focusout', passwordError)
 checkPassword.addEventListener('focusout', passwordError)
 
-// btn.addEventListener('event',join);
-
 btn.addEventListener('click',join)
  
-
 inputs.forEach(inputElement => {
   inputElement.addEventListener('focusout',joinMembers);
 });
