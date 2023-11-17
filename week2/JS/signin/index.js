@@ -1,26 +1,27 @@
-import { email, password, btn, eye2 } from "../sig_all/contants.js";
-import {isValidEmail, isValidPassword, eyeToggle } from "../sig_all/utils/common.js";
-import { usersData } from "../sig_all/userData.js";
+import { email, password, inputs, btn, eye2 } from "../sig_all/contants.js";
+import {existEmail, errText , existPWd, isValidEmail, isValidPassword,passwordError ,eyeToggle} from "../sig_all/utils/sig_all_func.js";
+
 
 function checkTemplate (e) {
   if (e.target === email) {
     if (isValidEmail(e.target.value)){
      e.target.classList.remove('err');
+     e.target.nextElementSibling === errText? errText.textContent = '' : undefined;
     }
   }
   if (e.target === password){
     if (isValidPassword(e.target.value)){
       e.target.classList.remove('err')
+      // e.target.nextElementSibling === errText? errText.textContent = '' : undefined;
     }
   }
 }
 
 function ourMembers (e) {
-  for(let user of usersData){
-    if (email.value === user[0] && password.value === user[1]) {
-      e.preventDefault()
+  e.preventDefault()
+    if (existEmail && existPWd) {
       window.location.href = 'folder.html';
-    } if(email.value !== user[0]){
+    } if(!existEmail){
       email.classList.add('err');
       return alert('이메일을 확인해 주세요');
     } else {
@@ -28,12 +29,13 @@ function ourMembers (e) {
       return alert ('비밀번호를 확인해 주세요')
     }
   }
-}
 
+password.addEventListener('focusout', passwordError)
 inputs.forEach(inputElement => {
   inputElement.addEventListener('focusout',checkTemplate);
 });
 
 btn.addEventListener('submit', ourMembers )
+
 
 eye2.addEventListener('click', eyeToggle);
