@@ -82,22 +82,30 @@ $inputPassword.addEventListener("focusout", function () {
   addErrorMessagePassword();
 });
 
-/* // 비밀번호 확인 입력값이 비밀번호와 일치하는지 확인
+// 3. 비밀번호 확인
 
-const inputPasswordCheck = document.querySelector("input.password-check");
-const passwordCheckError = document.createElement("p"); //input 박스 밑 에러 메세지 요소 추가
-passwordCheckError.classList.add("error-message"); //에러 메세지용 p태그에 빨간 글씨 클래스 추가
-const userPasswordCheckInput = inputPassword.value; //사용자의 패스워드 확인 입력값
+const $inputPasswordCheck = document.querySelector(
+  "#password-check .input-password"
+); // 패스워드 확인 인풋 요소
+const $errorMessagePasswordCheck = document.querySelector(
+  "#password-check .error-message"
+); // 에러메세지가 들어갈 요소
 
-function checkPassword() {
-  let message = "";
+// 올바른 값이 아닌 경우 빨간 테두리와 에러메세지
+function addErrorMessagePasswordCheck() {
+  const userPasswordValue = $inputPasswordCheck.value; // 사용자가 입력한 패스워드 인풋 값
 
-  if (inputPasswordCheck === inputPassword) {
-    addRedBorder(inputPassword);
-    message = "비밀번호가 일치하지 않아요.";
+  if (userPasswordValue !== $inputPassword.value) {
+    // 1) 비밀번호가 일치하지 않을 때
+    addRedBorder($inputPasswordCheck);
+    $errorMessagePasswordCheck.textContent = "비밀번호가 일치하지 않아요";
+  } else {
+    // 2) 정상
+    removeRedBorder($inputPasswordCheck);
+    $errorMessagePasswordCheck.textContent = "";
   }
 }
 
-inputPasswordCheck.addEventListener("focusout", () => {
+$inputPasswordCheck.addEventListener("focusout", function () {
   addErrorMessagePasswordCheck();
-}); */
+});
