@@ -3,11 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-
   <link rel="stylesheet" href="css/week2.css">
-
-  <link rel="stylesheet" href="signin/week2.css">
-
 </head>
 <body>
 
@@ -25,37 +21,35 @@
 <form>
 <div class="email">
 <label for="signup-email">이메일</label>
-
-<input class="signup-input" name="email" type="email">
+<input id="signup-email" name="signup-email" type="email">
+<div class="error-message" id="error-message"></div>
 </div>
 <div class="password">
 <label for="signup-password">비밀번호</label>
-<input class="signup-input" name="password" type="password"/>
+<input id="signup-password" name="signup-password" type="password">
+<div class="eye-icon" onclick="togglePasswordVisibility()"></div>
+<img src="signin/eye-off.png" id="eye-icon">
+<div class="error-message2" id="error-message2"></div>
 
-<input id="siginup-email" name="email" type="email">
-</div>
-<div class="password">
-<label for="signup-password">비밀번호</label>
-<input id="siginup -password" name="password" type="password">
-<img src="signin/eye-off.png">
 </div>
 </div><!--main_gap-->
 
 <button type="submit">
 로그인
 </button>
-
+<div class="login-message"></div>
 </form>
-
+ 
 
 <div class="social_login">
   소셜 로그인
   <div class="social_img">
-  <a href="https://www.google.com/"><img src="signin/Component 2.png"></a>
+  <a href="https://www.google.com/"><img src="asset/signin/Component 2.png"></a>
   <a href="https://www.kakaocorp.com/page/"><img src="signin/Component 3.png"></a>
 </div>
 </div>
 
 </div>
+<script src="week2.js"></script>
 </body>
 </html>

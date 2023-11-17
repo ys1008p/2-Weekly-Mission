@@ -144,3 +144,26 @@ button {
     padding: 0.6rem 2.4rem;
   }
 }
+.email input:focus {
+  border: 1px solid blue;
+  outline: none;
+}
+.password input:focus {
+  border: 1px solid blue;
+  outline: none;
+}
+.password2 input:focus {
+  border: 1px solid blue;
+  outline: none;
+}
+.error {
+  border: 1px solid red;
+}
+
+.error-message,
+.error-message2,
+.error-message2-omt,
+.join-message {
+  color: red;
+  display: none;
+}
