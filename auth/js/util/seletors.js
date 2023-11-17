@@ -1,7 +1,6 @@
 export const emailInput = document.querySelector('#email');
 export const passwordInput = document.querySelector('#password');
 export const passwordCheckInput = document.querySelector('#password-check');
-export const passwordType = document.querySelector('.password-type');
 export const inputTags = document.querySelectorAll('input');
 
 export const emailError = document.querySelector('.email-error-message');

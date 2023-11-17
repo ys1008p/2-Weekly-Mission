@@ -1,18 +1,29 @@
-import { emailInput, passwordInput, inputTags, signBtn, eyeBtns } from "./seletors.js";
-import { signinEmailErrorMessage, passwordErrorMessage, signinBtn, toggleVisibility } from "./signFunctions.js";
+import { 
+  emailInput, 
+  passwordInput, 
+  inputTags, 
+  signBtn, 
+  eyeBtns, 
+} from "./util/seletors.js";
+import { 
+  signinEmailErrorMessage, 
+  passwordErrorMessage, 
+  toggleVisibility, 
+} from "./util/signFunctions.js";
+import { signInAndRedirect } from "./util/api.js";
 
 document.addEventListener('DOMContentLoaded', () => {
   emailInput.addEventListener('focusout', signinEmailErrorMessage);
   passwordInput.addEventListener('focusout', passwordErrorMessage);
-  signBtn.addEventListener('click', signinBtn);
-  eyeBtns.forEach(eyeBtn => {
-    eyeBtn.addEventListener('click', toggleVisibility);
-  });
+  signBtn.addEventListener('click', signInAndRedirect);
   inputTags.forEach(inputTag => {
     inputTag.addEventListener('keydown', function (event) {
       if (event.key === 'Enter') {
-        signinBtn();
+        signInAndRedirect();
       }
-    })
+    });
+  });
+  eyeBtns.forEach(eyeBtn => {
+    eyeBtn.addEventListener('click', toggleVisibility);
   });
 })
