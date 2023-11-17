@@ -1,4 +1,4 @@
-export { getAccessToken };
+export { getAccessToken, postCheckEmail };
 
 class Fetcher {
   #baseURL;
@@ -13,10 +13,10 @@ class Fetcher {
       },
       body: JSON.stringify(userData),
     });
-    if (!response.ok) {
-      // error 처리 ?
-      return;
-    }
+    // if (!response.ok) {
+    //   // error 처리 ?
+    //   return;
+    // }
     const data = await response.json();
     return data;
   }
@@ -28,4 +28,10 @@ const getAccessToken = async (email, password) => {
   const userData = { email, password };
   const { data } = await fetcher.post('/sign-in', userData);
   localStorage.setItem('accessToken', data.accessToken);
+};
+
+const postCheckEmail = async (email) => {
+  const userData = { email };
+  const { data } = await fetcher.post('/check-email', userData);
+  return data.isUsableNickname;
 };

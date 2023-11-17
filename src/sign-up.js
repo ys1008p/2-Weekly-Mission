@@ -2,6 +2,7 @@
 
 import { printEmailErrorMessage } from './email.js';
 import { toggleEyeIcon } from './password-icon.js';
+import { postCheckEmail } from './fetch.js';
 
 const formSignUp = document.querySelector('#sign-up');
 const inputEmail = document.querySelector('#email');
@@ -59,18 +60,16 @@ function printDoubleCheckPasswordErrormessage() {
 }
 
 // 이미 존재하는 이메일인지 확인
-function isUnresisteredEmail() {
-  const value = inputEmail.value;
-
-  if (value === 'test@codeit.com') {
-    emailErrorMessage.textContent = '이미 사용 중인 이메일입니다.';
+async function isUnresisteredEmail() {
+  try {
+    const email = inputEmail.value;
+    const result = await postCheckEmail(email);
+    return result;
+  } catch (error) {
+    emailErrorMessage.textContent = '이미 존재하는 이메일입니다.';
     inputEmail.classList.add('input__error');
     return false;
   }
-
-  emailErrorMessage.textContent = '';
-  inputEmail.classList.remove('input__error');
-  return true;
 }
 
 // 비밀번호 확인란에 이미 입력 후, 비밀번호란에 추가로 입력 시, 비밀번호 확인란에 에러 메시지 표시
