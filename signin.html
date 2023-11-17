@@ -43,11 +43,17 @@
           </p>
         </header>
         <div class="inputs">
-          <div class="input">
+          <div class="input" id="email">
             <label for="email">이메일</label>
-            <input name="email" type="email" placeholder="codeit@codeit.com" />
+            <input
+              name="email"
+              type="email"
+              placeholder="codeit@codeit.com"
+              class="input-email"
+            />
+            <p class="error-message"></p>
           </div>
-          <div class="input">
+          <div class="input" id="password">
             <label for="password">비밀번호</label>
             <input
               name="password"
@@ -55,6 +61,7 @@
               placeholder=""
               class="input-password"
             />
+            <p class="error-message"></p>
           </div>
         </div>
         <a class="cta">로그인</a>
