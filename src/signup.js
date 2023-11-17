@@ -1,6 +1,4 @@
 import {
-  ALERT_MESSAGE_BOX,
-  TEST_USER,
   EYE_ON_PATH,
   EYE_OFF_PATH,
   isEmailValid,
