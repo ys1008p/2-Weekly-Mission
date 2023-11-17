@@ -102,7 +102,7 @@ export async function isTakenEmail(email) {
     },
     body: JSON.stringify(email),
   });
-  return response.status === 200 ? true : false;
+  return response.ok ? true : false;
 }
 
 export async function didSignupSucceed(auth) {
