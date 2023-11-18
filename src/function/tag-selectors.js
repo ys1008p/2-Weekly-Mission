@@ -7,6 +7,7 @@ const signUpBtn = document.querySelector(".button");
 const emailErrorTag = document.querySelector("#email-error");
 const passwordErrorTag = document.querySelector("#password-error");
 const passwordMatchErrorTag = document.querySelector("#password-match-error");
+const passwordToggleButtons = document.querySelectorAll(".eye-button");
 
 export {
   emailInput,
@@ -18,4 +19,5 @@ export {
   emailErrorTag,
   passwordErrorTag,
   passwordMatchErrorTag,
+  passwordToggleButtons,
 };

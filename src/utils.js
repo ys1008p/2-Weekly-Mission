@@ -151,4 +151,23 @@ const signUpCheck = async function (e) {
   }
 };
 
-export { emailFormCheck, passwordFormCheck, signInCheck, signUpEmailCheck, passwordMatchCheck, signUpCheck };
+const togglePassword = function (toggleButton) {
+  const input = toggleButton.previousElementSibling;
+  if (input.getAttribute("type") === "password") {
+    input.setAttribute("type", "text");
+    toggleButton.getElementsByTagName("img")[0].setAttribute("src", "./images/eye-on.svg");
+    return;
+  }
+  input.setAttribute("type", "password");
+  toggleButton.getElementsByTagName("img")[0].setAttribute("src", "./images/eye-off.svg");
+};
+
+export {
+  emailFormCheck,
+  passwordFormCheck,
+  signInCheck,
+  signUpEmailCheck,
+  passwordMatchCheck,
+  signUpCheck,
+  togglePassword,
+};
