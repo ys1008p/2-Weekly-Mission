@@ -90,10 +90,10 @@ email.addEventListener('focusout', checkEmail);
 password.addEventListener('focusout', checkPassword);
 confirm.addEventListener('focusout', checkConfirm);
 confirm.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    checkConfirm(e);
-    verifyForm();
-  }
+  if (e.key === 'Enter') return;
+
+  checkConfirm(e);
+  verifyForm();
 });
 signup.addEventListener('click', verifyForm);
 eyes.forEach((eye) => {
