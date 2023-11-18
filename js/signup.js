@@ -1,16 +1,6 @@
-const formState = {
-  ifError: function (e, errorText, errorMsg, input) {
-    e.target.classList.add("error");
-    errorText.classList.add("error");
-    errorText.innerHTML = `${errorMsg}`;
-    formState[`${input.isValid}`] = false;
-  },
-  ifOk: function (e, errorText, input) {
-    e.target.classList.remove("error");
-    errorText.classList.remove("error");
-    errorText.innerHTML = "";
-    formState[`${input.isValid}`] = true;
-  },
+import { validObject } from "./validFunction.js";
+
+export const formState = {
   email: {
     emailInput: document.querySelector("#username"),
     checkEmail: function (e) {
@@ -21,13 +11,14 @@ const formState = {
         "올바른 이메일 주소가 아닙니다.",
       ];
       if (e.target.value === "") {
-        formState.ifError(e, emailErrorText, errorMsg[0], "email");
+        validObject.ifError(e, emailErrorText, errorMsg[0], "email");
       } else if (e.target.value === "test@codeit.com") {
-        formState.ifError(e, emailErrorText, errorMsg[1], "email");
+        validObject.ifError(e, emailErrorText, errorMsg[1], "email");
       } else if (e.target.value.includes("@") == false) {
-        formState.ifError(e, emailErrorText, errorMsg[2], "email");
+        validObject.ifError(e, emailErrorText, errorMsg[2], "email");
       } else {
-        formState.ifOk(e, emailErrorText, "email");
+        validObject.ifOk(e, emailErrorText, "email");
+        console.log(formState.email.isValid);
       }
     },
     isValid: false,
@@ -43,15 +34,15 @@ const formState = {
       ];
 
       if (e.target.value === "") {
-        formState.ifError(e, pwErrorText, errorMsg[0], "pw");
+        validObject.ifError(e, pwErrorText, errorMsg[0], "pw");
       } else if (
         e.target.value.length < 8 ||
         isNaN(e.target.value) !== true ||
         engOnly.test(e.target.value)
       ) {
-        formState.ifError(e, pwErrorText, errorMsg[1], "pw");
+        validObject.ifError(e, pwErrorText, errorMsg[1], "pw");
       } else {
-        formState.ifOk(e, pwErrorText, "pw");
+        validObject.ifOk(e, pwErrorText, "pw");
       }
     },
     isValid: false,
@@ -62,36 +53,40 @@ const formState = {
       const pwConfirmationErrorText = e.target.parentElement.lastElementChild;
       const errorMsg = "비밀번호가 일치하지 않아요";
       if (formState.pw.pwInput.value !== e.target.value) {
-        formState.ifError(
+        validObject.ifError(
           e,
           pwConfirmationErrorText,
           errorMsg,
           "pwConfirmation"
         );
-        formState.pw.pwInput.classList.add("error");
+        validObject.pw.pwInput.classList.add("error");
       } else {
-        formState.ifOk(e, pwConfirmationErrorText, "pwConfirmation");
-        formState.pw.pwInput.classList.remove("error");
+        validObject.ifOk(e, pwConfirmationErrorText, "pwConfirmation");
+        validObject.pw.pwInput.classList.remove("error");
       }
     },
     isValid: false,
   },
+  signup: function (e) {
+    e.preventDefault();
+    if (
+      !formState.email.isValid ||
+      !formState.pw.isValid ||
+      !formState.pwConfirmation.isValid
+    )
+      return;
+    location.href = "/folder";
+  },
   form: document.querySelector("form"),
 };
-
-function signup(e) {
-  e.preventDefault();
-  if (!formState.email && !formState.pw && !formState.pwConfirmation) return;
-  location.href = "/folder";
-}
 
 formState.email.emailInput.addEventListener(
   "focusout",
   formState.email.checkEmail
 );
 formState.pw.pwInput.addEventListener("focusout", formState.pw.checkPw);
-formState.pwConfirmation?.pwConfirmationInput.addEventListener(
+formState.pwConfirmation.pwConfirmationInput?.addEventListener(
   "focusout",
   formState.pwConfirmation.CheckpwConfirmation
 );
-formState.form.addEventListener("submit", signup);
+formState.form.addEventListener("submit", formState.signup);
