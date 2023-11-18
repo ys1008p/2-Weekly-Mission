@@ -21,13 +21,13 @@ const {
 } = signErrorMsg;
 
 const isEmail = (value) => {
-  const emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-  return emailReg.test(value);
+  const EMAIL_REG = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  return EMAIL_REG.test(value);
 };
 
 const isPassword = (value) => {
-  const passwordReg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-  return passwordReg.test(value);
+  const PASSWORD_REG = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+  return PASSWORD_REG.test(value);
 };
 
 const goToFolderPage = () => (location.href = "./folder.html");
@@ -71,6 +71,9 @@ const signInCheck = async function (e) {
       body: JSON.stringify(userValue),
     });
     if (response.status === 200) {
+      const signInResponse = await response.json();
+      const ACCESS_TOKEN = await signInResponse.data.accessToken;
+      localStorage.setItem("accessToken", ACCESS_TOKEN);
       return goToFolderPage();
     } else {
       signErrorCase(emailErrorTag, emailCheck, emailInput);
@@ -138,6 +141,9 @@ const signUpCheck = async function (e) {
         body: JSON.stringify(userValue),
       });
       if (response.status === 200) {
+        const signUpResponse = await response.json();
+        const ACCESS_TOKEN = await signUpResponse.data.accessToken;
+        localStorage.setItem("accessToken", ACCESS_TOKEN);
         goToFolderPage();
       } else {
         signUpEmailCheck();
@@ -170,4 +176,5 @@ export {
   passwordMatchCheck,
   signUpCheck,
   togglePassword,
+  goToFolderPage,
 };
