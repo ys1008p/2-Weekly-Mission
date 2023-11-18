@@ -4,6 +4,7 @@ import {
   passwordInput,
   passwordConfirmInput,
   eyeToggleButtons,
+  FOLDER_PATH,
 } from './constants/auth.js'
 
 import {
@@ -20,7 +21,7 @@ import {
 
 import { handleSignup } from './utils/auth/api.js'
 
-autoRedirectToPage()
+autoRedirectToPage(FOLDER_PATH)
 
 function handleSubmit(e) {
   e.preventDefault()

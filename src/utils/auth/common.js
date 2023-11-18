@@ -17,9 +17,9 @@ function redirectToPage(path = '/') {
 }
 
 // 자동 로그인
-function autoRedirectToPage() {
+function autoRedirectToPage(path = '/') {
   if (localStorage.getItem(ACCESS_TOKEN)) {
-    redirectToPage(FOLDER_PATH)
+    redirectToPage(path)
   }
 }
 

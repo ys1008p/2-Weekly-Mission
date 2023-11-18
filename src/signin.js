@@ -18,7 +18,7 @@ import {
 
 import { handleSignin } from './utils/auth/api.js'
 
-autoRedirectToPage()
+autoRedirectToPage(FOLDER_PATH)
 
 const handleSubmit = (e) => {
   e.preventDefault()
