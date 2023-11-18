@@ -1,22 +1,4 @@
-// import { ifError, ifOk } from "./signup.js";
-
-const emailInput = document.querySelector("#username");
-const pwInput = document.querySelector("#password");
-const form = document.querySelector("form");
-
-function ifError(e, errorText, errorMsg) {
-  e.target.classList.add("error");
-  errorText.classList.add("error");
-  errorText.innerHTML = `${errorMsg}`;
-  // formState[`${input}`] = false;
-}
-
-export function ifOk(e, errorText) {
-  e.target.classList.remove("error");
-  errorText.classList.remove("error");
-  errorText.innerHTML = "";
-  // formState[`${input}`] = true;
-}
+import { formState } from "./signup.js";
 
 function checkEmail(e) {
   const emailErrorText = e.target.nextElementSibling;
