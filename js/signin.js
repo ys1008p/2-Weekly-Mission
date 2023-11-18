@@ -7,11 +7,11 @@ import {
 } from './modules/checkInput.js';
 import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
+const signinFrom = document.querySelector('#signinForm');
 const email = document.querySelector('#email');
 const emailError = document.querySelector('#emailError');
 const password = document.querySelector('#password');
 const passwordError = document.querySelector('#passwordError');
-const signin = document.querySelector('#signin');
 const eye = document.querySelector('.eye-icon');
 
 const formState = {
@@ -72,7 +72,12 @@ const togglePassword = (e) => {
   }
 };
 
-email.addEventListener('focusout', checkEmail);
-password.addEventListener('focusout', checkPassword);
-signin.addEventListener('click', verifyForm);
+const handleSubmitForm = (e) => {
+  e.preventDefault();
+  verifyForm();
+};
+
+email.addEventListener('change', checkEmail);
+password.addEventListener('change', checkPassword);
+signinFrom.addEventListener('submit', handleSubmitForm);
 eye.addEventListener('click', togglePassword);

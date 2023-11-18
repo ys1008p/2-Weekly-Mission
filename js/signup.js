@@ -7,13 +7,13 @@ import {
 } from './modules/checkInput.js';
 import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
+const signupForm = document.querySelector('#signupForm');
 const email = document.querySelector('#email');
 const emailError = document.querySelector('#emailError');
 const password = document.querySelector('#password');
 const passwordError = document.querySelector('#passwordError');
 const confirm = document.querySelector('#confirm');
 const confirmError = document.querySelector('#confirmError');
-const signup = document.querySelector('#signup');
 const eyes = document.querySelectorAll('.eye-icon');
 
 const formState = {
@@ -93,16 +93,15 @@ const togglePassword = (e) => {
   }
 };
 
-email.addEventListener('focusout', checkEmail);
-password.addEventListener('focusout', checkPassword);
-confirm.addEventListener('focusout', checkConfirm);
-confirm.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') return;
-
-  checkConfirm(e);
+const handleSubmitForm = (e) => {
+  e.preventDefault();
   verifyForm();
-});
-signup.addEventListener('click', verifyForm);
+};
+
+email.addEventListener('change', checkEmail);
+password.addEventListener('change', checkPassword);
+confirm.addEventListener('change', checkConfirm);
+signupForm.addEventListener('submit', handleSubmitForm);
 eyes.forEach((eye) => {
   eye.addEventListener('click', togglePassword);
 });
