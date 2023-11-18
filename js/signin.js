@@ -5,7 +5,6 @@ import {
   isPasswordCorrect,
   isValidEmail,
 } from './modules/checkInput.js';
-import { toggleInputVisibility } from './modules/handleEvent.js';
 import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
 const email = document.querySelector('#email');
@@ -62,7 +61,15 @@ const togglePassword = (e) => {
   const eyeBtn = e.target;
   const targetInput = document.querySelector(`#${eyeBtn.dataset.id}`);
 
-  toggleInputVisibility(eyeBtn, targetInput);
+  if (eyeBtn.classList.contains('hide-password')) {
+    eyeBtn.classList.remove('hide-password');
+    eyeBtn.src = './images/icon/eye-on.svg';
+    targetInput.type = 'text';
+  } else {
+    eyeBtn.classList.add('hide-password');
+    eyeBtn.src = './images/icon/eye-off.svg';
+    targetInput.type = 'password';
+  }
 };
 
 email.addEventListener('focusout', checkEmail);
