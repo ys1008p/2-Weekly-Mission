@@ -4,8 +4,7 @@ import {
   isEmailValid,
   isPasswordValid,
   userList,
-} from "./import.js";
-
+} from "./shared.js";
 
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
@@ -29,7 +28,6 @@ function validateEmailInput(email) {
   }
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
-
 
 const passwordInput = document.querySelector("#pwd");
 const passwordErrorMessage = document.querySelector("#password-error-message");
@@ -56,26 +54,29 @@ function validatePasswordInput(password) {
     errorMessage: passwordErrorMessage,
   });
 }
-// userList 로그인 
+// userList 로그인
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
   event.preventDefault();
 
   const usersignin =
-    emailInput.value === userList.email && passwordInput.value === userList.password;
+    emailInput.value === userList.email &&
+    passwordInput.value === userList.password;
 
   if (usersignin) {
     location.href = "/folder";
     return;
   }
-  setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
+  setInputError(
+    { input: emailInput, errorMessage: emailErrorMessage },
+    "이메일을 확인해주세요."
+  );
   setInputError(
     { input: passwordInput, errorMessage: passwordErrorMessage },
     "비밀번호를 확인해주세요."
   );
 }
-
 
 const eyeBtn = document.getElementById("eye-btn");
 const pwInput = document.getElementById("pwd");
@@ -88,7 +89,6 @@ const eyeOn = document.querySelector(".on-img");
 
 const eyeCheckOn = document.querySelector(".check-on");
 const eyeCheckOff = document.querySelector(".check-off");
-
 
 eyeBtn.addEventListener("click", () => {
   if (pwInput.type === "password") {

@@ -4,8 +4,7 @@ import {
   isEmailValid,
   isPasswordValid,
   userList,
-} from "./import.js";
-
+} from "./shared.js";
 
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
@@ -36,7 +35,6 @@ function validateEmailInput(email) {
   }
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
-
 
 const passwordInput = document.querySelector("#pwd");
 const passwordErrorMessage = document.querySelector("#password-error-message");
@@ -89,7 +87,6 @@ function validateCheckPasswordInput(checkPassword) {
   return true;
 }
 
-
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
@@ -111,7 +108,6 @@ function submitForm(event) {
   );
 }
 
-
 const eyeBtn = document.getElementById("eye-btn");
 const pwInput = document.getElementById("pwd");
 
@@ -123,7 +119,6 @@ const eyeOn = document.querySelector(".on-img");
 
 const eyeCheckOn = document.querySelector(".check-on");
 const eyeCheckOff = document.querySelector(".check-off");
-
 
 eyeBtn.addEventListener("click", () => {
   if (pwInput.type === "password") {
