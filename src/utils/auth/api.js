@@ -2,7 +2,9 @@ import {
   SIGNIN_URL,
   SIGNUP_URL,
   CHECK_EMAIL_URL,
-  ERROR_CODE,
+  ACCESS_TOKEN,
+  REFRESH_TOKEN,
+  STATUS_CODE,
 } from '../../constants/apis.js'
 
 import { FOLDER_PATH } from '../../constants/auth.js'
@@ -20,11 +22,14 @@ import {
 // [SIGNIN] POST 요청, /folder 이동
 const handleSignin = async (email = '', password = '') => {
   try {
-    const res = await instance.post(SIGNIN_URL, { email, password })
-    const { data } = res.data
+    const {
+      data: {
+        data: { accessToken, refreshToken },
+      },
+    } = await instance.post(SIGNIN_URL, { email, password })
 
-    const accessToken = data?.accessToken
-    localStorage.setItem('accessToken', accessToken)
+    localStorage.setItem(ACCESS_TOKEN, accessToken)
+    localStorage.setItem(REFRESH_TOKEN, refreshToken)
 
     redirectToPage(FOLDER_PATH)
   } catch (e) {
@@ -37,28 +42,31 @@ const handleSignin = async (email = '', password = '') => {
 const emailConflictCheck = async (email = '') => {
   try {
     const res = await instance.post(CHECK_EMAIL_URL, { email })
-    const { CONFLICT_EMAIL } = ERROR_CODE
+    const { CONFLICT_EMAIL } = STATUS_CODE
 
     // [409]이메일 중복
     if (res.status === CONFLICT_EMAIL) {
-      const conflictError = new Error('이메일 중복')
+      const conflictError = new Error(`${CONFLICT_EMAIL}: 이메일 중복`)
       conflictError.status = CONFLICT_EMAIL
       handleAuthenticationError(conflictError)
-      handleConflictEmailError()
     }
   } catch (e) {
     handleAuthenticationError(e)
+    handleConflictEmailError()
   }
 }
 
 // [SIGNUP] POST 요청, /folder 이동
 const handleSignup = async (email = '', password = '') => {
   try {
-    const res = await instance.post(SIGNUP_URL, { email, password })
-    const { data } = res.data
+    const {
+      data: {
+        data: { accessToken, refreshToken },
+      },
+    } = await instance.post(SIGNUP_URL, { email, password })
 
-    const accessToken = data?.accessToken
-    localStorage.setItem('accessToken', accessToken)
+    localStorage.setItem(ACCESS_TOKEN, accessToken)
+    localStorage.setItem(REFRESH_TOKEN, refreshToken)
 
     redirectToPage(FOLDER_PATH)
   } catch (e) {
