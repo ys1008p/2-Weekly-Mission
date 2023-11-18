@@ -33,6 +33,7 @@ const checkEmail = (e) => {
     setErrorMessage(email, emailError, '올바른 이메일 주소가 아닙니다.');
     formState.email = false;
   } else {
+    removeErrorMessage(email, emailError);
     formState.email = true;
   }
 };
@@ -51,6 +52,7 @@ const checkPassword = (e) => {
     );
     formState.password = false;
   } else {
+    removeErrorMessage(password, passwordError);
     formState.password = true;
   }
 };
@@ -62,13 +64,14 @@ const checkConfirm = (e) => {
     setErrorMessage(confirm, confirmError, '비밀번호가 일치하지 않아요.');
     formState.confirm = false;
   } else {
+    removeErrorMessage(confirm, confirmError);
     formState.confirm = true;
   }
 };
 
 const verifyForm = () => {
   if (!isAllObjectValueTrue(formState)) return;
-  if (isEmailExist(value)) {
+  if (isEmailExist(email.value)) {
     setErrorMessage(email, emailError, '이미 사용 중인 이메일입니다.');
     return;
   }
@@ -84,24 +87,14 @@ const togglePassword = (e) => {
 };
 
 email.addEventListener('focusout', checkEmail);
-email.addEventListener('focusin', () => removeErrorMessage(email, emailError));
-
 password.addEventListener('focusout', checkPassword);
-password.addEventListener('focusin', () =>
-  removeErrorMessage(password, passwordError)
-);
-
 confirm.addEventListener('focusout', checkConfirm);
-confirm.addEventListener('focusin', () =>
-  removeErrorMessage(confirm, confirmError)
-);
 confirm.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     checkConfirm(e);
     verifyForm();
   }
 });
-
 signup.addEventListener('click', verifyForm);
 eyes.forEach((eye) => {
   eye.addEventListener('click', togglePassword);

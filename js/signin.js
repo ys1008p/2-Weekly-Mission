@@ -2,6 +2,7 @@ import {
   isAllObjectValueTrue,
   isEmailExist,
   isEmpty,
+  isPasswordCorrect,
   isValidEmail,
 } from './modules/checkInput.js';
 import { toggleInputVisibility } from './modules/handleEvent.js';
@@ -29,6 +30,7 @@ const checkEmail = (e) => {
     setErrorMessage(email, emailError, '올바른 이메일 주소가 아닙니다.');
     formState.email = false;
   } else {
+    removeErrorMessage(email, emailError);
     formState.email = true;
   }
 };
@@ -40,13 +42,18 @@ const checkPassword = (e) => {
     setErrorMessage(password, passwordError, '비밀번호를 입력해주세요');
     formState.password = false;
   } else {
+    removeErrorMessage(password, passwordError);
     formState.password = true;
   }
 };
 
 const verifyForm = () => {
   if (!isAllObjectValueTrue(formState)) return;
-  if (!isEmailExist(value) || !isPasswordCorrect(value)) return;
+  if (!isEmailExist(email.value) || !isPasswordCorrect(password.value)) {
+    setErrorMessage(email, emailError, '이메일을 확인해주세요');
+    setErrorMessage(password, passwordError, '비밀번호를 확인해주세요');
+    return;
+  }
 
   location.href = './folder.html';
 };
@@ -59,12 +66,6 @@ const togglePassword = (e) => {
 };
 
 email.addEventListener('focusout', checkEmail);
-email.addEventListener('focusin', () => removeErrorMessage(email, emailError));
-
 password.addEventListener('focusout', checkPassword);
-password.addEventListener('focusin', () =>
-  removeErrorMessage(password, passwordError)
-);
-
 signin.addEventListener('click', verifyForm);
 eye.addEventListener('click', togglePassword);
