@@ -8,13 +8,13 @@ export const validObject = {
     errorText.innerHTML = `${errorMsg}`;
 
     signupState[`${input}`]["isValid"] = false;
-    if (input !== "pwConfirmation") signinState[`${input}`]["isValid"] = false;
+    // if (input !== "pwConfirmation") signinState[`${input}`]["isValid"] = false;
   },
   ifOk: function (e, errorText, input) {
     e.target.classList.remove("error");
     errorText.classList.remove("error");
     errorText.innerHTML = "";
     signupState[`${input}`]["isValid"] = true;
-    if (input !== "pwConfirmation") signinState[`${input}`]["isValid"] = true;
+    // if (input !== "pwConfirmation") signinState[`${input}`]["isValid"] = true;
   },
 };

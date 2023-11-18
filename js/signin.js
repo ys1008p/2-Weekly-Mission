@@ -17,7 +17,7 @@ export const formState = {
         validObject.ifOk(e, emailErrorText, "email");
       }
     },
-    isValid: false,
+    // isValid: false,
   },
   pw: {
     pwInput: document.querySelector("#password"),
@@ -30,35 +30,47 @@ export const formState = {
         validObject.ifOk(e, pwErrorText, "pw");
       }
     },
-    isValid: false,
+    // isValid: false,
   },
   form: document.querySelector("form"),
   login: function (e) {
     const emailErrorText = formState.email.emailInput.nextElementSibling;
     const pwErrorText = formState.pw.pwInput.parentElement.lastElementChild;
     const errorMsg = ["이메일을 확인해주세요", "비밀번호를 확인해주세요."];
+    const loginMember = {
+      email: "test@codeit.com",
+      password: "sprint101",
+    };
+
     e.preventDefault();
-    if (!formState.email.isValid || !formState.pw.isValid) {
-      formState.email.emailInput.classList.add("error");
-      formState.pw.pwInput.classList.add("error");
-      emailErrorText.classList.add("error");
-      pwErrorText.classList.add("error");
-      emailErrorText.innerHTML = errorMsg[0];
-      pwErrorText.innerHTML = errorMsg[1];
-    }
+
+    // if (!formState.email.isValid && !formState.pw.isValid) {
+    //   formState.email.emailInput.classList.add("error");
+    //   emailErrorText.classList.add("error");
+    //   emailErrorText.innerHTML = errorMsg[0];
+    //   formState.pw.pwInput.classList.add("error");
+    //   pwErrorText.classList.add("error");
+    //   pwErrorText.innerHTML = errorMsg[1];
+    // } else
     if (
-      formState.email.emailInput.value === "test@codeit.com" &&
-      formState.pw.pwInput.value === "codeit101"
+      formState.email.emailInput.value === loginMember.email &&
+      formState.pw.pwInput.value === loginMember.password
     ) {
-      e.preventDefault();
-      location.href = "./folder";
+      fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+        method: "POST",
+        body: JSON.stringify(loginMember),
+      })
+        .then((response) => response.json())
+        .then(() => {
+          location.href = "./folder";
+        })
+        .catch((e) => console.log(e));
     } else {
-      e.preventDefault();
       formState.email.emailInput.classList.add("error");
-      formState.pw.pwInput.classList.add("error");
       emailErrorText.classList.add("error");
-      pwErrorText.classList.add("error");
       emailErrorText.innerHTML = errorMsg[0];
+      formState.pw.pwInput.classList.add("error");
+      pwErrorText.classList.add("error");
       pwErrorText.innerHTML = errorMsg[1];
     }
   },
