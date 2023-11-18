@@ -3,7 +3,7 @@ import {
   removeInputError,
   isEmailValid,
   isPasswordValid,
-  userList,
+  userID,
 } from "./shared.js";
 
 const emailInput = document.querySelector("#email");
@@ -26,7 +26,7 @@ function validateEmailInput(email) {
     );
     return;
   }
-  if (email === userList.email) {
+  if (email === userID.email) {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
       "이미 사용 중인 이메일입니다."

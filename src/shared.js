@@ -23,7 +23,7 @@ export function isPasswordValid(password) {
   return new RegExp(PASSWORD_REGEX).test(password);
 }
 
-export const userList = {
+export const userID = {
   email: "test@codeit.com",
   password: "codeit101",
 };

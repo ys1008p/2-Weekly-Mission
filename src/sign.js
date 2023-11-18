@@ -3,7 +3,7 @@ import {
   removeInputError,
   isEmailValid,
   isPasswordValid,
-  userList,
+  userID,
 } from "./shared.js";
 
 const emailInput = document.querySelector("#email");
@@ -54,15 +54,15 @@ function validatePasswordInput(password) {
     errorMessage: passwordErrorMessage,
   });
 }
-// userList 로그인
+
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
   event.preventDefault();
 
   const usersignin =
-    emailInput.value === userList.email &&
-    passwordInput.value === userList.password;
+    emailInput.value === userID.email &&
+    passwordInput.value === userID.password;
 
   if (usersignin) {
     location.href = "/folder";
