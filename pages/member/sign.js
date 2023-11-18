@@ -18,17 +18,26 @@ const errorMessage = {
   },
 };
 
-function handleErrorMessage(element, addOrRemoveHide, errorMessage = "") {
-  const parent = element.parentElement;
-  const errorMessageSpan = parent.querySelector(".input-error__message");
+function handleErrorMessage(target, errorMessage = "") {
+  const parent = target.parentElement;
+  let errorMessageSpan = parent.querySelector(".input-error__message");
 
+  if (!errorMessage) {
+    errorMessageSpan.remove();
+    return;
+  }
+
+  if (!errorMessageSpan) {
+    errorMessageSpan = document.createElement("span");
+    errorMessageSpan.classList.add("input-error__message");
+    target.after(errorMessageSpan);
+  }
   errorMessageSpan.textContent = errorMessage;
-  errorMessageSpan.classList[addOrRemoveHide]("hide");
 }
 
 function inputValidationFailed(target, errorMessage, eyeIcon) {
   target.classList.add("input-error");
-  handleErrorMessage(target, "remove", errorMessage);
+  handleErrorMessage(target, errorMessage);
   if (eyeIcon) {
     eyeIcon.classList.add("eye-icon__error");
   }
@@ -36,7 +45,7 @@ function inputValidationFailed(target, errorMessage, eyeIcon) {
 
 function inputValidationSucceeded(target, eyeIcon) {
   target.classList.remove("input-error");
-  handleErrorMessage(target, "add");
+  handleErrorMessage(target);
   if (eyeIcon) {
     eyeIcon.classList.remove("eye-icon__error");
   }
