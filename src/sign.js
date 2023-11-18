@@ -60,11 +60,11 @@ signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
   event.preventDefault();
 
-  const usersignin =
+  const userSignIn =
     emailInput.value === userID.email &&
     passwordInput.value === userID.password;
 
-  if (usersignin) {
+  if (userSignIn) {
     location.href = "/folder";
     return;
   }
