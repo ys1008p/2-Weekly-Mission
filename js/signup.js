@@ -32,9 +32,6 @@ const checkEmail = (e) => {
   } else if (!isValidEmail(value)) {
     setErrorMessage(email, emailError, '올바른 이메일 주소가 아닙니다.');
     formState.email = false;
-  } else if (isEmailExist(value)) {
-    setErrorMessage(email, emailError, '이미 사용 중인 이메일입니다.');
-    formState.email = false;
   } else {
     formState.email = true;
   }
@@ -70,16 +67,13 @@ const checkConfirm = (e) => {
 };
 
 const verifyForm = () => {
-  if (isAllObjectValueTrue(formState)) location.href = './folder.html';
+  if (!isAllObjectValueTrue(formState)) return;
+  if (isEmailExist(value)) {
+    setErrorMessage(email, emailError, '이미 사용 중인 이메일입니다.');
+    return;
+  }
 
-  if (!formState.email)
-    setErrorMessage(email, emailError, '이메일을 확인해주세요.');
-
-  if (!formState.password)
-    setErrorMessage(password, passwordError, '비밀번호를 확인해주세요.');
-
-  if (!formState.confirm)
-    setErrorMessage(confirm, confirmError, '비밀번호를 확인해주세요.');
+  location.href = './folder.html';
 };
 
 const togglePassword = (e) => {

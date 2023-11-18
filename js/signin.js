@@ -45,14 +45,10 @@ const checkPassword = (e) => {
 };
 
 const verifyForm = () => {
-  const isUserExist = isEmailExist(value) && isPasswordCorrect(value);
+  if (!isAllObjectValueTrue(formState)) return;
+  if (!isEmailExist(value) || !isPasswordCorrect(value)) return;
 
-  if (isAllObjectValueTrue(formState) && isUserExist) {
-    location.href = './folder.html';
-  } else {
-    setErrorMessage(email, emailError, '이메일을 확인해주세요.');
-    setErrorMessage(password, passwordError, '비밀번호를 확인해주세요.');
-  }
+  location.href = './folder.html';
 };
 
 const togglePassword = (e) => {
