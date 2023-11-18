@@ -2,7 +2,6 @@ import {
   isAllObjectValueTrue,
   isEmailExist,
   isEmpty,
-  isPasswordCorrect,
   isValidEmail,
 } from './modules/checkInput.js';
 import { toggleInputVisibility } from './modules/handleEvent.js';
@@ -30,7 +29,7 @@ const checkEmail = (e) => {
     setErrorMessage(email, emailError, '올바른 이메일 주소가 아닙니다.');
     formState.email = false;
   } else {
-    formState.email = isEmailExist(value);
+    formState.email = true;
   }
 };
 
@@ -41,13 +40,16 @@ const checkPassword = (e) => {
     setErrorMessage(password, passwordError, '비밀번호를 입력해주세요');
     formState.password = false;
   } else {
-    formState.password = isPasswordCorrect(value);
+    formState.password = true;
   }
 };
 
 const verifyForm = () => {
-  if (isAllObjectValueTrue(formState)) location.href = './folder.html';
-  else {
+  const isUserExist = isEmailExist(value) && isPasswordCorrect(value);
+
+  if (isAllObjectValueTrue(formState) && isUserExist) {
+    location.href = './folder.html';
+  } else {
     setErrorMessage(email, emailError, '이메일을 확인해주세요.');
     setErrorMessage(password, passwordError, '비밀번호를 확인해주세요.');
   }
