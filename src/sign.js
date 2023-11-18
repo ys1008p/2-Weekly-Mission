@@ -112,19 +112,52 @@ $inputPasswordCheck.addEventListener("focusout", function () {
 
 // 4. 회원가입 시도 시
 
-function isValidSignup() {
+// 진행: 에러메세지가 없는 경우 (내용이 모두 ""인 경우)
+// 중단: 하나라도 에러메세지가 있는 경우
+function isAllValid() {
+  return ($errorMessageEmail.innerHTML &&
+    $errorMessagePassword.innerHTML &&
+    $errorMessagePasswordCheck.innerHTML) === ""
+    ? true
+    : false;
+}
+
+// 모든 인풋에서 focusout 시 문제 있는 곳에 에러 메세지
+function showErrorMessage() {
+  addErrorMessageEmail();
+  addErrorMessagePassword();
+  addErrorMessagePasswordCheck();
+}
+
+const $inputs = document.querySelectorAll(".input input");
+$inputs.forEach((input) =>
+  input.addEventListener("focusout", showErrorMessage)
+);
+
+// 회원가입 버튼 누르면 진행
+const $signupButton = document.querySelector(".cta"); // 회원가입, 로그인 버튼
+
+function moveIfValid() {
   // true: 진행시켜 false: 멈춰!
+  // 사용자가 아무것도 입력하지 않은 경우
   if (
-    // 사용자가 아무것도 입력하지 않은 경우
     !($inputEmail.value && $inputPassword.value && $inputPasswordCheck.value)
   ) {
     return false;
-  } else {
-    // 진행: 에러메세지가 없는 경우 (내용이 모두 ""인 경우) / 중단: 하나라도 에러메세지가 있는 경우
-    return ($errorMessageEmail.innerHTML &&
-      $errorMessagePassword.innerHTML &&
-      $errorMessagePasswordCheck.innerHTML) === ""
-      ? true
-      : false;
+  } else if (!isAllValid()) {
+    //문제 있는 곳에 에러 메세지
+    showErrorMessage();
+    return false;
+  } else if (isAllValid()) {
+    $signupButton.href = "./folder.html"; //folder로 이동
+    return true;
   }
 }
+
+$inputPasswordCheck.addEventListener("focusout", function () {
+  addErrorMessagePasswordCheck();
+});
+
+$signupButton.addEventListener("click", function () {
+  moveIfValid();
+}); // 클릭 시 이동
