@@ -14,8 +14,8 @@ export {
   enterPasswordMessage,
   enterPasswordCheckMessage,
   changePasswordVision,
+  isValidAccess,
   emailValid,
   passwordValid,
   checkValid,
-  isValidAccess,
 };

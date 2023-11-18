@@ -27,11 +27,11 @@ submitFormatBtn.addEventListener("click", async (e) => {
     email: emailValue,
     password: passwordValue,
   };
-  const local = "sign-in";
+  const requestLocal = "sign-in";
 
   e.preventDefault();
 
-  const responseStatus = await isValidAccess(tryConnectUser, local);
+  const responseStatus = await isValidAccess(tryConnectUser, requestLocal);
 
   if (responseStatus === 200) {
     window.open("/folder", "_self");

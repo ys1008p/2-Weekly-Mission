@@ -41,7 +41,7 @@ submitFormatBtn.addEventListener("click", async (e) => {
     email: emailValue,
     password: passwordValue,
   };
-  const local = "sign-up";
+  const requestLocal = "sign-up";
 
   e.preventDefault();
 
@@ -50,9 +50,7 @@ submitFormatBtn.addEventListener("click", async (e) => {
   enterPasswordCheckMessage(inputPasswordCheck, inputPassword);
 
   if (emailValid && passwordValid && checkValid) {
-    const responseStatus = await isValidAccess(tryConnectUser, local);
-    if (responseStatus === 200) {
-      window.open("/folder", "_self");
-    }
+    const responseStatus = await isValidAccess(tryConnectUser, requestLocal);
+    if (responseStatus === 200) window.open("/folder", "_self");
   }
 });
