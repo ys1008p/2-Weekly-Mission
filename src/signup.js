@@ -5,6 +5,9 @@ import {
   isPasswordValid,
   togglePassword,
   TEST_USER,
+  Manyemail,
+  signUp,
+  // singUpRegister,
 } from "./utils.js";
 
 const emailInput = document.querySelector("#email");
@@ -96,3 +99,30 @@ function submitForm(event) {
     location.href = "/folder";
   }
 }
+
+const user_email_check = async function() {
+  const gyeom = {email: emailInput.value};
+ const pill = await Manyemail(gyeom);
+ if(pill === 409) {
+   "이미 사용 중인 이메일입니다."
+   return false;
+   //멘토님 여기입니다!
+} else if (pill >= 200 && pill < 300){ 
+  return true
+}
+}
+// 여기 잘 모르겠습니다...
+signForm.addEventListener("submit", user_email_check);
+
+const user_email_password_check = async function() {
+  const isEmailInputValid = validateEmailInput(emailInput.value);
+  const isPasswordInputValid = validatePasswordInput(passwordInput.value);
+  const isConfirmPasswordInputValid = validateConfirmPasswordInput(confirmPasswordInput.value);
+  const pill = await signUp()
+if(isEmailInputValid && isPasswordInputValid && isConfirmPasswordInputValid ) {
+  window.location.href = '/folder.html';
+  return true;
+}
+}
+
+signForm.addEventListener("submit", user_email_password_check);

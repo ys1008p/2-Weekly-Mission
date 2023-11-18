@@ -4,6 +4,7 @@ import {
   isEmailValid,
   togglePassword,
   TEST_USER,
+  signApi,
 } from "./utils.js";
 
 const emailInput = document.querySelector("#email");
@@ -61,3 +62,19 @@ function submitForm(event) {
     "비밀번호를 확인해주세요."
   );
 }
+
+  const userlogIn = async function() {
+    const user_email_password =  {
+      email: emailInput.value,
+      password: passwordInput.value };
+   const pill = await signApi(user_email_password)
+   console.log(pill);
+  if (pill) {
+      window.location.href = '/folder.html';
+  }
+}
+signForm.addEventListener("submit", userlogIn);
+
+// 테스트 이메일
+//   email: "test@codeit.com",
+//   password: "sprint101" };

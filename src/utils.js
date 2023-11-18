@@ -38,3 +38,52 @@ export const TEST_USER = {
   email: "test@codeit.com",
   password: "codeit101",
 };
+
+  // --로그인POST요청----
+export async function signApi(auth) { 
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+  method: "POST", 
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(auth),
+});
+return response.ok;
+ } catch (error) {
+  console.error(error);
+ }
+};
+
+ // 중복된 이메일 체크 
+ export async function Manyemail(email) {
+  try {
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(email),
+  });
+  return response.status;
+   
+} catch (error) {
+  console.error(error.message)
+}
+ }
+
+// 회원가입 정보 일치하면 로그인되게끔
+export const signUp = async function() {
+  try {
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(),
+  });
+  return response.ok
+} catch(error) {
+  console.error(error)
+}
+}
