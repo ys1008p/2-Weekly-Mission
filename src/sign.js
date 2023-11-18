@@ -114,7 +114,7 @@ $inputPasswordCheck.addEventListener("focusout", function () {
 
 // 진행: 에러메세지가 없는 경우 (내용이 모두 ""인 경우)
 // 중단: 하나라도 에러메세지가 있는 경우
-function isAllValid() {
+function isAllValidSignUp() {
   return ($errorMessageEmail.innerHTML &&
     $errorMessagePassword.innerHTML &&
     $errorMessagePasswordCheck.innerHTML) === ""
@@ -123,7 +123,7 @@ function isAllValid() {
 }
 
 // 모든 인풋에서 focusout 시 문제 있는 곳에 에러 메세지
-function showErrorMessage() {
+function showErrorMessageSignUp() {
   addErrorMessageEmail();
   addErrorMessagePassword();
   addErrorMessagePasswordCheck();
@@ -131,25 +131,25 @@ function showErrorMessage() {
 
 const $inputs = document.querySelectorAll(".input input");
 $inputs.forEach((input) =>
-  input.addEventListener("focusout", showErrorMessage)
+  input.addEventListener("focusout", showErrorMessageSignUp)
 );
 
 // 회원가입 버튼 누르면 진행
-const $signupButton = document.querySelector(".cta"); // 회원가입, 로그인 버튼
+const $signButton = document.querySelector(".cta"); // 회원가입, 로그인 버튼
 
-function moveIfValid() {
+function moveIfValidSignUp() {
   // true: 진행시켜 false: 멈춰!
   // 사용자가 아무것도 입력하지 않은 경우
   if (
     !($inputEmail.value && $inputPassword.value && $inputPasswordCheck.value)
   ) {
     return false;
-  } else if (!isAllValid()) {
+  } else if (!isAllValidSignUp()) {
     //문제 있는 곳에 에러 메세지
-    showErrorMessage();
+    showErrorMessageSignUp();
     return false;
-  } else if (isAllValid()) {
-    $signupButton.href = "./folder.html"; //folder로 이동
+  } else if (isAllValidSignUp()) {
+    $signButton.href = "./folder.html"; //folder로 이동
     return true;
   }
 }
@@ -158,6 +158,65 @@ $inputPasswordCheck.addEventListener("focusout", function () {
   addErrorMessagePasswordCheck();
 });
 
-$signupButton.addEventListener("click", function () {
-  moveIfValid();
+$signButton.addEventListener("click", function () {
+  moveIfValidSignUp();
+}); // 클릭 시 이동
+
+// 4. 로그인 시도 시
+
+// 진행: 이메일: test@codeit.com, 비밀번호: codeit101 으로 로그인 시도경우
+// 중단: 일치하지 않는 경우
+function isAllValidSignIn() {
+  return $inputEmail.value === "test@codeit.com" &&
+    $inputPassword === "codeit101"
+    ? true
+    : false;
+}
+
+function showErrorMessageSignIn() {
+  // “이메일을 확인해주세요.”, “비밀번호를 확인해주세요.”
+  const userEmailValue = $inputEmail.value;
+  const userPasswordValue = $inputPassword.value;
+
+  //이메일 확인
+  if (userEmailValue !== "test@codeit.com") {
+    // 1) test@codeit.com이 아닐 때
+    addRedBorder($inputEmail);
+    $errorMessageEmail.textContent = "이메일을 확인해주세요.";
+  } else {
+    // 2) 정상
+    removeRedBorder($inputEmail);
+    $errorMessageEmail.textContent = "";
+  }
+
+  // 비밀번호 확인
+  if (userPasswordValue !== "codeit101") {
+    // 1) codeit101이 아닐 때
+    addRedBorder($inputPassword);
+    $errorMessagePassword.textContent = "비밀번호를 확인해주세요.";
+  } else {
+    // 2) 정상
+    removeRedBorder($inputPassword);
+    $errorMessagePassword.textContent = "";
+  }
+}
+
+function moveIfValidSignIn() {
+  // true: 진행시켜 false: 멈춰!
+  if (!isAllValidSignIn()) {
+    //문제 있는 곳에 에러 메세지
+    showErrorMessageSignIn();
+    return false;
+  } else if (isAllValidSignIn()) {
+    $signButton.href = "./folder.html"; //folder로 이동
+    return true;
+  }
+}
+
+$inputPasswordCheck.addEventListener("focusout", function () {
+  addErrorMessagePasswordCheck();
+});
+
+$signButton.addEventListener("click", function () {
+  moveIfValidSignIn();
 }); // 클릭 시 이동
