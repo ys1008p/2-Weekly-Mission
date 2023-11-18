@@ -11,7 +11,7 @@ const domElements = {
   signPwText: document.getElementById("signPwText"),
 
   // 비밀번호 toggle
-  pwToggle: document.querySelectorAll(".password-toggled"),
+  pwToggle: document.getElementById("password-toggled"),
 
   // button from
   signBtn: document.getElementById("signBtn"),
@@ -20,35 +20,43 @@ const domElements = {
 /**
  * input focusout일때 관련 class를 추가하는 함수
  */
-function inputClassAdd(inputId, textId, text) {
+function inputFocusOutClassAdd(inputId, textId, text) {
   inputId.classList.add("input-validation-fail");
   textId.textContent = text;
   textId.classList.add("font14-we4", "section__input-check-text");
+  return false;
 }
 
 /**
  * input focusout일때 관련 class를 제거하는 함수
  */
-function inputClassRemove(inputId, textId, text) {
+function inputFocusOutClassRemove(inputId, textId, text) {
   inputId.classList.remove("input-validation-fail");
   textId.textContent = text;
   textId.classList.remove("font14-we4", "section__input-check-text");
+  return true;
 }
 
 /**
  * toggle 버튼 클릭
  *
  */
-let isToggled = false;
-function pwToggleClick({ target }) {
-  isToggled = !isToggled;
+function pwToggleClick(input, toggledBtn) {
+  const toggleImg = toggledBtn.getElementsByTagName("img")[0];
+  const eyeOnPath = "/images/eye-on.svg";
+  const eyeOffPath = "/images/eye-off.svg";
 
-  if (isToggled) {
-    target.src = "/images/eye-on.svg";
-    target.parentElement.previousSibling.previousSibling.type = "text";
+  if (input.getAttribute("type") === "password") {
+    input.setAttribute("type", "text");
+    toggleImg.setAttribute("src", eyeOnPath);
   } else {
-    target.src = "/images/eye-off.svg";
-    target.parentElement.previousSibling.previousSibling.type = "password";
+    input.setAttribute("type", "password");
+    toggleImg.setAttribute("src", eyeOffPath);
   }
 }
-export { domElements, inputClassAdd, inputClassRemove, pwToggleClick };
+export {
+  domElements,
+  inputFocusOutClassAdd,
+  inputFocusOutClassRemove,
+  pwToggleClick,
+};

@@ -11,6 +11,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
   </head>
+  <script type="module" src="./src/js/signup.js"></script>
   <body>
     <header>
       <a class="header__logo-link" href="./index.html"
@@ -36,7 +37,7 @@
           <label for="sign-pw">비밀번호</label>
           <div class="section__input">
             <input type="password" id="signPw" />
-            <button class="password-toggled">
+            <button id="password-toggled" class="password-toggled-btn">
               <img src="images/eye-off.svg" alt="password-toggled" />
             </button>
           </div>
@@ -46,7 +47,7 @@
           <label for="sign-pwCheck">비밀번호 확인</label>
           <div class="section__input">
             <input type="password" id="sign-pwCheck" />
-            <button class="password-toggled">
+            <button id="password-check-toggled" class="password-toggled-btn">
               <img src="images/eye-off.svg" alt="password-toggled" />
             </button>
           </div>
@@ -82,5 +83,4 @@
       </div>
     </section>
   </body>
-  <script type="module" src="./src/js/signup.js"></script>
 </html>
