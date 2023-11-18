@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linkbrary-Signup</title>
+  <title>Linkbrary-Signin</title>
   <link rel="stylesheet" href="both.css">
 </head>
 
@@ -13,40 +13,36 @@
     <main>
       <div class="head">
         <a href="../index.html"><img src="../img/big_logo.svg"/></a>
-        <div class="if_not">이미 회원이신가요? <a href="signin.html">로그인 하기</a></div>
+        <div class="if_not">회원이 아니신가요? <a href="signup.html">회원 가입하기</a></div>
       </div>
-      <form action="">
+      <form id="signupForm" action="">
         <div class="id inputbox">
           <label for="email">이메일</label>
-          <input id="email" type="email" placeholder="codeit@codeit.com">
+          <input id="email" class="errorInput" type="email" placeholder="codeit@codeit.com" name="email">
         </div>
         <div class="pw inputbox">
           <label for="password">비밀번호</label>
-          <input id="password" type="password" placeholder="linkbrary2023">
-          <img src="../img/eye-on.svg"/>
+          <input id="password" class="errorInput" type="password" name="password" placeholder="&#149&#149&#149&#149&#149&#149&#149&#149">
+          <img id="togglePwd" src="../img/eye-off.svg"/>
         </div>
-        <div class="pw inputbox">
-          <label for="password">비밀번호 확인</label>
-          <input id="password" type="password" placeholder="linkbrary2023">
-          <img src="../img/eye-on.svg"/>
-        </div>
+        <button id="loginButton" class="button" type="submit">로그인</button>
       </form>
-      <a href="#" class="button">회원가입</a>
     </main>
     <div class="foot">
-      <div class="foot_text">다른 방식으로 가입하기</div>
+      <div class="foot_text">소셜 로그인</div>
       <div class="icon_box">
         <a href="https://www.google.com" target="_blank">
-          <img class="bg" src="../img/google_bg.svg">
+          <img class="bg" src="../img/google_bg.svg"/>
           <img class="icon" src="../img/google.png"/>
         </a>
         <a href="https://www.kakaocorp.com/page" target="_blank">
           <img class="bg" src="../img/katalk_bg.svg"/>
-          <img class="icon" src="../img/katalk.svg" />
+          <img class="icon" src="../img/katalk.svg"/>
         </a>
       </div>
     </div>
   </div>
+  <script src="signin.js"></script>
 </body>
 
 </html>
