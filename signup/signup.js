@@ -10,24 +10,34 @@ import {
   enterPasswordMessage,
   enterPasswordCheckMessage,
   changePasswordVision,
+  isValidAccess,
   emailValid,
   passwordValid,
   checkValid,
-  isValidAccess,
 } from "./signup_functions.js";
 
+// 로컬 스토리지에 accessToken이 있는 경우 “/folder” 페이지로 이동
 const accessToken = localStorage.getItem("accessToken");
 if (accessToken) window.open("/folder", "_self");
 
-inputEmail.addEventListener("focusout", enterEmailMessage);
-inputPassword.addEventListener("focusout", enterPasswordMessage);
-inputPasswordCheck.addEventListener("input", enterPasswordCheckMessage);
-eyeBtn.forEach((el) => el.addEventListener("click", changePasswordVision));
+// 포커스아웃, 인풋, 클릭 시 이벤트 핸들링
+inputEmail.addEventListener("focusout", ({ target }) =>
+  enterEmailMessage(target),
+);
+inputPassword.addEventListener("focusout", ({ target }) =>
+  enterPasswordMessage(target),
+);
+inputPasswordCheck.addEventListener("input", ({ target }) =>
+  enterPasswordCheckMessage(target, inputPassword),
+);
+eyeBtn.forEach((el) =>
+  el.addEventListener("click", ({ target }) => changePasswordVision(target)),
+);
 
 submitFormatBtn.addEventListener("click", async (e) => {
   const emailValue = inputEmail.value;
   const passwordValue = inputPassword.value;
-  const tryAccessUser = {
+  const tryConnectUser = {
     email: emailValue,
     password: passwordValue,
   };
@@ -35,12 +45,12 @@ submitFormatBtn.addEventListener("click", async (e) => {
 
   e.preventDefault();
 
-  enterEmailMessage();
-  enterPasswordMessage();
-  enterPasswordCheckMessage();
+  enterEmailMessage(inputEmail);
+  enterPasswordMessage(inputPassword);
+  enterPasswordCheckMessage(inputPasswordCheck, inputPassword);
 
   if (emailValid && passwordValid && checkValid) {
-    const responseStatus = await isValidAccess(tryAccessUser, local);
+    const responseStatus = await isValidAccess(tryConnectUser, local);
     if (responseStatus === 200) {
       window.open("/folder", "_self");
     }

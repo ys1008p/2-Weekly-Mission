@@ -1,21 +1,17 @@
-import { inputPassword, inputPasswordCheck } from "../tags.js";
+import { errorMessages } from "../tags.js";
 import { removeRedMessage, createRedMessage } from "./common.js";
 
 let checkValid = false;
 
-function printDiff() {
-  createRedMessage(inputPasswordCheck, "비밀번호가 일치하지 않아요.");
-}
-
 // 비밀번호 확인 유효성을 검증하는 함수
-function enterPasswordCheckMessage() {
+function enterPasswordCheckMessage(input, inputPassword) {
   const passwordValue = inputPassword.value;
-  const passwordCheckValue = inputPasswordCheck.value;
+  const passwordCheckValue = input.value;
 
-  removeRedMessage(inputPasswordCheck);
+  removeRedMessage(input);
 
   if (passwordValue !== passwordCheckValue) {
-    printDiff();
+    createRedMessage(input, errorMessages.diffWithPassword);
   } else {
     checkValid = true;
   }

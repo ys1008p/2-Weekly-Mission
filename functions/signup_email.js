@@ -1,42 +1,30 @@
-import { inputEmail } from "../tags.js";
+import { errorMessages } from "../tags.js";
 import { removeRedMessage, createRedMessage, isValidAccess } from "./common.js";
 
 let emailValid = false;
 
-function printEmpty() {
-  createRedMessage(inputEmail, "이메일을 입력해주세요.");
-}
-
-function printTaken() {
-  createRedMessage(inputEmail, "이미 사용 중인 이메일입니다.");
-}
-
-function printWrong() {
-  createRedMessage(inputEmail, "올바른 이메일 주소가 아닙니다.");
-}
-
 // 이메일 유효성을 검증하는 함수
-async function enterEmailMessage() {
+async function enterEmailMessage(input) {
   const emailFormat =
     /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[a-zA-Z_-]+){1,2}$/;
-  const emailValue = inputEmail.value;
+  const emailValue = input.value;
   const tryAccessUser = {
     email: emailValue,
   };
   const local = "check-email";
 
-  removeRedMessage(inputEmail);
+  removeRedMessage(input);
 
   if (!emailValue) {
-    printEmpty();
+    createRedMessage(input, errorMessages.enterEmail);
   } else if (!emailFormat.test(emailValue)) {
-    printWrong();
+    createRedMessage(input, errorMessages.checkFormEmail);
   }
 
   const responseStatus = await isValidAccess(tryAccessUser, local);
 
   if (responseStatus === 409) {
-    printTaken();
+    createRedMessage(input, errorMessages.takenEmail);
   } else if (responseStatus === 200) {
     emailValid = true;
   }

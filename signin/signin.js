@@ -5,21 +5,25 @@ import {
   isValidAccess,
 } from "./signin_functions.js";
 
+// 로컬 스토리지에 accessToken이 있는 경우 “/folder” 페이지로 이동
 const accessToken = localStorage.getItem("accessToken");
 if (accessToken) window.open("/folder", "_self");
 
+// 포커스아웃, 클릭 시 이벤트 핸들링
 inputEmail.addEventListener("focusout", ({ target, type }) =>
   enterMessage(target, type),
 );
 inputPassword.addEventListener("focusout", ({ target, type }) =>
   enterMessage(target, type),
 );
-eyeBtn[0].addEventListener("click", changePasswordVision);
+eyeBtn[0].addEventListener("click", ({ target }) =>
+  changePasswordVision(target),
+);
 
 submitFormatBtn.addEventListener("click", async (e) => {
   const emailValue = inputEmail.value;
   const passwordValue = inputPassword.value;
-  const tryAccessUser = {
+  const tryConnectUser = {
     email: emailValue,
     password: passwordValue,
   };
@@ -27,7 +31,7 @@ submitFormatBtn.addEventListener("click", async (e) => {
 
   e.preventDefault();
 
-  const responseStatus = await isValidAccess(tryAccessUser, local);
+  const responseStatus = await isValidAccess(tryConnectUser, local);
 
   if (responseStatus === 200) {
     window.open("/folder", "_self");
