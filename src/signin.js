@@ -6,22 +6,24 @@ import {
   FOLDER_PATH,
 } from './constants/auth.js'
 
-import { redirectToPage, handlePasswordShowMode } from './utils/auth/common.js'
+import {
+  autoRedirectToPage,
+  handlePasswordShowMode,
+} from './utils/auth/common.js'
 
 import {
   handleEmailFocusOut,
   handlePasswordFocusOut,
 } from './utils/auth/validation.js'
 
-import { TOKEN } from './utils/auth/axiosInstance.js'
-
 import { handleSignin } from './utils/auth/api.js'
 
-if (TOKEN) redirectToPage(FOLDER_PATH)
+autoRedirectToPage()
 
-const handleSubmit = async (e) => {
+const handleSubmit = (e) => {
   e.preventDefault()
-  await handleSignin(emailInput.value, passwordInput.value)
+
+  handleSignin(emailInput.value, passwordInput.value)
 }
 
 emailInput.addEventListener('focusout', handleEmailFocusOut)

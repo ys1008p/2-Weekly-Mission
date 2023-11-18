@@ -36,7 +36,7 @@ function handleConflictEmailError() {
 
 // [API]에러 처리
 function handleAuthenticationError(e) {
-  console.error(`에러 발생: ${e.response.status} - ${e.message}`)
+  console.error(`에러 발생: ${e.message}`)
 }
 
 export {
