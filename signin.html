@@ -2,21 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <link rel="stylesheet" href="styles/signin_signup_style.css" />
+    <link rel="stylesheet" href="styles/signin_signup.css" />
   </head>
   <body>
-    <main class="container">
+    <header class="container">
       <a href="index.html" class="logo">
         <img src="./images/logo.svg"  class="logo-image" alt="홈으로 연결된 Linkbrary 로고" />
       </a>
       <div class="how-are-you"><sapn class="not-member">회원이 아니신가요? </sapn><a href="signup.html" class="signup">회원가입하기</a></div>
+    </header>
+    <main>
       <form>
         <label for="email">이메일</label>
         <input id="email" name="email" type="email">
-        <label for="password">비밀번호<img src="./images/eye-off.svg" class="eye-off"alt="비밀번호 보기"></label>
+        <div class="error-message" id="error-message"></div>
+        <div class="password-form">
+        <label for="password">비밀번호</label>
         <input id="password" name="password" type="password">
-        <button>로그인</button>
+        <div class="error-message" id="password-error-message"></div>
+        <button class="eye-off"></button>
+        <button class="eye-on"></button>
+        </div>
+        <button class="login">로그인</button>
       </form>
       <div class="social">
         <div>소셜 로그인</div>
@@ -26,5 +35,8 @@
         </div>
       </div>
    </main>
+   <script src="/js/signin_email.js"></script>
+   <script src="/js/password.js"></script>
+   <script src="/js/login.js"></script>
   </body>
 </html>
