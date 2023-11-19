@@ -9,7 +9,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
     <link rel="stylesheet" href="./src/reset.css" />
-    <link rel="stylesheet" href="./src/sign-in-up-layout.css" />
+    <link rel="stylesheet" href="./src/sign.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
@@ -31,18 +31,22 @@
         <div class="label-textfield">
           <label class="label">이메일
             <input
+            id="email-input"
               type="email"
-              name="useremail"
+              name="user-email"
               placeholder="codeit@codeit.com"
               required
             />
+            <p id="email-error"  class="sign-error-hidden"></p>
           </label>
-          <label class="label">
-            비밀번호
+          <label class="label">비밀번호
             <div class="input-wrapper">
-            <input type="password" name="password" placeholder="" required />
-            <img class="eye" src ="./images/eye-off.svg" alt = "password eye"/>
+            <input id="password-input" type="password" name="password" placeholder="" required />
+            <button class="eye-button" type="button">
+            <img src="./images/eye-off.svg" alt="password toggle button">
+          </button>
           </div>
+          <p id="password-error" class="sign-error-hidden"></p>
           </label>
         </div>
         <button class="button" type="submit"><span>로그인</button>
@@ -51,19 +55,14 @@
         <span>소셜 로그인</span>
         <div class="social">
           <a href="https://www.google.com/">
-            <img
-              src="./images/google.svg"
-              alt="google 홈페이지로 연결된 google 로고"
-            />
+            <img src="./images/google.svg" alt="google 홈페이지로 연결된 google 로고" />
           </a>
           <a href="https://www.kakaocorp.com/page/">
-            <img
-              src="./images/kakaotalk.svg"
-              alt="kakao 홈페이지로 연결된 kakaotalk 로고"
-            />
+            <img src="./images/kakaotalk.svg" alt="kakao 홈페이지로 연결된 kakaotalk 로고" />
           </a>
         </div>
       </section>
     </div>
+    <script type="module" src="./src/sign-in.js"></script>
   </body>
 </html>
