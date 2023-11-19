@@ -135,10 +135,6 @@
   display: block;
 }
 
-.check-on,
-.on-img {
-  display: none;
-}
 
 .cta {
   display: flex;

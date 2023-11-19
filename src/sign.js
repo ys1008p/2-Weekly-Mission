@@ -3,6 +3,7 @@ import {
   removeInputError,
   isEmailValid,
   isPasswordValid,
+  togglePassword,
   userID,
 } from "./shared.js";
 
@@ -55,6 +56,11 @@ function validatePasswordInput(password) {
   });
 }
 
+const passwordToggleButton = document.querySelector("#eye-btn");
+passwordToggleButton.addEventListener("click", () =>
+  togglePassword(passwordInput, passwordToggleButton)
+);
+
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
@@ -78,38 +84,4 @@ function submitForm(event) {
   );
 }
 
-const eyeBtn = document.getElementById("eye-btn");
-const pwInput = document.getElementById("pwd");
 
-const eyeBtnCheck = document.getElementById("eye-btn-check");
-const pwCheckInput = document.getElementById("pwd-check");
-
-const eyeOff = document.querySelector(".off-img");
-const eyeOn = document.querySelector(".on-img");
-
-const eyeCheckOn = document.querySelector(".check-on");
-const eyeCheckOff = document.querySelector(".check-off");
-
-eyeBtn.addEventListener("click", () => {
-  if (pwInput.type === "password") {
-    pwInput.type = "text";
-    eyeOn.style.display = "block";
-    eyeOff.style.display = "none";
-  } else {
-    pwInput.type = "password";
-    eyeOff.style.display = "block";
-    eyeOn.style.display = "none";
-  }
-});
-
-eyeBtnCheck.addEventListener("click", () => {
-  if (pwCheckInput.type === "password") {
-    pwCheckInput.type = "text";
-    eyeCheckOn.style.display = "block";
-    eyeCheckOff.style.display = "none";
-  } else {
-    pwCheckInput.type = "password";
-    eyeCheckOff.style.display = "block";
-    eyeCheckOn.style.display = "none";
-  }
-});
