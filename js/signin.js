@@ -1,4 +1,4 @@
-import { validObject } from "./validFunction.js";
+import { validObject } from "./signinValid.js";
 
 export const formState = {
   email: {
@@ -51,19 +51,29 @@ export const formState = {
           {
             method: "POST",
             body: JSON.stringify(loginMember),
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
         );
+        console.log(response);
         const result = await response.json();
-        if (result.error.status == 400) {
-          formState.email.emailInput.classList.add("error");
-          emailErrorText.classList.add("error");
-          emailErrorText.innerHTML = errorMsg[0];
-          formState.pw.pwInput.classList.add("error");
-          pwErrorText.classList.add("error");
-          pwErrorText.innerHTML = errorMsg[1];
-          console.log("400");
-        } else {
-          localStorage.setItem(result.data.accessToken);
+        console.log(result);
+        if (response.status == 400) {
+          validObject.ifError(
+            e,
+            emailErrorText,
+            errorMsg[0],
+            formState.email.emailInput
+          );
+          validObject.ifError(
+            e,
+            pwErrorText,
+            errorMsg[1],
+            formState.pw.pwInput
+          );
+        } else if (response.status == 200) {
+          localStorage.setItem("signinToken", result.data.accessToken);
           location.href = "./folder";
         }
       } catch (e) {

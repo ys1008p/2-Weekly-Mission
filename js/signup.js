@@ -1,4 +1,4 @@
-import { validObject } from "./validFunction.js";
+import { validObject } from "./signupValid.js";
 
 export const formState = {
   email: {
