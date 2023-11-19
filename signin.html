@@ -7,8 +7,9 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
-    <link rel="stylesheet" href="./src/reset.css" />
-    <link rel="stylesheet" href="./src/SignStyle.css" />
+    <link rel="stylesheet" href="./src/CSS/reset.css" />
+    <link rel="stylesheet" href="./src/CSS/SignStyle.css" />
+    <script type="module" src="./src/JS/signin.js"></script>
     <title>로그인</title>
   </head>
   <body class="sign_body">
@@ -27,14 +28,18 @@
             <div class="input_section"> 
               <label for="email">이메일</label>
               <input id="email" name="email" type="email">
+              <p id="emailError"></p>
             </div>
             <div class="input_section">
               <label for="password">비밀번호</label>
               <input id="password" name="password" type="password">
-              <img class="eye" src="./images/eye-on.png">
+              <div class="eye-button" type="button">
+                <img src="./images/eye-on.png">
+              </div>
+              <p id="passwordError"></p>
             </div>
           </div>  
-          <button id="btn" type="button">로그인</button>
+          <button id="signButton" type="submit">로그인</button>
       </div>
       <div class="social_login_button">
         <p>소셜 로그인</p>
@@ -48,6 +53,5 @@
         </div>          
       </div>
     </form>
-    <script type="module" src="./src/signin.js"></script>
   </body>
 </html>
