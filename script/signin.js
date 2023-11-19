@@ -1,8 +1,14 @@
 import { inputEmail, inputPassword, eyeIcon, form } from "./tags.js";
 import { createTag, removeTag, checkEmail } from "./function.js";
-import userData from "./emailData.js";
 let emailEnable = false; //이메일 사용 가능 여부
 let passwordEnable = false; //패스워드 사용 가능 여부
+window.addEventListener("DOMContentLoaded", () => {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder";
+    // localStorage.removeItem("accessToken");
+  }
+});
 function emailCheck(e) {
   //이메일 확인 함수
   if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
@@ -12,7 +18,20 @@ function emailCheck(e) {
     } else if (!checkEmail(input.value)) {
       createTag(input, "올바른 이메일이 아닙니다.");
     } else {
-      emailEnable = true;
+      fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: input.value }),
+      }).then((response) => {
+        if (response.status === 409) {
+          emailEnable = true;
+          return;
+        } else {
+          createTag(input, "존재하지 않는 이메일 입니다.");
+        }
+      });
     }
   }
 }
@@ -36,17 +55,43 @@ function passwordCheck(e) {
 }
 function login(e) {
   //로그인 가능 여부 확인 판단 후 form 제출 조건에 부합되지 않으면 e정지!
-  const user = userData.find((el) => el.email === inputEmail.value);
-  if (emailEnable && passwordEnable) {
-    if (user === undefined) {
-      createTag(inputEmail, "존재하지 않는 이메일 입니다.");
-      e.preventDefault();
-    } else if (user.password !== inputPassword.value) {
-      createTag(inputPassword, "비밀번호가 틀렸습니다.");
-      e.preventDefault();
-    }
-  } else {
+  e.preventDefault();
+  if (!(emailEnable && passwordEnable)) {
     e.preventDefault();
+    console.log(emailEnable);
+    console.log(passwordEnable);
+    return;
+  } else {
+    const email = inputEmail.value;
+    const password = inputPassword.value;
+    fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          createTag(input, "이메일 및 비밀번호를 확인해 주세요");
+        }
+      })
+      .then((data) => {
+        const accessToken = data.accessToken;
+        const refreshToken = data.refreshToken;
+
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+        console.log(accessToken);
+        if (accessToken) {
+          window.location.href = "/folder";
+        }
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
   }
 }
 

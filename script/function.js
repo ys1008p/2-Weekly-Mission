@@ -1,5 +1,3 @@
-import userData from "./emailData.js";
-
 function createTag(target, message) {
   //태그 생성
   if (target.nextSibling) {
