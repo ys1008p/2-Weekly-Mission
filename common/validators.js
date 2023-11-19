@@ -1,5 +1,6 @@
 import { ERROR_MESSAGE, USER_EMAIL, USER_PASSWORD, isEmail, checkPassword } from './constants.js';
 import { domElements } from './domElements.js';
+import { signinApi } from './signinApi.js';
 
 export function validateEmail(e) {
   let emailValue = domElements.emailInput.value;
@@ -22,11 +23,9 @@ export function validateEmail(e) {
 export function validatePassword(e) {
   let passwordValue = domElements.passwordInput.value;
 
-  if (passwordValue != '' && checkPassword(passwordValue)) {
+  if (passwordValue != '') {
     resetErrorMessage(domElements.passwordInput, domElements.passwordWarningTag);
-  }
-
-  if (passwordValue == '') {
+  } else if (passwordValue == '') {
     printErrorMessage(domElements.passwordInput, domElements.passwordWarningTag, ERROR_MESSAGE.emptyPassword);
     return false;
   }
@@ -51,19 +50,15 @@ export function checkSamePassword(e) {
 export function performSignIn(e) {
   e.preventDefault();
 
-  if (domElements.emailInput.value != USER_EMAIL) {
+  if (domElements.emailInput.value !== USER_EMAIL) {
     printErrorMessage(domElements.emailInput, domElements.emailWarningTag, ERROR_MESSAGE.wrongEmail);
   }
 
-  if (domElements.passwordInput.value != USER_PASSWORD) {
+  if (domElements.passwordInput.value !== USER_PASSWORD) {
     printErrorMessage(domElements.passwordInput, domElements.passwordWarningTag, ERROR_MESSAGE.wrongPassword);
   }
-  if (domElements.passwordInput.value != '' && domElements.passwordInput.value == USER_PASSWORD) {
-    resetErrorMessage(domElements.passwordInput, domElements.passwordWarningTag);
-  }
-  if (domElements.emailInput.value === USER_EMAIL && domElements.passwordInput.value === USER_PASSWORD) {
-    window.location.href = '/folder.html';
-  }
+
+  signinApi(domElements.emailInput.value, domElements.passwordInput.value);
 }
 
 export function performSignUp(e) {
