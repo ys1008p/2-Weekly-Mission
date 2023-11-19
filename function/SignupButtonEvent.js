@@ -10,6 +10,28 @@ import {
   emailInputFocusoutEventSignup,
 } from "../script/function.js";
 import { emailInput, passwordInput } from "../tag.js";
+
+async function loginAfterSignup(userEmail, userPassword) {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: userEmail, password: userPassword }),
+    });
+
+    if (response.ok) {
+      return true;
+    } else {
+      console.error("로그인 실패", response.status);
+      return false;
+    }
+  } catch (err) {
+    console.error("로그인 오류", err);
+    return false;
+  }
+}
+
+
 async function signupButton(userEmail, userPassword) {
   try {
     const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
@@ -19,7 +41,11 @@ async function signupButton(userEmail, userPassword) {
     });
 
     if (response.ok) {
-      return true;
+      const userInfo = await response.json();
+      localStorage.setItem('accessToken', userInfo.accessToken);
+      const loginResult = await loginAfterSignup(userEmail, userPassword);
+      if(loginResult){return true;}
+ 
     } else {
       return false;
     }
