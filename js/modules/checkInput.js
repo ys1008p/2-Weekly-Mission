@@ -8,9 +8,5 @@ export const isValidEmail = (email) => EMAIL_REGEXP.test(email);
 
 export const isValidPassword = (password) => PASSWORD_REGEXP.test(password);
 
-export const isEmailExist = (email) => email === 'test@codeit.com';
-
-export const isPasswordCorrect = (password) => password === 'codeit101';
-
 export const isAllObjectValueTrue = (object) =>
   Object.values(object).every((value) => value);
