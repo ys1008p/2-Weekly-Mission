@@ -5,6 +5,7 @@ import { WARNING_MSGS } from "./warning-msgs.js";
 const $memberInfoForm = document.querySelector("#memberInfo-form");
 //
 
+//기존 에러메시지를 초기화 하는 함수
 const resetWarningMsg = (hasWarningMsg, warningTag, input) => {
   if (hasWarningMsg) {
     warningTag.textContent = "";
@@ -12,6 +13,7 @@ const resetWarningMsg = (hasWarningMsg, warningTag, input) => {
   }
 };
 
+//에러메시지를 설정하는 함수
 const setWarningMsg = (warningMsg, warningTag, input) => {
   if (warningMsg) {
     warningTag.textContent = warningMsg;
@@ -19,6 +21,7 @@ const setWarningMsg = (warningMsg, warningTag, input) => {
   }
 };
 
+//중복된 이메일을 확인하는 함수
 async function checkDuplicatedEmail(inputEmailEl, msgTag) {
   try {
     const response = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
@@ -34,19 +37,19 @@ async function checkDuplicatedEmail(inputEmailEl, msgTag) {
   }
 }
 
-const checkWarningMsg = (e) => {
-  // input태그 내용 검증 후 에러메시지 추가 및 inpur태그 레이아웃 변경
+// input태그 내용 검증 후 에러메시지 추가 및 inpur태그 레이아웃 변경
+const validateInputAndSetErrorMsg = (e) => {
   const $inputDataEl = e.target;
   const $warningTag = $inputDataEl.parentElement.lastElementChild;
 
-  const hasWarningMsg = $inputDataEl.parentElement.lastElementChild.textContent; // 경고메시지 존재여부 확인
+  const hasWarningMsg = $inputDataEl.parentElement.lastElementChild.textContent;
 
-  const isSignUp = $inputDataEl.parentElement.parentElement.children.length === 4; //signUp 페이지인지 확인
-  const isEmailInput = $inputDataEl.id === "email"; // email 입력창 확인
-  const isPwdCheckBox = $inputDataEl.id === "pw-check"; // pwd 비교창 확인
+  const isSignUp = $inputDataEl.parentElement.parentElement.children.length === 4;
+  const isEmailInput = $inputDataEl.id === "email";
+  const isPwdCheckBox = $inputDataEl.id === "pw-check";
 
   const pwInput = document.querySelector("#pw");
-  let warningMsg = ""; // 경고메시지 작성할 변수 선언
+  let warningMsg = "";
 
   //
 
@@ -62,4 +65,4 @@ const checkWarningMsg = (e) => {
   setWarningMsg(warningMsg, $warningTag, $inputDataEl);
 };
 
-export { $memberInfoForm, checkWarningMsg, returnCheckPwdText };
+export { $memberInfoForm, validateInputAndSetErrorMsg, returnCheckPwdText };

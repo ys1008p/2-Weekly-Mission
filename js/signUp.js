@@ -12,12 +12,13 @@ window.onload = function () {
 
 window.onload();
 
-import { $memberInfoForm, checkWarningMsg } from "./add-warning-msg.js";
+import { $memberInfoForm, validateInputAndSetErrorMsg } from "./add-warning-msg.js";
 import { changePwViewMode } from "./pwdOnOff.js";
-import { comparePw } from "./return-warning-msg.js";
+import { comparePassword } from "./return-warning-msg.js";
 
 const $pwInput = document.querySelector("#pw");
 
+//회원가입시, 서버와 통신하여 토큰을 받고 /folder로 이동하는 함수
 function sendSignUpDataToApi(inputData) {
   fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
     method: "POST",
@@ -33,12 +34,14 @@ function sendSignUpDataToApi(inputData) {
     });
 }
 
+//비밀번호의 유효성 검증하는 함수
 function validPassword(inputData) {
   const pwdReg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   return inputData.password === inputData.passwordCheck && pwdReg.test(inputData.password);
 }
 
-async function compareInputAndSignUpApi(inputData) {
+//유효성 검증 후 서버통신함수 호출
+async function signUpApi(inputData) {
   fetch("https://bootcamp-api.codeit.kr/api/check-email", {
     method: "POST",
     headers: {
@@ -53,6 +56,7 @@ async function compareInputAndSignUpApi(inputData) {
   });
 }
 
+// 입력데이터 설정 후,
 const signUp = (e) => {
   e.preventDefault();
 
@@ -66,10 +70,10 @@ const signUp = (e) => {
     passwordCheck: $inputPwdCheckData.value,
   };
 
-  compareInputAndSignUpApi(inputData);
+  signUpApi(inputData);
 };
 
-$memberInfoForm.addEventListener("focusout", checkWarningMsg);
+$memberInfoForm.addEventListener("focusout", validateInputAndSetErrorMsg);
 $memberInfoForm.addEventListener("submit", signUp);
 $memberInfoForm.addEventListener("click", changePwViewMode);
-$pwInput.addEventListener("change", comparePw);
+$pwInput.addEventListener("change", comparePassword);

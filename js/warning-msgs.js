@@ -1,3 +1,4 @@
+//에러메시지 객체
 export const WARNING_MSGS = {
   EMPTY_EMAIL_INPUT: "이메일을 입력하세요",
   NOT_CORRECT_EMAIL: "올바른 이메일 주소가 아닙니다.",

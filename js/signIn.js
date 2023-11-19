@@ -1,4 +1,4 @@
-// 페이지가 로드될 때 실행되는 함수
+// 페이지가 로드될 때 accessToken을 확인하는 함수
 window.onload = function () {
   const $main = document.querySelector("main");
   const accessToken = localStorage.getItem("accessToken");
@@ -12,9 +12,10 @@ window.onload = function () {
 
 window.onload();
 
-import { $memberInfoForm, checkWarningMsg } from "./add-warning-msg.js";
+import { $memberInfoForm, validateInputAndSetErrorMsg } from "./add-warning-msg.js";
 import { changePwViewMode } from "./pwdOnOff.js";
 
+//로그인 실패 시, 이메일, 비밀번호 에러메시지 출력하는 함수
 function setSignInInputErrorMsg(signInData) {
   const $inputEmailData = document.querySelector("#email"); // 이메일 인풋
   const $inputPwdData = document.querySelector("#pw"); // 패스워드 인풋
@@ -40,7 +41,8 @@ function setSignInInputErrorMsg(signInData) {
     });
 }
 
-function compareInputAndSignInApi(signInData) {
+//로그인 시, 아이디 검증과 응답을 받으면 로그인하는 함수
+function signInApi(signInData) {
   fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
     method: "POST",
     headers: {
@@ -59,6 +61,7 @@ function compareInputAndSignInApi(signInData) {
     .catch(() => setSignInInputErrorMsg(signInData));
 }
 
+//submit 기본동작을 막고 compareInputAndSignInApi 함수 호출
 const signIn = (e) => {
   e.preventDefault();
 
@@ -70,9 +73,9 @@ const signIn = (e) => {
     password: $inputPwdData.value,
   };
 
-  compareInputAndSignInApi(signInData);
+  signInApi(signInData);
 };
 
-$memberInfoForm.addEventListener("focusout", checkWarningMsg);
+$memberInfoForm.addEventListener("focusout", validateInputAndSetErrorMsg);
 $memberInfoForm.addEventListener("submit", signIn);
 $memberInfoForm.addEventListener("click", changePwViewMode);
