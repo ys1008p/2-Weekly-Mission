@@ -5,13 +5,17 @@ import {
   isPasswordValid,
   togglePassword,
   userID,
+  TokenStorage,
 } from "./shared.js";
+
+TokenStorage("/folder");
 
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 emailInput.addEventListener("focusout", (event) =>
   validateEmailInput(event.target.value)
 );
+
 function validateEmailInput(email) {
   if (email === "") {
     setInputError(
@@ -42,6 +46,7 @@ const passwordErrorMessage = document.querySelector("#password-error-message");
 passwordInput.addEventListener("focusout", (event) =>
   validatePasswordInput(event.target.value)
 );
+
 function validatePasswordInput(password) {
   if (password === "") {
     setInputError(
@@ -70,6 +75,7 @@ const checkPasswordErrorMessage = document.querySelector(
 checkPasswordInput.addEventListener("focusout", (event) =>
   validateCheckPasswordInput(event.target.value)
 );
+
 function validateCheckPasswordInput(checkPassword) {
   if (passwordInput.value !== checkPassword) {
     setInputError(
@@ -100,22 +106,89 @@ eyeCheckButton.addEventListener("click", () =>
 
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
-function submitForm(event) {
+
+async function submitForm(event) {
   event.preventDefault();
   const signUpSuccess =
     emailInput.value && passwordInput.value && checkPasswordInput.value;
 
   if (signUpSuccess) {
-    location.href = "/folder";
-    return;
+    const isDuplicate = await checkDuplicateEmail(emailInput.value);
+
+    if (isDuplicate) {
+      setInputError(
+        { input: emailInput, errorMessage: emailErrorMessage },
+        "이미 사용 중인 이메일입니다."
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/sign-up",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailInput.value,
+            password: passwordInput.value,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw Error();
+      }
+
+      const data = await response.json();
+      const accessToken = data?.accessToken;
+      if (!accessToken) {
+        alert("회원가입에 실패했습니다.");
+        return;
+      }
+
+      localStorage.setItem("j_1644", accessToken);
+      location.href = "/folder";
+    } catch {
+      setInputError(
+        { input: emailInput, errorMessage: emailErrorMessage },
+        "이메일 또는 비밀번호를 확인해주세요."
+      );
+      setInputError(
+        { input: passwordInput, errorMessage: passwordErrorMessage },
+        "이메일 또는 비밀번호를 확인해주세요."
+      );
+    }
+  } else {
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      "이메일을 확인해주세요."
+    );
+    setInputError(
+      { input: passwordInput, errorMessage: passwordErrorMessage },
+      "비밀번호를 확인해주세요."
+    );
   }
-  setInputError(
-    { input: emailInput, errorMessage: emailErrorMessage },
-    "이메일을 확인해주세요."
-  );
-  setInputError(
-    { input: passwordInput, errorMessage: passwordErrorMessage },
-    "비밀번호를 확인해주세요."
-  );
 }
 
+async function checkDuplicateEmail(email) {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/check-email",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    }
+  );
+
+  if (!response.ok) {
+    throw Error();
+  }
+
+  const data = await response.json();
+  return data.isDuplicate;
+}
