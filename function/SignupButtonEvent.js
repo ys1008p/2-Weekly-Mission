@@ -5,32 +5,47 @@
 3가지 경우에서 모두 true 값이 출력해야 가상으로 회원가입이 되었다고 판단 page를 넘김 
 한개라도 false 값이 있으면 동작 X, false 부분의 오류를 표시해주는 이벤트*/
 import {
-  userDuplicateCheck,
+
   passwordInputFocusoutEvent,
   passwordMatchingEvent,
-  emailInputFocusoutEvent,
-
+  emailInputFocusoutEventSignup
 } from "../script/function.js";
+import{  emailInput,passwordInput,}from "../tag.js"
+
+async function signupButton(userEmail, userPassword){
+  try{
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
+      method : 'post',
+      headers : {'Content-Type': 'apllication/json'},
+      body : {email :userEmail,password : userPassword }
+    })
+    if (response.ok) {
+      return true
+    } else {
+    return false
+    }
+  }catch(err){
+    console.log('가입 오류',err)
+  }
+}
+
 
 function buttonClickEvent(e) {
   e.preventDefault();
-  let userConfirmCheck = userDuplicateCheck();
+  let userConfirmCheck = emailInputFocusoutEventSignup();
   let passwordConfirmCheck = passwordInputFocusoutEvent();
   let passwordMachingCheck = passwordMatchingEvent();
-  console.log(userConfirmCheck);
-  console.log(passwordConfirmCheck);
-  console.log(passwordMachingCheck);
+  const userEmail = emailInput.value;
+  const userPassword = passwordInput.value;
   if (
     userConfirmCheck &&
     passwordConfirmCheck &&
     passwordMachingCheck
   ) {
-    window.location.href = "/folder/folder.html";
-  } else {
-    emailInputFocusoutEvent;
-    passwordInputFocusoutEvent;
-    userDuplicateCheck;
-
+    signupButton(userEmail,userPassword)
+    if(signupButton(userEmail,userPassword)==true){    alert(`가입을 축하합니다 ${userEmail}님`);
+    window.location.href = "/folder/folder.html";}
+    
   }
 }
 export { buttonClickEvent };

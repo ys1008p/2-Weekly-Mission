@@ -5,7 +5,7 @@ import { default as passwordInputFocusoutEvent } from "../function/PasswordCreat
 import { buttonClickEvent as signupButtonClickEvent } from "../function/SignupButtonEvent.js";
 import { eyeBool, eyeImgClickEvent } from "../function/eyeImgClickEvent.js";
 import { default as emailInputFocusoutEvent } from "../function/EmailInputFoucusoutEvent.js";
-import { userDuplicateCheck } from "../function/EmailDuplicateCheck.js";
+import { emailInputFocusoutEventSignup } from "../function/EmailDuplicateCheck.js";
 import {
   emailAddClass,
   emailRemoveClass,
@@ -13,9 +13,11 @@ import {
   passwordRemoveClass,
   passwordInputCheckAddClass,
   passwordErrorCheckRemoveClass,
+  successTextClass,
 } from "../function/AddRemoveFunction.js";
 
 export {
+  successTextClass,
   buttonClickEvent,
   passwordMatchingEvent,
   passwordFocusoutEvent,
@@ -24,11 +26,12 @@ export {
   eyeBool,
   eyeImgClickEvent,
   emailInputFocusoutEvent,
-  userDuplicateCheck,
+  emailInputFocusoutEventSignup,
   emailAddClass,
   emailRemoveClass,
   passwordAddClass,
   passwordInputCheckAddClass,
   passwordErrorCheckRemoveClass,
   passwordRemoveClass,
+
 };
