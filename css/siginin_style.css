@@ -14,7 +14,6 @@ img {
 a {
     text-decoration:none;
 }
-/* #main */
 #main {
     width:400px;
     margin:238px auto 252px;
@@ -76,27 +75,24 @@ a {
     color:#F5F5F5;
     
 }
-/* 눈아이콘 없애기 */
 input[type="password"]::-ms-reveal {
     display:none;
 }
-/* 눈아이콘 위치 시키기 */
-#join {
+.userPassEyeOffBind {
     position:relative;
 }
 .eyeOff {
     position:absolute;
-    top:150px;
+    top:50%;
+    transform:translateY(-50%);
     right:15px;
 }
-/* 에러 메시지  */
 .errorMessage.on {
     margin-top:8px;
     display:block;
     font-size:14px;
     color:#FF5B56;
 }
-/* #s3 */
 /* #s3 공통 */
 .merge {
     display:inline-block;
@@ -124,12 +120,9 @@ input[type="password"]::-ms-reveal {
 .marGin {
     margin-right:16px;
 }
-
-/* 테블릿사이즈 반응형 */
 @media (max-width:1199px) {
 
 }
-/* 모바일 반응형 */
 @media (max-width:767px) {
     #main {
         width:325px;
