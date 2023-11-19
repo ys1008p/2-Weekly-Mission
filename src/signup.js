@@ -101,8 +101,8 @@ function submitForm(event) {
 }
 
 const user_email_check = async function() {
-  const gyeom = {email: emailInput.value};
- const pill = await Manyemail(gyeom);
+  const emailValue = {email: emailInput.value};
+ const pill = await Manyemail(emailValue);
  if(pill === 409) {
    "이미 사용 중인 이메일입니다."
    return false;
@@ -118,11 +118,13 @@ const user_email_password_check = async function() {
   const isEmailInputValid = validateEmailInput(emailInput.value);
   const isPasswordInputValid = validatePasswordInput(passwordInput.value);
   const isConfirmPasswordInputValid = validateConfirmPasswordInput(confirmPasswordInput.value);
-  const pill = await signUp()
 if(isEmailInputValid && isPasswordInputValid && isConfirmPasswordInputValid ) {
+  const responseOk = await signUp()
+  if(responseOk) {
   window.location.href = '/folder.html';
   return true;
-}
+    }
+  }
 }
 
 signForm.addEventListener("submit", user_email_password_check);
