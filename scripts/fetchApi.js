@@ -2,9 +2,11 @@ const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 
 const fetchApi = {
   request: async function (url, { options = {}, headers = {} } = {}) {
+    const accessToken = localStorage.getItem("accessToken");
     const response = await fetch(`${BASE_URL}${url}`, {
       ...options,
       headers: {
+        Authorization: accessToken || "",
         ...options.headers,
         ...headers,
       },
@@ -13,19 +15,17 @@ const fetchApi = {
     const result = await response.json();
 
     if (!response.ok) {
-      console.error(
-        `${result?.error?.name || "Error"}   ${
-          result?.error?.message || `HTTP error! status: ${response.status}`
-        }`
-      );
-      return;
+      throw {
+        name: result?.error?.name || "Error",
+        message:
+          result?.error?.message || `HTTP error! status: ${response.status}`,
+      };
     }
 
     return result;
   },
 
   post: async function (url, { body, headers }) {
-    console.log(body);
     const options = {
       method: "POST",
       body: body ? JSON.stringify(body) : null,

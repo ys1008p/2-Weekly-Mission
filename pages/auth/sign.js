@@ -1,4 +1,4 @@
-import users from "/data/users.js";
+import { postCheckEmail } from "./api.js";
 import { isEmptyString } from "/scripts/utils.js";
 
 const errorMessage = {
@@ -62,14 +62,14 @@ function inputValidationSucceeded(target, eyeIcon) {
   }
 }
 
-function checkEmailValid(element, checkExist = true) {
+async function checkEmailValid(element, checkExist = true) {
   if (isEmptyString(element.value)) {
     return errorMessage.email.empty;
   }
   if (!isEmailValid(element.value)) {
     return errorMessage.email.valid;
   }
-  if (checkExist && isEmailExist(element.value)) {
+  if (checkExist && (await isEmailExist(element.value))) {
     return errorMessage.email.exist;
   }
   return "";
@@ -102,8 +102,16 @@ function isPasswordValid(password) {
   return password.trim().length >= 8 && regex.test(password);
 }
 
-function isEmailExist(email) {
-  return users.some((user) => user.email === email);
+async function isEmailExist(email) {
+  let emailExist = true;
+  try {
+    await postCheckEmail(email);
+    emailExist = false;
+  } catch (error) {
+    console.error(`${error.name}: ${error.message}`);
+  } finally {
+    return emailExist;
+  }
 }
 
 function changePasswordVisibility(passwordInput) {
@@ -118,6 +126,10 @@ function changePasswordVisibility(passwordInput) {
   };
 }
 
+function setUserAccessToken({ data }) {
+  localStorage.setItem("accessToken", data.accessToken);
+}
+
 export {
   changePasswordVisibility,
   checkEmailValid,
@@ -126,4 +138,5 @@ export {
   errorMessage,
   inputValidationFailed,
   inputValidationSucceeded,
+  setUserAccessToken,
 };

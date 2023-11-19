@@ -5,9 +5,10 @@ import {
   errorMessage,
   inputValidationFailed,
   inputValidationSucceeded,
-  isMemberExist,
+  setUserAccessToken,
 } from "../sign.js";
 
+import { postSignIn } from "../api.js";
 import { isEmptyString } from "/scripts/utils.js";
 
 /**
@@ -16,8 +17,8 @@ import { isEmptyString } from "/scripts/utils.js";
 const emailInput = document.querySelector("#input-email");
 emailInput.addEventListener("focusout", onEmailFocusoutValid);
 
-function onEmailFocusoutValid({ target }) {
-  const errorMessage = checkEmailValid(target, false);
+async function onEmailFocusoutValid({ target }) {
+  const errorMessage = await checkEmailValid(target, false);
   if (!isEmptyString(errorMessage)) {
     inputValidationFailed(target, errorMessage);
     return false;
@@ -58,40 +59,36 @@ passwordEyeIcon.addEventListener(
  */
 const form = document.querySelector(".form");
 
-form.addEventListener("submit", onSubmitValid);
+form.addEventListener("submit", onSubmit);
 
-function onSubmitValid(e) {
+async function onSubmit(e) {
   e.preventDefault();
 
-  let result =
+  const validResult =
     onEmailFocusoutValid({ target: emailInput }) &&
-    onPasswordFocusoutValid({ target: passwordInput }) &&
-    checkMemberExist();
+    onPasswordFocusoutValid({ target: passwordInput });
 
-  if (!result) {
+  if (!validResult) {
     return;
   }
 
-  location.href = "/pages/folder";
+  await doSignIn(emailInput.value, passwordInput.value);
 }
 
-function checkMemberExist() {
-  const isOurMember = isMemberExist({
-    email: emailInput.value,
-    password: passwordInput.value,
-  });
-
-  if (!isOurMember) {
-    inputValidationFailed(emailInput, errorMessage.email.loginFailed);
-    inputValidationFailed(
-      passwordInput,
-      errorMessage.password.loginFailed,
-      passwordEyeIcon
-    );
-    return false;
+async function doSignIn(email, password) {
+  try {
+    const authData = await postSignIn(email, password);
+    setUserAccessToken(authData);
+    location.href = "/pages/folder";
+  } catch (error) {
+    console.error(`${error.name}: ${error.message}`);
+    if (error.name === "AuthApiError") {
+      inputValidationFailed(emailInput, errorMessage.email.loginFailed);
+      inputValidationFailed(
+        passwordInput,
+        errorMessage.password.loginFailed,
+        passwordEyeIcon
+      );
+    }
   }
-
-  inputValidationSucceeded(emailInput);
-  inputValidationSucceeded(passwordInput, passwordEyeIcon);
-  return true;
 }

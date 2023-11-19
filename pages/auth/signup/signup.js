@@ -15,8 +15,9 @@ import { isEmptyString } from "/scripts/utils.js";
 const emailInput = document.querySelector("#input-email");
 emailInput.addEventListener("focusout", onEmailFocusoutValid);
 
-function onEmailFocusoutValid({ target }) {
-  const errorMessage = checkEmailValid(target);
+async function onEmailFocusoutValid({ target }) {
+  const errorMessage = await checkEmailValid(target);
+  console.log(errorMessage);
   if (!isEmptyString(errorMessage)) {
     inputValidationFailed(target, errorMessage);
     return false;
