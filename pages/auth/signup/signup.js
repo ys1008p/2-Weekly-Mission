@@ -11,6 +11,10 @@ import {
 import { postSignUp } from "../api.js";
 import { isEmptyString } from "/scripts/utils.js";
 
+if (localStorage.getItem("accessToken")) {
+  location.replace("/pages/folder/");
+}
+
 /**
  * email input
  */
