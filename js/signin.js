@@ -79,14 +79,9 @@ const handleSubmitForm = (e) => {
   verifyForm();
 };
 
-const getUserToken = () => {
-  if (!localStorage.getItem('token')) return;
-  location.href = './folder.html';
-};
-
 email.addEventListener('change', checkEmail);
 password.addEventListener('change', checkPassword);
 signinFrom.addEventListener('submit', handleSubmitForm);
 eye.addEventListener('click', togglePassword);
 
-getUserToken();
+if (localStorage.getItem('token')) location.href = './folder.html';
