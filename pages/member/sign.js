@@ -18,12 +18,15 @@ const errorMessage = {
   },
 };
 
-function handleErrorMessage(target, errorMessage = "") {
+function getInputsErrMsgEl(target) {
   const parent = target.parentElement;
-  let errorMessageSpan = parent.querySelector(".input-error__message");
+  return parent.querySelector(".input-error__message");
+}
 
-  if (!errorMessage) {
-    errorMessageSpan.remove();
+function handleErrorMessage(target, errorMessage = "") {
+  let errorMessageSpan = getInputsErrMsgEl(target);
+
+  if (isEmptyString(errorMessage) && !errorMessageSpan) {
     return;
   }
 
@@ -31,7 +34,15 @@ function handleErrorMessage(target, errorMessage = "") {
     errorMessageSpan = document.createElement("span");
     errorMessageSpan.classList.add("input-error__message");
     target.after(errorMessageSpan);
+    errorMessageSpan.textContent = errorMessage;
+    return;
   }
+
+  if (isEmptyString(errorMessage)) {
+    errorMessageSpan.remove();
+    return;
+  }
+
   errorMessageSpan.textContent = errorMessage;
 }
 
@@ -95,12 +106,6 @@ function isEmailExist(email) {
   return users.some((user) => user.email === email);
 }
 
-function isMemberExist(member) {
-  return users.some(
-    (user) => user.email === member.email && user.password === member.password
-  );
-}
-
 function changePasswordVisibility(passwordInput) {
   return function ({ target }) {
     target.classList.toggle("form__input--eye-on");
@@ -121,5 +126,4 @@ export {
   errorMessage,
   inputValidationFailed,
   inputValidationSucceeded,
-  isMemberExist,
 };
