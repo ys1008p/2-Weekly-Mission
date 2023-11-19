@@ -40,11 +40,15 @@ function validatePassWordFormat(passWord) {
 
 function validPassWord () {
   const userPassValue = userPass.value.trim();
-  if ( !validatePassWordFormat(userPassValue)) {
+  if ( userPassValue === "") {
+    userPass.style.border = "1px solid #FF5B56";
+    errorMessage[1].classList.add("on");
+    errorMessage[1].innerText = "비밀번호를 입력해주세요.";
+  } else if ( !validatePassWordFormat(userPassValue)) {
     userPass.style.border = "1px solid #FF5B56";
     errorMessage[1].classList.add("on");
     errorMessage[1].innerText = "비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.";
-  }  else {
+  } else {
     userPass.style.border = "";
     errorMessage[1].classList.remove("on");
     errorMessage[1].innerText = "";
