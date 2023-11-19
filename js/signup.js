@@ -1,78 +1,156 @@
-const email_input = document.querySelector("#username");
-const email_error_text = document.querySelector(".email_error_text");
+import { validObject } from "./signupValid.js";
 
-const pw_input = document.querySelector("#password");
-const pw_error_text = document.querySelector(".pw_error_text");
-const pw_check_input = document.querySelector("#password_check");
-const pw_check_error_text = document.querySelector(".pw_check_error_text");
+if (localStorage.getItem("signupToken")) location.href = "./folder";
 
-const login_button = document.querySelector(".login-button");
+export const formState = {
+  email: {
+    emailInput: document.querySelector("#username"),
+    checkEmail: function (e) {
+      const emailErrorText = e.target.nextElementSibling;
+      const errorMsg = {
+        empty: "이메일을 입력해주세요.",
+        used: "이미 사용 중인 이메일입니다.",
+        wrong: "올바른 이메일 주소가 아닙니다.",
+      };
+      if (e.target.value === "") {
+        validObject.ifError(e, emailErrorText, errorMsg.wrong, "email");
+      } else if (e.target.value.includes("@") == false) {
+        validObject.ifError(e, emailErrorText, errorMsg.wrong, "email");
+      } else {
+        const member = {
+          email: e.target.value,
+        };
 
-let validEmail = false;
-let validPw = false;
+        async function checkEmailFetch(member) {
+          try {
+            const response = await fetch(
+              "https://bootcamp-api.codeit.kr/api/check-email",
+              {
+                method: "POST",
+                body: JSON.stringify(member),
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            const result = await response.json();
 
-function checkEmail() {
-  if (email_input.value === "") {
-    email_input.classList.add("inputError");
-    email_error_text.innerHTML = "이메일을 입력해주세요.";
-  } else if (email_input.value === "test@codeit.com") {
-    email_input.classList.add("inputError");
-    email_error_text.innerHTML = "이미 사용 중인 이메일입니다.";
-  } else if (email_input.value.includes("@") == false) {
-    email_input.classList.add("inputError");
-    email_error_text.innerHTML = "올바른 이메일 주소가 아닙니다.";
-  } else {
-    email_input.classList.remove("inputError");
-    email_error_text.innerHTML = "";
-    validEmail = true;
-  }
-}
+            if ("error" in result) {
+              validObject.ifError(
+                e,
+                emailErrorText,
+                result.error.message,
+                "email"
+              );
+            } else if ("data" in result) {
+              validObject.ifOk(e, emailErrorText, "email");
+            }
+          } catch (e) {
+            console.log(e);
+          }
+        }
+        checkEmailFetch(member);
+      }
+    },
+    isValid: false,
+  },
+  pw: {
+    pwInput: document.querySelector("#password"),
+    checkPw: function (e) {
+      const engOnly = /^[A-Za-z]+$/;
+      const pwErrorText = e.target.parentElement.lastElementChild;
+      const errorMsg = [
+        "비밀번호를 입력해주세요.",
+        "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
+      ];
 
-function checkPw() {
-  let engOnly = /^[A-Za-z]+$/;
+      if (e.target.value === "") {
+        validObject.ifError(e, pwErrorText, errorMsg[0], "pw");
+      } else if (
+        e.target.value.length < 8 ||
+        isNaN(e.target.value) !== true ||
+        engOnly.test(e.target.value)
+      ) {
+        validObject.ifError(e, pwErrorText, errorMsg[1], "pw");
+      } else {
+        validObject.ifOk(e, pwErrorText, "pw");
+      }
+    },
+    isValid: false,
+  },
+  pwConfirmation: {
+    pwConfirmationInput: document.querySelector("#password_check"),
+    CheckpwConfirmation: function (e) {
+      const pwConfirmationErrorText = e.target.parentElement.lastElementChild;
+      const errorMsg = "비밀번호가 일치하지 않아요";
+      if (formState.pw.pwInput.value !== e.target.value) {
+        validObject.ifError(
+          e,
+          pwConfirmationErrorText,
+          errorMsg,
+          "pwConfirmation"
+        );
+      } else {
+        validObject.ifOk(e, pwConfirmationErrorText, "pwConfirmation");
+      }
+    },
+    isValid: false,
+  },
+  signup: function (e) {
+    e.preventDefault();
+    if (
+      !formState.email.isValid ||
+      !formState.pw.isValid ||
+      !formState.pwConfirmation.isValid
+    )
+      return;
 
-  if (
-    pw_input.value.length < 8 ||
-    isNaN(pw_input.value) !== true ||
-    engOnly.test(pw_input.value)
-  ) {
-    pw_input.classList.add("inputError");
-    pw_error_text.innerHTML =
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-  } else if (pw_input.value === "") {
-    pw_input.classList.add("inputError");
-    pw_error_text.innerHTML = "비밀번호를 입력해주세요.";
-  } else {
-    pw_input.classList.remove("inputError");
-    pw_error_text.innerHTML = "";
-  }
-}
+    const signinData = {
+      email: formState.email.emailInput.value,
+      password: formState.pw.pwInput.value,
+    };
 
-function comparePw() {
-  if (pw_input.value !== pw_check_input.value) {
-    pw_check_input.classList.add("inputError");
-    pw_input.classList.add("inputError");
-    pw_check_error_text.innerHTML = "비밀번호가 일치하지 않아요";
-  } else {
-    pw_input.classList.remove("inputError");
-    pw_check_input.classList.remove("inputError");
-    pw_check_error_text.innerHTML = "";
-    validPw = true;
-  }
-}
+    async function signupFetch(signinData) {
+      try {
+        const response = await fetch(
+          "https://bootcamp-api.codeit.kr/api/sign-up",
+          {
+            method: "POST",
+            body: JSON.stringify(signinData),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const result = await response.json();
 
-function signup(e) {
-  if (validEmail && validPw) {
-    if (e.key === "Enter") {
-      location.href = "./folder";
-    } else {
-      location.href = "./folder";
+        if (response.status == 400) {
+          formState.email.emailInput.classList.add("error");
+          formState.email.emailInput.nextElementSibling.innerHTML =
+            result.error.message;
+        } else if (response.status == 200) {
+          localStorage.setItem("signupToken", result.data.accessToken);
+          location.href = "/folder";
+        } else {
+          console.log(`400번 200번 이외의 오류입니다.`);
+        }
+      } catch (e) {
+        console.log(e);
+      }
     }
-  }
-}
 
-email_input.addEventListener("focusout", checkEmail);
-pw_input.addEventListener("focusout", checkPw);
-pw_check_input.addEventListener("focusout", comparePw);
-login_button.addEventListener("click", signup);
-pw_check_input.addEventListener("keydown", signup);
+    signupFetch(signinData);
+  },
+  form: document.querySelector("form"),
+};
+
+formState.email.emailInput.addEventListener(
+  "focusout",
+  formState.email.checkEmail
+);
+formState.pw.pwInput.addEventListener("focusout", formState.pw.checkPw);
+formState.pwConfirmation.pwConfirmationInput?.addEventListener(
+  "focusout",
+  formState.pwConfirmation.CheckpwConfirmation
+);
+formState.form.addEventListener("submit", formState.signup);

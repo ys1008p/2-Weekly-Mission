@@ -109,14 +109,13 @@ label.common_title {
   border: 1px solid var(--linkbrary-primary-color);
 }
 
-.inputError {
+.input.error {
   border: 1px solid #ff5b56;
 }
 
-.email_error_text,
-.pw_error_text,
-.pw_error_text,
-.pw_check_error_text {
+.email_error_text.error,
+.pw_error_text.error,
+.pw_check_error_text.error {
   margin-top: -0.36rem;
   color: var(--linkbrary-red, #ff5b56);
   font-size: 0.875rem;
