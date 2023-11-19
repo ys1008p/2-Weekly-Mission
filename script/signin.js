@@ -24,8 +24,8 @@ eyeImg.addEventListener("click", () => {
   eyeImgClickEvent(signInput, eyeImg);
 });
 button.addEventListener("click", buttonClickEvent);
-// document.addEventListener('DOMContentLoaded', () => {
-//   const accessToken = localStorage.getItem('accessToken');
-//   if (accessToken) {
-//     window.location.href = "/folder/folder.html";
-//   }})
+
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+  window.open("/folder/folder.html", "_blank");
+  }

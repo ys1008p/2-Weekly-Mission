@@ -68,6 +68,7 @@ async function buttonClickEvent(e) {
     const signupResult = await signupButton(userEmail, userPassword);
 
     if (signupResult) {
+ 
       alert(`가입을 축하합니다 ${userEmail}님`);
       window.location.href = "/folder/folder.html";
     } else {
