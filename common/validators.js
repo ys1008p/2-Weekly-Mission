@@ -1,6 +1,6 @@
 import { ERROR_MESSAGE, USER_EMAIL, USER_PASSWORD, isEmail, checkPassword } from './constants.js';
 import { domElements } from './domElements.js';
-import { signinApi } from './signinApi.js';
+import { signinApi, signupApi } from '../src/postApi.js';
 
 export function validateEmail(e) {
   let emailValue = domElements.emailInput.value;
@@ -64,21 +64,17 @@ export function performSignIn(e) {
 export function performSignUp(e) {
   e.preventDefault();
 
-  const isEmailValid = validateEmail();
-  const isPasswordValid = validatePassword();
-  const isSamePassword = checkSamePassword();
-
-  if (domElements.emailInput.value === USER_EMAIL) {
-    printErrorMessage(domElements.emailInput, domElements.emailWarningTag, ERROR_MESSAGE.duplicateEmail);
-    return false;
-  }
   if (!checkPassword(domElements.passwordInput.value)) {
     printErrorMessage(domElements.passwordInput, domElements.passwordWarningTag, ERROR_MESSAGE.invaildPassword);
     return false;
   }
-  if (isEmailValid && isPasswordValid && isSamePassword) {
-    window.location.href = '/folder.html';
-  }
+  signupApi(
+    domElements.emailInput.value,
+    domElements.passwordInput.value,
+    domElements.emailInput,
+    domElements.emailWarningTag,
+    ERROR_MESSAGE.duplicateEmail,
+  );
 }
 
 export function showAndHidePassword(index) {
@@ -94,7 +90,7 @@ export function showAndHidePassword(index) {
   }
 }
 
-function printErrorMessage(input, warningTag, message) {
+export function printErrorMessage(input, warningTag, message) {
   let html = `${message}`;
 
   input.style.borderColor = '#ff5b56';
