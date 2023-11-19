@@ -1,10 +1,9 @@
 import {
   isAllObjectValueTrue,
-  isEmailExist,
   isEmpty,
-  isPasswordCorrect,
   isValidEmail,
 } from './modules/checkInput.js';
+import { getUserToken } from './modules/request.js';
 import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
 const signinFrom = document.querySelector('#signinForm');
@@ -46,14 +45,17 @@ const checkPassword = (e) => {
   }
 };
 
-const verifyForm = () => {
+const verifyForm = async () => {
   if (!isAllObjectValueTrue(formState)) return;
-  if (!isEmailExist(email.value) || !isPasswordCorrect(password.value)) {
+
+  const token = await getUserToken(email.value, password.value);
+  if (!token) {
     setErrorMessage(email, emailError, '이메일을 확인해주세요');
     setErrorMessage(password, passwordError, '비밀번호를 확인해주세요');
     return;
   }
 
+  localStorage.setItem('token', token.accessToken);
   location.href = './folder.html';
 };
 
