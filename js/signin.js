@@ -72,3 +72,29 @@ for(let i = 0 ; i < merge.length; i++){
     errorMessage[1].innerText = "비밀번호를 확인해주세요.";
   }
 }
+
+const checkUser =  {
+  email: "test@codeit.com",
+  password: "sprint101",
+};
+
+join.addEventListener("submit", joinForm);
+function joinForm(event) {
+  event.preventDefault();
+
+  const TestUser =
+    userEmail.value === checkUser.email && userPass.value === checkUser.password;
+
+  if (TestUser) {
+    location.href = "/folder";
+    return;
+  } else {
+    userEmail.style.border = "1px solid #FF5B56";
+    userPass.style.border = "1px solid #FF5B56";
+    errorMessage[0].classList.add("on");
+    errorMessage[1].classList.add("on");
+    errorMessage[0].innerText = "이메일을 확인해주세요.";
+    errorMessage[1].innerText = "비밀번호를 확인해주세요.";
+  }
+}
+
