@@ -50,15 +50,16 @@ export function checkSamePassword(e) {
 export function performSignIn(e) {
   e.preventDefault();
 
-  if (domElements.emailInput.value !== USER_EMAIL) {
-    printErrorMessage(domElements.emailInput, domElements.emailWarningTag, ERROR_MESSAGE.wrongEmail);
-  }
-
   if (domElements.passwordInput.value !== USER_PASSWORD) {
     printErrorMessage(domElements.passwordInput, domElements.passwordWarningTag, ERROR_MESSAGE.wrongPassword);
   }
 
-  signinApi(domElements.emailInput.value, domElements.passwordInput.value);
+  signinApi(
+    domElements.emailInput.value,
+    domElements.passwordInput.value,
+    domElements.emailInput,
+    domElements.emailWarningTag,
+  );
 }
 
 export function performSignUp(e) {
@@ -73,7 +74,6 @@ export function performSignUp(e) {
     domElements.passwordInput.value,
     domElements.emailInput,
     domElements.emailWarningTag,
-    ERROR_MESSAGE.duplicateEmail,
   );
 }
 

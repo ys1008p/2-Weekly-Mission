@@ -1,7 +1,7 @@
 import { printErrorMessage } from '../common/validators.js';
 import { ERROR_MESSAGE } from '../common/constants.js';
 
-export function signinApi(userId, userPassword) {
+export function signinApi(userId, userPassword, emailInput, emailWarningTag) {
   fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
     method: 'POST',
     headers: {
@@ -14,13 +14,16 @@ export function signinApi(userId, userPassword) {
   })
     .then(response => {
       if (response.status === 200) {
-        window.location.href = '/folder.html';
+        return response.json();
       } else if (response.status === 400) {
-        throw new Error('없는 정보입니다. 아이디와 비밀번호를 확인해주세요.');
+        printErrorMessage(emailInput, emailWarningTag, ERROR_MESSAGE.wrongEmail);
       }
     })
-    .catch(error => {
-      console.log(error.message);
+    .then(result => {
+      const accessToken = result.data.accessToken;
+      localStorage.setItem('accessToken', accessToken);
+
+      window.location.href = '/folder.html';
     });
 }
 
@@ -37,7 +40,7 @@ export function signupApi(userId, userPassword, emailInput, emailWarningTag) {
     .then(response => response.json())
     .then(result => {
       if (result.error) {
-        throw new Error('이미 사용 중인 이메일입니다.');
+        printErrorMessage(emailInput, emailWarningTag, ERROR_MESSAGE.duplicateEmail);
       } else {
         return fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
           method: 'POST',
@@ -55,8 +58,5 @@ export function signupApi(userId, userPassword, emailInput, emailWarningTag) {
       if (response.status === 200) {
         window.location.href = '/folder.html';
       }
-    })
-    .catch(error => {
-      printErrorMessage(emailInput, emailWarningTag, ERROR_MESSAGE.duplicateEmail);
     });
 }
