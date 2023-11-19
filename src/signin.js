@@ -1,16 +1,20 @@
 import {
-  alertMessageBox,
+  didSigninSucceed,
+  EYE_ON_PATH,
+  EYE_OFF_PATH,
   makeErrorMessage,
   eraseErrorMessage,
   isEmailValid,
-  TEST_USER,
   emailInput,
   pswdInput,
-  pswdEye,
+  passwordVisiblilityToggleButtons,
   loginBtn,
-} from './utils.js';
+  redirectToIfAccessTokenExists,
+} from './sign-service.js';
 
-function errorAlertEmail(e) {
+redirectToIfAccessTokenExists('/folder.html');
+
+function validateEmailInput(e) {
   if (emailInput.value.length === 0) {
     if (emailInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('email', 'noInput');
@@ -23,7 +27,7 @@ function errorAlertEmail(e) {
   }
 }
 
-function errorAlertPswd(e) {
+function validatePasswordInput(e) {
   if (pswdInput.value.length === 0) {
     if (pswdInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('password', 'noInput');
@@ -33,37 +37,34 @@ function errorAlertPswd(e) {
   }
 }
 
-function seeOrNotPassword(e) {
+function togglePassword(e) {
   if (pswdInput.type === 'password') {
     pswdInput.type = 'text';
-    e.target.src = '/images/eye-on.svg';
+    e.target.src = EYE_ON_PATH;
   } else if (pswdInput.type === 'text') {
     pswdInput.type = 'password';
-    e.target.src = '/images/eye-off.svg';
+    e.target.src = EYE_OFF_PATH;
   }
 }
 
-const checkTestUser = function (email, password) {
-  return email === TEST_USER.email && password === TEST_USER.password;
-};
-
-function submit(e) {
+async function submit(e) {
   e.preventDefault();
-  if (checkTestUser(emailInput.value, pswdInput.value)) {
-    window.location.href = '/folder';
+  const signinAccount = {
+    email: emailInput.value,
+    password: pswdInput.value,
+  };
+
+  if (await didSigninSucceed(signinAccount)) {
+    window.location.href = '/folder.html';
   } else {
-    // 연속된 로그인 시도 오류시 에러메세지가 쌓이는 현상 방지
-    if (
-      emailInput.nextElementSibling.className !== 'alert' &&
-      pswdInput.nextElementSibling.className !== 'alert'
-    ) {
+    if (emailInput.nextElementSibling.className !== 'alert' && pswdInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('email', 'loginFail');
       makeErrorMessage('password', 'loginFail');
     }
   }
 }
 
-emailInput.addEventListener('focusout', errorAlertEmail);
-pswdInput.addEventListener('focusout', errorAlertPswd);
-pswdEye[0].addEventListener('click', seeOrNotPassword);
+emailInput.addEventListener('focusout', validateEmailInput);
+pswdInput.addEventListener('focusout', validatePasswordInput);
+passwordVisiblilityToggleButtons[0].addEventListener('click', togglePassword);
 loginBtn.addEventListener('click', submit);

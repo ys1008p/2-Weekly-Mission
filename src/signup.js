@@ -1,16 +1,21 @@
 import {
-  alertMessageBox,
+  EYE_ON_PATH,
+  EYE_OFF_PATH,
   isEmailValid,
   isPasswordValid,
+  isTakenEmail,
+  didSignupSucceed,
   makeErrorMessage,
   eraseErrorMessage,
-  TEST_USER,
   emailInput,
   pswdInput,
   pswdCheck,
-  pswdEye,
+  passwordVisiblilityToggleButtons,
   loginBtn,
-} from './utils.js';
+  redirectToIfAccessTokenExists,
+} from './sign-service.js';
+
+redirectToIfAccessTokenExists('/folder.html');
 
 function errorAlertEmail(e) {
   if (emailInput.value.length === 0) {
@@ -25,9 +30,15 @@ function errorAlertEmail(e) {
   }
 }
 
-function takenEmail(e) {
-  if (emailInput.value === TEST_USER.email) {
+async function checkTakenEmail(e) {
+  const signupAccount = {
+    email: emailInput.value,
+    password: pswdInput.value,
+  };
+  if (!(await isTakenEmail(signupAccount))) {
     makeErrorMessage('email', 'takenEmail');
+  } else {
+    eraseErrorMessage('email');
   }
 }
 
@@ -37,7 +48,6 @@ function errorAlertPswd(e) {
       makeErrorMessage('password', 'noInput');
     }
   } else if (!isPasswordValid(pswdInput.value)) {
-    console.log(isPasswordValid(pswdInput.value));
     if (pswdInput.nextElementSibling.className !== 'alert') {
       makeErrorMessage('password', 'simple');
     }
@@ -57,44 +67,53 @@ function matchFailPswdCheck(e) {
   }
 }
 
-function seeOrNotPassword(e) {
+function togglePassword(e) {
   if (pswdInput.type === 'password') {
     pswdInput.type = 'text';
-    e.target.src = '/images/eye-on.svg';
+    e.target.src = EYE_ON_PATH;
   } else if (pswdInput.type === 'text') {
     pswdInput.type = 'password';
-    e.target.src = '/images/eye-off.svg';
+    e.target.src = EYE_OFF_PATH;
   }
 }
 
-function seeOrNotPasswordCheck(e) {
+function togglePasswordCheck(e) {
   if (pswdCheck.type === 'password') {
     pswdCheck.type = 'text';
-    e.target.src = '/images/eye-on.svg';
-  } else if (pswdCheck.type === 'text') {
+    e.target.src = EYE_ON_PATH;
+  } else if (pswdInput.type === 'text') {
     pswdCheck.type = 'password';
-    e.target.src = '/images/eye-off.svg';
+    e.target.src = EYE_OFF_PATH;
   }
 }
 
-let checkNoError = function () {
-  let emailError = emailInput.nextElementSibling.className !== 'alert';
-  let pswdError = pswdInput.nextElementSibling.className !== 'alert';
-  let pswdCheckError = pswdCheck.nextElementSibling.className !== 'alert';
+const checkNoError = function () {
+  const emailError = emailInput.nextElementSibling.className !== 'alert';
+  const pswdError = pswdInput.nextElementSibling.className !== 'alert';
+  const pswdCheckError = pswdCheck.nextElementSibling.className !== 'alert';
   return emailError && pswdError && pswdCheckError;
 };
 
-function submit(e) {
+async function submit(e) {
   e.preventDefault();
-  if (checkNoError()) {
-    window.location.href = '/folder';
+  const signupAccount = {
+    email: emailInput.value,
+    password: pswdInput.value,
+  };
+  if ((await didSignupSucceed(signupAccount)) && checkNoError()) {
+    window.location.href = '/folder.html';
+  } else {
+    if (emailInput.nextElementSibling.className !== 'alert' && pswdInput.nextElementSibling.className !== 'alert') {
+      makeErrorMessage('email', 'loginFail');
+      makeErrorMessage('password', 'loginFail');
+    }
   }
 }
 
 emailInput.addEventListener('focusout', errorAlertEmail);
-emailInput.addEventListener('focusout', takenEmail);
+emailInput.addEventListener('focusout', checkTakenEmail);
 pswdInput.addEventListener('focusout', errorAlertPswd);
 pswdCheck.addEventListener('focusout', matchFailPswdCheck);
-pswdEye[0].addEventListener('click', seeOrNotPassword);
-pswdEye[1].addEventListener('click', seeOrNotPasswordCheck);
+passwordVisiblilityToggleButtons[0].addEventListener('click', togglePassword);
+passwordVisiblilityToggleButtons[1].addEventListener('click', togglePasswordCheck);
 loginBtn.addEventListener('click', submit);
