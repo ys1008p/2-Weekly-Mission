@@ -26,14 +26,24 @@ export const formState = {
               {
                 method: "POST",
                 body: JSON.stringify(member),
+                headers: {
+                  "Content-Type": "application/json",
+                },
               }
             );
-            console.log(response);
-            const result = response.ok;
-            result
-              ? validObject.ifOk(e, emailErrorText, errorMsg.used, "email")
-              : validObject.ifError(e, emailErrorText, errorMsg.used, "email");
+            // console.log(response);
+            const result = await response.json();
             console.log(result);
+            if ("error" in result) {
+              validObject.ifError(
+                e,
+                emailErrorText,
+                result.error.message,
+                "email"
+              );
+            } else if ("data" in result) {
+              validObject.ifOk(e, emailErrorText, "email");
+            }
           } catch (e) {
             console.log(e);
           }
@@ -106,19 +116,25 @@ export const formState = {
           {
             method: "POST",
             body: JSON.stringify(member),
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
         );
-        const result = await response.json();
-        console.log(result);
-        if (result.error.status == 400) {
-          formState.email.emailErrorText.innerHTML =
-            "이미 등록된 이메일입니다.";
-          formState.emailInput.classList.add("error");
-        } else if (result.data.accessToken) {
+        console.log(response);
+        const result = await response.text();
+        const finalResult = await JSON.parse(result);
+        console.log(finalResult);
+        if (response.status == 400) {
+          formState.email.emailInput.classList.add("error");
+          formState.email.emailErrorText.innerHTML = result.error.message;
+        } else if (response.status == 200) {
+          formState.email.emailInput.classList.remove("error");
           formState.email.emailErrorText.innerHTML = "";
-          formState.emailInput.classList.remove("error");
           localStorage.setItem(result.data.accessToken);
           location.href = "/folder";
+        } else {
+          console.log(`400번 200번 이외의 오류입니다.`);
         }
       } catch (e) {
         console.log(e);
