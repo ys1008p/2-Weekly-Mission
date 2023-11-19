@@ -104,34 +104,33 @@ export const formState = {
     )
       return;
 
-    const member = {
-      email: formState.email.emailInput,
-      password: formState.pw.pwInput,
+    const signinData = {
+      email: formState.email.emailInput.value,
+      password: formState.pw.pwInput.value,
     };
 
-    async function signupFetch(member) {
+    console.log(signinData);
+    async function signupFetch(signinData) {
       try {
         const response = await fetch(
           "https://bootcamp-api.codeit.kr/api/sign-up",
           {
             method: "POST",
-            body: JSON.stringify(member),
+            body: JSON.stringify(signinData),
             headers: {
               "Content-Type": "application/json",
             },
           }
         );
         console.log(response);
-        const result = await response.text();
-        const finalResult = await JSON.parse(result);
-        console.log(finalResult);
+        const result = await response.json();
+        console.log(result);
         if (response.status == 400) {
           formState.email.emailInput.classList.add("error");
-          formState.email.emailErrorText.innerHTML = result.error.message;
+          formState.email.emailInput.nextElementSibling.innerHTML =
+            result.error.message;
         } else if (response.status == 200) {
-          formState.email.emailInput.classList.remove("error");
-          formState.email.emailErrorText.innerHTML = "";
-          localStorage.setItem(result.data.accessToken);
+          localStorage.setItem("signupToken", result.data.accessToken);
           location.href = "/folder";
         } else {
           console.log(`400번 200번 이외의 오류입니다.`);
@@ -141,7 +140,7 @@ export const formState = {
       }
     }
 
-    signupFetch(member);
+    signupFetch(signinData);
   },
   form: document.querySelector("form"),
 };
