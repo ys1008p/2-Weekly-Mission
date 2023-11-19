@@ -108,6 +108,11 @@ const handleSubmitForm = (e) => {
   verifyForm();
 };
 
+const getUserToken = () => {
+  if (!localStorage.getItem('token')) return;
+  location.href = './folder.html';
+};
+
 email.addEventListener('change', checkEmail);
 password.addEventListener('change', checkPassword);
 confirm.addEventListener('change', checkConfirm);
@@ -115,3 +120,5 @@ signupForm.addEventListener('submit', handleSubmitForm);
 eyes.forEach((eye) => {
   eye.addEventListener('click', togglePassword);
 });
+
+getUserToken();
