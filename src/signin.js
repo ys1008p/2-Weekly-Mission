@@ -1,11 +1,11 @@
-import { variable } from '../common/variables.js';
-import * as functions from '../common/functions.js';
+import { domElements } from '../common/domElements.js';
+import * as validators from '../common/validators.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  variable.emailInput.addEventListener('focusout', functions.validateEmail);
-  variable.passwordInput.addEventListener('focusout', functions.validatePassword);
-  variable.signInBtn.addEventListener('click', functions.performSignIn);
-  variable.eyeBtn[0].addEventListener('click', () => {
-    functions.showAndHidePassword(0);
+  domElements.emailInput.addEventListener('focusout', validators.validateEmail);
+  domElements.passwordInput.addEventListener('focusout', validators.validatePassword);
+  domElements.signInBtn.addEventListener('mousedown', validators.performSignIn);
+  domElements.eyeBtn[0].addEventListener('click', () => {
+    validators.showAndHidePassword(0);
   });
 });
