@@ -132,14 +132,14 @@ body {
 }
 
 .button-eye.hide {
-    background: url('/images/sign/icon_eye_off.png') no-repeat center/ 1.6rem 1.6rem;
+  background: url('/images/sign/icon_eye_off.png') no-repeat center/ 1.6rem 1.6rem;
 }
 
 .text-error {
   display: none;
   margin-top: 0.6rem;
   font-size: 1.4rem;
-  color: var(—red-color);
+  color: var(--red-color);
 }
 
 @media screen and (max-width: 768px) {
