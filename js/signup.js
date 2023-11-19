@@ -5,20 +5,40 @@ export const formState = {
     emailInput: document.querySelector("#username"),
     checkEmail: function (e) {
       const emailErrorText = e.target.nextElementSibling;
-      const errorMsg = [
-        "이메일을 입력해주세요.",
-        "이미 사용 중인 이메일입니다.",
-        "올바른 이메일 주소가 아닙니다.",
-      ];
+      const errorMsg = {
+        empty: "이메일을 입력해주세요.",
+        used: "이미 사용 중인 이메일입니다.",
+        wrong: "올바른 이메일 주소가 아닙니다.",
+      };
       if (e.target.value === "") {
-        validObject.ifError(e, emailErrorText, errorMsg[0], "email");
-      } else if (e.target.value === "test@codeit.com") {
-        validObject.ifError(e, emailErrorText, errorMsg[1], "email");
+        validObject.ifError(e, emailErrorText, errorMsg.wrong, "email");
       } else if (e.target.value.includes("@") == false) {
-        validObject.ifError(e, emailErrorText, errorMsg[2], "email");
+        validObject.ifError(e, emailErrorText, errorMsg.wrong, "email");
       } else {
-        validObject.ifOk(e, emailErrorText, "email");
-        console.log(formState.email.isValid);
+        const member = {
+          email: e.target.value,
+        };
+
+        async function checkEmailFetch(member) {
+          try {
+            const response = await fetch(
+              "https://bootcamp-api.codeit.kr/api/check-email",
+              {
+                method: "POST",
+                body: JSON.stringify(member),
+              }
+            );
+            console.log(response);
+            const result = response.ok;
+            result
+              ? validObject.ifOk(e, emailErrorText, errorMsg.used, "email")
+              : validObject.ifError(e, emailErrorText, errorMsg.used, "email");
+            console.log(result);
+          } catch (e) {
+            console.log(e);
+          }
+        }
+        checkEmailFetch(member);
       }
     },
     isValid: false,
@@ -59,10 +79,8 @@ export const formState = {
           errorMsg,
           "pwConfirmation"
         );
-        validObject.pw.pwInput.classList.add("error");
       } else {
         validObject.ifOk(e, pwConfirmationErrorText, "pwConfirmation");
-        validObject.pw.pwInput.classList.remove("error");
       }
     },
     isValid: false,
@@ -75,7 +93,39 @@ export const formState = {
       !formState.pwConfirmation.isValid
     )
       return;
-    location.href = "/folder";
+
+    const member = {
+      email: formState.email.emailInput,
+      password: formState.pw.pwInput,
+    };
+
+    async function signupFetch(member) {
+      try {
+        const response = await fetch(
+          "https://bootcamp-api.codeit.kr/api/sign-up",
+          {
+            method: "POST",
+            body: JSON.stringify(member),
+          }
+        );
+        const result = await response.json();
+        console.log(result);
+        if (result.error.status == 400) {
+          formState.email.emailErrorText.innerHTML =
+            "이미 등록된 이메일입니다.";
+          formState.emailInput.classList.add("error");
+        } else if (result.data.accessToken) {
+          formState.email.emailErrorText.innerHTML = "";
+          formState.emailInput.classList.remove("error");
+          localStorage.setItem(result.data.accessToken);
+          location.href = "/folder";
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    signupFetch(member);
   },
   form: document.querySelector("form"),
 };

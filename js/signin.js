@@ -17,7 +17,7 @@ export const formState = {
         validObject.ifOk(e, emailErrorText, "email");
       }
     },
-    // isValid: false,
+    isValid: false,
   },
   pw: {
     pwInput: document.querySelector("#password"),
@@ -30,7 +30,7 @@ export const formState = {
         validObject.ifOk(e, pwErrorText, "pw");
       }
     },
-    // isValid: false,
+    isValid: false,
   },
   form: document.querySelector("form"),
   login: function (e) {
@@ -38,41 +38,39 @@ export const formState = {
     const pwErrorText = formState.pw.pwInput.parentElement.lastElementChild;
     const errorMsg = ["이메일을 확인해주세요", "비밀번호를 확인해주세요."];
     const loginMember = {
-      email: "test@codeit.com",
-      password: "sprint101",
+      email: formState.email.emailInput.value,
+      password: formState.pw.pwInput.value,
     };
-
+    // console.log(loginMember);
     e.preventDefault();
 
-    // if (!formState.email.isValid && !formState.pw.isValid) {
-    //   formState.email.emailInput.classList.add("error");
-    //   emailErrorText.classList.add("error");
-    //   emailErrorText.innerHTML = errorMsg[0];
-    //   formState.pw.pwInput.classList.add("error");
-    //   pwErrorText.classList.add("error");
-    //   pwErrorText.innerHTML = errorMsg[1];
-    // } else
-    if (
-      formState.email.emailInput.value === loginMember.email &&
-      formState.pw.pwInput.value === loginMember.password
-    ) {
-      fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
-        method: "POST",
-        body: JSON.stringify(loginMember),
-      })
-        .then((response) => response.json())
-        .then(() => {
+    async function signinFetch(loginMember) {
+      try {
+        const response = await fetch(
+          "https://bootcamp-api.codeit.kr/api/sign-in",
+          {
+            method: "POST",
+            body: JSON.stringify(loginMember),
+          }
+        );
+        const result = await response.json();
+        if (result.error.status == 400) {
+          formState.email.emailInput.classList.add("error");
+          emailErrorText.classList.add("error");
+          emailErrorText.innerHTML = errorMsg[0];
+          formState.pw.pwInput.classList.add("error");
+          pwErrorText.classList.add("error");
+          pwErrorText.innerHTML = errorMsg[1];
+          console.log("400");
+        } else {
+          localStorage.setItem(result.data.accessToken);
           location.href = "./folder";
-        })
-        .catch((e) => console.log(e));
-    } else {
-      formState.email.emailInput.classList.add("error");
-      emailErrorText.classList.add("error");
-      emailErrorText.innerHTML = errorMsg[0];
-      formState.pw.pwInput.classList.add("error");
-      pwErrorText.classList.add("error");
-      pwErrorText.innerHTML = errorMsg[1];
+        }
+      } catch (e) {
+        console.log(e);
+      }
     }
+    signinFetch(loginMember);
   },
 };
 

@@ -6,7 +6,6 @@ export const validObject = {
     e.target.classList.add("error");
     errorText.classList.add("error");
     errorText.innerHTML = `${errorMsg}`;
-
     signupState[`${input}`]["isValid"] = false;
     // if (input !== "pwConfirmation") signinState[`${input}`]["isValid"] = false;
   },
