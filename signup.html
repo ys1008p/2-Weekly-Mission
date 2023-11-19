@@ -27,21 +27,17 @@
         <form class="signForm">
           <label class="signForm_label">
           이메일
-            <input type="email" name="email" class="signForm_input" required>
+            <input type="email" name="email" class="signForm_input email" required>
           </label>
           <label class="signForm_label">
           비밀번호
-          <div class="password">
-            <input type="password" name="password" class="signForm_input" required>
+            <input type="password" name="password" class="signForm_input password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
             <button class="password_visible"></button>
-          </div>
           </label>
           <label class="signForm_label">
           비밀번호 확인
-            <div class="password">
-              <input type="password" name="password" class="signForm_input" required>
-              <button class="password_visible"></button>
-            </div>
+            <input type="password" name="password" class="signForm_input password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+            <button class="password_visible"></button>
           </label>
           <button class="signForm_button">회원가입</button>
         </form>
@@ -58,5 +54,6 @@
         </div>
       </main>
     </div>
+    <script type="module" src="scripts/signup.js"></script>
   </body>
 </html>
