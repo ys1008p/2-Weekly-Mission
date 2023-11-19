@@ -21,31 +21,45 @@ function joinMembers (e) {
 }
 
 const newMember = {}
-newMember.email = email.value;
 
 async function goServer() {
-  const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email',{
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(newMember)
-    })
-  const takeJson = await response.json()
-  takeJson ? newMember.password = password.value:undefined;
 
-  const res = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(newMember)
-    })
-  const dataObject = await res.json();
-  const token =  await dataObject.data.accessToken;
-  localStorage.setItem('accessToken', token)
-  localStorage.getItem('accessToken')? location.replace('/folder'): undefined;
+newMember.email = email.value;
+  try{
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newMember)
+      })
+    
+    const takeJson = await response.json()
+    
+    if(takeJson){
+      newMember.password = password.value
+    }
+
+    const res = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newMember)
+      })
+
+    const dataObject = await res.json();
+    const token =  await dataObject.data.accessToken;
+    localStorage.setItem('accessToken', token)
+    
+    if (localStorage.getItem('accessToken') !== null) {
+      location.replace('/folder');
+    }
+  }catch (err) {
+    console.log(err)
+      alert('잘못된 접근')
   }
+}
 
 function join (e) {
   e.preventDefault()
