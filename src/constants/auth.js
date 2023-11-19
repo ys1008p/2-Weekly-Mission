@@ -8,7 +8,7 @@ const passwordConfirmInput = document.querySelector(
 const emailError = document.querySelector('.error-msg.error-email')
 const passwordError = document.querySelector('.error-msg.error-password')
 const passwordConfirmError = document.querySelector('.error-verify-password')
-const eyeToggle = document.querySelectorAll('.btn-password-toggle')
+const eyeToggleButtons = document.querySelectorAll('.btn-password-toggle')
 
 // 정규식
 const REGEX = {
@@ -19,8 +19,11 @@ const REGEX = {
 // 회원 정보
 const AUTH_DATA = {
   email: 'test@codeit.com',
-  password: 'codeit101',
+  password: 'sprint101',
 }
+
+// 페이지 이동
+const FOLDER_PATH = '/folder'
 
 // 에러 메시지
 const ERROR_MSG = {
@@ -28,7 +31,7 @@ const ERROR_MSG = {
     empty: '이메일을 입력해주세요.',
     invalid: '올바른 이메일 주소가 아닙니다.',
     check: '이메일을 확인해주세요.',
-    confrim: '이미 사용 중인 이메일입니다.',
+    confirm: '이미 사용 중인 이메일입니다.',
   },
   password: {
     empty: '비밀번호를 입력해주세요.',
@@ -63,9 +66,10 @@ export {
   emailError,
   passwordError,
   passwordConfirmError,
-  eyeToggle,
+  eyeToggleButtons,
   REGEX,
   AUTH_DATA,
+  FOLDER_PATH,
   ERROR_MSG,
   PASSWORD_SHOW_MODE,
 }
