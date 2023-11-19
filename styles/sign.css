@@ -123,10 +123,10 @@ body {
 .button-eye {
   position: absolute;
   top: 50%;
-  right: 1.5rem;
+  right: 0.3rem;
   transform: translateY(-50%);
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 4rem;
+  height: 4rem;
   background: url('/images/sign/icon_eye_on.png') no-repeat center/ 1.6rem 1.6rem;
   cursor: pointer;
 }
