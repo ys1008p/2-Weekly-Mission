@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sigup</title>
-    <link rel="stylesheet" href="sigup.css" />
+    <link rel="stylesheet" href="signin.css" />
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-gov-dynamic-subset.css" />
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-gov.css" />
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-gov.css" />
+    <script defer src="./JS/sigup.js" type="module" ></script>
+    <script defer src="./JS/common.js" type="module" ></script>
   </head>
   <body>
-    <div class="sigup_box">
+    <div class="signin_box">
     <header>
       <a id="logo" href="/">
         <img src="img/logo.svg"alt="LinkBrary logo, 홈페이지로 가기" width="212" height="38">
@@ -26,15 +26,17 @@
       <form id="join">
 
         <label for="email">이메일</label><br>
-        <input id="email" placeholder="codeit@codeit.com" type="email"><br>
+        <input id="email" name="email" placeholder="codeit@codeit.com" type="email"><br>
 
         <label for="password">비밀번호</label><br>
-        <input id="password" placeholder="linkbrary2023" type="password">
-        <img src="img/eye-on.png"><br>
+        <img class="eye eye1" src="img/eye-off.png" alt="비밀번호 보이게 하기">
+        <input class="password" id="password" name="password" placeholder="linkbrary2023" type="password">
+        <br>
 
         <label for="password_check">비밀번호 확인</label><br>
-        <input id="password_check" placeholder="linkbrary20245" type="password">
-        <img src="img/eye-on.png"><br>
+        <img class="eye eye2" src="img/eye-off.png" alt="비밀번호 확인 보이게 하기" >
+        <input class="password" id="password_check" name="password" placeholder="linkbrary20245" type="password">
+        <br>
 
         <button>회원가입</button>
       </form>
@@ -48,6 +50,6 @@
         <a href="https://www.kakaocorp.com/page/"><img class="sns" src="img/kakao.png" alt="카카오톡 계정으로 가입하기"></a>
       </section>  
     </footer>
-    </div>
+   </div>
   </body>
 </html>
