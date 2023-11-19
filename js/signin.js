@@ -1,6 +1,6 @@
+
 const userEmail = document.querySelector("#userEmail")
 const errorMessage = document.querySelectorAll(".errorMessage")
-console.log(errorMessage)
 
 function validateEmailFormat(email) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,7 +44,7 @@ function validPassWord () {
     userPass.style.border = "1px solid #FF5B56";
     errorMessage[1].classList.add("on");
     errorMessage[1].innerText = "비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.";
-  } else {
+  }  else {
     userPass.style.border = "";
     errorMessage[1].classList.remove("on");
     errorMessage[1].innerText = "";
@@ -52,3 +52,19 @@ function validPassWord () {
 }
 
 userPass.addEventListener("focusout", validPassWord);
+
+const join = document.querySelector("#join");
+userPass.addEventListener("onsubmit", validateEmail, validPassWord);
+
+const merge = document.querySelectorAll(".merge");
+for(let i = 0 ; i < merge.length; i++){
+  merge[i].onclick = function(e){
+    e.preventDefault();
+    userEmail.style.border = "1px solid #FF5B56";
+    userPass.style.border = "1px solid #FF5B56";
+    errorMessage[0].classList.add("on");
+    errorMessage[1].classList.add("on");
+    errorMessage[0].innerText = "이메일을 확인해주세요.";
+    errorMessage[1].innerText = "비밀번호를 확인해주세요.";
+  }
+}
