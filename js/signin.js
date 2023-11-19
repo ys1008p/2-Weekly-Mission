@@ -1,14 +1,15 @@
-import { emailInput, passwordInput, signinBtn, eyeBtn, EMAIL_ALREADY_USED, PASSWORD_ALREADY_USED } from "./consts.js";
-import { resetEmailInput, resetPasswordInput, signInEmailCheck, passwordCheck, signInError, eyeOnOff } from "./functions.js";
+import { emailInput, passwordInput, signinBtn, eyeBtn } from "./consts.js";
+import { resetEmailInput, resetPasswordInput, signInEmailCheck, passwordCheck, eyeOnOff } from "./functions.js";
+import { signInAPI } from "./api.js";
 
 // 로그인 유효성 검사
 function signIncheck(e) {
   e.preventDefault();
-  if (emailInput.value === EMAIL_ALREADY_USED && passwordInput.value === PASSWORD_ALREADY_USED) {
-    location.href = "/folder.html";
-  } else {
-    signInError();
-  }
+  signInAPI();
+}
+
+if (localStorage.getItem("accessToken")) {
+  location.href = "./folder.html";
 }
 
 emailInput.addEventListener("focusout", signInEmailCheck);

@@ -9,7 +9,7 @@ const eyeBtn = document.querySelectorAll(".password button");
 const EMAIL_REGEX = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 const EMAIL_ALREADY_USED = "test@codeit.com";
-const PASSWORD_ALREADY_USED = "codeit101";
+const PASSWORD_ALREADY_USED = "sprint101";
 
 const errorMessage = {
   enterEmail: "이메일을 입력해주세요.",

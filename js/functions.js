@@ -1,4 +1,4 @@
-import { emailInput, passwordInput, passwordConfirmInput, errorMessageDiv, EMAIL_REGEX, PASSWORD_REGEX, EMAIL_ALREADY_USED, errorMessage } from "./consts.js";
+import { emailInput, passwordInput, passwordConfirmInput, errorMessageDiv, EMAIL_REGEX, PASSWORD_REGEX, errorMessage } from "./consts.js";
 
 // 에러메세지 표시
 function showError(input, errMsgDiv, errMsg) {
@@ -34,8 +34,8 @@ function signUpEmailCheck() {
     showError(emailInput, errorMessageDiv[0], errorMessage.enterEmail);
   } else if (!EMAIL_REGEX.test(emailInput.value)) {
     showError(emailInput, errorMessageDiv[0], errorMessage.invalidEmail);
-  } else if (emailInput.value === EMAIL_ALREADY_USED) {
-    showError(emailInput, errorMessageDiv[0], errorMessage.alreadyUsedEmail);
+  } else {
+    hideError(emailInput, errorMessageDiv[0]);
   }
 }
 // 비밀번호 유효성 검사
@@ -44,6 +44,8 @@ function passwordCheck() {
     showError(passwordInput, errorMessageDiv[1], errorMessage.enterPassword);
   } else if (!PASSWORD_REGEX.test(passwordInput.value)) {
     showError(passwordInput, errorMessageDiv[1], errorMessage.enterProperPassword);
+  } else {
+    hideError(passwordInput, errorMessageDiv[1]);
   }
 }
 // 비밀번호 확인 유효성 검사
