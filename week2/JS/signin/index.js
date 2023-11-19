@@ -19,18 +19,18 @@ function checkTemplate (e) {
 
 const {0: testAdress} = testData
 
-function goServer () {
-  fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
+async function goServer () {
+  const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(testAdress)
     })
-    .then((response) => response.json())
-    .then((a)=> {return a.data.accessToken})
-    .then((token) => localStorage.setItem('accessToken', token))
-    .then(localStorage.getItem('accessToken')? location.replace('/folder'): undefined)
+  const takeToken =await response.json();
+  const token = await takeToken.data.accessToken;
+  localStorage.setItem('accessToken', token);
+  localStorage.getItem('accessToken')? location.replace('/folder'): undefined;
 }
 
 function ourMembers (e) {

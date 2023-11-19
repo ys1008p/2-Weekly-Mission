@@ -23,28 +23,29 @@ function joinMembers (e) {
 const newMember = {}
 newMember.email = email.value;
 
-function goServer() {
-fetch('https://bootcamp-api.codeit.kr/api/check-email',{
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(newMember)
-  })
-  .then((response) => response.json())
-  .then(() => (newMember.password = password.value))
-  .then(() => fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newMember)
-        }))
-        .then((response) => response.json())
-        .then((a)=> {return a.data.accessToken})
-        .then((token) => localStorage.setItem('accessToken', token))
-        .then(localStorage.getItem('accessToken')? location.replace('/folder'): undefined)        
-      }
+async function goServer() {
+  const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email',{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newMember)
+    })
+  const takeJson = await response.json()
+  takeJson ? newMember.password = password.value:undefined;
+
+  const res = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newMember)
+    })
+  const dataObject = await res.json();
+  const token =  await dataObject.data.accessToken;
+  localStorage.setItem('accessToken', token)
+  localStorage.getItem('accessToken')? location.replace('/folder'): undefined;
+  }
 
 function join (e) {
   e.preventDefault()
