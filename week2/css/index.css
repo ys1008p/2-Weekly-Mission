@@ -119,7 +119,7 @@ header {
   border-radius: 25px 25px 0 0;
   background-image: 
     linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%),
-    url('img/tittle.png');
+    url('../img/tittle.png');
   background-repeat: no-repeat;
   background-position: top;
   background-size: 120%;
