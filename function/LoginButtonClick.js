@@ -32,9 +32,9 @@ async function buttonClickEvent(e) {
       //토큰 저장
       const userInfo = await response.json();
       localStorage.setItem('accessToken', userInfo.accessToken);
-
-      alert(`로그인성공 ${userEmail}님`)
+      console.log(userInfo.accessToken);
       console.log("로그인 성공", response.status);
+      alert(`로그인성공 ${userEmail}님`)
       window.location.href = "/folder/folder.html";
 
   

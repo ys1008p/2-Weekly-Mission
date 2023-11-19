@@ -43,6 +43,7 @@ async function signupButton(userEmail, userPassword) {
     if (response.ok) {
       const userInfo = await response.json();
       localStorage.setItem('accessToken', userInfo.accessToken);
+
       const loginResult = await loginAfterSignup(userEmail, userPassword);
       if(loginResult){return true;}
  

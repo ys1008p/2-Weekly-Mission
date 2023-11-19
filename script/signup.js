@@ -35,3 +35,8 @@ passwordInput.addEventListener("focusout", passwordInputFocusoutEvent);
 passwordInputCheck.addEventListener("focusout", passwordMatchingEvent);
 button.addEventListener("click", signupButtonClickEvent);
 emailInput.addEventListener("focusout", emailInputFocusoutEventSignup);
+// document.addEventListener('DOMContentLoaded', () => {
+//   const accessToken = localStorage.getItem('accessToken');
+//   if (accessToken) {
+//     window.location.href = "/folder/folder.html";
+//   }})

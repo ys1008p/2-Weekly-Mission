@@ -19,6 +19,7 @@ async function userDuplicateEmailCheck() {
     });
     if (response.status === 200) {
       emailError.textContent = "사용가능한 이메일 입니다.";
+      console.log(`ststus : ${response.status}, 사용가능 이메일`)
       successTextClass();
     } else if (response.status === 409) {
       emailAddClass();
