@@ -1,12 +1,10 @@
-import { membersList } from "./membersList.js";
 import { WARNING_MSGS } from "./warning-msgs.js";
 
-const checkEmailValid = (email, isSignUp) => {
+const checkEmailValid = (email) => {
   const emailRegex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
   if (!email) return WARNING_MSGS.EMPTY_EMAIL_INPUT;
   else if (!emailRegex.test(email)) return WARNING_MSGS.NOT_CORRECT_EMAIL;
-  else if (isSignUp && membersList.some((el) => el.email === email)) return WARNING_MSGS.DUPLICATION_EMAIL;
 };
 
 const checkPwdValid = (pwd, isSignUp) => {
@@ -17,7 +15,7 @@ const checkPwdValid = (pwd, isSignUp) => {
 };
 
 export const returnWarningText = (inputValue, isEmailInput, isSignUp) => {
-  if (isEmailInput) return checkEmailValid(inputValue, isSignUp);
+  if (isEmailInput) return checkEmailValid(inputValue);
   else return checkPwdValid(inputValue, isSignUp);
 };
 

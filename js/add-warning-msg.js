@@ -1,6 +1,5 @@
-import { membersList } from "./membersList.js";
 import { returnWarningText, returnCheckPwdText } from "./return-warning-msg.js";
-
+import { WARNING_MSGS } from "./warning-msgs.js";
 //
 
 const $memberInfoForm = document.querySelector("#memberInfo-form");
@@ -19,6 +18,21 @@ const setWarningMsg = (warningMsg, warningTag, input) => {
     input.classList.toggle("error-input");
   }
 };
+
+async function checkDuplicatedEmail(inputEmailEl, msgTag) {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: inputEmailEl.value }),
+    });
+    if (response.status === 409) throw new Error("아이디 중복");
+  } catch (e) {
+    setWarningMsg(WARNING_MSGS.DUPLICATION_EMAIL, msgTag, inputEmailEl);
+  }
+}
 
 const checkWarningMsg = (e) => {
   // input태그 내용 검증 후 에러메시지 추가 및 inpur태그 레이아웃 변경
@@ -40,10 +54,12 @@ const checkWarningMsg = (e) => {
 
   resetWarningMsg(hasWarningMsg, $warningTag, $inputDataEl);
 
+  if (isSignUp && isEmailInput) checkDuplicatedEmail($inputDataEl, $warningTag);
+
   if (!isPwdCheckBox) warningMsg = returnWarningText($inputDataEl.value, isEmailInput, isSignUp);
   else warningMsg = returnCheckPwdText($inputDataEl.value, pwInput.value);
 
   setWarningMsg(warningMsg, $warningTag, $inputDataEl);
 };
 
-export { $memberInfoForm, membersList, checkWarningMsg, returnCheckPwdText };
+export { $memberInfoForm, checkWarningMsg, returnCheckPwdText };

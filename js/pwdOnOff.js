@@ -3,6 +3,7 @@ export const changePwViewMode = (e) => {
 
   if (e.target.className !== "pw-onoff") return;
 
+  const $buttonPwOnOff = e.target;
   const pwdInputTag = e.target.previousElementSibling;
 
   if (pwdInputTag.type === "password") {
