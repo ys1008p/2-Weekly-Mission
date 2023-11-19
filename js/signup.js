@@ -1,5 +1,7 @@
 import { validObject } from "./signupValid.js";
 
+if (localStorage.getItem("signupToken")) location.href = "./folder";
+
 export const formState = {
   email: {
     emailInput: document.querySelector("#username"),
@@ -31,9 +33,8 @@ export const formState = {
                 },
               }
             );
-            // console.log(response);
             const result = await response.json();
-            console.log(result);
+
             if ("error" in result) {
               validObject.ifError(
                 e,
@@ -109,7 +110,6 @@ export const formState = {
       password: formState.pw.pwInput.value,
     };
 
-    console.log(signinData);
     async function signupFetch(signinData) {
       try {
         const response = await fetch(
@@ -122,9 +122,8 @@ export const formState = {
             },
           }
         );
-        console.log(response);
         const result = await response.json();
-        console.log(result);
+
         if (response.status == 400) {
           formState.email.emailInput.classList.add("error");
           formState.email.emailInput.nextElementSibling.innerHTML =

@@ -1,5 +1,7 @@
 import { validObject } from "./signinValid.js";
 
+if (localStorage.getItem("signinToken")) location.href = "./folder";
+
 export const formState = {
   email: {
     emailInput: document.querySelector("#username"),
@@ -41,7 +43,6 @@ export const formState = {
       email: formState.email.emailInput.value,
       password: formState.pw.pwInput.value,
     };
-    // console.log(loginMember);
     e.preventDefault();
 
     async function signinFetch(loginMember) {
@@ -56,9 +57,8 @@ export const formState = {
             },
           }
         );
-        console.log(response);
         const result = await response.json();
-        console.log(result);
+
         if (response.status == 400) {
           validObject.ifError(
             e,
