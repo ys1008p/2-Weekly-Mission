@@ -1,10 +1,10 @@
 import {
   isAllObjectValueTrue,
-  isEmailExist,
   isEmpty,
   isValidEmail,
   isValidPassword,
 } from './modules/checkInput.js';
+import { checkIsUniqueEmail, registerUser } from './modules/request.js';
 import { removeErrorMessage, setErrorMessage } from './modules/setError.js';
 
 const signupForm = document.querySelector('#signupForm');
@@ -68,13 +68,23 @@ const checkConfirm = (e) => {
   }
 };
 
-const verifyForm = () => {
+const verifyForm = async () => {
   if (!isAllObjectValueTrue(formState)) return;
-  if (isEmailExist(email.value)) {
+
+  const isUniqueEmail = await checkIsUniqueEmail(email.value);
+  if (!isUniqueEmail) {
     setErrorMessage(email, emailError, '이미 사용 중인 이메일입니다.');
     return;
   }
 
+  const token = await registerUser(email.value, password.value);
+  if (!token) {
+    setErrorMessage(email, emailError, '이메일을 확인해주세요');
+    setErrorMessage(password, passwordError, '비밀번호를 확인해주세요');
+    return;
+  }
+
+  localStorage.setItem('token', token.accessToken);
   location.href = './folder.html';
 };
 
