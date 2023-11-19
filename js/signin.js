@@ -43,7 +43,7 @@ function validPassword() {
 // 로그인 버튼 클릭 이벤트
 function signin() {
   if (email.value === myEmail && pw.value === myPw) {
-    const targetPage = "./folder.html";
+    const targetPage = "./folder";
     window.location.href = targetPage;
   } else {
     validEmail();
