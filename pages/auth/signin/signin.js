@@ -61,7 +61,7 @@ const form = document.querySelector(".form");
 
 form.addEventListener("submit", onSubmit);
 
-async function onSubmit(e) {
+function onSubmit(e) {
   e.preventDefault();
 
   const validResult =
@@ -72,13 +72,13 @@ async function onSubmit(e) {
     return;
   }
 
-  await doSignIn(emailInput.value, passwordInput.value);
+  doSignIn(emailInput.value, passwordInput.value);
 }
 
 async function doSignIn(email, password) {
   try {
-    const authData = await postSignIn(email, password);
-    setUserAccessToken(authData);
+    const signInResponse = await postSignIn(email, password);
+    setUserAccessToken(signInResponse);
     location.href = "/pages/folder";
   } catch (error) {
     console.error(`${error.name}: ${error.message}`);

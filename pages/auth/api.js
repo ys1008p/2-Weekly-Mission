@@ -6,4 +6,7 @@ const postSignIn = (email, password) =>
 const postCheckEmail = (email) =>
   fetchApi.post("/check-email", { body: { email } });
 
-export { postCheckEmail, postSignIn };
+const postSignUp = (email, password) =>
+  fetchApi.post("/sign-up", { body: { email, password } });
+
+export { postCheckEmail, postSignIn, postSignUp };

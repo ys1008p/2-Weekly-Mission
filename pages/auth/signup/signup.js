@@ -5,8 +5,10 @@ import {
   checkPasswordsMatch,
   inputValidationFailed,
   inputValidationSucceeded,
+  setUserAccessToken,
 } from "../sign.js";
 
+import { postSignUp } from "../api.js";
 import { isEmptyString } from "/scripts/utils.js";
 
 /**
@@ -17,7 +19,6 @@ emailInput.addEventListener("focusout", onEmailFocusoutValid);
 
 async function onEmailFocusoutValid({ target }) {
   const errorMessage = await checkEmailValid(target);
-  console.log(errorMessage);
   if (!isEmptyString(errorMessage)) {
     inputValidationFailed(target, errorMessage);
     return false;
@@ -84,9 +85,9 @@ passwordChkEyeIcon.addEventListener(
  */
 const form = document.querySelector(".form");
 
-form.addEventListener("submit", onSubmitValid);
+form.addEventListener("submit", onSubmit);
 
-function onSubmitValid(e) {
+function onSubmit(e) {
   e.preventDefault();
 
   let result =
@@ -98,5 +99,15 @@ function onSubmitValid(e) {
     return;
   }
 
-  location.href = "/pages/folder";
+  doSignUp(emailInput.value, passwordInput.value);
+}
+
+async function doSignUp(email, password) {
+  try {
+    const signUpResponse = await postSignUp(email, password);
+    setUserAccessToken(signUpResponse);
+    location.href = "/pages/folder";
+  } catch (error) {
+    console.error(`${error.name}: ${error.message}`);
+  }
 }
