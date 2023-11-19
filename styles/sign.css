@@ -66,7 +66,7 @@ body {
 }
 
 .sign-form input#password,
-.sign-form input#password-repeat {
+.sign-form input#password-confirm {
   padding-right: 4.6rem;
 }
 
@@ -108,11 +108,19 @@ body {
   height: 4.2rem;
 }
 
+.input-row.error input {
+  border-color: var(--red-color);
+}
+
+.input-row.error .text-error {
+  display: block;
+}
+
 .input-wrap {
   position: relative;
 }
 
-.button-show {
+.button-eye {
   position: absolute;
   top: 50%;
   right: 1.5rem;
@@ -123,8 +131,15 @@ body {
   cursor: pointer;
 }
 
-.button-show.hide {
+.button-eye.hide {
     background: url('/images/sign/icon_eye_off.png') no-repeat center/ 1.6rem 1.6rem;
+}
+
+.text-error {
+  display: none;
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  color: var(—red-color);
 }
 
 @media screen and (max-width: 768px) {

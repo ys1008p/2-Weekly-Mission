@@ -25,33 +25,36 @@
         <div class="input-container">
           <div class="input-row">
             <label for="useremail">이메일</label>
-            <input id="useremail" type="email" name="useremail" placeholder="codeit@codeit.com" />
+            <input id="useremail" type="email" name="useremail"/>
+            <p id="error-email" class="text-error">이메일을 입력해주세요.</p>
           </div>
           <div class="input-row">
             <label for="password">비밀번호</label>
             <div class="input-wrap">
               <input id="password" type="password" name="password" />
               <!-- MEMO: .hide 클래스 활성시 aria-label의 텍스트 '비밀번호 숨기기' 변경 -->
-              <button class="button-show" aria-label="비밀번호 보기"></button>
+              <button class="button-eye hide" type="button" aria-label="비밀번호 보기"></button>
             </div>
+            <p id="error-password" class="text-error"></p>
           </div>
           <div class="input-row">
-            <label for="password-repeat">비밀번호 확인</label>
+            <label for="password-confirm">비밀번호 확인</label>
             <div class="input-wrap">
-              <input id="password-repeat" type="password" name="password-repeat" />
+              <input id="password-confirm" type="password" name="password-confirm" />
               <!-- MEMO: .hide 클래스 활성시 aria-label의 텍스트 '비밀번호 숨기기' 변경 -->
-              <button class="button-show" aria-label="비밀번호 보기"></button>
+              <button class="button-eye hide" type="button" aria-label="비밀번호 보기"></button>
             </div>
+            <p id="error-password-confirm" class="text-error"></p>
           </div>
         </div>
-        <button type="submit" class="button-primary">회원가입</button>
+        <button class="button-primary" type="submit">회원가입</button>
       </form>
     </div>
 
     <footer class="sign-footer">
       <label>다른 방식으로 가입하기</label>
       <div class="social-login">
-          <a href="https://www.google.com/">
+        <a href="https://www.google.com/">
           <img class="image" src="images/sign/icon_google.png" alt="구글" />
         </a>
         <a href="https://www.kakaocorp.com/page/">
