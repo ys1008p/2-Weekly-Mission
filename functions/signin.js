@@ -1,96 +1,108 @@
-const email = document.querySelector('#login-email');
-const password = document.querySelector('#login-password');
-const inputEmail = document.querySelector('#login-email__input');
-const inputPassword = document.querySelector('#login-password__input');
-const loginButton = document.querySelector('#login-page-button')
-const passwordIcon = document.querySelector('.password-icon')
+import { message, emailRegex, passwordRegex, updateAlert, removeAlert } from "./utils.js";
+const email = document.querySelector("#email");
+const password = document.querySelector("#password");
+const inputEmail = document.querySelector("#email__input");
+const inputPassword = document.querySelector("#password__input");
+const loginButton = document.querySelector("#login-page-button");
+const passwordIcon = document.querySelector(".password-icon");
 
-let isLogin ={
-    email: false,
-    password: false
-}
-let passwordWitch=false;
+let isLogin = {
+  email: false,
+  password: false,
+  passwordCheck: false,
+};
 
-let span = document.createElement('span');
-let div = document.createElement('div');
-let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-function emailFocus(e){
-    if(e.target.value === ""){
-        isLogin.email=false
-        inputEmail.classList.add('alert-line');
-        div.innerHTML = "이메일을 입력해주세요.";
-        email.appendChild(div);  
-        div.classList.add('email-alert-text');
-    }else if (!emailRegex.test(inputEmail.value)){
-        isLogin.email=false
-        inputEmail.classList.add('alert-line');
-        div.innerHTML = "올바른 이메일 주소가 아닙니다.";
-        email.appendChild(div);  
-        div.classList.add('email-alert-text');
-    }else{
-        isLogin.email=true
-        inputEmail.classList.remove('alert-line');
-        e.target.nextElementSibling.remove()
-    }
-        
+//이메일
+function validateEmail(inputValue) {
+  if (inputValue == "") {
+    isLogin.email = false;
+    return message.email.null;
+  } else if (!emailRegex.test(inputValue)) {
+    isLogin.email = false;
+    return message.email.invalid;
+  } else {
+    isLogin.email = true;
+    return "";
+  }
 }
 
-function passwordFocus(e){
-    if(inputPassword.value === ""){ 
-        isLogin.password = false
-        inputPassword.classList.add('alert-line');
-        span.innerHTML = "비밀번호를 입력해주세요.";
-        password.appendChild(span);
-        span.classList.add('password-alert-text');
-    }else if((!passwordRegex.test(inputPassword.value))){
-        isLogin.password = false
-        inputPassword.classList.add('alert-line');
-        span.innerHTML = "비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.";
-        password.appendChild(span);
-        span.classList.add('password-alert-text');
-    }else{
-        isLogin.password = true
-        inputPassword.classList.remove('alert-line');
-        e.currentTarget.parentElement.nextElementSibling.remove()
+function emailFocus() {
+  const errorMessage = validateEmail(inputEmail.value);
+  let alert = document.querySelector(".email-alert-text");
+  alert?.remove();
+  if (errorMessage === "") {
+    removeAlert(alert, inputEmail);
+  } else {
+    updateAlert(inputEmail, email, "email-alert-text", errorMessage);
+  }
+}
+
+//비밀번호
+function validatePassword(inputValue) {
+  if (inputValue == "") {
+    isLogin.password = false;
+    return message.password.null;
+  } else if (!passwordRegex.test(inputValue)) {
+    isLogin.password = false;
+    return message.password.invalid;
+  } else {
+    isLogin.password = true;
+    return "";
+  }
+}
+
+function passwordFocus() {
+  const errorMessage = validatePassword(inputPassword.value);
+  let alert = document.querySelector(".password-alert-text");
+  alert?.remove();
+  if (errorMessage === "") {
+    removeAlert(alert, inputPassword);
+  } else {
+    updateAlert(inputPassword, password, "password-alert-text", errorMessage);
+  }
+}
+
+function passwordActivation(e) {
+  let input = e.target.parentElement.querySelector("input");
+  if (input.type === "password") {
+    e.target.setAttribute("src", "../images/eye-on.png");
+    input.type = "text";
+  } else if (input.type === "text") {
+    e.target.setAttribute("src", "../images/password-icon.png");
+    input.type = "password";
+  }
+}
+
+//로그인
+async function loginCheck(email, password) {
+  try {
+    let response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    if (response.ok) {
+      let data = await response.json();
+      localStorage.setItem("loginAccessToken", JSON.stringify(data.data.accessToken));
+      window.location.href = "../folder.html";
     }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function login(e) {
-    e.preventDefault();
-    if (isLogin.email && isLogin.password) {
-        window.location.href = "../folder.html";
-    }else{
-        if(!isLogin.email){
-            inputEmail.classList.add('alert-line');
-            div.innerHTML = "이메일을 확인해주세요.";
-            div.classList.add('email-alert-text');
-            email.appendChild(div);  
-        }
-        if(!isLogin.password){
-            inputPassword.classList.add('alert-line');
-            span.innerHTML = "비밀번호를 확인해주세요.";
-            password.appendChild(span);
-            span.classList.add('password-alert-text');
-         }
-    }
+  e.preventDefault();
+  loginCheck(inputEmail.value, inputPassword.value);
+  if (!isLogin.email) {
+    emailFocus(inputEmail.value);
+  }
+  if (!isLogin.password) {
+    passwordFocus(inputPassword.value);
+  }
 }
 
-function onPassword(){
-        passwordWitch = !passwordWitch;
-    if(!passwordWitch){
-        passwordIcon.setAttribute('src', '../images/password-icon.png');
-        inputPassword.setAttribute('type','password')
-    }else{
-        passwordIcon.setAttribute('src', '../images/eye-on.png');
-        inputPassword.setAttribute('type','text')
-    }
-}
-
-
-inputEmail.addEventListener('focusout', emailFocus);
-inputPassword.addEventListener('focusout', passwordFocus);
-loginButton.addEventListener('click', login);
-passwordIcon.addEventListener('click', onPassword);
+inputEmail.addEventListener("focusout", emailFocus);
+inputPassword.addEventListener("focusout", passwordFocus);
+loginButton.addEventListener("click", login);
+passwordIcon.addEventListener("click", passwordActivation);

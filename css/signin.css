@@ -21,7 +21,6 @@ header {
 
 #join-text,
 #login-text {
-#signup-text {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.4rem;
@@ -29,7 +28,6 @@ header {
 
 #join-link,
 #login-link {
-#signup-link {
   margin-left: 0.8rem;
   font-size: 1.6rem;
   line-height: 1.909rem;
@@ -96,7 +94,6 @@ input:focus {
 
 #login-page-button,
 #join-page-button {
-button {
   padding: 1.6rem 2rem;
   background-image: linear-gradient(90deg, rgba(109, 106, 254, 1), rgba(106, 227, 254, 1));
   border: none;

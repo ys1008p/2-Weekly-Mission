@@ -8,29 +8,29 @@
     <link rel="stylesheet" href="/css/signin.css" />
     <link rel="stylesheet" href="/css/variables.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <script type="module" src="./functions/signup.js"></script>
   </head>
-
   <body>
     <header class="signup-header">
       <a href="/" class="pointer"><img id="logo-img" src="./images/login-logo.png" alt="로그인 로고이미지" /></a>
       <div id="login-text">이미 회원이신가요?<a id="login-link" href="signin.html">로그인하기</a></div>
     </header>
     <form>
-      <div id="join-email" class="email">
-        <label for="join-email__input">이메일</label>
-        <input id="join-email__input" type="email" placeholder="이메일을 입력해주세요" />
+      <div id="email" class="email">
+        <label for="email__input">이메일</label>
+        <input id="email__input" type="email" placeholder="이메일을 입력해주세요" />
       </div>
-      <div id="join-password" class="password">
-        <label for="join-password__input">비밀번호</label>
+      <div id="password" class="password">
+        <label for="password__input">비밀번호</label>
         <div class="password__input-area">
-          <input id="join-password__input" type="password" placeholder="비밀번호를 입력해주세요" />
+          <input id="password__input" type="password" placeholder="비밀번호를 입력해주세요" />
           <img class="password-icon" src="./images/password-icon.png" alt="비빌번호 비활성화 아이콘" />
         </div>
       </div>
       <div id="password-check" class="password-check">
-        <label for="password-check__label">비밀번호 확인</label>
+        <label for="password-check__input">비밀번호 확인</label>
         <div class="password__input-area">
-          <input id="password-check__label" class="password-check__input" type="password" placeholder="비밀번호를 입력해주세요" />
+          <input id="password-check__input" type="password" placeholder="비밀번호를 입력해주세요" />
           <img class="password-icon" src="./images/password-icon.png" alt="비빌번호 비활성화 아이콘" />
         </div>
       </div>
@@ -43,6 +43,5 @@
         </div>
       </div>
     </form>
-    <script type="module" src="./functions/signup.js"></script>
   </body>
 </html>
