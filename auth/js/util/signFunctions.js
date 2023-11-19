@@ -1,7 +1,16 @@
 import { ERROR_MESSAGES } from "./errorMessage.js";
-import { USER_DATA } from "./userData.js";
-import { isValidEmail, isValidPassword } from "./regPatterns.js";
-import { emailInput, passwordInput, passwordCheckInput, passwordType, emailError, passwordError, passwordCheckError, eyeBtn } from "./seletors.js";
+import { 
+  isValidEmail, 
+  isValidPassword, 
+} from "./regPatterns.js";
+import { 
+  emailInput, 
+  passwordInput, 
+  passwordCheckInput, 
+  emailError, 
+  passwordError, 
+  passwordCheckError, 
+} from "./seletors.js";
   
 
 // signin 이메일 에러메세지
@@ -26,9 +35,6 @@ export function signupEmailErrorMessage() {
     showEmailError(ERROR_MESSAGES.emptyEmail);
   } else if (!isValidEmail(emailValue)) {
     showEmailError(ERROR_MESSAGES.wrongEmail);
-  } else if (emailValue === USER_DATA[0].email) { 
-  // 나중에 user@codeit.com 말고 다른 회원가입 정보들이 추가되면 [0]으로 지정하면 안될 것 같은데 어떻게 해야하지.... 반복문...?
-    showEmailError(ERROR_MESSAGES.exsistEmail);
   } else {
     hideError(emailInput, emailError);
   }
@@ -66,50 +72,20 @@ export function passwordCheckErrorMessage() {
 }
 
 
-// signin 시도
-export function signinBtn() {
-  const emailValue = emailInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
-
-  if (emailValue === USER_DATA[0].email && passwordValue === USER_DATA[0].password) {
-    window.location.href = '../folder.html';
-  } else {
-    showEmailError(ERROR_MESSAGES.checkEmail);
-    showPasswordError(ERROR_MESSAGES.checkPassword);
-  }
-}
-
-
-// signup 시도
-export function signupBtn() {
-  const emailValue = emailInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
-  const passwordCheckValue = passwordCheckInput.value.trim();
-
-  if (isValidEmail(emailValue) && isValidPassword(passwordValue) && passwordValue === passwordCheckValue) {
-    window.location.href = '../folder.html';
-  } else {
-    showEmailError(ERROR_MESSAGES.checkEmail);
-    showPasswordError(ERROR_MESSAGES.checkPassword);
-    showPasswordCheckError(ERROR_MESSAGES.checkPassword);
-  }
-}
-
-
 // 에러 클래스 추가
-function showEmailError(message) {
+export function showEmailError(message) {
   emailInput.classList.add('error');
   emailError.textContent = message;
   emailError.style.display = 'block';
 }
   
-function showPasswordError(message) {
+export function showPasswordError(message) {
   passwordInput.classList.add('error');
   passwordError.textContent = message;
   passwordError.style.display = 'block';
 }
 
-function showPasswordCheckError(message) {
+export function showPasswordCheckError(message) {
   passwordCheckInput.classList.add('error');
   passwordCheckError.textContent = message;
   passwordCheckError.style.display = 'block';
@@ -123,23 +99,15 @@ function hideError (input, error) {
 
 
 // 눈모양 아이콘 변경
-export function toggleVisibility(event) {
-  event.preventDefault();
-  if (passwordType.type === 'password') {
-    passwordType.type = 'text';
-    eyeOn();
+export const toggleVisibility = function () {
+  const passwordTypes = this.previousElementSibling;
+  const img = this.querySelector("img");
+
+  if (passwordTypes.type === "password") {
+    passwordTypes.type = "text";
+    img.src = "../images/eye-on.svg";
   } else {
-    passwordType.type = 'password';
-    eyeOff();
+    passwordTypes.type = "password";
+    img.src = "../images/eye-off.svg";
   }
-}
-
-function eyeOn() {
-  eyeBtn.classList.remove('eye-off');
-  eyeBtn.classList.add('eye-on');
-}
-
-function eyeOff() {
-  eyeBtn.classList.remove('eye-on');
-  eyeBtn.classList.add('eye-off');
-}
+};

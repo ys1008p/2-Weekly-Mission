@@ -7,17 +7,17 @@
   <title>signin</title>
   <link rel="stylesheet" type="text/css"
     href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css' />
-  <link rel="stylesheet" href="style/reset.css" />
-  <link rel="stylesheet" href="style/colors.css" />
-  <link rel="stylesheet" href="style/style-sign.css" />
-  <link rel="stylesheet" href="style/media-sign.css" />
+  <link rel="stylesheet" href="../style/reset.css" />
+  <link rel="stylesheet" href="../style/colors.css" />
+  <link rel="stylesheet" href="../auth/style/style-sign.css" />
+  <link rel="stylesheet" href="../auth/style/media-sign.css" />
 </head>
 
 <body>
   <main>
     <div class="logo">
-      <a href="index.html">
-        <img src="images/linkbrary-logo-sign.svg">
+      <a href="/index.html">
+        <img src="../images/linkbrary-logo-sign.svg">
       </a>
       <div class="sign">
         <div>회원이 아니신가요?</div>
@@ -35,7 +35,9 @@
         <label for="password">비밀번호</label>
         <div class="password">
           <input id="password" class="password-type" name="password" type="password">
-          <button class="eye-button eye-off"></button>
+          <button class="eye-button" type="button">
+            <img src="../images/eye-off.svg">
+          </button>
         </div>
         <p class = "password-error-message"></p>
       </div>
@@ -49,20 +51,20 @@
       <div class="sns-title">소셜 로그인</div>
       <div class="sns-button">
         <a href="https://www.google.com/" target="_blank">
-          <img class="sns-background" src="images/google-background.svg">
-          <img class="google" src="images/google.png">
+          <img class="sns-background" src="../images/google-background.svg">
+          <img class="google" src="../images/google.png">
         </a>
       </div>
       <div class="sns-button">
         <a href="https://www.kakaocorp.com/page/" target="_blank">
-          <img class="sns-background" src="images/kakao-background.svg">
-          <img class="kakaotalk" src="images/kakao.svg">
+          <img class="sns-background" src="../images/kakao-background.svg">
+          <img class="kakaotalk" src="../images/kakao.svg">
         </a>
       </div>
     </div>
   </main>
 
-  <script type="module" src="js/signin.js"></script>
+  <script type="module" src="./js/signin.js"></script>
 </body>
 
 
