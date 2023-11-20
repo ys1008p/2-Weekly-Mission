@@ -123,8 +123,7 @@ async function submitForm (e) {
       }
     }
   }catch{
-    paintErr('이메일을 확인해주세요', signInputEmail);
-    paintErr('비밀번호를 확인해주세요', signInputEmail);
+    checkLogin();
   };
 
   try {
@@ -147,8 +146,7 @@ async function submitForm (e) {
       }
     }
   } catch {
-    paintErr('이메일을 확인해주세요', signInputEmail);
-    paintErr('비밀번호를 확인해주세요', signInputEmail);
+    checkLogin();
   }
 }
   
@@ -158,6 +156,17 @@ function enterkey(e) {
     console.log(e.keyCode);
     submitForm(e);
     }
+}
+
+function checkLogin(){
+  if (signInputPassword.lastChild.tagName === "P"){
+    signInputPassword.lastChild.remove();
+  } 
+  if (useremail.nextSibling){
+    useremail.nextSibling.remove();
+  } 
+  paintErr('이메일을 확인해주세요', signInputEmail);
+  paintErr('비밀번호를 확인해주세요', signInputPassword);
 }
 
 const toggleEye = document.querySelectorAll('.eye');
