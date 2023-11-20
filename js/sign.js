@@ -51,8 +51,8 @@ function checkPasswordType (password){
 
 function checkPassword () {
   // 에러코드 중복 방지
-  if (password.parentNode.childNodes[7]){
-    password.parentNode.childNodes[7].remove();
+  if (signInputPassword.lastChild.tagName === "P"){
+    signInputPassword.lastChild.remove();
   }  
   if (!password.value){
     errPaint('비밀번호를 입력해주세요', signInputPassword);
@@ -67,8 +67,8 @@ const signInputPassword2 = document.querySelector('.sign-input-password2');
 
 function doubleCheckPassword(){
   // 에러코드 중복 방지
-  if (password2.parentNode.childNodes[7]){
-    password2.parentNode.childNodes[7].remove();
+  if (signInputPassword2.lastChild.tagName === "P"){
+    signInputPassword2.lastChild.remove();
   }
   if (password.value !== password2.value){
     errPaint('비밀번호가 일치하지 않아요', signInputPassword2);
