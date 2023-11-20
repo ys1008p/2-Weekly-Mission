@@ -121,7 +121,24 @@ async function submitForm (e) {
         location.href = "/folder";
         return;
       }
+    }
+  }catch{
+    paintErr('이메일을 확인해주세요', signInputEmail);
+    paintErr('비밀번호를 확인해주세요', signInputEmail);
+  };
 
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr//api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "email": useremail.value,
+        "password": password.value,
+      }),
+    })
+    if (response.status === 200){
       if (useremail.value && (password.value || password2.value)){
         if (signInputEmail.lastChild.tagName !== "P" && (signInputPassword.lastChild.tagName !== "P" || signInputPassword2.lastChild !== "P")){
           location.href = "/folder";
@@ -129,10 +146,10 @@ async function submitForm (e) {
         }
       }
     }
-  }catch{
+  } catch {
     paintErr('이메일을 확인해주세요', signInputEmail);
     paintErr('비밀번호를 확인해주세요', signInputEmail);
-  };
+  }
 }
   
 
