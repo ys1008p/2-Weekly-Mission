@@ -32,5 +32,21 @@ fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
 
 // 이메일 중복 확인
 function isExistEmail(email) {
-  return true;
+  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(email),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      let check = false;
+      data.forEach((userInfo) => {
+        if (userInfo.email === email) {
+          check = true;
+        }
+        return check;
+      });
+    });
 }
