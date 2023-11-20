@@ -1,6 +1,6 @@
-const email = document.getElementById("email");
-const pw = document.getElementById("pw");
-const pwCheck = document.getElementById("pw-check");
+const email = document.querySelector("#email");
+const pw = document.querySelector("#pw");
+const pwCheck = document.querySelector("#pw-check");
 const signupBtn = document.querySelector(".signup__input-area--btn");
 
 const emailError = {
@@ -12,7 +12,7 @@ const pwError = document.querySelector(".error-message__eight");
 const pwCheckError = document.querySelector(".error-message__diff");
 
 // 이메일 유효성 검증
-function validEmail() {
+function validateEmail() {
   // 에러 메시지 초기화
   email.classList.remove("error-input");
   for (let error in emailError) {
@@ -36,7 +36,7 @@ function validEmail() {
 }
 
 // 비밀번호 유효성 검증
-function validPassword() {
+function validatePassword() {
   // 에러 메시지 초기화
   pw.classList.remove("error-input");
   pwError.classList.remove("display");
@@ -52,7 +52,7 @@ function validPassword() {
 }
 
 // 비밀번호 확인 유효성 검증
-function validPwCheck() {
+function validatePwCheck() {
   // 에러 메시지 초기화
   pwCheck.classList.remove("error-input");
   pwCheckError.classList.remove("display");
@@ -66,9 +66,9 @@ function validPwCheck() {
 
 // 회원가입 버튼 클릭 이벤트
 function signup() {
-  validEmail();
-  validPassword();
-  validPwCheck();
+  validateEmail();
+  validatePassword();
+  validatePwCheck();
   if (
     email.classList.length === 0 &&
     pw.classList.length === 0 &&
@@ -79,9 +79,9 @@ function signup() {
   }
 }
 
-email.addEventListener("focusout", validEmail);
-pw.addEventListener("focusout", validPassword);
-pwCheck.addEventListener("focusout", validPwCheck);
+email.addEventListener("focusout", validateEmail);
+pw.addEventListener("focusout", validatePassword);
+pwCheck.addEventListener("focusout", validatePwCheck);
 signupBtn.addEventListener("click", signup);
 
 // input들과 button에서 enter를 인식하고 signup()를 호출
