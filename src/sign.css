@@ -57,6 +57,14 @@ input:focus {
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
 }
 
+input.errLine{
+  border : 1px solid rgb(255, 0, 0);
+}
+
+input:focus.errLine{
+  border : 1px solid rgb(255, 0, 0);
+}
+
 label {
   display: block;
   margin-bottom: 0.75rem;

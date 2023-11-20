@@ -6,17 +6,32 @@ function checkEmailType (useremail){
   const exptext = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   if(exptext.test(useremail) === false){
   //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
-  errPaint('올바른 이메일 주소가 아닙니다', signInputEmail)
+  paintErr('올바른 이메일 주소가 아닙니다', signInputEmail)
   return false;
   }
 }
 
 // 에러문구 표기 함수
-function errPaint(message, parent){
+function paintErr(message, parent){
   const p = document.createElement('p');
   p.innerText = message;
   p.classList.add('input-err');
   parent.appendChild(p);
+}
+function paintErrLine (inputTag){
+  if (inputTag.classList.contains('errLine')){
+    return;
+  } else{
+    inputTag.classList.add('errLine');
+  }
+}
+
+function removeErrLine (inputTag){
+  if (inputTag.classList.contains('errLine')){
+    inputTag.classList.remove('errLine');
+  } else{
+    return;
+  }
 }
 
 // 메일 이상 유무 체크
@@ -26,11 +41,14 @@ function checkEmail () {
     useremail.nextSibling.remove();
   }
   if (!useremail.value){
-    errPaint('이메일을 입력해주세요', signInputEmail);
+    paintErr('이메일을 입력해주세요', signInputEmail);
+    paintErrLine(useremail);
   } else if (useremail.value === 'test@codeit.com'){
-    errPaint('이미 사용중인 이메일입니다', signInputEmail);
+    paintErr('이미 사용중인 이메일입니다', signInputEmail);
+    paintErrLine(useremail);
   } else{
     checkEmailType(useremail.value);
+    removeErrLine(useremail);
   }   
 }
 
@@ -43,9 +61,10 @@ function checkPasswordType (password){
   //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
   const exptext = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   if(exptext.test(password) === false){
-  errPaint('비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.', signInputPassword)
+  paintErr('비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.', signInputPassword)
   return false;
   }
+  paintErrLine(password);
 }
 
 
@@ -55,9 +74,11 @@ function checkPassword () {
     signInputPassword.lastChild.remove();
   }  
   if (!password.value){
-    errPaint('비밀번호를 입력해주세요', signInputPassword);
+    paintErr('비밀번호를 입력해주세요', signInputPassword);
+    paintErrLine(password);
   } else{
     checkPasswordType(password.value);
+    removeErrLine(password);
   } 
 }
 
@@ -71,7 +92,9 @@ function doubleCheckPassword(){
     signInputPassword2.lastChild.remove();
   }
   if (password.value !== password2.value){
-    errPaint('비밀번호가 일치하지 않아요', signInputPassword2);
+    paintErr('비밀번호가 일치하지 않아요', signInputPassword2);
+    paintErrLine(password);
+    removeErrLine(password);
   }
 }
 
