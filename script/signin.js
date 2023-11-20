@@ -3,10 +3,11 @@ import { createTag, removeTag, checkEmail } from "./function.js";
 let emailEnable = false; //이메일 사용 가능 여부
 let passwordEnable = false; //패스워드 사용 가능 여부
 window.addEventListener("DOMContentLoaded", () => {
+  //엑세스 토큰이 있다면 회원가입 , 로그인 페이지 패스 후 /folder페이지로 이동
   const accessToken = localStorage.getItem("accessToken");
   if (accessToken) {
     window.location.href = "/folder";
-    // localStorage.removeItem("accessToken");
+    // localStorage.removeItem("accessToken"); //엑세스 토큰 지우기
   }
 });
 function emailCheck(e) {
@@ -18,20 +19,7 @@ function emailCheck(e) {
     } else if (!checkEmail(input.value)) {
       createTag(input, "올바른 이메일이 아닙니다.");
     } else {
-      fetch("https://bootcamp-api.codeit.kr/api/check-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: input.value }),
-      }).then((response) => {
-        if (response.status === 409) {
-          emailEnable = true;
-          return;
-        } else {
-          createTag(input, "존재하지 않는 이메일 입니다.");
-        }
-      });
+      emailEnable = true;
     }
   }
 }
@@ -75,21 +63,23 @@ function login(e) {
         if (response.status === 200) {
           return response.json();
         } else {
-          createTag(input, "이메일 및 비밀번호를 확인해 주세요");
+          e.preventDefault();
+          createTag(inputEmail, "이메일 및 비밀번호를 확인해 주세요");
         }
       })
-      .then((data) => {
-        const accessToken = data.accessToken;
-        const refreshToken = data.refreshToken;
+      .then((result) => {
+        const accessToken = result.data.accessToken;
+        const refreshToken = result.data.refreshToken;
 
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
-        console.log(accessToken);
+
         if (accessToken) {
-          window.location.href = "/folder";
+          window.location.href = "./folder";
         }
       })
       .catch((error) => {
+        createTag(inputPassword, "이메일 및 비밀번호를 확인해 주세요");
         console.error(error.message);
       });
   }

@@ -7,10 +7,11 @@ import {
 } from "./tags.js";
 import { createTag, removeTag, checkEmail } from "./function.js";
 window.addEventListener("DOMContentLoaded", () => {
+  //엑세스 토큰이 있다면 회원가입 , 로그인 페이지 패스 후 /folder페이지로 이동
   const accessToken = localStorage.getItem("accessToken");
   if (accessToken) {
     window.location.href = "/folder";
-    localStorage.removeItem("accessToken");
+    // localStorage.removeItem("accessToken"); //엑세스 토큰 지우기 !
   }
 });
 
@@ -92,10 +93,12 @@ function passwordCheckOpen() {
 }
 function signup(e) {
   //회원 가입을 위한 조건 판단 후 form 제출
+  e.preventDefault();
   if (!(emailEnable && passwordEnable)) {
-    e.preventDefault();
+    console.log(emailEnable, passwordEnable);
   } else {
     fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      //회원가입 POST
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -106,21 +109,25 @@ function signup(e) {
       }),
     })
       .then((response) => {
+        //결과값 상태 확인 후 deserialize
         if (response.status === 200) {
           return response.json();
         }
       })
-      .then((data) => {
-        const accessToken = data.accessToken;
-        const refreshToken = data.refreshToken;
+      .then((result) => {
+        //토큰 로컬스토리지에 저장
+        const accessToken = result.data.accessToken;
+        const refreshToken = result.data.refreshToken;
 
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
-        console.log(emailEnable);
-        console.log(passwordEnable);
+        if (accessToken) {
+          //토큰 보유중이라면 folder 페이지로 이동
+          window.location.href = "./folder";
+        }
       })
       .catch((error) => {
-        console.error(error.message);
+        createTag(inputPasswordCheck, error.message);
       });
   }
 } //이벤트 리스너
