@@ -18,6 +18,7 @@ function paintErr(message, parent){
   p.classList.add('input-err');
   parent.appendChild(p);
 }
+
 function paintErrLine (inputTag){
   if (inputTag.classList.contains('errLine')){
     return;
@@ -46,14 +47,15 @@ function checkEmail () {
   } else if (useremail.value === 'test@codeit.com'){
     paintErr('이미 사용중인 이메일입니다', signInputEmail);
     paintErrLine(useremail);
-  } else{
-    checkEmailType(useremail.value);
+  } else if (checkEmailType(useremail.value)){
+    paintErrLine(useremail);
+  } else {
     removeErrLine(useremail);
-  }   
+  }
 }
 
 
-const password = document.querySelector('#password');
+export const password = document.querySelector('#password');
 const signInputPassword = document.querySelector('.sign-input-password');
 
 // 비밀번호 타입이 잘못되었는지 확인하는 함수
@@ -76,14 +78,15 @@ function checkPassword () {
   if (!password.value){
     paintErr('비밀번호를 입력해주세요', signInputPassword);
     paintErrLine(password);
+  } else if (checkPasswordType(password.value)){
+    paintErrLine(password);
   } else{
-    checkPasswordType(password.value);
     removeErrLine(password);
-  } 
+  }
 }
 
 
-const password2 = document.querySelector('#password2');
+export const password2 = document.querySelector('#password2');
 const signInputPassword2 = document.querySelector('.sign-input-password2');
 
 function doubleCheckPassword(){
@@ -94,15 +97,15 @@ function doubleCheckPassword(){
   if (password.value !== password2.value){
     paintErr('비밀번호가 일치하지 않아요', signInputPassword2);
     paintErrLine(password);
-    removeErrLine(password);
   }
 }
 
 // 로그인, 회원가입
 const signForm = document.querySelector('.sign-middle');
 
-function submitForm (e) {
+async function submitForm (e) {
   e.preventDefault();
+
   if (useremail.value && (password.value || password2.value)){
     if (signInputEmail.lastChild.tagName !== "P" && (signInputPassword.lastChild.tagName !== "P" || signInputPassword2.lastChild !== "P")){
       location.href = "/folder";
@@ -122,6 +125,29 @@ function enterkey(e) {
     }
 }
 
+const toggleEye = document.querySelectorAll('.eye');
+function toggleEyeHandler(){
+  for (let i = 0; i < toggleEye.length; i++){
+    if (toggleEye[i].classList.contains('eye-off')){
+      toggleEye[i].classList.remove('eye-off');
+      toggleEye[i].classList.add('eye-on');
+      toggleEye[i].childNodes[1].setAttribute('src', 'imgs/sign/eye-on.png');
+      password.type = 'text';
+      password2.type = 'text';
+    } else if (toggleEye[i].classList.contains('eye-on')){
+      toggleEye[i].classList.remove('eye-on');
+      toggleEye[i].classList.add('eye-off');
+      toggleEye[i].childNodes[1].setAttribute('src', 'imgs/sign/eye-off.svg');
+      password.type = 'password';
+      password2.type = 'password';
+    }
+  }
+}
+toggleEye.forEach(eye => {
+  eye.addEventListener('click', toggleEyeHandler);
+});
+
+
 useremail.addEventListener('focusout', checkEmail);
 password.addEventListener('focusout', checkPassword);
 
@@ -129,4 +155,3 @@ signForm.addEventListener('submit', submitForm);
 signForm.addEventListener('keyup', enterkey);
 
 password2.addEventListener('focusout', doubleCheckPassword);
-
