@@ -115,10 +115,18 @@ function submitForm (e) {
   }
 }
 
-
+function enterkey(e) {
+	if (e.keyCode == 13) {
+    console.log(e.keyCode);
+    submitForm(e);
+    }
+}
 
 useremail.addEventListener('focusout', checkEmail);
 password.addEventListener('focusout', checkPassword);
 
 signForm.addEventListener('submit', submitForm);
+signForm.addEventListener('keyup', enterkey);
+
 password2.addEventListener('focusout', doubleCheckPassword);
+
