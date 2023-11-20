@@ -14,7 +14,6 @@ img {
 a {
     text-decoration:none;
 }
-/* #main */
 #main {
     width:400px;
     margin:238px auto 252px;
@@ -37,7 +36,6 @@ a {
     color:#6D6AFE;
     font-weight:600;
 }
-
 /* #s2 */
 #join {
     margin:30px 0;
@@ -48,7 +46,6 @@ a {
     font-size:14px;
     font-weight:400;
 }
-
 #s2 input {
     display:block;
     width: 100%;
@@ -62,12 +59,11 @@ a {
     border:1px solid #6D6AFE;
 }
 /* #s2 개별 */
-#s2 .userPass {
+#join .formControl:nth-child(2) {
     margin-top:24px;
 }
 #s2 button {
     display:block;
-    /* pr1) display:block을 해줬는데 width100%를 해줘야 하는이유 */
     width:100%;
     padding:16px 20px;
     margin-top:30px;
@@ -79,20 +75,24 @@ a {
     color:#F5F5F5;
     
 }
-/* 눈아이콘 없애기 */
 input[type="password"]::-ms-reveal {
     display:none;
 }
-/* 눈아이콘 위치 시키기 */
-#join {
+.userPassEyeOffBind {
     position:relative;
 }
-.eye_off {
+.eyeOff {
     position:absolute;
-    top:150px;
+    top:50%;
+    transform:translateY(-50%);
     right:15px;
 }
-/* #s3 */
+.errorMessage.on {
+    margin-top:8px;
+    display:block;
+    font-size:14px;
+    color:#FF5B56;
+}
 /* #s3 공통 */
 .merge {
     display:inline-block;
@@ -120,13 +120,10 @@ input[type="password"]::-ms-reveal {
 .marGin {
     margin-right:16px;
 }
-/* 테블릿사이즈 반응형 */
 @media (max-width:1199px) {
 
 }
-/* 모바일 반응형 */
 @media (max-width:767px) {
-    /* #main */
     #main {
         width:325px;
         margin:120px auto 232px;
