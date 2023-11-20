@@ -92,7 +92,7 @@ const $errorMessagePasswordCheck = document.querySelector(
 ); // 에러메세지가 들어갈 요소
 
 // 올바른 값이 아닌 경우 빨간 테두리와 에러메세지
-function addErrorMessagePasswordCheck() {
+function addErrorMessagePasswordCheck(value) {
   const userPasswordValue = $inputPasswordCheck.value; // 사용자가 입력한 패스워드 인풋 값
 
   if (userPasswordValue !== $inputPassword.value) {
@@ -111,6 +111,9 @@ $inputPasswordCheck.addEventListener("focusout", function () {
 });
 
 // 4. 회원가입 시도 시
+/* FIXME 문제가 있는데도 자꾸 폴더로 넘어가는 문제 (회원가입, 로그인 공통)
+- moveIfValid()의 리턴값은 true, false 상황에 맞게 잘 나옴.
+- /folder로 넘어가는 조건이 안 맞음 (한번 true가 된 적 있으면 계속 링크로 넘어가지는 건지..) */
 
 // 진행: 에러메세지가 없는 경우 (내용이 모두 ""인 경우)
 // 중단: 하나라도 에러메세지가 있는 경우
@@ -149,7 +152,8 @@ function moveIfValidSignUp() {
     showErrorMessageSignUp();
     return false;
   } else if (isAllValidSignUp()) {
-    $signButton.href = "./folder.html"; //folder로 이동
+    //Q $signButton.href = "./folder.html"와의 차이는?
+    location.href = "./folder.html"; //folder로 이동
     return true;
   }
 }
@@ -208,7 +212,7 @@ function moveIfValidSignIn() {
     showErrorMessageSignIn();
     return false;
   } else if (isAllValidSignIn()) {
-    $signButton.href = "./folder.html"; //folder로 이동
+    location.href = "./folder.html"; //folder로 이동
     return true;
   }
 }
