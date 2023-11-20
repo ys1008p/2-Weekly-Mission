@@ -105,18 +105,36 @@ const signForm = document.querySelector('.sign-middle');
 
 async function submitForm (e) {
   e.preventDefault();
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "email": useremail.value,
+        "password": password.value,
+      }),
+    })
+    if (response.status === 200){
+      if (useremail.value === 'test@codeit.com' && password.value === 'sprint101'){
+        location.href = "/folder";
+        return;
+      }
 
-  if (useremail.value && (password.value || password2.value)){
-    if (signInputEmail.lastChild.tagName !== "P" && (signInputPassword.lastChild.tagName !== "P" || signInputPassword2.lastChild !== "P")){
-      location.href = "/folder";
-      return; 
+      if (useremail.value && (password.value || password2.value)){
+        if (signInputEmail.lastChild.tagName !== "P" && (signInputPassword.lastChild.tagName !== "P" || signInputPassword2.lastChild !== "P")){
+          location.href = "/folder";
+          return; 
+        }
+      }
     }
-  }
-  if (useremail.value === 'test@codeit.com' && password.value === 'codeit101'){
-    location.href = "/folder";
-    return;
-  }
+  }catch{
+    paintErr('이메일을 확인해주세요', signInputEmail);
+    paintErr('비밀번호를 확인해주세요', signInputEmail);
+  };
 }
+  
 
 function enterkey(e) {
 	if (e.keyCode == 13) {
