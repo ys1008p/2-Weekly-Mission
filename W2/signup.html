@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sign in</title>
-    <link rel="stylesheet" href="./src/signin.css" />
+    <link rel="stylesheet" href="./src/signup.css" />
     <link rel="stylesheet" href="./src/reset.css" />
     <link
       rel="stylesheet"
@@ -18,8 +18,8 @@
         <img src="./img/logo.svg" alt="Linkbrary logo to home page" />
       </a>
       <h1 class="header-message">
-        회원이 아니신가요?
-        <a class="header-link" href="./signin.html">로그인 하기</a>
+        이미 회원이신가요?
+        <a class="header-link" href="./signin.html">로그인하기</a>
       </h1>
     </header>
 
@@ -28,25 +28,34 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input class="sign-input" id="email-text" />
+            <span class="input-check" id="email-check"></span>
           </div>
 
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="./img/signin/eye-off.svg" alt="eye-off" />
+            <input class="sign-input eh" id="password-text" type="password" />
+            <button id="eye-button" class="eye-button" type="button">
+              <img class="" src="./img/signin/eye-off.svg" alt="eye-off" />
             </button>
+            <span class="input-check" id="password-check"> </span>
           </div>
+
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호 확인</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="./img/signin/eye-off.svg" />
+            <input
+              class="sign-input"
+              id="password-text-check-again"
+              type="password"
+            />
+            <button id="eye-button2" class="eye-button" type="button">
+              <img src="./img/signin/eye-off.svg" alt="eye-off" />
             </button>
+            <span class="input-check" id="password-check-again"> </span>
           </div>
         </div>
-        <button class="cta" type="submit">로그인</button>
+
+        <button class="cta" id="signup-button" type="submit">회원가입</button>
       </form>
 
       <div class="sns-box">
@@ -61,5 +70,6 @@
         </div>
       </div>
     </div>
+    <script src="./src/signup.js"></script>
   </body>
 </html>
