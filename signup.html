@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>로그인</title>
 
     <link rel="stylesheet" type="text/css"
         href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="base.css"/>
-    <link rel="stylesheet" href="utility.css"/>
-    <link rel="stylesheet" href="signup.css"/>
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="utility.css" />
+    <link rel="stylesheet" href="signup.css" />
 </head>
 
 <body class="body centered">
@@ -33,8 +33,11 @@
                     <label class="input-form__label" for="signup-email">
                         이메일
                     </label>
-                    <input class="input-form__input" id="signup-email" name="email" type="email" autocomplete="email"
-                        required>
+                    <div class="input-form__input-wrapper">
+                        <input class="input-form__input" id="signup-email" name="email" type="email"
+                            autocomplete="email" required>
+                    </div>
+
                 </div>
                 <div class="input-form">
                     <label class="input-form__label" for="signup-password">
@@ -42,7 +45,7 @@
                     </label>
                     <div class="input-form__input-wrapper">
                         <input class="input-form__input" id="signup-password" name="password" type="password" required>
-                        <img class="input-form__show-icon" src="./image/signin/eye-off.svg">
+                        <div class="input-form__show-icon input-form__show-icon_eye-off"></div>
                     </div>
                 </div>
                 <div class="input-form">
@@ -50,8 +53,9 @@
                         비밀번호확인
                     </label>
                     <div class="input-form__input-wrapper">
-                        <input class="input-form__input" id="signup-password-check" name="password-check" type="password" required>
-                        <img class="input-form__show-icon" src="./image/signin/eye-off.svg">
+                        <input class="input-form__input" id="signup-password-check" name="password-check"
+                            type="password" required>
+                        <div class="input-form__show-icon input-form__show-icon_eye-off"></div>
                     </div>
                 </div>
             </form>
@@ -62,13 +66,15 @@
         <section class="social-signup mt_32px">
             <label class="social-signup__label">다른 방식으로 가입하기</label>
             <div class="social-signup__sns-icons">
-                <a class="social-signup__sns-icon social-signup__sns-icon_background_google social-signup__sns-icon_img-google " href="https://www.google.com"><img src="./image/social/google.png"
-                        alt="구글 로그인"></a>
-                <a class="social-signup__sns-icon social-signup__sns-icon_background_kakao social-signup__sns-icon_img-kakao" href="https://www.kakaocorp.com/page/"><img src="./image/social/kakao.svg"
-                        alt="카카오 로그인"></a>
+                <a class="social-signup__sns-icon social-signup__sns-icon_background_google social-signup__sns-icon_img-google "
+                    href="https://www.google.com"><img src="./image/social/google.png" alt="구글 로그인"></a>
+                <a class="social-signup__sns-icon social-signup__sns-icon_background_kakao social-signup__sns-icon_img-kakao"
+                    href="https://www.kakaocorp.com/page/"><img src="./image/social/kakao.svg" alt="카카오 로그인"></a>
             </div>
         </section>
     </main>
+
+    <script defer type="module" src="./script/SignUp.js"></script>
 </body>
 
 </html>

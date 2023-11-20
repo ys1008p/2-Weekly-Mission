@@ -33,8 +33,11 @@
                     <label class="input-form__label" for="signin-email">
                         이메일
                     </label>
-                    <input class="input-form__input" id="signin-email" name="email" type="email" autocomplete="email"
-                        required>
+                    <div class="input-form__input-wrapper">
+                        <input class="input-form__input" id="signin-email" name="email" type="email" autocomplete="email"
+                            required>
+                    </div>
+
                 </div>
                 <div class="input-form">
                     <label class="input-form__label" for="signin-password">
@@ -42,7 +45,7 @@
                     </label>
                     <div class="input-form__input-wrapper">
                         <input class="input-form__input" id="signin-password" name="password" type="password" required>
-                        <img class="input-form__show-icon" src="./image/signin/eye-off.svg">
+                        <div class="input-form__show-icon input-form__show-icon_eye-off"></div>
                     </div>
                 </div>
             </form>
@@ -60,6 +63,8 @@
             </div>
         </section>
     </main>
+    
+    <script defer type="module" src="./script/SignIn.js"></script>
 </body>
 
 </html>
