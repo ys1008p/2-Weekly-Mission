@@ -3,15 +3,19 @@ import {
   removeInputError,
   isEmailValid,
   isPasswordValid,
-  userList,
-} from "./import.js";
+  togglePassword,
+  userID,
+  TokenStorage,
+} from "./shared.js";
 
-//이메일
+TokenStorage("/folder");
+
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 emailInput.addEventListener("focusout", (event) =>
   validateEmailInput(event.target.value)
 );
+
 function validateEmailInput(email) {
   if (email === "") {
     setInputError(
@@ -27,7 +31,7 @@ function validateEmailInput(email) {
     );
     return;
   }
-  if (email === userList.email) {
+  if (email === userID.email) {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
       "이미 사용 중인 이메일입니다."
@@ -37,12 +41,12 @@ function validateEmailInput(email) {
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
 
-//비밀번호
 const passwordInput = document.querySelector("#pwd");
 const passwordErrorMessage = document.querySelector("#password-error-message");
 passwordInput.addEventListener("focusout", (event) =>
   validatePasswordInput(event.target.value)
 );
+
 function validatePasswordInput(password) {
   if (password === "") {
     setInputError(
@@ -64,7 +68,6 @@ function validatePasswordInput(password) {
   });
 }
 
-//비밀번호 확인
 const checkPasswordInput = document.querySelector("#pwd-check");
 const checkPasswordErrorMessage = document.querySelector(
   "#check-error-message"
@@ -72,6 +75,7 @@ const checkPasswordErrorMessage = document.querySelector(
 checkPasswordInput.addEventListener("focusout", (event) =>
   validateCheckPasswordInput(event.target.value)
 );
+
 function validateCheckPasswordInput(checkPassword) {
   if (passwordInput.value !== checkPassword) {
     setInputError(
@@ -90,63 +94,101 @@ function validateCheckPasswordInput(checkPassword) {
   return true;
 }
 
-//회원가입
+const passwordToggleButton = document.querySelector("#eye-btn");
+passwordToggleButton.addEventListener("click", () =>
+  togglePassword(passwordInput, passwordToggleButton)
+);
+
+const eyeCheckButton = document.querySelector("#eye-btn-check");
+eyeCheckButton.addEventListener("click", () =>
+  togglePassword(checkPasswordInput, eyeCheckButton)
+);
+
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
-function submitForm(event) {
+
+async function submitForm(event) {
   event.preventDefault();
   const signUpSuccess =
     emailInput.value && passwordInput.value && checkPasswordInput.value;
 
   if (signUpSuccess) {
-    location.href = "/folder";
-    return;
+    const isDuplicate = await checkDuplicateEmail(emailInput.value);
+
+    if (isDuplicate) {
+      setInputError(
+        { input: emailInput, errorMessage: emailErrorMessage },
+        "이미 사용 중인 이메일입니다."
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/sign-up",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailInput.value,
+            password: passwordInput.value,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw Error();
+      }
+
+      const data = await response.json();
+      const accessToken = data?.accessToken;
+      if (!accessToken) {
+        alert("회원가입에 실패했습니다.");
+        return;
+      }
+
+      localStorage.setItem("j_1644", accessToken);
+      location.href = "/folder";
+    } catch {
+      setInputError(
+        { input: emailInput, errorMessage: emailErrorMessage },
+        "이메일 또는 비밀번호를 확인해주세요."
+      );
+      setInputError(
+        { input: passwordInput, errorMessage: passwordErrorMessage },
+        "이메일 또는 비밀번호를 확인해주세요."
+      );
+    }
+  } else {
+    setInputError(
+      { input: emailInput, errorMessage: emailErrorMessage },
+      "이메일을 확인해주세요."
+    );
+    setInputError(
+      { input: passwordInput, errorMessage: passwordErrorMessage },
+      "비밀번호를 확인해주세요."
+    );
   }
-  setInputError(
-    { input: emailInput, errorMessage: emailErrorMessage },
-    "이메일을 확인해주세요."
-  );
-  setInputError(
-    { input: passwordInput, errorMessage: passwordErrorMessage },
-    "비밀번호를 확인해주세요."
-  );
 }
 
-//4주차 요구사항
-// 비밀번호 input
-const eyeBtn = document.getElementById("eye-btn");
-const pwInput = document.getElementById("pwd");
-// 비밀번호 확인 input
-const eyeBtnCheck = document.getElementById("eye-btn-check");
-const pwCheckInput = document.getElementById("pwd-check");
-// eye icon
-const eyeOff = document.querySelector(".off-img");
-const eyeOn = document.querySelector(".on-img");
-//eye check
-const eyeCheckOn = document.querySelector(".check-on");
-const eyeCheckOff = document.querySelector(".check-off");
+async function checkDuplicateEmail(email) {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/check-email",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    }
+  );
 
-//비밀번호 input
-eyeBtn.addEventListener("click", () => {
-  if (pwInput.type === "password") {
-    pwInput.type = "text";
-    eyeOn.style.display = "block";
-    eyeOff.style.display = "none";
-  } else {
-    pwInput.type = "password";
-    eyeOff.style.display = "block";
-    eyeOn.style.display = "none";
+  if (!response.ok) {
+    throw Error();
   }
-});
-// 비밀번호 확인 input
-eyeBtnCheck.addEventListener("click", () => {
-  if (pwCheckInput.type === "password") {
-    pwCheckInput.type = "text";
-    eyeCheckOn.style.display = "block";
-    eyeCheckOff.style.display = "none";
-  } else {
-    pwCheckInput.type = "password";
-    eyeCheckOff.style.display = "block";
-    eyeCheckOn.style.display = "none";
-  }
-});
+
+  const data = await response.json();
+  return data.isDuplicate;
+}
