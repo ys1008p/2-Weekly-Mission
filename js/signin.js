@@ -44,16 +44,31 @@ function validatePassword(password) {
 const loginBtn = document.querySelector(".signin__input-area--btn");
 loginBtn.addEventListener("click", signin);
 function signin(e) {
-  if (
-    emailInput.value === UNIQUE_USER.email &&
-    pwInput.value === UNIQUE_USER.password
-  ) {
+  if (checkEmail(emailInput.value) && checkPassword(pwInput.value)) {
     const targetPage = "./folder";
     window.location.href = targetPage;
     return;
   }
   validateEmail(e.target.value);
   validatePassword(e.target.value);
+}
+
+// API 이메일 확인 요청
+async function checkEmail(email) {
+  const response = await fetch(
+    `https://bootcamp-api.codeit.kr/docs/api/sign-in?email=${email}`
+  );
+  const data = await response.json();
+  return data === email;
+}
+
+// API 비밀번호 확인 요청
+async function checkPassword(password) {
+  const response = await fetch(
+    `https://bootcamp-api.codeit.kr/docs/api/sign-in?password=${password}`
+  );
+  const data = await response.json();
+  return data === password;
 }
 
 // 비밀번호의 눈 버튼 클릭 이벤트
