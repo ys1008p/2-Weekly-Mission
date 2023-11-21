@@ -12,6 +12,9 @@ function emailAddClass() {
   emailInput.classList.add("red-border");
   emailError.classList.add("email-error", "error-message");
 }
+function successTextClass(){
+  emailError.classList.add("email-error","success-message");
+}
 
 function emailRemoveClass() {
   emailInput.classList.remove("red-border");
@@ -46,4 +49,5 @@ export {
   emailRemoveClass,
   passwordAddClass,
   passwordRemoveClass,
+  successTextClass
 };

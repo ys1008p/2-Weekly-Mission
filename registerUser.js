@@ -1,1 +1,0 @@
-export let userInfo = [{ email: "test@codeit.com", password: "codeit101" }];

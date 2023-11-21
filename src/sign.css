@@ -190,5 +190,13 @@ height: 14px;
   line-height: normal;
   height: 14px;
   }
+  .success-message{
+    color: green;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    height: 14px;}
 #email-error{visibility: visible;}
 #password-error{visibility: visible;}
