@@ -30,38 +30,31 @@ function validateEmail(email) {
 }
 
 // 비밀번호 유효성 검증
-const pw = document.querySelector("#pw");
+const pwInput = document.querySelector("#pw");
 const pwError = document.querySelector(".error-message__pw");
-pw.addEventListener("focusout", (e) => validatePassword(e.target.value));
+pwInput.addEventListener("focusout", (e) => validatePassword(e.target.value));
 function validatePassword(password) {
   if (password === "") {
-    setError({ input: pw, errorMsg: pwError }, "비밀번호을 입력해주세요.");
+    setError({ input: pwInput, errorMsg: pwError }, "비밀번호을 입력해주세요.");
     return;
   }
-  if (!passwordCondition(password)) {
-    setError(
-      { input: pw, errorMsg: pwError },
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
-    );
-    return;
-  }
-  removeError({ input: pw, errorMsg: pwError });
+  removeError({ input: pwInput, errorMsg: pwError });
 }
 
 // 로그인 버튼 클릭 이벤트
 const loginBtn = document.querySelector(".signin__input-area--btn");
 loginBtn.addEventListener("click", signin);
-function signin() {
+function signin(e) {
   if (
-    emailInput.value === UNIQUE_USER.emailInput &&
-    pw.value === UNIQUE_USER.password
+    emailInput.value === UNIQUE_USER.email &&
+    pwInput.value === UNIQUE_USER.password
   ) {
     const targetPage = "./folder";
     window.location.href = targetPage;
-  } else {
-    validateEmail();
-    validatePassword();
+    return;
   }
+  validateEmail(e.target.value);
+  validatePassword(e.target.value);
 }
 
 // 비밀번호의 눈 버튼 클릭 이벤트
