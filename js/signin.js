@@ -4,6 +4,7 @@ import {
   removeError,
   emailCondition,
   passwordCondition,
+  eyeToggle,
 } from "./utils.js";
 
 // 아이디 유효성 검증
@@ -64,18 +65,5 @@ function signin() {
 }
 
 // 비밀번호의 눈 버튼 클릭 이벤트
-const pwOpenEye = document.querySelector(".open-eye");
-const pwClosedEye = document.querySelector(".closed-eye");
-pwOpenEye.addEventListener("click", eyeToggle);
-pwClosedEye.addEventListener("click", eyeToggle);
-function eyeToggle() {
-  if (pw.type === "password") {
-    pwOpenEye.classList.add("display");
-    pwClosedEye.classList.remove("display");
-    pw.setAttribute("type", "text");
-  } else if (pw.type === "text") {
-    pwOpenEye.classList.remove("display");
-    pwClosedEye.classList.add("display");
-    pw.setAttribute("type", "password");
-  }
-}
+const pwEye = document.querySelector(".eye-toggle");
+pwEye.addEventListener("click", () => eyeToggle(pw, pwEye));

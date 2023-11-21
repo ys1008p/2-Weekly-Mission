@@ -126,11 +126,6 @@ body {
   gap: 16px;
 }
 
-/* 비밀벤호의 눈 버튼 */
-.signin__input-area--form-pw button img {
-  display: none;
-}
-
 /* 에러 발생 시 보여주는 태그 */
 .signin__input-area--form-email p,
 .signin__input-area--form-pw p {

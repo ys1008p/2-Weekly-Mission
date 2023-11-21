@@ -27,6 +27,19 @@ export function passwordCondition(password) {
   return new RegExp(PASSWORD_REGEX).test(password);
 }
 
+// 비밀번호 눈 버튼
+export function eyeToggle(pwInput, toggle) {
+  if (pwInput.type === "password") {
+    pwInput.setAttribute("type", "text");
+    toggle.setAttribute("src", "./assets/eye-on.svg");
+    toggle.setAttribute("alt", "open-eye");
+  } else if (pwInput.type === "text") {
+    pwInput.setAttribute("type", "password");
+    toggle.setAttribute("src", "./assets/eye-off.svg");
+    toggle.setAttribute("alt", "close-eye");
+  }
+}
+
 // 고유 이메일과 비밀번호
 export const UNIQUE_USER = {
   email: "test@codeit.com",
