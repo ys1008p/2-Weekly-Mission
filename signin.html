@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <link rel="stylesheet" href="css/week2.css">
+  <link rel="stylesheet" href="css/signin.css">
 </head>
 <body>
 
@@ -27,14 +27,16 @@
 <div class="password">
 <label for="signup-password">비밀번호</label>
 <input id="signup-password" name="signup-password" type="password">
-<div class="eye-icon" onclick="togglePasswordVisibility()"></div>
-<img src="signin/eye-off.png" id="eye-icon">
 <div class="error-message2" id="error-message2"></div>
+<div class="eye1 eye">
+  <img class="eye-off"src="asset/landing/eye-off.svg" alt="eye-off" data-pwd="pwd1">
 
+  <img class="eye-on"src="asset/landing/eye-on.svg" alt="eye-on" data-pwd="pwd2">
+</div>
 </div>
 </div><!--main_gap-->
 
-<button type="submit">
+<button class="login-button" type="submit">
 로그인
 </button>
 <div class="login-message"></div>
@@ -47,9 +49,6 @@
   <a href="https://www.google.com/"><img src="asset/signin/Component 2.png"></a>
   <a href="https://www.kakaocorp.com/page/"><img src="signin/Component 3.png"></a>
 </div>
-</div>
-
-</div>
-<script src="week2.js"></script>
+<script src="javascript/signin.js"></script>
 </body>
 </html>

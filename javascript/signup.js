@@ -5,6 +5,7 @@ const passwordInput = document.getElementById("signup-password");
 const errorMessage2 = document.getElementById("error-message2");
 const passwordInputOmt = document.getElementById("signup-password2");
 const errorMessage2Omt = document.getElementById("error-message2-omt");
+const joinButton = document.querySelector("#join-button");
 
 function showError(input, errorElement, errorMessage) {
   input.classList.add("error");
@@ -18,12 +19,13 @@ function clearError(input, errorElement) {
   errorElement.style.display = "none";
   errorElement.innerText = " ";
   input.style.border = "1px solid #CCD5E3";
-  button.style.border = "none";
+  joinButton.style.border = "none";
 }
+
 emailInput.addEventListener("focusout", function () {
   if (emailInput.value === "") {
     showError(emailInput, errorMessage, "이메일을 입력해주세요.");
-  } else if (!emailRegex.test(emailInput.value)) {
+  } else if (!isEmailRegexemailRegex.test(emailInput.value)) {
     showError(emailInput, errorMessage, "올바른 이메일 주소가 아닙니다.");
   } else if (emailInput.value === "test@codeit.com") {
     showError(emailInput, errorMessage, "이미 사용 중인 이메일입니다.");
@@ -58,26 +60,37 @@ passwordInputOmt.addEventListener("input", function () {
     );
   }
 });
+joinButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  const data = {
+    email: emailInput.value,
+  };
+  fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result.data.isUsagleNickname);
+    });
 
-const joinButtons = document.getElementsByTagName("button")[0];
-const joinMessage = document.getElementsByClassName("join-message")[0];
+  // if (result.data.isUsagleNickname) {
+  const newMember = {
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
+  // return newMember;
 
-for (let i = 0; i < joinButtons.length; i++) {
-  joinButtons[i].addEventListener("click", function (event) {
-    event.preventDefault(); // 폼 제출 방지
-
-    // 이메일 유효성 검사
-    if (
-      (emailInput.value === "" &&
-        !isEmailRegex.test(emailInput.value) &&
-        emailInput.value === "test@codeit.com") ||
-      !/^(?=.*[a-zA-Z])(?=.*\d)/.test(passwordInput.value) ||
-      passwordInput.value.length < 8 ||
-      passwordInput.value !== passwordInputOmt.value
-    ) {
-      showError(joinButtons[i], joinMessage, "다시 확인하세요.");
-    } else {
-      window.location.href = "/folder";
-    }
-  });
-}
+  fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newMember),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      // 서버 응답에 따른 처리
+      localStorage.setItem("newMember", result.data.accessToken);
+      location.href = "folder.html";
+    });
+});

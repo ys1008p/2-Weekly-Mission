@@ -150,8 +150,11 @@ button {
   color: red;
   display: none;
 }
-.open-eye {
+.eye {
   position: relative;
   top: -45px;
   left: 400px;
+}
+.eye-on {
+  display: none;
 }
