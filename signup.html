@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linkbrary-로그아웃</title>
+    <meta property="og:title" content="Linkbrary" />
+    <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta property="og:url" content="https://timely-cendol-8811f2.netlify.app/" />
+    <meta property="og:image" content="https://timely-cendol-8811f2.netlify.app/img/preview.png" />
+    <title>Linkbrary-회원가입</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
@@ -15,25 +19,27 @@
         <span>회원이 아니신가요?</span>
         <a href="/signin.html">로그인 하기</a>
       </div>
-      <form action="/your-login-endpoint" method="post">
+      <form action="/your-login-endpoint" method="post" onsubmit="return validateForm()">
         <div class="input-wrapper">
           <label for="email">이메일</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" placeholder="codeit@codeit.com" required />
+          <p class="email-error-text"></p>
         </div>
         <div class="input-wrapper">
           <label for="password">비밀번호</label>
           <div class="password-container">
             <input type="password" id="password" name="password" required />
             <span class="toggle-password" onclick="togglePassword()"></span>
+            <p class="pw-error-text"></p>
           </div>
         </div>
         <div class="input-wrapper">
-          <label for="password">비밀번호 확인</label>
+          <label for="confirm-password">비밀번호 확인</label>
           <div class="password-container">
-            <input type="password" id="password" name="password" required />
+            <input type="password" id="confirm-password" name="confirm-password" required />
             <span class="toggle-password" onclick="togglePassword()"></span>
+            <p class="wrong"></p>
           </div>
-          <p class="wrong">비밀번호가 다릅니다.</p>
         </div>
         <div class="login-btn">
           <button type="submit" class="tac">회원가입</button>
@@ -47,5 +53,6 @@
         </div>
       </form>
     </div>
+    <script src="./js/signup.js"></script>
   </body>
 </html>
