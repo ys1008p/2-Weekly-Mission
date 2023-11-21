@@ -2,100 +2,200 @@ const useremail = document.querySelector('#useremail')
 const signInputEmail = document.querySelector('.sign-input-email');
 
 // 이메일 타입이 잘못되었는지 확인하는 함수
-function emailTypeChacking (useremail){
+function checkEmailType (useremail){
   const exptext = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   if(exptext.test(useremail) === false){
   //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
-  errPaint('올바른 이메일 주소가 아닙니다', signInputEmail)
+  paintErr('올바른 이메일 주소가 아닙니다', signInputEmail)
   return false;
   }
 }
 
 // 에러문구 표기 함수
-function errPaint(massage, append){
+function paintErr(message, parent){
   const p = document.createElement('p');
-  p.innerText = massage;
+  p.innerText = message;
   p.classList.add('input-err');
-  append.appendChild(p);
+  parent.appendChild(p);
+}
+
+function paintErrLine (inputTag){
+  if (inputTag.classList.contains('errLine')){
+    return;
+  } else{
+    inputTag.classList.add('errLine');
+  }
+}
+
+function removeErrLine (inputTag){
+  if (inputTag.classList.contains('errLine')){
+    inputTag.classList.remove('errLine');
+  } else{
+    return;
+  }
 }
 
 // 메일 이상 유무 체크
-function chackingEmail () {
+function checkEmail () {
   // 에러코드 중복 방지
   if (useremail.nextSibling){
     useremail.nextSibling.remove();
   }
   if (!useremail.value){
-    errPaint('이메일을 입력해주세요', signInputEmail);
+    paintErr('이메일을 입력해주세요', signInputEmail);
+    paintErrLine(useremail);
   } else if (useremail.value === 'test@codeit.com'){
-    errPaint('이미 사용중인 이메일입니다', signInputEmail);
-  } else{
-    emailTypeChacking(useremail.value);
-  }   
+    paintErr('이미 사용중인 이메일입니다', signInputEmail);
+    paintErrLine(useremail);
+  } else if (checkEmailType(useremail.value)){
+    paintErrLine(useremail);
+  } else {
+    removeErrLine(useremail);
+  }
 }
 
 
-// 비밀번호 타입이 잘못되었는지 확인하는 함수
-const password = document.querySelector('#password');
+export const password = document.querySelector('#password');
 const signInputPassword = document.querySelector('.sign-input-password');
 
-function passwordTypeChacking (password){
+// 비밀번호 타입이 잘못되었는지 확인하는 함수
+function checkPasswordType (password){
+  //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
   const exptext = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   if(exptext.test(password) === false){
-  //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
-  errPaint('비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.', signInputPassword)
+  paintErr('비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.', signInputPassword)
   return false;
   }
+  paintErrLine(password);
 }
 
-// 비밀번호 이상 유무 체크
-function chackingPassword () {
+
+function checkPassword () {
   // 에러코드 중복 방지
-  if (password.parentNode.childNodes[7]){
-    password.parentNode.childNodes[7].remove();
+  if (signInputPassword.lastChild.tagName === "P"){
+    signInputPassword.lastChild.remove();
   }  
   if (!password.value){
-    errPaint('비밀번호를 입력해주세요', signInputPassword);
+    paintErr('비밀번호를 입력해주세요', signInputPassword);
+    paintErrLine(password);
+  } else if (checkPasswordType(password.value)){
+    paintErrLine(password);
   } else{
-    passwordTypeChacking(password.value);
-  } 
+    removeErrLine(password);
+  }
 }
 
-//비밀번호 재확인
-const password2 = document.querySelector('#password2');
+
+export const password2 = document.querySelector('#password2');
 const signInputPassword2 = document.querySelector('.sign-input-password2');
 
-function doubleCheakingPassword(){
+function doubleCheckPassword(){
   // 에러코드 중복 방지
-  if (password2.parentNode.childNodes[7]){
-    password2.parentNode.childNodes[7].remove();
+  if (signInputPassword2.lastChild.tagName === "P"){
+    signInputPassword2.lastChild.remove();
   }
   if (password.value !== password2.value){
-    errPaint('비밀번호가 일치하지 않아요', signInputPassword2);
+    paintErr('비밀번호가 일치하지 않아요', signInputPassword2);
+    paintErrLine(password);
   }
 }
 
 // 로그인, 회원가입
 const signForm = document.querySelector('.sign-middle');
 
-function submitForm (e) {
+async function submitForm (e) {
   e.preventDefault();
-  if (useremail.value && (password.value || password2.value)){
-    if (signInputEmail.lastChild.tagName !== "P" && (signInputPassword.lastChild.tagName !== "P" || signInputPassword2.lastChild !== "P")){
-      location.href = "/folder";
-      return; 
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "email": useremail.value,
+        "password": password.value,
+      }),
+    })
+    if (response.status === 200){
+      if (useremail.value === 'test@codeit.com' && password.value === 'sprint101'){
+        location.href = "/folder";
+        return;
+      }
     }
-  }
-  if (useremail.value === 'test@codeit.com' && password.value === 'codeit101'){
-    location.href = "/folder";
-    return;
+  }catch{
+    checkLogin();
+  };
+
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr//api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "email": useremail.value,
+        "password": password.value,
+      }),
+    })
+    if (response.status === 200){
+      if (useremail.value && (password.value || password2.value)){
+        if (signInputEmail.lastChild.tagName !== "P" && (signInputPassword.lastChild.tagName !== "P" || signInputPassword2.lastChild !== "P")){
+          location.href = "/folder";
+          return; 
+        }
+      }
+    }
+  } catch {
+    checkLogin();
   }
 }
+  
+
+function enterkey(e) {
+	if (e.keyCode == 13) {
+    console.log(e.keyCode);
+    submitForm(e);
+    }
+}
+
+function checkLogin(){
+  if (signInputPassword.lastChild.tagName === "P"){
+    signInputPassword.lastChild.remove();
+  } 
+  if (useremail.nextSibling){
+    useremail.nextSibling.remove();
+  } 
+  paintErr('이메일을 확인해주세요', signInputEmail);
+  paintErr('비밀번호를 확인해주세요', signInputPassword);
+}
+
+const toggleEye = document.querySelectorAll('.eye');
+function toggleEyeHandler(){
+  for (let i = 0; i < toggleEye.length; i++){
+    if (toggleEye[i].classList.contains('eye-off')){
+      toggleEye[i].classList.remove('eye-off');
+      toggleEye[i].classList.add('eye-on');
+      toggleEye[i].childNodes[1].setAttribute('src', 'imgs/sign/eye-on.png');
+      password.type = 'text';
+      password2.type = 'text';
+    } else if (toggleEye[i].classList.contains('eye-on')){
+      toggleEye[i].classList.remove('eye-on');
+      toggleEye[i].classList.add('eye-off');
+      toggleEye[i].childNodes[1].setAttribute('src', 'imgs/sign/eye-off.svg');
+      password.type = 'password';
+      password2.type = 'password';
+    }
+  }
+}
+toggleEye.forEach(eye => {
+  eye.addEventListener('click', toggleEyeHandler);
+});
 
 
-
-useremail.addEventListener('focusout', chackingEmail);
-password.addEventListener('focusout', chackingPassword);
+useremail.addEventListener('focusout', checkEmail);
+password.addEventListener('focusout', checkPassword);
 
 signForm.addEventListener('submit', submitForm);
-password2.addEventListener('focusout', doubleCheakingPassword);
+signForm.addEventListener('keyup', enterkey);
+
+password2.addEventListener('focusout', doubleCheckPassword);

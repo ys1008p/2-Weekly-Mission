@@ -57,6 +57,14 @@ input:focus {
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
 }
 
+input.errLine{
+  border : 1px solid rgb(255, 0, 0);
+}
+
+input:focus.errLine{
+  border : 1px solid rgb(255, 0, 0);
+}
+
 label {
   display: block;
   margin-bottom: 0.75rem;
@@ -136,12 +144,12 @@ label {
 
 .google {
   background-color: var(--linkbrary-white, #fff);
-  background-image: url(/imgs/sign/sign_google.png);
+  background-image: url(../imgs/sign/sign_google.png);
 }
 
 .kakao {
   background-color: var(--linkbrary-yellow, #f5e14b);
-  background-image: url(/imgs/sign/sign_kakao.png);
+  background-image: url(../imgs/sign/sign_kakao.png);
 }
 
 @media screen and (max-width: 1199px) {
