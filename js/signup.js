@@ -76,19 +76,15 @@ function validatePwCheck(pwCheck) {
 }
 
 // 회원가입 버튼 클릭 이벤트
-async function signup() {
-  try {
-    if (
-      validateEmail(emailInput.value) &&
-      validatePassword(pwInput.value) &&
-      validatePwCheck(pwCheckInput.value)
-    ) {
-      createEmail(emailInput.value, pwInput.value);
-      // const targetPage = "./folder";
-      // window.location.href = targetPage;
-    }
-  } catch (error) {
-    console.log(error);
+function signup() {
+  if (
+    validateEmail(emailInput.value) &&
+    validatePassword(pwInput.value) &&
+    validatePwCheck(pwCheckInput.value)
+  ) {
+    createEmail(emailInput.value, pwInput.value);
+    const targetPage = "./folder";
+    window.location.href = targetPage;
   }
 }
 
@@ -102,7 +98,6 @@ async function createEmail(email, password) {
       body: JSON.stringify({ email, password }),
     });
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     console.log(error);
   }

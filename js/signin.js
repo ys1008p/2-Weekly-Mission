@@ -4,6 +4,7 @@ import {
   removeError,
   emailCondition,
   eyeToggle,
+  NEW_EMAIL,
 } from "./utils.js";
 
 // 아이디 유효성 검증
@@ -44,7 +45,7 @@ function validatePassword(password) {
 const loginBtn = document.querySelector(".signin__input-area--btn");
 loginBtn.addEventListener("click", signin);
 function signin(e) {
-  if (checkEmail(emailInput.value) && checkPassword(pwInput.value)) {
+  if (checkEmail(NEW_EMAIL.email, NEW_EMAIL.password)) {
     const targetPage = "./folder";
     window.location.href = targetPage;
     return;
@@ -54,26 +55,11 @@ function signin(e) {
 }
 
 // API 이메일 확인 요청
-async function checkEmail(email) {
+async function checkEmail(email, password) {
   try {
-    const response = await fetch(
-      `https://bootcamp-api.codeit.kr/api/sign-in?email=${email}`
-    );
+    const response = await fetch(`https://bootcamp-api.codeit.kr/api/sign-in`);
     const data = await response.json();
-    return data === email;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-// API 비밀번호 확인 요청
-async function checkPassword(password) {
-  try {
-    const response = await fetch(
-      `https://bootcamp-api.codeit.kr/api/sign-in?password=${password}`
-    );
-    const data = await response.json();
-    return data === password;
+    return data.email === email && data.password === password ? true : false;
   } catch (error) {
     console.log(error);
   }
