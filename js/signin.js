@@ -57,7 +57,13 @@ function signin(e) {
 // API 이메일 확인 요청
 async function checkEmail(email, password) {
   try {
-    const response = await fetch(`https://bootcamp-api.codeit.kr/api/sign-in`);
+    const response = await fetch(`https://bootcamp-api.codeit.kr/api/sign-in`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
     const data = await response.json();
     return data.email === email && data.password === password ? true : false;
   } catch (error) {

@@ -29,7 +29,7 @@ function validateEmail(email) {
     return false;
   }
 
-  if (email === UNIQUE_USER.email) {
+  if (email === UNIQUE_USER.email || duplicatedEmail(email)) {
     setError(
       { input: emailInput, errorMsg: emailErrorMsg },
       "이미 사용 중인 이메일입니다."
@@ -88,6 +88,27 @@ function signup() {
   }
 }
 
+// API에 이메일 중복 확인
+async function duplicatedEmail(email) {
+  try {
+    const response = await fetch(
+      `https://bootcamp-api.codeit.kr/api/check-email`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      }
+    );
+    const data = await response.json();
+    return data.email === email ? true : false;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// 이메일 생성 & API에 추가
 async function createEmail(email, password) {
   try {
     const response = await fetch(`https://bootcamp-api.codeit.kr/api/sign-up`, {
