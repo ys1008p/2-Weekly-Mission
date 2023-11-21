@@ -218,3 +218,15 @@ input:focus {
   height: 4.2rem;
   gap: 1.6rem;
 }
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.error {
+  border-color: var(--red-1) !important;
+}
