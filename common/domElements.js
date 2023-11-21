@@ -1,4 +1,4 @@
-export const variable = {
+export const domElements = {
   emailInput: document.querySelector('.sign-input[type="email"]'),
   passwordInput: document.querySelector('.sign-input[type="password'),
   checkPasswordInput: document.querySelector('.password-check'),

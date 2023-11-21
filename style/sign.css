@@ -91,11 +91,7 @@ header {
 .sign-input-box .password-check-warning-message {
   display: none;
   color: #ff5b56;
-  font-family: Pretendard;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .sign-input-box .sign-input-field {

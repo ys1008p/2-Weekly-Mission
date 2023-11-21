@@ -10,4 +10,17 @@ export const ERROR_MESSAGE = {
 };
 
 export const USER_EMAIL = 'test@codeit.com';
-export const USER_PASSWORD = 'codeit101';
+export const USER_PASSWORD = 'sprint101';
+
+export function isEmail(email) {
+  let regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+  return regExp.test(email);
+}
+
+export function checkPassword(password) {
+  //최소 8자 + 영문, 숫자 조합 비밀번호 정규식
+  let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+  return regExp.test(password);
+}
