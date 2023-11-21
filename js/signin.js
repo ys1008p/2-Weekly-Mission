@@ -3,7 +3,6 @@ import {
   setError,
   removeError,
   emailCondition,
-  passwordCondition,
   eyeToggle,
 } from "./utils.js";
 

@@ -24,26 +24,30 @@
           <div class="signup__input-area--form-email">
             <h2>이메일</h2>
             <input type="email" id="email" name="email" />
-            <p class="error-message__null">이메일을 입력해주세요</p>
-            <p class="error-message__wrong">올바른 이메일 주소가 아닙니다.</p>
-            <p class="error-message__used">이미 사용 중인 이메일입니다.</p>
+            <p class="error-message__email"></p>
           </div>
           <div action="" class="signup__input-area--form-pw">
             <h2>비밀번호</h2>
             <input type="password" id="pw" name="password" />
-            <p class="error-message__eight">
-              비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.
-            </p>
-            <button type="button">
-              <img src="./assets/eye-on.svg" alt="open-eye" />
+            <p class="error-message__pw"></p>
+            <button type="button" class="toggle-button">
+              <img
+                class="eye-toggle"
+                src="./assets/eye-off.svg"
+                alt="close-eye"
+              />
             </button>
           </div>
           <div action="" class="signup__input-area--form-pw-check">
             <h2>비밀번호 확인</h2>
             <input type="password" id="pw-check" name="password-check" />
-            <p class="error-message__diff">비밀번호가 일치하지 않아요.</p>
-            <button type="button">
-              <img src="./assets/eye-on.svg" alt="eye" />
+            <p class="error-message__pw-check"></p>
+            <button type="button" class="toggle-button">
+              <img
+                class="eye-toggle__check"
+                src="./assets/eye-off.svg"
+                alt="close-eye"
+              />
             </button>
           </div>
         </form>
@@ -63,6 +67,6 @@
         </div>
       </section>
     </main>
-    <script type="text/javascript" src="./js/signup.js"></script>
+    <script type="module" src="./js/signup.js"></script>
   </body>
 </html>
