@@ -350,9 +350,9 @@ footer .info-container .footer-sns li:last-child a {
 }
 .password-container {
   position: relative;
-  margin-top: 6px;
 }
-
+rgin-top: 6px;
+}
 .toggle-password {
   position: absolute;
   top: calc(50% + 6px);
