@@ -5,6 +5,7 @@ import {
   passwordCondition,
   eyeToggle,
   UNIQUE_USER,
+  NEW_EMAIL,
 } from "./utils.js";
 
 // 이메일 유효성 검증
@@ -75,14 +76,35 @@ function validatePwCheck(pwCheck) {
 }
 
 // 회원가입 버튼 클릭 이벤트
-function signup() {
-  if (
-    validateEmail(emailInput.value) &&
-    validatePassword(pwInput.value) &&
-    validatePwCheck(pwCheckInput.value)
-  ) {
-    const targetPage = "./folder";
-    window.location.href = targetPage;
+async function signup() {
+  try {
+    if (
+      validateEmail(emailInput.value) &&
+      validatePassword(pwInput.value) &&
+      validatePwCheck(pwCheckInput.value)
+    ) {
+      createEmail(emailInput.value, pwInput.value);
+      // const targetPage = "./folder";
+      // window.location.href = targetPage;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function createEmail(email, password) {
+  try {
+    const response = await fetch(`https://bootcamp-api.codeit.kr/api/sign-up`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
   }
 }
 

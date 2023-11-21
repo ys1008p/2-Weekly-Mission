@@ -55,20 +55,28 @@ function signin(e) {
 
 // API 이메일 확인 요청
 async function checkEmail(email) {
-  const response = await fetch(
-    `https://bootcamp-api.codeit.kr/docs/api/sign-in?email=${email}`
-  );
-  const data = await response.json();
-  return data === email;
+  try {
+    const response = await fetch(
+      `https://bootcamp-api.codeit.kr/api/sign-in?email=${email}`
+    );
+    const data = await response.json();
+    return data === email;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // API 비밀번호 확인 요청
 async function checkPassword(password) {
-  const response = await fetch(
-    `https://bootcamp-api.codeit.kr/docs/api/sign-in?password=${password}`
-  );
-  const data = await response.json();
-  return data === password;
+  try {
+    const response = await fetch(
+      `https://bootcamp-api.codeit.kr/api/sign-in?password=${password}`
+    );
+    const data = await response.json();
+    return data === password;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // 비밀번호의 눈 버튼 클릭 이벤트
