@@ -6,17 +6,24 @@ import {
   emailInput,
   pwInput,
   pwCheckInput,
-} from "./module/signForm/inputErrMsg.mjs";
+} from "./module/signForm/inputValidation.mjs";
 
 import {
   pwIcon,
   pwiconChangeHandler,
   pwCheckedIcon,
   pwCkdIconChangeHandler,
-} from "./module/signForm/iconEvent.mjs";
+} from "./module/signForm/togglePasswordVisiblity.mjs";
 
-import { signUpBtnHandler, signUpBtn } from "./module/signForm/btnEvent.mjs";
+import {
+  signUpBtnHandler,
+  signUpBtn,
+} from "./module/signForm/submitHandlers.mjs";
 document.addEventListener("DOMContentLoaded", function () {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder";
+  }
   // =================================================================
 
   //이메일인풋 에러핸들러
@@ -33,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 회원가입 핸들러 / 엔터기능구현
   signUpBtn.addEventListener("click", signUpBtnHandler);
   signUpBtn.addEventListener("keyup", (e) => {
-    e.keyCode === 13 && signUpBtnHandler(e);
+    if (e.keyCode === 13) loginBtnHandler(e);
   });
 
   // =================================================================

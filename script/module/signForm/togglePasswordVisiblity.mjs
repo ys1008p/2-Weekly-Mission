@@ -9,7 +9,6 @@ let pwVisibleToggle = false;
 let pwCheckedVisibleToggle = false;
 
 function pwiconChangeHandler() {
-  console.log(pwInput);
   if (pwVisibleToggle) {
     pwIcon.src = "./svg/signin/eye-off.svg";
     pwInput.type = "password";

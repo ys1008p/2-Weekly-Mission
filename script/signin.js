@@ -5,19 +5,29 @@ import {
   pwErrHandler,
   emailInput,
   pwInput,
-} from "./module/signForm/inputErrMsg.mjs";
+} from "./module/signForm/inputValidation.mjs";
 
-import { pwIcon, pwiconChangeHandler } from "./module/signForm/iconEvent.mjs";
+import {
+  pwIcon,
+  pwiconChangeHandler,
+} from "./module/signForm/togglePasswordVisiblity.mjs";
 
-import { loginBtnHandler, loginBtn } from "./module/signForm/btnEvent.mjs";
+import {
+  loginBtnHandler,
+  loginBtn,
+} from "./module/signForm/submitHandlers.mjs";
 
 document.addEventListener("DOMContentLoaded", function () {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder";
+  }
   // =================================================================
 
   // 로그인 핸들러 / 엔터기능구현
   loginBtn.addEventListener("click", loginBtnHandler);
   loginBtn.addEventListener("keyup", (e) => {
-    e.keyCode === 13 && loginBtnHandler(e);
+    if (e.keyCode === 13) loginBtnHandler(e);
   });
 
   //이메일인풋 에러핸들러
