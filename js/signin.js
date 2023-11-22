@@ -62,10 +62,19 @@ async function checkEmail(email, password) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({
+        email,
+        password,
+      }),
     });
-    const data = await response.json();
-    return data.email === email && data.password === password ? true : false;
+    const { tokens } = await response.json();
+    const accessToken = tokens?.accessToken;
+    if (accessToken) {
+      window.localStorage.setItem("accessToken", accessToken);
+      return true;
+    } else {
+      return false;
+    }
   } catch (error) {
     console.log(error);
   }
@@ -73,4 +82,4 @@ async function checkEmail(email, password) {
 
 // 비밀번호의 눈 버튼 클릭 이벤트
 const pwEye = document.querySelector(".eye-toggle");
-pwEye.addEventListener("click", () => eyeToggle(pw, pwEye));
+pwEye.addEventListener("click", () => eyeToggle(pwInput, pwEye));

@@ -5,7 +5,6 @@ import {
   passwordCondition,
   eyeToggle,
   UNIQUE_USER,
-  NEW_EMAIL,
 } from "./utils.js";
 
 // 이메일 유효성 검증
@@ -24,35 +23,36 @@ function validateEmail(email) {
   if (!emailCondition(email)) {
     setError(
       { input: emailInput, errorMsg: emailErrorMsg },
-      "올바른 이메일 주소가 아닙습니다."
+      "올바른 이메일 주소가 아닙니다."
     );
     return false;
   }
 
-  if (email === UNIQUE_USER.email || duplicatedEmail(email)) {
+  if (email === UNIQUE_USER.email) {
     setError(
       { input: emailInput, errorMsg: emailErrorMsg },
       "이미 사용 중인 이메일입니다."
     );
     return false;
   }
+
   removeError({ input: emailInput, errorMsg: emailErrorMsg });
   return true;
 }
 
 // 비밀번호 유효성 검증
 const pwInput = document.querySelector("#pw");
-const pwError = document.querySelector(".error-message__pw");
+const pwErrorMsg = document.querySelector(".error-message__pw");
 pwInput.addEventListener("focusout", (e) => validatePassword(e.target.value));
 function validatePassword(password) {
   if (!passwordCondition(password)) {
     setError(
-      { input: pwInput, errorMsg: pwError },
+      { input: pwInput, errorMsg: pwErrorMsg },
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
     );
     return false;
   }
-  removeError({ input: pwInput, errorMsg: pwError });
+  removeError({ input: pwInput, errorMsg: pwErrorMsg });
   return true;
 }
 
@@ -75,19 +75,6 @@ function validatePwCheck(pwCheck) {
   return true;
 }
 
-// 회원가입 버튼 클릭 이벤트
-function signup() {
-  if (
-    validateEmail(emailInput.value) &&
-    validatePassword(pwInput.value) &&
-    validatePwCheck(pwCheckInput.value)
-  ) {
-    createEmail(emailInput.value, pwInput.value);
-    const targetPage = "./folder";
-    window.location.href = targetPage;
-  }
-}
-
 // API에 이메일 중복 확인
 async function duplicatedEmail(email) {
   try {
@@ -101,10 +88,37 @@ async function duplicatedEmail(email) {
         body: JSON.stringify({ email }),
       }
     );
-    const data = await response.json();
-    return data.email === email ? true : false;
+    const { data } = await response.json();
+    console.log(data);
   } catch (error) {
+    alert("중복된 이메일입니다.");
     console.log(error);
+  }
+}
+
+// 회원가입 버튼 클릭 이벤트
+async function signup() {
+  if (
+    validateEmail(emailInput.value) &&
+    validatePassword(pwInput.value) &&
+    validatePwCheck(pwCheckInput.value)
+  ) {
+    try {
+      const isDuplicated = await duplicatedEmail(emailInput.value);
+
+      if (isDuplicated) {
+        setError(
+          { input: emailInput, errorMsg: emailErrorMsg },
+          "이미 사용 중인 이메일입니다."
+        );
+      } else {
+        createEmail(emailInput.value, pwInput.value);
+        const targetPage = "./folder";
+        window.location.href = targetPage;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
@@ -118,7 +132,8 @@ async function createEmail(email, password) {
       },
       body: JSON.stringify({ email, password }),
     });
-    const data = await response.json();
+    const { tokens } = await response.json();
+    window.localStorage.setItem("accessToken", tokens.data.accessToken);
   } catch (error) {
     console.log(error);
   }

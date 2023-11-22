@@ -2,7 +2,6 @@ const errorInput = "error-input";
 const display = "display";
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g; // 이메일 주소 형식
 const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; // 비밀번호 형식
-export const NEW_EMAIL = { email: "test@codeit.com", password: "sprint101" };
 
 // 에러 상태 설정
 export function setError(ele, msg) {
@@ -41,8 +40,17 @@ export function eyeToggle(pwInput, toggle) {
   }
 }
 
+export function hasAccessToken() {
+  return !!window.localStorage.getItem("accessToken");
+}
+
 // 고유 이메일과 비밀번호
 export const UNIQUE_USER = {
   email: "test@codeit.com",
   password: "codeit101",
+};
+
+export const NEW_EMAIL = {
+  email: "test@codeit.com",
+  password: "sprint101",
 };
