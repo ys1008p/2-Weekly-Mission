@@ -7,6 +7,8 @@ import {
   UNIQUE_USER,
 } from "./utils.js";
 
+redirectToIfAccessTokenExists("./folder");
+
 // 이메일 유효성 검증
 const emailInput = document.querySelector("#email");
 const emailErrorMsg = document.querySelector(".error-message__email");

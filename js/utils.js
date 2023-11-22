@@ -40,6 +40,7 @@ export function eyeToggle(pwInput, toggle) {
   }
 }
 
+// 엑세스 토큰 확인 후 /folder 이동
 export function redirectToIfAccessTokenExists(destination) {
   const accessToken = localStorage.getItem("accessToken");
   if (accessToken) {

@@ -6,6 +6,8 @@ import {
   NEW_EMAIL,
 } from "./utils.js";
 
+redirectToIfAccessTokenExists("./folder");
+
 // 아이디 유효성 검증
 const emailInput = document.querySelector("#email");
 const emailErrorMsg = document.querySelector(".error-message__email");
