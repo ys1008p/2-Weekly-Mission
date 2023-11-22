@@ -1,5 +1,5 @@
-@import url("/src/styles/reset.css");
-@import url("/src/styles/globals.css");
+@import "./globals.css";
+@import "./reset.css";
 
 .global-header {
   display: flex;
