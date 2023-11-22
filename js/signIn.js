@@ -1,36 +1,81 @@
-import { inputEventHandler, checkInputData } from "./app.js";
-import { changePwViewMode } from "./pwdOnOff.js";
-import { membersList } from "./membersList.js";
+// 페이지가 로드될 때 accessToken을 확인하는 함수
+window.onload = function () {
+  const $main = document.querySelector("main");
+  const accessToken = localStorage.getItem("accessToken");
 
-const login = (e) => {
-  //로그인 동작
-  const inputEmailData = document.querySelector("#email"); // 이메일 인풋
-  const inputPwdData = document.querySelector("#pw"); // 패스워드 인풋
-  const emailWarningTag = inputEmailData.parentElement.lastElementChild; //이메일 경고 태그
-  const pwWarningTag = inputPwdData.parentElement.lastElementChild; // 패스워드 경고 태그
-  const isCorrectEmail = membersList.some(
-    //회원가입 된 이메일 여부 확인
-    (el) => el.email === inputEmailData.value
-  );
-  const isCorrectPw = membersList.some(
-    //회원의 비밀번호가 맞는지 확인
-    (el) =>
-      el.email === inputEmailData.value && el.password === inputPwdData.value
-  );
-
-  if (!isCorrectEmail) {
-    // 해당 회원이 없을 때
-    e.preventDefault();
-    inputEmailData.classList.add("error-input"); // 이메일 인풋 레이아웃 변경
-    emailWarningTag.textContent = "이메일을 확인해주세요.";
-  } else if (!isCorrectPw) {
-    //비밀번호가 틀릴 때
-    e.preventDefault();
-    inputPwdData.classList.add("error-input"); // 비밀번호 인풋 레이아웃 변경
-    pwWarningTag.textContent = "비밀번호를 확인해주세요.";
+  if (accessToken) {
+    window.location.href = "/folder";
+  } else {
+    $main.style.visibility = "visible";
   }
 };
 
-inputEventHandler.addEventListener("focusout", checkInputData);
-inputEventHandler.addEventListener("submit", login);
-inputEventHandler.addEventListener("click", changePwViewMode);
+window.onload();
+
+import { $memberInfoForm, validateInputAndSetErrorMsg } from "./add-warning-msg.js";
+import { changePwViewMode } from "./pwdOnOff.js";
+
+//로그인 실패 시, 이메일, 비밀번호 에러메시지 출력하는 함수
+function setSignInInputErrorMsg(signInData) {
+  const $inputEmailData = document.querySelector("#email"); // 이메일 인풋
+  const $inputPwdData = document.querySelector("#pw"); // 패스워드 인풋
+  const emailWarningMsgEl = $inputEmailData.parentElement.lastElementChild; //이메일 경고 태그
+  const pwWarningMsgEl = $inputPwdData.parentElement.lastElementChild; // 패스워드 경고 태그
+
+  fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: signInData.email }),
+  })
+    .then((respones) => {
+      if (!respones.ok) throw new Error("비밀번호가 틀렸네요");
+
+      $inputEmailData.classList.add("error-input");
+      emailWarningMsgEl.textContent = "이메일을 확인해주세요.";
+    })
+    .catch(() => {
+      $inputPwdData.classList.add("error-input");
+      pwWarningMsgEl.textContent = "비밀번호를 확인해주세요.";
+    });
+}
+
+//로그인 시, 아이디 검증과 응답을 받으면 로그인하는 함수
+function signInApi(signInData) {
+  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(signInData),
+  })
+    .then((respones) => {
+      if (!respones.ok) throw new Error("아이디나 비밀번호를 확인하세요");
+      return respones.json();
+    })
+    .then((result) => {
+      window.localStorage.setItem("accessToken", result.data.accessToken);
+      window.location.href = "/folder";
+    })
+    .catch(() => setSignInInputErrorMsg(signInData));
+}
+
+//submit 기본동작을 막고 compareInputAndSignInApi 함수 호출
+const signIn = (e) => {
+  e.preventDefault();
+
+  const $inputEmailData = document.querySelector("#email"); // 이메일 인풋
+  const $inputPwdData = document.querySelector("#pw"); // 패스워드 인풋
+
+  const signInData = {
+    email: $inputEmailData.value,
+    password: $inputPwdData.value,
+  };
+
+  signInApi(signInData);
+};
+
+$memberInfoForm.addEventListener("focusout", validateInputAndSetErrorMsg);
+$memberInfoForm.addEventListener("submit", signIn);
+$memberInfoForm.addEventListener("click", changePwViewMode);
