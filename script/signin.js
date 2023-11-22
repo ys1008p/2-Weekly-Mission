@@ -1,8 +1,15 @@
 import { inputEmail, inputPassword, eyeIcon, form } from "./tags.js";
 import { createTag, removeTag, checkEmail } from "./function.js";
-import userData from "./emailData.js";
 let emailEnable = false; //이메일 사용 가능 여부
 let passwordEnable = false; //패스워드 사용 가능 여부
+window.addEventListener("DOMContentLoaded", () => {
+  //엑세스 토큰이 있다면 회원가입 , 로그인 페이지 패스 후 /folder페이지로 이동
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder";
+    // localStorage.removeItem("accessToken"); //엑세스 토큰 지우기
+  }
+});
 function emailCheck(e) {
   //이메일 확인 함수
   if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
@@ -36,17 +43,45 @@ function passwordCheck(e) {
 }
 function login(e) {
   //로그인 가능 여부 확인 판단 후 form 제출 조건에 부합되지 않으면 e정지!
-  const user = userData.find((el) => el.email === inputEmail.value);
-  if (emailEnable && passwordEnable) {
-    if (user === undefined) {
-      createTag(inputEmail, "존재하지 않는 이메일 입니다.");
-      e.preventDefault();
-    } else if (user.password !== inputPassword.value) {
-      createTag(inputPassword, "비밀번호가 틀렸습니다.");
-      e.preventDefault();
-    }
-  } else {
+  e.preventDefault();
+  if (!(emailEnable && passwordEnable)) {
     e.preventDefault();
+    console.log(emailEnable);
+    console.log(passwordEnable);
+    return;
+  } else {
+    const email = inputEmail.value;
+    const password = inputPassword.value;
+    fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          e.preventDefault();
+          createTag(inputEmail, "이메일 및 비밀번호를 확인해 주세요");
+        }
+      })
+      .then((result) => {
+        const accessToken = result.data.accessToken;
+        const refreshToken = result.data.refreshToken;
+
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+
+        if (accessToken) {
+          window.location.href = "./folder";
+        }
+      })
+      .catch((error) => {
+        createTag(inputPassword, "이메일 및 비밀번호를 확인해 주세요");
+        console.error(error.message);
+      });
   }
 }
 

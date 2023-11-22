@@ -5,16 +5,19 @@ import {
   eyeIcon,
   form,
 } from "./tags.js";
-import {
-  createTag,
-  removeTag,
-  checkEmail,
-  emailDuplicateCheck,
-} from "./function.js";
-import userData from "./emailData.js";
+import { createTag, removeTag, checkEmail } from "./function.js";
+window.addEventListener("DOMContentLoaded", () => {
+  //엑세스 토큰이 있다면 회원가입 , 로그인 페이지 패스 후 /folder페이지로 이동
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder";
+    // localStorage.removeItem("accessToken"); //엑세스 토큰 지우기 !
+  }
+});
 
 let emailEnable = false; //이메일 사용 가능 여부
 let passwordEnable = false; // 패스워드 사용 가능 여부
+
 function emailCheck(e) {
   //이메일 사용 가능 여부 판단 함수
   if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
@@ -24,10 +27,17 @@ function emailCheck(e) {
     } else if (!checkEmail(input.value)) {
       createTag(input, "올바른 이메일이 아닙니다.");
     } else {
-      const user = emailDuplicateCheck(input.value);
-      if (user) {
-        createTag(input, "이미 사용중인 이메일입니다.");
-      }
+      const user = fetch(`https://bootcamp-api.codeit.kr/api/check-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: input.value }),
+      }).then((response) => {
+        if (response.status === 409) {
+          createTag(input, "이미 사용중인 이메일입니다.");
+        }
+      });
       emailEnable = true;
     }
   }
@@ -35,6 +45,7 @@ function emailCheck(e) {
 
 function PasswordCheck(e, type) {
   //패스워드 사용 가능 여부 판단 함수
+  const MIN_PASSWORD = 9;
   if (e.type === "focusout" || (e.type === "keyup" && e.key === "Enter")) {
     let input = e.target;
     if (
@@ -43,7 +54,7 @@ function PasswordCheck(e, type) {
     ) {
       createTag(input, "비밀번호를 입력해주세요");
     } else if (
-      input.value.length < 9 ||
+      input.value.length < MIN_PASSWORD ||
       !/[a-zA-Z]/.test(input.value) ||
       !/\d/.test(input.value)
     ) {
@@ -82,15 +93,43 @@ function passwordCheckOpen() {
 }
 function signup(e) {
   //회원 가입을 위한 조건 판단 후 form 제출
-  const user = emailDuplicateCheck(inputEmail.value);
-  console.log(user);
-  if (!(emailEnable && passwordEnable) || user.email === inputEmail.value) {
-    e.preventDefault();
+  e.preventDefault();
+  if (!(emailEnable && passwordEnable)) {
+    console.log(emailEnable, passwordEnable);
+  } else {
+    fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      //회원가입 POST
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: inputEmail.value,
+        password: inputPassword.value,
+      }),
+    })
+      .then((response) => {
+        //결과값 상태 확인 후 deserialize
+        if (response.status === 200) {
+          return response.json();
+        }
+      })
+      .then((result) => {
+        //토큰 로컬스토리지에 저장
+        const accessToken = result.data.accessToken;
+        const refreshToken = result.data.refreshToken;
+
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+        if (accessToken) {
+          //토큰 보유중이라면 folder 페이지로 이동
+          window.location.href = "./folder";
+        }
+      })
+      .catch((error) => {
+        createTag(inputPasswordCheck, error.message);
+      });
   }
-  userData.push({
-    email: inputEmail.value,
-    password: inputPasswordCheck.value,
-  });
 } //이벤트 리스너
 inputEmail.addEventListener("focusout", (e) => emailCheck(e, "이메일"));
 inputEmail.addEventListener("keyup", (e) => emailCheck(e, "이메일"));
