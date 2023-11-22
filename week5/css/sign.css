@@ -1,0 +1,202 @@
+/* =================== */
+/* 페이지 기본 설정 */
+/* =================== */
+article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--linkbrary-bg, #f0f6ff);
+}
+
+section {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  row-gap: 3.2rem;
+  color: #000000;
+  font-size: 1.4rem;
+  font-weight: 400;
+  max-width: 40rem;
+  width: 100%;
+}
+
+/* form */
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =================== */
+/* form 내부 스타일: 로고컨테이너 */
+/* =================== */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  row-gap: 1.6rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 로고 이미지 */
+.home-link {
+  display: inline-block;
+  width: 21rem;
+  height: 3.8rem;
+}
+
+.home-link img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 00이 아니신가요?와 링크 div */
+.suggestions {
+  display: flex;
+  column-gap: 0.8rem;
+}
+
+/* 00이 아니신가요? 설정 */
+.suggestion {
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem; /* 150% */
+}
+
+.suggestion-link {
+  color: var(--linkbrary-primary-color, #6d6afe);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* =================== */
+/* form 내부 스타일: 입력창 */
+/* =================== */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  gap: 2.4rem;
+  max-width: 40rem;
+  width: 100%;
+}
+.inputs {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+}
+
+.input-box {
+  outline: none;
+  margin-top: 0.6rem;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background: var(--linkbrary-white, #fff);
+  color: var(--linkbrary-gray-100, #373740);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem; /* 150% */
+}
+input:focus {
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+}
+
+/* =================== */
+/* 소셜 로그인 */
+/* =================== */
+.social-content {
+  display: flex;
+  max-width: 40rem;
+  padding: 1.2rem 2.4rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 1px solid var(--linkbrary-gray-20, #ccd5e3);
+  background-color: var(--linkbrary-gray-10, #e7effb);
+  color: var(--linkbrary-gray-100, #373740);
+}
+
+.social-links {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.link-image {
+  display: inline-block;
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.link-image img {
+  width: 100%;
+}
+
+.toggle-show-pwd {
+  width: 1.6rem;
+  position: absolute;
+  top: 5.2rem;
+  right: 1.5rem;
+}
+
+.warning-alert-border {
+  border: 1px solid var(--linkbrary-red, #ff5b56);
+}
+
+.alert-danger {
+  color: var(--linkbrary-red, #ff5b56);
+}
+
+@media (min-width: 375px) {
+  .signin {
+    padding: 12rem 3.2rem 23.2rem;
+  }
+
+  .signup {
+    padding: 12rem 3.2rem 11.9rem;
+  }
+
+  .btn-long-40 {
+    height: 5.4rem;
+    font-size: 1.8rem;
+    width: 100%;
+  }
+}
+
+/* for tablet, pc */
+@media (min-width: 768px) {
+  .signin {
+    padding: 20rem 0 29rem;
+  }
+
+  .signup {
+    padding: 20rem 0 17.7rem;
+  }
+
+  .btn-long-40 {
+    width: 40rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .signin {
+    padding: 23.8rem 0 25.2rem;
+  }
+
+  .signup {
+    padding: 23.8rem 0 11.6rem;
+  }
+
+  .btn-long-40 {
+    width: 40rem;
+  }
+}
