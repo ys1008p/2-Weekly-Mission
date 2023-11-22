@@ -1,10 +1,8 @@
-const deleteError = (tag) => {
-  tag.classList.remove('input--error');
-  const parent = tag.parentNode;
-  const lastNode = tag.parentNode.lastChild;
-  if(lastNode.className === 'error-message'){
-    parent.removeChild(lastNode);
-  }
+const deleteError = (inputElement) => {
+  inputElement.classList.remove('input--error');
+  const parentElement = inputElement.parentNode;
+  const errorMessageElement = parentElement.querySelector('.error-message');
+  if(errorMessageElement) errorMessageElement.remove();
 }
 
 export default deleteError;

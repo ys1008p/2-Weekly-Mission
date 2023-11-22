@@ -1,6 +1,6 @@
-const showPassword = (tag) => {
-  const eyeIcon = tag;
-  const passwordInput = tag.parentNode.children[1];
+const togglePasswordVisibility = (eyeIconElement) => {
+  const eyeIcon = eyeIconElement;
+  const passwordInput = eyeIconElement.parentNode.children[1];
   eyeIcon.classList.toggle('eye-off');
   eyeIcon.classList.toggle('eye-on');
   if(eyeIcon.classList.contains('eye-off')){
@@ -15,4 +15,4 @@ const showPassword = (tag) => {
   }
 }
 
-export default showPassword;
+export default togglePasswordVisibility;

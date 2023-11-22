@@ -1,15 +1,15 @@
 import makeDOM from "./makeDOM.js";
 
-const showError = (tag, message) => {
-  if(tag.parentNode.lastChild.className === 'error-message'){
-    tag.parentNode.lastChild.innerText = message;
+const showError = (inputElement, message) => {
+  if(inputElement.parentNode.lastChild.className === 'error-message'){
+    inputElement.parentNode.lastChild.innerText = message;
   } else {
     const errorMessage = makeDOM('p', {
       className: `error-message`,
       innerText: message
     });
-    tag.parentNode.appendChild(errorMessage);
-    tag.classList.add('input--error');
+    inputElement.parentNode.appendChild(errorMessage);
+    inputElement.classList.add('input--error');
   }
 };
 
