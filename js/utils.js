@@ -40,8 +40,11 @@ export function eyeToggle(pwInput, toggle) {
   }
 }
 
-export function hasAccessToken() {
-  return !!window.localStorage.getItem("accessToken");
+export function redirectToIfAccessTokenExists(destination) {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    location.replace(destination);
+  }
 }
 
 // 고유 이메일과 비밀번호

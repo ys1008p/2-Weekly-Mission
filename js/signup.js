@@ -45,7 +45,7 @@ const pwInput = document.querySelector("#pw");
 const pwErrorMsg = document.querySelector(".error-message__pw");
 pwInput.addEventListener("focusout", (e) => validatePassword(e.target.value));
 function validatePassword(password) {
-  if (!passwordCondition(password)) {
+  if (password === "" || !passwordCondition(password)) {
     setError(
       { input: pwInput, errorMsg: pwErrorMsg },
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."

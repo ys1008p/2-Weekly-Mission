@@ -1,5 +1,4 @@
 import {
-  UNIQUE_USER,
   setError,
   removeError,
   emailCondition,
@@ -31,31 +30,25 @@ function validateEmail(email) {
 
 // 비밀번호 유효성 검증
 const pwInput = document.querySelector("#pw");
-const pwError = document.querySelector(".error-message__pw");
+const pwErrorMsg = document.querySelector(".error-message__pw");
 pwInput.addEventListener("focusout", (e) => validatePassword(e.target.value));
 function validatePassword(password) {
   if (password === "") {
-    setError({ input: pwInput, errorMsg: pwError }, "비밀번호을 입력해주세요.");
+    setError(
+      { input: pwInput, errorMsg: pwErrorMsg },
+      "비밀번호을 입력해주세요."
+    );
     return;
   }
-  removeError({ input: pwInput, errorMsg: pwError });
+  removeError({ input: pwInput, errorMsg: pwErrorMsg });
 }
 
-// 로그인 버튼 클릭 이벤트
-const loginBtn = document.querySelector(".signin__input-area--btn");
-loginBtn.addEventListener("click", signin);
-function signin(e) {
-  if (checkEmail(NEW_EMAIL.email, NEW_EMAIL.password)) {
-    const targetPage = "./folder";
-    window.location.href = targetPage;
-    return;
-  }
-  validateEmail(e.target.value);
-  validatePassword(e.target.value);
-}
+// 로그인 API 검증
+const signForm = document.querySelector("#form");
+signForm.addEventListener("submit", signin);
+async function signin(e) {
+  e.preventDefault();
 
-// API 이메일 확인 요청
-async function checkEmail(email, password) {
   try {
     const response = await fetch(`https://bootcamp-api.codeit.kr/api/sign-in`, {
       method: "POST",
@@ -63,20 +56,33 @@ async function checkEmail(email, password) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email,
-        password,
+        email: NEW_EMAIL.email,
+        password: NEW_EMAIL.password,
       }),
     });
-    const { tokens } = await response.json();
-    const accessToken = tokens?.accessToken;
-    if (accessToken) {
-      window.localStorage.setItem("accessToken", accessToken);
-      return true;
-    } else {
-      return false;
+
+    if (!response.ok) {
+      throw Error();
     }
-  } catch (error) {
-    console.log(error);
+
+    const { data } = await response.json();
+    const accessToken = data?.accessToken;
+    if (!accessToken) {
+      alert("토큰이 없습니다.");
+      return;
+    }
+    window.localStorage.setItem("accessToken", accessToken);
+    const targetPage = "./folder";
+    window.location.href = targetPage;
+  } catch {
+    setError(
+      { input: emailInput, errorMsg: emailErrorMsg },
+      "이메일을 확인해주세요."
+    );
+    setError(
+      { input: pwInput, errorMsg: pwErrorMsg },
+      "비밀번호을 확인해주세요."
+    );
   }
 }
 

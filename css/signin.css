@@ -54,19 +54,20 @@ body {
   gap: 0.75rem;
 }
 
+.signin__input-area--form {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
 .signin__input-area--form h2 {
   font-size: 0.875rem;
   color: var(--black);
   margin-bottom: 0.75rem;
 }
 
-.signin__input-area--form {
-  width: 100%;
-  margin-bottom: 0.75rem;
-}
-
 .signin__input-area--form-pw {
   position: relative;
+  margin-bottom: 1.875rem;
 }
 
 .signin__input-area--form-pw button {
@@ -91,6 +92,7 @@ body {
 }
 
 .signin__input-area--btn {
+  width: 100%;
   background: linear-gradient(
     91deg,
     var(--purple) 0.12%,
