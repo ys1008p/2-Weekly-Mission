@@ -32,9 +32,13 @@
                 id="email"
                 name="email"
                 placeholder="이메일을 입력해주세요."
+                class="email-input"
               />
             </div>
-            <small data-state="normal" class="input-message"></small>
+            <small
+              data-state="normal"
+              class="input-message email-error-message"
+            ></small>
           </div>
           <div class="auth-input password">
             <label for="password"> 비밀번호 </label>
@@ -44,6 +48,7 @@
                 name="password"
                 placeholder="비밀번호를 입력해주세요."
                 type="password"
+                class="password-input"
               />
               <button
                 type="button"
@@ -54,10 +59,14 @@
                   src="https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/eye-off"
                   alt="패스워드 보이기"
                   aria-hidden
+                  class="password-toggle-icon"
                 />
               </button>
             </div>
-            <small data-state="normal" class="input-message"></small>
+            <small
+              data-state="normal"
+              class="input-message password-error-message"
+            ></small>
           </div>
           <div class="auth-input password-confirm">
             <label for="password-confirm"> 비밀번호 확인 </label>
@@ -67,20 +76,25 @@
                 name="password-confirm"
                 placeholder="비밀번호를 재입력해주세요."
                 type="password"
+                class="password-confirm-input"
               />
               <button
                 type="button"
-                class="icon password-toggle"
+                class="icon password-confirm-toggle"
                 aria-label="패스워드 보이기"
               >
                 <img
                   src="https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/eye-off"
                   alt="패스워드 보이기"
                   aria-hidden
+                  class="password-confirm-toggle-icon"
                 />
               </button>
             </div>
-            <small data-state="normal" class="input-message"></small>
+            <small
+              data-state="normal"
+              class="input-message password-confirm-error-message"
+            ></small>
           </div>
           <button type="submit" class="auth-submit">회원가입</button>
         </div>
@@ -111,5 +125,5 @@
       </nav>
     </main>
   </body>
-  <script type="module" src="/src/auth/signup.js"></script>
+  <script type="module" src="/src/auth/signup.js" defer></script>
 </html>

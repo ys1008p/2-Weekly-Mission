@@ -1,128 +1,102 @@
-const InputMessage = {
-  ERROR_EMPTY_EMAIL: "이메일을 입력해주세요.",
-  ERROR_INVALID_EMAIL_FORMAT: "올바른 이메일 주소가 아닙니다.",
-  ERROR_DUPLICATE_EMAIL: "이미 사용 중인 이메일입니다.",
-  ERROR_EMPTY_PASSWORD: "비밀번호를 입력해주세요.",
-  ERROR_INVALID_PASSWORD_FORMAT:
-    "비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.",
-  ERROR_DIFFER_PASSWORD_CONFIRM: "비밀번호가 일치하지 않아요",
-  ERROR_NO_MATCHING_EMAIL: "이메일을 확인해 주세요.",
-  ERROR_NO_MATCHING_PASSWORD: "비밀번호를 확인해 주세요.",
-};
+import {
+  EmailValidationError,
+  PasswordValidationError,
+  ValidationError,
+} from "/src/commons/ValidationError.js";
+import Input from "/src/commons/Input.js";
+import {
+  SigninEmailValidator,
+  SigninPasswordValidator,
+} from "/src/commons/Validator.js";
+import Icon from "/src/commons/Icon.js";
+import { PATH_FOLDER } from "/src/constants/routes.js";
+import { postSignin } from "/src/auth/api.js";
 
-const getChildElementsAsNode = (query) =>
-  Array.from(document.querySelector(query)?.childNodes).filter(
-    (node) => node.nodeType === Node.ELEMENT_NODE
-  );
+if (localStorage.getItem("accessToken")) location.replace(PATH_FOLDER);
 
-const signinForm = document.querySelector(".signin");
-const [_, emailInputEl, emailMessageEl] = getChildElementsAsNode(".email");
-const [__, passwordInputEl, passwordMessageEl] =
-  getChildElementsAsNode(".password");
+const signinFormEl = document.querySelector(".signin");
 const passwordToggleButtonEl = document.querySelector(".password-toggle");
 
-const showInputErrorMessage = (inputEl, message) => {
-  const messageEl = inputEl.parentElement.lastElementChild;
-  messageEl.textContent = message;
-  messageEl.dataset.state = "error";
-};
+const emailValidator = new SigninEmailValidator();
+const passwordValidator = new SigninPasswordValidator();
 
-const hideInputErrorMessage = (inputEl) => {
-  inputEl.parentElement.lastElementChild.dataset.state = "normal";
-};
+const emailInput = new Input({
+  inputQuery: ".email-input",
+  validator: emailValidator,
+  messageQuery: ".email-error-message",
+});
+const passwordInput = new Input({
+  inputQuery: ".password-input",
+  validator: passwordValidator,
+  messageQuery: ".password-error-message",
+});
 
-const validateEmail = (email) => {
-  if (email === "")
-    return { ok: false, message: InputMessage.ERROR_EMPTY_EMAIL };
-  return { ok: true, message: "" };
-};
+const passwordToggleIcon = new Icon(".password-toggle-icon");
 
-const validatePassword = (password) => {
-  if (password === "")
-    return { ok: false, message: InputMessage.ERROR_EMPTY_PASSWORD };
-  return { ok: true, message: "" };
-};
-
-const togglePassword = (inputEl) => {
-  if (inputEl.type === "password") {
-    inputEl.type = "text";
+const togglePassword = (input) => {
+  if (input.getType() === "password") {
+    input.setType("text");
   } else {
-    inputEl.type = "password";
+    input.setType("password");
   }
 };
 
-const togglePasswordIcon = (inputEl, buttonEl) => {
-  const isShown = inputEl.type === "password";
-  const baseUrl =
-    "https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/";
-  const iconEl = buttonEl.children[0];
-  iconEl.src = isShown ? `${baseUrl}/eye-off` : `${baseUrl}/eye-on`;
-  iconEl.alt = isShown ? "패스워드 숨기기" : "패스워드 보이기";
+const togglePasswordIcon = (input, icon) => {
+  const isShown = input.getType() === "password";
+  isShown ? icon.setIcon("eye-off") : icon.setIcon("eye-on");
 };
 
 const handleEmailFocusOut = (e) => {
-  const { ok, message } = validateEmail(e.target.value);
-  if (!ok) {
-    emailInputEl.dataset.state = "error";
-    showInputErrorMessage(emailInputEl, message);
-  } else {
-    emailInputEl.dataset.state = "normal";
-    hideInputErrorMessage(emailInputEl);
+  try {
+    emailInput.validate();
+    emailInput.changeStateToValid();
+    emailInput.hideErrorMessage();
+  } catch (err) {
+    if (err instanceof ValidationError) {
+      emailInput.showErrorMessage(err.message);
+      return;
+    }
+    console.error(err);
   }
 };
 
 const handlePasswordFocusOut = (e) => {
-  if (e.target.nodeName !== "INPUT") return;
-  const { ok, message } = validatePassword(e.target.value);
-  if (!ok) {
-    passwordInputEl.dataset.state = "error";
-    showInputErrorMessage(passwordInputEl, message);
-  } else {
-    passwordInputEl.dataset.state = "normal";
-    hideInputErrorMessage(passwordInputEl);
+  try {
+    passwordInput.validate();
+    passwordInput.changeStateToValid();
+    passwordInput.hideErrorMessage();
+  } catch (err) {
+    if (err instanceof ValidationError) {
+      passwordInput.changeStateToInvalid();
+      passwordInput.showErrorMessage(err.message);
+      return;
+    }
+    console.error(err);
   }
 };
 
-const handleSubmitSignin = (e) => {
+const handleSubmitSignin = async (e) => {
   e.preventDefault();
-  const [email, password] = Array.from(e.srcElement)
-    .filter((node) => node.nodeName === "INPUT")
-    .map((input) => input.value);
-  const { ok: emailOk, message: emailMessage } = validateEmail(email);
-  if (!emailOk) {
-    emailInputEl.dataset.state = "error";
-    showInputErrorMessage(emailInputEl, emailMessage);
-    return;
+  try {
+    emailInput.validate();
+    passwordInput.validate();
+    await postSignin(emailInput.getValue(), passwordInput.getValue());
+    location.replace(PATH_FOLDER);
+  } catch (err) {
+    if (err instanceof EmailValidationError) {
+      emailInput.showErrorMessage(err.message);
+    } else if (err instanceof PasswordValidationError) {
+      passwordInput.showErrorMessage(err.message);
+    }
   }
-  const { ok: passwordOk, message: passwordMessage } =
-    validatePassword(password);
-  if (!passwordOk) {
-    passwordInputEl.dataset.state = "error";
-    showInputErrorMessage(passwordInputEl, passwordMessage);
-    return;
-  }
-  if (email !== "test@codeit.com" || password !== "codeit101") {
-    emailInputEl.dataset.state = "error";
-    showInputErrorMessage(emailInputEl, InputMessage.ERROR_NO_MATCHING_EMAIL);
-    passwordInputEl.dataset.state = "error";
-    showInputErrorMessage(
-      passwordInputEl,
-      InputMessage.ERROR_NO_MATCHING_PASSWORD
-    );
-    return;
-  }
-  location.href = "/folder";
 };
 
 const handlePasswordToggle = (e) => {
-  const [inputEl] = Array.from(e.currentTarget.parentElement.children).filter(
-    (el) => el.nodeName === "INPUT"
-  );
-  togglePassword(inputEl);
-  togglePasswordIcon(inputEl, e.currentTarget);
+  togglePassword(passwordInput);
+  togglePasswordIcon(passwordInput, passwordToggleIcon);
 };
 
-emailInputEl.addEventListener("focusout", handleEmailFocusOut);
-passwordInputEl.addEventListener("focusout", handlePasswordFocusOut);
-signinForm.addEventListener("submit", handleSubmitSignin);
+emailInput.addEventListener("focusout", handleEmailFocusOut);
+passwordInput.addEventListener("focusout", handlePasswordFocusOut);
+signinFormEl.addEventListener("submit", handleSubmitSignin);
 passwordToggleButtonEl.addEventListener("click", handlePasswordToggle);
