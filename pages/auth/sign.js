@@ -18,13 +18,9 @@ const errorMessage = {
   },
 };
 
-function getInputsErrMsgEl(target) {
-  const parent = target.parentElement;
-  return parent.querySelector(".input-error__message");
-}
-
 function handleErrorMessage(target, errorMessage = "") {
-  let errorMessageSpan = getInputsErrMsgEl(target);
+  const parent = target.parentElement;
+  let errorMessageSpan = parent.querySelector(".input-error__message");
 
   if (isEmptyString(errorMessage) && !errorMessageSpan) {
     return;

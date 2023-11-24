@@ -11,9 +11,7 @@ import {
 import { postSignIn } from "../api.js";
 import { isEmptyString } from "/scripts/utils.js";
 
-if (localStorage.getItem("accessToken")) {
-  location.replace("/pages/folder/");
-}
+navigateFolderPage("pages/auth/signin/");
 
 /**
  * email input

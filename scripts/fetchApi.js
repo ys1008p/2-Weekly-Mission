@@ -28,7 +28,7 @@ const fetchApi = {
   post: async function (url, { body, headers }) {
     const options = {
       method: "POST",
-      body: body ? JSON.stringify(body) : null,
+      body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json",
         ...headers,
