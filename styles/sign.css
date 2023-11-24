@@ -66,7 +66,7 @@ body {
 }
 
 .sign-form input#password,
-.sign-form input#password-repeat {
+.sign-form input#password-confirm {
   padding-right: 4.6rem;
 }
 
@@ -108,29 +108,44 @@ body {
   height: 4.2rem;
 }
 
+.input-row.error input {
+  border-color: var(--red-color);
+}
+
+.input-row.error .text-error {
+  display: block;
+}
+
 .input-wrap {
   position: relative;
 }
 
-.button-show {
+.button-eye {
   position: absolute;
   top: 50%;
-  right: 1.5rem;
+  right: 0.3rem;
   transform: translateY(-50%);
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 4rem;
+  height: 4rem;
   background: url('/images/sign/icon_eye_on.png') no-repeat center/ 1.6rem 1.6rem;
   cursor: pointer;
 }
 
-.button-show.hide {
-    background: url('/images/sign/icon_eye_off.png') no-repeat center/ 1.6rem 1.6rem;
+.button-eye.hide {
+  background: url('/images/sign/icon_eye_off.png') no-repeat center/ 1.6rem 1.6rem;
+}
+
+.text-error {
+  display: none;
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  color: var(--red-color);
 }
 
 @media screen and (max-width: 768px) {
   .sign {
     width: 100%;
-    margin: 12rem auto 0;
+    margin: 12rem auto;
     padding: 0 3.2rem;
   }
 
