@@ -1,8 +1,6 @@
 import Shared from '@/pages/Shared';
 import '@/styles/App.css';
 
-function App() {
-  return <Shared />;
-}
+const App = () => <Shared />;
 
 export default App;

@@ -1,5 +1,3 @@
-function ProfileImage() {
-  return <div>ProfileImage</div>;
-}
+const ProfileImage = () => <div>ProfileImage</div>;
 
 export default ProfileImage;
