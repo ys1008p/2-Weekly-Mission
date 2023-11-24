@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { formatDate, getDiff } from '../../utils/formatTime';
 
 function Card({ item }) {
-  const { imageSource, createdAt, description } = item;
+  const { imageSource, createdAt, description, url } = item;
   const imageSrc = imageSource ? imageSource : AltImage;
 
   const nowDate = new Date();
@@ -18,10 +18,14 @@ function Card({ item }) {
     setIsHovering(false);
   };
 
+  const handleClick = () => {
+    window.open(url);
+  };
+
   const className = isHovering ? 'hover' : '';
 
   return (
-    <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+    <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleClick}>
       <div className="Card-thumbnail">
         <img src={imageSrc} alt="링크 썸네일" className={`Card-thumbnail-img ${className}`} />
       </div>
