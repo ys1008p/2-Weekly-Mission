@@ -1,9 +1,14 @@
-import ProfileImage from '@/assets/images/icon/profile.svg';
+interface ProfileProps {
+  user: {
+    email: string;
+    profileImageSource: string;
+  };
+}
 
-const Profile = () => (
+const Profile = ({ user }: ProfileProps) => (
   <div className="profile">
-    <img src={ProfileImage} alt="profile" />
-    <span>Codeit@codeit.com</span>
+    <img src={user.profileImageSource} alt="profile" />
+    <span>{user.email}</span>
   </div>
 );
 

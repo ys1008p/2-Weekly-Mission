@@ -1,11 +1,14 @@
-import Avatar from '@/assets/images/icon/avatar.svg';
+interface BannerProps {
+  owner: { name: string; profileImageSource: string };
+  folder: string;
+}
 
-const Banner = () => (
+const Banner = ({ owner, folder }: BannerProps) => (
   <section className="banner">
     <div>
-      <img src={Avatar} alt="avatar" />
-      <span>@코드잇</span>
-      <h1>⭐️ 즐겨찾기</h1>
+      <img src={owner.profileImageSource} alt="avatar" />
+      <span>{owner.name}</span>
+      <h1>{folder}</h1>
     </div>
   </section>
 );
