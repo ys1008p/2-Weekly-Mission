@@ -8,17 +8,17 @@ function Footer() {
   return (
     <>
       <div className="footer">
-        <div class="footerBox">
-          <span class="copyright">©codeit - 2023</span>
-          <div class="footerLinks">
-            <a class="footerLink" href="privacy.html">
+        <div className="footerBox">
+          <span className="copyright">©codeit - 2023</span>
+          <div className="footerLinks">
+            <a className="footerLink" href="privacy.html">
               Privacy Policy
             </a>
-            <a class="footerLink" href="faq.html">
+            <a className="footerLink" href="faq.html">
               FAQ
             </a>
           </div>
-          <div class="sns">
+          <div className="sns">
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
               <img src={FACEBOOK_LOGO} alt="facebook 홈페이지로 연결된 facebook 로고" />
             </a>
