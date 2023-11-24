@@ -1,13 +1,25 @@
 import './CardList.css';
 import AltImage from '../../assets/alt-image.svg';
+import { useState } from 'react';
 function Card({ item }) {
   const { imageSource, createdAt, description } = item;
   const imageSrc = imageSource ? imageSource : AltImage;
 
+  const [isHovering, setIsHovering] = useState(false);
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
+  const className = isHovering ? 'hover' : '';
+
   return (
-    <div>
+    <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       <div className="Card-thumbnail">
-        <img src={imageSrc} alt="링크 썸네일" className="Card-thumbnail-img" />
+        <img src={imageSrc} alt="링크 썸네일" className={`Card-thumbnail-img ${className}`} />
       </div>
       <div>
         <div>{createdAt}</div>
