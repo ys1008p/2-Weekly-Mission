@@ -1,6 +1,4 @@
-import React from 'react';
-
-import Logo from '../../images/icon/logo.svg';
+import Logo from '@/assets/images/icon/logo.svg';
 
 function Header() {
   return (
