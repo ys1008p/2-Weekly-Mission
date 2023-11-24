@@ -100,6 +100,7 @@ const CardContainer = () => (
         thumbnail={item.imageSource}
         createdAt={item.createdAt}
         title={item.title}
+        url={item.url}
       />
     ))}
   </div>
