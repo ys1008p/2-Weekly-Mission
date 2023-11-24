@@ -76,21 +76,35 @@ function timeAgo(dateParam) {
   return getFormattedDate(date); // 10. January 2017. at 10:20
 }
 
+function getYYYYMMYY(fullDate) {
+  const sliced = fullDate.slice(0, 9);
+  return sliced.replace(/-/gi, '.');
+}
+
+function getShortDescription(description) {
+  const MAX_LENGTH = 74;
+  if (description.length >= MAX_LENGTH) {
+    const sliced = description.slice(0, MAX_LENGTH - 1);
+    return sliced + '...';
+  }
+  return description;
+}
+
 function CardItem({ link }) {
   return (
     <div className="CardItem">
       <a className="contentBox" href={link.url}>
-        <section>
+        <div class="imgContainer">
           <img className="contentImg" src={link.imageSource}></img>
-        </section>
+        </div>
         <div className="starIcon"></div>
         <section className="contentText">
           <div className="contentNav">
             <div className="timeCreated">{timeAgo(link.createdAt)}</div>
             <div className="moreInfoCebap"></div>
           </div>
-          <div className="description">{link.description}</div>
-          <div className="dateCreated">{link.createdAt}</div>
+          <div className="description">{getShortDescription(link.description)}</div>
+          <div className="dateCreated">{getYYYYMMYY(link.createdAt)}</div>
         </section>
       </a>
     </div>

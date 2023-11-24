@@ -7,6 +7,7 @@
   display: block;
   position: relative;
   width: 340px;
+  height: 334px;
   border-radius: 15px;
   font-family: 'Pretendard';
   font-style: normal;
@@ -14,9 +15,15 @@
   font-weight: 400;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
-.contentImg {
-  width: 100%;
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  width: 340px;
   height: 180px;
+}
+.contentImg {
+  height: 100%;
+
   /* background-image: url('../Cards/images/card-img.png'); */
   background-repeat: no-repeat;
   background-position: center;
@@ -65,19 +72,26 @@
 }
 
 .Cards {
+  justify-content: center;
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 334px);
+  grid-template-columns: repeat(3, 340px);
+  margin-top: 40px;
+  row-gap: 25px;
+  column-gap: 20px;
 }
 @media (max-width: 1200px) {
   .Cards {
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 334px);
+    grid-template-columns: repeat(2, 340px);
+    row-gap: 25px;
+    column-gap: 24px;
   }
 }
 @media (max-width: 768px) {
   .Cards {
-    grid-template-rows: repeat(9, 1fr);
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(9, 327px);
+    grid-template-columns: repeat(1, 325px);
+    row-gap: 20px;
   }
 }
