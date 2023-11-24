@@ -14,3 +14,15 @@
   color: var(--linkbrary-gray-100, #373740);
   font-size: 1.4rem;
 }
+
+@media (min-width: 375px) {
+  .UserInfo-user-email {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .UserInfo-user-email {
+    display: block;
+  }
+}
