@@ -1,0 +1,171 @@
+header .profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+header .profile img {
+  width: 28px;
+}
+
+header .profile span {
+  font-size: 14px;
+  line-height: normal;
+  color: var(--gray-100);
+}
+
+.banner {
+  background-color: var(--gray-bg);
+  padding: 20px 0 60px;
+}
+
+.banner > div {
+  max-width: 210px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.banner img {
+  width: 60px;
+  margin: 0 auto 12px;
+}
+
+.banner h1 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 20px;
+}
+
+.wrapper {
+  padding: 40px 32px 260px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1060px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar img {
+  position: absolute;
+  width: 16px;
+  left: 16px;
+  top: 18px;
+}
+
+.search-bar input {
+  padding: 15px 16px 15px 42px;
+  background-color: var(--gray-light);
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+}
+
+.search-bar input::placeholder {
+  color: #666;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px 20px;
+}
+
+.card-item {
+  width: 100%;
+  height: 334px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.card-item .thumbnail {
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-item .contents {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-item .contents .time {
+  font-size: 13px;
+  line-height: normal;
+  color: #666;
+}
+
+.card-item .contents .title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 50px;
+}
+
+.card-item .contents .date {
+  font-size: 14px;
+  line-height: normal;
+  color: #333;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1124px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  header .profile span {
+    display: none;
+  }
+
+  .banner {
+    padding: 10px 0 40px;
+  }
+
+  .banner > div {
+    max-width: 170px;
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .banner img {
+    width: 40px;
+    margin: 0 auto 6px;
+  }
+
+  .banner h1 {
+    font-size: 32px;
+    margin-top: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card-item {
+    height: 327px;
+  }
+
+  .card-item .thumbnail {
+    height: 192px;
+  }
+}

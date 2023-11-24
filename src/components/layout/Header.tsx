@@ -1,4 +1,5 @@
 import Logo from '@/assets/images/icon/logo.svg';
+import Profile from '@/components/profile/Profile';
 
 const Header = () => (
   <header>
@@ -6,7 +7,7 @@ const Header = () => (
       <a href="/">
         <img className="logo" src={Logo} alt="로고" />
       </a>
-      <div>Codeit@codeit.com</div>
+      <Profile />
     </div>
   </header>
 );
