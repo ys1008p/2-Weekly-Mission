@@ -1,4 +1,5 @@
 .navContainer {
+  z-index: 1;
   justify-content: center;
   max-width: 100vw;
   height: 94px;

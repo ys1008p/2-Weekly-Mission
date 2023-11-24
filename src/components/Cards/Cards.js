@@ -1,5 +1,4 @@
 import './Card.css';
-import { getFolder, getUser } from '../Api';
 
 function CardItem({ link }) {
   return (

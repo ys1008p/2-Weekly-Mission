@@ -1,23 +1,30 @@
 import { Cards } from './components/Cards/Cards';
 import { useEffect, useState } from 'react';
-import { getFolder } from './components/Api';
+import { getFolder, getUser } from './components/Api';
+import Layout from './components/Layout';
 
 function App() {
-  const [items, setItems] = useState([]);
-  async function handleLoad() {
+  const [items, setItems] = useState({});
+  const [profile, setProfile] = useState([]);
+
+  async function handleLoadLinks() {
     const { folder } = await getFolder();
     setItems(folder);
   }
-
+  async function handleLoadProfile() {
+    const profile = await getUser();
+    setProfile(profile);
+  }
   useEffect(() => {
-    handleLoad();
+    handleLoadLinks();
+    handleLoadProfile();
   }, [items]);
 
   if (!items.links) return;
 
   return (
     <>
-      <Cards items={items}></Cards>
+      <Layout items={items} profile={profile}></Layout>
     </>
   );
 }

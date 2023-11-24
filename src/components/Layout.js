@@ -1,14 +1,14 @@
-// import Gnb from './components/Gnb/Gnb';
-// import Footer from './components/Footer/Footer';
-// // import CardsContents from './components/Cards/Cards';
-// function Layout() {
-//   return (
-//     <>
-//       <Gnb></Gnb>
-//       {/* <CardsContents></CardsContents> */}
-//       <Footer></Footer>
-//     </>
-//   );
-// }
+import Gnb from './Gnb/Gnb';
+import Footer from './Footer/Footer';
+import { Cards } from './Cards/Cards';
+function Layout({ items, profile }) {
+  return (
+    <>
+      <Gnb profile={profile}></Gnb>
+      <Cards items={items}></Cards>
+      <Footer></Footer>
+    </>
+  );
+}
 
-// export default Layout;
+export default Layout;
