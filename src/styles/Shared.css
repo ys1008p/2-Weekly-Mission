@@ -6,6 +6,7 @@ header .profile {
 
 header .profile img {
   width: 28px;
+  border-radius: 50%;
 }
 
 header .profile span {
@@ -20,7 +21,6 @@ header .profile span {
 }
 
 .banner > div {
-  max-width: 210px;
   text-align: center;
   margin: 0 auto;
 }
@@ -141,7 +141,6 @@ header .profile span {
   }
 
   .banner > div {
-    max-width: 170px;
     font-size: 14px;
     line-height: normal;
   }

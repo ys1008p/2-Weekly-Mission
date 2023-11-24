@@ -14,8 +14,7 @@ const mockUser = {
     'https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png',
 };
 
-const mockFolder =
-  '⭐️ 즐겨찾기 즐겨찾기 즐겨찾기 폴더명이 길어지면 어떻게 해야하지';
+const mockFolder = '⭐️ 즐겨찾기';
 
 const mockOwner = {
   id: 2,
