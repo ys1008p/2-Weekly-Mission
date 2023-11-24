@@ -1,8 +1,9 @@
 import React from 'react';
+import Shared from './pages/Shared';
 import './styles/App.css';
 
 function App() {
-  return <div className="App" />;
+  return <Shared />;
 }
 
 export default App;
