@@ -39,3 +39,26 @@
   column-gap: 12px;
   height: 20px;
 }
+
+@media (max-width: 767px) {
+  .footerBox {
+    display: grid;
+    grid-template:
+      'user-links sns-links'
+      'copyright .';
+    padding: 0 32px;
+    row-gap: 60px;
+  }
+
+  .copyright {
+    grid-area: copyright;
+  }
+
+  .footerLinks {
+    grid-area: user-links;
+  }
+
+  .sns {
+    grid-area: sns-links;
+  }
+}
