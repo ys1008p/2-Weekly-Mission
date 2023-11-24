@@ -1,14 +1,9 @@
-import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer';
-import './App.css';
-import SharedMain from './components/SharedMain/SharedMain';
+import Shared from './pages/Shared';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <SharedMain />
-      <Footer />
+      <Shared />
     </div>
   );
 }
