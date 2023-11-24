@@ -7,9 +7,33 @@ function formatDate(value) {
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
+function getDiff(now, prev) {
+  const prevDate = new Date(prev);
+  const diff = (now - prevDate) / 1000;
+  const times = [
+    { name: 'year', seconds: 60 * 60 * 24 * 365 },
+    { name: 'month', seconds: 60 * 60 * 24 * 30 },
+    { name: 'day', seconds: 60 * 60 * 24 },
+    { name: 'hour', seconds: 60 * 60 },
+    { name: 'minute', seconds: 60 },
+  ];
+
+  for (const value of times) {
+    const betweenTime = Math.floor(diff / value.seconds);
+
+    if (betweenTime > 0) {
+      const plural = betweenTime > 1 ? 's' : '';
+      return `${betweenTime} ${value.name + plural} ago`;
+    }
+  }
+  return '방금 전';
+}
+
 function Card({ item }) {
   const { imageSource, createdAt, description } = item;
   const imageSrc = imageSource ? imageSource : AltImage;
+
+  const nowDate = new Date();
 
   const [isHovering, setIsHovering] = useState(false);
   const handleMouseOver = () => {
@@ -28,7 +52,7 @@ function Card({ item }) {
         <img src={imageSrc} alt="링크 썸네일" className={`Card-thumbnail-img ${className}`} />
       </div>
       <div className="Card-info">
-        <div className="Card-info-diff">{createdAt}</div>
+        <div className="Card-info-diff">{getDiff(nowDate, createdAt)}</div>
         <div className="Card-info-description">{description}</div>
         <div className="Card-info-createdAt">{formatDate(createdAt)}</div>
       </div>
