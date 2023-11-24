@@ -1,6 +1,12 @@
 import './CardList.css';
 import AltImage from '../../assets/alt-image.svg';
 import { useState } from 'react';
+
+function formatDate(value) {
+  const date = new Date(value);
+  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
+}
+
 function Card({ item }) {
   const { imageSource, createdAt, description } = item;
   const imageSrc = imageSource ? imageSource : AltImage;
@@ -24,7 +30,7 @@ function Card({ item }) {
       <div className="Card-info">
         <div className="Card-info-diff">{createdAt}</div>
         <div className="Card-info-description">{description}</div>
-        <div className="Card-info-createdAt">{createdAt}</div>
+        <div className="Card-info-createdAt">{formatDate(createdAt)}</div>
       </div>
     </div>
   );
