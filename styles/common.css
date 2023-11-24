@@ -1,0 +1,130 @@
+:root {
+  --color-primary: #6d6afe;
+  --color-red: #ff5b56;
+  --color-black: #111322;
+  --color-white: #ffffff;
+  --color-gray1: #e7effb;
+  --color-gray2: #f0f6ff;
+  --color-gray3: #ccd5e3;
+  --color-gray4: #9fa6b2;
+  --color-gray5: #3e3e43;
+
+  --color-gray6: #373740;
+}
+
+html {
+  font-family: "Pretendard", sans-serif;
+  font-size: 62.5%;
+  word-break: keep-all;
+}
+
+@media screen and (min-width: 0\0) {
+  /* IE 9, IE 10, IE 11 */
+  :root,
+  html {
+    font-size: 10px;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* IE 10, IE 11 */
+  :root,
+  html {
+    font-size: 10px;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+a:focus {
+  outline: 0.2rem solid var(--color-gray4);
+}
+
+button:focus {
+  outline: 0.2rem solid var(--color-gray4);
+}
+
+.cta {
+  border-radius: 8px;
+  background: linear-gradient(
+    91deg,
+    var(--color-primary) 0.12%,
+    #6ae3fe 101.84%
+  );
+  color: #f5f5f5;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cta:focus {
+  outline: 0.2rem solid var(--color-gray4);
+}
+
+.background-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.bgc-blue {
+  background: var(--color-gray2);
+}
+
+/* 접근성을 지키며 요소 숨김 */
+.hide {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* PC */
+@media only screen and (min-width: 1200px) {
+  .wrap {
+    width: 100%;
+    max-width: 192rem;
+    margin: 0 auto;
+  }
+
+  .cta {
+    padding: 1.6rem 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablet */
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+  .wrap {
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+
+  .cta {
+    padding: 1.6rem 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) and (min-width: 375px) {
+  .wrap {
+    margin: 0 32px;
+  }
+
+  .cta {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+  }
+}

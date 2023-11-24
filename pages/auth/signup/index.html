@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="title" content="Linkbrary" />
+    <meta
+      name="description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.linkbrary.com/" />
+    <meta property="og:title" content="Linkbrary" />
+    <meta
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta
+      property="og:image"
+      content="https://metatags.io/images/meta-tags.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.linkbrary.com/" />
+    <meta property="twitter:title" content="Linkbrary" />
+    <meta
+      property="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta
+      property="twitter:image"
+      content="https://metatags.io/images/meta-tags.png" />
+
+    <title>Linkbrary</title>
+
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/common.css" />
+    <link rel="stylesheet" href="../sign.css" />
+
+    <script defer type="module" src="signup.js"></script>
+  </head>
+  <body class="bgc-blue">
+    <main>
+      <section class="container" aria-label="회원가입 섹션">
+        <div class="logo">
+          <a href="/" aria-label="메인 페이지로 이동">
+            <img
+              class="logo__img"
+              src="/images/icons/logo.svg"
+              alt="링크브러리 로고" />
+          </a>
+          <p class="logo__signup">
+            <span>이미 회원이신가요?</span>
+            <a class="logo__signup--link" href="../signin/">로그인 하기</a>
+          </p>
+        </div>
+
+        <form class="form" action="/">
+          <div class="form__email">
+            <label class="form__label" for="input-email">이메일</label>
+            <input
+              id="input-email"
+              class="form__input"
+              type="email"
+              name="email"
+              required
+              placeholder="이메일을 입력해주세요." />
+          </div>
+          <div class="form__password">
+            <label class="form__label" for="input-password">비밀번호</label>
+            <input
+              id="input-password"
+              class="form__input"
+              type="password"
+              name="password"
+              required
+              placeholder="비밀번호를 입력해주세요." />
+            <button
+              class="form__input--eye-off eye-icon"
+              type="button"
+              aria-label="패스워드 감추기"></button>
+          </div>
+          <div class="form__password-chk">
+            <label class="form__label" for="input-password-chk">
+              비밀번호 확인
+            </label>
+            <input
+              id="input-password-chk"
+              class="form__input"
+              type="password"
+              name="password"
+              required
+              placeholder="비밀번호를 한번 더 입력해주세요."
+              aria-invalid="true"
+              aria-errormessage="pw-chk-err" />
+            <button
+              class="form__input--eye-off eye-icon"
+              type="button"
+              aria-label="패스워드 감추기"></button>
+          </div>
+
+          <button class="cta form__submit" type="submit">회원가입</button>
+        </form>
+
+        <div class="sns-login">
+          <span class="sns-login__text">다른 방식으로 가입하기</span>
+          <div>
+            <a
+              class="sns-login__link"
+              href="https://www.google.com/"
+              aria-label="구글 계정으로 로그인">
+              <img src="/images/icons/google-icon.png" alt="" />
+            </a>
+            <a
+              class="sns-login__link"
+              href="https://www.kakaocorp.com/page/"
+              aria-label="카카오 계정으로 로그인">
+              <img src="/images/icons/kakao-icon.png" alt="" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
