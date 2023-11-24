@@ -3,10 +3,12 @@ import LinkbraryLogo from '../../assets/logo.svg';
 import userData from '../../user-mock.json';
 import Cta from '../atoms/Cta/Cta';
 import UserInfo from '../atoms/UserInfo/UserInfo';
+import { getUserInfo } from '../../utils/api';
 
 export default function NavBar() {
   const { email, profileImageSource } = userData;
   const isExist = true;
+
   return (
     <nav className="NavBar">
       <a href="/" className="NavBar-home-link">
