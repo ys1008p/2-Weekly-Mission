@@ -1,7 +1,15 @@
 import React from 'react';
+import Footer from '../components/layout/Footer';
+import Header from '../components/layout/Header';
 
 function Shared() {
-  return <div>Shared</div>;
+  return (
+    <>
+      <Header />
+      <main>blabla</main>
+      <Footer />
+    </>
+  );
 }
 
 export default Shared;
