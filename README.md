@@ -1,3 +1,3 @@
 # Codeit Weekly Mission Project
 
-## with React + Typescript + Vite
+## with Vite + React + Typescript
