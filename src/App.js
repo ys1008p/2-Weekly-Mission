@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import FolderInfo from './components/FolderInfo/FolderInfo';
 import SearchBar from './components/atoms/SearchBar/SearchBar';
 import './App.css';
+import CardList from './components/CardList/CardList';
 
 function App() {
   const { folder } = folderData;
@@ -15,25 +16,7 @@ function App() {
       <FolderInfo owner={owner} folderName={folder.name} />
       <article className="test">
         <SearchBar />
-
-        <div>
-          <ul className="CardList">
-            {links.map((item) => {
-              return (
-                <li key={item.id} className="Card">
-                  <div className="Card-thumbnail">
-                    <img src={item.imageSource} alt="링크 썸네일" />
-                  </div>
-                  <div>
-                    <div>{item.createdAt}</div>
-                    <div>{item.description}</div>
-                    <div>{item.createdAt}</div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <CardList links={links} />
       </article>
       <Footer />
     </div>
