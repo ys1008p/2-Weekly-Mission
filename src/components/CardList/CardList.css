@@ -11,6 +11,7 @@
   height: 33.4rem;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   list-style: none;
+  border-radius: 1.5rem 1.5rem;
 }
 
 .Card-thumbnail {
@@ -28,6 +29,37 @@
 
 .hover {
   scale: 1.3;
+}
+
+.Card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+}
+
+.Card-info-diff {
+  color: #666;
+  font-size: 1.3rem;
+}
+.Card-info-description {
+  height: 4.9rem;
+  align-self: stretch;
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+
+  font-size: 1.6rem;
+  line-height: 2.4rem; /* 150% */
+}
+.Card-info-createdAt {
+  height: 1.9rem;
+  align-self: stretch;
+  overflow: hidden;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.4rem;
 }
 
 @media (min-width: 375px) {

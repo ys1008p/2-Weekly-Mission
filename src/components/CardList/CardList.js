@@ -21,10 +21,10 @@ function Card({ item }) {
       <div className="Card-thumbnail">
         <img src={imageSrc} alt="링크 썸네일" className={`Card-thumbnail-img ${className}`} />
       </div>
-      <div>
-        <div>{createdAt}</div>
-        <div>{description}</div>
-        <div>{createdAt}</div>
+      <div className="Card-info">
+        <div className="Card-info-diff">{createdAt}</div>
+        <div className="Card-info-description">{description}</div>
+        <div className="Card-info-createdAt">{createdAt}</div>
       </div>
     </div>
   );
