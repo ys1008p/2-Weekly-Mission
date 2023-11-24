@@ -19,9 +19,9 @@ if (localStorage.getItem("accessToken")) {
  * email input
  */
 const emailInput = document.querySelector("#input-email");
-emailInput.addEventListener("focusout", onEmailFocusoutValid);
+emailInput.addEventListener("focusout", onEmailFocusout);
 
-async function onEmailFocusoutValid({ target }) {
+async function onEmailFocusout({ target }) {
   const errorMessage = await checkEmailValid(target, false);
   if (!isEmptyString(errorMessage)) {
     inputValidationFailed(target, errorMessage);
@@ -40,9 +40,9 @@ const passwordEyeIcon = document.querySelector(
   ".form__password .form__input--eye-off"
 );
 
-passwordInput.addEventListener("focusout", onPasswordFocusoutValid);
+passwordInput.addEventListener("focusout", onPasswordFocusout);
 
-function onPasswordFocusoutValid({ target }) {
+function onPasswordFocusout({ target }) {
   const errorMessage = checkPasswordValid(target);
   if (!isEmptyString(errorMessage)) {
     inputValidationFailed(target, errorMessage, passwordEyeIcon);
@@ -69,8 +69,8 @@ function onSubmit(e) {
   e.preventDefault();
 
   const validResult =
-    onEmailFocusoutValid({ target: emailInput }) &&
-    onPasswordFocusoutValid({ target: passwordInput });
+    onEmailFocusout({ target: emailInput }) &&
+    onPasswordFocusout({ target: passwordInput });
 
   if (!validResult) {
     return;
