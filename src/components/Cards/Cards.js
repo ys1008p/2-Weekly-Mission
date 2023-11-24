@@ -2,7 +2,7 @@ import './Card.css';
 
 function CardItem({ link }) {
   return (
-    <div>
+    <div className="CardItem">
       <a className="contentBox" href={link.url}>
         <section>
           <img className="contentImg" src={link.imageSource}></img>

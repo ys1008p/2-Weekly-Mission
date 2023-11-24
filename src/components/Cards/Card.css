@@ -1,3 +1,8 @@
+.CardItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .contentBox {
   display: block;
   position: relative;

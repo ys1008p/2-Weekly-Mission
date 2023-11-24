@@ -1,9 +1,23 @@
-.SearchBar {
+.SearchBarContainer {
   display: flex;
-  width: 1060px;
-  padding: 15px 16px;
-  justify-content: space-between;
-  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 13px 16px;
+  justify-content: flex-start;
+  align-items: center;
   border-radius: 10px;
+  background: #f5f5f5;
+}
+
+.SearchBarIcon {
+  position: relative;
+  /* top: 26px;
+  /* bottom: 13px; */
+  /* left: 16px; */
+}
+
+.SearchBarInput {
+  border: none;
   background: #f5f5f5;
 }
