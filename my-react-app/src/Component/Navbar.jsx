@@ -1,5 +1,4 @@
 import React from 'react';
-import '../CSS/Landing.css'
 import LogoImg from '../images/logo.svg'
 export default function Header() {
   return (

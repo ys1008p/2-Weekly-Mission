@@ -4,7 +4,6 @@ import IconTwitter from '../images/twitter.svg'
 import IconYoutube from '../images/youtube.svg'
 import IconInstagram from '../images/instagram.svg'
 
-import '../CSS/Landing.css'
 
 export default function Footer() {
   return (

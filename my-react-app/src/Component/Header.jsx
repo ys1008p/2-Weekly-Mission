@@ -1,6 +1,6 @@
 import React from 'react';
 import ImgHeader from '../images/white.svg'
-import '../CSS/Landing.css'
+
 
 export default function Header() {
   return (
