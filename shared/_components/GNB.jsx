@@ -5,7 +5,6 @@ import Logo from "./Logo";
 
 export default function GNB() {
   const isLoggedIn = useAuth();
-  const account = { thumbnail: "", name: "Codeit@codeit.com" };
 
   return (
     <>
@@ -13,7 +12,7 @@ export default function GNB() {
         <Logo />
         {isLoggedIn ? (
           <button>
-            <Account thumbnail={account.thumbnail} name={account.name} />
+            <Account />
           </button>
         ) : (
           <LoginCTA />

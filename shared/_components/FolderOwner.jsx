@@ -7,7 +7,7 @@ export default function FolderOwner({ thumbnail, name }) {
       {thumbnail ? (
         <Profile.Thumbnail
           src={thumbnail}
-          className="flex items-center justify-center rounded-full"
+          className="tablet:h-[6rem] flex aspect-square h-[4rem] items-center justify-center rounded-full object-cover"
         />
       ) : (
         <div className="bg-u-purple-70 tablet:w-[6rem] tablet:h-[6rem] flex h-[4rem] w-[4rem] items-center justify-center rounded-full">
