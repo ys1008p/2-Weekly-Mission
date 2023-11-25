@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
 
-function Header() {
+function Navbar() {
   // 유저 데이터를 담을 State
   const [userData, setUserData] = useState({});
 
@@ -23,28 +23,27 @@ function Header() {
   }, []);
 
   //이름 추상화
-  const { email, profileImageSource, name } = userData;
+  const { email, profileImageSource } = userData;
   // 데이터 확인용
-  console.log(userData);
+  //console.log(userData);
 
   return (
-    <header className="header-container">
-      <nav className="nav-bar">
-        <div className="nav-item">
-          <a href="/">
-            <img src="img/logo.png" alt="logo" />
-          </a>
-          <p>{email}</p>
+    <nav className="nav-bar">
+      <div className="nav-item">
+        <a href="/">
+          <img src="img/logo.png" alt="logo" className="nav-item-logo" />
+        </a>
+        <div className="nav-item-profile">
+          <img
+            src={profileImageSource}
+            alt="profile-img"
+            className="nav-item-profile-img"
+          />
+          <p className="nav-item-profile-email">{email}</p>
         </div>
-      </nav>
-
-      <section>
-        <img src={profileImageSource} alt="profile-img" />
-        <p>{name}</p>
-        <p>⭐ 즐겨찾기</p>
-      </section>
-    </header>
+      </div>
+    </nav>
   );
 }
 
-export default Header;
+export default Navbar;

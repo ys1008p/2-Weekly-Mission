@@ -1,11 +1,13 @@
-import { Reset } from "styled-reset";
-import Header from "./component/shared/Header";
+import Header from "./component/shared/header/Header";
+import Main from "./component/shared/main/Main";
+import GlobalStyle from "./GlobalStyles";
 
 function App() {
   return (
     <>
-      <Reset />
+      <GlobalStyle />
       <Header />
+      <Main />
     </>
   );
 }

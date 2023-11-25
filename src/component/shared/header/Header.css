@@ -1,0 +1,58 @@
+.header-container {
+  width: 100%;
+  background-color: #f0f6ff;
+}
+
+.nav-bar {
+  padding: 3.2rem;
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1920px;
+}
+
+.nav-item-logo {
+  width: 13rem;
+}
+
+.nav-item-profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-item-profile-img {
+  width: 2.8rem;
+  border-radius: 50%;
+}
+
+.nav-item-profile-email {
+  font-size: 14px;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 6rem;
+}
+
+.header-section-ownerImg {
+  border-radius: 50%;
+  width: 6rem;
+  background-color: #dddddd;
+  margin-bottom: 1.2rem;
+}
+
+.header-section-ownerName {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.header-section-folderName {
+  font-size: 4rem;
+  font-weight: 600;
+}
