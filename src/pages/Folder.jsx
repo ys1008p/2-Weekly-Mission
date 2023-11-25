@@ -1,13 +1,14 @@
 import React from "react";
 import "./index.css";
 import Card from "components/Card";
-const Folder = () => {
+
+const Folder = ({ folder }) => {
   return (
     <div className="container">
       <input className="searchBar" placeholder="링크로 검색해 보세요." />
       <div className="cards">
-        {Array.from({ length: 9 }).map((data, index) => {
-          return <Card key={index} />;
+        {folder?.map((data) => {
+          return <Card key={data.id} data={data} />;
         })}
       </div>
     </div>
