@@ -1,7 +1,7 @@
 import './Card.css';
 import logoImg from '../Gnb/logo.svg';
 import { timeAgo, getYYYYMMYY, getShortDescription } from '../../utils/formatting';
-
+import { useState } from 'react';
 function EmptyCard() {
   return (
     <div className="EmptyCard">
@@ -11,11 +11,31 @@ function EmptyCard() {
 }
 
 function CardItem({ link }) {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
+
   return (
     <div className="CardItem">
-      <a className="contentBox" href={link.url} target="_blank">
+      <a
+        className={isHovering ? 'contentBox hoveredCard' : 'contentBox'}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        href={link.url}
+        target="_blank"
+      >
         <div class="imgContainer">
-          {link.imageSource ? <img className="contentImg" src={link.imageSource}></img> : <EmptyCard />}
+          {link.imageSource ? (
+            <img className={isHovering ? 'contentImg hoveredImg' : 'contentImg'} src={link.imageSource}></img>
+          ) : (
+            <EmptyCard className={isHovering ? 'hoveredImg' : ''} />
+          )}
         </div>
         <div className="starIcon"></div>
         <section className="contentText">
