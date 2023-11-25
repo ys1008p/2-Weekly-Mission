@@ -1,0 +1,14 @@
+.cardItemWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 25px;
+  column-gap: 20px;
+
+  @include responsive(TC) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include responsive(M) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,188 @@
+.skeleton {
+  background-color: $white;
+
+  &-gnb {
+    height: 93px;
+    background-color: $loading-back;
+  }
+
+  &-logo {
+    width: 137px;
+    height: 25px;
+    border-radius: 4px;
+    background-color: $loading-box;
+  }
+
+  &-profile {
+    @include flexbox();
+
+    &-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: $loading-box;
+    }
+
+    &-username {
+      width: 80px;
+      height: 20px;
+      margin-left: 6px;
+      border-radius: 4px;
+      background-color: $loading-box;
+    }
+  }
+}
+
+// ========== banner ==========
+.skeleton-banner {
+  width: 100%;
+  height: 250px;
+  padding-top: 20px;
+  text-align: center;
+  background-color: $loading-back;
+
+  &-box {
+    @include column-flexbox(center, center);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  &-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: $loading-box;
+  }
+
+  &-name {
+    display: block;
+    width: 60px;
+    height: 18px;
+    margin-top: 12px;
+    border-radius: 4px;
+    background-color: $loading-box;
+  }
+
+  &-title {
+    width: 220px;
+    height: 46px;
+    margin-top: 20px;
+    border-radius: 4px;
+    background-color: $loading-box;
+  }
+}
+
+// ========== main: searchbar ==========
+.skeleton-searchbar {
+  width: 100%;
+  height: 54px;
+  border-radius: 10px;
+  margin: 40px 0;
+  background-color: $loading-back;
+}
+
+// ========== main: card-item ==========
+.card-item.s-card-item {
+  &:hover {
+    img {
+      transform: scale(100%);
+    }
+
+    .card-item-textBox {
+      background-color: $white;
+    }
+  }
+}
+
+.card-item-img.s-img-box {
+  @include flexbox();
+  background-color: $loading-back;
+}
+.skeleton-desc {
+  @include column-flexbox(between, start);
+  width: 100%;
+  height: 100%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  &-item {
+    width: 100%;
+    border-radius: 4px;
+    background-color: $loading-box;
+  }
+  &-item:nth-child(1) {
+    width: 120px;
+    height: 18px;
+  }
+  &-item:nth-child(2) {
+    width: 100%;
+    height: 47px;
+  }
+  &-item:nth-child(3) {
+    width: 100%;
+    height: 20px;
+  }
+}
+
+// ========== footer ==========
+
+.skeleton-footer {
+  width: 100%;
+  height: 150px;
+  background-color: $loading-back;
+
+  &-item {
+    height: 27px;
+    border-radius: 4px;
+    background-color: $loading-box;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  &-item:nth-child(1) {
+    width: 150px;
+  }
+  &-item:nth-child(2) {
+    width: 240px;
+  }
+  &-item:nth-child(3) {
+    width: 150px;
+  }
+}
+
+// ========== responsive: mobile ==========
+@include responsive(M) {
+  .skeleton-gnb {
+    height: 63px;
+  }
+  .skeleton-banner {
+    height: 167px;
+
+    &-avatar {
+      width: 40px;
+      height: 40px;
+    }
+
+    &-name {
+      height: 17px;
+      margin-top: 6px;
+    }
+
+    &-title {
+      height: 40px;
+      margin-top: 10px;
+    }
+  }
+
+  .skeleton-searchbar {
+    height: 43px;
+    margin: 20px 0 32px;
+  }
+}
+
+// ========== animation ==========
+@keyframes pulse {
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}

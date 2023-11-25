@@ -1,0 +1,61 @@
+/*
+🖥️ Desktop ( >= 1200px )
+fixture···················lg
+of columns················12
+margin····················auto
+container-size············1200px
+max-container-size········1200px
+
+💻 Tablet ( < 1200px )
+fixture···················md
+of columns················12
+margin····················auto
+container-size············698px
+max-container-size········698px
+ 
+📱 Mobile ( < 768px )
+fixture···················sm
+margin····················32px
+container-size·············100% - (32px * 2)
+*/
+
+@use 'sass:math';
+
+$lg-header-height: 93px;
+$sm-header-height: 63px;
+
+$lg-footer-height: 164px;
+$sm-footer-height: 160px;
+
+$lg-max-container: 1200px;
+$md-max-container: 698px;
+$sm-margin: 32px;
+
+$lg-card-container: 1060px;
+$md-card-container: 1123px;
+$md-card-margin: 32px;
+
+.container {
+  max-width: $lg-max-container;
+  margin: 0 auto;
+  height: 100%;
+
+  &.share-wrapper {
+    max-width: $lg-card-container;
+
+    @include responsive(TC) {
+      width: 100%;
+      padding: 0 $md-card-margin;
+    }
+  }
+
+  @include responsive(T) {
+    max-width: $md-max-container;
+    padding: 0;
+  }
+
+  @include responsive(M) {
+    width: 100%;
+    padding: 0 $sm-margin;
+  }
+}

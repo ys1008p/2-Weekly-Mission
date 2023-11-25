@@ -1,0 +1,128 @@
+.landing-page {
+  margin-top: $lg-header-height;
+
+  .feature-wrapper {
+    @include flexbox(between);
+    padding: 50px 101px;
+
+    .textbox {
+      width: 291px;
+
+      &-sub-title {
+        @include text-style(48, $black);
+        margin-bottom: 10px;
+      }
+
+      &-desc {
+        @include text-style(16, $gray-60);
+        word-break: keep-all;
+      }
+    }
+
+    .imgbox {
+      width: 550px;
+      height: 450px;
+      border-radius: 15px;
+      background-color: $light-blue;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @include responsive(T) {
+      padding: 50px 0;
+
+      .textbox {
+        width: 262px;
+      }
+
+      .imgbox {
+        width: 385px;
+        height: 315px;
+      }
+    }
+  }
+
+  .feature-save .textbox-sub-title {
+    span {
+      @include gradient-text;
+      background-image: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+    }
+  }
+
+  .feature-manage .textbox-sub-title {
+    span {
+      @include gradient-text;
+      background-image: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+    }
+  }
+
+  .feature-share .textbox-sub-title {
+    span {
+      @include gradient-text;
+      background-image: linear-gradient(
+        99deg,
+        #6d7ccd 19.76%,
+        rgba(82, 136, 133, 0.22) 52.69%
+      );
+    }
+  }
+
+  .feature-search .textbox-sub-title {
+    span {
+      @include gradient-text;
+      background-image: linear-gradient(
+        271deg,
+        #fe578f -9.84%,
+        #68e8f9 107.18%
+      );
+    }
+  }
+
+  .feature-manage .textbox,
+  .feature-search .textbox {
+    order: 2;
+  }
+
+  @include responsive(M) {
+    margin-top: $sm-header-height;
+
+    .feature-save .feature-wrapper {
+      padding-top: 0;
+    }
+
+    .feature-wrapper {
+      display: block;
+      padding: 0 0 40px 0;
+
+      .textbox {
+        width: 100%;
+        padding: 40px 0 24px;
+
+        &-sub-title {
+          @include text-style(24);
+        }
+      }
+
+      .imgbox {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .sm-only {
+    .textbox-sub-title {
+      margin: 40px 0 20px;
+    }
+
+    .textbox-desc {
+      @include text-style(15);
+      margin-top: 16px;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.folder-banner {
+  width: 100%;
+  padding: 113px 0 60px;
+  text-align: center;
+  background-color: $light-blue;
+
+  &-title {
+    @include text-style(40);
+  }
+
+  .codeit-symbol {
+    &-avatar {
+      width: 60px;
+      height: 60px;
+    }
+
+    span {
+      @include text-style(16);
+      margin-top: 12px;
+      display: block;
+    }
+
+    margin-bottom: 20px;
+  }
+}
+
+@include responsive(M) {
+  .folder-banner {
+    padding: 73px 0 40px;
+
+    &-title {
+      @include text-style(32);
+    }
+
+    .codeit-symbol {
+      &-avatar {
+        width: 40px;
+        height: 40px;
+      }
+
+      span {
+        @include text-style(14);
+        margin-top: 6px;
+        display: block;
+      }
+
+      margin-bottom: 10px;
+    }
+  }
+}
