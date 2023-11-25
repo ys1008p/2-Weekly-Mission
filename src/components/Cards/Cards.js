@@ -77,7 +77,7 @@ function timeAgo(dateParam) {
 }
 
 function getYYYYMMYY(fullDate) {
-  const sliced = fullDate.slice(0, 9);
+  const sliced = fullDate.slice(0, 10);
   return sliced.replace(/-/gi, '.');
 }
 
