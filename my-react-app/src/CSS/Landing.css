@@ -15,6 +15,7 @@ body {
   top: 0;
   width: 100%;
   background-color: #edf7ff;
+  z-index: 1;
 }
 .nav-box {
   display: flex;
@@ -96,6 +97,7 @@ body {
 
 .MainSearchBarContainer{
   position: relative;
+  padding-bottom: 40px;
 }
 
 .MainSearchBar {
@@ -113,7 +115,7 @@ body {
   position: absolute;
   top: 15px;
   left: 10px;
-  bottom: 20px;
+  bottom: 100%;
 }
 
 
