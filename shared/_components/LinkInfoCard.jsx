@@ -1,3 +1,4 @@
+import { formatCreatedAtInCard, formatPastInCard } from "../utils";
 import Card from "./Card";
 
 export default function LinkInfoCard({ linkInfo }) {
@@ -12,14 +13,14 @@ export default function LinkInfoCard({ linkInfo }) {
       />
       <div className="flex flex-col gap-[1rem] px-[2rem] py-[1.5rem]">
         <div className="w-full text-[1.3rem] text-[#666]">
-          {linkInfo.createdAt}
+          {formatPastInCard(linkInfo.createdAt)}
         </div>
         <Card.Description
           description={linkInfo.description}
           className="line-clamp-2 w-full text-ellipsis text-[1.6rem]"
         />
         <div className="line-clamp-1 w-full text-ellipsis text-[1.4rem] text-[#333]">
-          {linkInfo.createdAt}
+          {formatCreatedAtInCard(linkInfo.createdAt)}
         </div>
       </div>
     </Card>
