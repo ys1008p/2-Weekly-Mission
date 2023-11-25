@@ -1,13 +1,38 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-color: #6d6afe;
+  --black-color: #111322;
+  --white-color: #ffffff;
+  --focus-alert: #ff5b56;
+  /* gray-color */
+  --gray-darkest: #3e3e43;
+  --gray-darker: #9fa6b2;
+  --gray-lighter: #ccd5e3;
+  --gray-lightest: #e7effb;
+  --gray-bg-color: #f0f6ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Pretendard-Regular;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
