@@ -9,6 +9,7 @@
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 10;
   width: 100%;
   max-width: 192rem;
   height: 9.4rem;
@@ -41,13 +42,19 @@
   color: var(--color-black-000);
 }
 
+@media screen and (max-width:1124px) {
+  .header nav {
+    padding: 0 3.2rem;
+  }
+}
+
 @media screen and (min-width:375px) and (max-width:768px) {
   .mobile-hide { 
     display: none;
   }
 
   .header .logo img {
-    width: 88px;
+    width: 8.8rem;
   }
 
   .header nav {
@@ -61,7 +68,7 @@
   }
 
   .header .title .img-codeit {
-    width: 40px;
+    width: 4rem;
   }
 
   .header .title .codeit {
@@ -71,7 +78,7 @@
   }
 
   .header .title .img-favorites {
-    width: 150px;
+    width: 15rem;
   }
   
 }
