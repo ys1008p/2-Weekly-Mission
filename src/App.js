@@ -1,4 +1,3 @@
-import { Cards } from './components/Cards/Cards';
 import { useEffect, useState } from 'react';
 import { getFolder, getUser } from './components/Api';
 import Layout from './components/Layout';
