@@ -1,20 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,ts,jsx,tsx}", "./shared/Page.jsx"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./shared/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
+    gridTemplateColumns: {
+      "fill-max-34": "repeat(auto-fit, minmax(10rem, 34rem))",
+    },
     extend: {
+      screens: {
+        tablet: "768px",
+        desktop: "1200px",
+      },
       spacing: {},
       colors: {
         "u-primary": "#6d6afe",
+        "u-purple-70": "#8F00FF",
         "u-red": "#ff5b56",
         "u-skyblue": "#f0f6ff",
         "u-black": "#111322",
         "u-white": "#ffffff",
-        "u-gray-1": "#3e3e43",
-        "u-gray-2": "#9fa6b2",
-        "u-gray-3": "#ccd5e3",
-        "u-gray-4": "#e7effb",
-        "u-gray-5": "#f0f6ff",
+        "u-gray-100": "#3e3e43",
+        "u-gray-60": "#9fa6b2",
+        "u-gray-20": "#ccd5e3",
+        "u-gray-10": "#e7effb",
       },
       backgroundImage: {
         "gradient-purple-skyblue":
