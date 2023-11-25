@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <Gnb auth={auth} onClick={loginClick} />
-      <Profile profile={profile} />
+      {auth?.isLogin && <Profile profile={profile} />}
       <Folder folder={profile.links} />
       <Footer />
     </div>

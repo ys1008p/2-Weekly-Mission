@@ -1,28 +1,20 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import defaultImg from "assets/images/defaultImage.png";
 import useDateAgo from "hooks/useDateAgo";
+import Image from "./common/Image";
 
 const Card = ({ data: { createdAt, url, description, imageSource } }) => {
-  //state : default, hover
-  const [cardState, setCardState] = useState({
-    state: "default",
-    size: "Large",
-  });
-
-  const ref = useRef();
-
   const timeAgo = useDateAgo(createdAt);
-
   const date = new Date(createdAt).toLocaleDateString();
 
   return (
     <div
-      className="card"
+      className="card-container"
       onClick={() => {
-        console.log(url);
+        window.open(url);
       }}
     >
-      <img ref={ref} src={imageSource || defaultImg} alt="card" />
+      <Image src={imageSource || defaultImg} alt="card" type="card" />
       <div className="card-flavor">
         <div className="posted">{timeAgo}</div>
         <div className="card-desc">{description}</div>

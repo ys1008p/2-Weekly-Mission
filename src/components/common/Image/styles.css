@@ -1,0 +1,14 @@
+.image-container {
+  overflow: hidden;
+}
+
+.image.card {
+  background-color: #dddfff;
+  max-width: 100%;
+  width: 340px;
+  height: 200px;
+}
+
+.card:hover {
+  transform: scale(1.3);
+}

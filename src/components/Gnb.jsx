@@ -6,7 +6,7 @@ const GNB = ({ auth: { user, isLogin }, onClick }) => {
   return (
     <nav>
       <div className="gnb">
-        <img src={logo} alt="홈으로 연결된 Linkbrary 로고" />
+        <img className={logo} src={logo} alt="홈으로 연결된 Linkbrary 로고" />
         {isLogin ? (
           <div className="account">
             <img src={account} alt="account" />
