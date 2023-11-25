@@ -118,9 +118,89 @@ body {
   bottom: 100%;
 }
 
+.MainCardContainer{
+  display: flex;
+flex-direction: column;
+align-items: center;
+gap: 25px;
+}
+
+.MainCardBox{
+  display: flex;
+align-items: flex-start;
+gap: 20px;
+}
+
+.CardBox{
+  width: 340px;
+  height: 334px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 15px 15px 15px 15px;
+}
+.CardTextBox{
+  display: flex;
+  width: 340px;
+  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 15px 15px 15px 15px;
+background: #FFF;
+transition: all 0.2s linear;
+}
+.CardTextBox:hover{
+  max-width: 130%;
+  overflow: hidden;
+  transform: scale(1.2, 1.2);
+  border-radius: 15px 15px 15px 15px;
+}
+
+.CardImg{
+  max-width: 100%;
+  border-radius: 15px 15px 0px 0px;
+}
 
 
 
+
+
+
+.CardTextTime{
+  color: #666;
+font-family: Pretendard;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.CardTextDescription{
+  height: 49px;
+  align-self: stretch;
+  overflow: hidden;
+color: #000;
+text-overflow: ellipsis;
+white-space: nowrap;
+font-family: Pretendard;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+}
+
+.CardTextYears{
+  height: 19px;
+  align-self: stretch;
+  overflow: hidden;
+color: #333;
+text-overflow: ellipsis;
+white-space: nowrap;
+font-family: Pretendard;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
 
 .hero-container {
   display: flex;
