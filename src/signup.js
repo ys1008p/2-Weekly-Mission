@@ -8,7 +8,7 @@ import {
   TokenStorage,
 } from "./shared.js";
 
-TokenStorage("/folder");
+TokenStorage("./folder");
 
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
@@ -150,7 +150,7 @@ async function submitForm(event) {
       }
 
       localStorage.setItem("j_1644", accessToken);
-      location.href = "/folder";
+      location.href = "./folder";
     } catch {
       setInputError(
         { input: emailInput, errorMessage: emailErrorMessage },
