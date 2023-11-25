@@ -25,6 +25,7 @@
   border-radius: 15px;
 }
 
+/* 호버시 이미지 확대 애니메이션 */
 .contentImg.hoveredImg {
   display: block;
   transition: all 0.3s ease-in-out;
@@ -66,16 +67,6 @@
   opacity: 0.2;
 }
 
-.starIcon {
-  height: 34px;
-  width: 34px;
-  background-image: url('../Cards/images/star.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
 .contentText {
   padding: 15px 20px;
   display: flex;

@@ -1,7 +1,9 @@
 import './Card.css';
+import Stars from '../Stars/Stars';
 import logoImg from '../Gnb/logo.svg';
 import { timeAgo, getYYYYMMYY, getShortDescription } from '../../utils/formatting';
 import { useState } from 'react';
+
 function EmptyCard() {
   return (
     <div className="EmptyCard">
@@ -36,8 +38,8 @@ function CardItem({ link }) {
           ) : (
             <EmptyCard className={isHovering ? 'hoveredImg' : ''} />
           )}
+          <Stars />
         </div>
-        <div className="starIcon"></div>
         <section className="contentText">
           <div className="contentNav">
             <div className="timeCreated">{timeAgo(link.createdAt)}</div>
