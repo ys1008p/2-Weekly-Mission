@@ -1,12 +1,12 @@
 import styles from "../styles/Banner.module.css";
 
-function Banner(){
+function Banner({folder}){
     return(
         <section className={styles.banner}>
         <div className={styles.bannerBox}>
-            <div className={styles.iconBox}><img src={process.env.PUBLIC_URL + "/images/codeit.png"}/></div>
-            <div className={styles.bannerText}>@코드잇</div>
-            <h1 className={styles.bannerTitle}>⭐️ 즐겨찾기</h1>
+            <img className={styles.bannerImage} src={folder && folder.owner.profileImageSource}/>
+            <div className={styles.bannerText}>{folder && folder.owner.name}</div>
+            <h1 className={styles.bannerTitle}>{folder && folder.name}</h1>
       </div>
         </section>
     )

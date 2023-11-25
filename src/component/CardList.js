@@ -1,10 +1,14 @@
 import styles from "../styles/CardList.module.css";
 import Card from "./Card";
 
-function CardList(){
+function CardList({links}){
     return(
         <>
-            <Card/>
+            {
+                links && links.map((link)=>(
+                    <Card key={link.id} link={link}/>
+                ))
+            }
         </>
     )
 }
