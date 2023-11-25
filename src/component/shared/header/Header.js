@@ -6,7 +6,6 @@ function Header() {
   return (
     <header className="header-container">
       <Navbar />
-      <HeaderFoloderSection />
     </header>
   );
 }

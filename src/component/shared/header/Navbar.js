@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
 
+import HeaderFoloderSection from "./HeaderFolderSection";
+
 function Navbar() {
   // 유저 데이터를 담을 State
   const [userData, setUserData] = useState({});
@@ -28,28 +30,33 @@ function Navbar() {
   //console.log(userData);
 
   return (
-    <nav className="nav-bar">
-      <div className="nav-item">
-        <a href="/">
-          <img src="img/logo.png" alt="logo" className="nav-item-logo" />
-        </a>
+    <>
+      <nav className="nav-bar">
+        <div className="nav-item">
+          <a href="/">
+            <img src="img/logo.png" alt="logo" className="nav-item-logo" />
+          </a>
 
-        {userData.id[2] ? (
-          <div className="nav-item-profile">
-            <img
-              src={profileImageSource}
-              alt="profile-img"
-              className="nav-item-profile-img"
-            />
-            <p className="nav-item-profile-email">{email}</p>
-          </div>
-        ) : (
-          <div className="nav-item-profile">
-            <button className="nav-login-btn">로그인</button>
-          </div>
-        )}
-      </div>
-    </nav>
+          {userData?.id ? (
+            <>
+              <div className="nav-item-profile">
+                <img
+                  src={profileImageSource}
+                  alt="profile-img"
+                  className="nav-item-profile-img"
+                />
+                <p className="nav-item-profile-email">{email}</p>
+              </div>
+            </>
+          ) : (
+            <div className="nav-item-profile">
+              <button className="nav-login-btn">로그인</button>
+            </div>
+          )}
+        </div>
+      </nav>
+      {userData?.id ? <HeaderFoloderSection /> : ""}
+    </>
   );
 }
 
