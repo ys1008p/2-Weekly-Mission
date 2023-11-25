@@ -23,12 +23,31 @@
 }
 .contentImg {
   height: 100%;
-
-  /* background-image: url('../Cards/images/card-img.png'); */
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 15px 15px 0 0;
 }
+
+/* 이미지 url이 없는 경우  */
+.EmptyCard {
+  width: 340px;
+  height: 180px;
+  flex-shrink: 0;
+  background: #dddfff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px 15px 0 0;
+}
+
+.logoInCard {
+  display: block;
+  width: 133px;
+  height: 24px;
+  flex-shrink: 0;
+  opacity: 0.2;
+}
+
 .starIcon {
   height: 34px;
   width: 34px;

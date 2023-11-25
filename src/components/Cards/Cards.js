@@ -1,5 +1,5 @@
 import './Card.css';
-
+import logoImg from '../Gnb/logo.svg';
 const MONTH_NAMES = [
   'January',
   'February',
@@ -76,13 +76,21 @@ function timeAgo(dateParam) {
   return getFormattedDate(date); // 10. January 2017. at 10:20
 }
 
+function EmptyCard() {
+  return (
+    <div className="EmptyCard">
+      <img className="logoInCard" src={logoImg}></img>
+    </div>
+  );
+}
+
 function getYYYYMMYY(fullDate) {
   const sliced = fullDate.slice(0, 10);
-  return sliced.replace(/-/gi, '.');
+  return sliced.replace(/-/gi, '.'); //2023-10-23 into 2023.10.23
 }
 
 function getShortDescription(description) {
-  const MAX_LENGTH = 74;
+  const MAX_LENGTH = 74; // 두 줄 분량
   if (description.length >= MAX_LENGTH) {
     const sliced = description.slice(0, MAX_LENGTH - 1);
     return sliced + '...';
@@ -95,7 +103,7 @@ function CardItem({ link }) {
     <div className="CardItem">
       <a className="contentBox" href={link.url} target="_blank">
         <div class="imgContainer">
-          <img className="contentImg" src={link.imageSource}></img>
+          {link.imageSource ? <img className="contentImg" src={link.imageSource}></img> : <EmptyCard />}
         </div>
         <div className="starIcon"></div>
         <section className="contentText">
