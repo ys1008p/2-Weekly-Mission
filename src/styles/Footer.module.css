@@ -10,9 +10,8 @@ footer {
   font-size: 1.6rem;
   padding: 3.2rem 10.4rem 11rem;
   display: flex;
-  justify-content: center;
-  display: flex;
   justify-content: space-between;
+  margin-top: 10rem;
 }
 
 .copyright {

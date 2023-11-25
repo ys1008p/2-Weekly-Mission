@@ -32,15 +32,17 @@ function App() {
 
   return (
     <>
-    <main>
+    <main  >
       <Header email={email}/>
       <Banner folder={folder}/>
-      <section className={styles.FavoritesPageBox}>
-        <div className={styles.searchBox}>
-          <input className={styles.searchInput} placeholder="링크를 검색해주세요"/>
-          <img className={styles.searchIcon} src={process.env.PUBLIC_URL + "/images/search.png"}></img>
+      <section className={styles.contentFlax}>
+        <div className={styles.contentBox}>
+          <div className={styles.searchBox}>
+            <input className={styles.searchInput} placeholder="링크를 검색해주세요"/>
+            <img className={styles.searchIcon} src={process.env.PUBLIC_URL + "/images/search.png"}></img>
+          </div>
+          <CardList links={folder && folder.links}/>
         </div>
-        <CardList links={folder && folder.links}/>
       </section>
     </main>
       <Footer/>

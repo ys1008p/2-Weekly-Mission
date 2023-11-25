@@ -1,6 +1,8 @@
+import { useState } from "react";
 import styles from "../styles/Card.module.css";
 
-function Card({link}) {
+function Card({link,isHover}) {
+
   const createdAtString = link.createdAt
   const createdAt = new Date(createdAtString);
   const year = createdAt.getFullYear();
@@ -9,7 +11,7 @@ function Card({link}) {
   const date = `${year}. ${month}. ${day}`
 
   return (
-    <div>
+    <div className={styles.card}>
         <img className={link && link.imageSource? styles.cardImage:styles.noImage} src={link && link.imageSource? link.imageSource: "/images/noImage.svg"}/>
         <div className={styles.cardDescription}>
           <div className={styles.timeBox}>

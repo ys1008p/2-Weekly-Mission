@@ -1,7 +1,11 @@
-.FavoritesPageBox {
+.contentFlax {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 3.2rem 0 3.2rem;
+}
+.contentBox {
   width: 106rem;
   height: 114.6rem;
-  margin: 4rem auto;
 }
 .searchBox {
   position: relative;
