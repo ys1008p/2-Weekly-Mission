@@ -4,6 +4,7 @@
 }
 
 .nav-bar {
+  max-width: 192rem;
   padding: 3.2rem 20rem;
   margin: 0 auto;
 }

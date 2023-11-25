@@ -1,14 +1,14 @@
 .footer-container {
   background-color: #111322;
-
   padding: 3.2rem 10.4rem 6.4rem;
 }
 
 .footer-item-container {
   background-color: #111322;
-
+  max-width: 192rem;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 .footer-src,
@@ -21,4 +21,9 @@
 .footer-guide {
   display: flex;
   gap: 3rem;
+}
+
+.footer-icon {
+  display: flex;
+  gap: 1.2rem;
 }
