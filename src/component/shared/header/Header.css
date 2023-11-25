@@ -67,3 +67,25 @@
   font-size: 4rem;
   font-weight: 600;
 }
+
+@media all and (min-width: 768px) and (max-width: 1124px) {
+  .nav-bar {
+    padding: 3.2rem 0;
+  }
+
+  .nav-item {
+    max-width: 710px;
+    padding: 0 3.2rem;
+    margin: 0 auto;
+  }
+}
+@media all and (max-width: 768px) {
+  .nav-bar {
+    padding: 1.8rem 0;
+  }
+
+  .nav-item {
+    padding: 0 3.2rem;
+    margin: 0 auto;
+  }
+}
