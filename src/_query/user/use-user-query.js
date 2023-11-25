@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useUserAction } from "./use-user";
-import { getUser } from "../_api/api";
+import { useUserAction } from "/src/_hook/use-user";
+import { getUser } from "/src/_api/user/api";
 
 export default function useUserQuery() {
   const { setUser } = useUserAction();

@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import relativeTime from "./customRelativeTime";
+import relativeTime from "/src/_util/customDayJSRelativeTime";
 
 dayjs.extend(relativeTime);
 

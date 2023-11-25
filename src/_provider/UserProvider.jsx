@@ -2,7 +2,7 @@ import {
   UserActionContext,
   UserContext,
   useUserProvider,
-} from "./_hooks/use-user";
+} from "/src/_hook/use-user";
 
 export default function UserProvider({ children }) {
   const [user, userAction] = useUserProvider();

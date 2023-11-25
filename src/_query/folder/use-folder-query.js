@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFolder } from "../_api/api";
+import { getFolder } from "/src/_api/folder/api";
 
 export default function useFolderQuery() {
   const [folder, setFolder] = useState(null);

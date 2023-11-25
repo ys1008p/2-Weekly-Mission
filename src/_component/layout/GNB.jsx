@@ -1,7 +1,7 @@
-import { useAuth } from "../_hooks/use-auth";
-import Account from "./Account";
-import LoginCTA from "./LoginCTA";
-import Logo from "./Logo";
+import { useAuth } from "/src/_hook/use-auth";
+import Account from "/src/_component/layout/Account";
+import LoginCTA from "/src/_component/layout/LoginCTA";
+import Logo from "/src/_component/layout/Logo";
 
 export default function GNB() {
   const isLoggedIn = useAuth();

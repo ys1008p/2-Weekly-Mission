@@ -5,6 +5,7 @@ const ICON_MATCHER = {
   youtube: "youtube",
   instagram: "instagram",
   search: "searchbar",
+  logo: "logo",
 };
 
 /**

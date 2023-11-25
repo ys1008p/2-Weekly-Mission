@@ -1,5 +1,5 @@
-import Icon from "./Icon";
-import Profile from "./Profile";
+import Icon from "/src/_component/common/Icon";
+import Profile from "/src/_component/common/Profile";
 
 export default function FolderOwner({ thumbnail, name }) {
   return (

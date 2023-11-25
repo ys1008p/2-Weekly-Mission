@@ -1,6 +1,5 @@
-import { useEffect } from "react";
-import Layout from "./Layout";
-import FolderOwner from "./_components/FolderOwner";
+import Layout from "/src/Layout";
+import FolderOwner from "./_component/FolderOwner";
 
 export default function SharedLayout({ folder, children }) {
   const { id, name, owner } = folder;

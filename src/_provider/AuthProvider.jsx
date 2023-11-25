@@ -2,7 +2,7 @@ import {
   useAuthProvider,
   AuthContext,
   AuthActionContext,
-} from "./_hooks/use-auth";
+} from "/src/_hook/use-auth";
 
 export default function AuthProvider({ children }) {
   const [isLoggedIn, authAction] = useAuthProvider();

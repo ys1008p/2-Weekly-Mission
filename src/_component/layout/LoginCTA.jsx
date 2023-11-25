@@ -1,4 +1,4 @@
-import CTA from "./CTA";
+import CTA from "/src/_component/common/CTA";
 
 export default function LoginCTA() {
   return (

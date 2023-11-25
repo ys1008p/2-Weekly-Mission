@@ -1,5 +1,5 @@
-import Profile from "./Profile";
-import { useUser } from "../_hooks/use-user";
+import Profile from "/src/_component/common/Profile";
+import { useUser } from "/src/_hook/use-user";
 
 export default function Account() {
   const account = useUser();

@@ -1,6 +1,6 @@
-import { PATH_PRIVACY, PATH_FAQ } from "../constants/routes";
-import GNB from "./_components/GNB";
-import Icon from "./_components/Icon";
+import { PATH_PRIVACY, PATH_FAQ } from "/src/_constant/routes";
+import GNB from "/src/_component/layout/GNB";
+import Icon from "/src/_component/common/Icon";
 
 export default function Layout({ heroHeader, children }) {
   return (

@@ -1,5 +1,5 @@
-import { formatCreatedAtInCard, formatPastInCard } from "../utils";
-import Card from "./Card";
+import { formatCreatedAtInCard, formatPastInCard } from "/src/shared/util";
+import Card from "/src/_component/common/Card";
 
 export default function LinkInfoCard({ linkInfo }) {
   return (
