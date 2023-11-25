@@ -12,9 +12,6 @@
 
 .SearchBarIcon {
   position: relative;
-  /* top: 26px;
-  /* bottom: 13px; */
-  /* left: 16px; */
 }
 
 .SearchBarInput {
@@ -30,6 +27,6 @@
 
 @media (max-width: 767px) {
   .SearchBarContainer {
-    width: 325px;
+    width: 340px;
   }
 }
