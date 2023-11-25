@@ -44,51 +44,81 @@ body {
   }
 }
 
-.HeaderContainer{
+.HeaderContainer {
   display: flex;
-width: 1440px;
-padding: 20px 624px 60px 624px;
-flex-direction: column;
-align-items: flex-start;
-gap: 8px;
-background: var(--linkbrary-bg, #F0F6FF);
+  width: 1440px;
+  padding: 20px 624px 60px 624px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--linkbrary-bg);
 }
-.HeaderBox{
+.HeaderBox {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 
-.ImgHeader{
+.ImgHeader {
   display: flex;
-height: 60px;
-padding: 16px 17px 16px 15px;
-justify-content: center;
-align-items: center;
+  height: 60px;
+  padding: 16px 17px 16px 15px;
+  justify-content: center;
+  align-items: center;
   border-radius: 47px;
-background: var(--primary-purple-70, #8F00FF);
+  background: var(--primary-purple-70);
 }
 
-.HeaderText{
-  color: var(--text-color-light-mode, #000);
-font-family: Pretendard;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; /* 150% */
+.HeaderText {
+  color: var(--text-color-light-mode);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
 }
 
-.HeaderDescription{
+.HeaderDescription {
   color: #000;
-text-align: center;
-font-feature-settings: 'clig' off, 'liga' off;
-font-family: Pretendard;
-font-size: 40px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Pretendard;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
+
+.Main {
+  padding: 40px 0px;
+}
+
+.MainSearchBarContainer{
+  position: relative;
+}
+
+.MainSearchBar {
+  display: flex;
+  width: 1060px;
+  padding: 15px 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  border-style: none;
+  background: #f5f5f5;
+}
+
+.SearchBtn {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  bottom: 20px;
+}
+
+
+
+
 
 .hero-container {
   display: flex;
