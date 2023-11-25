@@ -93,7 +93,7 @@ function getShortDescription(description) {
 function CardItem({ link }) {
   return (
     <div className="CardItem">
-      <a className="contentBox" href={link.url}>
+      <a className="contentBox" href={link.url} target="_blank">
         <div class="imgContainer">
           <img className="contentImg" src={link.imageSource}></img>
         </div>
