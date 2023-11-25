@@ -1,0 +1,24 @@
+.footer-container {
+  background-color: #111322;
+
+  padding: 3.2rem 10.4rem 6.4rem;
+}
+
+.footer-item-container {
+  background-color: #111322;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-src,
+.footer-guide a {
+  color: #676767;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.footer-guide {
+  display: flex;
+  gap: 3rem;
+}
