@@ -27,3 +27,30 @@
   display: flex;
   gap: 1.2rem;
 }
+
+@media all and (max-width: 768px) {
+  .footer-container {
+    padding: 3.2rem;
+  }
+
+  .footer-item-container {
+    display: grid;
+    grid-template-areas:
+      "guide  icon"
+      "codeit  . ";
+    grid-template-columns: 50% 30%;
+    gap: 6rem 0;
+  }
+
+  .footer-src {
+    grid-area: codeit;
+  }
+  .footer-icon {
+    grid-area: icon;
+    justify-content: space-between;
+  }
+  .footer-guide {
+    grid-area: guide;
+    justify-content: space-between;
+  }
+}
