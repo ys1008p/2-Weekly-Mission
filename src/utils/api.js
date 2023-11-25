@@ -1,39 +1,13 @@
-const END_POINT = "https://bootcamp-api.codeit.kr/api";
-export async function signin(auth) {
-  try {
-    const res = await fetch(`${END_POINT}/sign-in`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(auth),
-    });
-    if (!res.ok) return { success: false, data: null };
-    const json = await res.json();
-    return { success: true, data: json.data };
-  } catch (e) {
-    console.log(e);
-  }
-}
+import { END_POINT } from "./constants";
 
-export async function getUser() {
-  try {
-    const res = await fetch(`${END_POINT}/sample/user`);
-    if (!res.ok) return { success: false, data: null };
-    const data = await res.json();
-    return { success: true, data };
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-export async function getFolder() {
-  try {
-    const res = await fetch(`${END_POINT}/sample/folder`);
-    if (!res.ok) return { success: false, data: null };
-    const data = await res.json();
-    return { success: true, data };
-  } catch (e) {
-    console.log(e);
-  }
-}
+//react-query 처럼 콜백을 넘겨주는 방식으로 변경 예정
+export const getUser = async () => {
+  const res = await fetch(`${END_POINT}/smaple/user`);
+  if (!res.ok) throw new Error(res.status);
+  return res.json();
+};
+export const getFolder = async () => {
+  const res = await fetch(`${END_POINT}/smaple/folder`);
+  if (!res.ok) throw new Error(res.status);
+  return res.json();
+};

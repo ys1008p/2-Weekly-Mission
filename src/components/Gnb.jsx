@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "assets/images/logo.svg";
 import account from "assets/images/account.png";
+import { AuthContext } from "contexts/AuthContext";
 
-const GNB = ({ auth: { user, isLogin }, onClick }) => {
+const GNB = ({ isLogin, onClick }) => {
+  const {
+    authData: { email },
+  } = useContext(AuthContext);
   return (
     <nav>
       <div className="gnb">
@@ -10,7 +14,7 @@ const GNB = ({ auth: { user, isLogin }, onClick }) => {
         {isLogin ? (
           <div className="account">
             <img src={account} alt="account" />
-            <span className="email">{user?.email}</span>
+            <span className="email">{email}</span>
           </div>
         ) : (
           <button className="cta cta-short" onClick={onClick}>

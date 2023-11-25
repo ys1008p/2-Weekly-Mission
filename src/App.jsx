@@ -3,49 +3,26 @@ import "./App.css";
 import Profile from "components/Profile";
 import Folder from "pages/Folder";
 import Footer from "components/Footer";
-import { useEffect, useState } from "react";
-import { getUser, getFolder } from "utils/api";
+import { useContext, useState } from "react";
+import { useApi } from "hooks/useApi";
+import { AuthContext } from "contexts/AuthContext";
 
 function App() {
-  const [auth, setAuth] = useState({
-    user: null,
-    isLogin: false,
-  });
-  const [profile, setProfile] = useState({});
+  const [isLogin, setIsLogin] = useState(false);
+  const { setAuthData } = useContext(AuthContext);
+  const { data: authData } = useApi("auth", "/sample/user");
+  const { data: profileData } = useApi("folder", "/sample/folder");
 
   const loginClick = async () => {
-    try {
-      const { data } = await getUser();
-      setAuth({
-        isLogin: true,
-        user: data,
-      });
-    } catch (e) {
-      console.log(e);
-    }
+    setIsLogin(true);
+    setAuthData(authData);
   };
-
-  const fetchUserFolder = async (auth) => {
-    if (auth.user === null) return;
-    try {
-      const {
-        data: { folder },
-      } = await getFolder();
-      setProfile(folder);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    fetchUserFolder(auth);
-  }, [auth]);
 
   return (
     <div className="App">
-      <Gnb auth={auth} onClick={loginClick} />
-      {auth?.isLogin && <Profile profile={profile} />}
-      <Folder folder={profile.links} />
+      <Gnb isLogin={isLogin} onClick={loginClick} />
+      {isLogin && <Profile profile={profileData?.folder?.owner} />}
+      <Folder folder={isLogin ? profileData?.folder?.links : []} />
       <Footer />
     </div>
   );
