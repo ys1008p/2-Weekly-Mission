@@ -27,7 +27,7 @@
   border-radius: 1rem;
   font-size: 1.6rem;
   color: var(--color-gray);
-  background-color: var(--color-light-gray);
+  background-color: var(--color-very-light-gray);
 }
 
 .main .card ul {
