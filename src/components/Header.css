@@ -1,0 +1,77 @@
+.header .logo a {
+  display: block;
+}
+
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 192rem;
+  height: 9.4rem;
+  padding: 0 20rem; 
+  background-color: var(--color-sky-blue);
+}
+
+.header .profile a {
+  display: flex;
+  align-items: center;
+}
+
+.header .profile .text {
+  padding: 0 0 0 0.6rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: var(--color-black);
+}
+
+.header .title {
+  margin: 9.4rem 0 0;
+  padding: 2rem 0 6rem 0;
+  text-align: center;
+  background-color: var(--color-sky-blue);
+}
+
+.header .title .codeit {
+  margin: 1.2rem 0 2rem 0 ;
+  font-size: 1.6rem;
+  color: var(--color-black-000);
+}
+
+@media screen and (max-width:768px) {
+  .mobile-hide { 
+    display: none;
+  }
+
+  .header .logo img {
+    width: 88px;
+  }
+
+  .header nav {
+    padding: 0 3.2rem; 
+    height: 6.3rem;
+  }
+
+  .header .title {
+    margin: 6.3rem 0 0;
+    padding: 1rem 0 4rem 0;
+  }
+
+  .header .title .img-codeit {
+    width: 40px;
+  }
+
+  .header .title .codeit {
+    margin: 1rem 0 0.6rem ;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+
+  .header .title .img-favorites {
+    width: 150px;
+  }
+  
+}
