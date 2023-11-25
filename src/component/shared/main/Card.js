@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import "./Main.css";
 
 // 날짜변환
-function formatDate(cardDate) {
-  const date = new Date(cardDate); // 날짜 Date 객체로 변환
+function formatDate(createdAt) {
+  const date = new Date(createdAt); // 날짜 Date 객체로 변환
   const year = date.getFullYear(); //년도 불러오기
   // 월 불러오기 (0부터시작 주의 // +1 붙여서 해결)
   const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -77,6 +77,10 @@ function Card() {
           "https://bootcamp-api.codeit.kr/api/sample/folder"
         );
         const data = await res.json();
+        data.folder.links.sort((a, b) => {
+          // 최신순정렬
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        });
         setCardData(data);
       } catch (e) {
         console.log("에러 :" + e);
