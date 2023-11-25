@@ -4,15 +4,22 @@
 }
 
 .nav-bar {
-  max-width: 192rem;
-  padding: 3.2rem 20rem;
+  background-color: #f0f6ff;
   margin: 0 auto;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .nav-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 3.2rem 20rem;
 }
 
 .nav-item-logo {
@@ -50,6 +57,7 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem 0 6rem;
+  margin: 9.2rem 0 0;
 }
 
 .header-section-ownerImg {
@@ -69,23 +77,18 @@
 }
 
 @media all and (min-width: 768px) and (max-width: 1124px) {
-  .nav-bar {
-    padding: 3.2rem 0;
-  }
-
   .nav-item {
     max-width: 710px;
-    padding: 0 3.2rem;
-    margin: 0 auto;
+    padding: 3.2rem 3.2rem;
   }
 }
+
 @media all and (max-width: 768px) {
-  .nav-bar {
-    padding: 1.8rem 0;
+  .nav-item {
+    padding: 1.8rem 3.2rem;
   }
 
-  .nav-item {
-    padding: 0 3.2rem;
-    margin: 0 auto;
+  .header-section {
+    margin: 6.4rem 0 0;
   }
 }
