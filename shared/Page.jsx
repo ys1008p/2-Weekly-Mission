@@ -2,9 +2,11 @@ import LinkInfoCardList from "./_components/LinkInfoCardList";
 import SearchBar from "./_components/SearchBar";
 import SharedLayout from "/shared/SharedLayout";
 import useFolderQuery from "./_hooks/use-folder-query";
+import useUserQuery from "./_hooks/use-user-query";
 
 export default function Page() {
   const folder = useFolderQuery();
+  useUserQuery();
 
   return folder ? (
     <SharedLayout folder={folder}>

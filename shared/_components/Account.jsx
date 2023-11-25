@@ -1,8 +1,8 @@
 import Profile from "./Profile";
-import useUserQuery from "../_hooks/use-user-query";
+import { useUser } from "../_hooks/use-user";
 
 export default function Account() {
-  const account = useUserQuery();
+  const account = useUser();
   const defaultThumbnail =
     "https://res.cloudinary.com/divjslgco/image/upload/f_auto,q_auto/v1/codeit/icons/profile";
 

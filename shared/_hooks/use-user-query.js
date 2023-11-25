@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useUser, useUserAction } from "./use-user";
+import { useUserAction } from "./use-user";
 import { getUser } from "../_api/api";
 
 export default function useUserQuery() {
-  const user = useUser();
   const { setUser } = useUserAction();
 
   useEffect(() => {
@@ -14,6 +13,4 @@ export default function useUserQuery() {
 
     fetchUser();
   }, []);
-
-  return user;
 }
