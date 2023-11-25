@@ -33,6 +33,17 @@
   font-size: 14px;
 }
 
+.nav-login-btn {
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  border: none;
+  color: white;
+  padding: 1.6rem 2rem;
+  width: 12.8rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
 .header-section {
   display: flex;
   flex-direction: column;
