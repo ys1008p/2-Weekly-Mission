@@ -3,7 +3,7 @@ import Card from "./Card";
 
 export default function LinkInfoCard({ linkInfo }) {
   return (
-    <Card className="h-[33.4rem] w-[34rem] overflow-hidden rounded-[1.5rem] shadow-[0px_5px_25px_0px_rgba(0,0,0,0.08)]">
+    <Card className="relative h-[33.4rem] w-[34rem] origin-center transform-gpu overflow-hidden rounded-[1.5rem] bg-u-white shadow-[0px_5px_25px_0px_rgba(0,0,0,0.08)] transition-transform will-change-transform hover:z-10 hover:scale-[1.3]">
       <Card.Thumbnail
         src={
           linkInfo.imageSource ??
