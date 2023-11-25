@@ -79,17 +79,14 @@
   margin-top: 40px;
   row-gap: 25px;
   column-gap: 20px;
-}
-@media (max-width: 1200px) {
-  .Cards {
+
+  @media (max-width: 1200px) {
     grid-template-rows: repeat(4, 334px);
     grid-template-columns: repeat(2, 340px);
     row-gap: 25px;
     column-gap: 24px;
   }
-}
-@media (max-width: 768px) {
-  .Cards {
+  @media (max-width: 768px) {
     grid-template-rows: repeat(9, 327px);
     grid-template-columns: repeat(1, 325px);
     row-gap: 20px;
