@@ -22,11 +22,34 @@
   align-items: center;
 }
 
+.header .profile img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 100%;
+}
+
 .header .profile .text {
   padding: 0 0 0 0.6rem;
   font-size: 1.4rem;
   line-height: 1.6rem;
   color: var(--color-black);
+}
+
+.header .profile .cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5.4rem;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: var(--color-very-light-gray);
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+
+.header .profile .cta-short {
+  width: 12.8rem;
 }
 
 .header .title {
@@ -62,6 +85,15 @@
     height: 6.3rem;
   }
 
+  .header .profile .cta {
+    height: 3.7rem;
+    font-size: 2.4rem;
+  }
+
+  .header .profile .cta-short {
+    width: 8rem;
+  }
+
   .header .title {
     margin: 6.3rem 0 0;
     padding: 1rem 0 4rem 0;
@@ -80,5 +112,4 @@
   .header .title .img-favorites {
     width: 15rem;
   }
-  
 }
