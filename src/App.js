@@ -5,10 +5,18 @@ import Layout from './components/Layout';
 function App() {
   const [items, setItems] = useState({});
   const [profile, setProfile] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleLoadLinks() {
-    const { folder } = await getFolder();
-    setItems(folder);
+    try {
+      setIsLoading(true);
+      const { folder } = await getFolder();
+      setItems(folder);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
   }
   async function handleLoadProfile() {
     const profile = await getUser();
@@ -21,11 +29,7 @@ function App() {
 
   if (!items.links) return;
 
-  return (
-    <>
-      <Layout items={items} profile={profile}></Layout>
-    </>
-  );
+  return <Layout items={items} profile={profile}></Layout>;
 }
 
 export default App;
