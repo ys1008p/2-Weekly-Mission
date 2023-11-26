@@ -1,7 +1,9 @@
 import logoImg from './logo.svg';
 import './Gnb.css';
 import Profile from '../Profile/Profile';
+import LoginButton from '../LoginButton/LoginButton';
 function Gnb({ profile }) {
+  const didLogin = profile.id ? true : false;
   return (
     <>
       <nav className="navContainer">
@@ -9,7 +11,7 @@ function Gnb({ profile }) {
           <a href="index.html">
             <img src={logoImg} className="logo-img" alt="홈으로 연결된 Linkbrary 로고" />
           </a>
-          <Profile profile={profile} />
+          {didLogin ? <Profile profile={profile} /> : <LoginButton />}
         </div>
       </nav>
     </>
