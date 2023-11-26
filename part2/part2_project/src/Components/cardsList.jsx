@@ -1,34 +1,37 @@
-const Cards = ({ userPick }) => {
-const 
-const howManyTimesAgo  =({userPick}) => {
+import { timeAgo } from "../util/time.js";
+import noneImg from "../img/!img.svg";
+import "../css/card.css";
 
-  
-  const upLoadTime = new Date(prev);
-  const diff = (now - upLoadTime) / 1000;
-  if()  
-}
+const Cards = ({ card }) => {
+  const { createdAt, description, imageSource, title, id } = card;
+
+  function formatDate(value) {
+    const date = new Date(value);
+    return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
+  }
 
   return (
-    <section >
-      <img src={userPick.imageSource} />
-      <div>
-        <p>{}
-        </p>
+    <section className="card" key={id}>
+      <img className="cardImg" src={imageSource || noneImg} alt={title} />
+      <div className="cardText">
+        <p className="timeAgo">{timeAgo(createdAt)}</p>
+        <h6 className="cardDescription">{description}</h6>
+        <p className="makeDate">{formatDate(createdAt)}</p>
       </div>
     </section>
   );
 };
 
-export default function CardsList({ userPick }) {
+// 이 부분이 왜 구현이 안되는 지 모르겠어요....
+
+export default function CardsList({ cardData }) {
   return (
-    <article>
-      {userPick.map((card) => {
-        return (
-          <div>
-            <Cards key={userPick.id} userPick={userPick} />
-          </div>
-        );
-      })}
-    </article>
+    <ul className="CardList">
+      {cardData?.map((card) => (
+        <li key={card.id}>
+          <Cards card={card} />
+        </li>
+      ))}
+    </ul>
   );
 }

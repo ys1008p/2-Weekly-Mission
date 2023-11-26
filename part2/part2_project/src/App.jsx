@@ -9,7 +9,7 @@ import Main from "./Components/Main";
 function App() {
   const [userData, setUserData] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
-  const [userPick, setUserPick] = useState(null);
+  const [cardData, setCardData] = useState([]);
 
   const isUser = async () => {
     const { email, profileImageSource } = await getUserData();
@@ -24,18 +24,19 @@ function App() {
     const { folder } = await getUserPick();
     const { name, owner, links } = folder;
     setUserInfo({ ...userInfo, name, owner });
-    setUserPick({ ...userPick, links });
+    setCardData([...cardData, links]);
   };
 
   useEffect(() => {
     isUser();
     userInfoAll();
   }, []);
+
   return (
     <>
       <Nav userData={userData} />
       <Header userInfo={userInfo} />
-      <Main userPick={userPick} />
+      <Main cardData={cardData} />
       <Footer />
     </>
   );

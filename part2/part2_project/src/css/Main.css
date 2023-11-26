@@ -10,7 +10,7 @@
   left: 1rem;
 }
 
-.searchBox {
+#searchBox {
   margin: 0;
   padding: 1rem 2.5rem;
   width: 100%;
