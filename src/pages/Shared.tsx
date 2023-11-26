@@ -6,14 +6,14 @@ import Header from '@/components/layout/Header';
 
 import '@/styles/Shared.css';
 
-const mockUser = {
-  id: 1,
-  name: '코드잇',
-  email: 'codeit@codeit.com',
-  profileImageSource:
-    'https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png',
-};
-
+// const mockUser = {
+//   id: 1,
+//   name: '코드잇',
+//   email: 'codeit@codeit.com',
+//   profileImageSource:
+//     'https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png',
+// };
+const mockUser = undefined;
 const mockFolder = '⭐️ 즐겨찾기';
 
 const mockOwner = {

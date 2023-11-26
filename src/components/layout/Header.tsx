@@ -1,11 +1,13 @@
 import Logo from '@/assets/images/icon/logo.svg';
 import Profile from '@/components/profile/Profile';
 
+interface User {
+  email: string;
+  profileImageSource: string;
+}
+
 interface HeaderProps {
-  user: {
-    email: string;
-    profileImageSource: string;
-  };
+  user: User | undefined;
 }
 
 const Header = ({ user }: HeaderProps) => (
@@ -14,7 +16,15 @@ const Header = ({ user }: HeaderProps) => (
       <a href="/">
         <img className="logo" src={Logo} alt="로고" />
       </a>
-      <Profile user={user} />
+      {user === undefined ? (
+        <a href="/">
+          <button type="button" className="btn-gradient login">
+            로그인
+          </button>
+        </a>
+      ) : (
+        <Profile user={user} />
+      )}
     </div>
   </header>
 );
