@@ -50,7 +50,7 @@ nav {
   width: 8rem;
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1123px) {
   nav {
     min-width: 768px;
     max-width: 864px;

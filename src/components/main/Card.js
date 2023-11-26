@@ -24,7 +24,6 @@ export function Card({ link }) {
     const DAYS = Math.floor(diffMSec / (1000 * 60 * 60 * 24));
     const MONTHS = Math.floor(diffMSec / (1000 * 60 * 60 * 24 * 30));
     const YEARS = Math.floor(diffMSec / (1000 * 60 * 60 * 24 * 30 * 12));
-    console.log(MINS, HOURS, DAYS, MONTHS, YEARS);
 
     if (MONTHS < 13 && YEARS > 0) {
       setMins(`${Math.floor(MONTHS / 12)} years ago`);
