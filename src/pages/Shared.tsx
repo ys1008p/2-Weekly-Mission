@@ -1,12 +1,13 @@
+import '@/styles/Shared.css';
+
+import { useGetRequest } from '@/hooks/useRequest';
+import { useEffect, useState } from 'react';
+
 import Banner from '@/components/banner/Banner';
 import CardContainer from '@/components/card/CardContainer';
 import SearchBar from '@/components/input/SearchBar';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
-import { useGetRequest } from '@/hooks/useRequest';
-import { useEffect, useState } from 'react';
-
-import '@/styles/Shared.css';
 
 const Shared = () => {
   const [folderName, setFolderName] = useState('');

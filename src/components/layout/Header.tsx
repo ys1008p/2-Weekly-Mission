@@ -1,7 +1,9 @@
-import Logo from '@/assets/images/icon/logo.svg';
-import Profile from '@/components/profile/Profile';
 import { useGetRequest } from '@/hooks/useRequest';
 import { useEffect, useState } from 'react';
+
+import Logo from '@/assets/images/icon/logo.svg';
+
+import Profile from '@/components/profile/Profile';
 
 const Header = () => {
   const [user, setUser] = useState(null);

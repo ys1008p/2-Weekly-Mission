@@ -1,6 +1,7 @@
-import NoImage from '@/assets/images/icon/no-image.svg';
 import useTimeDiff from '@/hooks/useTimeDiff';
 import { useState } from 'react';
+
+import NoImage from '@/assets/images/icon/no-image.svg';
 
 interface CardItemProps {
   thumbnail?: string;
