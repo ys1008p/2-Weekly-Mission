@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import SearchBar from "./SearchBar";
 import Search from "../assets/Search.svg";
 import "./Main.css";
 // import { getFolders } from "./api.js";
@@ -41,12 +42,7 @@ export function Main() {
         <span className="main-header_folder-name">{folderDatas.name}</span>
       </div>
       <div className="main-wrapper">
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="링크를 입력해주세요"
-        />
-        <img src={Search} />
+        <SearchBar />
         <div className="card-wrapper">
           {links.map((link) => {
             return (

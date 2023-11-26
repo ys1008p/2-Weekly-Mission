@@ -5,6 +5,7 @@
   gap: 1.25rem;
   padding-top: 1.25rem;
   padding-bottom: 3.75rem;
+  background: var(--linkbrary-bg, #f0f6ff);
 }
 .main-header_profile {
   display: flex;
