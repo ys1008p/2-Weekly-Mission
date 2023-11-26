@@ -1,0 +1,22 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.user-image {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.user-email {
+  display: none;
+  color: var(--color-gray-100);
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .user-email {
+    display: contents;
+  }
+}
