@@ -10,7 +10,7 @@ export const useFetcher = (key, callback) => {
   const { setCached, getCached } = useContext(CacheContext);
 
   // GET 요청 처리
-  // 추가해야할 것. 재요청(refetch), 요청 반복(interval)? 
+  // 추가해야할 것. 재요청(refetch), 요청 반복(interval)?
   const fetcher = () => {
     setState((prevState) => ({ ...prevState, loading: true }));
     const cached = getCached(key);
@@ -31,7 +31,6 @@ export const useFetcher = (key, callback) => {
 
   useEffect(() => {
     fetcher();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return state;

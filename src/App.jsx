@@ -13,16 +13,16 @@ function App() {
   const { setAuthData } = useContext(AuthContext);
   const { data: auth } = useFetcher("auth", getUser);
   const { data: profile } = useFetcher("folder", getFolder);
+
   const loginClick = async () => {
     setIsLogin(true);
     setAuthData(auth);
   };
-  console.log(profile, isLogin);
 
   return (
     <div className="App">
       <Gnb isLogin={isLogin} onClick={loginClick} />
-      {isLogin && <Profile profile={profile?.owner} />}
+      {isLogin && <Profile profile={profile} />}
       <Folder folder={isLogin ? profile?.links : []} />
       <Footer />
     </div>
