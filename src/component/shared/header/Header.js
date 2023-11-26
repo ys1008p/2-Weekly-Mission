@@ -2,10 +2,11 @@ import "./Header.css";
 import HeaderFoloderSection from "./HeaderFolderSection";
 import Navbar from "./Navbar";
 
-function Header() {
+function Header({ userData }) {
   return (
     <header className="header-container">
-      <Navbar />
+      <Navbar userData={userData} />
+      <HeaderFoloderSection />
     </header>
   );
 }
