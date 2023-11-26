@@ -35,6 +35,8 @@ const CardItem = ({
         href={url}
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
+        target="_blank"
+        rel="noreferrer"
       >
         <div
           className="thumbnail"
