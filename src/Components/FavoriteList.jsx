@@ -1,6 +1,6 @@
 import "../styles/HomeStyles.css";
 import formatTimeAgo from "./FormatTimeAgo";
-import noimage from "../asset/noimage.png";
+import noimage from "../asset/noimage.svg";
 
 function formatDate(value) {
   const date = new Date(value);
