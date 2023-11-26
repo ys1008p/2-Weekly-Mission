@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import logoImg from "../img/logo.svg";
 
-import "./Nav.css";
+import "../css/Nav.css";
 
 const handleLoginClick = () => location.assign("signin.html");
 

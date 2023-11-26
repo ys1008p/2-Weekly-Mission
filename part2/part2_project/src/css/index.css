@@ -21,3 +21,23 @@ body {
   margin: 0 auto;
   padding: 0;
 }
+
+.nav-bar {
+  margin: 1.25rem auto;
+}
+
+.memHeader .headerImg {
+  margin-top: 7rem;
+}
+
+.memHeader .userName {
+  margin: 0.75rem;
+}
+
+.memHeader .siteName {
+  margin-top: 0.5rem;
+}
+
+.main {
+  margin: 5rem auto;
+}
