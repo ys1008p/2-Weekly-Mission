@@ -1,4 +1,5 @@
 import '../components/Main.css';
+import noImg from '../assets/no-img.svg';
 
 // 년, 월, 일만 보이게 하기
 function DateText({ createdAt }){
@@ -40,7 +41,7 @@ function Main({ className, links, onMouseOver, onMouseOut }){
           {links.map((card) => (
             <li key={card.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
               <a href={card.url} target="_blank">
-                <img src= {card.imageSource} alt="카드 이미지" />
+                <img src= {card.imageSource ? card.imageSource : noImg} alt="카드 이미지" />
                 <div className="card-text">
                   <p className="createdAt">
                     <DateInfo createdAt={card.createdAt}/>
