@@ -16,9 +16,7 @@ export function Header() {
         "https://bootcamp-api.codeit.kr/api/sample/user"
       );
       const result = await response.json();
-      // console.log(result);
       const { id, name, email, profileImageSource } = result;
-      // console.log(id, name, email, profileImageSource);
       setProfileDatas((prevProfileDatas) => ({
         ...prevProfileDatas,
         id: id,

@@ -1,5 +1,5 @@
 import "./Footer.css";
-import Sns from "./Sns";
+import Sns from "./Sns.js";
 export function Footer() {
   const getThisYear = () => {
     const date = new Date();

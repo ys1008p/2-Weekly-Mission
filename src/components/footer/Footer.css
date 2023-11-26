@@ -43,7 +43,6 @@ span > a {
 @media (min-width: 375px) and (max-width: 767px) {
   .footer-wrapper {
     width: 100%;
-    /* height: auto; */
     padding: 2rem;
   }
 

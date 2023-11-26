@@ -7,7 +7,6 @@ export function SearchBar() {
         type="text"
         placeholder="링크를 검색해 보세요."
       />
-      {/* <img src={Search} /> */}
     </>
   );
 }

@@ -34,7 +34,6 @@
 }
 
 .main-wrapper {
-  /* width: 1060px; */
   width: 66.25rem;
   padding-top: 2.5rem;
   padding-bottom: 6.25rem;
@@ -54,9 +53,6 @@
   grid-column-gap: 1.25rem;
 }
 
-/* .card-wrapper a {
-  max-width: 100%;
-} */
 @media (min-width: 768px) and (max-width: 1124px) {
   .main-wrapper {
     width: 44rem;
