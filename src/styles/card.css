@@ -1,0 +1,62 @@
+p {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.card {
+  list-style-type: none;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  width: 340px;
+  height: 334px;
+}
+
+.cardATag {
+  text-decoration: none;
+  display: flex;
+  width: 340px;
+  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 0px 0px 15px 15px;
+  background: #FFF;
+}
+
+.cardImgtag {
+  width: 340px;
+  height: 253.746px;
+  flex-shrink: 0;
+}
+
+.textLine {
+  width: 340px;
+
+}
+
+.cardDescripTag {
+  height: 49px;
+  align-self: stretch;
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  word-wrap: break-word;
+  
+}
+
+.cardDateTag {
+  overflow: hidden;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
