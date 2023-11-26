@@ -1,6 +1,6 @@
 import styles from "../styles/Header.module.css";
 
-function header({ email }) {
+function Header({ email }) {
   return (
     <header>
       <div className={styles.headerBox}>
@@ -20,4 +20,4 @@ function header({ email }) {
   );
 }
 
-export default header;
+export default Header;

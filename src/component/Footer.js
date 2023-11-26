@@ -2,7 +2,7 @@ import styles from "../styles/Footer.module.css";
 
 function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${styles.wrap}`}>
       <div className={styles.copyright}>©codeit - 2023</div>
       <div className={styles.footerLink}>
         <a href="/privacy.html" className={styles.pointer}>

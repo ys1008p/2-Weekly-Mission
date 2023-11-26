@@ -2,6 +2,7 @@
   background-color: var(--gray-bg-color);
   padding: 2rem 0 6rem;
 }
+
 .bannerBox {
   display: flex;
   flex-direction: column;
@@ -22,9 +23,11 @@
 .iconBox img {
   display: inline-block;
 }
+
 .bannerText {
   font-size: 1.6rem;
 }
+
 .bannerTitle {
   font-size: 4rem;
 }
