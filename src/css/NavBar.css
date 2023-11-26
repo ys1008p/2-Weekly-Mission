@@ -24,12 +24,29 @@
   align-items: center;
 }
 
-.header__navi--login {
-  width: 8rem;
-  padding: 1rem 1.25rem;
-  background: linear-gradient(to right, var(--purple), var(--sky-blue));
+.header__navi--login,
+.header__navi--user {
   font-size: 1rem;
   color: var(--gray-20);
   text-align: center;
   font-size: 1.2rem;
+}
+
+.header__navi--login {
+  width: 8rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(to right, var(--purple), var(--sky-blue));
+}
+
+.header__navi--user {
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+}
+
+.header__navi--user img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
