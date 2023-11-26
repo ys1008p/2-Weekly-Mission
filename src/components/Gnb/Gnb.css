@@ -1,0 +1,20 @@
+.navContainer {
+  z-index: 2;
+  height: 94px;
+  background-color: #edf7ff;
+  position: sticky;
+  top: 0;
+}
+
+.nav {
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+  height: 94px;
+  background-color: #edf7ff;
+  position: sticky;
+  top: 0;
+}

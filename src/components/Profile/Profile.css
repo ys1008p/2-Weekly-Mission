@@ -1,0 +1,20 @@
+.profileImage {
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+}
+
+.profileEmail {
+  color: var(--linkbrary-gray-100, #373740);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.profileContainer {
+  display: flex;
+  gap: 6px;
+  flex-direction: row;
+  align-items: center;
+}
