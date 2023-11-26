@@ -1,4 +1,5 @@
 import NoImage from '@/assets/images/icon/no-image.svg';
+import useTimeDiff from '@/hooks/useTimeDiff';
 import { useState } from 'react';
 
 interface CardItemProps {
@@ -24,6 +25,9 @@ const CardItem = ({
     setZoom(false);
   };
 
+  const timeAgo = useTimeDiff(createdAt);
+  const parsedDate = createdAt.split('T')[0]?.replaceAll('-', '.');
+
   return (
     <article className="card-item">
       <a
@@ -39,9 +43,9 @@ const CardItem = ({
           }}
         ></div>
         <div className="contents">
-          <span className="time">{createdAt}</span>
+          <span className="time">{timeAgo}</span>
           <div className="title">{title}</div>
-          <span className="date">{createdAt}</span>
+          <span className="date">{parsedDate}</span>
         </div>
       </a>
     </article>
