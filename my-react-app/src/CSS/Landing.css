@@ -63,12 +63,12 @@ body {
 
 .ImgHeader {
   display: flex;
-  height: 60px;
-  padding: 16px 17px 16px 15px;
+  height: 100px;
+  padding: 16px 17px 0px 15px;
   justify-content: center;
   align-items: center;
   border-radius: 47px;
-  background: var(--primary-purple-70);
+
 }
 
 .HeaderText {
