@@ -29,7 +29,7 @@ function DateText({ createdAt }){
   }
 }
 
-function Main({ className, links }){
+function Main({ className, links, onMouseOver, onMouseOut }){
   return(
     <div className={className}>
       <div className="search">
@@ -38,7 +38,7 @@ function Main({ className, links }){
       <div className="card">
         <ul>
           {links.map((card) => (
-            <li key={card.id}>
+            <li key={card.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
               <a href={card.url} target="_blank">
                 <img src= {card.imageSource} alt="카드 이미지" />
                 <div className="card-text">

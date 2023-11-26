@@ -15,15 +15,20 @@ function App(){
     const { links } = folder;
     setCardList(links);
   }
+  
+  const handleOver = (e) => e.currentTarget.classList.add('active');
+
+  const handleOut = (e) => e.currentTarget.classList.remove('active');
 
   useEffect(() => {
     handleLoadFolder();
   }, [])
 
+
   return(
     <div className="container">
       <Header className="header"/>
-      <Main className="main" links={cardList}/>
+      <Main className="main" links={cardList} onMouseOver={handleOver} onMouseOut={handleOut} />
       <Footer className="footer"/>
     </div>
   )
