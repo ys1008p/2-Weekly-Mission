@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import emptyImage from '../images/emptyImage.svg';
 import './CardList.css';
 
-export default function CardList({ className, links }) {
+export default function CardList({ links }) {
   const listItems = links.map((link) => (
     <li key={link.id}>
       <Card link={link} />
