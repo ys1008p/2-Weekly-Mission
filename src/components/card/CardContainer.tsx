@@ -1,6 +1,6 @@
 import CardItem from '@/components/card/CardItem';
 interface CardContainerProps {
-  itemList: Array<{
+  items: Array<{
     id: number;
     createdAt: string;
     url: string;
@@ -9,9 +9,9 @@ interface CardContainerProps {
   }>;
 }
 
-const CardContainer = ({ itemList }: CardContainerProps) => (
+const CardContainer = ({ items }: CardContainerProps) => (
   <div className="card-container">
-    {itemList.map((item) => (
+    {items.map((item) => (
       <CardItem
         key={item.id}
         thumbnail={item.imageSource}
