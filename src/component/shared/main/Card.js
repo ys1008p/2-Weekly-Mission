@@ -83,7 +83,8 @@ function Card() {
         });
         setCardData(data);
       } catch (e) {
-        console.log("에러 :" + e);
+        console.log("에러발생 :" + e);
+        alert("저장된 데이터를 불러오는중 에러가 발생하였습니다.");
       }
     }
 
