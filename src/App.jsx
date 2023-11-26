@@ -5,6 +5,7 @@ import FavoriteList from "./Components/FavoriteList";
 import Footer from "./Components/Footer";
 import { useEffect, useState } from "react";
 import { getFavorites } from "./api";
+import "./App.css";
 
 function App() {
   const [folder, setFolder] = useState([]);
@@ -25,12 +26,16 @@ function App() {
       </div>
       <div>
         <Profile owner={folder.owner} name={folder.name} />
-        <SearchBar />
-        <div>
-          {folder?.map((links) => {
-            return <FavoriteList key={links.id} links={links} />;
-          })}
-        </div>
+        <section>
+          <div className="folder">
+            <SearchBar />
+            <div className="cards">
+              {folder.links?.map((card) => {
+                return <FavoriteList key={card.id} card={card} />;
+              })}
+            </div>
+          </div>
+        </section>
         <Footer />
       </div>
     </>
