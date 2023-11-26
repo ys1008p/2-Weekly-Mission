@@ -4,6 +4,7 @@ import Footer from "./Components/Footer";
 import { getUserData, getUserPick } from "./Components/Api";
 import { useEffect, useState } from "react";
 import Header from "./Components/Haeder";
+import Main from "./Components/Main";
 
 function App() {
   const [userData, setUserData] = useState(null);
@@ -34,6 +35,7 @@ function App() {
     <>
       <Nav userData={userData} />
       <Header userInfo={userInfo} />
+      <Main userPick={userPick} />
       <Footer />
     </>
   );

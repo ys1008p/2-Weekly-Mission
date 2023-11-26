@@ -38,6 +38,6 @@ body {
   margin-top: 0.5rem;
 }
 
-.main {
-  margin: 5rem auto;
+main {
+  padding: 2.5rem 13.2vw;
 }
