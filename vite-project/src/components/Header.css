@@ -3,6 +3,14 @@ header {
   background-color: var(--background);
 }
 
+.folder-owner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
 .owner-img {
   width: 6rem;
   height: 6rem;
@@ -13,23 +21,39 @@ header {
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 2.4rem;
 }
 
 .folder-name {
   color: #000;
   text-align: center;
-  font-size: 40px;
+  font-size: 4rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   margin-top: 2rem;
 }
 
-.folder-owner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.2rem;
+/* mobile */
+@media (max-width: 767px) {
+  header {
+    padding-bottom: 4rem;
+  }
+
+  .folder-owner {
+    gap: 0.6rem;
+  }
+
+  .owner-img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .owner-name {
+    font-size: 1.4rem;
+  }
+
+  .folder-name {
+    font-size: 3.2rem;
+  }
 }

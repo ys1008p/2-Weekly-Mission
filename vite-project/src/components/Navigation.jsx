@@ -1,9 +1,9 @@
 import logo from "../../../images/landing/logo.svg";
 import "./Navigation.css";
 
-const Logo = () => (
+const Logo = ({ className }) => (
   <a href="/">
-    <img src={logo} alt="로고" />
+    <img className={className} src={logo} alt="로고" />
   </a>
 );
 
@@ -31,7 +31,7 @@ function Navigation({ profile }) {
   return (
     <nav>
       <div className="gnb">
-        <Logo />
+        <Logo className="cta logo" />
         {profile ? (
           <Profile className="cta profile" profile={profile} />
         ) : (

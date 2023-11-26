@@ -47,6 +47,10 @@ footer {
 }
 
 @media (max-width: 767px) {
+  Footer {
+    margin-top: 4rem;
+  }
+
   .footer-notice {
     width: 100%;
     padding: 3.2rem 3.2rem;

@@ -141,8 +141,18 @@ main {
 }
 
 @media (max-width: 767px) {
+  main {
+    padding: 2rem 3.2rem;
+  }
+
   .cards {
+    margin-top: 3.2rem;
     grid-template-columns: 1fr;
     row-gap: 2rem;
+  }
+
+  .card {
+    width: 32.5rem;
+    height: 32.7rem;
   }
 }
