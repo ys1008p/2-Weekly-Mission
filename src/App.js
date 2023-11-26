@@ -25,7 +25,7 @@ function App() {
       } catch (e) {
         console.log("에러 발생: " + e);
         alert("사용자 데이터를 불러오는중 에러가 발생하였습니다.");
-        setLoading(false);
+        setLoding(false);
       }
     }
 

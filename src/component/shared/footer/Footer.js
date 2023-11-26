@@ -18,16 +18,16 @@ function Footer() {
         </div>
 
         <div className="footer-icon">
-          <a href="https://www.facebook.com">
+          <a href="https://www.facebook.com" rel="noopener noreferrer">
             <img src="img/akar-icons_facebook-fill.svg " alt="facebook_icon" />
           </a>
-          <a href="https://www.twitter.com">
+          <a href="https://www.twitter.com" rel="noopener noreferrer">
             <img src="img/akar-icons_twitter-fill.svg " alt="twitter_icon" />
           </a>
-          <a href="https://www.youtube.com">
+          <a href="https://www.youtube.com" rel="noopener noreferrer">
             <img src="img/akar-icons_youtube-fill.svg " alt="youtube_icon" />
           </a>
-          <a href="https://www.instagram.com">
+          <a href="https://www.instagram.com" rel="noopener noreferrer">
             <img
               src="img/ant-design_instagram-filled.svg "
               alt="instagram_icon"
