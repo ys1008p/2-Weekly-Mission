@@ -3,7 +3,7 @@ import './Navbar.css';
 import useGetData from '../hooks/useGetData';
 import Logo from './Logo';
 import Profile from './Profile';
-import SigninButton from './SigninButton';
+import SignButton from './SignButton';
 
 export default function Navbar() {
   const [loading, error, user] = useGetData('user');
@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className='navbar-container'>
         <Logo />
         {/* todo: fetch 전에도 로그인 버튼이 나오는 문제 */}
-        {user ? <Profile user={user} /> : <SigninButton />}
+        {user ? <Profile user={user} /> : <SignButton />}
       </div>
     </nav>
   );
