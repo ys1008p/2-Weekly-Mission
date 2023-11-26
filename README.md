@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# 코드잇 스프린트 2기 위클리 미션
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Linkbrary라는 웹사이트의 프론트 단을 구현하는 프로젝트입니다.
 
-## Available Scripts
+## 목차
 
-In the project directory, you can run:
+1. [개요](#1.-개요)
+2. [웹사이트 설명](#2.-웹사이트-설명)
+3. [주차 별 주요 변경 사항](#3.-주차-별-주요-변경-사항)
 
-### `npm start`
+## 1. 개요
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 프로젝트 명 : Linkbrary
+- 프로젝트 지속 기간 : 2023.10.17 ~ 수료시 까지
+- 개발 언어 : HTML, CSS
+- 개발자 : 김광현
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. 웹사이트 설명
 
-### `npm test`
+### 메인 페이지 : Shared
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+메인 페이지인 Shared 입니다.
+디렉토리는 기본적으로 (/) 추후 router-dom을 이용해 구현할 예정
 
-### `npm run build`
+#### 구성 컴포넌트
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### NavBar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+네비게이션 바입니다.
+좌측으론 홈으로 가는 로고, 우측으론 버튼 또는 유저 정보가 있습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- api에서 유저 정보 불러오기 성공시 : 유저 정보를 표시합니다.
+- api에서 유저 정보 불러오기 실패시 : 로그인 버튼을 표시합니다.
 
-### `npm run eject`
+##### SharedMain
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+메인페이지의 <main> 입니다.
+해당 컴포넌트는 api에서 GET 해온 폴더 정보를 표시함니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 상단 : 폴더 소유자의 정보와 폴더의 이름
+- 하단 : 폴더의 데이터를 카드 형식으로 표시
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+##### Footer
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+푸터입니다.
+저작권자 (코드잇)을 표시하고 있습니다.
 
-## Learn More
+- privacy and policies : /privacy로 이동합니다.
+- faq : /faq로 이동합니다.
+- sns 아이콘들 : 각 sns에 해당하는 링크로 새페이지를 엽니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 3. 주차 별 주요 변경 사항
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 6주차
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 리액트로 프로젝트 시작
+- NavBar와 Footer 컴포넌트 개발
+- api를 이용한 NavBar의 유저 정보 표시
+- api를 이용한 폴더의 데이터 표시
+- 카드 이미지 url 존재 여부에 따른 대체 사진 표시
+- 카드 마우스 호버 시 카드 이미지가 확대(130%)되는 기능 구현

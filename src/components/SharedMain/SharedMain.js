@@ -28,12 +28,12 @@ export default function SharedMain() {
   }, []);
 
   return isLoadingSuccess ? (
-    <div>
+    <main>
       <FolderInfo owner={folderData.owner} folderName={folderData.name} />
       <article className="test">
         <SearchBar />
         <CardList links={folderData.links} />
       </article>
-    </div>
+    </main>
   ) : null;
 }
