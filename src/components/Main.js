@@ -41,7 +41,7 @@ function Main({ className, links }){
           {links.map((card) => (
             <li key={card.id}>
               <a href={card.url} target="_blank">
-                <img src= {card.imageSource} alt="카드 이미지"/>
+                <img src= {card.imageSource} alt="카드 이미지" />
                 <div className="card-text">
                   <p className="createdAt">
                     <DateInfo createdAt={card.createdAt}/>

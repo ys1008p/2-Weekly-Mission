@@ -19,8 +19,8 @@ function Header({ className }){
   const handleLoadFolder = async (options) => {
     const { folder } = await getFolder(options);
     setFolderName(folder.name);
-    setFolderUserName(folder.owner?.name);
-    setFolderUserProfile(folder.owner?.profileImageSource);
+    setFolderUserName(folder?.owner?.name);
+    setFolderUserProfile(folder?.owner?.profileImageSource);
   }
 
   useEffect(() => {
