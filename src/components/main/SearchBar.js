@@ -1,4 +1,3 @@
-import Search from "../assets/Search.svg";
 import "./SearchBar.css";
 export function SearchBar() {
   return (

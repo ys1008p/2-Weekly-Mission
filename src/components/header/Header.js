@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
-import logo from "../assets/logo.png";
-import avatar from "../assets/Avatar.png";
+import logo from "../../assets/logo.png";
 
 export function Header() {
   const [profileDatas, setProfileDatas] = useState({

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Card.css";
-import NoImg from "../assets/card_no-img.svg";
+import NoImg from "../../assets/card_no-img.svg";
 export function Card({ link }) {
   const { id, createdAt, url, title, description, imageSource } = link;
   const [mins, setMins] = useState("");
   const [createdDates, setCreatedDates] = useState({});
+  const [isHovered, setIsHovered] = useState(false);
 
   function calCreatedAt() {
     const now = new Date();
@@ -46,15 +47,25 @@ export function Card({ link }) {
     }
   }
 
+  function onMouseEnterHandler() {
+    setIsHovered(true);
+  }
+  function onMouseLeaveHandler() {
+    setIsHovered(false);
+  }
   useEffect(() => {
     calCreatedAt();
   }, []);
 
-  // console.log("card component", url, id, createdAt);
   return (
     <>
       <a target="_blank" href={url}>
-        <div class="flex-wrapper" id={`card-${id}`}>
+        <div
+          className={isHovered ? "flex-wrapper grow" : "flex-wrapper"}
+          id={`card-${id}`}
+          onMouseEnter={onMouseEnterHandler}
+          onMouseLeave={onMouseLeaveHandler}
+        >
           <div className="card-img_wrapper">
             {imageSource ? (
               <img

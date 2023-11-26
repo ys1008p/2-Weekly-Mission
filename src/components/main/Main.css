@@ -34,6 +34,7 @@
 }
 
 .main-wrapper {
+  /* width: 1060px; */
   width: 66.25rem;
   padding-top: 2.5rem;
   padding-bottom: 6.25rem;
@@ -51,5 +52,26 @@
   grid-template-columns: repeat(3, 21.25rem);
   grid-row-gap: 1.56rem;
   grid-column-gap: 1.25rem;
-  width: 21.25rem;
+}
+
+/* .card-wrapper a {
+  max-width: 100%;
+} */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .main-wrapper {
+    width: 44rem;
+  }
+
+  .card-wrapper {
+    grid-template-columns: repeat(2, 21.25rem);
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .main-wrapper {
+    width: 21.25rem;
+  }
+  .card-wrapper {
+    grid-template-columns: repeat(1, 21.25rem);
+  }
 }

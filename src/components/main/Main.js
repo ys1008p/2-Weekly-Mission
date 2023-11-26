@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import SearchBar from "./SearchBar";
-import Search from "../assets/Search.svg";
 import "./Main.css";
-// import { getFolders } from "./api.js";
 export function Main() {
   const [folderDatas, setFolderDatas] = useState({});
   const [ownerDatas, setOwnerDatas] = useState({});
