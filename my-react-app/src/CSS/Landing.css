@@ -1,6 +1,5 @@
 @import "./global.css";
 
-/* index .html */
 body {
   display: flex;
   flex-direction: column;
@@ -45,6 +44,29 @@ body {
   }
 }
 
+.UserContainer {
+  width: 158px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.UserImg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.UserEmail {
+  color: var(--gray100);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .HeaderContainer {
   display: flex;
   width: 1440px;
@@ -68,7 +90,6 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 47px;
-
 }
 
 .HeaderText {
@@ -77,7 +98,7 @@ body {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 }
 
 .HeaderDescription {
@@ -118,78 +139,41 @@ body {
   bottom: 100%;
 }
 
-.MainCardContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-}
-
-.MainCardBox {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
+.CardBoxContainer {
+  width: 1060px;
 }
 
 .CardBox {
-  width: 340px;
-  height: 334px;
-  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
-  border-radius: 15px 15px 15px 15px;
-}
-.CardTextBox {
-  display: flex;
-  width: 340px;
-  padding: 15px 20px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 15px 15px 15px 15px;
-  background: #fff;
-  transition: all 0.2s linear;
-}
-.CardTextBox:hover {
-  max-width: 130%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   overflow: hidden;
-  transform: scale(1.2, 1.2);
-  border-radius: 15px 15px 15px 15px;
+  width: calc(33.33% - 20px);
+  display: inline-block;
+  margin-right: 20px;
+  column-gap: 10px;
 }
 
 .CardImg {
-  max-width: 100%;
-  border-radius: 15px 15px 0px 0px;
+  width: 100%;
+  height: 150px;
+  transform: scale(1.0);
+  transition: transform 0.3s ease-in-out;
 }
 
-.UserContainer {
-  width: 158px;
-  height: 28px;
-  display: flex;
+.CardImg:hover {
+  transform: scale(1.3);
   align-items: center;
-  gap: 6px;
-}
-.UserImg {
-  width: 17px;
-  height: 17px;
-  flex-shrink: 0;
-  border-radius: 50%;
+  padding-bottom: 15px;
 }
 
-.UserEmail {
-  color: var(--gray100);
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.CardTextTime {
+.CardUpLoadTime {
   color: #666;
   font-family: Pretendard;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 8px;
 }
 
 .CardTextDescription {
@@ -203,7 +187,8 @@ body {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  margin-bottom: 8px;
 }
 
 .CardTextYears {
