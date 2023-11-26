@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     handleLoadLinks();
     handleLoadProfile();
-  }, [items]);
+  }, []);
 
   if (!items.links) return;
 
