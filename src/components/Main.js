@@ -1,7 +1,36 @@
 import '../components/Main.css';
-import { cardList } from './cardList';
 
-function Main({ className }){
+function Main({ className, links }){
+  // 년, 월, 일만 보이게 하기
+  function DateText({ createdAt }){
+    const idx = createdAt.indexOf('T');
+    const text = createdAt.slice(0, idx);
+    return text;
+  }
+
+  // 현재 날짜와 데이터에 있는 날짜에 따른 시간 정보 보여주기
+  function DateInfo ({ createdAt }){
+    const createdDate = new Date(createdAt);
+    const today = new Date();
+    const result = today - createdDate;
+
+    const minite = Math.floor(result / (1000 * 60));
+    const hours = Math.floor(result / (1000 * 60 * 60));
+    const date = Math.floor(result / (1000 * 60 * 60 * 24));
+    const year = Math.floor(result / (1000 * 60 * 60 * 24 * 30));
+
+    if(minite < 2) return "1 minute ago";
+    if(minite < 60) return `${minite} minutes ago`;
+    if(hours < 24) return `${hours} hours ago`;
+    if(date < 30) return `${date} days ago`;
+    if(year < 12) return `${year} months ago`;
+    if(year >= 12) {
+      const yearDate = Math.floor(year / 12);
+      console.log(year/12)
+      return yearDate === 1 ? "1 years ago" : `${year} years ago`;
+    }
+  }
+
   return(
     <div className={className}>
       <div className="search">
@@ -9,19 +38,21 @@ function Main({ className }){
       </div>
       <div className="card">
         <ul>
-          {cardList.map((card) => (
+          {links.map((card) => (
             <li key={card.id}>
-              <a href="/">
-                <img src={card.src} alt="카드 이미지"/>
+              <a href={card.url} target="_blank">
+                <img src= {card.imageSource} alt="카드 이미지"/>
                 <div className="card-text">
                   <p className="createdAt">
-                    10 minutes ago
+                    <DateInfo createdAt={card.createdAt}/>
+                    {DateInfo}
                   </p>
                   <p className="desc">
-                    Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd
+                    {card.description}
                   </p>
                   <p className="date">
-                    2023. 3. 15
+                    <DateText createdAt={card.createdAt}/>
+                    {DateText}
                   </p>
                 </div>
               </a>
