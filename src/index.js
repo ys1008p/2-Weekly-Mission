@@ -1,17 +1,12 @@
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
-// import SearchBar from './components/SearchBar';
 import './styles/Main.css'
-// import Main from './components/Main';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
   <App />
-  {/* <div className='Main'>
-  <SearchBar />
-  </div>
-  <Main /> */}
   </>
 );
 
