@@ -1,22 +1,32 @@
 import '../components/Header.css';
 import logo from '../assets/logo.svg';
-import codeit from '../assets/ico-codeit.png';
-import favorites from '../assets/favorites.png';
 import { useState, useEffect } from 'react';
-import { getProfile } from '../api';
+import { getProfile, getFolder } from '../api';
 
 function Header({ className }){
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState(null);
-  const handleLoad = async (options) => {
+  const [folderUserProfile, setFolderUserProfile] = useState(null);
+  const [folderUserName, setFolderUserName] = useState('');
+  const [folderName, setFolderName] = useState('');
+
+  const handleLoadProfile = async (options) => {
     const { email, profileImageSource } = await getProfile(options);
     setProfileEmail(email);
     setProfileImg(profileImageSource);
   }
 
+  const handleLoadFolder = async (options) => {
+    const { folder } = await getFolder(options);
+    setFolderName(folder.name);
+    setFolderUserName(folder.owner?.name);
+    setFolderUserProfile(folder.owner?.profileImageSource);
+  }
+
   useEffect(() => {
-    handleLoad(profileImg, profileEmail);
-  }, [profileImg, profileEmail])
+    handleLoadProfile();
+    handleLoadFolder();
+  }, [])
 
   return (
     <header className={className}>
@@ -28,7 +38,7 @@ function Header({ className }){
         </h1>
         <div className="profile">
           {profileEmail ? 
-           <a href="/">
+          <a href="/">
            <img src={profileImg} alt="프로필 이미지" />
            <p className="text mobile-hide">
              {profileEmail}
@@ -39,12 +49,14 @@ function Header({ className }){
           </a>}
         </div>
       </nav> 
-      <div className="title">
-        <img className="img-codeit" src={codeit} alt="코드잇" />
-        <p className="codeit">
-          @코드잇
+      <div className="folder-info">
+        <img className="user-profile" src={folderUserProfile} alt="폴더 사용자 프로필 이미지" />
+        <p className="user-name">
+          {folderUserName}
         </p>
-        <img className="img-favorites" src={favorites} alt="즐겨찾기" />
+        <p className="name">
+          {folderName}
+        </p>
       </div>
     </header>
   )

@@ -5,4 +5,11 @@ async function getProfile(){
   return result;
 }
 
-export { getProfile };
+// 폴더 정보 확인하기
+async function getFolder(){
+  const respones = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
+  const result = await respones.json();
+  return result;
+}
+
+export { getProfile, getFolder };
