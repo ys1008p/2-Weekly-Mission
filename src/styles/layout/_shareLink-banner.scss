@@ -16,6 +16,10 @@
       height: 60px;
       border-radius: 50%;
       overflow: hidden;
+
+      background-image: url('../assets/images/folder-avatar-default.png');
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     &-avatar-img {
