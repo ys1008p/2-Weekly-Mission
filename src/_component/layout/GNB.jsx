@@ -1,6 +1,6 @@
 import { useAuth } from "/src/_hook/use-auth";
 import Account from "/src/_component/layout/Account";
-import LoginCTA from "/src/_component/layout/LoginCTA";
+import SigninCTA from "/src/_component/layout/SigninCTA";
 import Logo from "/src/_component/layout/Logo";
 
 export default function GNB() {
@@ -15,7 +15,7 @@ export default function GNB() {
             <Account />
           </button>
         ) : (
-          <LoginCTA />
+          <SigninCTA />
         )}
       </nav>
     </>
