@@ -10,14 +10,14 @@ function Header({ className }){
   const [folderUserName, setFolderUserName] = useState('');
   const [folderName, setFolderName] = useState('');
 
-  const handleLoadProfile = async (options) => {
-    const { email, profileImageSource } = await getProfile(options);
+  const handleLoadProfile = async () => {
+    const { email, profileImageSource } = await getProfile();
     setProfileEmail(email);
     setProfileImg(profileImageSource);
   }
 
-  const handleLoadFolder = async (options) => {
-    const { folder } = await getFolder(options);
+  const handleLoadFolder = async () => {
+    const { folder } = await getFolder();
     setFolderName(folder.name);
     setFolderUserName(folder?.owner?.name);
     setFolderUserProfile(folder?.owner?.profileImageSource);
