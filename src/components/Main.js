@@ -41,7 +41,10 @@ function Main({ className, links, onMouseOver, onMouseOut }){
           {links.map((card) => (
             <li key={card.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
               <a href={card.url} target="_blank">
-                <img src= {card.imageSource ? card.imageSource : noImg} alt="카드 이미지" />
+                <div className="img-box">
+                  <img src= {card.imageSource ? card.imageSource : noImg} alt="카드 이미지" />
+                </div>
+               
                 <div className="card-text">
                   <p className="createdAt">
                     <DateInfo createdAt={card.createdAt}/>
