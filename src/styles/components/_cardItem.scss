@@ -1,0 +1,66 @@
+.card-item {
+  height: 334px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: $drop-shadow;
+
+  &-img {
+    height: 200px;
+    overflow: hidden;
+    background-image: url('../assets/images/empty-card-img.png');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform ease-in-out 0.4s;
+    }
+  }
+
+  &-textBox {
+    height: 135px;
+    padding: 15px 20px;
+    .textBox-timestamp {
+      @include text-style(13, $gray-80);
+    }
+    transition: background ease-in-out 0.3s;
+
+    p {
+      @include text-style(16);
+      display: -webkit-box;
+      word-wrap: break-word;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 10px 0;
+    }
+
+    .textBox-date {
+      @include text-style(14, $gray-90);
+    }
+  }
+
+  &:hover {
+    .card-item-img {
+      img {
+        transform: scale(130%);
+      }
+    }
+    .card-item-textBox {
+      background-color: $light-blue;
+    }
+  }
+}
+
+@include responsive(M) {
+  .card-item {
+    height: 327px;
+
+    &-img {
+      height: 192px;
+    }
+  }
+}

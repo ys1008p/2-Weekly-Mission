@@ -1,0 +1,20 @@
+@mixin responsive($screen) {
+  @if ($screen == 'T') {
+    @media screen and (max-width: $md-breakpoint) {
+      @content;
+    }
+  }
+
+  // [card UI]1124px 3열, 이하 2열
+  @if ($screen == 'TC') {
+    @media screen and (max-width: $md-card-container) {
+      @content;
+    }
+  }
+
+  @if ($screen == 'M') {
+    @media screen and (max-width: $sm-breakpoint) {
+      @content;
+    }
+  }
+}
