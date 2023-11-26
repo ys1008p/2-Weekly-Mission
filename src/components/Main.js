@@ -1,36 +1,35 @@
 import '../components/Main.css';
 
+// 년, 월, 일만 보이게 하기
+function DateText({ createdAt }){
+  const idx = createdAt.indexOf('T');
+  const text = createdAt.slice(0, idx);
+  return text;
+}
+
+ // 현재 날짜와 데이터에 있는 날짜에 따른 시간 정보 보여주기
+ function DateInfo ({ createdAt }){
+  const createdDate = new Date(createdAt);
+  const today = new Date();
+  const result = today - createdDate;
+
+  const minite = Math.floor(result / (1000 * 60));
+  const hours = Math.floor(result / (1000 * 60 * 60));
+  const date = Math.floor(result / (1000 * 60 * 60 * 24));
+  const year = Math.floor(result / (1000 * 60 * 60 * 24 * 30));
+
+  if(minite < 2) return "1 minute ago";
+  if(minite < 60) return `${minite} minutes ago`;
+  if(hours < 24) return `${hours} hours ago`;
+  if(date < 30) return `${date} days ago`;
+  if(year < 12) return `${year} months ago`;
+  if(year >= 12) {
+    const yearDate = Math.floor(year / 12);
+    return yearDate === 1 ? "1 years ago" : `${year} years ago`;
+  }
+}
+
 function Main({ className, links }){
-  // 년, 월, 일만 보이게 하기
-  function DateText({ createdAt }){
-    const idx = createdAt.indexOf('T');
-    const text = createdAt.slice(0, idx);
-    return text;
-  }
-
-  // 현재 날짜와 데이터에 있는 날짜에 따른 시간 정보 보여주기
-  function DateInfo ({ createdAt }){
-    const createdDate = new Date(createdAt);
-    const today = new Date();
-    const result = today - createdDate;
-
-    const minite = Math.floor(result / (1000 * 60));
-    const hours = Math.floor(result / (1000 * 60 * 60));
-    const date = Math.floor(result / (1000 * 60 * 60 * 24));
-    const year = Math.floor(result / (1000 * 60 * 60 * 24 * 30));
-
-    if(minite < 2) return "1 minute ago";
-    if(minite < 60) return `${minite} minutes ago`;
-    if(hours < 24) return `${hours} hours ago`;
-    if(date < 30) return `${date} days ago`;
-    if(year < 12) return `${year} months ago`;
-    if(year >= 12) {
-      const yearDate = Math.floor(year / 12);
-      console.log(year/12)
-      return yearDate === 1 ? "1 years ago" : `${year} years ago`;
-    }
-  }
-
   return(
     <div className={className}>
       <div className="search">
