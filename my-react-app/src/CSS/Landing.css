@@ -147,10 +147,9 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  width: calc(33.33% - 20px);
+  width: 330px;
   display: inline-block;
   margin-right: 20px;
-  column-gap: 10px;
 }
 
 .CardImg {
