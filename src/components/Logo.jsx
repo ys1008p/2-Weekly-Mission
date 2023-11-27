@@ -2,7 +2,7 @@ function Logo() {
   return (
     <a
       className="gnb__logo--anchor"
-      href="/pages/landing/index.html"
+      href="/"
       aria-label="메인 페이지로 이동"
       tabIndex="0">
       <img

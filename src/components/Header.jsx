@@ -1,4 +1,4 @@
-import '@/styles/landing.css';
+import '@pages/landing/landing.css';
 
 import Gnb from './Gnb';
 

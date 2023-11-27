@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
@@ -21,15 +21,17 @@ module.exports = {
   },
   env: {
     browser: true,
-    amd: true,
+    es2020: true,
     node: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended', // Make sure this is always the last element in the array.
+    'plugin:prettier/recommended',
   ],
   plugins: ['simple-import-sort', 'prettier'],
   rules: {
