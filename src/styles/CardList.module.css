@@ -1,0 +1,26 @@
+.cardList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+/* Tablet*/
+@media (max-width: 1124px) {
+  .cardList {
+    width: 70rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+  }
+}
+
+/* Mobile*/
+@media (max-width: 768px) {
+  .cardList {
+    width: 32.5rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.4rem;
+  }
+}

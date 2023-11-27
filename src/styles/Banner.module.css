@@ -1,0 +1,37 @@
+.banner {
+  background-color: var(--gray-bg-color);
+  padding: 2rem 0 6rem;
+}
+
+.bannerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 21rem;
+  height: 16.4rem;
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.iconBox {
+  padding: 1.5rem 1.6rem 1.3rem 1.5rem;
+  border-radius: 50%;
+  background-color: rgba(143, 0, 255, 1);
+  display: inline-block;
+}
+
+.iconBox img {
+  display: inline-block;
+}
+
+.bannerText {
+  font-size: 1.6rem;
+}
+
+.bannerTitle {
+  font-size: 4rem;
+}
+
+.bannerImage {
+  width: 6rem;
+}
