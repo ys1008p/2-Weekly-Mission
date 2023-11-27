@@ -5,7 +5,7 @@ import { useUser } from "/src/_hook/use-user";
 export default function Account() {
   const account = useUser();
 
-  return account ? (
+  return (
     <Profile className="flex items-center gap-[0.6rem]">
       {account.profileImageSource ? (
         <Profile.Thumbnail
@@ -20,7 +20,5 @@ export default function Account() {
         className="hidden text-[1.4rem] text-u-gray-100 tablet:block"
       />
     </Profile>
-  ) : (
-    <div></div>
   );
 }
