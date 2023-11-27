@@ -64,7 +64,27 @@ body{
     padding: 1.8rem 1.5rem;
     border: 1px #CCD5E3 solid;
   }
-  
+
+
+
+
+  .email-error, .passwordError{
+    padding: 0rem 0 0rem;
+  }
+
+  .inputErrorBorder{
+    border: 1px #FF5B56 solid;
+  }
+
+  .inputError{
+    color: #FF5B56;
+    font-size: 1.4rem;
+    font-family: Pretendard;
+    font-weight: 400;
+    text-align: left;
+    padding: 0.6rem 0 1rem;
+  }  
+
   .password-container {
     position: relative;
   }
@@ -85,13 +105,13 @@ body{
     height: 20px;
   }
   
-  .toggle-password {
+  .toggle-password-pressed {
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
-    background: url(../images/eye-off.svg) center/cover no-repeat;
+    background: url(../images/eye-on.svg) center/cover no-repeat;
     width: 20px;
     height: 20px;
   }
@@ -132,7 +152,8 @@ body{
     justify-content: space-between;
   }
   
-  .login-detail > p{
+
+  .login-detailp{
     color: #373740;
   font-size: 14px;
   font-family: Pretendard;
@@ -217,6 +238,25 @@ body{
     border: 1px #CCD5E3 solid;
   }
   
+ 
+
+  .email-error{
+    padding: 0rem 0 0rem;
+  }
+
+  .inputErrorBorder{
+    border: 1px #FF5B56 solid;
+  }
+
+  .inputError{
+    color: #FF5B56;;
+    font-size: 1.4rem;
+    font-family: Pretendard;
+    font-weight: 400;
+    text-align: left;
+    padding: 0.6rem 0 1rem;
+  }  
+
   .password-container {
     position: relative;
   }
@@ -237,13 +277,13 @@ body{
     height: 20px;
   }
   
-  .toggle-password {
+  .toggle-password-pressed {
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
-    background: url(../images/eye-off.svg) center/cover no-repeat;
+    background: url(../images/eye-on.svg) center/cover no-repeat;
     width: 20px;
     height: 20px;
   }
@@ -370,6 +410,24 @@ input{
   border: 1px #CCD5E3 solid;
 }
 
+
+.email-error{
+  padding: 0rem 0 0rem;
+}
+
+.inputErrorBorder{
+  border: 1px #FF5B56 solid;
+}
+
+.inputError{
+  color: #FF5B56;;
+  font-size: 1.4rem;
+  font-family: Pretendard;
+  font-weight: 400;
+  text-align: left;
+  padding: 0.6rem 0 1rem;
+}  
+
 .password-container {
   position: relative;
 }
@@ -389,13 +447,13 @@ input[type="password"] {
   height: 20px;
 }
 
-.toggle-password {
+.toggle-password-pressed {
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
   cursor: pointer;
-  background: url(../images/eye-off.svg) center/cover no-repeat;
+  background: url(../images/eye-on.svg) center/cover no-repeat;
   width: 20px;
   height: 20px;
 }

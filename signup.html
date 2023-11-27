@@ -28,16 +28,28 @@
         <form>
           <label for="email">이메일</label>
           <input id="email" name="username">
+          <label class="emailDuplication" for="email"></label>
+
           <label for="password">비밀번호</label>
-          <input id="password" name="password" type="password">
+          <div class="password-container">
+            <input id="password" name="password" type="password">
+            <i class="eye toggle-password"></i>
+          </div>
+          <label class="passwordLength" for="email"></label>
+
           <label for="password-check">비밀번호 확인</label>
-          <input id="password-check" name="password-check" type="password">
-          <button>로그인</button>
+          <div class="password-container">
+            <input id="password-check" name="password-check" type="password">
+            <i class="eye2 toggle-password"></i>
+          </div>
+          <label class="passwordSame" for="email"></label>
+
+          <button id="signUpping">회원가입</button>
         </form>
       </section>
       <section class="login-social">
         <div class="login-detail">
-          <p>소셜 로그인</p>
+          <p class="login-detailp">소셜 로그인</p>
           <div class="social-icon">
             <a href="https://www.google.com/">
               <img class="icon-google" alt="구글로 로그인" src="./images/login_google.png">
@@ -50,4 +62,5 @@
       </section>
     </main>
   </div>
+  <script src="./src/signup.js"></script>
 </body>
