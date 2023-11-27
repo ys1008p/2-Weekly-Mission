@@ -3,14 +3,16 @@ import Card from "/src/_component/common/Card";
 
 export default function LinkInfoCard({ linkInfo }) {
   return (
-    <Card className="relative h-[33.4rem] w-[34rem] origin-center transform-gpu overflow-hidden rounded-[1.5rem] bg-u-white shadow-[0px_5px_25px_0px_rgba(0,0,0,0.08)] transition-transform will-change-transform hover:z-10 hover:scale-[1.3]">
-      <Card.Thumbnail
-        src={
-          linkInfo.imageSource ??
-          "https://res.cloudinary.com/divjslgco/image/upload/v1700841157/codeit/images/link-sample-thumbnail.jpg"
-        }
-        className="h-[19.2rem] w-full object-cover"
-      />
+    <Card className="relative h-[33.4rem] w-[34rem] overflow-hidden rounded-[1.5rem] bg-u-white shadow-[0px_5px_25px_0px_rgba(0,0,0,0.08)]">
+      <div className="h-[19.2rem] w-full overflow-hidden">
+        <Card.Thumbnail
+          src={
+            linkInfo.imageSource ??
+            "https://res.cloudinary.com/divjslgco/image/upload/v1700841157/codeit/images/link-sample-thumbnail.jpg"
+          }
+          className="h-full w-full origin-center transform-gpu object-cover transition-transform will-change-transform hover:scale-[1.3]"
+        />
+      </div>
       <div className="flex flex-col gap-[1rem] px-[2rem] py-[1.5rem]">
         <div className="w-full text-[1.3rem] text-[#666]">
           {formatPastInCard(linkInfo.createdAt)}
