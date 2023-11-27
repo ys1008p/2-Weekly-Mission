@@ -18,6 +18,11 @@ function App() {
         const res = await fetch(
           "https://bootcamp-api.codeit.kr/api/sample/user"
         );
+
+        if (!res.ok) {
+          throw new Error();
+        }
+
         const data = await res.json();
         setUserData(data);
         // 로딩완료시 로딩창 안 보이게

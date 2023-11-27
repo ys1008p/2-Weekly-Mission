@@ -13,6 +13,11 @@ function HeaderFoloderSection() {
           "https://bootcamp-api.codeit.kr/api/sample/folder"
         );
         const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error();
+        }
+
         setFolderData(data);
       } catch (e) {
         console.log("에러발생 :" + e);

@@ -77,6 +77,11 @@ function Card() {
           "https://bootcamp-api.codeit.kr/api/sample/folder"
         );
         const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error();
+        }
+
         data.folder.links.sort((a, b) => {
           // 최신순정렬
           return new Date(b.createdAt) - new Date(a.createdAt);
