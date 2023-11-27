@@ -12,7 +12,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const { setAuthData } = useContext(AuthContext);
   const { data: auth } = useFetcher("auth", getUser);
-  const { data: profile } = useFetcher("folder", getFolder);
+  const { data: folder } = useFetcher("folder", getFolder);
 
   const loginClick = async () => {
     setIsLogin(true);
@@ -22,8 +22,8 @@ function App() {
   return (
     <div className="App">
       <Gnb isLogin={isLogin} onClick={loginClick} />
-      {isLogin && <Profile profile={profile} />}
-      <Folder folder={isLogin ? profile?.links : []} />
+      {isLogin && <Profile folder={folder} />}
+      <Folder folder={isLogin ? folder?.links : []} />
       <Footer />
     </div>
   );

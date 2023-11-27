@@ -9,7 +9,7 @@ export const useMutation = (url) => {
   });
 
   function mutation(data) {
-    setState((prev) => ({ ...prev, loading: true }));
+    setState((prevState) => ({ ...prevState, loading: true }));
     fetch(url, {
       method: "POST",
       headers: {
@@ -18,9 +18,11 @@ export const useMutation = (url) => {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((data) => setState((prev) => ({ ...prev, data, loading: false })))
+      .then((data) =>
+        setState((prevState) => ({ ...prevState, data, loading: false }))
+      )
       .catch((error) =>
-        setState((prev) => ({ ...prev, error, loading: false }))
+        setState((prevState) => ({ ...prevState, error, loading: false }))
       );
   }
 
