@@ -8,9 +8,9 @@ export default function Page() {
   const folder = useFolderQuery();
   useUserQuery();
 
-  return folder ? (
+  return (
     <SharedLayout folder={folder}>
-      <main className="tablet:gap-[4rem] tablet:pt-[4rem] tablet:pb-[10rem] flex flex-col items-center gap-[3.2rem] px-[3.2rem] pb-[6rem] pt-[2rem]">
+      <main className="flex flex-col items-center gap-[3.2rem] px-[3.2rem] pb-[6rem] pt-[2rem] tablet:gap-[4rem] tablet:pb-[10rem] tablet:pt-[4rem]">
         <section className="w-full max-w-[106rem]">
           <SearchBar />
         </section>
@@ -19,7 +19,5 @@ export default function Page() {
         </section>
       </main>
     </SharedLayout>
-  ) : (
-    <div></div>
   );
 }
