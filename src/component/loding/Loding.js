@@ -1,13 +1,13 @@
 import "./Loding.css";
-import Spinner from "./LodingSpinner.gif";
+import Spinner from "./Spinner";
 
-const Loding = () => {
+function Loding() {
   return (
     <div className="background">
       <p className="lodingText">잠시만 기다려 주세요.</p>
-      <img src={Spinner} alt="로딩중" width="5%" />
+      <Spinner />
     </div>
   );
-};
+}
 
 export default Loding;
