@@ -1,8 +1,10 @@
+import '@/styles/landing.css';
+
 import Gnb from './Gnb';
 
 function Header({ children }) {
   return (
-    <header>
+    <header className="bgc-blue">
       <Gnb></Gnb>
       {children}
     </header>
