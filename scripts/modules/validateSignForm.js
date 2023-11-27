@@ -1,6 +1,6 @@
 import { renderErrorMSGNode, removeErrorMSGNode } from "./handleErrorClass.js";
 
-const passwordInputNode = document.querySelectorAll(".signForm_input.password")[0]
+const passwordInputNode = document.querySelector(".signForm_input.password")
 
 function validateEmailOnFocusout(e){
     const emailInput = e.target
@@ -13,10 +13,6 @@ function validateEmailOnFocusout(e){
         renderErrorMSGNode(emailInput, "올바른 이메일 주소가 아닙니다.")
         return
     }    
-    if (email === "test@codeit.com"){
-        renderErrorMSGNode(emailInput, "이미 사용중인 이메일입니다")
-        return
-    }
     removeErrorMSGNode(emailInput)
 };
 
@@ -25,7 +21,6 @@ function validatePasswordOnFocusout(e){
     const password = e.target.value
     if (password === ""){
         renderErrorMSGNode(passwordInput, "비밀번호를 입력해주세요")
-        console.log("리스너")
         return
     }
     if (!passwordInput.validity.valid){
