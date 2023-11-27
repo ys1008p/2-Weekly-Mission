@@ -94,8 +94,8 @@ function Card() {
   return (
     <div className="card-main-container">
       {cardData.folder?.links.map((item) => (
-        <a href={item.url}>
-          <div key={item.id} className="card-item-container">
+        <a href={item.url} key={item.id}>
+          <div className="card-item-container">
             {/* 이미지가 없을시 대체 이미지 */}
             <div className="card-img-container">
               <img
