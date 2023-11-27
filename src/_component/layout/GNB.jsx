@@ -7,8 +7,8 @@ export default function GNB() {
   const isLoggedIn = useAuth();
 
   return (
-    <>
-      <nav className="desktop:max-w-[192rem] tablet:max-w-[calc(86.4rem+(100vw-100%))] desktop:px-[20rem] tablet:h-[9.4rem] fixed top-0 z-50 mx-auto flex h-[6.8rem] w-full items-center justify-between bg-u-skyblue px-[3.2rem]">
+    <div className="fixed top-0 z-50 h-[6.8rem] w-full bg-u-skyblue tablet:h-[9.4rem]">
+      <nav className="mx-auto flex h-full w-full items-center justify-between bg-u-skyblue px-[3.2rem] tablet:max-w-[calc(86.4rem+(100vw-100%))] desktop:max-w-[192rem] desktop:px-[20rem]">
         <Logo />
         {isLoggedIn ? (
           <button>
@@ -18,6 +18,6 @@ export default function GNB() {
           <SigninCTA />
         )}
       </nav>
-    </>
+    </div>
   );
 }
