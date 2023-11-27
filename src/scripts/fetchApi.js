@@ -1,14 +1,13 @@
 const BASE_URL = 'https://bootcamp-api.codeit.kr/api';
 
 const fetchApi = {
-  request: async function (url, { options = {}, headers = {} } = {}) {
+  request: async function (url, { options = {} } = {}) {
     const accessToken = localStorage.getItem('accessToken');
     const response = await fetch(`${BASE_URL}${url}`, {
       ...options,
       headers: {
         Authorization: accessToken || '',
         ...options.headers,
-        ...headers,
       },
     });
 
@@ -24,7 +23,7 @@ const fetchApi = {
     return result;
   },
 
-  post: async function (url, { body, headers }) {
+  post: async function (url, { body, headers = {} }) {
     const options = {
       method: 'POST',
       body: JSON.stringify(body),
@@ -34,6 +33,18 @@ const fetchApi = {
       },
     };
 
+    const result = await this.request(url, { options });
+    return result;
+  },
+
+  get: async function (url, { headers } = {}) {
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        ...headers,
+      },
+    };
     const result = await this.request(url, { options });
     return result;
   },
