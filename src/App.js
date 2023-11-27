@@ -1,24 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Footer from "./component/shared/footer/Footer";
+import Header from "./component/shared/header/Header";
+import Main from "./component/shared/main/Main";
+import GlobalStyle from "./GlobalStyles";
+import Loding from "./component/loding/Loding";
 
 function App() {
+  //유저데이터 불러오기
+  const [userData, setUserData] = useState({});
+  // 로딩구현
+  const [loding, setLoding] = useState();
+  // 사이드 이펙트 처리 & 데이터 GET
+  useEffect(() => {
+    async function getServerData() {
+      setLoding(true);
+      try {
+        const res = await fetch(
+          "https://bootcamp-api.codeit.kr/api/sample/user"
+        );
+
+        if (!res.ok) {
+          throw new Error();
+        }
+
+        const data = await res.json();
+        setUserData(data);
+        // 로딩완료시 로딩창 안 보이게
+      } catch (e) {
+        console.log("에러 발생: " + e);
+        alert("사용자 데이터를 불러오는중 에러가 발생하였습니다.");
+      } finally {
+        setLoding(false);
+      }
+    }
+
+    getServerData();
+  }, []);
+
+  const renderHeader = !loding && <Header userData={userData} />;
+  const renderMain = userData.id && !loding && <Main />;
+  const renderFooter = !loding && <Footer />;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {loding && <Loding />}
+      <GlobalStyle />
+      {renderHeader}
+      {renderMain}
+      {renderFooter}
+    </>
   );
 }
 
