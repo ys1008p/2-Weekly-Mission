@@ -1,38 +1,64 @@
 import { CacheContext } from "contexts/CacheContext";
 import { useEffect, useState, useContext } from "react";
 
-export const useFetcher = (key, callback) => {
+const MAX_RETRY_COUNT = 3;
+
+export const useFetcher = (key, callback, retry = 0) => {
   const [state, setState] = useState({
     loading: false,
     data: null,
     error: null,
   });
-  const { setCached, getCached } = useContext(CacheContext);
+  const [errorCount, setErrorCount] = useState(0);
+  const { setCached, getCached, removeCached } = useContext(CacheContext);
 
   // GET 요청 처리
-  // 추가해야할 것. 요청 반복(interval) n회 제한
-  const fetcher = () => {
+
+  const fetcher = (refetch = false) => {
     setState((prevState) => ({ ...prevState, loading: true }));
-    const cached = getCached(key);
-    if (cached) {
-      setState({ ...state, loading: false, data: cached });
-      return;
+    //refetch 시도시 cache 삭제
+    if (refetch) {
+      removeCached(key);
+    } else {
+      const cached = getCached(key);
+      if (cached) {
+        setState((prevState) => ({
+          ...prevState,
+          loading: false,
+          data: cached,
+        }));
+        return;
+      }
     }
+
     callback()
       .then((response) => {
         if (!response) throw new Error("response Error");
         setState({ loading: false, data: response, error: null });
         setCached(key, response);
+        setErrorCount(0);
       })
-      .catch((e) => {
-        setState({ loading: false, data: null, error: e });
+      .catch((error) => {
+        setState((prevState) => ({ ...prevState, loading: false, error }));
+        setErrorCount((prevCount) => prevCount + 1);
       });
   };
+
+  //최대 요청 횟수만큼 요쳥 시도
+  useEffect(() => {
+    if (errorCount > 0 && errorCount < MAX_RETRY_COUNT) {
+      console.log("retry...", errorCount);
+      const timeoutId = setTimeout(() => {
+        fetcher(true);
+      }, 1000);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [errorCount]);
 
   useEffect(() => {
     fetcher();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { ...state, refetch: fetcher };
+  return { ...state, refetch: () => fetcher(true) };
 };
