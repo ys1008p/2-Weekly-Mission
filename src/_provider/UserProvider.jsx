@@ -12,6 +12,7 @@ export const UserActionContext = createContext({ setUser: () => {} });
 
 export default function UserProvider({ children }) {
   const [user, setUser] = useState(initialUser);
+
   const userAction = {
     setUser,
   };

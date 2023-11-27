@@ -13,15 +13,23 @@ export default function useFolderQuery() {
     links: [],
     count: 1,
   });
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchFolder = async () => {
-      const { folder } = await getFolder();
-      setFolder(folder);
+      try {
+        const { folder } = await getFolder();
+        setFolder(folder);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
     };
-
+    setIsLoading(true);
     fetchFolder();
   }, []);
 
-  return folder;
+  return { data: folder, isLoading, error };
 }
