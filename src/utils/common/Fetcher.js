@@ -5,7 +5,7 @@ export default class Fetcher {
 
   /**
    * Create fetcher
-   * @param {{baseURL: string, handlers: (response: Response) => Response}}
+   * @param {{baseURL: string, handlers: (response: Response) => Response, headers: HeadersInit}}
    */
   constructor({
     baseURL,
@@ -34,13 +34,16 @@ export default class Fetcher {
    * @param {string} url
    * @param {{queryParams: Record<string, string>}} options
    */
-  async get(url, { queryParams } = {}) {
+  async get(url, { type, queryParams } = { type: "json", queryParams: {} }) {
     const queryString = queryParams
       ? this.convertParamsToQueryString(queryParams)
       : "";
     const res = await fetch(`${this.#baseURL}${url}${queryString}`);
     const handledRes = this._handleResponse(res);
-    const data = await handledRes.json();
+
+    let data;
+    if (type === "json") data = await handledRes.json();
+    if (type === "text") data = await handledRes.text();
 
     return data;
   }
@@ -59,11 +62,8 @@ export default class Fetcher {
     return data;
   }
 
-  /**
-   * @param {HeadersInit} headers
-   */
-  setHeaders(headers) {
-    this.#headers = structuredClone(headers);
+  setHeaders({ key, value }) {
+    this.#headers.set(key, value);
   }
 
   convertParamsToQueryString(params) {
