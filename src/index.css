@@ -1,13 +1,191 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@charset "utf-8";
+:root {
+  /* Color */
+  --linkbrary-primary-color: #6d6afe;
+  --linkbrary-red: #ff5b56;
+  --the-julge-black: #111322;
+  --linkbrary-white: #fff;
+  --linkbrary-gray-100: #373740;
+  --linkbrary-gray-60: #9fa6b2;
+  --linkbrary-gray-20: #ccd5e3;
+  --linkbrary-gray-10: #e7effb;
+  --grey-light: #f5f5f5;
+  --linkbrary-bg: #f0f6ff;
+}
+/***
+    The new CSS reset - version 1.11.1 (last updated 24.10.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* Fix mobile Safari increase font-size on landscape mode */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu,
+summary {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* common */
+.btn {
+  border-radius: 0.5rem;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  font-family: "Pretendard";
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: center;
+  color: #f5f5f5;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.01875rem;
+  font-size: 4rem;
+  line-height: 5rem; /* 125% */
+}
+
+h2 {
+  font-family: Pretendard;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.01875rem;
+}
+
+p.des {
+  color: #6b6b6b;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 150%; /* 1.5rem */
+}
+
+.text {
+  display: flex;
+  width: 18.1875rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+section:not(#home) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9.8125rem;
+}
+
+.img-wrap {
+  width: 100%;
+}
+
+.img-wrap img {
+  max-width: 100%;
+  height: auto;
+  padding: 0 2rem;
+}
+
+#link-search {
+  padding: 3.125rem, 7.5rem;
 }

@@ -1,0 +1,12 @@
+.search {
+  width: 100%;
+  border-radius: 0.625rem;
+  background: #f5f5f5;
+  padding: 0.95rem 1rem;
+}
+
+input::placeholder {
+  color: var(--Text, #666);
+  background: url(./Search.svg) no-repeat left;
+  padding-left: 1.62rem;
+}

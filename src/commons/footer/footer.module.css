@@ -1,0 +1,38 @@
+footer {
+  display: flex;
+  background: var(--the-julge-black);
+  color: #cfcfcf;
+  padding: 2rem 6.5rem 4rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.copyright {
+  color: #676767;
+  flex-basis: 7.25rem;
+}
+.footerLinks a {
+  color: #cfcfcf;
+}
+
+.footerLinksPrivacy {
+  margin-right: 1.88rem;
+}
+.footerSnss {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media screen and (max-width: 767px) {
+  footer {
+    padding: 2rem;
+    height: 10rem;
+    align-items: start;
+    position: relative;
+  }
+  .copyright {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+  }
+}

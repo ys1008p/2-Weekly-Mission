@@ -1,0 +1,44 @@
+.userInfo {
+  padding: 1.5rem 0 3.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--linkbrary-bg, #f0f6ff);
+}
+
+.userProfile {
+  gap: 0.75rem;
+}
+.userProfileImg {
+  display: block;
+  background: var(--primary-purple-70, #8f00ff);
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+}
+
+.userName {
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.userFolderName {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 767px) {
+  .userProfileImg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .userName {
+    font-size: 0.875rem;
+  }
+  .userFolderName {
+    font-size: 2rem;
+  }
+}
