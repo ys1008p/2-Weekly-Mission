@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "/src/shared/Page";
-import AuthProvider from "/src/_provider/AuthProvider";
-import UserProvider from "/src/_provider/UserProvider";
+import SharedPage from "@/pages/SharedPage";
 import "./globals.css";
+import AuthProvider from "@/providers/AuthProvider";
+import UserProvider from "@/providers/UserProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <UserProvider>
-        <App />
+        <SharedPage />
       </UserProvider>
     </AuthProvider>
   </React.StrictMode>,
