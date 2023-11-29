@@ -2,7 +2,7 @@ import React from "react";
 import IconSearchBar from "../images/Search.svg";
 export default function MainSearchBar() {
   return (
-    <div className="MainSearchBarContainer">
+    <form className="MainSearchBarContainer">
       <input
         type="text"
         className="MainSearchBar"
@@ -11,6 +11,6 @@ export default function MainSearchBar() {
       <button className="SearchBtn">
         <img src={IconSearchBar} alt="검색아이콘" className="IconSearch" />
       </button>
-    </div>
+    </form>
   );
 }
