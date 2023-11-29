@@ -1,5 +1,6 @@
 import Stars from '../Stars/Stars';
 import logoImg from '../Gnb/logo.svg';
+import kebapImg from './images/kebab.png';
 import { timeAgo, getYYYYMMYY, getShortDescription } from '../../utils/formatting';
 
 function EmptyCard() {
@@ -24,7 +25,7 @@ export default function CardItem({ link }) {
       <section className="contentText">
         <div className="contentNav">
           <div className="timeCreated">{timeAgo(link.createdAt)}</div>
-          <div className="moreInfoCebap"></div>
+          <img className="moreInfoCebap" src={kebapImg}></img>
         </div>
         <div className="description">{getShortDescription(link.description)}</div>
         <div className="dateCreated">{getYYYYMMYY(link.createdAt)}</div>
