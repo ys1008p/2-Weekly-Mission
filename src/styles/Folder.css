@@ -1,0 +1,25 @@
+.card--section {
+  width: fit-content;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 25px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1123px) {
+  .card--section {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 32px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .card--section {
+    display: flex;
+    padding: 0 32px;
+    margin-top: 32px;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
