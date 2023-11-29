@@ -1,0 +1,107 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 9.4rem;
+}
+
+.title__avatar {
+  margin-top: 2rem;
+  width: 6rem;
+  height: 6rem;
+}
+
+.title__user-name {
+  margin-top: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem; /* 150% */
+}
+
+.title__folder-name {
+  margin: 2rem 0 6rem;
+  text-align: center;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+
+.main__content {
+  margin: 0 auto;
+}
+
+/* Grid col 3 */
+@media only screen and (min-width: 1125px) {
+  .main__content {
+    width: 106rem;
+  }
+
+  .shared__card-list {
+    grid-template-columns: repeat(3, 34rem);
+    column-gap: 2rem;
+    row-gap: 2.5rem;
+  }
+}
+
+/* Grid col 2 */
+@media only screen and (max-width: 1125px) and (min-width: 767px) {
+  .main__content {
+    width: 70.4rem;
+  }
+
+  .shared__card-list {
+    grid-template-columns: repeat(2, 34rem);
+    column-gap: 2.4rem;
+    row-gap: 2.5rem;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) and (min-width: 375px) {
+  .title {
+    padding-top: 7.4rem;
+  }
+
+  .title__avatar {
+    margin-top: 1rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .title__user-name {
+    margin-top: 0.6rem;
+    font-size: 1.4rem;
+    line-height: normal;
+  }
+
+  .title__folder-name {
+    margin: 1rem 0 4rem;
+    text-align: center;
+    font-size: 3.2rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+  }
+
+  .main__content {
+    width: 32.5rem;
+  }
+
+  .shared__card-list {
+    grid-template-columns: repeat(1, 34rem);
+    row-gap: 2rem;
+  }
+
+  .main {
+    gap: 3.2rem;
+    margin: 2rem 0 6rem;
+  }
+}
