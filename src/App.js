@@ -33,7 +33,7 @@ function App() {
 
   if (!profile.profileImageSource) return;
 
-  return <Layout folder={folder} profile={profile}></Layout>;
+  return <Layout folder={folder} profile={profile} />;
 }
 
 export default App;

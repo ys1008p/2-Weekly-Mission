@@ -6,10 +6,10 @@ import Content from './Content/Content';
 function Layout({ folder, profile }) {
   return (
     <>
-      <Gnb profile={profile}></Gnb>
+      <Gnb profile={profile} />
       <FolderBanner folder={folder} />
       <Content folder={folder} />
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }
