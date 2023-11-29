@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard";
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  padding: unset;
+  background-color: unset;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  nav {
+    padding: 0 32px;
+  }
+
+  .head-image {
+    width: 650.303px;
+    height: 383.114px;
+    flex-shrink: 0;
+  }
+
+  .content-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media (min-width: 375px) and (max-width: 400px) {
+  nav {
+    padding: 0 32px;
+  }
+
+  .head-content {
+    padding: 28px 32px 0px 33px;
+  }
+
+  .head-image {
+    width: 100%;
+    height: auto;
+    padding: 0 32px 0;
+  }
+
+  .content-image {
+    width: 100%;
+    height: auto;
+    padding: 0 32px;
+  }
+
+  .main-text {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 3rem;
+  }
+
+  .footer-box {
+    gap: 100px;
+    padding: 10px;
+  }
+}
