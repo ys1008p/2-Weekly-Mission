@@ -1,0 +1,28 @@
+.UserInfo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.UserInfo-container img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 9999px;
+}
+
+.UserInfo-user-email {
+  color: var(--linkbrary-gray-100, #373740);
+  font-size: 1.4rem;
+}
+
+@media (min-width: 375px) {
+  .UserInfo-user-email {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .UserInfo-user-email {
+    display: block;
+  }
+}

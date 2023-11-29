@@ -1,0 +1,48 @@
+.NavBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.NavBar-home-link img {
+  width: 100%;
+}
+
+@media (min-width: 375px) {
+  .NavBar {
+    padding: 1.3rem 3.2rem;
+    height: 6.3rem;
+  }
+  .NavBar-home-link {
+    width: 8.8rem;
+    height: 1.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .NavBar {
+    max-width: 86.4rem; /* 패딩이 32px 되기 전까지 로고와 로그인 간격 유지 */
+    padding: 3.3rem 3.2rem;
+    height: 9.4rem;
+  }
+  .NavBar-home-link {
+    width: 13.3rem;
+    height: 2.4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .NavBar {
+    max-width: 192rem;
+    padding: 3.3rem 20rem;
+    height: 9.4rem;
+  }
+}
+
+.NavBar-login-link {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+}

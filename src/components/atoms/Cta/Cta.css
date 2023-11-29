@@ -1,0 +1,32 @@
+.Cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--grey-light, #f5f5f5);
+  border-radius: 0.8rem;
+  background-image: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, var(--linkbrary-primary-color, #6d6afe) 0.12%, #6ae3fe 101.84%)
+  );
+  border: none;
+}
+
+@media (min-width: 375px) {
+  .Cta {
+    font-size: 1.4rem;
+  }
+}
+
+/* for tablet, pc */
+@media (min-width: 768px) {
+  .Cta {
+    font-size: 1.8rem;
+  }
+}
+
+.short {
+  width: 12.8rem;
+  padding: 1.6rem 2rem;
+}
