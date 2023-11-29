@@ -1,0 +1,45 @@
+.flodrProfileImg {
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 47px;
+  width: 60px;
+}
+.folderOwnerName {
+  color: var(--text-color-light-mode, #000);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  text-align: center;
+}
+.folderName {
+  color: #000;
+
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Pretendard;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+header {
+  padding-top: 6rem;
+}
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 1124px) {
+  .header {
+    width: 769px;
+  }
+  .folderName {
+    font-size: 40px;
+  }
+}
