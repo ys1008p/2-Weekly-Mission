@@ -7,7 +7,6 @@ export default function useIconQuery(name) {
   useEffect(() => {
     const fetchIcon = async () => {
       const icon = await getIcon(name);
-      console.log(icon);
       setIcon(icon);
     };
 
