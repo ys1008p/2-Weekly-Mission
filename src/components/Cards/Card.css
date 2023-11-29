@@ -1,12 +1,5 @@
-.CardItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 340px;
-  height: 334px;
-}
-
 .contentBox {
+  box-sizing: content-box;
   width: 340px;
   height: 334px;
   display: block;
@@ -19,14 +12,13 @@
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-.hoveredCard {
-  z-index: 1;
+.contentBox:hover {
   border: 2px solid var(--linkbrary-primary-color, #6d6afe);
   border-radius: 15px;
 }
 
 /* 호버시 이미지 확대 애니메이션 */
-.contentImg.hoveredImg {
+.contentImage:hover {
   display: block;
   transition: all 0.3s ease-in-out;
   transform: scale(1.3);
