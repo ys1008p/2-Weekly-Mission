@@ -5,8 +5,11 @@ import fullStarIcon from './star-full.svg';
 
 export default function Stars() {
   const [isFullStar, setIsFullStar] = useToggle();
+  const handlePreventDefault = (e) => {
+    e.preventDefault();
+  };
   return (
-    <button className="starToggle">
+    <button className="starToggle" onClick={handlePreventDefault}>
       <img src={isFullStar ? fullStarIcon : starIcon} onClick={setIsFullStar}></img>
     </button>
   );
