@@ -1,5 +1,5 @@
 import './Stars.css';
-import useToggle from '../../Hooks/useToggle';
+import useToggle from '../../hooks/useToggle';
 import starIcon from './star.svg';
 import fullStarIcon from './star-full.svg';
 

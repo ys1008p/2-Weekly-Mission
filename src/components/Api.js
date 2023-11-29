@@ -1,4 +1,4 @@
-import API from '../constant/API';
+import API from '../constant/api';
 
 export async function getFolder() {
   const result = await fetch(API.SAMPLE_FOLDER);
