@@ -53,7 +53,7 @@ function CardItem({ link }) {
   );
 }
 
-export function Cards({ items: { links } }) {
+export function Cards({ folder: { links } }) {
   return (
     <div className="Cards">
       {links.map((link) => (

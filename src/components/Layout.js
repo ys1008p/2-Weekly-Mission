@@ -3,12 +3,12 @@ import Footer from './Footer/Footer';
 import FolderBanner from './FolderBanner/FolderBanner';
 import Content from './Content/Content';
 
-function Layout({ items, profile }) {
+function Layout({ folder, profile }) {
   return (
     <>
       <Gnb profile={profile}></Gnb>
-      <FolderBanner items={items} />
-      <Content items={items} />
+      <FolderBanner folder={folder} />
+      <Content folder={folder} />
       <Footer></Footer>
     </>
   );

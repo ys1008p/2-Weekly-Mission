@@ -3,15 +3,19 @@ import { getFolder, getUser } from './components/Api';
 import Layout from './components/Layout';
 
 function App() {
-  const [items, setItems] = useState({});
-  const [profile, setProfile] = useState([]);
+  const [folder, setFolder] = useState({
+    folder: {
+      links: [],
+    },
+  });
+  const [profile, setProfile] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleLoadLinks() {
     try {
       setIsLoading(true);
       const { folder } = await getFolder();
-      setItems(folder);
+      setFolder(folder);
     } catch (err) {
       console.log(err);
     } finally {
@@ -27,9 +31,9 @@ function App() {
     handleLoadProfile();
   }, []);
 
-  if (!items.links) return;
+  if (!profile.profileImageSource) return;
 
-  return <Layout items={items} profile={profile}></Layout>;
+  return <Layout folder={folder} profile={profile}></Layout>;
 }
 
 export default App;

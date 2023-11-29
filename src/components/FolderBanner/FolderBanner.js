@@ -1,8 +1,8 @@
 import './FolderBanner.css';
 
-export default function FolderBanner({ items }) {
-  const { name } = items;
-  const { owner } = items;
+export default function FolderBanner({ folder }) {
+  const { name } = folder;
+  const { owner } = folder;
   return (
     <div className="folderBanner">
       <div className="avatar">
