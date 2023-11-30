@@ -33,7 +33,17 @@ nav {
   padding-top: 7rem;
 }
 
+.profile-contents p{
+font-size: 1.2rem;
+}
+
 .profile-contents {
   display: flex;
   gap: 10px;
+  align-items: center;
+}
+
+.profile-image{
+  border-radius: 50%;
+  height: 30px
 }

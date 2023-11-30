@@ -9,11 +9,7 @@ function Search() {
         <button className="search-button">
           <img src={SearchIcon} alt="searchButton" />
         </button>
-        <input
-          className="input"
-          type="text"
-          placeholder="링크를 검색해보세요"
-        />
+        <input className="input" type="text" placeholder={searchValue} />
       </div>
     </section>
   );
