@@ -1,0 +1,45 @@
+header {
+  display: flex;
+  width: 100%;
+  padding: 1.25rem 0 3.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000000;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+  gap: 20px;
+}
+
+.myInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  gap: 12px;
+}
+
+.myImgBg {
+  display: flex;
+  height: 60px;
+  padding: 16px 17px 16px 15px;
+  border-radius: 47px;
+  background: #8f00ff;
+  justify-content: center;
+  align-items: center;
+}
+
+.myImg {
+  width: 28px;
+  height: 28px;
+}

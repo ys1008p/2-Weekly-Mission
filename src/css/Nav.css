@@ -1,0 +1,38 @@
+.App-nav {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #f0f6ff;
+  z-index: 2;
+}
+
+.App-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 6.3rem;
+  padding: 0 3.2rem;
+
+  @media (min-width: 768px) {
+    height: 9.4rem;
+    max-width: 86.3rem;
+  }
+
+  @media (min-width: 1200px) {
+    height: 9.4rem;
+    max-width: 192rem;
+    padding: 0 20rem;
+  }
+}
+
+.logo {
+  width: 8.3125rem;
+  height: 1.5rem;
+
+  @media (min-width: 768px) {
+    height: 2.4rem;
+  }
+}
