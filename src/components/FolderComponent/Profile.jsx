@@ -1,4 +1,7 @@
-function Profile({ owner, name }) {
+import { getFolders } from "../../services/api";
+import { useEffect, useState } from "react";
+
+function ProfileInfo({ owner, name }) {
   return (
     <div>
       {owner ? (
@@ -16,6 +19,20 @@ function Profile({ owner, name }) {
       )}
     </div>
   );
+}
+
+function Profile() {
+  const [folder, setFolder] = useState([]);
+
+  useEffect(() => {
+    const handleFolder = async () => {
+      const { folder } = await getFolders();
+      setFolder(folder);
+    };
+    handleFolder();
+  }, []);
+
+  return <ProfileInfo owner={folder.owner} name={folder.name} />;
 }
 
 export default Profile;
