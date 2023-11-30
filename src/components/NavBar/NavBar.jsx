@@ -34,7 +34,7 @@ export default function NavBar() {
   return (
     <nav className="NavBar">
       <a href="/" className="NavBar-home-link">
-        <img src={LinkbraryLogo} alt="홈페이지로 가는 로고이미지" />
+        <img src={LinkbraryLogo} alt="홈페이지 로고" />
       </a>
       {isLoadingSuccess ? (
         <UserInfo userEmail={userData.email} userProfileImg={userData.profileImageSource} />

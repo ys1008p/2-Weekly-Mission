@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { formatDate, getDiff } from '../../utils/formatTime';
 
 function Card({ item }) {
-  const { imageSource, createdAt, description, url } = item;
+  const { imageSource, createdAt, description, url, title } = item;
   const imageSrc = imageSource ? imageSource : AltImage;
 
   const nowDate = new Date();
@@ -27,7 +27,7 @@ function Card({ item }) {
   return (
     <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleClick}>
       <div className="Card-thumbnail">
-        <img src={imageSrc} alt="링크 썸네일" className={`Card-thumbnail-img ${className}`} />
+        <img src={imageSrc} alt={`${title}`} className={`Card-thumbnail-img ${className}`} />
       </div>
       <div className="Card-info">
         <div className="Card-info-diff">{getDiff(nowDate, createdAt)}</div>
