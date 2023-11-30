@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React from 'react';
+import useGetData from './hooks/useGetData';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
@@ -7,46 +8,20 @@ import Footer from './components/Footer';
 import './App.css';
 
 export default function App() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
-  const [folder, setFolder] = useState({
-    id: '',
-    name: '',
-    owner: '',
-    links: [],
-  });
+  const [loading, error, data] = useGetData('sample/folder');
 
-  const getData = async () => {
-    try {
-      setLoading(true);
-      setError(undefined);
-      const response = await fetch(
-        'https://bootcamp-api.codeit.kr/api/sample/folder'
-      );
-      const data = await response.json();
-      const { folder } = data;
-      setFolder(folder);
-    } catch (error) {
-      setError('network 통신 실패');
-    } finally {
-      setLoading(false);
-    }
-  };
+  if (loading) return <div>loading..</div>;
+  if (error) return <p>{error}</p>;
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  if (loading) return;
-  if (error) return;
+  const folder = data?.folder;
 
   return (
-    <Fragment>
+    <>
       <Navbar />
       <Header folderName={folder.name} owner={folder.owner} />
       <SearchBar />
       <CardList links={folder.links} />
       <Footer />
-    </Fragment>
+    </>
   );
 }

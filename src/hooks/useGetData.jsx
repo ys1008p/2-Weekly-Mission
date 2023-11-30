@@ -1,17 +1,13 @@
 import { useEffect, useState } from 'react';
 
 export default function useGetData(url) {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
 
   const getData = async () => {
     try {
-      setLoading(true);
-      setError(undefined);
-      const response = await fetch(
-        `https://bootcamp-api.codeit.kr/api/sample/${url}`
-      );
+      const response = await fetch(`https://bootcamp-api.codeit.kr/api/${url}`);
       const data = await response.json();
       setData(data);
     } catch (error) {
@@ -23,10 +19,6 @@ export default function useGetData(url) {
 
   useEffect(() => {
     getData();
-
-    return () => {
-      console.log('clean up');
-    };
   }, []);
 
   return [loading, error, data];
