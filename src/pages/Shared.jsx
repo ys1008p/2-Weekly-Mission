@@ -1,13 +1,12 @@
-import NavBar from '../components/NavBar/NavBar';
 import SharedMain from '../components/SharedMain/SharedMain';
-import Footer from '../components/Footer/Footer';
+import Layout from './Layout';
 
 export default function Shared() {
   return (
     <>
-      <NavBar />
-      <SharedMain />
-      <Footer />
+      <Layout>
+        <SharedMain />
+      </Layout>
     </>
   );
 }
