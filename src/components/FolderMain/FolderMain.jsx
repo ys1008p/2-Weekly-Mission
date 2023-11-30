@@ -5,6 +5,7 @@ import LinkInput from '../atoms/LinkInput/LinkInput';
 import FolderList from '../atoms/FolderList/FolderList';
 import Folder from '../../folder-mock.json';
 import FolderData from '../../list-mock.json';
+import FolderTitle from '../atoms/FolderTitle/FolderTitle';
 function FolderMain() {
   const { folder } = Folder;
   const { data } = FolderData;
@@ -15,23 +16,7 @@ function FolderMain() {
       <article className={styles.article}>
         <SearchBar />
         <FolderList data={data} />
-        <div>
-          <div>유용한 글</div>
-          <div>
-            <div>
-              <img src="" />
-              <span>공유</span>
-            </div>
-            <div>
-              <img src="" />
-              <span>이름 변경</span>
-            </div>
-            <div>
-              <img src="" />
-              <span>삭제</span>
-            </div>
-          </div>
-        </div>
+        <FolderTitle />
         <CardList links={folder.links} />
       </article>
     </main>

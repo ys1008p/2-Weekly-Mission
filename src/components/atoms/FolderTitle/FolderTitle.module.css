@@ -1,0 +1,41 @@
+.FolderTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: #000;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.02rem;
+}
+
+.options {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--linkbrary-gray-60, #9fa6b2);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+@media (min-width: 375px) {
+  .FolderTitle {
+    flex-direction: column;
+    align-items: self-start;
+  }
+}
+
+@media (min-width: 768px) {
+  .FolderTitle {
+    flex-direction: row;
+    align-items: center;
+  }
+}
