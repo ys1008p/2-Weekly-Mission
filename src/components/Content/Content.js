@@ -1,5 +1,5 @@
-import SearchBar from '../SearchBar/SearchBar';
-import { Cards } from '../Cards/Cards';
+import SearchBar from '../shared/SearchBar/SearchBar';
+import { Cards } from '../shared/Cards/Cards';
 import './Content.css';
 export default function Content({ folder }) {
   return (

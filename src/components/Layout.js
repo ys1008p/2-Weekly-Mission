@@ -1,5 +1,5 @@
-import Gnb from './Gnb/Gnb';
-import Footer from './Footer/Footer';
+import Gnb from './shared/Gnb/Gnb';
+import Footer from './shared/Footer/Footer';
 import FolderBanner from './FolderBanner/FolderBanner';
 import Content from './Content/Content';
 

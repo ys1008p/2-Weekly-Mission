@@ -3,7 +3,7 @@ import TWITTER_LOGO from './twitter.svg';
 import YOUTUBE_LOGO from './youtube.svg';
 import INSTAGRAM_LOGO from './instagram.svg';
 import './Footer.css';
-import '../reset.css';
+import '../../reset.css';
 function Footer() {
   return (
     <>

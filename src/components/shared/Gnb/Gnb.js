@@ -1,6 +1,6 @@
 import logoImg from './logo.svg';
 import './Gnb.css';
-import Profile from '../Profile/Profile';
+import Profile from '../../Profile/Profile';
 import LoginButton from '../LoginButton/LoginButton';
 function Gnb({ profile }) {
   const didLogin = !!profile.id;

@@ -1,7 +1,7 @@
 import Stars from '../Stars/Stars';
 import logoImg from '../Gnb/logo.svg';
 import kebapImg from './images/kebab.png';
-import { timeAgo, getYYYYMMYY, getShortDescription } from '../../utils/formatting';
+import { timeAgo, getYYYYMMYY, getShortDescription } from '../../../utils/formatting';
 
 function EmptyCard() {
   return (
