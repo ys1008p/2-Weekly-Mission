@@ -1,5 +1,7 @@
 import './CardList.css';
 import AltImage from '../../assets/alt-image.svg';
+import KebabImg from '../../assets/kebab.svg';
+import StarImg from '../../assets/star.svg';
 import { useState } from 'react';
 import { formatDate, getDiff } from '../../utils/formatTime';
 
@@ -25,12 +27,16 @@ function Card({ item }) {
   const className = isHovering ? 'hover' : '';
 
   return (
-    <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleClick}>
-      <div className="Card-thumbnail">
+    <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <div className="Card-thumbnail" onClick={handleClick}>
         <img src={imageSrc} alt={`${title}`} className={`Card-thumbnail-img ${className}`} />
+        <img src={StarImg} alt="즐겨찾기" className="Card-star" />
       </div>
       <div className="Card-info">
-        <div className="Card-info-diff">{getDiff(nowDate, createdAt)}</div>
+        <div className="Card-info-diff-box">
+          <div className="Card-info-diff">{getDiff(nowDate, createdAt)}</div>
+          <img src={KebabImg} alt="케밥" />
+        </div>
         <div className="Card-info-description">{description}</div>
         <div className="Card-info-createdAt">{formatDate(createdAt)}</div>
       </div>
