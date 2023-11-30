@@ -1,8 +1,8 @@
 import React from 'react';
 import useGetData from '../hooks/useGetData';
-import Logo from './Logo';
 import Profile from './Profile';
 import SignButton from './SignButton';
+import LinkbraryLogo from '../images/logo.svg';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -14,8 +14,16 @@ export default function Navbar() {
   return (
     <nav className='navbar'>
       <div className='navbar-container'>
-        <Logo />
-        {user ? <Profile user={user} /> : <SignButton />}
+        <a href='/'>
+          <img className='logo' src={LinkbraryLogo} alt='로고' />
+        </a>
+        {user ? (
+          <Profile user={user} />
+        ) : (
+          <a href='/signin'>
+            <SignButton text='로그인' />
+          </a>
+        )}
       </div>
     </nav>
   );
