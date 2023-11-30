@@ -5,10 +5,23 @@ import Layout from './components/Layout';
 function App() {
   const [folder, setFolder] = useState({
     folder: {
+      id: 0,
+      name: '',
+      owner: {
+        id: 0,
+        name: '',
+        profileImageSource: '',
+      },
       links: [],
     },
+    count: 0,
   });
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState({
+    id: 0,
+    name: '',
+    email: '',
+    profileImageSource: '',
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleLoadLinks() {
