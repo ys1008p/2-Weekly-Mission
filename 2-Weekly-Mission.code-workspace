@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "2-Weekly-Mission",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "2-Weekly-Mission"
+	}
+}
