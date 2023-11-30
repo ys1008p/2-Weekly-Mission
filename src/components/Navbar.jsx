@@ -5,14 +5,14 @@ import SignButton from './SignButton';
 import LinkbraryLogo from '../images/logo.svg';
 import './Navbar.css';
 
-export default function Navbar() {
-  const [loading, error, user] = useGetData('sample/user');
+export default function Navbar({ profileUrl, className }) {
+  const [loading, error, user] = useGetData(profileUrl);
 
   if (loading) return <div>loading..</div>;
   if (error) return <p>{error}</p>;
 
   return (
-    <nav className='navbar'>
+    <nav className={className}>
       <div className='navbar-container'>
         <a href='/'>
           <img className='logo' src={LinkbraryLogo} alt='로고' />
