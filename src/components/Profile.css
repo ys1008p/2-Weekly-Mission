@@ -1,0 +1,23 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.user-image {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 100%;
+}
+
+.user-email {
+  display: none;
+  color: var(--color-gray-100);
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .user-email {
+    display: contents;
+  }
+}
