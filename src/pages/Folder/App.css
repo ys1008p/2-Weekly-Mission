@@ -34,11 +34,13 @@
 .profile-name {
   font-size: 16px;
 }
-
+.add-link-bar {
+  background-color: var(--gray-bg-color);
+  padding: 6rem 32rem 9rem;
+}
 .add-link-container {
   position: relative;
   width: 80rem;
-  margin: 6rem 32rem 9rem;
 }
 
 .addLink {
@@ -81,6 +83,11 @@ folder {
 .folder {
   max-width: 106rem;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 
   @media (max-width: 1200px) {
     padding: 0 3.2rem;
@@ -110,6 +117,16 @@ folder {
 
 .img-container {
   overflow: hidden;
+}
+
+.noLink {
+  color: #000;
+  font-weight: 400;
+  font-size: 1.6rem;
+  text-align: center;
+  width: 100%;
+  padding-top: 4.1rem;
+  padding-bottom: 3.5rem;
 }
 
 .cards {

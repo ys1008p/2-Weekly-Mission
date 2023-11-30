@@ -45,7 +45,7 @@ html {
 html {
   font-family: Pretendard, Arial, sans-serif;
   font-size: 62.5%;
-  background-color: var(--gray-bg-color, #edf7ff);
+  background-color: var(--white-color);
 }
 br {
   display: block;

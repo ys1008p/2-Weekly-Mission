@@ -139,6 +139,7 @@ footer {
   background-color: var(--black-color);
   padding: 3.2rem 10.4rem 6.4rem 10.4rem;
   font-size: 1.6rem;
+  margin-top: 6rem;
 }
 
 .info {
