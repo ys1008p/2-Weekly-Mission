@@ -1,21 +1,20 @@
-import Gnb from "./Components/Gnb";
-import Profile from "./Components/Profile";
-import SearchBar from "./Components/SearchBar";
-import FavoriteList from "./Components/FavoriteList";
-import Footer from "./Components/Footer";
+import Gnb from "./components/Gnb";
+import Profile from "./components/Profile";
+import SearchBar from "./components/SearchBar";
+import CardList from "./components/CardList";
+import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
-import { getFavorites } from "./api";
+import { getFolders } from "./api";
 import "./App.css";
 
 function App() {
-  const [folder, setFolder] = useState([]);
-
-  const handleFolder = async () => {
-    const { folder } = await getFavorites();
-    setFolder(folder);
-  };
+  const [folder, setFolder] = useState({ owner: null, name: null });
 
   useEffect(() => {
+    const handleFolder = async () => {
+      const { folder } = await getFolders();
+      setFolder(folder);
+    };
     handleFolder();
   }, []);
 
@@ -31,7 +30,7 @@ function App() {
             <SearchBar />
             <div className="cards">
               {folder.links?.map((card) => {
-                return <FavoriteList key={card.id} card={card} />;
+                return <CardList key={card.id} card={card} />;
               })}
             </div>
           </div>
