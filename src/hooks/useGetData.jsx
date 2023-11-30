@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export default function useGetData(url) {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState('');
   const [data, setData] = useState([]);
 
   const getData = async () => {
