@@ -1,28 +1,20 @@
-import './FolderMain.css';
+import styles from './FolderMain.module.css';
 import SearchBar from '../atoms/SearchBar/SearchBar';
-
 import CardList from '../CardList/CardList';
-import Folder from '../../folder-mock.json';
-import FolderList from '../../list-mock.json';
 import LinkInput from '../atoms/LinkInput/LinkInput';
+import FolderList from '../atoms/FolderList/FolderList';
+import Folder from '../../folder-mock.json';
+import FolderData from '../../list-mock.json';
 function FolderMain() {
   const { folder } = Folder;
-  const { data } = FolderList;
+  const { data } = FolderData;
 
   return (
     <main>
       <LinkInput />
-
-      <article className="test">
+      <article className={styles.article}>
         <SearchBar />
-        <div>
-          <ul>
-            {data.map((item) => {
-              return <li key={item.id}>{item.name}</li>;
-            })}
-          </ul>
-          <div>+</div>
-        </div>
+        <FolderList data={data} />
         <div>
           <div>유용한 글</div>
           <div>

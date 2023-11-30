@@ -1,0 +1,8 @@
+.article {
+  display: grid;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 4rem 3.2rem 10rem;
+  row-gap: 4rem;
+  background-color: #fff;
+}
