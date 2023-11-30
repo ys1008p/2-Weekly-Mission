@@ -1,10 +1,10 @@
-import Layout from './Layout';
+import FolderMain from '../components/FolderMain/FolderMain';
 
 function FolderPage() {
   return (
-    <Layout>
-      <div>레이아웃 테스트임</div>
-    </Layout>
+    <div>
+      <FolderMain />
+    </div>
   );
 }
 
