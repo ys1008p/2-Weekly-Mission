@@ -1,24 +1,17 @@
 import './FolderMain.css';
 import SearchBar from '../atoms/SearchBar/SearchBar';
-import LinkIcon from '../../assets/link.svg';
+
 import CardList from '../CardList/CardList';
 import Folder from '../../folder-mock.json';
 import FolderList from '../../list-mock.json';
+import LinkInput from '../atoms/LinkInput/LinkInput';
 function FolderMain() {
   const { folder } = Folder;
   const { data } = FolderList;
 
   return (
     <main>
-      <div className="LinkInput">
-        <form className="LinkInput-form">
-          <img src={LinkIcon} alt="링크" className="LinkInput-icon" />
-          <input type="text" placeholder="링크를 추가해 보세요" className="LinkInput-input" />
-          <button type="button" className="Button">
-            추가하기
-          </button>
-        </form>
-      </div>
+      <LinkInput />
 
       <article className="test">
         <SearchBar />
