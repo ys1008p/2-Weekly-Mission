@@ -5,6 +5,25 @@ import YoutubeImg from '../../assets/akar-icons_youtube-fill.svg';
 import './Footer.css';
 
 function Footer() {
+  const SNS_INFO = [
+    {
+      snsName: 'facebook',
+      link: 'https://www.facebook.com/',
+      imgSource: FacebookImg,
+    },
+    {
+      snsName: 'twitter',
+      link: 'https://www.twitter.com/',
+      imgSource: TwitterImg,
+    },
+    {
+      snsName: 'youtube',
+      link: 'https://www.youtube.com/',
+      imgSource: YoutubeImg,
+    },
+    { snsName: 'instagram', link: 'https://www.instagram.com/', imgSource: InstagramImg },
+  ];
+
   return (
     <footer>
       <div className="Footer">
@@ -14,38 +33,19 @@ function Footer() {
           <a href="/faq">FAQ</a>
         </div>
         <div className="Footer-sns-links">
-          <a
-            className="Footer-sns-link"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={FacebookImg} alt="facebook 로고" />
-          </a>
-          <a
-            className="Footer-sns-link"
-            href="https://twitter.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={TwitterImg} alt="twitter 로고" />
-          </a>
-          <a
-            className="Footer-sns-link"
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={YoutubeImg} alt="youtube 로고" />
-          </a>
-          <a
-            className="Footer-sns-link"
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={InstagramImg} alt="instagram 로고" />
-          </a>
+          {SNS_INFO.map((item) => {
+            return (
+              <a
+                key={item.snsName}
+                className="Footer-sns-link"
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={item.imgSource} alt={`${item.snsName}`} />
+              </a>
+            );
+          })}
         </div>
       </div>
     </footer>
