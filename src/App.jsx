@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import './App.css';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CardList from './components/CardList';
 import Footer from './components/Footer';
+import './App.css';
 
 export default function App() {
   const [loading, setLoading] = useState(false);

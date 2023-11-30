@@ -1,9 +1,9 @@
 import React from 'react';
-import './Navbar.css';
 import useGetData from '../hooks/useGetData';
 import Logo from './Logo';
 import Profile from './Profile';
 import SignButton from './SignButton';
+import './Navbar.css';
 
 export default function Navbar() {
   const [loading, error, user] = useGetData('user');
