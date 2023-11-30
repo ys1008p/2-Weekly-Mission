@@ -11,9 +11,7 @@ function Gnb() {
   useEffect(() => {
     async function fetchUser() {
       const response = await getUser();
-      console.log(response);
       setUser(response);
-      console.log(user);
     }
 
     fetchUser();

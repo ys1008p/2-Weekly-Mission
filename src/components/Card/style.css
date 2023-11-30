@@ -6,10 +6,10 @@
 }
 
 .card__image {
-  border-radius: 15px 15px 0 0;
   width: 34rem;
   height: 25.4rem;
   object-fit: cover;
+  border-radius: 15px 15px 0 0;
 }
 
 .card__image:hover {
