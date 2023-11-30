@@ -14,7 +14,7 @@ function EmptyCard() {
 export default function CardItem({ link }) {
   return (
     <a className="contentBox" href={link.url} target="_blank">
-      <div class="imgContainer">
+      <div className="imgContainer">
         {link.imageSource ? (
           <img className="contentImage" src={link.imageSource}></img>
         ) : (

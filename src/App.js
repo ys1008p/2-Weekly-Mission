@@ -26,6 +26,7 @@ function App() {
     const profile = await getUser();
     setProfile(profile);
   }
+
   useEffect(() => {
     handleLoadLinks();
     handleLoadProfile();
