@@ -1,8 +1,8 @@
-const userPath = "https://bootcamp-api.codeit.kr";
+const folderPath = "https://bootcamp-api.codeit.kr";
 
 export const folderInfo = async () => {
   try {
-    const response = await fetch(`${userPath}/api/sample/folder`);
+    const response = await fetch(`${folderPath}/api/sample/folder`);
 
     if (!response.ok) {
       throw new Error("Failed folder");

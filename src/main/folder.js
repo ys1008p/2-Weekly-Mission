@@ -38,19 +38,19 @@ const FolderItem = ({ createdAt, url, title, description, imageSource }) => {
     createdAtDiff = "1 minute ago";
   }
   return (
-    <div className="section__folder_content-grid">
-      <div className="section__folder_content">
-        <a href="/" target="_blank">
-          <img
-            src={imageSource}
-            alt={imageSource}
-            className="section__folder_image"
-          ></img>
-        </a>
+    <div className="section__folder_content">
+      <a href="/" target="_blank">
+        <img
+          src={imageSource}
+          alt={imageSource}
+          className="section__folder_image"
+        ></img>
+      </a>
+      <div className="section__folder_text_wrap">
         <span className="folder_createAt_text">{createdAtDiff}</span>
-        <span className="folder_title_text">{title}</span>
+        {/* <span className="folder_title_text">{title}</span> */}
         <span className="folder_description_text">{description}</span>
-        <span className="folder_createAt_text">{url}</span>
+        {/* <span className="folder_createAt_text">{url}</span> */}
         <span className="folder_createAt_text">{createdAt}</span>
       </div>
     </div>
