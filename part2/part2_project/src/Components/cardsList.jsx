@@ -3,7 +3,7 @@ import noneImg from "../img/!img.svg";
 import "../css/card.css";
 
 const Cards = ({ card }) => {
-  const { createdAt, description, imageSource, title, id, url } = { card };
+  const { createdAt, description, imageSource, title, id, url } = card;
 
   function formatDate(value) {
     const date = new Date(value);
@@ -11,11 +11,14 @@ const Cards = ({ card }) => {
   }
 
   return (
-    <section >
-      <img src={userPick.imageSource} />
-      <div>
-        <p>{}
-        </p>
+    <a href={url} className="card" key={id}>
+      <div className="cardImgBox">
+        <img className="cardImg" src={imageSource || noneImg} alt={title} />
+      </div>
+      <div className="cardText">
+        <p className="timeAgo">{timeAgo(createdAt)}</p>
+        <h6 className="cardDescription">{description}</h6>
+        <p className="makeDate">{formatDate(createdAt)}</p>
       </div>
     </a>
   );
@@ -27,7 +30,7 @@ export default function CardsList({ cardData }) {
   return (
     <ul className="CardList">
       {cardData?.map((card) => (
-        <li key={card.id}>
+        <li className="cardBox" key={card.id}>
           <Cards card={card} />
         </li>
       ))}
