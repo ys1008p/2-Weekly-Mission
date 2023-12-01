@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { getFolder, getUser } from './components/Api';
-import Layout from './components/Layout';
+import Footer from '../shared/Footer/Footer';
+import Gnb from '../shared/Gnb/Gnb';
+import SearchBar from '../shared/SearchBar/SearchBar';
 
-function App() {
+export default function SharedPage() {
   const [folder, setFolder] = useState({
     folder: {
       id: 0,
@@ -47,7 +47,11 @@ function App() {
 
   if (!profile.profileImageSource) return;
 
-  return <Layout folder={folder} profile={profile} />;
+  return (
+    <>
+      <Gnb />
+      <SearchBar />
+      <Footer />
+    </>
+  );
 }
-
-export default App;
