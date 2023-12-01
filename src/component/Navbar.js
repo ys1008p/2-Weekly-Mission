@@ -1,4 +1,4 @@
-import "./Header.css";
+import "./Navbar.css";
 
 function Navbar({ userData }) {
   const { email, profileImageSource } = userData;

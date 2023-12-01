@@ -1,4 +1,4 @@
-import "./Header.css";
+import "./HeaderFolderSection.css";
 
 function HeaderFoloderSection({ folderData }) {
   const folderName = folderData.name;

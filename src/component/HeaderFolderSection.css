@@ -1,0 +1,31 @@
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 6rem;
+  margin: 9.2rem 0 0;
+  width: 100%;
+  background-color: #f0f6ff;
+}
+
+.header-section-ownerImg {
+  border-radius: 50%;
+  width: 6rem;
+  background-color: #dddddd;
+  margin-bottom: 1.2rem;
+}
+
+.header-section-ownerName {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.header-section-folderName {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+@media all and (max-width: 768px) {
+  .header-section {
+    margin: 6.4rem 0 0;
+  }
+}
