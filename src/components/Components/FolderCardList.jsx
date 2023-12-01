@@ -1,8 +1,10 @@
 import { getLinks } from "../../services/api";
 import { useEffect, useState } from "react";
+import Kebab from "./Kebab";
 import formatTimeAgo from "../../utils/FormatTimeAgo";
 import formatDate from "../../utils/formatDate";
 import noimage from "../../assets/noimage.svg";
+import starDefault from "../../assets/star-default.png";
 import "./FolderCardList.css";
 import "./Card.css";
 
@@ -25,9 +27,13 @@ function Card({ card }) {
             alt={card.title}
             type="card"
           />
+          <img className="star-img" src={starDefault} alt="bookmark icon" />
         </div>
         <div className="card-info">
-          <p className="time-ago">{timeAgo}</p>
+          <div className="card-info-top">
+            <p className="time-ago">{timeAgo}</p>
+            <Kebab />
+          </div>
           <p className="links-description">{card.description}</p>
           <p className="cratedAt">{date}</p>
         </div>
@@ -52,7 +58,7 @@ function FolderCardList({ folderId }) {
 
   return (
     <>
-      {link.data && link.data.length >= 1 ? (
+      {link.data && link.data.length > 0 ? (
         <div className="cards">
           {link.data?.map((card) => {
             return <Card key={card.id} card={card} />;
