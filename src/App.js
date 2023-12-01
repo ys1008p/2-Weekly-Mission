@@ -1,11 +1,10 @@
-import styles from "./styles/App.module.css";
-import Header from "./component/Header";
-import Footer from "./component/Footer";
-import Banner from "./component/Banner";
-import CardList from "./component/CardList";
-import SearchInput from "./component/SearchInput";
 import { useEffect, useState } from "react";
+import { Routes,Route} from 'react-router-dom';
 import { getUserData, getFolderData } from "./api";
+import HomePage from './pages/HomePage.js';
+import FolderPage from "./pages/FolderPage.js";
+import SharedPage from "./pages/SharedPage";
+
 
 function App() {
   const [email, setEmail] = useState();
@@ -29,16 +28,11 @@ function App() {
 
   return (
     <div>
-      <Header email={email} />
-        <Banner folder={folder} />
-        <section className={styles.contentFlax}>
-          <div className={styles.contentBox}>
-            <SearchInput/>
-            <CardList links={folder && folder.links} />
-          </div>
-        </section>
-
-      <Footer />
+        <Routes>
+          <Route path="/" element={<SharedPage email={email} folder={folder} />} />
+          <Route path="shared" element={<SharedPage email={email} folder={folder} />} />
+          <Route path="folder" element={<FolderPage email={email} folder={folder} />} />
+        </Routes>
     </div>
   );
 }
