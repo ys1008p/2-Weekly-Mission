@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Header.css";
-import { getFolderData } from "../../api/getFolderData";
+import { getFolderData } from "../../../api/getFolderData";
 
 function HeaderFoloderSection() {
   const [folderData, setFolderData] = useState({});

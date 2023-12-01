@@ -4,7 +4,7 @@ import Header from "./component/shared/header/Header";
 import Main from "./component/shared/main/Main";
 import GlobalStyle from "./GlobalStyles";
 import Loding from "./component/loding/Loding";
-import { getUserData } from "./component/api/getUserData";
+import { getUserData } from "./api/getUserData";
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -16,6 +16,7 @@ function App() {
     getUserData()
       .then((result) => {
         setUserData(result);
+
         setLoding(false);
       })
       .catch(() => alert("회원정보를 불러오는중 에러가 발생하였습니다."))

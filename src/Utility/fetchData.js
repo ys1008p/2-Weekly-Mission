@@ -1,6 +1,6 @@
-export async function getFolderData() {
+export async function fetchData(url) {
   try {
-    const res = await fetch(`https://bootcamp-api.codeit.kr/api/sample/folder`);
+    const res = await fetch(url);
 
     if (!res.ok) {
       throw new Error();

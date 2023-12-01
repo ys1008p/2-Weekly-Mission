@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { formatDate, getTimeDifference } from "../../../Utility/Date";
+import { formatDate, getTimeDifference } from "../../../utility/date";
 import "./Main.css";
-import { getFolderData } from "../../api/getFolderData";
+import { getFolderData } from "../../../api/getFolderData";
 
 function Card() {
   const [cardData, setCardData] = useState({});
