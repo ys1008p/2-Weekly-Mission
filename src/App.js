@@ -3,6 +3,7 @@ import Header from "./component/Header";
 import Footer from "./component/Footer";
 import Banner from "./component/Banner";
 import CardList from "./component/CardList";
+import SearchInput from "./component/SearchInput";
 import { useEffect, useState } from "react";
 import { getUserData, getFolderData } from "./api";
 
@@ -27,20 +28,16 @@ function App() {
   }, []);
 
   return (
-    <div className={styles.bodyWrapper}>
-      <main className={styles.bodyContent}>
-        <Header email={email} />
+    <div>
+      <Header email={email} />
         <Banner folder={folder} />
         <section className={styles.contentFlax}>
           <div className={styles.contentBox}>
-            <div className={styles.searchBox}>
-              <input className={styles.searchInput} placeholder="링크를 검색해주세요" />
-              <img className={styles.searchIcon} src={process.env.PUBLIC_URL + "/images/search.png"}></img>
-            </div>
+            <SearchInput/>
             <CardList links={folder && folder.links} />
           </div>
         </section>
-      </main>
+
       <Footer />
     </div>
   );
