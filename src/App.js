@@ -1,7 +1,5 @@
 import Shared from "./pages/shared.js";
-import "./style/global.css";
-import "./style/reset.css";
-
+import "../src/style/global.css";
 function App() {
   return <Shared />;
 }

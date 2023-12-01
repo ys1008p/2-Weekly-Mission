@@ -1,8 +1,10 @@
-@import url(global.css);
+/* user agent stylesheet 초기화 */
+
 * {
-  margin: 0;
   box-sizing: border-box;
-  font-family: Pretendard;
+  margin: 0;
+  font-family: "Pretendard";
+  word-break: keep-all;
 }
 
 html,
@@ -12,14 +14,22 @@ body {
 
 a {
   color: inherit;
-  cursor: pointer;
   text-decoration: none;
+  cursor: pointer;
 }
 
-label {
-  color: var(--Black-normal-1);
-  font-size: 1.4rem;
-  font-weight: 400;
+input {
+  border: none;
+  padding: none;
+}
+input:focus {
+  outline: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
 
 button {
@@ -27,5 +37,4 @@ button {
   padding: unset;
   background-color: unset;
   cursor: pointer;
-  /* outline: none; */
 }
