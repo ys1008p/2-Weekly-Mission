@@ -11,6 +11,8 @@ export default function Navbar({ profileUrl, className }) {
   if (loading) return <div>loading..</div>;
   if (error) return <p>{error}</p>;
 
+  const userData = user?.data[0];
+
   return (
     <nav className={className}>
       <div className='navbar-container'>
@@ -18,7 +20,7 @@ export default function Navbar({ profileUrl, className }) {
           <img className='logo' src={LinkbraryLogo} alt='로고' />
         </a>
         {user ? (
-          <Profile user={user} />
+          <Profile user={userData} />
         ) : (
           <a href='/signin'>
             <SignButton text='로그인' />
