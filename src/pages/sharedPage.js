@@ -4,7 +4,24 @@ import Banner from "../component/Banner";
 import CardList from "../component/CardList";
 import SearchInput from "../component/SearchInput";
 import styles from "../styles/SharedPage.module.css";
-function sharedPage({ email, folder }) {
+import {getFolderData } from "../apis/sharedApi.js";
+import { useEffect, useState } from "react";
+
+function SharedPage({ email }) {
+  const [folder, setFolder] = useState();
+  
+  const handleFolderLoad = async () => {
+    const { folder } = await getFolderData();
+    setFolder(folder);
+    console.log(folder);
+  };
+
+  
+  useEffect(()=>{
+    handleFolderLoad()
+  },[])
+
+
   return (
     <>
       <Header email={email} />
@@ -21,4 +38,4 @@ function sharedPage({ email, folder }) {
   );
 }
 
-export default sharedPage;
+export default SharedPage;
