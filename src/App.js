@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import Footer from "./component/shared/footer/Footer";
-import Header from "./component/shared/header/Header";
-import Main from "./component/shared/main/Main";
 import GlobalStyle from "./GlobalStyles";
 import Loding from "./component/loding/Loding";
 import { getUserData } from "./api/getUserData";
@@ -25,17 +22,10 @@ function App() {
       });
   }, []);
 
-  const renderHeader = !loding && <Header userData={userData} />;
-  const renderMain = userData.id && !loding && <Main />;
-  const renderFooter = !loding && <Footer />;
-
   return (
     <>
       {loding && <Loding />}
       <GlobalStyle />
-      {renderHeader}
-      {renderMain}
-      {renderFooter}
     </>
   );
 }
