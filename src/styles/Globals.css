@@ -1,4 +1,14 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+}
+
 html {
+  font-family: Pretendard, Arial, sans-serif;
+  font-size: 62.5%;
+  background-color: var(--white-color);
+
   --primary-color: #6d6afe;
   --red-color: #ff5b56;
   --black-color: #111322;
@@ -35,23 +45,11 @@ html {
     #6ae3fe 101.84%
   );
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  text-decoration: none;
-}
-
-html {
-  font-family: Pretendard, Arial, sans-serif;
-  font-size: 62.5%;
-  background-color: var(--white-color);
-}
 br {
   display: block;
 }
 
 button {
   border-style: none;
-  background-color: var(--white-color);
+  background-color: transparent;
 }
