@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LoginProfile } from "../api";
+import { LoginProfile } from "../../api";
 
 export default function Header() {
   const [folderData, setFolderData] = useState(null);

@@ -1,5 +1,6 @@
 import React from "react";
-import IconSearchBar from "../images/Search.svg";
+import IconSearchBar from "../../images/Search.svg";
+
 export default function MainSearchBar() {
   return (
     <form className="MainSearchBarContainer">

@@ -1,6 +1,6 @@
 import React from "react";
-import LogoImg from "../images/logo.svg";
-import { HeaderApi } from "../api";
+import LogoImg from "../../images/logo.svg";
+import { HeaderApi } from "../../api";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
