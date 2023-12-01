@@ -73,18 +73,15 @@ export function Card({ link }) {
   return (
     <>
       <a target="_blank" href={url}>
-        <div
-          className={isHovered ? "flex-wrapper grow" : "flex-wrapper"}
-          id={`card-${id}`}
-          onMouseEnter={onMouseEnterHandler}
-          onMouseLeave={onMouseLeaveHandler}
-        >
+        <div className="flex-wrapper" id={`card-${id}`}>
           <div className="card-img_wrapper">
             {imageSource ? (
               <img
-                className="card-img"
+                className={isHovered ? "card-img grow" : "card-img"}
                 src={imageSource}
                 alt={`${title}-img`}
+                onMouseEnter={onMouseEnterHandler}
+                onMouseLeave={onMouseLeaveHandler}
               />
             ) : (
               <img className="card-img" src={NoImg} alt={`${title}-img`} />
