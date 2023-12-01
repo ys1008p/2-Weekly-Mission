@@ -1,7 +1,7 @@
 import "./Navbar.css";
 
 function Navbar({ userData, location }) {
-  const { email, profileImageSource } = userData;
+  const { email, image_source } = userData;
 
   const handleNavbarPosition = () => {
     if (location.pathname === `/folder`) {
@@ -23,7 +23,7 @@ function Navbar({ userData, location }) {
             <>
               <div className="nav-item-profile">
                 <img
-                  src={profileImageSource}
+                  src={image_source}
                   alt="profile-img"
                   className="nav-item-profile-img"
                 />

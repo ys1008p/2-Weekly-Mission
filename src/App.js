@@ -23,8 +23,7 @@ function App() {
 
     getUserData()
       .then((result) => {
-        setUserData(result);
-
+        setUserData(result.data[0]);
         setLoding(false);
       })
       .catch(() => alert("회원정보를 불러오는중 에러가 발생하였습니다."))
