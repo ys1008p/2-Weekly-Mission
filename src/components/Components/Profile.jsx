@@ -1,5 +1,6 @@
 import { getFolders } from "../../services/api";
 import { useEffect, useState } from "react";
+import "./Profile.css";
 
 function ProfileInfo({ owner, name }) {
   return (

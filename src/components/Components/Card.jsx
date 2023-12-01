@@ -1,6 +1,7 @@
 import formatTimeAgo from "../../utils/FormatTimeAgo";
 import formatDate from "../../utils/formatDate";
 import noimage from "../../assets/noimage.svg";
+import "./Card.css";
 
 function Card({ card }) {
   const timeAgo = formatTimeAgo(card.createdAt);

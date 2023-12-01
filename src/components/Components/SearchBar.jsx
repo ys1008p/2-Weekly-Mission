@@ -1,4 +1,5 @@
 import searchIcon from "../../assets/Search.png";
+import "./SearchBar.css";
 
 function SearchBar() {
   return (

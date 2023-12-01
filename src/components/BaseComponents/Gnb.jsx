@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import logo from "../../assets/linkbrary-logo.png";
-import "../../styles/HomeStyles.css";
 import { getProfiles } from "../../services/api";
+import logo from "../../assets/linkbrary-logo.png";
+import "./Gnb.css";
 
 function Gnb() {
   const [userData, setUserData] = useState([]);

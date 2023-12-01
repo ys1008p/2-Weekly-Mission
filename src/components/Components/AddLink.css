@@ -1,0 +1,40 @@
+.add-link-bar {
+  background-color: var(--gray-bg-color);
+  padding-top: 6rem;
+  padding-bottom: 9rem;
+  margin: auto;
+}
+.add-link-container {
+  position: relative;
+  width: 80rem;
+}
+
+.addLink {
+  width: 100%;
+  padding-left: 5rem;
+  height: 6.9rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--primary-color);
+  color: var(--gray-60-color);
+  font-size: 1.6rem;
+}
+
+.add {
+  width: 8.1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 1.6rem;
+}
+.add-link-container > button {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+.add-link-container > img {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+}

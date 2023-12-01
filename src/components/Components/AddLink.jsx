@@ -1,4 +1,5 @@
 import addLink from "../../assets/add-link.png";
+import "./AddLink.css";
 
 function AddLink() {
   return (

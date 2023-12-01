@@ -1,6 +1,7 @@
 import { getLinks } from "../../services/api";
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import "./FolderCardList.css";
 
 function CardList({ selectedFolder }) {
   const [link, setLink] = useState([]);
