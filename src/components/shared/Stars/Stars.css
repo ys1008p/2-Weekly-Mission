@@ -3,7 +3,7 @@
   width: 34px;
 }
 
-button {
+.starToggle {
   display: block;
   border: none;
   background-color: transparent;

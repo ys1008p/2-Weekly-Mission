@@ -1,0 +1,31 @@
+.AddLinkBar__container {
+  background-color: var(--linkbrary-bg, #f0f6ff);
+  padding-top: 60px;
+  padding-bottom: 90px;
+  display: flex;
+  justify-content: center;
+}
+
+.AddLinkBar {
+  border-radius: 15px;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+  padding: 16px 20px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    margin: 0 32px;
+    width: 100vw;
+  }
+}
+
+.AddLinkBar__input {
+  background-color: var(--linkbrary-bg, #f0f6ff);
+  margin-left: 12px;
+  flex-grow: 1;
+  border: none;
+}
