@@ -25,6 +25,7 @@
   height: 3.5rem;
   font-size: 1.6rem;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .active {
