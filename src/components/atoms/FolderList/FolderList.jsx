@@ -2,12 +2,7 @@ import styles from './FolderList.module.css';
 import AddImg from '../../../assets/add.svg';
 import { useState } from 'react';
 
-function FolderList({ data }) {
-  const [activeKey, setActive] = useState('all');
-  const handleClick = (e) => {
-    setActive(e.target.id);
-  };
-
+function FolderList({ data, selectedId, onClick }) {
   return (
     <div className={styles.FolderList}>
       <ul className={styles.list}>
@@ -15,9 +10,9 @@ function FolderList({ data }) {
           key={0}
           id="all"
           className={
-            activeKey === 'all' ? `${styles.listItem} ${styles.active}` : `${styles.listItem}`
+            selectedId === 'all' ? `${styles.listItem} ${styles.active}` : `${styles.listItem}`
           }
-          onClick={handleClick}
+          onClick={onClick}
         >
           전체
         </li>
@@ -27,11 +22,11 @@ function FolderList({ data }) {
               key={item.id}
               id={item.id}
               className={
-                String(item.id) === activeKey
+                String(item.id) === selectedId
                   ? `${styles.listItem} ${styles.active}`
                   : `${styles.listItem}`
               }
-              onClick={handleClick}
+              onClick={onClick}
             >
               {item.name}
             </li>
