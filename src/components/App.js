@@ -4,6 +4,7 @@ import Cta from './atoms/Cta';
 import Logo from './atoms/Logo';
 import Gnb from './molecules/Gnb'
 import GlobalStyle from '../styles/global';
+import UserBadge from './atoms/UserBadge';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div>
         <Cta>로그인</Cta>
         <Logo></Logo>
+        <UserBadge></UserBadge>
         <Gnb></Gnb>
       </div>
     </div>

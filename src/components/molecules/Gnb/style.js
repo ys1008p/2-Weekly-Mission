@@ -11,9 +11,7 @@ export const Nav = styled.nav`
   position: fixed;
 
   @media (max-width: 1199px) {
-    nav {
-      max-width: 86.4rem;
-      padding: 0 3.2rem;
-    }
+    max-width: 86.4rem;
+    padding: 0 3.2rem;
   }
 `;
