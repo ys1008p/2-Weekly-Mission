@@ -1,4 +1,4 @@
-import { getFolders } from "../../services/api";
+import { getSharedFolders } from "../../services/api";
 import { useEffect, useState } from "react";
 import "./Profile.css";
 
@@ -27,7 +27,7 @@ function Profile() {
 
   useEffect(() => {
     const handleFolder = async () => {
-      const { folder } = await getFolders();
+      const { folder } = await getSharedFolders();
       setFolder(folder);
     };
     handleFolder();
