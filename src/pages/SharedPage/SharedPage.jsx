@@ -35,7 +35,7 @@ export default function FolderPage() {
       <FolderInfo owner={folderData.owner} folderName={folderData.name} />
       <article className="test">
         <SearchBar />
-        <CardList links={folderData.links} />
+        <CardList links={folderData.links} isSample={true} />
       </article>
     </main>
   ) : null;
