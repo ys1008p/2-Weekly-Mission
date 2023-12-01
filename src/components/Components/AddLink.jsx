@@ -7,7 +7,7 @@ function AddLink() {
       <div className="add-link-container">
         <input className="addLink" placeholder="링크를 추가해 보세요" />
         <img src={addLink} alt="링크 아이콘" />
-        <button className="add button">추가하기</button>
+        <button className="button">추가하기</button>
       </div>
     </div>
   );

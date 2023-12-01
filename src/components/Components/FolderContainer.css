@@ -1,0 +1,16 @@
+.folders {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.folder-buttons {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.folder-name {
+  font-size: 2.4rem;
+  font-weight: 600;
+}

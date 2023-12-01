@@ -2,11 +2,11 @@
   background-color: var(--gray-bg-color);
   padding-top: 6rem;
   padding-bottom: 9rem;
-  margin: auto;
 }
 .add-link-container {
   position: relative;
-  width: 80rem;
+  max-width: 80rem;
+  margin: auto;
 }
 
 .addLink {
@@ -19,17 +19,15 @@
   font-size: 1.6rem;
 }
 
-.add {
-  width: 8.1rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  padding: 1rem 1.6rem;
-}
 .add-link-container > button {
   position: absolute;
   top: 50%;
   right: 2rem;
   transform: translateY(-50%);
+  width: 8.1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 1.6rem;
 }
 
 .add-link-container > img {

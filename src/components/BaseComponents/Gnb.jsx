@@ -21,20 +21,20 @@ function Gnb() {
           <img src={logo} alt="홈으로 연결된 Linkbrary 로고" />
         </a>
         {userData.data ? (
-          <div className="gnb">
+          <>
             {userData.data?.map((info) => {
               return (
-                <>
+                <div className="gnb" key={info.id}>
                   <img
                     className="gnb-img"
                     src={info.image_source}
                     alt="프로필 사진"
                   />
                   <span className="email">{info.email}</span>
-                </>
+                </div>
               );
             })}
-          </div>
+          </>
         ) : (
           <div>
             <button className="login button">로그인</button>
