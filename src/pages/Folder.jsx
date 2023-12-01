@@ -1,21 +1,15 @@
 import React from "react";
-import "./index.css";
-import Card from "components/Card";
-import search from "assets/icons/Search.svg";
+import PageForm from "components/PageForm";
+import { useFetcher } from "hooks/useFetcher";
+import { getFolderList } from "utils/api";
 
-const Folder = ({ folder }) => {
+const Folder = () => {
+  const { data } = useFetcher("folder", getFolderList);
+  console.log(data);
   return (
-    <article>
-      <div className="input">
-        <img src={search} alt="Search" />
-        <input className="searchBar" placeholder="링크로 검색해 보세요." />
-      </div>
-      <div className="cards">
-        {folder?.map((data) => {
-          return <Card key={data.id} data={data} />;
-        })}
-      </div>
-    </article>
+    <PageForm>
+      <div>저장된 링크가 없습니다.</div>
+    </PageForm>
   );
 };
 

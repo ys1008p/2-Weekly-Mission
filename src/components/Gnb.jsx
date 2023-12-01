@@ -1,28 +1,26 @@
-import React, { useContext } from "react";
+import React from "react";
 import logo from "assets/images/logo.svg";
 import account from "assets/images/account.png";
-import { AuthContext } from "contexts/AuthContext";
+import { CtaShort } from "assets/styles/cta";
+import { Gnb } from "assets/styles/gnb";
 
-const GNB = ({ isLogin, onClick }) => {
-  const {
-    authData: { email },
-  } = useContext(AuthContext);
+const GNB = ({ auth, isLogin, onClick }) => {
   return (
-    <nav>
-      <div className="gnb">
-        <img className={logo} src={logo} alt="홈으로 연결된 Linkbrary 로고" />
+    <Gnb.Wrapper>
+      <Gnb.Container>
+        <Gnb.Logo src={logo} alt="홈으로 연결된 Linkbrary 로고" />
         {isLogin ? (
-          <div className="account">
+          <Gnb.Account>
             <img src={account} alt="account" />
-            <span className="email">{email}</span>
-          </div>
+            <Gnb.Email>{auth?.email || ""}</Gnb.Email>
+          </Gnb.Account>
         ) : (
-          <button className="cta cta-short" onClick={onClick}>
+          <CtaShort onClick={onClick}>
             <span>로그인</span>
-          </button>
+          </CtaShort>
         )}
-      </div>
-    </nav>
+      </Gnb.Container>
+    </Gnb.Wrapper>
   );
 };
 
