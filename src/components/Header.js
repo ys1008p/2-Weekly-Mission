@@ -1,33 +1,7 @@
 import '../components/Header.css';
 import logo from '../assets/logo.svg';
-import { useState, useEffect } from 'react';
-import { getProfile, getFolder } from '../api';
 
-function Header({ className }){
-  const [profileImg, setProfileImg] = useState(null);
-  const [profileEmail, setProfileEmail] = useState(null);
-  const [folderUserProfile, setFolderUserProfile] = useState(null);
-  const [folderUserName, setFolderUserName] = useState('');
-  const [folderName, setFolderName] = useState('');
-
-  const handleLoadProfile = async () => {
-    const { email, profileImageSource } = await getProfile();
-    setProfileEmail(email);
-    setProfileImg(profileImageSource);
-  }
-
-  const handleLoadFolder = async () => {
-    const { folder } = await getFolder();
-    setFolderName(folder.name);
-    setFolderUserName(folder?.owner?.name);
-    setFolderUserProfile(folder?.owner?.profileImageSource);
-  }
-
-  useEffect(() => {
-    handleLoadProfile();
-    handleLoadFolder();
-  }, [])
-
+function Header({ className, profileEmail, profileImg, folderUserProfile, folderUserName, folderName }){
   return (
     <header className={className}>
       <nav>

@@ -42,11 +42,13 @@
 .main .card ul li {
   width: calc(33.3% - 2rem);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
 }
 
 .main .card ul li a {
   display: block;
   overflow: hidden;
+  border: 3px solid transparent;
   border-radius: 15px;
 }
 
