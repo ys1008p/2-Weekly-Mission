@@ -4,37 +4,24 @@ import Header from "./component/shared/header/Header";
 import Main from "./component/shared/main/Main";
 import GlobalStyle from "./GlobalStyles";
 import Loding from "./component/loding/Loding";
+import { getUserData } from "./component/api/getUserData";
 
 function App() {
-  //유저데이터 불러오기
   const [userData, setUserData] = useState({});
-  // 로딩구현
-  const [loding, setLoding] = useState();
-  // 사이드 이펙트 처리 & 데이터 GET
+  const [loding, setLoding] = useState(false);
+
   useEffect(() => {
-    async function getServerData() {
-      setLoding(true);
-      try {
-        const res = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/user"
-        );
+    setLoding(true);
 
-        if (!res.ok) {
-          throw new Error();
-        }
-
-        const data = await res.json();
-        setUserData(data);
-        // 로딩완료시 로딩창 안 보이게
-      } catch (e) {
-        console.log("에러 발생: " + e);
-        alert("사용자 데이터를 불러오는중 에러가 발생하였습니다.");
-      } finally {
+    getUserData()
+      .then((result) => {
+        setUserData(result);
         setLoding(false);
-      }
-    }
-
-    getServerData();
+      })
+      .catch(() => alert("회원정보를 불러오는중 에러가 발생하였습니다."))
+      .finally(() => {
+        setLoding(false);
+      });
   }, []);
 
   const renderHeader = !loding && <Header userData={userData} />;

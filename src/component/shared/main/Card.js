@@ -1,41 +1,22 @@
 import { useEffect, useState } from "react";
 import { formatDate, getTimeDifference } from "../../../Utility/Date";
 import "./Main.css";
+import { getFolderData } from "../../api/getFolderData";
 
 function Card() {
-  // 폴더 데이터를 담을 State
   const [cardData, setCardData] = useState({});
 
-  // 사이드 이펙트 처리 & 데이터 GET
   useEffect(() => {
-    async function getCardData() {
-      try {
-        const res = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
-        );
-        const data = await res.json();
-
-        if (!res.ok) {
-          throw new Error();
-        }
-
-        data.folder.links.sort((a, b) => {
-          // 최신순정렬
-          return new Date(b.createdAt) - new Date(a.createdAt);
-        });
-        setCardData(data);
-      } catch (e) {
-        console.log("에러발생 :" + e);
-        alert("저장된 데이터를 불러오는중 에러가 발생하였습니다.");
-      }
-    }
-
-    getCardData();
+    getFolderData()
+      .then((result) => {
+        setCardData(result);
+      })
+      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
   }, []);
 
   return (
     <div className="card-main-container">
-      {cardData.folder?.links.map((item) => (
+      {cardData?.folder?.links.map((item) => (
         <a href={item.url} key={item.id}>
           <div className="card-item-container">
             {/* 이미지가 없을시 대체 이미지 */}
