@@ -6,8 +6,10 @@ export async function getFolder() {
   return body;
 }
 
-export async function getLinks() {
-  const result = await fetch(API.USER_LINKS);
+export async function getLinks(folderId) {
+  console.log(folderId);
+  const query = folderId === undefined ? '' : `?folderId=${folderId}`; // 쿼리 없는 경우 전체 링크 불러오기
+  const result = await fetch(`${API.USER_LINKS}${query}`);
   const body = await result.json();
   return body;
 }
@@ -18,11 +20,6 @@ export async function getUser() {
   return body;
 }
 
-// 프로필 영역의 데이터는
-// https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/users/1”을 활용해 주세요.
-
-// 폴더 목록에 필요한 데이터는 “/api/users/1/folders”를 활용해 주세요.
-// “전체” 폴더에 필요한 링크들 데이터는 “/api/users/1/links”를 활용하고,
-// 이외의 폴더에 필요한 링크들 데이터는 “/api/users/1/links?folderId={해당 폴더 ID}”를 활용해 주세요.
-// 폴더 버튼을 클릭하면 폴더에 해당하는 링크들로 카드를 구성해 주세요.
-// 폴더에 링크 데이터가 없을 때는 저장된 링크가 없다는 UI를 보여주세요.
+// USER_FOLDER: 'https://bootcamp-api.codeit.kr/api/users/1/folders
+// USER_LINKS: 'https://bootcamp-api.codeit.kr/api/users/1/links
+// USER_INFO: 'https://bootcamp-api.codeit.kr/api/users/1',

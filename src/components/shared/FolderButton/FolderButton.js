@@ -1,11 +1,7 @@
+import { useState } from 'react';
 import useToggle from '../../../hooks/useToggle';
 import './FolderButton.css';
 
-export default function FolderButton({ children }) {
-  const [isFolderChosen, setIsFolderChosen] = useToggle();
-  return (
-    <button className={`FolderButton ${isFolderChosen && 'chosenFolderButton'}`} onClick={setIsFolderChosen}>
-      {children}
-    </button>
-  );
+export default function FolderButton({ folderInfo }) {
+  return <button className={`'FolderButton'`}>{`${folderInfo.name} ${folderInfo.id}`}</button>;
 }

@@ -15,7 +15,7 @@ export default function FolderPage() {
   }
 
   async function loadLinks() {
-    const { data } = await getLinks();
+    const { data } = await getLinks(16);
     setLinks(data);
   }
 
