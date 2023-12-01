@@ -1,13 +1,13 @@
-import styles from './FolderMain.module.css';
-import SearchBar from '../atoms/SearchBar/SearchBar';
-import CardList from '../CardList/CardList';
-import LinkInput from '../atoms/LinkInput/LinkInput';
-import FolderList from '../atoms/FolderList/FolderList';
+import styles from './FolderPage.module.css';
+import SearchBar from '../../components/atoms/SearchBar/SearchBar';
+import CardList from '../../components/CardList/CardList';
+import LinkInput from '../../components/atoms/LinkInput/LinkInput';
+import FolderList from '../../components/atoms/FolderList/FolderList';
 import Folder from '../../folder-mock.json';
 import FolderData from '../../list-mock.json';
-import FolderTitle from '../atoms/FolderTitle/FolderTitle';
+import FolderTitle from '../../components/atoms/FolderTitle/FolderTitle';
 import { useState } from 'react';
-function FolderMain() {
+function FolderPage() {
   const { folder } = Folder;
   const { data } = FolderData;
 
@@ -32,4 +32,4 @@ function FolderMain() {
   );
 }
 
-export default FolderMain;
+export default FolderPage;

@@ -1,11 +1,11 @@
-import './SharedMain.css';
-import FolderInfo from '../FolderInfo/FolderInfo';
-import SearchBar from '../atoms/SearchBar/SearchBar';
-import CardList from '../CardList/CardList';
+import './SharedPage.css';
+import FolderInfo from '../../components/FolderInfo/FolderInfo';
+import SearchBar from '../../components/atoms/SearchBar/SearchBar';
+import CardList from '../../components/CardList/CardList';
 import { getSampleFolderData } from '../../utils/api';
 import { useEffect, useState } from 'react';
 
-export default function SharedMain() {
+export default function FolderPage() {
   const [folderData, setFolderData] = useState();
   const [isLoadingSuccess, setIsLoadingSuccess] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
