@@ -1,3 +1,8 @@
+.header {
+  padding: 0 20rem; 
+  background-color: var(--color-sky-blue);
+}
+
 .header .logo a {
   display: block;
 }
@@ -7,8 +12,6 @@
   justify-content: space-between;
   align-items: center;
   height: 9.4rem;
-  padding: 0 20rem; 
-  background-color: var(--color-sky-blue);
 }
 
 .header .profile a {
@@ -33,6 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 12.8rem;
   height: 5.4rem;
   cursor: pointer;
   background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
@@ -42,34 +46,63 @@
   font-weight: 600;
 }
 
-.header .profile .cta-short {
-  width: 12.8rem;
+.header .add-link {
+  position: relative;
+  width: 80rem;
+  margin: 0 auto;
 }
 
-.header .folder-info {
-  padding: 2rem 0 6rem 0;
-  text-align: center;
-  background-color: var(--color-sky-blue);
+.header .add-link-wrap {
+  padding: 6rem 0 9rem 0;
 }
 
-.header .folder-info .user-profile {
-  width: 6rem;
+.header .add-link::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url('../assets/ico-link.png') no-repeat;
 }
 
-.header .folder-info .user-name {
-  margin: 1.2rem 0 2rem 0 ;
+.header .add-link input {
+  width: 80rem;
+  padding: 2.2rem 5.2rem;
+  border-radius: 15px;
+  border: 1px solid var(--color-blue);
+  color: var(--color-middle-gray);
   font-size: 1.6rem;
+  outline: none;
 }
 
-.header .folder-info .name {
-  font-size: 4rem;
-  line-height: 4.8rem;
+.header .add-link .cta {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 8rem;
+  height: 3.7rem;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: var(--color-very-light-gray);
+  font-size: 2.4rem;
   font-weight: 600;
+  text-align: center;
 }
 
 @media screen and (max-width:1124px) {
-  .header nav {
+  .header {
     padding: 0 3.2rem;
+  }
+
+  .header .add-link,
+  .header .add-link input {
+    width: 100%;
   }
 }
 
@@ -88,30 +121,16 @@
   }
 
   .header .profile .cta {
+    width: 8rem;
     height: 3.7rem;
     font-size: 2.4rem;
   }
 
-  .header .profile .cta-short {
-    width: 8rem;
+  .header .add-link-wrap {
+    padding: 2.4rem 0 4rem 0;
   }
 
-  .header .folder-info {   
-    padding: 1rem 0 4rem 0;
-  }
-
-  .header .folder-info .user-profile {
-    width: 4rem;
-  }
-
-  .header .folder-info .user-name {
-    margin: 0.6rem 0 1rem ;
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-  }
-
-  .header .folder-info .name {
-    font-size: 3.2rem;
-    line-height: 3.8rem;
+  .header .add-link input {
+    font-size: 1.4rem; 
   }
 }

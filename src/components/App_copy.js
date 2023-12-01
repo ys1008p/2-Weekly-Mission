@@ -12,9 +12,6 @@ function App_copy() {
   const [cardList, setCardList] = useState([]);
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState("");
-  const [folderUserProfile, setFolderUserProfile] = useState(null);
-  const [folderUserName, setFolderUserName] = useState("");
-  const [folderName, setFolderName] = useState("");
   const [profileIsLoading, profileError, getProfileAsync] = useAsync(
     `${BASE_URL}/1`
   );
@@ -37,19 +34,15 @@ function App_copy() {
     const result = await getFolderAsync();
     if (!result) return;
 
-    const { folder } = result;
-    const { links } = folder;
-    setFolderName(folder.name);
-    setFolderUserName(folder?.owner?.name);
-    setFolderUserProfile(folder?.owner?.profileImageSource);
-    setCardList(links);
+    const { data } = result;
+    setCardList(data);
 
     return [folderIsLoading, folderError];
   };
 
-  // const handleMouseOver = (e) => e.currentTarget.classList.add("active");
+  const handleMouseOver = (e) => e.currentTarget.classList.add("active");
 
-  // const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
+  const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
 
   useEffect(() => {
     handleLoadProfile();
@@ -63,13 +56,13 @@ function App_copy() {
         profileEmail={profileEmail}
         profileImg={profileImg}
       />
-      {/* <Main_copy
+      <Main_copy
         className="main"
-        links={cardList}
+        data={cardList}
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       />
-      <Footer className="footer" /> */}
+      {/* <Footer className="footer" /> */}
     </div>
   );
 }
