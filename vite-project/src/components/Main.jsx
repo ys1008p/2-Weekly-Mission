@@ -1,4 +1,4 @@
-import MainLinkList from "./MainLinkList";
+import MainCard from "./MainCard";
 import search from "../../../images/shared/search.svg";
 import "./Main.css";
 
@@ -16,11 +16,14 @@ function Main({ links }) {
     <main>
       <MainSearchBox className="search" />{" "}
       <ul className="cards">
-        {links?.map((item) => {
+        {links.map((item) => {
           return (
-            <li className="card" key={item.id}>
-              <MainLinkList item={item} target="_blank" rel="noreferrer" />
-            </li>
+            <MainCard
+              key={item.id}
+              item={item}
+              target="_blank"
+              rel="noreferrer"
+            />
           );
         })}
       </ul>

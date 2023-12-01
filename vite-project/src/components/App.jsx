@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <Navigation profile={profile} />
-      <Header folder={folder} />
+      {Object.keys(folder).length === 0 || <Header folder={folder} />}
       <Main links={links} />
       <Footer />
     </>
