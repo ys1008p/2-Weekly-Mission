@@ -1,6 +1,6 @@
 import styles from './FolderList.module.css';
 import AddImg from '../../../assets/add.svg';
-import { useState } from 'react';
+import AddWhiteImg from '../../../assets/addwhite.svg';
 
 function FolderList({ data, selectedId, onClick }) {
   return (
@@ -33,7 +33,10 @@ function FolderList({ data, selectedId, onClick }) {
           );
         })}
       </ul>
-      <img src={AddImg} alt="폴더 추가" className={styles.addButton} />
+      <div className={styles.addButton}>
+        <img src={AddImg} alt="폴더 추가" className={styles.addIcon} />
+        <img src={AddWhiteImg} alt="폴더 추가" className={styles.addWhiteIcon} />
+      </div>
     </div>
   );
 }
