@@ -11,6 +11,15 @@ export async function getUserInfo() {
   return body;
 }
 
+export async function getFolderData() {
+  const response = await fetch(`${BASE_URL}/api/users/1/links`);
+  if (!response.ok) {
+    throw new Error('폴더 데이터를 불러오는데 실패했습니다.');
+  }
+  const body = await response.json();
+  return body;
+}
+
 export async function getSampleFolderData() {
   const response = await fetch(`${BASE_URL}/api/sample/folder`);
   if (!response.ok) {
