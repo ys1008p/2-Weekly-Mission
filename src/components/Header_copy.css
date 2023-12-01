@@ -130,7 +130,16 @@
     padding: 2.4rem 0 4rem 0;
   }
 
+  .header .add-link::before {
+    left: 1rem;
+  }
+
   .header .add-link input {
+    padding: 1.8rem 3.4rem;
     font-size: 1.4rem; 
+  }
+
+  .header .add-link .cta {
+    right: 1rem;
   }
 }
