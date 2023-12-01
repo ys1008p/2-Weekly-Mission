@@ -11,8 +11,10 @@ export async function getUserInfo() {
   return body;
 }
 
-export async function getFolderData() {
-  const response = await fetch(`${BASE_URL}/api/users/1/links`);
+export async function getFolderData(selectedId) {
+  console.log(selectedId);
+  const query = isNaN(selectedId) ? `` : `?folderId=${selectedId}`;
+  const response = await fetch(`${BASE_URL}/api/users/1/links${query}`);
   if (!response.ok) {
     throw new Error('폴더 데이터를 불러오는데 실패했습니다.');
   }
