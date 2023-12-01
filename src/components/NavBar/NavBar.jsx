@@ -8,14 +8,17 @@ import { useEffect, useState } from 'react';
 export default function NavBar() {
   const [userData, setUserData] = useState({ email: '', profileImageSource: null });
   const [isLoadingSuccess, setIsLoadingSuccess] = useState(false);
-
+  const [loadingError, setLoadingError] = useState(null);
   // 유저 가져오기
   const handleLoadUser = async () => {
     let result;
     try {
+      setLoadingError(null);
       result = await getUserInfo();
     } catch (error) {
-      console.log(error);
+      setLoadingError(error);
+      console.log(loadingError);
+      return;
     }
 
     const { email, profileImageSource } = result;
