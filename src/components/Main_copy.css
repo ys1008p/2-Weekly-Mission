@@ -81,7 +81,19 @@
 
 .main .card ul li .img-box {
   overflow: hidden; 
+  position: relative;
   height: 20rem;
+}
+
+.main .card ul li .img-box::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  width: 3.4rem;
+  height: 3.4rem;
+  background: url('../assets/ico-star.png') no-repeat;
 }
 
 .main .card ul li img {
@@ -97,6 +109,7 @@
 }
 
 .main .card ul li .card-text {
+  overflow: hidden;
   padding: 1.5rem 2rem;
 }
 
@@ -104,10 +117,19 @@
   background-color: var(--bg-sky-blue);
 }
 
-.main .card ul li .card-text .createdAt {
+.main .card ul li .card-text .created-at {
+  float: left;
   font-size: 1.3rem;
   line-height: 1.5rem;
   color: var(--color-gray);
+}
+
+.main .card ul li .card-text .kabab {
+  display: block;
+  float: right;
+  width: 2.1rem;
+  height: 1.7rem;
+  background: url('../assets/kebab.png') no-repeat;
 }
 
 .main .card ul li .card-text .desc {
@@ -116,9 +138,10 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  margin: 1.1rem 0 1rem 0;
+  margin: 2.1rem 0 1rem 0;
   font-size: 1.6rem;
   color: var(--color-black-000);
+  clear: both;
 }
 
 .main .card ul li .card-text .date {
