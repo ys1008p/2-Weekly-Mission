@@ -1,14 +1,14 @@
-import Header from "../components/Header";
-import Main from "../components/Main";
+import Header_copy from "../components/Header_copy";
+import Main_copy from "../components/Main_copy";
 import Footer from "../components/Footer";
 import "../components/reset.css";
 import "../components/root.css";
 import { useEffect, useState } from "react";
 import useAsync from "../hooks/useAsync";
 
-const BASE_URL = "https://bootcamp-api.codeit.kr/api/sample";
+const BASE_URL = "https://bootcamp-api.codeit.kr/api/users";
 
-function App() {
+function App_copy() {
   const [cardList, setCardList] = useState([]);
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState("");
@@ -16,19 +16,19 @@ function App() {
   const [folderUserName, setFolderUserName] = useState("");
   const [folderName, setFolderName] = useState("");
   const [profileIsLoading, profileError, getProfileAsync] = useAsync(
-    `${BASE_URL}/user`
+    `${BASE_URL}/1`
   );
   const [folderIsLoading, folderError, getFolderAsync] = useAsync(
-    `${BASE_URL}/folder`
+    `${BASE_URL}/1/folders`
   );
-
+   
   const handleLoadProfile = async () => {
     const result = await getProfileAsync();
     if (!result) return;
 
-    const { email, profileImageSource } = result;
-    setProfileImg(profileImageSource);
-    setProfileEmail(email);
+    const { data } = result;
+    setProfileImg(data[0].image_source);
+    setProfileEmail(data[0].email);
 
     return [profileIsLoading, profileError];
   };
@@ -47,34 +47,31 @@ function App() {
     return [folderIsLoading, folderError];
   };
 
-  const handleMouseOver = (e) => e.currentTarget.classList.add("active");
+  // const handleMouseOver = (e) => e.currentTarget.classList.add("active");
 
-  const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
+  // const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
 
   useEffect(() => {
     handleLoadProfile();
     handleLoadFolder();
   }, []);
-
+ 
   return (
     <div className="container">
-      <Header
+      <Header_copy
         className="header"
         profileEmail={profileEmail}
         profileImg={profileImg}
-        folderUserProfile={folderUserProfile}
-        folderUserName={folderUserName}
-        folderName={folderName}
       />
-      <Main
+      {/* <Main_copy
         className="main"
         links={cardList}
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       />
-      <Footer className="footer" />
+      <Footer className="footer" /> */}
     </div>
   );
 }
 
-export default App;
+export default App_copy;
