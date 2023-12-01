@@ -24,6 +24,7 @@
   color: var(--linkbrary-gray-60, #9fa6b2);
   font-size: 1.4rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
 @media (min-width: 375px) {

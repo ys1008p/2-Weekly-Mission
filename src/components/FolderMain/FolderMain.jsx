@@ -12,8 +12,11 @@ function FolderMain() {
   const { data } = FolderData;
 
   const [selectedId, setSelectedId] = useState('all');
+  const [folderTitle, setFolderTitle] = useState('전체');
+
   const handleClick = (e) => {
     setSelectedId(e.target.id);
+    setFolderTitle(e.target.textContent);
   };
 
   return (
@@ -22,7 +25,7 @@ function FolderMain() {
       <article className={styles.article}>
         <SearchBar />
         <FolderList data={data} selectedId={selectedId} onClick={handleClick} />
-        <FolderTitle />
+        <FolderTitle title={folderTitle} selectedId={selectedId} />
         <CardList links={folder.links} />
       </article>
     </main>
