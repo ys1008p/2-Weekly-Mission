@@ -1,4 +1,3 @@
-import "./App.css";
 import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
 import { getUserData, getUserPick } from "./util/api";
@@ -6,7 +5,7 @@ import { useEffect, useState } from "react";
 import Header from "./Components/Haeder";
 import Main from "./Components/Main";
 
-function App() {
+function SharedPage() {
   const [userData, setUserData] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const [cardData, setCardData] = useState([]);
@@ -43,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default SharedPage;
