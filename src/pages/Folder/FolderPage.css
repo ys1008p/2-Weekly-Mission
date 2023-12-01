@@ -1,10 +1,4 @@
-folder {
-  background-color: var(--white-color);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.folder {
+.folder-section {
   max-width: 106rem;
   margin: auto;
   display: flex;

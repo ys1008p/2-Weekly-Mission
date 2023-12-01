@@ -14,7 +14,7 @@ function FolderPage() {
       <div>
         <AddLink />
         <section>
-          <div className="folder">
+          <div className="folder-section">
             <SearchBar />
             <FolderContainer />
           </div>

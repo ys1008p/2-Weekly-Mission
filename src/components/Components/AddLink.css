@@ -2,6 +2,11 @@
   background-color: var(--gray-bg-color);
   padding-top: 6rem;
   padding-bottom: 9rem;
+
+  @media (max-width: 1200px) {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
 }
 .add-link-container {
   position: relative;

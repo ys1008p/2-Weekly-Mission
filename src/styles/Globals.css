@@ -50,3 +50,8 @@ html {
 br {
   display: block;
 }
+
+button {
+  border-style: none;
+  background-color: var(--white-color);
+}
