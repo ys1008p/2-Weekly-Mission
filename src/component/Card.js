@@ -1,4 +1,4 @@
-import { formatDate, getTimeDifference } from "../../../utility/date";
+import { formatDate, getTimeDifference } from "../utility/date";
 import "./Main.css";
 
 function Card({ data }) {
