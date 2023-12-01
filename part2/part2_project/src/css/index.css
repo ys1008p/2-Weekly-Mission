@@ -41,3 +41,12 @@ body {
 main {
   padding: 2.5rem 13.2vw;
 }
+
+@media (max-width: 1124px) {
+  main {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+}

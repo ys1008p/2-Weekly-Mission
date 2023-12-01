@@ -6,7 +6,6 @@
 
 .card {
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
-
   display: flex;
   flex-wrap: wrap;
   width: 21.25rem;
@@ -16,6 +15,7 @@
   gap: 0.625rem;
   overflow: hidden;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .cardImg {
@@ -25,4 +25,20 @@
   position: relative;
   left: -1.25rem;
   top: -1.2rem;
+}
+
+.card:hover.cardImg {
+  size: 130%;
+}
+
+@media (max-width: 1124px) {
+  .CardList {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
 }
