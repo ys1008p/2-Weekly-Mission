@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react';
 import { getFolderData, getFolderListData } from '../../utils/api';
 
 function FolderPage() {
-  const [folderList, setFolderList] = useState();
-  const [folderData, setFolderData] = useState();
+  const [folderList, setFolderList] = useState(); // 폴더 목록 데이터
+  const [folderData, setFolderData] = useState(); // 저장된 폴더의 링크 데이터
   const [isLoadingSuccess, setIsLoadingSuccess] = useState(false);
   const [selectedId, setSelectedId] = useState('all');
   const [folderTitle, setFolderTitle] = useState('전체');
@@ -25,6 +25,7 @@ function FolderPage() {
       const folderContentResult = await getFolderData(selectedId);
       setFolderList(folderListResult.data);
       setFolderData(folderContentResult.data);
+
       setIsLoadingSuccess(true);
     } catch (error) {
       console.log(error);
@@ -48,6 +49,7 @@ function FolderPage() {
             <FolderList data={folderList} selectedId={selectedId} onClick={handleClick} />
             <FolderTitle title={folderTitle} selectedId={selectedId} />
             <CardList links={folderData} isSample={false} />
+            {!folderData.length && <div className={styles.noLinks}>저장된 링크가 없습니다.</div>}
           </>
         )}
       </article>
