@@ -4,9 +4,7 @@ import Layout from './Layout';
 export default function Shared() {
   return (
     <>
-      <Layout>
-        <SharedMain />
-      </Layout>
+      <SharedMain />
     </>
   );
 }

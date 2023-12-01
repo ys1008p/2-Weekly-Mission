@@ -2,7 +2,7 @@ import './SharedMain.css';
 import FolderInfo from '../FolderInfo/FolderInfo';
 import SearchBar from '../atoms/SearchBar/SearchBar';
 import CardList from '../CardList/CardList';
-import { getFolderData } from '../../utils/api';
+import { getSampleFolderData } from '../../utils/api';
 import { useEffect, useState } from 'react';
 
 export default function SharedMain() {
@@ -12,7 +12,7 @@ export default function SharedMain() {
   const handleLoadFolderData = async () => {
     let result;
     try {
-      result = await getFolderData();
+      result = await getSampleFolderData();
       setLoadingError(null);
     } catch (error) {
       setLoadingError(error);
@@ -23,7 +23,7 @@ export default function SharedMain() {
     const { folder } = result;
     setFolderData(folder);
     setIsLoadingSuccess(true);
-    console.log('폴더 데이터를 가져왔습니다.');
+    console.log('샘플 폴더 데이터를 가져왔습니다.');
   };
 
   useEffect(() => {
