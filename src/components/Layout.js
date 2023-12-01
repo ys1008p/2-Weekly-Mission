@@ -5,6 +5,7 @@ import Gnb from './shared/Gnb/Gnb';
 import Footer from './shared/Footer/Footer';
 import SearchBar from './shared/SearchBar/SearchBar';
 import AddLinkBar from './shared/AddLinkBar/AddLinkBar';
+import Sorting from './Sorting/Sorting';
 
 // Gnb, AddLinkBar, SearchBar, Footer 갖춘 기본 레이아웃
 function Layout() {
@@ -29,6 +30,7 @@ function Layout() {
       <Gnb profile={profile} />
       <AddLinkBar />
       <SearchBar />
+      <Sorting />
       <Outlet />
       <Footer />
     </>

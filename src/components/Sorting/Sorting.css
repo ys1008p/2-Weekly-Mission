@@ -1,0 +1,10 @@
+.Sorting {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 0 auto;
+}
+.Sorting__container {
+  display: flex;
+  justify-content: flex-start;
+}

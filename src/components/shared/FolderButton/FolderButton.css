@@ -1,0 +1,18 @@
+.FolderButton {
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  color: #000;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  background: #fff;
+}
+
+.chosenFolderButton {
+  color: #fff;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  background: var(--linkbrary-primary-color, #6d6afe);
+}
