@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./globals.css";
 import AuthProvider from "@/providers/AuthProvider";
 import UserProvider from "@/providers/UserProvider";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, defer } from "react-router-dom";
 import HomePage from "@/pages/HomePage";
 import SharedPage from "@/pages/SharedPage";
+import { getFolder } from "./apis/folder-api";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/shared",
+    loader: () => {
+      return defer({ folder: getFolder() });
+    },
     element: <SharedPage />,
   },
 ]);
