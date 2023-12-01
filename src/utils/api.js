@@ -28,3 +28,12 @@ export async function getSampleFolderData() {
   const body = await response.json();
   return body;
 }
+
+export async function getFolderListData() {
+  const response = await fetch(`${BASE_URL}/api/users/1/folders`);
+  if (!response.ok) {
+    throw new Error('폴더 리스트를 불러오는데 실패했습니다.');
+  }
+  const body = await response.json();
+  return body;
+}

@@ -19,6 +19,11 @@ function FolderPage() {
     setFolderTitle(e.target.textContent);
   };
 
+  const handleLoad = async () => {
+    try {
+    } catch (error) {}
+  };
+
   return (
     <main>
       <LinkInput />
