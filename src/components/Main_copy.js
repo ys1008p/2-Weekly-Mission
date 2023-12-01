@@ -63,6 +63,16 @@ function Main_copy({ className, data, onMouseOver, onMouseOut }){
       <div className="search">
         <input type="search" placeholder="링크를 검색해 보세요."/>
       </div>
+      <div className="tab-menu">
+        <ul>
+          <li><a href="">전체</a></li>
+          <li><a href="">⭐️ 즐겨찾기</a></li>
+          <li><a href="">코딩 팁</a></li>
+          <li><a href="">채용 사이트</a></li>
+          <li><a href="">유용한 글</a></li>
+          <li><a href="">나만의 장소</a></li>
+        </ul>
+      </div>
       <div className="card">
         <ul>
           <CardList 
