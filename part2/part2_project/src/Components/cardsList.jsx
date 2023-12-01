@@ -11,7 +11,7 @@ const Cards = ({ card }) => {
   }
 
   return (
-    <a href={url} className="card" key={id}>
+    <a href={url} className="card">
       <div className="cardImgBox">
         <img className="cardImg" src={imageSource || noneImg} alt={title} />
       </div>
@@ -23,8 +23,6 @@ const Cards = ({ card }) => {
     </a>
   );
 };
-
-// 이 부분이 왜 구현이 안되는 지 모르겠어요....
 
 export default function CardsList({ cardData }) {
   return (
