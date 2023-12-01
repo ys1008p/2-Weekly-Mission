@@ -16,7 +16,9 @@ function Card({ imageSource, createdAt, description, url }) {
 
   return (
     <a className="card" href={url} target="_blank">
-      <img className="card__image" src={imgUrl} alt="카드 이미지" />
+      <div className="card__image">
+        <img className="card__image--img" src={imgUrl} alt="카드 이미지" />
+      </div>
       <div className="card__info">
         <span className="card__info--ago">{calculateTimeDiff(createdAt)}</span>
         <p className="card__info--desc">{description}</p>

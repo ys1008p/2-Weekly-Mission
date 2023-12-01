@@ -6,13 +6,17 @@ import CardList from '@/components/CardList/CardList';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import SearchBar from '@/components/SearchBar/SearchBar';
+import { UserProvider } from '@/contexts/UserContext';
 
-import { UserProvider } from '../../contexts/UserContext';
 import SharedTitle from './SharedTitle';
 import { getFolders } from './api';
 
 function SharedPage() {
-  const [folder, setFolder] = useState({});
+  const [folder, setFolder] = useState({
+    name: '',
+    owner: { name: '' },
+    links: [],
+  });
 
   useEffect(() => {
     async function fetchFolders() {
@@ -30,7 +34,7 @@ function SharedPage() {
       </Header>
       <main className="main">
         <SearchBar placeholder="링크를 검색해 보세요." className="main__content" />
-        <CardList className="main__content shared__card-list" list={folder?.links} />
+        <CardList className="main__content shared__card-list" list={folder.links} />
       </main>
       <Footer />
     </UserProvider>

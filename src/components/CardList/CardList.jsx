@@ -2,7 +2,7 @@ import './style.css';
 
 import Card from '../Card/Card';
 
-function CardList({ className, list = [] }) {
+function CardList({ className, list }) {
   const classNames = `card-list ${className}`;
   return (
     <div className={classNames}>
