@@ -56,42 +56,46 @@ function noPassword () {
   }
 }
 
-function testLogin (event) {
-  event.preventDefault ();
 
-  const emailInput = document.querySelector('#email')
-  const passwordInput = document.querySelector('#password');
+// function testLogin (event) {
+//   event.preventDefault ();
 
-  const emailError = document.querySelector('.email-error');
-  const passwordError = document.querySelector('.passwordError')
+//   const emailInput = document.querySelector('#email')
+//   const passwordInput = document.querySelector('#password');
 
-  const loginTest = 
-  (emailInput.value === 'test@codeit.com')&&(passwordInput.value === "codeit101"); 
+//   const emailError = document.querySelector('.email-error');
+//   const passwordError = document.querySelector('.passwordError');
 
-  if(loginTest){
-    window.location.href = "./folder/"
-  }
-  else{
+//   const loginTest = 
+//   (emailInput.value === 'test@codeit.com')&&(passwordInput.value === "codeit101"); 
+
+//   if(loginTest){
+//     window.location.href = "./folder/"
+//   }
+//   else{
     
-    emailError.textContent = '이메일을 확인해주세요.'
-    emailError.classList.add('inputError')
-    emailInput.classList.add('inputErrorBorder')
+//     emailError.textContent = '이메일을 확인해주세요.'
+//     emailError.classList.add('inputError')
+//     emailInput.classList.add('inputErrorBorder')
 
-    passwordError.textContent = '비밀번호를 확인해주세요.'
-    passwordError.classList.add('inputError')
-    passwordInput.classList.add('inputErrorBorder')
-  }
+//     passwordError.textContent = '비밀번호를 확인해주세요.'
+//     passwordError.classList.add('inputError')
+//     passwordInput.classList.add('inputErrorBorder')
+//   }
   
+// }
 
-}
 
 // 로그인 에러메시지
 const emailInput = document.querySelector('#email')
 const passwordInput = document.querySelector('#password');
 const signinning = document.querySelector('#signinning')
 
+const eye = document.querySelector('.eye')
+
 emailInput.addEventListener('focusout', validEmail)
 passwordInput.addEventListener('focusout',noPassword)
-signinning.addEventListener('click', testLogin)
+
+eye.addEventListener('click', togglePasswordVisibility)
 
 

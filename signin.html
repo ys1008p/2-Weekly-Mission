@@ -28,15 +28,18 @@
     <main>
       <section>
         <form id = 'form'>
+
           <label for="email">이메일</label>
           <input id="email" name="username">
           <label class="email-error" for="email"></label>
+
           <label for="password">비밀번호</label>
           <div class="password-container">
-          <input id="password" name="password" type="password">
-          <i class="eye toggle-password" onclick="togglePasswordVisibility()"></i>
+            <input id="password" name="password" type="password">
+            <i class="eye toggle-password"></i>
           </div>
           <label class="passwordError" for="email"></label>
+
           <button id="signinning" type="submit">로그인</button>
         </form>
       </section>
@@ -56,4 +59,5 @@
     </main>
   </div>
   <script src="./src/signin.js"></script>
+  <script src="./src/signining.js"></script>
 </body>

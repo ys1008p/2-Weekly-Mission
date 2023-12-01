@@ -67,7 +67,6 @@ body{
 
 
 
-
   .email-error, .passwordError{
     padding: 0rem 0 0rem;
   }
@@ -152,7 +151,6 @@ body{
     justify-content: space-between;
   }
   
-
   .login-detailp{
     color: #373740;
   font-size: 14px;
