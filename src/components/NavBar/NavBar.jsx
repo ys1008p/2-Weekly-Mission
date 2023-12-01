@@ -6,7 +6,7 @@ import { getUserInfo } from '../../utils/api';
 import { useEffect, useState } from 'react';
 
 export default function NavBar() {
-  const [userData, setUserData] = useState({ email: '', profileImageSource: null });
+  const [userData, setUserData] = useState({ email: '', image_source: null });
   const [isLoadingSuccess, setIsLoadingSuccess] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
   // 유저 가져오기
@@ -21,9 +21,9 @@ export default function NavBar() {
       return;
     }
 
-    const { email, profileImageSource } = result;
+    const { email, image_source } = result;
 
-    setUserData({ email, profileImageSource });
+    setUserData({ email, image_source });
     setIsLoadingSuccess(true);
 
     console.log('유저 데이터를 가져왔습니다.');
@@ -40,7 +40,7 @@ export default function NavBar() {
         <img src={LinkbraryLogo} alt="홈페이지 로고" />
       </a>
       {isLoadingSuccess ? (
-        <UserInfo userEmail={userData.email} userProfileImg={userData.profileImageSource} />
+        <UserInfo userEmail={userData.email} userProfileImg={userData.image_source} />
       ) : (
         <a href="/signin" className="NavBar-login-link">
           <Cta isShort>
