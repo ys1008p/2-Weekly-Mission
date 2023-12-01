@@ -12,7 +12,6 @@ export async function getUserInfo() {
 }
 
 export async function getFolderData(selectedId) {
-  console.log(selectedId);
   const query = isNaN(selectedId) ? `` : `?folderId=${selectedId}`;
   const response = await fetch(`${BASE_URL}/api/users/1/links${query}`);
   if (!response.ok) {

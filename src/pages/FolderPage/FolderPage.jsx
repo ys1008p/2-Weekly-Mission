@@ -25,18 +25,15 @@ function FolderPage() {
       const folderContentResult = await getFolderData(selectedId);
       setFolderList(folderListResult.data);
       setFolderData(folderContentResult.data);
-
-      setIsLoadingSuccess(true);
     } catch (error) {
       console.log(error);
       return;
     }
+    setIsLoadingSuccess(true);
   };
 
   useEffect(() => {
     handleLoad(selectedId);
-    console.log('폴더 목록을 가져왔습니다.');
-    console.log('폴더 데이터를 가져왔습니다.');
   }, [selectedId]);
 
   return (
@@ -52,6 +49,7 @@ function FolderPage() {
             {!folderData.length && <div className={styles.noLinks}>저장된 링크가 없습니다.</div>}
           </>
         )}
+        {!isLoadingSuccess && <div className={styles.noLinks}>저장된 링크가 없습니다.</div>}
       </article>
     </main>
   );
