@@ -7,7 +7,7 @@ export default function Profile({ profile }) {
   });
   return (
     <div className="profileContainer">
-      <img className="profileImage" src={profile.profileImageSource}></img>
+      <img className="profileImage" src={profile.image_source}></img>
       {!isMobile && <div className="profileEmail">{profile.email}</div>}
     </div>
   );

@@ -5,20 +5,21 @@ import Gnb from './shared/Gnb/Gnb';
 import Footer from './shared/Footer/Footer';
 import SearchBar from './shared/SearchBar/SearchBar';
 import AddLinkBar from './shared/AddLinkBar/AddLinkBar';
-import Sorting from './Sorting/Sorting';
 
 // Gnb, AddLinkBar, SearchBar, Footer 갖춘 기본 레이아웃
 function Layout() {
   const [profile, setProfile] = useState({
     id: 0,
+    created_at: '',
     name: '',
+    image_source: '',
     email: '',
-    profileImageSource: '',
+    auth_id: '',
   });
 
   async function handleLoadProfile() {
-    const profile = await getUser();
-    setProfile({ ...profile });
+    const { data } = await getUser();
+    setProfile(data[0]);
   }
 
   useEffect(() => {
@@ -28,9 +29,6 @@ function Layout() {
   return (
     <>
       <Gnb profile={profile} />
-      <AddLinkBar />
-      <SearchBar />
-      <Sorting />
       <Outlet />
       <Footer />
     </>
