@@ -8,13 +8,16 @@ import { useEffect, useState } from 'react';
 export default function SharedMain() {
   const [folderData, setFolderData] = useState();
   const [isLoadingSuccess, setIsLoadingSuccess] = useState(false);
-
+  const [loadingError, setLoadingError] = useState(null);
   const handleLoadFolderData = async () => {
     let result;
     try {
       result = await getFolderData();
+      setLoadingError(null);
     } catch (error) {
+      setLoadingError(error);
       console.log(error);
+      return;
     }
 
     const { folder } = result;
