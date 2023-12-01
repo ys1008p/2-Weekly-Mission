@@ -13,7 +13,7 @@ function Navbar({ userData, location }) {
 
   return (
     <>
-      <nav className={handleNavbarPosition}>
+      <nav className={handleNavbarPosition()}>
         <div className="nav-item">
           <a href="/">
             <img src="img/logo.png" alt="logo" className="nav-item-logo" />

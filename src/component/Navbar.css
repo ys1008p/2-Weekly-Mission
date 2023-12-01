@@ -9,8 +9,9 @@
   z-index: 99;
 }
 
-.nav-bar .noFixed {
+.noFixed {
   position: static;
+  transform: none;
 }
 
 .nav-item {

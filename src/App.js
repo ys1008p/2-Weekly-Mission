@@ -44,8 +44,6 @@ function App() {
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
   }, []);
 
-  console.log(location.pathname);
-
   return (
     <>
       {loding && <Loding />}

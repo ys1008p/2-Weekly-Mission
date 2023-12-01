@@ -1,4 +1,4 @@
-.header-section {
+.header-owner-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,24 +8,24 @@
   background-color: #f0f6ff;
 }
 
-.header-section-ownerImg {
+.header-owner-section-ownerImg {
   border-radius: 50%;
   width: 6rem;
   background-color: #dddddd;
   margin-bottom: 1.2rem;
 }
 
-.header-section-ownerName {
+.header-owner-section-ownerName {
   font-size: 1.6rem;
   margin-bottom: 2rem;
 }
-.header-section-folderName {
+.header-owner-section-folderName {
   font-size: 4rem;
   font-weight: 600;
 }
 
 @media all and (max-width: 768px) {
-  .header-section {
+  .header-owner-container {
     margin: 6.4rem 0 0;
   }
 }
