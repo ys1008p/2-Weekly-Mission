@@ -1,4 +1,4 @@
-import { useGetRequest } from '@/hooks/useRequest';
+import { fetchGetRequest } from '@/utils/api';
 import { useEffect, useState } from 'react';
 
 import Logo from '@/assets/images/icon/logo.svg';
@@ -11,7 +11,7 @@ const Header = () => {
   const getUserProfile = async () => {
     let result;
     try {
-      result = await useGetRequest('/api/sample/user');
+      result = await fetchGetRequest('/api/sample/user');
     } catch (error) {
       return;
     }

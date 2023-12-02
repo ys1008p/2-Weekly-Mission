@@ -1,6 +1,6 @@
 import '@/styles/Shared.css';
 
-import { useGetRequest } from '@/hooks/useRequest';
+import { fetchGetRequest } from '@/utils/api';
 import { useEffect, useState } from 'react';
 
 import Banner from '@/components/banner/Banner';
@@ -17,7 +17,7 @@ const Shared = () => {
   const getFolderData = async () => {
     let result;
     try {
-      result = await useGetRequest('/api/sample/folder');
+      result = await fetchGetRequest('/api/sample/folder');
     } catch (error) {
       return;
     }

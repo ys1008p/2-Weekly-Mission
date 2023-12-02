@@ -1,4 +1,4 @@
-import useTimeDiff from '@/hooks/useTimeDiff';
+import getTimeDiff from '@/utils/getTimeDiff';
 import { useState } from 'react';
 
 import NoImage from '@/assets/images/icon/no-image.svg';
@@ -26,7 +26,7 @@ const CardItem = ({
     setZoom(false);
   };
 
-  const timeAgo = useTimeDiff(createdAt);
+  const timeAgo = getTimeDiff(createdAt);
   const parsedDate = createdAt.split('T')[0]?.replaceAll('-', '.');
 
   return (
