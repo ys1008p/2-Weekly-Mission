@@ -21,3 +21,21 @@
   line-height: normal;
   letter-spacing: -0.2px;
 }
+
+.folderName {
+  grid-area: 'folderName';
+}
+.folderEditButtons {
+  grid-area: 'folderEditButtons';
+  justify-self: end;
+}
+
+.folderDescription {
+  display: grid;
+  grid-template-areas: 'folderName folderEditButtons';
+  @media (max-width: 767px) {
+    grid-template-areas:
+      'folderName'
+      'folderEditButtons';
+  }
+}

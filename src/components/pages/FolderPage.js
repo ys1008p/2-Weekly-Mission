@@ -2,6 +2,7 @@ import './FolderPage.css';
 import AddLinkBar from '../shared/AddLinkBar/AddLinkBar';
 import SearchBar from '../shared/SearchBar/SearchBar';
 import Sorting from '../others/Sorting/Sorting';
+import FolderEditButtons from '../others/FolderEditButtons/FolderEditButtons';
 import { Cards } from '../shared/Cards/Cards';
 import FloatingActionButton from '../shared/FloatingActionButton/FloatingActionButton';
 import { useState, useEffect } from 'react';
@@ -44,7 +45,10 @@ export default function FolderPage() {
       <AddLinkBar />
       <SearchBar />
       <Sorting chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
-      <h1 className="folderName">{chosenFolderName}</h1>
+      <div class="folderDescription">
+        <h1 className="folderName">{chosenFolderName}</h1>
+        {chosenFolderId ? <FolderEditButtons className="folderEditButtons" /> : ''}
+      </div>
       {links.length ? <Cards links={links} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
       <FloatingActionButton />
     </div>
