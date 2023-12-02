@@ -3,6 +3,7 @@ import AddLinkBar from '../shared/AddLinkBar/AddLinkBar';
 import SearchBar from '../shared/SearchBar/SearchBar';
 import Sorting from '../others/Sorting/Sorting';
 import { Cards } from '../shared/Cards/Cards';
+import FloatingActionButton from '../shared/FloatingActionButton/FloatingActionButton';
 import { useState, useEffect } from 'react';
 import { getFolder, getLinks } from '../fetchApi';
 
@@ -45,7 +46,7 @@ export default function FolderPage() {
       <Sorting chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
       <h1 className="folderName">{chosenFolderName}</h1>
       {links.length ? <Cards links={links} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
-      {/* <FolderEditButton/> */}
+      <FloatingActionButton />
     </div>
   );
 }
