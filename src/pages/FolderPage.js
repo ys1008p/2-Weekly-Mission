@@ -1,4 +1,4 @@
-// import './FolderPage.css';
+import './FolderPage.css';
 import AddLinkBar from '../components/shared/AddLinkBar/AddLinkBar';
 import SearchBar from '../components/shared/SearchBar/SearchBar';
 import Sorting from '../components/Sorting/Sorting';
@@ -10,10 +10,13 @@ export default function FolderPage() {
   const [folder, setFolder] = useState([]);
   const [links, setLinks] = useState([]);
   const [chosenFolderId, setChosenFolderId] = useState(undefined);
+  const [chosenFolderName, setChosenFolderName] = useState('');
 
   function handleQuery(e) {
     const chosenFolderId = e.target.dataset.key;
+    const chosenFolderName = e.target.dataset.name;
     setChosenFolderId(chosenFolderId);
+    setChosenFolderName(chosenFolderName);
   }
 
   async function loadFolder() {
@@ -33,14 +36,21 @@ export default function FolderPage() {
 
   useEffect(() => {
     loadLinks();
-  }, [chosenFolderId]);
+  }, [chosenFolderId, chosenFolderName]);
 
   return (
     <div>
       <AddLinkBar />
       <SearchBar />
       <Sorting chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
-      <Cards links={links} />
+      <h1 className="folderName">{chosenFolderName}</h1>
+      {links.length ? (
+        <Cards links={links} />
+      ) : (
+        <div className="noLinks">
+          <div>저장된 링크가 없습니다.</div>
+        </div>
+      )}
     </div>
   );
 }

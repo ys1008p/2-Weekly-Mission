@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import useToggle from '../../../hooks/useToggle';
 import './FolderButton.css';
 
 export default function FolderButton({ isFolderChosen, folderInfo, handleQuery }) {
@@ -10,10 +8,11 @@ export default function FolderButton({ isFolderChosen, folderInfo, handleQuery }
   return (
     <button
       data-key={folderInfo.id}
+      data-name={folderInfo.name}
       onClick={handleSetFolder}
       className={`FolderButton ${isFolderChosen ? 'chosenFolderButton' : ''} `}
     >
-      {` ${folderInfo.id}`}
+      {folderInfo.name}
     </button>
   );
 }
