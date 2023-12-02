@@ -68,14 +68,17 @@ function Main_copy({ className, links, menu, onMouseOver, onMouseOut }){
       <div className="search">
         <input type="search" placeholder="링크를 검색해 보세요."/>
       </div>
-      <div className="tab-menu">
-        <ul>
-          {menu.map((folder) => (
-            <li key={folder.id}>
-              <a href="">{folder.name}</a>
-            </li>
-          ))}
-        </ul>
+      <div className="tab-menu-wrap">
+        <div className="tab-menu">
+          <ul>
+            {menu.map((folder) => (
+              <li key={folder.id}>
+                <a href="">{folder.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <button type="button" className="btn-add mobile-hide"></button>
       </div>
       <div className="card">
         <ul>
