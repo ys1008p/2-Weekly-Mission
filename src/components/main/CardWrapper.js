@@ -7,9 +7,9 @@ export function CardWrapper({ links }) {
       {links[0] ? (
         links.map((link) => {
           return (
-            <>
-              <Card key={link.id} link={link} />
-            </>
+            <div key={link.id}>
+              <Card link={link} />
+            </div>
           );
         })
       ) : (

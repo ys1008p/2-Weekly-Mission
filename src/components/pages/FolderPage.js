@@ -118,11 +118,9 @@ function FolderPage() {
           {folderLists ? (
             folderLists.map((folder) => {
               return (
-                <>
-                  <div key={folder.id} onClick={handleFolderClick}>
-                    <Folders folder={folder} />
-                  </div>
-                </>
+                <div key={folder.id} onClick={handleFolderClick}>
+                  <Folders folder={folder} />
+                </div>
               );
             })
           ) : (
