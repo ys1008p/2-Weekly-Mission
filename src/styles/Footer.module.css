@@ -11,6 +11,7 @@ footer {
   padding: 3.2rem 10.4rem 11rem;
   display: flex;
   justify-content: space-between;
+  margin-top: 10rem;
 }
 
 .copyright {

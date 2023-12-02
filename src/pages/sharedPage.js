@@ -4,20 +4,28 @@ import Banner from "../component/Banner";
 import CardList from "../component/CardList";
 import SearchInput from "../component/SearchInput";
 import styles from "../styles/SharedPage.module.css";
-import {getFolderData } from "../apis/sharedApi.js";
+import {getSharedData ,getUserData } from "../api.js";
 import { useEffect, useState } from "react";
 
-function SharedPage({ email }) {
+function SharedPage() {
   const [folder, setFolder] = useState();
+  const [email, setEmail] = useState();
   
   const handleFolderLoad = async () => {
-    const { folder } = await getFolderData();
+    const { folder } = await getSharedData();
     setFolder(folder);
-    console.log(folder);
+    console.log(folder.links);
   };
 
-  
+
+  const handleEmailLoad = async () => {
+    const { email } = await getUserData();
+    setEmail(email);
+  };
+
+
   useEffect(()=>{
+    handleEmailLoad();
     handleFolderLoad()
   },[])
 
@@ -29,11 +37,10 @@ function SharedPage({ email }) {
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
           <SearchInput />
-          <CardList links={folder && folder.links} />
+          <CardList sharedLinks={folder && folder.links} page={'sharedPage'} />
         </div>
       </section>
       <Footer />
-      <div>공유페이지</div>
     </>
   );
 }

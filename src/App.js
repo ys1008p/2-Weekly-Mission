@@ -1,29 +1,19 @@
 import { useEffect, useState } from "react";
 import { Routes,Route} from 'react-router-dom';
-import { getUserData} from "./apis/loginApi.js";
+import { getUserData} from "./api.js";
 import FolderPage from "./pages/FolderPage.js"
 import SharedPage from "./pages/SharedPage.js"
+import HomePage from "./pages/HomePage.js";
 
 
 function App() {
-  const [email, setEmail] = useState();
-
-  const handleEmailLoad = async () => {
-    const { email } = await getUserData();
-    setEmail(email);
-  };
-
-
-  useEffect(() => {
-    handleEmailLoad();
-  }, []);
 
   return (
     <div>
         <Routes>
-          <Route path="/" element={<SharedPage email={email} />} />
-          <Route path="shared" element={<SharedPage email={email}/>} />
-          <Route path="folder" element={<FolderPage email={email} />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="shared" element={<SharedPage />} />
+          <Route path="folder" element={<FolderPage />} />
         </Routes>
     </div>
   );

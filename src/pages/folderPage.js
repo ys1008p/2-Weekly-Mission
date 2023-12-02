@@ -1,37 +1,43 @@
 import Header from "../component/Header";
 import Footer from "../component/Footer";
-import Banner from "../component/Banner";
+import FolderBanner from "../component/FolderBanner";
 import CardList from "../component/CardList";
 import SearchInput from "../component/SearchInput";
 import styles from "../styles/FolderPage.module.css";
-import { getAllFolderData } from "../apis/folderApi";
+import { getFolderUserData, getFolderData } from "../api";
 import { useEffect, useState } from "react";
 
-function FolderPage({email}) {
-  const [folder, setFolder] = useState();
+function FolderPage() {
+  const [links, setLinks] = useState();
+  const [email, setEmail] = useState();
 
-  // const handleFolderLoad = async () => {
-  //   const { folder } = await getAllFolderData();
-  //   setFolder(folder);
-  //   console.log(folder);
-  // };
+  const handleEmailLoad = async () => {
+    const { data } = await getFolderUserData();
+    setEmail(data[0].email);
+  };
 
-  useEffect(()=>{
-    // handleFolderLoad()
-  },[])
+  const handleFolderLoad = async () => {
+    const { data } = await getFolderData();
+    setLinks(data);
+  };
+
+  useEffect(() => {
+    handleEmailLoad();
+    handleFolderLoad();
+  }, []);
 
   return (
     <>
       <Header email={email} />
-      <Banner folder={folder} />
+      <FolderBanner/>
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
           <SearchInput />
-          <CardList links={folder && folder.links} />
+          {links ? <CardList folderLinks={links} page={"folderPage"} />:<div className={styles.linksNull}><div>저장된 링크가 없습니다.</div></div>}
         </div>
       </section>
       <Footer />
-    </>
+    </> 
   );
 }
 
