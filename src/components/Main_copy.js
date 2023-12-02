@@ -80,7 +80,14 @@ function Main_copy({ className, links, menu, onMouseOver, onMouseOut }){
         </div>
         <button type="button" className="btn-add mobile-hide"></button>
       </div>
-      <h2 className="main-title">유용한 글</h2>
+      <div className="main-wrap">
+        <h2 className="main-title">유용한 글</h2>
+        <div className="btn-option">
+          <button type="button" className="btn-shared">공유</button>
+          <button type="button" className="btn-change-name">이름 변경</button>
+          <button type="button" className="btn-delete">삭제</button>
+        </div>
+      </div>
       <div className="card">
         <ul>
           <CardList 

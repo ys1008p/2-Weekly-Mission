@@ -69,6 +69,10 @@
   background-color: var(--color-blue);
 }
 
+.main .main-wrap {
+  position: relative;
+}
+
 .main .main-title {
   margin: 2.4rem 0;
   padding: 0;
@@ -76,6 +80,49 @@
   font-weight: 600;
   line-height: 2.8rem;
   letter-spacing: -0.02rem;
+}
+
+.main .btn-option {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.main .btn-option button {
+  position: relative;
+  padding: 0 0 0 2.2rem;
+  border: none;
+  background-color: var(--color-white);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.6rem;
+  color: var(--color-middle-gray);
+}
+
+.main .btn-option button + button {
+  margin: 0 0 0 1.2rem;
+}
+
+.main .btn-option button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.main .btn-option .btn-shared::before {
+  background: url('../assets/btn-share.png') no-repeat center;
+}
+
+.main .btn-option .btn-change-name::before {
+  background: url('../assets/btn-pen.png') no-repeat center;
+}
+
+.main .btn-option .btn-delete::before {
+  background: url('../assets/btn-delete.png') no-repeat center;
 }
 
 .main .card ul {
@@ -221,7 +268,11 @@
     font-size: 2rem;
     line-height: 2.4rem;
   }
-  
+
+  .main .btn-option {
+    position: static;
+    margin: 0 0 2rem 0;
+  }
 }
 
 
