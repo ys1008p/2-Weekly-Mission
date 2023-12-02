@@ -5,7 +5,8 @@ import Logo from './atoms/Logo';
 import Gnb from './molecules/Gnb'
 import GlobalStyle from '../styles/global';
 import UserBadge from './atoms/UserBadge';
-import FolderHearder from './molecules/FolderHeader';
+import SharedHeader from './molecules/SharedHeader';
+import SearchBar from './atoms/SearchBar';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Logo></Logo>
         <UserBadge></UserBadge>
         <Gnb></Gnb>
-        <FolderHearder></FolderHearder>
+        <SharedHeader></SharedHeader>
+        <SearchBar></SearchBar>
       </div>
     </div>
   );
