@@ -4,68 +4,62 @@ import Footer from "../components/Footer";
 import "../components/reset.css";
 import "../components/root.css";
 import { useEffect, useState } from "react";
-import useAsync from "../hooks/useAsync";
-
-const BASE_URL = "https://bootcamp-api.codeit.kr/api/users";
+import { getProfile, getFolder, getFolderMenu, getFolderList } from "../api";
 
 function App_copy() {
   const [cardList, setCardList] = useState([]);
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState("");
   const [folderMenu, setFolderMenu] = useState([]);
+  const [menuActive, setMenuActive] = useState('all');
 
-  const [profileIsLoading, profileError, getProfileAsync] = useAsync(
-    `${BASE_URL}/1`
-  );
-  const [folderIsLoading, folderError, getFolderAsync] = useAsync(
-    `${BASE_URL}/1/links`
-  );
-  const [folderMenuIsLoading, folderMenuError, getFolderMenuAsync] = useAsync(
-    `${BASE_URL}/1/folders`
-  );
-   
   const handleLoadProfile = async () => {
-    const result = await getProfileAsync();
-    if (!result) return;
-
-    const { data } = result;
+    const { data } = await getProfile();
     setProfileImg(data[0].image_source);
     setProfileEmail(data[0].email);
-
-    return [profileIsLoading, profileError];
-  };
-
-  const handleLoadFolder = async () => {
-    const result = await getFolderAsync();
-    if (!result) return;
-
-    const { data } = result;
-    setCardList(data);
-
-    return [folderIsLoading, folderError];
   };
 
   const handleLoadFolderMenu = async () => {
-    const result = await getFolderMenuAsync();
-    if (!result) return;
-
-    const { data } = result;
+    const { data } = await getFolderMenu();
     setFolderMenu(data);
-
-    return [folderMenuIsLoading, folderMenuError];
   };
+
+  const handleLoadFolder = async (options) => {
+    if(options !== 'all') {
+      const { data } = await getFolderList(options);
+      setCardList(data);
+    }else{
+      const { data } = await getFolder();
+      setCardList(data);
+    }
+  };
+
+  const BASE_URL = "https://bootcamp-api.codeit.kr/api/users/1";
+  async function getFolderList(menuActive) {
+    try{
+      const respones = await fetch(`${BASE_URL}/links?folderId=${menuActive}`);
+      if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+      
+      const result = await respones.json();
+      return result;
+    }catch(error){
+      console.log(error);
+    }
+  }
 
   const handleMouseOver = (e) => e.currentTarget.classList.add("active");
 
   const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
 
-
-
+  const handleClick = (item) => {
+    setMenuActive(item);
+  }
+ 
   useEffect(() => {
     handleLoadProfile();
-    handleLoadFolder();
     handleLoadFolderMenu();
-  }, []);
+    handleLoadFolder(menuActive);
+  }, [menuActive]);
  
   return (
     <div className="container">
@@ -80,8 +74,10 @@ function App_copy() {
         menu={folderMenu}
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
+        menuActive={menuActive}
+        handleClick={handleClick}
       />
-      {/* <Footer className="footer" /> */}
+      <Footer className="footer" />
     </div>
   );
 }

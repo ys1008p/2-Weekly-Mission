@@ -63,10 +63,7 @@ function CardList ({ links, onMouseOver, onMouseOut }){
   return cards;
 }
 
-function TabMenu({ menu }){
-  const [menuActive, setMenuActive] = useState(0);
-  const handleClick = (idx) => setMenuActive(idx);
-  
+export function TabMenu({ menu, menuActive, handleClick }){
   const All = {
     id: 'all',
     name: '전체',
@@ -74,22 +71,22 @@ function TabMenu({ menu }){
   const folderNameArr = [...menu];
   folderNameArr.unshift(All);
 
-  const folderName = folderNameArr.map((item, idx) => (
+  const folderName = folderNameArr.map((item) => (
     <li key={item.id}>
-      <button type="button" className={menuActive === idx ? "active" : ""} onClick={() => handleClick(idx)}>{item.name}</button>
+      <button type="button" className={menuActive === item.id ? "active" : ""} onClick={() => handleClick(item.id)}>{item.name}</button>
     </li>
   ))
   return folderName;
 }
-
 
 function Main_copy({ 
   className, 
   links, 
   menu, 
   onMouseOver, 
-  onMouseOut, 
-  menuActive }){
+  onMouseOut,
+  menuActive,
+  handleClick }){
   return(
     <div className={className}>
       <div className="search">
@@ -99,7 +96,8 @@ function Main_copy({
         <div className="tab-menu">
           <ul>
             <TabMenu 
-              menu={menu}  
+              menu={menu}
+              handleClick={handleClick}  
               menuActive={menuActive}
             />
           </ul>
@@ -107,7 +105,7 @@ function Main_copy({
         <button type="button" className="btn-add mobile-hide"></button>
       </div>
       <div className="main-wrap">
-        <h2 className="main-title">유용한 글</h2>
+        <h2 className="main-title"></h2>
         <div className="btn-option">
           <button type="button" className="btn-shared">공유</button>
           <button type="button" className="btn-change-name">이름 변경</button>
