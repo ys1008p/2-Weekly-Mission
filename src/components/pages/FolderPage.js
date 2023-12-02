@@ -8,6 +8,7 @@ import Folders from "../main/Folders.js";
 import SearchBar from "../main/SearchBar.js";
 import CardWrapper from "../main/CardWrapper.js";
 import "../main/Main.css";
+import Option from "../main/Option.js";
 function FolderPage() {
   const [profileDatas, setProfileDatas] = useState({
     id: 0,
@@ -88,7 +89,7 @@ function FolderPage() {
     }
   };
   const handleFolderClick = (e) => {
-    console.log(e.target.textContent);
+    setCurrentFolderName(e.target.textContent);
     if (e.target.textContent === "전체") {
       getTotalLinksData();
       return;
@@ -97,7 +98,6 @@ function FolderPage() {
       (folder) => folder.name === e.target.textContent
     );
     setCurrentFolderId(clikedFolder[0].id);
-    setCurrentFolderName(e.target.textContent);
   };
   useEffect(() => {
     getUserData();
@@ -114,22 +114,26 @@ function FolderPage() {
       <AddLink />
       <div className="main-wrapper">
         <SearchBar />
-        {folderLists ? (
-          folderLists.map((folder) => {
-            return (
-              <>
-                <div key={folder.id} onClick={handleFolderClick}>
-                  <Folders folder={folder} />
-                </div>
-              </>
-            );
-          })
-        ) : (
-          <div>folderLists가 없습니다.</div>
-        )}
-        {links[0] && currentFolderName ? (
+        <div>
+          {folderLists ? (
+            folderLists.map((folder) => {
+              return (
+                <>
+                  <div key={folder.id} onClick={handleFolderClick}>
+                    <Folders folder={folder} />
+                  </div>
+                </>
+              );
+            })
+          ) : (
+            <div>folderLists가 없습니다.</div>
+          )}
+          <div>+</div>
+        </div>
+        <div>
           <div class="folder-name">{currentFolderName}</div>
-        ) : undefined}
+          <Option />
+        </div>
         <CardWrapper links={links} />
       </div>
       <Footer />
