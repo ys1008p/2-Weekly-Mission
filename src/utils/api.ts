@@ -8,7 +8,7 @@ const getQueryString = (query: Record<string, string | number>) => {
   return result;
 };
 
-export const getRequest = async (
+export const fetchGetRequest = async (
   path: string,
   query?: Record<string, string | number>,
 ) => {
@@ -21,7 +21,7 @@ export const getRequest = async (
   return data;
 };
 
-export const postRequest = async (
+export const fetchPostRequest = async (
   path: string,
   body: Record<string, string | number>,
 ) => {
