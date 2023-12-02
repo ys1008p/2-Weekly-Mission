@@ -2,7 +2,6 @@ import './FolderButton.css';
 
 export default function FolderButton({ isFolderChosen, folderInfo, handleQuery }) {
   function handleSetFolder(e) {
-    console.log('isFolderChosen', isFolderChosen);
     handleQuery(e);
   }
   return (

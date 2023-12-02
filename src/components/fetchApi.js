@@ -7,7 +7,6 @@ export async function getFolder() {
 }
 
 export async function getLinks(folderId) {
-  console.log('현재폴더', folderId);
   const query = folderId === undefined ? '' : `?folderId=${folderId}`; // 쿼리 없는 경우 전체 링크 불러오기
   const result = await fetch(`${API.USER_LINKS}${query}`);
   const body = await result.json();

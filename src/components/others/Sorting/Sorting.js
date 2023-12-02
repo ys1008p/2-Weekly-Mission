@@ -1,5 +1,5 @@
 import './Sorting.css';
-import FolderButton from '../shared/FolderButton/FolderButton';
+import FolderButton from '../../shared/FolderButton/FolderButton';
 
 export default function Sorting({ chosenFolderId, folder, handleQuery }) {
   const allInfo = {
@@ -7,7 +7,6 @@ export default function Sorting({ chosenFolderId, folder, handleQuery }) {
     name: '전체',
   };
   const needAllLink = chosenFolderId === allInfo.id ? true : false;
-  console.log('needAllLink', needAllLink);
 
   return (
     <div className="Sorting">

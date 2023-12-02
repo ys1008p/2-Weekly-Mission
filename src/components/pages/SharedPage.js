@@ -1,57 +1,25 @@
-import Footer from '../shared/Footer/Footer';
-import Gnb from '../shared/Gnb/Gnb';
-import SearchBar from '../shared/SearchBar/SearchBar';
+// import './SharedPage.css';
+// import FolderBanner from '../components/FolderBanner/FolderBanner';
+// import SearchBar from '../components/shared/SearchBar/SearchBar';
+// import { Cards } from '../components/shared/Cards/Cards';
+// import { useState, useEffect } from 'react';
+// import { getFolder, getLinks } from '../components/fetchApi';
+// export default function SharedPage() {
+//   const [user, setUser] = useState([]);
+//   async function loadUser() {
+//     const { data } = await getLinks(16);
+//     setUser(data);
+//   }
 
-export default function SharedPage() {
-  const [folder, setFolder] = useState({
-    folder: {
-      id: 0,
-      name: '',
-      owner: {
-        id: 0,
-        name: '',
-        profileImageSource: '',
-      },
-      links: [],
-    },
-    count: 0,
-  });
-  const [profile, setProfile] = useState({
-    id: 0,
-    name: '',
-    email: '',
-    profileImageSource: '',
-  });
-  const [isLoading, setIsLoading] = useState(false);
+//   useEffect(() => {
+//     loadUser();
+//   }, []);
 
-  async function handleLoadLinks() {
-    try {
-      setIsLoading(true);
-      const { folder } = await getFolder();
-      setFolder(folder);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-  async function handleLoadProfile() {
-    const profile = await getUser();
-    setProfile(profile);
-  }
-
-  useEffect(() => {
-    handleLoadLinks();
-    handleLoadProfile();
-  }, []);
-
-  if (!profile.profileImageSource) return;
-
-  return (
-    <>
-      <Gnb />
-      <SearchBar />
-      <Footer />
-    </>
-  );
-}
+//   return (
+//     <div>
+//       <FolderBanner />
+//       <SearchBar />
+//       <Cards />
+//     </div>
+//   );
+// }

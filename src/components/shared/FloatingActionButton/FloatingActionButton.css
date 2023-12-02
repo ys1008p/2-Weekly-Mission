@@ -1,0 +1,5 @@
+.FloatingActionButton {
+  border-radius: 20px;
+  border: 1px solid var(--linkbrary-white, #fff);
+  background: var(--linkbrary-primary-color, #6d6afe);
+}

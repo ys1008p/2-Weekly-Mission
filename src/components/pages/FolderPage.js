@@ -1,10 +1,10 @@
 import './FolderPage.css';
-import AddLinkBar from '../components/shared/AddLinkBar/AddLinkBar';
-import SearchBar from '../components/shared/SearchBar/SearchBar';
-import Sorting from '../components/Sorting/Sorting';
-import { Cards } from '../components/shared/Cards/Cards';
+import AddLinkBar from '../shared/AddLinkBar/AddLinkBar';
+import SearchBar from '../shared/SearchBar/SearchBar';
+import Sorting from '../others/Sorting/Sorting';
+import { Cards } from '../shared/Cards/Cards';
 import { useState, useEffect } from 'react';
-import { getFolder, getLinks } from '../components/fetchApi';
+import { getFolder, getLinks } from '../fetchApi';
 
 export default function FolderPage() {
   const [folder, setFolder] = useState([]);
@@ -44,13 +44,8 @@ export default function FolderPage() {
       <SearchBar />
       <Sorting chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
       <h1 className="folderName">{chosenFolderName}</h1>
-      {links.length ? (
-        <Cards links={links} />
-      ) : (
-        <div className="noLinks">
-          <div>저장된 링크가 없습니다.</div>
-        </div>
-      )}
+      {links.length ? <Cards links={links} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
+      {/* <FolderEditButton/> */}
     </div>
   );
 }
