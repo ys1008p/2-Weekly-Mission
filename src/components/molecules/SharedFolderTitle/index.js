@@ -5,7 +5,7 @@ const src = "./images/logo.svg"
 const folderOwner = "@코드잇"
 const folderTitle = "즐겨찾기"
 
-const SharedHeader = () => {
+const SharedFolderTitle = () => {
 
 
   return (
@@ -17,4 +17,4 @@ const SharedHeader = () => {
   )
 }
 
-export default SharedHeader;
+export default SharedFolderTitle;

@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 const Div = styled.div`
   position: relative;
+  width: 100%;
 `
 const Icon = styled.img`
   width: 1.6rem;
