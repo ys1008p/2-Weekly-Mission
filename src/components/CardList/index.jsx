@@ -1,6 +1,6 @@
 import './style.css';
 
-import Card from '../Card/Card';
+import Card from '../Card/';
 
 function CardList({ className, list }) {
   const classNames = `card-list ${className}`;
