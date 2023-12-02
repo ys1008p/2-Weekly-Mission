@@ -4,6 +4,8 @@ import FolderBanner from "../component/FolderBanner";
 import CardList from "../component/CardList";
 import SearchInput from "../component/SearchInput";
 import styles from "../styles/FolderPage.module.css";
+import ButtonList from"../component/ButtonList"
+import TitleArea from "../component/TitleArea"
 import { getFolderUserData, getFolderData } from "../api";
 import { useEffect, useState } from "react";
 
@@ -33,6 +35,8 @@ function FolderPage() {
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
           <SearchInput />
+          <ButtonList/>
+          <TitleArea/>
           {links ? <CardList folderLinks={links} page={"folderPage"} />:<div className={styles.linksNull}><div>저장된 링크가 없습니다.</div></div>}
         </div>
       </section>

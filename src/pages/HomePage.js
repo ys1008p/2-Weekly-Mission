@@ -1,8 +1,12 @@
-import Button from "../component/Button";
+import ButtonList from "../component/ButtonList";
+import TitleArea from "../component/TitleArea";
 
 function HomePage(){
     return(
-        <Button/>
+        <>
+        <ButtonList/>
+        <TitleArea/>
+        </>
     )
 }
 
