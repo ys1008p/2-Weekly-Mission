@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import useToggle from '../../../hooks/useToggle';
 import './FolderButton.css';
 
-export default function FolderButton({ folderInfo, handleQuery }) {
-  const isFolderChosen = false;
+export default function FolderButton({ isFolderChosen, folderInfo, handleQuery }) {
   function handleSetFolder(e) {
+    console.log('isFolderChosen', isFolderChosen);
     handleQuery(e);
   }
   return (

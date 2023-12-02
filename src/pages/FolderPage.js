@@ -9,11 +9,11 @@ import { getFolder, getLinks } from '../components/fetchApi';
 export default function FolderPage() {
   const [folder, setFolder] = useState([]);
   const [links, setLinks] = useState([]);
-  const [folderQuery, setFolderQuery] = useState(undefined);
+  const [chosenFolderId, setChosenFolderId] = useState(undefined);
 
   function handleQuery(e) {
-    const folderId = e.target.dataset.key;
-    setFolderQuery(folderId);
+    const chosenFolderId = e.target.dataset.key;
+    setChosenFolderId(chosenFolderId);
   }
 
   async function loadFolder() {
@@ -22,7 +22,7 @@ export default function FolderPage() {
   }
 
   async function loadLinks() {
-    const { data } = await getLinks(folderQuery);
+    const { data } = await getLinks(chosenFolderId);
     setLinks(data);
   }
 
@@ -33,13 +33,13 @@ export default function FolderPage() {
 
   useEffect(() => {
     loadLinks();
-  }, [folderQuery]);
+  }, [chosenFolderId]);
 
   return (
     <div>
       <AddLinkBar />
       <SearchBar />
-      <Sorting folder={folder} handleQuery={handleQuery} />
+      <Sorting chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
       <Cards links={links} />
     </div>
   );
