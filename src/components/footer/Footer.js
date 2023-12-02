@@ -12,10 +12,10 @@ export function Footer() {
     return thisYear;
   };
   const footerSnsDatas = [
-    { name: "facebook", url: "https://www.facebook.com" },
-    { name: "twitter", url: "https://www.twitter.com" },
-    { name: "youtube", url: "https://www.youtube.com" },
-    { name: "instagram", url: "https://www.instagram.com" },
+    { id: 1, name: "facebook", url: "https://www.facebook.com" },
+    { id: 2, name: "twitter", url: "https://www.twitter.com" },
+    { id: 3, name: "youtube", url: "https://www.youtube.com" },
+    { id: 4, name: "instagram", url: "https://www.instagram.com" },
   ];
 
   const imageMap = {
@@ -42,7 +42,7 @@ export function Footer() {
             return (
               <>
                 <Sns
-                  key={data.name}
+                  key={data.id}
                   footerSnsData={data}
                   imageMap={imageMap[data.name]}
                 />
