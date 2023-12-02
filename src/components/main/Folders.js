@@ -1,7 +1,8 @@
-export function Folders() {
+export function Folders({ folder }) {
+  const { name } = folder;
   return (
     <>
-      <div>전체.객체의 이름을 프롭으로 받아서 map</div>
+      <div>{name}</div>
     </>
   );
 }

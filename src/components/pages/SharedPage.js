@@ -1,8 +1,12 @@
 import Header from "../header/Header.js";
 import Footer from "../footer/Footer.js";
-import Main from "../main/Main.js";
+// import Main from "../main/Main.js";
 import { useEffect, useState } from "react";
 import { getData } from "../api/api";
+import MainHeader from "../main/MainHeader.js";
+import SearchBar from "../main/SearchBar.js";
+import CardWrapper from "../main/CardWrapper.js";
+import "../main/Main.css";
 
 function SharedPage() {
   const [profileDatas, setProfileDatas] = useState({
@@ -55,7 +59,11 @@ function SharedPage() {
   return (
     <>
       <Header profileDatas={profileDatas} />
-      <Main ownerDatas={ownerDatas} folderDatas={folderDatas} links={links} />
+      <MainHeader ownerDatas={ownerDatas} folderDatas={folderDatas} />
+      <div className="main-wrapper">
+        <SearchBar />
+        <CardWrapper links={links} />
+      </div>
       <Footer />
     </>
   );

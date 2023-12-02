@@ -1,9 +1,13 @@
-import Main from "../main/Main.js";
+// import Main from "../main/Main.js";
 import { Footer } from "../footer/Footer.js";
 import AddLink from "../header/AddLink.js";
 import Header from "../header/Header.js";
 import { useEffect, useState } from "react";
 import { getData } from "../api/api";
+import Folders from "../main/Folders.js";
+import SearchBar from "../main/SearchBar.js";
+import CardWrapper from "../main/CardWrapper.js";
+import "../main/Main.css";
 function FolderPage() {
   const [profileDatas, setProfileDatas] = useState({
     id: 0,
@@ -15,7 +19,7 @@ function FolderPage() {
   });
 
   const [links, setLinks] = useState([]);
-  const [folderLists, setFolderLists] = useState();
+  const [folderLists, setFolderLists] = useState([]);
   const getUserData = async () => {
     try {
       const result = await getData("users/1");
@@ -51,15 +55,40 @@ function FolderPage() {
     }
   };
 
+  const getFolderLists = async () => {
+    try {
+      const result = await getData("users/1/folders");
+      const { data } = result;
+      setFolderLists(data);
+    } catch (e) {
+      console.log(`Folderpage의 getFolderLists에서 ${e} 발생`);
+    }
+  };
+
   useEffect(() => {
     getUserData();
     getTotalLinksData();
+    getFolderLists();
   }, []);
   return (
     <>
       <Header profileDatas={profileDatas} />
       <AddLink />
-      <Main links={links} />
+      <div className="main-wrapper">
+        <SearchBar />
+        {folderLists ? (
+          folderLists.map((folder) => {
+            return (
+              <div key={folder.id}>
+                <Folders folder={folder} />
+              </div>
+            );
+          })
+        ) : (
+          <div>folderLists 없다.</div>
+        )}
+        <CardWrapper links={links} />
+      </div>
       <Footer />
     </>
   );

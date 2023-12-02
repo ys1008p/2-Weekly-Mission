@@ -40,11 +40,11 @@
   margin: auto;
 }
 
-.search-bar {
+/* .search-bar {
   width: 66.25rem;
   border-radius: 0.625rem;
   background: #f5f5f5;
-}
+} */
 
 .card-wrapper {
   display: grid;
