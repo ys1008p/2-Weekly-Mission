@@ -1,13 +1,18 @@
 .SearchBarContainer {
-  display: flex;
-  gap: 6px;
-  width: 1060px;
-  margin: 40px auto;
-  padding: 13px 16px;
-  justify-content: flex-start;
-  align-items: center;
+  box-sizing: border-box;
+  width: 100vw;
+  padding: 0 68px;
+  margin: 40px 0;
+}
+
+.SearchBar {
   border-radius: 10px;
   background: #f5f5f5;
+  gap: 6px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  padding: 13px 16px;
 }
 
 .SearchBarIcon {
@@ -17,16 +22,4 @@
 .SearchBarInput {
   border: none;
   background: #f5f5f5;
-}
-
-@media (max-width: 1199px) {
-  .SearchBarContainer {
-    width: 704px;
-  }
-}
-
-@media (max-width: 767px) {
-  .SearchBarContainer {
-    width: 340px;
-  }
 }
