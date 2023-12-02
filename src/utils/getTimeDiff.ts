@@ -12,7 +12,7 @@ const getTimeDiffInSeconds = (dateTime: string): number => {
   return (now.getTime() - date.getTime()) / SECOND_IN_MILISECOND;
 };
 
-const useTimeDiff = (dateTime: string): string => {
+const getTimeDiff = (dateTime: string): string => {
   const timeDiffSeconds = getTimeDiffInSeconds(dateTime);
 
   if (timeDiffSeconds < MINUTE_IN_SECOND) {
@@ -43,4 +43,4 @@ const useTimeDiff = (dateTime: string): string => {
   }
 };
 
-export default useTimeDiff;
+export default getTimeDiff;
