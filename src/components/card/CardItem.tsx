@@ -26,6 +26,7 @@ const CardItem = ({
     setZoom(false);
   };
 
+  // (createdAt) 2023-12-02T23:35:12Z
   const timeAgo = getTimeDiff(createdAt);
   const parsedDate = createdAt.split('T')[0]?.replaceAll('-', '.');
 
