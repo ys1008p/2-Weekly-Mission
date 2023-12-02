@@ -36,8 +36,9 @@
 
 .main .btn-add {
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
+  transform: translateY(-50%);
   width: 1.6rem;
   height: 1.6rem;
   border: none;
