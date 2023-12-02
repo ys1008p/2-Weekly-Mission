@@ -1,4 +1,4 @@
-.search-bar {
+.searchBar {
   display: flex;
   padding: 15px;
   border-radius: 1rem;
@@ -8,12 +8,12 @@
   line-height: 2.4rem; /* 150% */
 }
 
-.search-bar__icon {
+.icon {
   width: 1.6rem;
   background: center / contain no-repeat url('/images/icons/search.svg');
 }
 
-.search-bar__input {
+.input {
   width: 100%;
   margin-left: 1rem;
 }

@@ -2,12 +2,10 @@ import './style.css';
 
 import { useEffect, useState } from 'react';
 
-import CardList from '@/components/CardList/CardList';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import SearchBar from '@/components/SearchBar/SearchBar';
+import CardList from '@/components/CardList';
+import CommonPageLayout from '@/components/Layout/CommonPageLayout';
+import SearchBar from '@/components/SearchBar';
 import { UserProvider } from '@/contexts/UserContext';
-
 import SharedTitle from './SharedTitle';
 import { getFolders } from './api';
 
@@ -29,14 +27,10 @@ function SharedPage() {
 
   return (
     <UserProvider>
-      <Header>
-        <SharedTitle folder={folder}></SharedTitle>
-      </Header>
-      <main className="main">
-        <SearchBar placeholder="링크를 검색해 보세요." className="main__content" />
-        <CardList className="main__content shared__card-list" list={folder.links} />
-      </main>
-      <Footer />
+      <CommonPageLayout headerChildren={<SharedTitle folder={folder}></SharedTitle>}>
+        <SearchBar placeholder='링크를 검색해 보세요.' className='main__content' />
+        <CardList className='main__content shared__card-list' list={folder.links} />
+      </CommonPageLayout>
     </UserProvider>
   );
 }

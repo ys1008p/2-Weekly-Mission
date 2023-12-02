@@ -1,9 +1,8 @@
-import './style.css';
-
 import Card from '../Card/';
+import style from './CardList.module.css';
 
 function CardList({ className, list }) {
-  const classNames = `card-list ${className}`;
+  const classNames = `${style.cardList} ${className}`;
   return (
     <div className={classNames}>
       {list.map((item) => {
