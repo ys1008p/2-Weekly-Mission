@@ -1,9 +1,10 @@
 import Card from "./Card";
 
 export function CardWrapper({ links }) {
+  console.log("links", links);
   return (
     <div className="card-wrapper">
-      {links ? (
+      {links[0] ? (
         links.map((link) => {
           return (
             <>
@@ -12,7 +13,7 @@ export function CardWrapper({ links }) {
           );
         })
       ) : (
-        <div>links가 없다.</div>
+        <h1>이 폴더에는 아직 링크가 없습니다.</h1>
       )}
     </div>
   );

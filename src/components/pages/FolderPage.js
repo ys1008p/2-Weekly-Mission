@@ -21,6 +21,7 @@ function FolderPage() {
   const [links, setLinks] = useState([]);
   const [folderLists, setFolderLists] = useState([]);
   const [currentFolderId, setCurrentFolderId] = useState("");
+  const [currentFolderName, setCurrentFolderName] = useState("");
 
   const getUserData = async () => {
     try {
@@ -96,6 +97,7 @@ function FolderPage() {
       (folder) => folder.name === e.target.textContent
     );
     setCurrentFolderId(clikedFolder[0].id);
+    setCurrentFolderName(e.target.textContent);
   };
   useEffect(() => {
     getUserData();
@@ -115,14 +117,19 @@ function FolderPage() {
         {folderLists ? (
           folderLists.map((folder) => {
             return (
-              <div key={folder.id} onClick={handleFolderClick}>
-                <Folders folder={folder} />
-              </div>
+              <>
+                <div key={folder.id} onClick={handleFolderClick}>
+                  <Folders folder={folder} />
+                </div>
+              </>
             );
           })
         ) : (
-          <div>folderLists 없다.</div>
+          <div>folderLists가 없습니다.</div>
         )}
+        {links[0] && currentFolderName ? (
+          <div class="folder-name">{currentFolderName}</div>
+        ) : undefined}
         <CardWrapper links={links} />
       </div>
       <Footer />
