@@ -1,6 +1,6 @@
 import React from "react";
 import avatar from "assets/images/Avatar.png";
-import { info } from "assets/styles/PageInfo";
+import { info } from "assets/styles/pageInfo";
 import { ReactComponent as LinkIcon } from "assets/icons/link.svg";
 
 const FolderInfo = ({ path, folder }) => {

@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import PageForm from "components/PageForm";
 import { useFetcher } from "hooks/useFetcher";
 import { getFolderList, getSelectedFolder } from "utils/api";
-import styled from "styled-components";
 import CardList from "components/CardList";
 import { folderIcon } from "assets/icons/folder";
 import { tagComponent } from "assets/styles/tag";
 import Fab from "components/Fab";
 import { FOLDER_OPTION_NAME } from "utils/constants";
+import { folder } from "assets/styles/folder";
 
 const Folder = () => {
   const [selected, setSelected] = useState({
@@ -39,7 +39,7 @@ const Folder = () => {
     <PageForm>
       {data ? (
         <>
-          <Sorts>
+          <folder.Sorts>
             <tagComponent.TageList>
               <tagComponent.Tag
                 onClick={() => onClick("전체")}
@@ -60,22 +60,22 @@ const Folder = () => {
               })}
             </tagComponent.TageList>
             <Fab />
-          </Sorts>
-          <FolderHeader>
-            <FolderName>{selected.name}</FolderName>
+          </folder.Sorts>
+          <folder.FolderHeader>
+            <folder.FolderName>{selected.name}</folder.FolderName>
             {selected.name !== "전체" && selected.name && (
               <>
-                <FolderOption>
+                <folder.FolderOption>
                   {Object.entries(folderIcon).map(([iconName, Icon]) => (
-                    <Option key={iconName}>
+                    <folder.Option key={iconName}>
                       <Icon />
                       <span>{FOLDER_OPTION_NAME[iconName]}</span>
-                    </Option>
+                    </folder.Option>
                   ))}
-                </FolderOption>
+                </folder.FolderOption>
               </>
             )}
-          </FolderHeader>
+          </folder.FolderHeader>
           <CardList folder={selected?.links} />
         </>
       ) : (
@@ -86,43 +86,3 @@ const Folder = () => {
 };
 
 export default Folder;
-
-const Sorts = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const FolderHeader = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    flex-direction: column;
-    gap: 12px;
-  }
-`;
-
-const FolderName = styled.span`
-  color: #000;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -0.2px;
-`;
-const FolderOption = styled.ul`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
-  color: ${(props) => props.theme.gray600};
-`;
-
-const Option = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 4px;
-`;
