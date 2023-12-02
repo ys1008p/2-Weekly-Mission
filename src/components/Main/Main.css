@@ -1,0 +1,183 @@
+.main {
+  display: flex;
+  width: 32.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.2rem;
+
+  @media (min-width: 768px) {
+    width: 70.4rem;
+  }
+
+  @media (min-width: 1124px) {
+    width: 106rem;
+  }
+}
+
+.search-box {
+  display: flex;
+  width: 100%;
+  padding: 1.3rem 1.6rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+  background: #f5f5f5;
+
+  @media (min-width: 768px) {
+    padding: 1.5rem 1.6rem;
+  }
+}
+
+.search-section {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.search {
+  width: 100%;
+  background: #f5f5f5;
+  border: none;
+  color: var(--Text, #666);
+  text-align: left;
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}
+
+.search-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.search-erase {
+  display: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  align-items: flex-start;
+  width: 100%;
+  list-style-type: none;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    gap: 2.5rem 2.4rem;
+  }
+
+  @media (min-width: 1124px) {
+    column-gap: 2rem;
+  }
+}
+
+.card {
+  width: 32.5rem;
+  height: 32.7rem;
+  border-radius: 1.5rem;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+
+  @media (min-width: 768px) {
+    width: 34rem;
+    height: 33.4rem;
+  }
+}
+
+.card:hover .card-image {
+  transition-duration: 0.2s;
+  transform: scale(1.3);
+}
+
+.card:hover .info-section {
+  background: var(--linkbrary-bg, #f0f6ff);
+}
+
+.card:hover .kebab {
+  display: block;
+}
+
+.img-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dddfff;
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+  border-radius: 1.5rem 1.5rem 0rem 0rem;
+}
+
+.img-section:hover {
+  cursor: pointer;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition-duration: 0.2s;
+}
+
+.empty.card-image {
+  border-radius: 0;
+  width: 13.3rem;
+  height: 2.4rem;
+  flex-shrink: 0;
+}
+
+.info-section {
+  display: flex;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 0rem 0rem 1.5rem 1.5rem;
+  background: #fff;
+  height: 13.4rem;
+}
+
+.time-ago-kebab-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  font-size: 1.3rem;
+  color: var(--Text, #666);
+}
+
+.kebab {
+  display: none;
+  width: 2.1rem;
+  height: 1.7rem;
+}
+
+.kebab:hover {
+  cursor: pointer;
+}
+
+.description {
+  height: 4.9rem;
+  align-self: stretch;
+  overflow: hidden;
+  color: #000;
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
