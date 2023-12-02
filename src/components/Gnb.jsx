@@ -13,7 +13,10 @@ const GNB = ({ auth, isLogin, onClick }) => {
         <Gnb.Logo src={logo} alt="홈으로 연결된 Linkbrary 로고" />
         {isLogin ? (
           <Gnb.Account>
-            <img src={account} alt="account" />
+            <Gnb.AccountIcon
+              src={auth?.image_source || account}
+              alt="account"
+            />
             <Gnb.Email>{auth?.email || ""}</Gnb.Email>
           </Gnb.Account>
         ) : (

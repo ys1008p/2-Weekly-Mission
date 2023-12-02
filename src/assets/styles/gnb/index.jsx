@@ -41,6 +41,12 @@ const Account = styled.div`
   gap: 6px;
 `;
 
+const AccountIcon = styled.img`
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+`;
+
 const Email = styled.span`
   color: var(--gray-1, #373740);
   font-family: Pretendard;
@@ -50,4 +56,4 @@ const Email = styled.span`
   line-height: normal;
 `;
 
-export const Gnb = { Wrapper, Container, Logo, Account, Email };
+export const Gnb = { Wrapper, Container, Logo, Account, AccountIcon, Email };
