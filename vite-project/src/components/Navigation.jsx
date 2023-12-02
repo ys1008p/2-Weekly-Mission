@@ -1,7 +1,40 @@
 import logo from "../../../images/landing/logo.svg";
 import "./Navigation.css";
+import { useEffect, useState } from "react";
+import useAsync from "../hooks/useAsync";
+import { getApiInfo } from "../api";
 
-function Navigation({ profile }) {
+const apiSettings = {
+  endpoints: {
+    profile: "/api/sample/user",
+    folder: "/api/sample/folder",
+  },
+  errorMessages: {
+    profile: "유저 정보를 불러오는데 실패했습니다.",
+    folder: "폴더를 불러오는데 실패했습니다.",
+  },
+};
+
+function Navigation() {
+  const [profile, setProfile] = useState({});
+  const [isProfileLoading, ProfileError, getProfileAsync] =
+    useAsync(getApiInfo);
+
+  const loadProfile = async () => {
+    const result = await getProfileAsync(
+      apiSettings.endpoints.profile,
+      apiSettings.errorMessages.profile
+    );
+    if (!result) return;
+
+    const { profileImageSource, email } = result;
+    setProfile({ profileImageSource, email });
+  };
+
+  useEffect(() => {
+    loadProfile();
+  }, []);
+
   return (
     <nav>
       <div className="gnb">

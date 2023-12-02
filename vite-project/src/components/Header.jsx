@@ -1,6 +1,8 @@
 import "./Header.css";
 
 function Header({ folder }) {
+  // if (Object.keys(folder).length === 0) return null;
+
   const {
     name,
     owner: { name: ownerName, profileImageSource },
