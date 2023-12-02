@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const StyledButton = styled.button`
   background-color: #ffffff;
   border: 1px solid var(--primary-color);
   font-size: 1.6rem;
   border-radius:0.5rem;
   padding: 0.8rem 1.2rem;
+  cursor: pointer;
+
+  &:hover{
+    background-color:var(--primary-color)
+  }
 `;
 
 const ButtonBox = styled.div`
@@ -25,18 +30,31 @@ const AddLink = styled.div`
   font-size:3rem;
 `
 
-function ButtonList(){
+function Button({folder,setId}){
+  const handleChangeID = (folderId) => {
+    setId(folderId)
+    console.log(folderId)
+  };
+  return(
+    <StyledButton onClick={() => handleChangeID(folder.id)}>{folder && folder.name}</StyledButton>
+    )
+  }
+  
+function AllButton(){
+  return(
+    <StyledButton>전체</StyledButton>
+  )
+}
+
+function ButtonList({setId,folders}){
+
     return(
         <>
         <div>
         <ButtonBox>
           <Buttons>
-          <Button>전체</Button>
-          <Button>즐겨찾기</Button>
-          <Button>코딩 팁</Button>
-          <Button>채용 공고</Button>
-          <Button>유용한 글</Button>
-          <Button>나만의 장소</Button>
+            <AllButton />
+             {folders && folders.map((folder)=>(<Button setId={setId} folder={folder} key={folder.id}/>))}
           </Buttons>
           <AddLink>+</AddLink>
         </ButtonBox>

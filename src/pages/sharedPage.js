@@ -4,7 +4,7 @@ import Banner from "../component/Banner";
 import CardList from "../component/CardList";
 import SearchInput from "../component/SearchInput";
 import styles from "../styles/SharedPage.module.css";
-import {getSharedData ,getUserData } from "../api.js";
+import {getSharedData ,getUserData } from "../apis/sharedApi";
 import { useEffect, useState } from "react";
 
 function SharedPage() {
@@ -14,7 +14,7 @@ function SharedPage() {
   const handleFolderLoad = async () => {
     const { folder } = await getSharedData();
     setFolder(folder);
-    console.log(folder.links);
+
   };
 
 

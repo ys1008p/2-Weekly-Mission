@@ -11,7 +11,7 @@ function CardList({ sharedLinks,folderLinks, page }) {
     } else if (page === "folderPage") {
       setLinks(folderLinks);
     }
-  }, [sharedLinks, folderLinks, page]);// 사실 의존성배열 비워뒀는데 챗gpt가 알려줘서 해결 이유 알아내기
+  }, [sharedLinks, folderLinks, page]);
 
   return (
       <div className={styles.cardList}>{ links && links.map((link) => <Card key={link.id} link={link} />)}</div>
