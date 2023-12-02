@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard";
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #edf7ff;
+}
+
+nav {
+  width: 100%;
+  max-width: auto;
+  height: 93px;
+}
+
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 200px;
+  width: 100%;
+  background-color: #edf7ff;
+}
+
+.Profile {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.ProfileImg {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.Title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: auto;
+  height: 244px;
+  background-color: #edf7ff;
+}
+
+.UserProfileImg {
+  width: 60px;
+  height: 60px;
+}
+
+.UserName {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.BookMark {
+  color: #000;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.MainContainer {
+  max-width: 1060px;
+  margin: 40px auto;
+}
+
+.Finder {
+  margin-top: 40px;
+  position: relative;
+}
+
+.SearchIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.Link {
+  width: 100%;
+  padding: 15px 16px 15px 30px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  border: none;
+}
+
+.CardDataContainer {
+  margin: 40px 0;
+}
+
+.CardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px 20px;
+}
+
+.CardContainer {
+  height: 65%;
+  overflow: hidden;
+}
+
+.CardInfoContainer {
+  height: 35%;
+  padding: 15px 20px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.Card {
+  width: 100%;
+  height: 100%;
+}
+
+.Card:hover {
+  transform: scale(1.3);
+  transition: transform 0.3s;
+}
+
+.Description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.Contents {
+  width: 340px;
+  height: 330px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+.Contents:hover {
+  border: 2px solid #6d6afe;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 16rem;
+  padding-top: 3.2rem;
+  background-color: #111322;
+}
+
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 192rem;
+  height: fit-content;
+  padding: 0 10.4rem;
+}
+
+.copyright {
+  color: #676767;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.footer-links {
+  display: flex;
+  column-gap: 3rem;
+  padding-right: 1.8rem;
+}
+
+.footer-link {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1.6rem;
+  justify-content: center;
+}
+
+.sns {
+  display: flex;
+  column-gap: 1.2rem;
+  height: 2rem;
+  justify-content: center;
+}
+
+@media(max-width: 1124px) {
+  .CardGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 20px;
+  }
+
+  .MainContainer {
+    max-width: 1060px;
+    margin: 40px 32px;
+  }
+}
+
+@media(max-width: 750px) {
+  .CardGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px 20px;
+  }
+
+  .MainContainer {
+    max-width: 500px;
+    margin: 40px 32px;
+  }
+}
