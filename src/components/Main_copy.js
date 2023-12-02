@@ -71,6 +71,7 @@ function Main_copy({ className, links, menu, onMouseOver, onMouseOut }){
       <div className="tab-menu-wrap">
         <div className="tab-menu">
           <ul>
+            <li><a className="active" href="">전체</a></li>
             {menu.map((folder) => (
               <li key={folder.id}>
                 <a href="">{folder.name}</a>
