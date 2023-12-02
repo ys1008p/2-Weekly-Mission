@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    getUserProfile().catch(() => {});
+    void getUserProfile();
   }, []);
 
   return (

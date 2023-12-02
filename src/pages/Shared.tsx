@@ -29,7 +29,7 @@ const Shared = () => {
   };
 
   useEffect(() => {
-    getFolderData().catch(() => {});
+    void getFolderData();
   }, []);
 
   return (
