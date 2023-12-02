@@ -1,5 +1,6 @@
 import '../components/Main_copy.css';
 import noImg from '../assets/no-img.svg';
+import { useEffect, useState } from 'react';
 
 function DateText({ createdAt }){
   const idx = createdAt.indexOf('T');
@@ -62,7 +63,33 @@ function CardList ({ links, onMouseOver, onMouseOut }){
   return cards;
 }
 
-function Main_copy({ className, links, menu, onMouseOver, onMouseOut }){
+function TabMenu({ menu }){
+  const [menuActive, setMenuActive] = useState(0);
+  const handleClick = (idx) => setMenuActive(idx);
+  
+  const All = {
+    id: 'all',
+    name: '전체',
+  }
+  const folderNameArr = [...menu];
+  folderNameArr.unshift(All);
+
+  const folderName = folderNameArr.map((item, idx) => (
+    <li key={item.id}>
+      <button type="button" className={menuActive === idx ? "active" : ""} onClick={() => handleClick(idx)}>{item.name}</button>
+    </li>
+  ))
+  return folderName;
+}
+
+
+function Main_copy({ 
+  className, 
+  links, 
+  menu, 
+  onMouseOver, 
+  onMouseOut, 
+  menuActive }){
   return(
     <div className={className}>
       <div className="search">
@@ -71,12 +98,10 @@ function Main_copy({ className, links, menu, onMouseOver, onMouseOut }){
       <div className="tab-menu-wrap">
         <div className="tab-menu">
           <ul>
-            <li><a className="active" href="">전체</a></li>
-            {menu.map((folder) => (
-              <li key={folder.id}>
-                <a href="">{folder.name}</a>
-              </li>
-            ))}
+            <TabMenu 
+              menu={menu}  
+              menuActive={menuActive}
+            />
           </ul>
         </div>
         <button type="button" className="btn-add mobile-hide"></button>

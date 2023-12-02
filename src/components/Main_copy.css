@@ -57,15 +57,17 @@
   line-height: 1.9rem;
 }
 
-.main .tab-menu ul li a {
+.main .tab-menu ul li button {
   display: block;
   padding: 0.8rem 1.2rem;
   font-size: 1.6rem;
   border-radius: 5px;
   border: 1px solid var(--color-blue);
+  background-color: var(--color-white);
+  cursor: pointer;
 }
 
-.main .tab-menu ul li a.active {
+.main .tab-menu ul li button.active {
   color: var(--color-white);
   background-color: var(--color-blue);
 }
@@ -182,6 +184,7 @@
 
 .main .card ul li .card-text {
   overflow: hidden;
+  min-height: 11.5rem;
   padding: 1.5rem 2rem;
 }
 
@@ -256,7 +259,7 @@
     gap: 1.2rem 0.8rem;
   }
 
-  .main .tab-menu ul li a {
+  .main .tab-menu ul li button {
     font-size: 1.4rem;
   }
 
