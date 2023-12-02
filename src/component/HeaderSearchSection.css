@@ -2,6 +2,8 @@
   padding: 6rem 32rem 9rem;
   background-color: #f0f6ff;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .header-search-section-container form {
@@ -13,6 +15,7 @@
   padding: 2.2rem 2rem;
   border-radius: 15px;
   border: 1px solid #6d6afe;
+  min-width: 80rem;
 }
 
 .header-search-section-container input::placeholder {
@@ -41,4 +44,18 @@
   right: 2.2rem;
   top: 50%;
   transform: translate(0, -50%);
+}
+
+@media all and (max-width: 1124px) {
+  .header-search-section-container {
+    padding: 6rem 3.2rem 9rem;
+  }
+
+  .header-search-section-container form {
+    width: 100%;
+  }
+
+  .header-search-section-container input {
+    min-width: 0;
+  }
 }

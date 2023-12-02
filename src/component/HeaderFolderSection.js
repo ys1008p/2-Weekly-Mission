@@ -6,7 +6,7 @@ function HeaderFoloderSection({ folderData }) {
   const ownerImg = folderData.owner?.profileImageSource;
 
   return (
-    <section className=".header-owner-container">
+    <section className="header-owner-container">
       <img
         src={ownerImg}
         alt="folderImg"

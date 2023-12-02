@@ -53,7 +53,7 @@ function App() {
           path="/"
           element={<Shared folderData={folderData} cardData={cardData} />}
         />
-        <Route path="/folder" element={<Folder />} />
+        <Route path="/folder" element={<Folder cardData={cardData} />} />
       </Routes>
       <Footer />
     </>
