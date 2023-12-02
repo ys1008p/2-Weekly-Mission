@@ -1,4 +1,4 @@
-import { FolderMain } from "../main/FolderMain.js";
+import Main from "../main/Main.js";
 import { Footer } from "../footer/Footer.js";
 import AddLink from "../header/AddLink.js";
 import Header from "../header/Header.js";
@@ -14,6 +14,8 @@ function FolderPage() {
     auth_id: "",
   });
 
+  const [links, setLinks] = useState([]);
+  const [folderLists, setFolderLists] = useState();
   const getUserData = async () => {
     try {
       const result = await getData("users/1");
@@ -33,14 +35,31 @@ function FolderPage() {
       console.log(e);
     }
   };
+
+  const getTotalLinksData = async () => {
+    try {
+      const result = await getData("users/1/links");
+      const { data } = result;
+      const datas = data.map((link) => ({
+        ...link,
+        createdAt: link.created_at,
+        imageSource: link.image_source,
+      }));
+      setLinks(datas);
+    } catch (e) {
+      console.log(`Folderpage의 getLinksData에서 ${e} 발생`);
+    }
+  };
+
   useEffect(() => {
     getUserData();
+    getTotalLinksData();
   }, []);
   return (
     <>
       <Header profileDatas={profileDatas} />
       <AddLink />
-      <FolderMain />
+      <Main links={links} />
       <Footer />
     </>
   );

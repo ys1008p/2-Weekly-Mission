@@ -4,6 +4,7 @@ import NoImg from "../../assets/card_no-img.svg";
 
 export function Card({ link }) {
   const { id, createdAt, url, title, description, imageSource } = link;
+  // const { id : id_2, created_At: , url, title, description, imageSource } = link;
   const [mins, setMins] = useState("");
   const [createdDates, setCreatedDates] = useState({});
   const [isHovered, setIsHovered] = useState(false);
