@@ -80,6 +80,7 @@ function Main_copy({ className, links, menu, onMouseOver, onMouseOut }){
         </div>
         <button type="button" className="btn-add mobile-hide"></button>
       </div>
+      <h2 className="main-title">유용한 글</h2>
       <div className="card">
         <ul>
           <CardList 
