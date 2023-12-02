@@ -1,0 +1,22 @@
+/* user agent stylesheet 초기화 */
+
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard";
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  padding: unset;
+  background-color: unset;
+  cursor: pointer;
+}
