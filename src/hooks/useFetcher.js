@@ -2,7 +2,7 @@ import { CacheContext } from "contexts/CacheContext";
 import { useEffect, useState, useContext, useCallback } from "react";
 import { MAX_RETRY_COUNT } from "utils/constants";
 
-export const useFetcher = (key, callback, retry = 0) => {
+export const useFetcher = (key, callback, props, retry = 0) => {
   const [state, setState] = useState({
     loading: false,
     data: null,
@@ -12,7 +12,6 @@ export const useFetcher = (key, callback, retry = 0) => {
   const { setCached, getCached, removeCached } = useContext(CacheContext);
 
   // GET 요청 처리
-
   const fetcher = useCallback(
     (refetch = false) => {
       setState((prevState) => ({ ...prevState, loading: true }));
@@ -43,7 +42,7 @@ export const useFetcher = (key, callback, retry = 0) => {
           setErrorCount((prevCount) => prevCount + 1);
         });
     },
-    [callback, getCached, key, removeCached, setCached]
+    [callback, removeCached, key, getCached, setCached]
   );
 
   //최대 요청 횟수만큼 요쳥 시도

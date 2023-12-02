@@ -30,5 +30,18 @@ export const getSelectedFolder = async (folderId, userId = 1) => {
   const res = await fetch(url);
   if (!res.ok) throw new Error(res.status);
   const { data } = await res.json();
-  return data;
+
+  //재사용 컴포넌트와 데이터 구조 맞춤.
+  const convertLinks = data.map((link) => ({
+    id: link.id,
+    updatedAt: link.update_at,
+    description: link.description,
+    url: link.url,
+    title: link.title,
+    folderId: link.folder_id,
+    imageSource: link.image_source,
+    createdAt: link.created_at,
+  }));
+
+  return convertLinks;
 };

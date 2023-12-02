@@ -1,11 +1,11 @@
 import React from "react";
-import search from "assets/icons/Search.svg";
+import { ReactComponent as SearchIcon } from "assets/icons/Search.svg";
 import styled from "styled-components";
 
 const SearchBar = () => {
   return (
     <InputContainer>
-      <img src={search} alt="Search" />
+      <SearchIcon />
       <InputBar className="searchBar" placeholder="링크로 검색해 보세요." />
     </InputContainer>
   );
@@ -16,7 +16,7 @@ export default SearchBar;
 const InputContainer = styled.div`
   position: relative;
   width: 100%;
-  & img {
+  & svg {
     position: absolute;
     top: 50%;
     left: 1.6rem;

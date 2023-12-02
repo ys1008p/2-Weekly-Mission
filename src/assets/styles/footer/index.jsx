@@ -19,7 +19,7 @@ const Box = styled.div`
   width: 100%;
   padding: 3.2rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
     display: flex;
     justify-content: space-between;
     grid-template: "copyright footer-links sns";

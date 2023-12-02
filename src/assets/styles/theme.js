@@ -14,4 +14,10 @@ export const theme = {
   textGray: "#676767",
   textContentGray: "#666666",
   textContentBlack: "#333333",
+
+  deviceSizes: {
+    mobile: "767px",
+    tablet: "1199px",
+    desktop: "1200px",
+  },
 };

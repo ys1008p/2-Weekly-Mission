@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import defaultImage from "assets/images/defaultImage.png";
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(32.5rem);
@@ -8,10 +9,19 @@ const Wrapper = styled.div`
   max-width: 106rem;
   row-gap: 2rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
     grid-template-columns: repeat(auto-fill, 34rem);
     row-gap: 2.5rem;
     column-gap: 2rem;
+  }
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  & svg {
+    position: absolute;
+    top: 15px;
+    right: 15px;
   }
 `;
 
@@ -22,10 +32,9 @@ const Image = styled.div`
   border-radius: 1.5rem 1.5rem 0 0;
   background-image: url(${(props) => props.$imageSource || defaultImage});
   background-position: center;
-  background-size: 100%;
-  transition: background-size 0.3s ease-in-out;
+  background-size: cover;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
     min-height: 20rem;
     height: 20rem;
   }
@@ -43,10 +52,15 @@ const Container = styled.div`
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   border-radius: 1.5rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
     width: 34rem;
     height: 33.4rem;
   }
+`;
+
+const FlaverHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Flavor = styled.div`
@@ -83,9 +97,11 @@ const Description = styled.p`
 
 export const card = {
   Wrapper,
+  ImageContainer,
   Container,
   Image,
   Flavor,
+  FlaverHeader,
   Posted,
   CreateAt,
   Description,

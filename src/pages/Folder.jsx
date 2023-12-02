@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageForm from "components/PageForm";
 import { useFetcher } from "hooks/useFetcher";
 import { getFolderList, getSelectedFolder } from "utils/api";
 import styled from "styled-components";
-import add from "assets/icons/add.svg";
 import CardList from "components/CardList";
-import { folderOptions } from "assets/icons/folderOptions";
+import { folderIcon } from "assets/icons/folder";
+import { tagComponent } from "assets/styles/tag";
+import Fab from "components/Fab";
+import { FOLDER_OPTION_NAME } from "utils/constants";
 
 const Folder = () => {
   const [selected, setSelected] = useState({
-    name: null,
+    name: "전체",
     links: [],
   });
   const { data } = useFetcher("folder", getFolderList);
@@ -18,67 +20,58 @@ const Folder = () => {
     try {
       const links = await getSelectedFolder(folderId);
 
-      //재사용 컴포넌트와 데이터 구조 맞춤.
-      const convertLinks = links.map((link) => ({
-        id: link.id,
-        updatedAt: link.update_at,
-        description: link.description,
-        url: link.url,
-        title: link.title,
-        folderId: link.folder_id,
-        imageSource: link.image_source,
-        createdAt: link.created_at,
-      }));
-
-      setSelected((prev) => ({ ...prev, name, links: convertLinks }));
+      setSelected((prev) => ({ ...prev, name, links }));
     } catch (e) {
       console.log(e);
     }
   };
+
+  //컴포넌트 랜더링 시, 전체 옵션을 기본 값으로 설정
+  useEffect(() => {
+    const fetched = async () => {
+      const links = await getSelectedFolder();
+      setSelected((prev) => ({ ...prev, links }));
+    };
+    fetched();
+  }, []);
 
   return (
     <PageForm>
       {data ? (
         <>
           <Sorts>
-            <TageList>
-              <FolderSortTag
+            <tagComponent.TageList>
+              <tagComponent.Tag
                 onClick={() => onClick("전체")}
                 selected={selected.name === "전체"}
               >
                 전체
-              </FolderSortTag>
+              </tagComponent.Tag>
               {data.map((folder) => {
                 return (
-                  <FolderSortTag
+                  <tagComponent.Tag
                     key={folder.id}
                     onClick={() => onClick(folder.name, folder.id)}
                     selected={selected.name === folder.name}
                   >
                     {folder.name}
-                  </FolderSortTag>
+                  </tagComponent.Tag>
                 );
               })}
-            </TageList>
-            <img src={add} alt={"add"} />
+            </tagComponent.TageList>
+            <Fab />
           </Sorts>
           <FolderHeader>
             <FolderName>{selected.name}</FolderName>
             {selected.name !== "전체" && selected.name && (
               <>
                 <FolderOption>
-                  <Option>
-                    <img src={folderOptions.shareIcon} alt="공유" />
-                    <span>공유</span>
-                  </Option>
-                  <Option>
-                    <img src={folderOptions.penIcon} alt="수정" />
-                    <span>이름 변경</span>
-                  </Option>
-                  <Option>
-                    <img src={folderOptions.deleteIcon} alt="삭제하기" />
-                    <span>삭제</span>
-                  </Option>
+                  {Object.entries(folderIcon).map(([iconName, Icon]) => (
+                    <Option key={iconName}>
+                      <Icon />
+                      <span>{FOLDER_OPTION_NAME[iconName]}</span>
+                    </Option>
+                  ))}
                 </FolderOption>
               </>
             )}
@@ -96,40 +89,19 @@ export default Folder;
 
 const Sorts = styled.div`
   display: flex;
-  width: 1060px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-`;
-
-const TageList = styled.ul`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
-`;
-
-const FolderSortTag = styled.li`
-  display: flex;
-  padding: 8px 12px;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.6rem;
-  font-weight: 400;
-
-  border-radius: 5px;
-  border: 1px solid ${(props) => props.theme.primary};
-  background: ${(props) =>
-    props.selected ? props.theme.primary : props.theme.white};
-  color: ${(props) => (props.selected ? props.theme.white : props.theme.black)};
-  cursor: pointer;
 `;
 
 const FolderHeader = styled.div`
   display: flex;
-  width: 1060px;
+  width: 100%;
   justify-content: space-between;
-  align-items: center;
+  @media (max-width: ${(props) => props.theme.deviceSizes.mobile}) {
+    flex-direction: column;
+    gap: 12px;
+  }
 `;
 
 const FolderName = styled.span`
@@ -146,6 +118,7 @@ const FolderOption = styled.ul`
   flex-direction: row;
   align-items: center;
   gap: 12px;
+  color: ${(props) => props.theme.gray600};
 `;
 
 const Option = styled.li`

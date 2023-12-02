@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.nav`
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: ${(props) => (props.$location === "/folder" ? "static" : "sticky")};
   top: 0;
   width: 100%;
   background-color: #edf7ff;
@@ -17,12 +17,12 @@ const Container = styled.div`
   height: 6.3rem;
   padding: 0 3.2rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
     height: 9.4rem;
     max-width: 86.3rem;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.desktop}) {
     height: 9.4rem;
     max-width: 192rem;
     padding: 0 20rem;
@@ -31,7 +31,7 @@ const Container = styled.div`
 const Logo = styled.img`
   height: 1.6rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
     height: 2.4rem;
   }
 `;

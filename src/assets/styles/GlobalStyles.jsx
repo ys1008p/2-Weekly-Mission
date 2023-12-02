@@ -26,6 +26,10 @@ export const GlobalStyles = createGlobalStyle`
     background-color: unset;
     cursor: pointer;
   }
+
+  ul{
+    padding: unset;
+  }
 `;
 
 export default GlobalStyles;

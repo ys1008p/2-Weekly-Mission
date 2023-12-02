@@ -1,7 +1,7 @@
 import React from "react";
 import avatar from "assets/images/Avatar.png";
 import { info } from "assets/styles/PageInfo";
-import infoIcon from "assets/icons/link.svg";
+import { ReactComponent as LinkIcon } from "assets/icons/link.svg";
 
 const FolderInfo = ({ path, folder }) => {
   return (
@@ -20,7 +20,7 @@ const FolderInfo = ({ path, folder }) => {
         </>
       ) : (
         <info.FolderInputContainer>
-          <img src={infoIcon} alt={"link"} />
+          <LinkIcon />
           <info.FolderInput placeholder="링크를 추가해 보세요." />
           <info.FolderInputButton>
             <span>추가하기</span>

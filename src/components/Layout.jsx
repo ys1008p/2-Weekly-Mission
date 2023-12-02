@@ -5,10 +5,10 @@ import { useAuth } from "contexts/AuthContext";
 const Layout = ({ children }) => {
   const { authData, login, isLogin } = useAuth();
   return (
-    <div>
+    <>
       <GNB auth={authData} isLogin={isLogin} onClick={login} />
       {children}
-    </div>
+    </>
   );
 };
 

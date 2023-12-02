@@ -16,7 +16,7 @@ export const Cta = styled.div`
   font-size: 1.4rem;
   font-weight: 600;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
     height: 5.4rem;
     border-radius: 0.8rem;
     font-size: 1.8rem;
@@ -26,7 +26,7 @@ export const Cta = styled.div`
 export const CtaShort = styled(Cta)`
   width: 8rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
     width: 12.8rem;
   }
 `;

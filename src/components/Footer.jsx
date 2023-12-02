@@ -13,17 +13,14 @@ const Footer = () => {
           <footer.SLink to="faq.html">FAQ</footer.SLink>
         </footer.Links>
         <footer.SNS>
-          {Object.entries(footerIcon).map(([urlName, iconSrc]) => (
+          {Object.entries(footerIcon).map(([urlName, Icon]) => (
             <Link
               to={`https://www.${urlName}.com`}
               target="_blank"
               rel="noopener noreferrer"
               key={urlName}
             >
-              <img
-                src={iconSrc}
-                alt={`${urlName} 홈페이지로 연결된 ${urlName} 로고`}
-              />
+              <Icon />
             </Link>
           ))}
         </footer.SNS>

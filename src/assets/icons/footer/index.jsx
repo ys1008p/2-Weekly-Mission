@@ -1,6 +1,11 @@
-import facebook from "./facebook.svg";
-import instagram from "./instagram.svg";
-import twitter from "./twitter.svg";
-import youtube from "./youtube.svg";
+import { ReactComponent as Facebook } from "./facebook.svg";
+import { ReactComponent as Instagram } from "./instagram.svg";
+import { ReactComponent as Twitter } from "./twitter.svg";
+import { ReactComponent as Youtube } from "./youtube.svg";
 
-export const footerIcon = { facebook, instagram, twitter, youtube };
+export const footerIcon = {
+  facebook: Facebook,
+  instagram: Instagram,
+  twitter: Twitter,
+  youtube: Youtube,
+};
