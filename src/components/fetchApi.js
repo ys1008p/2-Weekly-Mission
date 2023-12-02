@@ -1,5 +1,12 @@
 import API from '../constant/api';
 
+// 공유한 폴더의 정보
+export async function getSampleUserFolder() {
+  const result = await fetch(API.SAMPLE_FOLDER);
+  const body = await result.json();
+  return body;
+}
+
 export async function getFolder() {
   const result = await fetch(API.USER_FOLDER);
   const body = await result.json();
@@ -18,7 +25,3 @@ export async function getUser() {
   const body = await result.json();
   return body;
 }
-
-// USER_FOLDER: 'https://bootcamp-api.codeit.kr/api/users/1/folders
-// USER_LINKS: 'https://bootcamp-api.codeit.kr/api/users/1/links
-// USER_INFO: 'https://bootcamp-api.codeit.kr/api/users/1',
