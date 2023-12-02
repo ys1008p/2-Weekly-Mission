@@ -7,7 +7,7 @@ import GlobalStyle from '../styles/global';
 import UserBadge from './atoms/UserBadge';
 import SharedHeader from './molecules/SharedHeader';
 import SearchBar from './atoms/SearchBar';
-
+import Card from './atoms/Card'
 function App() {
   return (
     <div>
@@ -19,6 +19,7 @@ function App() {
         <Gnb></Gnb>
         <SharedHeader></SharedHeader>
         <SearchBar></SearchBar>
+        <Card></Card>
       </div>
     </div>
   );
