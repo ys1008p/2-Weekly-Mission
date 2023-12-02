@@ -20,6 +20,11 @@ const getTimeDiffInSeconds = (dateTime: string): number => {
   return (now.getTime() - date.getTime()) / SECOND_IN_MILISECOND;
 };
 
+/*
+ * 1 minute ago
+ * 2 hours ago
+ * 1 day ago
+ */
 const getTimeDiff = (dateTime: string): string => {
   const timeDiffSeconds = getTimeDiffInSeconds(dateTime);
 
