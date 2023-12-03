@@ -1,4 +1,6 @@
 import "./FolderList.css";
+import DefaultImage from "./images/og_tag.png";
+import Magnifier from "./images/Search.svg";
 
 function timeComparison(value) {
   let currentTime = new Date();
@@ -6,7 +8,7 @@ function timeComparison(value) {
   let realFOlderTIme = new Date(FolderTime);
   let currentTimeStamp = currentTime.getTime();
   let FolderTimeStamp = realFOlderTIme.getTime();
-  console.log(FolderTimeStamp);
+  // console.log(FolderTimeStamp);
   let timeDiff = currentTimeStamp - FolderTimeStamp;
   if (timeDiff < 2000) {
     return "1 minute ago";
@@ -22,30 +24,46 @@ function timeComparison(value) {
     return `${Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 30 * 12))} year ago`;
   }
 }
+const realTime = function (item) {
+  let GetRealTime = new Date(item.createdAt);
+  return `${GetRealTime.getFullYear()}. ${
+    GetRealTime.getMonth() + 1
+  }. ${GetRealTime.getDate()}`;
+};
 
 function FolderGrid({ item }) {
-  // console.log(item);
   return (
-    <div>
-      <img className="folder-img" src={item.imageSource} alt={item.title} />
-      <div>
-        <h1>{item.title}</h1>
-        <p>{item.rating}</p>
-        <p>{timeComparison(item)}</p>
-        <p>{item.content}</p>
+    <a className="folder" href={item.url} target="_blank">
+      <img
+        className="folder-img"
+        src={item.imageSource || DefaultImage}
+        alt={item.title}
+      />
+      <div className="folderDescription">
+        <p className="timeStamp">{timeComparison(item)}</p>
+        <p className="folderDescriptionMore">{item.description}</p>
+        <p className="postTime">{realTime(item)}</p>
       </div>
-    </div>
+    </a>
   );
 }
 
 function FolderList({ items }) {
+  // console.log(items);
   return (
-    <div>
-      <div></div>
+    <div className="folderBody">
+      <div className="search">
+        <input
+          type="text"
+          className="searchInput"
+          placeholder="링크를 검색해 보세요"
+        />
+        <img src={Magnifier} className="searchIcon" />
+      </div>
       <div className="grids">
         {items.links.map((item) => {
           return (
-            <li key={item.id}>
+            <li className="folderParents">
               <FolderGrid item={item} />
             </li>
           );

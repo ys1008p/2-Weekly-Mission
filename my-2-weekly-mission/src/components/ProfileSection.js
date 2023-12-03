@@ -2,22 +2,38 @@ import "./ProfileSection.css";
 import logo from "./images/logo.svg";
 import myProfile from "./images/myprofile.svg";
 
-function ProfileSection({ items, secondItems }) {
+function isEmailExist(item) {
+  if (item.email) {
+    return (
+      <div className="eMail">
+        <a className="purpleBackground" src={myProfile} href="">
+          <img className="eMailIcon" src={myProfile} />
+        </a>
+        <p>{item.email}</p>
+      </div>
+    );
+  } else {
+    return (
+      <a className="cta cta-short" href="signin.html">
+        <span>로그인</span>
+      </a>
+    );
+  }
+}
+
+function ProfileSection({ items }) {
   return (
-    <div>
+    <div className="body">
       <div className="nav">
-        <img src={logo} alt="logo" />
-        <div>
-          <a className="purpleBackground" href="">
-            <img src={myProfile} />
-          </a>
-          <p>{items.email}</p>
+        <div className="gnb">
+          <img className="logo" src={logo} alt="logo" />
+          {isEmailExist(items)}
         </div>
       </div>
-      <div>
-        <img src={items.profileImageSource} />
-        <p>@{items.name}</p>
-        <p>⭐️ 즐겨찾기</p>
+      <div className="profile">
+        <img className="profilePicture" src={items.profileImageSource} />
+        <p className="profileName">@{items.name}</p>
+        <p className="folderName">⭐️ 즐겨찾기</p>
       </div>
     </div>
   );

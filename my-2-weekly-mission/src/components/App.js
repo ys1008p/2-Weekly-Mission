@@ -2,7 +2,9 @@ import { GetProfileInformationLinks } from "../api";
 import { GetFolderInformationLinks } from "../api";
 import ProfileSection from "./ProfileSection";
 import FolderList from "./FolderList";
+import FooterSection from "./Footer.js";
 import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
   const [userProfile, setUserProfile] = useState({
@@ -39,13 +41,10 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <div>
-        <ProfileSection items={userProfile} />
-      </div>
-      <div>
-        <FolderList items={folderProfile} />
-      </div>
+    <div className="body">
+      <ProfileSection items={userProfile} />
+      <FolderList items={folderProfile} />
+      <FooterSection />
     </div>
   );
 }
