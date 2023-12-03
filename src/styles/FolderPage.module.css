@@ -1,9 +1,6 @@
 .contentFlax {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  /* gap: 4rem; gap이 안먹혀요..*/
 }
 
 .contentBox {
@@ -18,4 +15,11 @@
   justify-content: center;
   align-items: center;
   padding: 4.1rem 0 3.5rem;
+}
+
+/* Pc*/
+@media (max-width: 1200px) {
+  .contentBox {
+    width: 100%;
+  }
 }

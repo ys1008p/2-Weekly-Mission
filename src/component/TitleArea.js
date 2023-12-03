@@ -5,9 +5,14 @@ const categoryList = [
   { title: "이름 변경", image: process.env.PUBLIC_URL + "/images/pen.png" },
   { title: "삭제", image: process.env.PUBLIC_URL + "/images/delete.png" },
 ];
-// 카테고리는 세개이다 map을 이용해 만든다
-// 카테고리 박스를 글씨 영역에 타이틀과 함께 넣어준다
-const StyledCategoryBox = styled.div``;
+
+const StyledCategoryBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.4rem;
+  margin-bottom: 2.4rem;
+`;
 
 const StyledCategory = styled.div`
   display: flex;
@@ -16,8 +21,14 @@ const StyledCategory = styled.div`
   gap: 1.2rem;
 `;
 
+const CategoryList = styled.div`
+display: flex;
+justify-content: center;
+font-size: 1.4rem;
+`
+
 function Category({ category }) {
-  const { title, image } = categoryList;
+  const { title, image } = category;
   return (
     <StyledCategory>
       <img src={image} alt={`${title} 아이콘`} />
@@ -30,22 +41,29 @@ function CategoryBox({ folder }) {
   return (
     <StyledCategoryBox>
       <h1>{folder.name}</h1>
-      {categoryList.map((category) => (
-        <Category category={category} />
-      ))}
+      {
+        folder.name !=='전체'?
+      <CategoryList>
+        {categoryList.map((category) => (
+          <Category key={category.title} category={category} />
+        ))}
+      </CategoryList>
+      : ""
+      }
     </StyledCategoryBox>
   );
 }
 
-function TitleArea({ folders,id }) {
-  
-  return 
-  <>
-   {folders &&
-        folders
-          .filter((folder) => folder.id === id)
-          .map((filteredFolder) => <CategoryBox folder={filteredFolder} />)}
-  </>
+function TitleArea({ folders, id }) {
+  return (
+    <>
+      {folders &&
+        folders.map((folder) => {
+          if (folder.id === id) {
+            return <CategoryBox key={folder.id} folder={folder} />;
+          }
+        })}
+    </>
+  );
 }
-
 export default TitleArea;

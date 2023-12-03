@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import TitleArea from './TitleArea';
-import { useState } from 'react';
+
 
 const StyledButton = styled.button`
   background-color: #ffffff;
@@ -9,23 +8,33 @@ const StyledButton = styled.button`
   border-radius:0.5rem;
   padding: 0.8rem 1.2rem;
   cursor: pointer;
+  
 
   &:hover{
     background-color:var(--primary-color);
     color: #ffffff;
   }
+
+  /* Mobile*/
+@media (max-width: 390px) {
+  padding: 0.6rem 1.2rem;
+}
+
 `;
 
 const ButtonBox = styled.div`
 display:flex;
 justify-content: space-between;
 margin-bottom: 2.4rem;
+
+
 `
 
 const Buttons =styled.div`
-  display:flex;
-  justify-content: space-between;
-  gap:1.2rem;
+display: flex;
+justify-content: flex-start;
+gap: 1.2rem;
+flex-wrap: wrap;
 `
 
 const AddLink = styled.div`

@@ -18,8 +18,6 @@ function Card({ link }) {
     setIsHover(false);
     setIsHoverClass("");
   };
-
-  console.log(link)
  
   return (
     <div onMouseOver={handleHover} onMouseOut={handleHoverOut} className={styles.card} onClick={() => window.open(`${link.url}`, "_blank")}>
