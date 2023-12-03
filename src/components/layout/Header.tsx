@@ -29,14 +29,14 @@ const Header = () => {
         <a href="/">
           <img className="logo" src={Logo} alt="로고" />
         </a>
-        {user === null ? (
+        {user ? (
+          <Profile user={user} />
+        ) : (
           <a href="/">
             <button type="button" className="btn-gradient login">
               로그인
             </button>
           </a>
-        ) : (
-          <Profile user={user} />
         )}
       </div>
     </header>
