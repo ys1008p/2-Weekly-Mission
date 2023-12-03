@@ -3,10 +3,36 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 8px;
-  padding: 0 68px;
   width: 100vw;
 }
-.Sorting__container {
+
+.folderNav {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 68px;
   display: flex;
-  justify-content: flex-start;
+}
+
+.addFolderButton {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+
+  color: #6d6afe;
+  text-align: center;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.folderAddText {
+  text-wrap: nowrap;
+}
+
+.addFolderIcon {
+  width: 16px;
+  height: 16px;
 }
