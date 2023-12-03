@@ -4,10 +4,10 @@ export function Option({ optionData }) {
   //   console.log(optionData);
 
   return (
-    <div className="option-wrapper">
+    <button className="option-wrapper">
       <img className="option-img" src={img} />
       <div className="option-name">{name}</div>
-    </div>
+    </button>
   );
 }
 

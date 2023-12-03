@@ -1,6 +1,6 @@
 export function Folders({ className, folder }) {
   const { name } = folder;
-  return <div className={className}>{name}</div>;
+  return <button className={className}>{name}</button>;
 }
 
 export default Folders;

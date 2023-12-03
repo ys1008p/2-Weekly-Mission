@@ -64,6 +64,9 @@
   border-radius: 0.3125rem;
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
   background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .folder-add-button {
@@ -98,6 +101,8 @@
 .option-wrapper {
   display: flex;
   gap: 0.25rem;
+  border-style: none;
+  background: none;
 }
 
 .option-img {
