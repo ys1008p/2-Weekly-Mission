@@ -27,6 +27,6 @@ export const getLinklist = async (currentId) => {
     const res = await instance.get('/api/users/1/links' + params);
     return res?.data.data;
   } catch (e) {
-    console.error(e);
+    console.error('[API ERROR] NOT FOUND LINK LIST: ', e);
   }
 };
