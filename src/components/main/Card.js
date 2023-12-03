@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Card.css";
 import NoImg from "../../assets/card_no-img.svg";
+import kebab from "../../assets/card/kebab.svg";
+import CardInfo from "./CardInfo";
 
 export function Card({ link }) {
   const { id, createdAt, url, title, description, imageSource } = link;
-  // const { id : id_2, created_At: , url, title, description, imageSource } = link;
   const [mins, setMins] = useState("");
   const [createdDates, setCreatedDates] = useState({});
   const [isHovered, setIsHovered] = useState(false);
@@ -69,7 +70,7 @@ export function Card({ link }) {
   }
   useEffect(() => {
     calCreatedAt();
-  }, []);
+  }, [{ mins }]);
 
   return (
     <>
@@ -88,8 +89,18 @@ export function Card({ link }) {
               <img className="card-img" src={NoImg} alt={`${title}-img`} />
             )}
           </div>
-          <div className="info-wrapper">
-            <div className="mins">{mins}</div>
+          <CardInfo
+            mins={mins}
+            imgSrc={kebab}
+            title={title}
+            description={description}
+            createdDates={createdDates}
+          />
+          {/* <div className="info-wrapper">
+            <div>
+              <div className="mins">{mins}</div>
+              <img src={kebab} />
+            </div>
             <div className="infos">
               <div className="title">{title}</div>
               <div className="description">{description}</div>
@@ -97,7 +108,7 @@ export function Card({ link }) {
             <div className="created">
               {createdDates.year}. {createdDates.month}. {createdDates.day}
             </div>
-          </div>
+          </div> */}
         </div>
       </a>
     </>

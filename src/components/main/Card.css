@@ -30,6 +30,16 @@
   height: 135px;
 }
 
+.times-ago-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.kebab {
+  width: 21px;
+  height: 17px;
+}
+
 .mins {
   color: #666;
   font-size: 0.8125rem;
