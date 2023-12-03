@@ -1,27 +1,34 @@
-// import images
-import socialKakao from '../assets/images/icon/social-kakao.svg';
-import socialGoogle from '../assets/images/icon/social-google.svg';
-import logo from '../assets/images/logo.svg';
-import eyeShowIcon from '../assets/images/icon/eye-on.svg';
-import eyeHideIcon from '../assets/images/icon/eye-off.svg';
+// [images]PNG
 import section1 from '../assets/images/img-landing-01.png';
 import section2 from '../assets/images/img-landing-02.png';
 import section3 from '../assets/images/img-landing-03.png';
 import section4 from '../assets/images/img-landing-04.png';
-import emptyAvatar from '../assets/images/icon/codeit.svg';
 import emptyThumbnail from '../assets/images/empty-card-img.png';
+// [Icon]SVG
+import logo from '../assets/images/logo.svg';
+import socialKakao from '../assets/images/icon/social-kakao.svg';
+import socialGoogle from '../assets/images/icon/social-google.svg';
+import eyeShowIcon from '../assets/images/icon/eye-on.svg';
+import eyeHideIcon from '../assets/images/icon/eye-off.svg';
+import emptyAvatar from '../assets/images/icon/codeit.svg';
+import favoriteDefault from '../assets/images/icon/star-default.svg';
+import favoriteActive from '../assets/images/icon/star-active.svg';
+import liked from '../assets/images/icon/link.svg';
 
-// [Router]페이지 경로
 export const ROUTER_PATH = {
-  SHARED_PATH: '/',
-  LANDING_PATH: '/landing',
+  SHARED_PATH: '/shared',
+  LANDING_PATH: '/',
   SIGNIN_PATH: '/signin',
   SIGNUP_PATH: '/signup',
   FOLDER_PATH: '/folder',
 };
 
-// [footer-right] social-icons
-export const footerSocialList = [
+export const SELECT_MENU = [
+  { id: 1, name: '삭제하기' },
+  { id: 2, name: '폴더에 추가' },
+];
+
+export const FOOTER_SOCIAL_LIST = [
   {
     id: 1,
     url: 'https://www.facebook.com/?locale=ko_KR',
@@ -48,8 +55,7 @@ export const footerSocialList = [
   },
 ];
 
-// [signin/signup] 소셜 로그인, 가입 아이콘
-export const SocialLogin = [
+export const SOCIAL_LOGIN = [
   {
     id: 1,
     url: 'https://www.google.com/',
@@ -64,22 +70,64 @@ export const SocialLogin = [
   },
 ];
 
-// [import]페이지별 이미지
-export const importImg = {
-  logo,
-  auth: {
-    eyeShowIcon,
-    eyeHideIcon,
-  },
+export const IMAGE_URL = {
   home: {
-    section1,
-    section2,
-    section3,
-    section4,
+    section1: {
+      url: section1,
+      alt: '링크 저장 이미지',
+    },
+    section2: {
+      url: section2,
+      alt: '폴더 관리 이미지',
+    },
+    section3: {
+      url: section3,
+      alt: '링크 공유 이미지',
+    },
+    section4: {
+      url: section4,
+      alt: '링크 검색 이미지',
+    },
   },
-  share: {
-    // 사용자가 이미지를 지정하지 않았을 때 default 이미지 고려(변경 가능)
-    emptyAvatar,
-    emptyThumbnail,
+  empty: {
+    url: emptyThumbnail,
+    alt: '기본 썸네일 이미지',
+  },
+};
+
+export const ICON = {
+  logo: {
+    url: logo,
+    alt: 'linkbrary 로고 이미지',
+  },
+  eye: {
+    default: {
+      url: eyeHideIcon,
+      alt: '비밀번호 숨기기',
+    },
+    active: {
+      url: eyeShowIcon,
+      alt: '비밀번호 보기',
+    },
+  },
+  star: {
+    default: {
+      url: favoriteDefault,
+      alt: '즐겨찾기 아이콘-off',
+    },
+    active: {
+      url: favoriteActive,
+      alt: '즐겨찾기 아이콘-on',
+    },
+  },
+  avatar: {
+    default: {
+      url: emptyAvatar,
+      alt: '기본 이미지',
+    },
+  },
+  liked: {
+    url: liked,
+    alt: '링크 추가하기 아이콘',
   },
 };
