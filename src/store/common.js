@@ -15,6 +15,8 @@ import favoriteDefault from '../assets/images/icon/star-default.svg';
 import favoriteActive from '../assets/images/icon/star-active.svg';
 import liked from '../assets/images/icon/link.svg';
 
+export const FLOATING_BUTTON_POSITION = 101;
+
 export const ROUTER_PATH = {
   SHARED_PATH: '/shared',
   LANDING_PATH: '/',

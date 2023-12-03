@@ -5,10 +5,33 @@ import { getFilterList } from '../../apis/folderList';
 import { IconButton, MixButton } from '../../components/common/Button';
 
 import { INITIAL_FILTER_DATA } from '../../store/type';
+import { FLOATING_BUTTON_POSITION } from '../../store/common';
 
 export const Filter = ({ setCurrentId, setTitle }) => {
   const [filterData, setFilterData] = useState(INITIAL_FILTER_DATA);
   const [isActiveId, setIsActiveId] = useState(undefined);
+
+  const [position, setPosition] = useState(0);
+  const [innerHeight, setInnerHeight] = useState(window.innerHeight);
+  const [totalHeight, setTotalHeight] = useState(document.documentElement.scrollHeight);
+
+  function onScroll() {
+    setPosition(~~window.scrollY);
+  }
+
+  function onResize() {
+    setInnerHeight(~~window.innerHeight);
+    setTotalHeight(~~document.documentElement.scrollHeight);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
 
   useEffect(() => {
     const getData = async () => {
@@ -28,6 +51,9 @@ export const Filter = ({ setCurrentId, setTitle }) => {
     setIsActiveId(id);
     setTitle(name);
   };
+
+  const floatingHeight = totalHeight - (innerHeight + FLOATING_BUTTON_POSITION);
+  const isOverHeight = position > floatingHeight;
 
   return (
     <div className='filter'>
@@ -73,7 +99,7 @@ export const Filter = ({ setCurrentId, setTitle }) => {
         textColor='white'
         size={16}
         color='white'
-        name='sm-add-filter'
+        name={`sm-add-filter ${isOverHeight && 'hide'}`}
         endIcon='ic-add'
       />
     </div>
