@@ -1,3 +1,5 @@
+import './TabMenu.css'
+
 function TabMenu({ menu, menuActive, handleClick }){
   const All = {
     id: 'all',

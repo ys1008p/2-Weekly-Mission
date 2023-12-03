@@ -1,5 +1,6 @@
-import noImg from '../assets/no-img.svg';
-import star from '../assets/ico-star.png';
+import noImg from '../../../assets/no-img.svg';
+import star from '../../../assets/ico-star.png';
+import './CardList.css';
 
 function DateText({ createdAt }){
   const idx = createdAt.indexOf('T');

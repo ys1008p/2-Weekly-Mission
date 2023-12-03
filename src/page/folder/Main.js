@@ -1,6 +1,7 @@
 import './Main.css';
-import CardList from '../../components/CardList';
-import TabMenu from '../../components/TabMenu';
+import CardList from './cardList/CardList';
+import TabMenu from '../../components/tabMenu/TabMenu';
+import SearchBar from '../../components/searchBar/SearchBar';
 
 function Main({ 
   className, 
@@ -14,6 +15,7 @@ function Main({
   title }){
   return(
     <div className={className}>
+      <SearchBar />
       <div className="tab-menu-wrap">
         <div className="tab-menu">
           <ul>

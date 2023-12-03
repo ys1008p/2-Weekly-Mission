@@ -30,9 +30,6 @@
   background-color: var(--color-very-light-gray);
 }
 
-.main .tab-menu-wrap {
-  position: relative;
-}
 
 .main .btn-add {
   position: absolute;
@@ -44,6 +41,11 @@
   border: none;
   cursor: pointer;
   background: url('../../assets/btn-add.png') no-repeat;
+}
+
+
+.main .tab-menu-wrap {
+  position: relative;
 }
 
 .main .tab-menu ul {
@@ -134,7 +136,7 @@
   background: url('../../assets/btn-delete.png') no-repeat center;
 }
 
-.main .card ul {
+/* .main .card ul {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -227,7 +229,7 @@
   font-size: 1.4rem;
   line-height: 1.6rem;
   color: var(--color-black-333);
-}
+} */
 
 .main .no-link {
   position: absolute;

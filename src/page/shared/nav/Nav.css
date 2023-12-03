@@ -51,28 +51,6 @@
   width: 12.8rem;
 }
 
-.header .folder-info {
-  margin: 9.4rem 0 0;
-  padding: 2rem 0 6rem 0;
-  text-align: center;
-  background-color: var(--color-sky-blue);
-}
-
-.header .folder-info .user-profile {
-  width: 6rem;
-}
-
-.header .folder-info .user-name {
-  margin: 1.2rem 0 2rem 0 ;
-  font-size: 1.6rem;
-}
-
-.header .folder-info .name {
-  font-size: 4rem;
-  line-height: 4.8rem;
-  font-weight: 600;
-}
-
 @media screen and (max-width:1124px) {
   .header nav {
     padding: 0 3.2rem;
@@ -100,25 +78,5 @@
 
   .header .profile .cta-short {
     width: 8rem;
-  }
-
-  .header .folder-info {
-    margin: 6.3rem 0 0;
-    padding: 1rem 0 4rem 0;
-  }
-
-  .header .folder-info .user-profile {
-    width: 4rem;
-  }
-
-  .header .folder-info .user-name {
-    margin: 0.6rem 0 1rem ;
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-  }
-
-  .header .folder-info .name {
-    font-size: 3.2rem;
-    line-height: 3.8rem;
   }
 }

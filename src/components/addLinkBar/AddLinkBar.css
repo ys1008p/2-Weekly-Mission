@@ -1,53 +1,3 @@
-.header {
-  padding: 0 20rem; 
-  background-color: var(--color-sky-blue);
-}
-
-.header .logo a {
-  display: block;
-}
-
-.header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: static;
-  padding: 0;
-  height: 9.4rem;
-}
-
-.header .profile a {
-  display: flex;
-  align-items: center;
-}
-
-.header .profile img {
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 100%;
-}
-
-.header .profile .text {
-  padding: 0 0 0 0.6rem;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  color: var(--color-black);
-}
-
-.header .profile .cta {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 12.8rem;
-  height: 5.4rem;
-  cursor: pointer;
-  background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
-  border-radius: 0.8rem;
-  color: var(--color-very-light-gray);
-  font-size: 2.8rem;
-  font-weight: 600;
-}
-
 .header .add-link {
   position: relative;
   width: 80rem;
@@ -98,36 +48,14 @@
 }
 
 @media screen and (max-width:1124px) {
-  .header {
-    padding: 0 3.2rem;
-  }
-
   .header .add-link,
   .header .add-link input {
     width: 100%;
   }
 }
 
+
 @media screen and (min-width:375px) and (max-width:768px) {
-  .mobile-hide { 
-    display: none;
-  }
-
-  .header .logo img {
-    width: 8.8rem;
-  }
-
-  .header nav {
-    padding: 0; 
-    height: 6.3rem;
-  }
-
-  .header .profile .cta {
-    width: 8rem;
-    height: 3.7rem;
-    font-size: 2.4rem;
-  }
-
   .header .add-link-wrap {
     padding: 2.4rem 0 4rem 0;
   }

@@ -1,6 +1,6 @@
-import '../page/folder/Header.css';
+import './AddLinkBar.css';
 
-function AddLinkInput(){
+function AddLinkBar(){
   return (
     <div className="add-link-wrap">
       <div className="add-link">
@@ -13,4 +13,4 @@ function AddLinkInput(){
   )
 }
 
-export default AddLinkInput;
+export default AddLinkBar;
