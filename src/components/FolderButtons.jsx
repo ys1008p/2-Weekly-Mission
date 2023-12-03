@@ -26,5 +26,21 @@ export default function FolderButtons({ folderId, onClick }) {
     </li>
   ));
 
-  return <ul className='folder-buttons'>{list}</ul>;
+  return (
+    <ul className='folder-buttons'>
+      <li>
+        <button
+          className={
+            !folderId ? 'folder-button active-button' : 'folder-button'
+          }
+          onClick={() => {
+            onClick(null, '전체');
+          }}
+        >
+          전체
+        </button>
+      </li>
+      {list}
+    </ul>
+  );
 }
