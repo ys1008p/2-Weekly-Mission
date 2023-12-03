@@ -3,6 +3,47 @@ import { useCallback, useEffect, useState } from 'react';
 import style from './FolderMain.module.css';
 import { getLinks } from './api';
 
+function FolderButtons({ folders, onClick, styleHandler }) {
+  return (
+    <div className={style.buttons}>
+      <div className={style.folderButtons}>
+        {folders.map((folder) => (
+          <FolderButton
+            key={folder.id}
+            onClick={onClick}
+            className={styleHandler(folder.name)}
+            folder={folder}>
+            {folder.name}
+          </FolderButton>
+        ))}
+      </div>
+      <button type='button' className={style.addButton}></button>
+    </div>
+  );
+}
+
+function FolderTitle({ folderName, hideHandler }) {
+  return (
+    <div className={style.folderTitle}>
+      <h1 className={style.title}>{folderName}</h1>
+      <div className={`${style.options} ${hideHandler()}`}>
+        <button className={style.option}>
+          <img src='/images/icons/share.svg' alt='공유 버튼 이미지' />
+          <span>공유</span>
+        </button>
+        <button className={style.option}>
+          <img src='/images/icons/pen.svg' alt='공유 버튼 이미지' />
+          <span>이름 변경</span>
+        </button>
+        <button className={style.option}>
+          <img src='/images/icons/delete.svg' alt='공유 버튼 이미지' />
+          <span>삭제</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function FolderButton({ children, onClick, className, folder }) {
   const handleClick = () => {
     onClick(folder);
@@ -43,43 +84,17 @@ function FolderMain({ initFolders, className }) {
       const linksResponse = await getLinks(currentFolder.id);
       setLinks(linksResponse.data);
     }
-
     fetchLinks();
   }, [currentFolder]);
 
   return (
     <div className={`${className} ${style.mainContainer}`}>
-      <div className={style.buttons}>
-        <div className={style.folderButtons}>
-          {folders.map((folder) => (
-            <FolderButton
-              key={folder.id}
-              onClick={setCurrentFolder}
-              className={styleIfCurrentFolder(folder.name)}
-              folder={folder}>
-              {folder.name}
-            </FolderButton>
-          ))}
-        </div>
-        <button type='button' className={style.addButton}></button>
-      </div>
-      <div className={style.folderTitle}>
-        <h1 className={style.title}>{currentFolder.name}</h1>
-        <div className={`${style.options} ${checkHideOptions()}`}>
-          <button className={style.option}>
-            <img src='/images/icons/share.svg' alt='공유 버튼 이미지' />
-            <span>공유</span>
-          </button>
-          <button className={style.option}>
-            <img src='/images/icons/pen.svg' alt='공유 버튼 이미지' />
-            <span>이름 변경</span>
-          </button>
-          <button className={style.option}>
-            <img src='/images/icons/delete.svg' alt='공유 버튼 이미지' />
-            <span>삭제</span>
-          </button>
-        </div>
-      </div>
+      <FolderButtons
+        folders={folders}
+        onClick={setCurrentFolder}
+        styleHandler={styleIfCurrentFolder}
+      />
+      <FolderTitle folderName={currentFolder.name} hideHandler={checkHideOptions} />
       <CardList className='main__content shared__card-list' list={link} />
     </div>
   );
