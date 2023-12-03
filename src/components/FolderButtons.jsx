@@ -1,7 +1,8 @@
 import React from 'react';
 import useGetData from '../hooks/useGetData';
+import './FolderButtons.css';
 
-export default function FolderButtons({ onClick }) {
+export default function FolderButtons({ folderId, onClick }) {
   const [loading, error, user] = useGetData('users/1/folders');
 
   if (loading) return <div>loading..</div>;
@@ -12,6 +13,10 @@ export default function FolderButtons({ onClick }) {
   const list = folderList.map(({ id, name }) => (
     <li key={id}>
       <button
+        // 클릭된 버튼의 경우, 색깔을 바꾸려는데 이렇게 하는게 아닐까요?
+        className={
+          folderId === id ? 'folder-button active-button' : 'folder-button'
+        }
         onClick={() => {
           onClick(id, name);
         }}
@@ -21,5 +26,5 @@ export default function FolderButtons({ onClick }) {
     </li>
   ));
 
-  return <ul>{list}</ul>;
+  return <ul className='folder-buttons'>{list}</ul>;
 }

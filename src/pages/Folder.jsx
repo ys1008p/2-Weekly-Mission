@@ -22,7 +22,7 @@ export default function Folder() {
     <>
       <Navbar profileUrl='users/1' className='navbar' />
       <SearchBar />
-      <FolderButtons onClick={handleFolderClick} />
+      <FolderButtons folderId={selectedFolder.id} onClick={handleFolderClick} />
       <FolderCardList selectedFolder={selectedFolder} />
       <Footer />
     </>
