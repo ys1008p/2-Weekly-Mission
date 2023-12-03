@@ -34,7 +34,7 @@ const SnsBadges = () => {
   return (
     <Div>
       {badges.map(({name, href, src})=>(
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a key={name} href={href} target="_blank" rel="noopener noreferrer">
           <img src={src} alt={`${name} 홈페이지로 연결된 ${name} 로고`}></img>
         </a>
       ))}

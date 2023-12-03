@@ -1,33 +1,37 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (resource, opts = {}) => {
-  if (!resource){
-    return;
-  }
+  console.log("useFetch실행됨")
   const [state, setState] = useState({
-   loading: true,
-   error: false,
-   data: null, 
+    loading: true,
+    error: false,
+    data: null, 
   });
   const [trigger, setTrigger] = useState(0);
   const refetch = () => {
-    setState({
+    setState((state) => ({
       ...state,
       loading: true,
-    });
+    }));
     setTrigger(Date.now())
   }
   useEffect(() => {
+    if (!resource){
+      return;
+    }
     fetch(resource, opts)
-      .then(data => {
-        setState({
+      .then(res => res.json())
+      .then(data =>{
+        setState((state) => ({
           ...state,
           loading: false,
           data,
-        })
+        }))
+        console.log("resolve됨")
       })
       .catch(error => {
-        setState({...state, loading: false, error})
+        setState((state)=> ({...state, loading: false, error}))
+        console.log("reject됨")
       })
   }, [trigger])
 

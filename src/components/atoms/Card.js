@@ -4,10 +4,21 @@ const Div = styled.div`
   position: relative;
   max-width: 34rem;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
+  border-radius: 1.5rem;
   background-color: inherit;
+  @media (max-width: 767) {
+    max-width: 32.5rem;
+  }
 `
 const Img = styled.img`
   width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
+  @media (max-width: 767) {
+    height: 19.2rem;
+  }
 `
 const DetailBox= styled.div`
   display: flex;
@@ -44,17 +55,16 @@ const CreateDate = styled.p`
 
 const noImage = "./images/no-image.png";
 const elapsedTime = "10 minutes ago";
-const description= "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd"; 
-const createAt = "2023.3.15";
-const Card = () => {
-  
+// const description= "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd"; 
+// const createAt = "2023.3.15";
+const Card = ({imgSrc = noImage, description, createdAt, link}) => {
   return (
     <Div>
-      <Img src={noImage} alt="링크 프리뷰 이미지" />
+      <Img src={imgSrc} alt="링크 프리뷰 이미지" />
       <DetailBox>
         <ElapsedTime>{elapsedTime}</ElapsedTime>
         <Description>{description}</Description>
-        <CreateDate>{createAt}</CreateDate>
+        <CreateDate>{createdAt}</CreateDate>
       </DetailBox>    
     </Div>
   )
