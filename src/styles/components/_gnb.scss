@@ -1,9 +1,4 @@
 .gnb {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: $gnb-level;
   background-color: $light-blue;
 
   &-container {
