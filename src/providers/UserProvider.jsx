@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 const initialUser = {
-  id: 0,
+  id: null,
   name: "",
   email: "",
   profileImageSource: "",

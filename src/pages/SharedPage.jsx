@@ -1,13 +1,13 @@
 import SearchBar from "@/components/common/SearchBar";
-import LinkInfoCardList from "@/components/shared/LinkInfoCardList";
+import SharedLinkCardList from "@/components/shared/SharedLinkCardList";
 import SharedLayout from "@/components/shared/SharedLayout";
 import { useLoaderData, Await } from "react-router-dom";
-import useUserQuery from "@/queries/use-user-query";
+import { useUserQuery } from "@/queries/use-user-query";
 import { Suspense } from "react";
 
-export default function Page() {
+export default function SharedPage() {
   const data = useLoaderData();
-  useUserQuery();
+  useUserQuery(1);
 
   return (
     <Suspense fallback={<div>loading...</div>}>
@@ -19,7 +19,7 @@ export default function Page() {
                 <SearchBar />
               </section>
               <section className="w-full max-w-[106rem]">
-                <LinkInfoCardList linkInfoList={folder.links} />
+                <SharedLinkCardList linkInfoList={folder.links} />
               </section>
             </main>
           </SharedLayout>

@@ -7,9 +7,9 @@ export default function Account() {
 
   return (
     <Profile className="flex items-center gap-[0.6rem]">
-      {account.profileImageSource ? (
+      {account.image_source ? (
         <Profile.Thumbnail
-          src={account.profileImageSource}
+          src={account.image_source}
           className="h-[2.8rem] w-[2.8rem] rounded-full"
         />
       ) : (

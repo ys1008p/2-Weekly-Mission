@@ -1,18 +1,18 @@
+import { getLinkList } from "@/apis/link-api";
 import { useEffect, useState } from "react";
-import { getFolderList } from "@/apis/folder-api";
 
-export const useFolderListQuery = (userId) => {
-  const [folderList, setFolderList] = useState([]);
+export const useLinkListQuery = (userId, folderId) => {
+  const [linkList, setLinkList] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let ignore = false;
-    const fetchFolderList = async () => {
+    const fetchLinkList = async () => {
       try {
-        const { data: folderList } = await getFolderList(userId);
+        const { data: linkList } = await getLinkList(userId, folderId);
         if (!ignore) {
-          setFolderList(folderList);
+          setLinkList(linkList);
         }
       } catch (err) {
         setError(err);
@@ -20,13 +20,14 @@ export const useFolderListQuery = (userId) => {
         setIsLoading(false);
       }
     };
+    setIsLoading(true);
     if (!userId) return () => {};
-    fetchFolderList();
+    fetchLinkList();
 
     return () => {
       ignore = true;
     };
-  }, [userId]);
+  }, [userId, folderId]);
 
-  return { folderList, isLoading, error };
+  return { linkList, isLoading, error };
 };

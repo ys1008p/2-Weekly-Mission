@@ -6,7 +6,8 @@ import UserProvider from "@/providers/UserProvider";
 import { RouterProvider, createBrowserRouter, defer } from "react-router-dom";
 import HomePage from "@/pages/HomePage";
 import SharedPage from "@/pages/SharedPage";
-import { getFolder } from "./apis/folder-api";
+import FolderPage from "@/pages/FolderPage";
+import { getSampleFolder } from "./apis/sample-api";
 import { ErrorBoundary } from "@/pages/error/ErrorBoundary";
 
 const router = createBrowserRouter([
@@ -17,9 +18,14 @@ const router = createBrowserRouter([
   {
     path: "/shared",
     loader: () => {
-      return defer({ folder: getFolder() });
+      return defer({ folder: getSampleFolder() });
     },
     element: <SharedPage />,
+    ErrorBoundary: ErrorBoundary,
+  },
+  {
+    path: "/folder",
+    element: <FolderPage />,
     ErrorBoundary: ErrorBoundary,
   },
 ]);

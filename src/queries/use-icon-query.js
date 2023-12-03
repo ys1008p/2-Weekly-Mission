@@ -1,7 +1,7 @@
 import { getIcon } from "@/apis/icon-api";
 import { useEffect, useState } from "react";
 
-export default function useIconQuery(name) {
+export const useIconQuery = (name) => {
   const [icon, setIcon] = useState("");
 
   useEffect(() => {
@@ -14,4 +14,4 @@ export default function useIconQuery(name) {
   }, []);
 
   return icon;
-}
+};

@@ -1,4 +1,4 @@
-import useIconQuery from "@/queries/use-icon-query";
+import { useIconQuery } from "@/queries/use-icon-query";
 
 const ICON_MATCHER = {
   smile: "smile",
@@ -9,6 +9,13 @@ const ICON_MATCHER = {
   search: "searchbar",
   logo: "logo",
   profile: "profile",
+  link: "link",
+  pen: "pen",
+  trash: "trash",
+  share: "share",
+  star: "star",
+  kebab: "kebab-more",
+  add: "add",
 };
 
 /**
@@ -17,10 +24,7 @@ const ICON_MATCHER = {
  * @returns
  */
 export default function Icon({ name, ...props }) {
-  // const iconURL = `${baseURL}/${ICON_MATCHER[name]}`;
-
   const icon = useIconQuery(ICON_MATCHER[name]);
 
-  // return <img src={iconURL} alt={`${name} 아이콘`} {...props} />;
   return <span dangerouslySetInnerHTML={{ __html: icon }} {...props} />;
 }

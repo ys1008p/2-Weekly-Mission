@@ -4,10 +4,10 @@ import {
   formatPastInCard,
 } from "@/utils/folder/folder-util";
 
-export default function LinkInfoCard({ linkInfo }) {
+export default function SharedLinkCard({ linkInfo }) {
   return (
-    <Card className="relative h-[33.4rem] w-[34rem] overflow-hidden rounded-[1.5rem] bg-u-white shadow-[0px_5px_25px_0px_rgba(0,0,0,0.08)]">
-      <div className="h-[19.2rem] w-full overflow-hidden">
+    <Card className="relative h-full w-full rounded-[1.5rem] bg-u-white shadow-[0px_5px_25px_0px_rgba(0,0,0,0.08)] tablet:w-[34rem]">
+      <div className="relative h-[19.2rem] w-full overflow-hidden rounded-t-[1.5rem]">
         <Card.Thumbnail
           src={
             linkInfo.imageSource ??
@@ -17,12 +17,12 @@ export default function LinkInfoCard({ linkInfo }) {
         />
       </div>
       <div className="flex flex-col gap-[1rem] px-[2rem] py-[1.5rem]">
-        <div className="w-full text-[1.3rem] text-[#666]">
+        <div className="flex w-full items-center justify-between text-[1.3rem] text-[#666]">
           {formatPastInCard(linkInfo.createdAt)}
         </div>
         <Card.Description
           description={linkInfo.description}
-          className="line-clamp-2 w-full text-ellipsis text-[1.6rem]"
+          className="line-clamp-2 h-[4.9rem] w-full text-ellipsis text-[1.6rem]"
         />
         <div className="line-clamp-1 w-full text-ellipsis text-[1.4rem] text-[#333]">
           {formatCreatedAtInCard(linkInfo.createdAt)}

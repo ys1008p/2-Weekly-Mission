@@ -1,29 +1,28 @@
 import { PATH_FAQ, PATH_PRIVACY } from "@/constants/routes";
-import GNB from "@/components/common/GNB";
 import Icon from "./Icon";
 
-export default function Layout({ heroHeader, children }) {
+export default function Layout({ navigationBar, heroHeader, children }) {
   return (
     <>
-      <GlobalHeader heroHeader={heroHeader} />
+      <GlobalHeader navigationBar={navigationBar} heroHeader={heroHeader} />
       {children}
       <GlobalFooter />
     </>
   );
 }
 
-function GlobalHeader({ heroHeader }) {
+export function GlobalHeader({ navigationBar, heroHeader }) {
   return (
-    <header className="flex w-full flex-col items-center bg-u-skyblue pt-[9.4rem]">
-      <GNB />
+    <header className="flex w-full flex-col items-center bg-u-skyblue">
+      {navigationBar}
       {heroHeader}
     </header>
   );
 }
 
-function GlobalFooter() {
+export function GlobalFooter() {
   return (
-    <footer className="mt-auto flex h-[16rem] w-full justify-center bg-u-black p-[3.2rem]">
+    <footer className="flex h-[16rem] w-full justify-center bg-u-black p-[3.2rem]">
       <div className="flex h-full w-full max-w-[192rem] justify-between tablet:h-fit tablet:px-[10.4rem]">
         <div className="flex flex-col-reverse justify-between tablet:contents">
           <span className="text-[1.6rem] text-[#676767]">©codeit - 2023</span>
