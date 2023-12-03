@@ -1,0 +1,70 @@
+import "../css/LinkCard.css";
+
+const TIME_MILISECONDS = {
+  second: 1000,
+  minute: 1000 * 60,
+  hour: 1000 * 60 * 60,
+  day: 1000 * 60 * 60 * 24,
+  month: 1000 * 60 * 60 * 24 * 31,
+  year: 1000 * 60 * 60 * 24 * 31 * 12,
+};
+function LinkCard({ linkData }) {
+  const { links } = linkData.folder;
+
+  return <LinksComponent links={links} />;
+}
+
+function LinksComponent({ links }) {
+  const getElapsedTime = ({ createdAt }) => {
+    const now = new Date();
+    const elapsedTime = now - new Date(createdAt);
+    const { minute, hour, day, month, year } = TIME_MILISECONDS;
+    if (year * 2 <= elapsedTime) {
+      return `${Math.floor(elapsedTime / year)}`;
+    }
+    if (year <= elapsedTime) {
+      return `1 year ago`;
+    }
+    if (month * 2 <= elapsedTime) {
+      return `${Math.floor(elapsedTime / month)} month ago`;
+    }
+    if (month <= elapsedTime) {
+      return `1 month ago`;
+    }
+    if (day * 2 <= elapsedTime) {
+      return `${Math.floor(elapsedTime / day)} days ago`;
+    }
+    if (day <= elapsedTime) {
+      return `1 day ago`;
+    }
+    if (hour * 2 <= elapsedTime) {
+      return `${Math.floor(elapsedTime / hour)} hours ago`;
+    }
+    if (hour <= elapsedTime) {
+      return `1 hour ago`;
+    }
+    if (minute * 2 <= elapsedTime) {
+      return `${Math.floor(elapsedTime / minute)} minutes ago`;
+    }
+    return `1 minute ago`;
+  };
+  const formatDate = (dateString) => {
+    const date = dateString.split("T")[0];
+    return `${date}`;
+  };
+  const alt = `${links.title}의 로고`;
+  return (
+    <div className="links">
+      {links.map((link, index) => (
+        <div className="linksContainer" key={index}>
+          <img src={link.imageSource} alt={alt} />
+          <span>{getElapsedTime(link)}</span>
+          <p>{link.description}</p>
+          <span>{formatDate(link.createdAt)}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default LinkCard;

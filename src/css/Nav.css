@@ -1,0 +1,11 @@
+nav {
+  background-color: var(--linkbrary-bg);
+
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 33px 200px 32px;
+}

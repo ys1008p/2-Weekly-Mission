@@ -1,0 +1,28 @@
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin: 0 auto;
+  width: 1060px;
+}
+
+
+.linksContainer {
+  width: 340px;
+  height: 334px;
+}
+
+.linksContainer img {
+  width: 340px;
+  height: 253.746px;
+}
+
+
+.linksContainer p {
+  margin: 0;
+  height: 49px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

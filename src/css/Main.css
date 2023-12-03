@@ -1,0 +1,12 @@
+.searchBar {
+  margin: 40px auto;
+  width: 1060px;
+  border-radius: 10px;
+}
+
+.searchBar input {
+  width: 100%;
+  padding: 10px 0 10px;
+  background: #F5F5F5;
+
+}
