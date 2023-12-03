@@ -21,7 +21,10 @@ function Card({ imageSource, createdAt, description, url }) {
         <img className={style.img} src={imgUrl} alt='카드 이미지' />
       </div>
       <div className={style.infoContainer}>
-        <span className={style.ago}>{calculateTimeDiff(createdAt)}</span>
+        <div className={style.agoContainer}>
+          <span className={style.ago}>{calculateTimeDiff(createdAt)}</span>
+          <button className={style.kebab}></button>
+        </div>
         <p className={style.desc}>{description || 'No description'}</p>
         <span className={style.createdAt}>{formatDate(createdAt)}</span>
       </div>
