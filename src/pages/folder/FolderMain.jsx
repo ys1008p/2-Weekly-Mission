@@ -35,7 +35,7 @@ function FolderMain({ initFolders, className }) {
   );
 
   const checkHideOptions = useCallback(() => {
-    return currentFolder.id ? style.hide : '';
+    return currentFolder.id ? '' : style.hide;
   }, [currentFolder]);
 
   useEffect(() => {
