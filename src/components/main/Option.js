@@ -1,7 +1,5 @@
 export function Option({ optionData }) {
   const { name, img } = optionData;
-  //   console.log("name=>", name);
-  //   console.log(optionData);
 
   return (
     <button className="option-wrapper">

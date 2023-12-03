@@ -9,6 +9,7 @@ import CardWrapper from "../main/CardWrapper.js";
 import FolderOptions from "../main/FolderOptions.js";
 import add from "../../assets/add.svg";
 import "../main/Main.css";
+import Nolinks from "../error/NoLinks.js";
 
 function FolderPage() {
   const [profileDatas, setProfileDatas] = useState({
@@ -74,11 +75,8 @@ function FolderPage() {
 
   const getFolder = async () => {
     try {
-      console.log("id", currentFolderId);
       const result = await getData(`users/1/links?folderId=${currentFolderId}`);
-      console.log("특정 폴더", result);
       const { data } = result;
-      console.log("data", data);
       const datas = data.map((link) => ({
         ...link,
         createdAt: link.created_at,
@@ -116,37 +114,48 @@ function FolderPage() {
       <AddLink />
       <div className="main-wrapper">
         <SearchBar />
-        <div className="folder-plus-container">
-          <div className="folder-wrapper">
-            {folderLists ? (
-              folderLists.map((folder, i) => {
-                return (
-                  <div key={`folder-${i}`} onClick={handleFolderClick}>
-                    <Folders
-                      className={`listed-folder-name ${
-                        currentFolderName === folder.name
-                          ? "clicked-folder"
-                          : ""
-                      }`}
-                      folder={folder}
-                    />
-                  </div>
-                );
-              })
+        {folderLists.length ? (
+          <>
+            <div className="folder-plus-container">
+              <div className="folder-wrapper">
+                {folderLists ? (
+                  folderLists.map((folder, i) => {
+                    return (
+                      <div key={`folder-${i}`} onClick={handleFolderClick}>
+                        <Folders
+                          className={`listed-folder-name ${
+                            currentFolderName === folder.name
+                              ? "clicked-folder"
+                              : ""
+                          }`}
+                          folder={folder}
+                        />
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div>folderLists가 없습니다.</div>
+                )}
+              </div>
+              <div className="folder-add-button">
+                <img src={add} />
+              </div>
+            </div>
+            <div className="current-folder-option-wrapper">
+              <div class="current-folder-name">{currentFolderName}</div>
+              <FolderOptions />
+            </div>
+            {!links.length ? (
+              <Nolinks msg={"이 폴더에 아직 저장된 링크가 없습니다"} />
             ) : (
-              <div>folderLists가 없습니다.</div>
+              <CardWrapper links={links} />
             )}
-          </div>
-          <div className="folder-add-button">
-            <img src={add} />
-          </div>
-        </div>
-        <div className="current-folder-option-wrapper">
-          <div class="current-folder-name">{currentFolderName}</div>
-          <FolderOptions />
-        </div>
-        <CardWrapper links={links} />
+          </>
+        ) : (
+          <Nolinks msg={"저장된 링크가 없습니다."} />
+        )}
       </div>
+
       <Footer />
     </>
   );
