@@ -1,6 +1,4 @@
 .landing-page {
-  margin-top: $lg-header-height;
-
   .feature-wrapper {
     @include flexbox(between);
     padding: 50px 101px;
@@ -75,11 +73,7 @@
   .feature-search .textbox-sub-title {
     span {
       @include gradient-text;
-      background-image: linear-gradient(
-        271deg,
-        #fe578f -9.84%,
-        #68e8f9 107.18%
-      );
+      background-image: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
     }
   }
 
@@ -89,8 +83,6 @@
   }
 
   @include responsive(M) {
-    margin-top: $sm-header-height;
-
     .feature-save .feature-wrapper {
       padding-top: 0;
     }
