@@ -6,6 +6,7 @@
   font-size: 16px;
   font-weight: 400;
   margin-right: 0.8rem;
+  cursor: pointer;
 }
 
 .personal-folder-button:hover {
@@ -24,4 +25,5 @@
   font-weight: 500;
   border: none;
   background-color: #fff;
+  cursor: pointer;
 }

@@ -5,6 +5,7 @@ function UserPersonalFolderList({ psFolderData }) {
   return (
     <div className="personal-folder-container">
       <div>
+        <button className="personal-folder-button">전체</button>
         {psFolderData.map((data) => (
           <UserPersonalFolder key={data.id} data={data} />
         ))}
