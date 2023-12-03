@@ -12,6 +12,7 @@ import { EmptyContent } from '../common/EmptyContent';
 export const FilterContent = ({ currentId, setCurrentId }) => {
   const folderData = useStoredData(FolderContext);
   const [title, setTitle] = useState('전체');
+  const isFolderDataEmpty = Object.keys(folderData).length === 0;
 
   return (
     <div className='filter-content'>
@@ -22,11 +23,7 @@ export const FilterContent = ({ currentId, setCurrentId }) => {
         {currentId && <FilterOptions />}
       </header>
 
-      {Object.keys(folderData).length === 0 ? (
-        <EmptyContent />
-      ) : (
-        <GridLayout data={folderData} />
-      )}
+      {isFolderDataEmpty ? <EmptyContent /> : <GridLayout data={folderData} />}
     </div>
   );
 };
