@@ -1,15 +1,7 @@
 import Stars from '../Stars/Stars';
-import logoImg from '../Gnb/logo.svg';
 import kebapImg from './images/kebab.png';
 import { timeAgo, getYYYYMMYY, getShortDescription } from '../../../utils/formatting';
-
-function EmptyCard() {
-  return (
-    <div className="EmptyCard">
-      <img className="logoInCard" src={logoImg}></img>
-    </div>
-  );
-}
+import emptyCard from './images/emptyCard.jpeg';
 
 export default function CardItem({ link }) {
   // null값을 가진 link가 들어오는 경우 -> nullish 사용
@@ -27,11 +19,7 @@ export default function CardItem({ link }) {
   return (
     <a className="contentBox" href={link.url ?? `''`} target="_blank">
       <div className="imgContainer">
-        {link.image_source ?? `''` ? (
-          <img className="contentImage" src={link.image_source ?? `''`}></img>
-        ) : (
-          <EmptyCard className="hoveredImg" />
-        )}
+        <img className="contentImage" src={link.image_source ?? emptyCard}></img>
         <Stars />
       </div>
       <section className="contentText">

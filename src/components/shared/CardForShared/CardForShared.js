@@ -2,14 +2,7 @@ import Stars from '../Stars/Stars';
 import logoImg from '../Gnb/logo.svg';
 import { timeAgo, getYYYYMMYY, getShortDescription } from '../../../utils/formatting';
 import { useState } from 'react';
-
-function EmptyCard() {
-  return (
-    <div className="EmptyCard">
-      <img className="logoInCard" src={logoImg}></img>
-    </div>
-  );
-}
+import emptyCard from '../Cards/images/emptyCard.jpeg';
 
 function CardItemForShared({ link }) {
   const [isHovering, setIsHovering] = useState(false);
@@ -32,11 +25,7 @@ function CardItemForShared({ link }) {
         target="_blank"
       >
         <div class="imgContainer">
-          {link.imageSource ? (
-            <img className={isHovering ? 'contentImg hoveredImg' : 'contentImg'} src={link.imageSource}></img>
-          ) : (
-            <EmptyCard className={isHovering ? 'hoveredImg' : ''} />
-          )}
+          <img className="contentImage" src={link.imageSource ?? emptyCard}></img>
           <Stars />
         </div>
         <section className="contentText">
