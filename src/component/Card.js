@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import styles from "../styles/Card.module.css";
 import getElapseTime from "../utils/getElapseTime";
 import getUploadDate from "../utils/getUploadDate";

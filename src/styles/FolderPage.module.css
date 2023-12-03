@@ -17,8 +17,3 @@
 }
 
 /* Pc*/
-@media (max-width: 1200px) {
-  .contentBox {
-    width: 100%;
-  }
-}

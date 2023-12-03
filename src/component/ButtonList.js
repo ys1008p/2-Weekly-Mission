@@ -36,6 +36,7 @@ const AddLink = styled.div`
   color: var(--primary-color);
   border: none;
   font-size: 3rem;
+  padding-left: 3rem;
 
   @media (max-width: 390px) {
     display: none;

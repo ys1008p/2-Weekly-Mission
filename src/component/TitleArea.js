@@ -12,6 +12,12 @@ const StyledCategoryBox = styled.div`
   align-items: center;
   font-size: 2.4rem;
   margin-bottom: 2.4rem;
+  width: 106rem;
+
+  @media (max-width: 1200px) {
+     width: 100%;
+  }
+  
 `;
 
 const StyledCategory = styled.div`

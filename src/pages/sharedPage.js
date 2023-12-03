@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 function SharedPage() {
   const [folder, setFolder] = useState();
-  const [email, setEmail] = useState();
+  const [user, setUser] = useState();
   
   const handleFolderLoad = async () => {
     const { folder } = await getSharedData();
@@ -19,8 +19,8 @@ function SharedPage() {
 
 
   const handleEmailLoad = async () => {
-    const { email } = await getUserData();
-    setEmail(email);
+    const { data } = await getUserData();
+    setUser(data);
   };
 
 
@@ -32,7 +32,7 @@ function SharedPage() {
 
   return (
     <>
-      <Header email={email} />
+      <Header sharedUser={user} page={'sharedPage'} />
       <Banner folder={folder} />
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
