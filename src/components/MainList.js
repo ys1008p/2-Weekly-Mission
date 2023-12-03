@@ -1,11 +1,10 @@
 import noImageSource from "../img/logo.svg";
 
-function MainLink({ item }) {
-  const { createdAt, url, imageSource, description } = item;
+function MainLink({ createdAt, url, imageSource, description, id }) {
   // title 파일도 디스크럭션 가능 에러 자꾸 떠서 일단 삭제.
 
   return (
-    <li className="card" key={item.id}>
+    <li className="card" key={id}>
       <a href={url} target="_blank" className="cardATag" rel="noreferrer">
         <div className="imgHover">
           {imageSource ? (
@@ -21,17 +20,5 @@ function MainLink({ item }) {
       </a>
     </li>
   );
-}
-{
-  /* <div className="card-img_wrapper">
-{imageSource ? (
-  <img
-    className="card-img"
-    src={imageSource}
-    alt={`${title}-img`}
-  />
-) : (
-  <img className="card-img" src={NoImg} alt={`${title}-img`} />
-)} */
 }
 export default MainLink;
