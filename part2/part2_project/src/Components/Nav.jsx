@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import logoImg from "../img/logo.svg";
 
 import "../css/Nav.css";
@@ -6,7 +5,6 @@ import "../css/Nav.css";
 const handleLoginClick = () => location.assign("signin.html");
 
 const User = ({ userData }) => {
-  // console.log("userData in User component:", userData);
   return (
     <article className="profile">
       <img

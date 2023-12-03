@@ -1,19 +1,18 @@
-import Nav from "./Components/Nav";
-import Footer from "./Components/Footer";
-import { getUserData, getUserPick } from "./util/api";
+import Nav from "../Components/Nav";
+import Footer from "../Components/Footer";
+import { getUserData, getUserPick } from "../util/api";
 import { useEffect, useState } from "react";
-import Header from "./Components/Haeder";
-import Main from "./Components/Main";
+import Header from "../Components/Haeder_sharedPage";
+import Main from "../Components/Main-sharedPage";
 
 function SharedPage() {
-  const [userData, setUserData] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const [cardData, setCardData] = useState([]);
+  const [userData, setUserData] = useState();
 
   const isUser = async () => {
     const { email, profileImageSource } = await getUserData();
     setUserData({
-      ...userData,
       email,
       profileImageSource,
     });
@@ -31,7 +30,7 @@ function SharedPage() {
     isUser();
     userInfoAll();
   }, []);
-  console.log(cardData);
+
   return (
     <>
       <Nav userData={userData} />

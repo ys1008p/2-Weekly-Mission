@@ -3,7 +3,15 @@ import noneImg from "../img/!img.svg";
 import "../css/card.css";
 
 const Cards = ({ card }) => {
-  const { createdAt, description, imageSource, title, id, url } = card;
+  const {
+    created_at,
+    createdAt,
+    description,
+    image_source,
+    imageSource,
+    title,
+    url,
+  } = card;
 
   function formatDate(value) {
     const date = new Date(value);
@@ -13,12 +21,16 @@ const Cards = ({ card }) => {
   return (
     <a href={url} className="card">
       <div className="cardImgBox">
-        <img className="cardImg" src={imageSource || noneImg} alt={title} />
+        <img
+          className="cardImg"
+          src={imageSource || image_source || noneImg}
+          alt={title}
+        />
       </div>
       <div className="cardText">
-        <p className="timeAgo">{timeAgo(createdAt)}</p>
+        <p className="timeAgo">{timeAgo(createdAt || created_at)}</p>
         <h6 className="cardDescription">{description}</h6>
-        <p className="makeDate">{formatDate(createdAt)}</p>
+        <p className="makeDate">{formatDate(createdAt || created_at)}</p>
       </div>
     </a>
   );

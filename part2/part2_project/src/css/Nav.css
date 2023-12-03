@@ -1,6 +1,6 @@
 nav {
   background-color: var(--linkbrary-bg);
-  position: fixed;
+  position: sticky;
   top: 0;
   display: flex;
   justify-content: center;
@@ -13,17 +13,19 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 95rem;
   align-items: center;
+
   padding: 0 12.5rem;
 }
 
 #logo {
+  margin: 0;
   cursor: pointer;
 }
 
 .use_site {
   text-align: center;
+  margin: 0;
   border: none;
   padding: 1rem 1.25rem;
   border-radius: 8px;
@@ -38,6 +40,7 @@ nav {
   align-items: center;
   gap: 0.35rem;
   font-size: 14px;
+  margin: 0;
 }
 
 .profileImg {
