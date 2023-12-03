@@ -1,27 +1,9 @@
-import { fetchGetRequest } from '@/utils/api';
-import { useEffect, useState } from 'react';
-
 import Logo from '@/assets/images/icon/logo.svg';
-
 import Profile from '@/components/profile/Profile';
+import { useAuth } from '@/contexts/AuthContexts';
 
 const Header = () => {
-  const [user, setUser] = useState(null);
-
-  const getUserProfile = async () => {
-    let result;
-    try {
-      result = await fetchGetRequest('/api/sample/user');
-    } catch (error) {
-      return;
-    }
-
-    setUser(result);
-  };
-
-  useEffect(() => {
-    void getUserProfile();
-  }, []);
+  const user = useAuth();
 
   return (
     <header>
