@@ -1,0 +1,73 @@
+.filter {
+  @include flexbox(between, center);
+
+  &-list {
+    @include flexbox(start, center);
+
+    &-item:not(:last-child) {
+      margin-right: 8px;
+
+      button {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .ic-add {
+    font-size: 16px;
+  }
+
+  .sm-add-filter {
+    display: none;
+    background-color: $primary;
+    padding: 8px 24px;
+    border: 1px solid $white;
+    border-radius: 20px;
+
+    position: fixed;
+    bottom: 101px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: $fix-button;
+  }
+
+  @include responsive(T) {
+    position: relative;
+
+    &-list {
+      flex-wrap: wrap;
+
+      &-item {
+        padding-bottom: 12px;
+      }
+    }
+
+    .lg-add-filter {
+      position: absolute;
+      top: 15px;
+      right: 0;
+    }
+  }
+
+  @include responsive(M) {
+    &-list {
+      flex-wrap: wrap;
+
+      &-item {
+        padding-bottom: 12px;
+      }
+    }
+
+    .lg-add-filter {
+      display: none;
+    }
+
+    .sm-add-filter {
+      @include flexbox();
+
+      .ic-add::before {
+        color: $white;
+      }
+    }
+  }
+}
