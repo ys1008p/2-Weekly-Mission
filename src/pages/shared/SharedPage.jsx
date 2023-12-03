@@ -1,15 +1,18 @@
-import './style.css';
-
 import { useEffect, useState } from 'react';
+
+import { useSetUser } from '@/contexts/UserContext';
+import { getUser } from '@/pages/shared/api';
 
 import CardList from '@/components/CardList';
 import CommonPageLayout from '@/components/Layout/CommonPageLayout';
 import SearchBar from '@/components/SearchBar';
-import { UserProvider } from '@/contexts/UserContext';
-import SharedTitle from './SharedTitle';
+
+import SharedHeader from './SharedHeader';
 import { getFolders } from './api';
+import './style.css';
 
 function SharedPage() {
+  const setUser = useSetUser();
   const [folder, setFolder] = useState({
     name: '',
     owner: { name: '' },
@@ -25,13 +28,20 @@ function SharedPage() {
     fetchFolders();
   }, []);
 
+  useEffect(() => {
+    async function fetchUser() {
+      const response = await getUser();
+      setUser(response);
+    }
+
+    fetchUser();
+  }, []);
+
   return (
-    <UserProvider>
-      <CommonPageLayout headerChildren={<SharedTitle folder={folder}></SharedTitle>}>
-        <SearchBar placeholder='링크를 검색해 보세요.' className='main__content' />
-        <CardList className='main__content shared__card-list' list={folder.links} />
-      </CommonPageLayout>
-    </UserProvider>
+    <CommonPageLayout headerChildren={<SharedHeader folder={folder}></SharedHeader>}>
+      <SearchBar placeholder='링크를 검색해 보세요.' className='main__content' />
+      <CardList className='main__content shared__card-list' list={folder.links} />
+    </CommonPageLayout>
   );
 }
 

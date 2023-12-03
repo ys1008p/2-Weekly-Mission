@@ -4,3 +4,12 @@
   justify-content: space-around;
   justify-items: center;
 }
+
+.emptyContainer {
+  padding: 4.1rem 0 3.5rem;
+  text-align: center;
+}
+
+.emptyMessage {
+  font-size: 1.6rem;
+}

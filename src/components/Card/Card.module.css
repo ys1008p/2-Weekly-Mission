@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   width: 34rem;
   overflow: hidden;
   border-radius: 15px 15px 15px 15px;
@@ -47,6 +48,17 @@
   white-space: nowrap;
 }
 
+.star {
+  z-index: 1;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3.4rem;
+  height: 3.4rem;
+  background: center / contain no-repeat url('/images/icons/star.svg');
+  cursor: pointer;
+}
+
 /* Mobile */
 @media only screen and (max-width: 767px) and (min-width: 375px) {
   .card {
@@ -56,5 +68,10 @@
   .imageContainer {
     width: 32.5rem;
     height: 24.36rem;
+  }
+
+  .star {
+    width: 3rem;
+    height: 3rem;
   }
 }

@@ -16,6 +16,7 @@ function Card({ imageSource, createdAt, description, url }) {
 
   return (
     <a className={style.card} href={url} target='_blank'>
+      <button className={style.star}></button>
       <div className={style.imageContainer}>
         <img className={style.img} src={imgUrl} alt='카드 이미지' />
       </div>

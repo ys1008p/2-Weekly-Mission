@@ -1,7 +1,7 @@
-function Cta({ href = '/', className = '', children }) {
+function Cta({ children, href = '/', className = '', ...props }) {
   const classNames = `cta ${className}`;
   return (
-    <a className={classNames} href={href}>
+    <a className={classNames} href={href} {...props}>
       {children}
     </a>
   );
