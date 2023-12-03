@@ -1,28 +1,30 @@
-import Header_copy from "../components/Header_copy";
-import Main_copy from "../components/Main_copy";
-import Footer from "../components/Footer";
-import "../components/reset.css";
-import "../components/root.css";
 import { useEffect, useState } from "react";
-import { getProfile, getFolder, getFolderMenu, getFolderList } from "../api";
+import { getFolder, getFolderMenu } from "../api";
+import Main from "../page/folder/Main";
 
-function App_copy() {
+const BASE_URL = "https://bootcamp-api.codeit.kr/api/users/1";
+
+function Data(){
   const [cardList, setCardList] = useState([]);
-  const [profileImg, setProfileImg] = useState(null);
-  const [profileEmail, setProfileEmail] = useState("");
   const [folderMenu, setFolderMenu] = useState([]);
   const [menuActive, setMenuActive] = useState('all');
-
-  const handleLoadProfile = async () => {
-    const { data } = await getProfile();
-    setProfileImg(data[0].image_source);
-    setProfileEmail(data[0].email);
-  };
+  const [btnOption, setBtnOption] = useState(false);
+  const [title, setTitle] = useState('');
 
   const handleLoadFolderMenu = async () => {
     const { data } = await getFolderMenu();
     setFolderMenu(data);
   };
+
+  const handleClick = (item) => {
+    setMenuActive(item.id);
+    setBtnOption(true);
+    setTitle(`${item.name !== '전체' ? item.name : ""}`);
+  }
+
+  const handleMouseOver = (e) => e.currentTarget.classList.add("active");
+
+  const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
 
   const handleLoadFolder = async (options) => {
     if(options !== 'all') {
@@ -34,7 +36,6 @@ function App_copy() {
     }
   };
 
-  const BASE_URL = "https://bootcamp-api.codeit.kr/api/users/1";
   async function getFolderList(menuActive) {
     try{
       const respones = await fetch(`${BASE_URL}/links?folderId=${menuActive}`);
@@ -47,28 +48,14 @@ function App_copy() {
     }
   }
 
-  const handleMouseOver = (e) => e.currentTarget.classList.add("active");
-
-  const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
-
-  const handleClick = (item) => {
-    setMenuActive(item);
-  }
- 
   useEffect(() => {
-    handleLoadProfile();
     handleLoadFolderMenu();
     handleLoadFolder(menuActive);
   }, [menuActive]);
- 
+
   return (
     <div className="container">
-      <Header_copy
-        className="header"
-        profileEmail={profileEmail}
-        profileImg={profileImg}
-      />
-      <Main_copy
+      <Main
         className="main"
         links={cardList}
         menu={folderMenu}
@@ -76,10 +63,11 @@ function App_copy() {
         onMouseOut={handleMouseOut}
         menuActive={menuActive}
         handleClick={handleClick}
+        btnOption={btnOption}
+        title={title}
       />
-      <Footer className="footer" />
     </div>
   );
 }
 
-export default App_copy;
+export default Data;

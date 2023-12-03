@@ -16,7 +16,7 @@
   transform: translateY(-50%);
   width: 1.6rem;
   height: 1.6rem;
-  background: url('../assets/ico-search.png') no-repeat;
+  background: url('../../assets/ico-search.png') no-repeat;
 }
 
 .main .search input {

@@ -1,14 +1,14 @@
-import Header from "../components/Header";
-import Main from "../components/Main";
-import Footer from "../components/Footer";
-import "../components/reset.css";
-import "../components/root.css";
+import Header from "./Header";
+import Main from "./Main";
+import Footer from "../../components/Footer";
+import "../../components/reset.css";
+import "../../components/root.css";
 import { useEffect, useState } from "react";
-import useAsync from "../hooks/useAsync";
+import useAsync from "../../hooks/useAsync";
 
 const BASE_URL = "https://bootcamp-api.codeit.kr/api/sample";
 
-function App() {
+function Shared() {
   const [cardList, setCardList] = useState([]);
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState("");
@@ -77,4 +77,4 @@ function App() {
   );
 }
 
-export default App;
+export default Shared;

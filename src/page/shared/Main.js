@@ -1,5 +1,5 @@
-import '../components/Main.css';
-import noImg from '../assets/no-img.svg';
+import './Main.css';
+import noImg from '../../assets/no-img.svg';
 
 function DateText({ createdAt }){
   const idx = createdAt.indexOf('T');

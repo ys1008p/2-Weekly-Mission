@@ -16,7 +16,7 @@
   transform: translateY(-50%);
   width: 1.6rem;
   height: 1.6rem;
-  background: url('../assets/ico-search.png') no-repeat;
+  background: url('../../assets/ico-search.png') no-repeat;
 }
 
 .main .search input {
@@ -43,7 +43,7 @@
   height: 1.6rem;
   border: none;
   cursor: pointer;
-  background: url('../assets/btn-add.png') no-repeat;
+  background: url('../../assets/btn-add.png') no-repeat;
 }
 
 .main .tab-menu ul {
@@ -87,9 +87,14 @@
 }
 
 .main .btn-option {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.main .btn-option.active {
+  display: block;
 }
 
 .main .btn-option button {
@@ -118,15 +123,15 @@
 }
 
 .main .btn-option .btn-shared::before {
-  background: url('../assets/btn-share.png') no-repeat center;
+  background: url('../../assets/btn-share.png') no-repeat center;
 }
 
 .main .btn-option .btn-change-name::before {
-  background: url('../assets/btn-pen.png') no-repeat center;
+  background: url('../../assets/btn-pen.png') no-repeat center;
 }
 
 .main .btn-option .btn-delete::before {
-  background: url('../assets/btn-delete.png') no-repeat center;
+  background: url('../../assets/btn-delete.png') no-repeat center;
 }
 
 .main .card ul {
@@ -168,7 +173,7 @@
   top: 1.5rem;
   width: 3.4rem;
   height: 3.4rem;
-  background: url('../assets/ico-star.png') no-repeat;
+  background: url('../../assets/ico-star.png') no-repeat;
 }
 
 .main .card ul li img {
@@ -205,7 +210,7 @@
   float: right;
   width: 2.1rem;
   height: 1.7rem;
-  background: url('../assets/btn-kebab.png') no-repeat;
+  background: url('../../assets/btn-kebab.png') no-repeat;
 }
 
 .main .card ul li .card-text .desc {
@@ -224,6 +229,13 @@
   font-size: 1.4rem;
   line-height: 1.6rem;
   color: var(--color-black-333);
+}
+
+.main .no-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
 }
 
 @media screen and (max-width:1124px) {

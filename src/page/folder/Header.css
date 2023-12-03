@@ -11,6 +11,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: static;
+  padding: 0;
   height: 9.4rem;
 }
 
@@ -65,7 +67,7 @@
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  background: url('../assets/ico-link.png') no-repeat;
+  background: url('../../assets/ico-link.png') no-repeat;
 }
 
 .header .add-link input {
@@ -116,7 +118,7 @@
   }
 
   .header nav {
-    padding: 0 3.2rem; 
+    padding: 0; 
     height: 6.3rem;
   }
 

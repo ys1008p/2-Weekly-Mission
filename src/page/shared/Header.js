@@ -1,5 +1,5 @@
-import '../components/Header.css';
-import logo from '../assets/logo.svg';
+import './Header.css';
+import logo from '../../assets/logo.svg';
 
 function Header({ className, profileEmail, profileImg, folderUserProfile, folderUserName, folderName }){
   return (

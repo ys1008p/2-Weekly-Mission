@@ -1,9 +1,24 @@
-import '../components/Header_copy.css';
+import { useEffect, useState } from "react";
+import { getProfile } from "../api";
 import logo from '../assets/logo.svg';
+import AddLinkInput from './AddLinkInput';
 
-function Header_copy({ className, profileEmail, profileImg }){
+function Profile(){
+  const [profileImg, setProfileImg] = useState(null);
+  const [profileEmail, setProfileEmail] = useState("");
+
+  const handleLoadProfile = async () => {
+    const { data } = await getProfile();
+    setProfileImg(data[0].image_source);
+    setProfileEmail(data[0].email);
+  };
+
+  useEffect(() => {
+    handleLoadProfile();
+  }, []);
+ 
   return (
-    <header className={className}>  
+    <header className="header">  
       <nav>
         <h1 className="logo">
           <a href="/">
@@ -23,16 +38,9 @@ function Header_copy({ className, profileEmail, profileImg }){
           </a>}
         </div>
       </nav>
-      <div className="add-link-wrap">
-        <div className="add-link">
-          <input type="text" placeholder="링크를 추가해보세요"/>
-          <a href="signin.html" className="cta">
-            <span>추가하기</span>
-          </a>
-        </div>
-      </div>
+      <AddLinkInput />
     </header>
-  )
+  );
 }
 
-export default Header_copy;
+export default Profile;
