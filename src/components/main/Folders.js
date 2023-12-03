@@ -1,10 +1,6 @@
-export function Folders({ folder }) {
+export function Folders({ className, folder }) {
   const { name } = folder;
-  return (
-    <>
-      <div>{name}</div>
-    </>
-  );
+  return <div className={className}>{name}</div>;
 }
 
 export default Folders;

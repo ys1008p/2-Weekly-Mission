@@ -1,14 +1,15 @@
-// import Main from "../main/Main.js";
+import { useEffect, useState } from "react";
 import { Footer } from "../footer/Footer.js";
+import { getData } from "../api/api";
 import AddLink from "../header/AddLink.js";
 import Header from "../header/Header.js";
-import { useEffect, useState } from "react";
-import { getData } from "../api/api";
 import Folders from "../main/Folders.js";
 import SearchBar from "../main/SearchBar.js";
 import CardWrapper from "../main/CardWrapper.js";
-import "../main/Main.css";
 import Option from "../main/Option.js";
+import add from "../../assets/add.svg";
+import "../main/Main.css";
+
 function FolderPage() {
   const [profileDatas, setProfileDatas] = useState({
     id: 0,
@@ -99,6 +100,7 @@ function FolderPage() {
     );
     setCurrentFolderId(clikedFolder[0].id);
   };
+
   useEffect(() => {
     getUserData();
     getTotalLinksData();
@@ -114,22 +116,33 @@ function FolderPage() {
       <AddLink />
       <div className="main-wrapper">
         <SearchBar />
-        <div>
-          {folderLists ? (
-            folderLists.map((folder, i) => {
-              return (
-                <div key={`folder-${i}`} onClick={handleFolderClick}>
-                  <Folders folder={folder} />
-                </div>
-              );
-            })
-          ) : (
-            <div>folderLists가 없습니다.</div>
-          )}
-          <div>+</div>
+        <div className="folder-plus-container">
+          <div className="folder-wrapper">
+            {folderLists ? (
+              folderLists.map((folder, i) => {
+                return (
+                  <div key={`folder-${i}`} onClick={handleFolderClick}>
+                    <Folders
+                      className={`listed-folder-name ${
+                        currentFolderName === folder.name
+                          ? "clicked_folder"
+                          : ""
+                      }`}
+                      folder={folder}
+                    />
+                  </div>
+                );
+              })
+            ) : (
+              <div>folderLists가 없습니다.</div>
+            )}
+          </div>
+          <div className="folder-add-button">
+            <img src={add} />
+          </div>
         </div>
         <div>
-          <div class="folder-name">{currentFolderName}</div>
+          <div class="current-folder-name">{currentFolderName}</div>
           <Option />
         </div>
         <CardWrapper links={links} />
