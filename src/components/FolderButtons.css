@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-.folder-button .active-button {
+.folder-button.active-button {
   color: var(--color-white);
   background-color: var(--color-primary);
 }
