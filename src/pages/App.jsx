@@ -5,7 +5,7 @@ import Folder from './Folder';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/shared',
     element: <Shared />,
   },
   {
