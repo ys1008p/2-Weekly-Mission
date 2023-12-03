@@ -3,21 +3,21 @@ import emptyImage from '../images/emptyImage.svg';
 import './Card.css';
 
 export default function Card({
-  link: { title, createdAt, description, imageSource, url },
+  link: { title, created_at, description, image_source, url },
 }) {
   const [logTime, setLogTime] = useState('');
 
-  const date = getDate(createdAt);
+  const date = getDate(created_at);
 
   useEffect(() => {
-    setLogTime(getLogTime(createdAt));
-  }, [createdAt]);
+    setLogTime(getLogTime(created_at));
+  }, [created_at]);
 
   return (
     <a className='card' href={url} target='_blank' rel='noreferrer noopener'>
       <div className='card-image-container'>
-        {imageSource ? (
-          <img className='card-image' src={imageSource} alt={title} />
+        {image_source ? (
+          <img className='card-image' src={image_source} alt={title} />
         ) : (
           <img
             className='card-image'

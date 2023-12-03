@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import SearchBar from '../components/SearchBar';
-import './Folder.css';
 import FolderButtons from '../components/FolderButtons';
+import FolderCardList from '../components/FolderCardList';
+import Footer from '../components/Footer';
+import './Folder.css';
 
 export default function Folder() {
-  const [selectedFolderId, setSelectedFolderId] = useState(null);
-  const [selectedFolderName, setSelectedFolderName] = useState('전체');
+  const [selectedFolder, setSelectedFolder] = useState({
+    id: null,
+    name: '전체',
+  });
+
+  console.log(selectedFolder);
 
   const handleFolderClick = (id, name) => {
-    setSelectedFolderId(id);
-    setSelectedFolderName(name);
-    console.log(selectedFolderId);
-    console.log(selectedFolderName);
+    setSelectedFolder({ id, name });
   };
 
   return (
@@ -20,6 +23,8 @@ export default function Folder() {
       <Navbar profileUrl='users/1' className='navbar' />
       <SearchBar />
       <FolderButtons onClick={handleFolderClick} />
+      <FolderCardList selectedFolder={selectedFolder} />
+      <Footer />
     </>
   );
 }
