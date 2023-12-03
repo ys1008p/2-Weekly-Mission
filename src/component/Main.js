@@ -1,10 +1,13 @@
 import "./Main.css";
 import CardList from "./CardList";
+import LinkSearchInput from "./LinkSearchInput";
+import UserPersonalFolderList from "./UserPersonalFolderList";
 
-function Main({ cardData }) {
+function Main({ cardData, psFolderData }) {
   return (
     <main className="main-container">
-      <input type="text" placeholder="링크를 검색해보세요." />
+      <LinkSearchInput />
+      <UserPersonalFolderList psFolderData={psFolderData} />
       <CardList cardData={cardData} />
     </main>
   );
