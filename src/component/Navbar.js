@@ -4,10 +4,10 @@ function Navbar({ userData, location }) {
   const { email, image_source } = userData;
 
   const handleNavbarPosition = () => {
-    if (location.pathname === `/folder`) {
-      return "nav-bar noFixed";
+    if (location.pathname === `/shared`) {
+      return "nav-bar ";
     } else {
-      return "nav-bar";
+      return "nav-bar noFixed";
     }
   };
 

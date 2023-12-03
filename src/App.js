@@ -9,6 +9,8 @@ import Footer from "./component/Footer";
 import Shared from "./component/Shared";
 import Folder from "./component/Folder";
 import { getUserPersonalFolderData } from "./api/getUserPersonalFolderData";
+import Test from "./component/Test";
+import CardList from "./component/CardList";
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -61,19 +63,17 @@ function App() {
       <GlobalStyle />
       <Navbar userData={userData} location={location} />
       <Routes>
+        <Route path="/" element={<Test></Test>}></Route>
         <Route
           path="/shared"
           element={<Shared folderData={folderData} cardData={shareCardData} />}
         />
         <Route
           path="/folder"
-          element={
-            <Folder
-              cardData={shareCardData}
-              psFolderData={personalFolderData}
-            />
-          }
-        />
+          element={<Folder psFolderData={personalFolderData} />}
+        >
+          <Route path=":id" element={<CardList cardData={shareCardData} />} />
+        </Route>
       </Routes>
       <Footer />
     </>

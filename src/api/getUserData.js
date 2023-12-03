@@ -1,4 +1,4 @@
-import { fetchData } from "../utility/fetchData";
+import { fetchData } from "../utils/fetchData";
 
 export async function getUserData() {
   try {
