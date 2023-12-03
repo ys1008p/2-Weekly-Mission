@@ -1,6 +1,7 @@
 import React from 'react';
 import useGetData from '../hooks/useGetData';
 import CardList from './CardList';
+import EmptyCardList from './EmptyCardList';
 
 export default function FolderCardList({ selectedFolder }) {
   const { folderId, folderName } = selectedFolder;
@@ -16,7 +17,7 @@ export default function FolderCardList({ selectedFolder }) {
   return (
     <div>
       <h2>{folderName}</h2>
-      {links.length === 0 ? <p>없음</p> : <CardList links={links} />}
+      {links.length === 0 ? <EmptyCardList /> : <CardList links={links} />}
     </div>
   );
 }
