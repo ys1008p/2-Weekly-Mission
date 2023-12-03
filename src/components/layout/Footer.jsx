@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { footerSocialList } from '../../store/common';
+import { FOOTER_SOCIAL_LIST } from '../../store/common';
 
 export const Footer = () => {
   return (
@@ -19,7 +19,7 @@ export const Footer = () => {
         </div>
         <div className='social'>
           <ul className='social-list'>
-            {footerSocialList.map((item) => (
+            {FOOTER_SOCIAL_LIST.map((item) => (
               <li key={item.id} className='social-list-item'>
                 <a
                   href={item.url}

@@ -2,20 +2,21 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import { SocialLogin, importImg } from '../store/common';
-import { ERROR_MSG } from '../store/auth';
-
 import { signin } from '../utils/login/api';
 import { isAccessToken } from '../utils/login/api';
 import { validateEmail, validatePassword } from '../utils/login/validation';
+
+import { SOCIAL_LOGIN, ICON } from '../store/common';
+import { ERROR_MSG } from '../store/auth';
 
 import { Button } from '../components/common/Button';
 
 const Signin = () => {
   const navigate = useNavigate();
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [inputValue, setInputValue] = useState({
+    email: '',
+    password: '',
+  });
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
@@ -25,38 +26,38 @@ const Signin = () => {
     }
   }, []);
 
-  const onChangeEmail = (e) => {
-    setEmail(e.target.value);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputValue((...prev) => ({ ...prev, [name]: value }));
   };
 
-  const onChangePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const onBlurEmail = () => {
-    if (!email) {
+  const handleEmailFocusOut = () => {
+    if (!inputValue.email) {
       return setEmailError(ERROR_MSG.email.empty);
     }
-    if (!validateEmail(email)) {
+    if (!validateEmail(inputValue.email)) {
       return setEmailError(ERROR_MSG.email.invalid);
     }
     return setEmailError('');
   };
 
-  const onBlurPassword = () => {
-    if (!password) {
+  const handlePasswordFocusOut = () => {
+    if (!inputValue.password) {
       return setPasswordError(ERROR_MSG.password.empty);
     }
-    if (!validatePassword(password)) {
+    if (!validatePassword(inputValue.password)) {
       return setPasswordError(ERROR_MSG.password.invalid);
     }
     return setPasswordError('');
   };
 
-  const onClickSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { emailError, passwordError } = await signin(email, password);
+    const { emailError, passwordError } = await signin(
+      inputValue.email,
+      inputValue.password
+    );
 
     if (!emailError && !passwordError) {
       setEmailError('');
@@ -66,6 +67,8 @@ const Signin = () => {
       setPasswordError(passwordError);
     }
   };
+
+  const { logo, eye } = ICON;
 
   return (
     <div className='wrapper bg-blue'>
@@ -78,7 +81,7 @@ const Signin = () => {
           <header className='form-header'>
             <h1 className='logo'>
               <Link to={'/'}>
-                <img src={importImg.logo} alt='linkbrary-logo' />
+                <img src={logo.url} alt={logo.alt} />
               </Link>
             </h1>
             <div className='info-user'>
@@ -102,13 +105,13 @@ const Signin = () => {
                     <div className='input-box'>
                       <input
                         id='email'
-                        name='id'
+                        name='email'
                         type='email'
                         placeholder='이메일'
                         maxLength='30'
                         required
-                        onChange={onChangeEmail}
-                        onBlur={onBlurEmail}
+                        onChange={handleInputChange}
+                        onBlur={handleEmailFocusOut}
                       />
                     </div>
                   </div>
@@ -128,8 +131,8 @@ const Signin = () => {
                         placeholder='비밀번호'
                         maxLength='15'
                         required
-                        onChange={onChangePassword}
-                        onBlur={onBlurPassword}
+                        onChange={handleInputChange}
+                        onBlur={handlePasswordFocusOut}
                       />
                       <button
                         type='button'
@@ -138,7 +141,7 @@ const Signin = () => {
                         aria-label='비밀번호 숨기기'
                         role='switch'
                       >
-                        <img src={importImg.auth.eyeHideIcon} alt='비밀번호 숨기기' />
+                        <img src={eye.default.url} alt={eye.default.alt} />
                       </button>
                     </div>
                   </div>
@@ -149,7 +152,7 @@ const Signin = () => {
                   text='로그인'
                   type='submit'
                   className={'btn-signin'}
-                  onClick={onClickSubmit}
+                  onClick={handleSubmit}
                   disabled={false}
                 />
               </fieldset>
@@ -158,7 +161,7 @@ const Signin = () => {
             <div className='social-login'>
               <span className='social-login-title'>소셜 로그인</span>
               <ul className='social-login-list'>
-                {SocialLogin.map((item) => (
+                {SOCIAL_LOGIN.map((item) => (
                   <li key={item.id} className='social-login-item'>
                     <a href={item.url}>
                       <img src={item.src} alt={item.alt} />

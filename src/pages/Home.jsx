@@ -1,8 +1,12 @@
 import { Helmet } from 'react-helmet';
-import { importImg } from '../store/common';
+import { IMAGE_URL } from '../store/common';
 import { ButtonLink } from '../components/common/Button';
 
 const Home = () => {
+  const {
+    home: { section1, section2, section3, section4 },
+  } = IMAGE_URL;
+
   return (
     <div>
       <Helmet>
@@ -40,12 +44,12 @@ const Home = () => {
                     <span>원하는 링크</span>를 저장하세요
                   </h2>
                   <p className='textbox-desc'>
-                    나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷,
-                    기억하고 싶은 모든 것을 한 공간에 저장하세요.
+                    나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은
+                    모든 것을 한 공간에 저장하세요.
                   </p>
                 </div>
                 <div className='imgbox'>
-                  <img src={importImg.home.section1} alt='링크 저장 이미지' />
+                  <img src={section1.url} alt={section1.alt} />
                 </div>
               </div>
             </div>
@@ -56,11 +60,11 @@ const Home = () => {
                   <span>원하는 링크</span>를 저장하세요
                 </h2>
                 <div className='imgbox'>
-                  <img src={importImg.home.section1} alt='링크 저장 이미지' />
+                  <img src={section1.url} alt={section1.alt} />
                 </div>
                 <p className='textbox-desc'>
-                  나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷,
-                  기억하고 싶은 모든 것을 한 공간에 저장하세요.
+                  나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은
+                  모든 것을 한 공간에 저장하세요.
                 </p>
               </div>
             </div>
@@ -80,7 +84,7 @@ const Home = () => {
                   </p>
                 </div>
                 <div className='imgbox'>
-                  <img src={importImg.home.section2} alt='폴더 관리 이미지' />
+                  <img src={section2.url} alt={section2.alt} />
                 </div>
               </div>
             </div>
@@ -91,7 +95,7 @@ const Home = () => {
                   링크를 폴더로 <span>관리</span>하세요
                 </h2>
                 <div className='imgbox'>
-                  <img src={importImg.home.section2} alt='폴더 관리 이미지' />
+                  <img src={section2.url} alt={section2.alt} />
                 </div>
                 <p className='textbox-desc'>
                   나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
@@ -110,15 +114,12 @@ const Home = () => {
                     저장한 링크를 <span>공유</span>해 보세요
                   </h2>
                   <p className='textbox-desc'>
-                    여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구,
-                    동료들에게 쉽고 빠르게 링크를 공유해 보세요.
+                    여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
+                    쉽고 빠르게 링크를 공유해 보세요.
                   </p>
                 </div>
                 <div className='imgbox'>
-                  <img
-                    src={importImg.home.section3}
-                    alt='링크 공유하기 이미지'
-                  />
+                  <img src={section3.url} alt={section3.alt} />
                 </div>
               </div>
             </div>
@@ -129,14 +130,11 @@ const Home = () => {
                   저장한 링크를 <span>공유</span>해 보세요
                 </h2>
                 <div className='imgbox'>
-                  <img
-                    src={importImg.home.section3}
-                    alt='링크 공유하기 이미지'
-                  />
+                  <img src={section3.url} alt={section3.alt} />
                 </div>
                 <p className='textbox-desc'>
-                  여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구,
-                  동료들에게 쉽고 빠르게 링크를 공유해 보세요.
+                  여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고
+                  빠르게 링크를 공유해 보세요.
                 </p>
               </div>
             </div>
@@ -156,7 +154,7 @@ const Home = () => {
                   </p>
                 </div>
                 <div className='imgbox'>
-                  <img src={importImg.home.section4} alt='링크 검색 이미지' />
+                  <img src={section4.url} alt={section4.alt} />
                 </div>
               </div>
             </div>
@@ -167,11 +165,9 @@ const Home = () => {
                   저장한 링크를 <span>검색</span>해 보세요
                 </h2>
                 <div className='imgbox'>
-                  <img src={importImg.home.section4} alt='링크 검색 이미지' />
+                  <img src={section4.url} alt={section4.alt} />
                 </div>
-                <p className='textbox-desc'>
-                  중요한 정보들을 검색으로 쉽게 찾아보세요.
-                </p>
+                <p className='textbox-desc'>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
               </div>
             </div>
           </div>
