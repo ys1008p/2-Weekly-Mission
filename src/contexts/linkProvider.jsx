@@ -1,17 +1,18 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getFolderList } from '../apis/folder';
+import { getFolderList } from '../apis/folderList';
+import { INITIAL_LINK_DATA } from '../store/type';
 
 export const LinkContext = createContext();
 
 export const LinkProvider = ({ children }) => {
-  const [storedLink, setStoredLink] = useState([]);
+  const [storedData, setStoredData] = useState(INITIAL_LINK_DATA);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const initData = await getFolderList();
-        setStoredLink(initData);
+        setStoredData(initData);
       } catch (e) {
         console.error('ERROR FETCHING FOLDER DATA: ', e);
       }
@@ -21,29 +22,10 @@ export const LinkProvider = ({ children }) => {
   }, []);
 
   return (
-    <LinkContext.Provider value={{ storedLink, setStoredLink }}>
+    <LinkContext.Provider value={{ storedData, setStoredData }}>
       {children}
     </LinkContext.Provider>
   );
-};
-
-export const useStoredLink = () => {
-  const context = useContext(LinkContext);
-
-  if (!context) {
-    throw new Error('Error: LinkProvider 내부에서 사용하세요.');
-  }
-  return context.storedLink;
-};
-
-export const useSetStoredLink = () => {
-  const context = useContext(LinkContext);
-
-  if (!context) {
-    throw new Error('Error: LinkProvider 내부에서 사용하세요.');
-  }
-
-  return context.setStoredLink;
 };
 
 LinkProvider.propTypes = {
