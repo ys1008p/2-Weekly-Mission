@@ -2,6 +2,7 @@ import Facebook from '@/assets/images/icon/akar-icons_facebook-fill.svg';
 import Twitter from '@/assets/images/icon/akar-icons_twitter-fill.svg';
 import Youtube from '@/assets/images/icon/akar-icons_youtube-fill.svg';
 import Instagram from '@/assets/images/icon/ant-design_instagram-filled.svg';
+
 import SnsButton from '@/components/button/SnsButton';
 
 const Footer = () => (

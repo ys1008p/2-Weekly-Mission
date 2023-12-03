@@ -1,7 +1,8 @@
 import '@/styles/Shared.css';
 
-import { fetchGetRequest } from '@/utils/api';
 import { useEffect, useState } from 'react';
+
+import { fetchGetRequest } from '@/utils/api';
 
 import Banner from '@/components/banner/Banner';
 import CardContainer from '@/components/card/CardContainer';
