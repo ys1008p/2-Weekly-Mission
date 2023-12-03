@@ -22,7 +22,7 @@ function Card({ imageSource, createdAt, description, url }) {
       </div>
       <div className={style.infoContainer}>
         <span className={style.ago}>{calculateTimeDiff(createdAt)}</span>
-        <p className={style.desc}>{description}</p>
+        <p className={style.desc}>{description || 'No description'}</p>
         <span className={style.createdAt}>{formatDate(createdAt)}</span>
       </div>
     </a>
