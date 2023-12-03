@@ -10,8 +10,7 @@ export function Card({ link }) {
   const [createdDates, setCreatedDates] = useState({});
   const [isHovered, setIsHovered] = useState(false);
 
-  function calCreatedAt() {
-    const now = new Date();
+  function calCreatedDates() {
     const splited = createdAt.split("T").slice(0, 1);
     const yearMonthDay = splited[0].split("-");
 
@@ -21,10 +20,14 @@ export function Card({ link }) {
       month: yearMonthDay[1],
       day: yearMonthDay[2],
     }));
+  }
+
+  function calCreatedAt() {
+    const now = new Date();
 
     const createdDate = new Date(
       createdDates.year,
-      createdDates.month,
+      Number(createdDates.month) * 1 - 1,
       createdDates.day
     );
 
@@ -39,13 +42,13 @@ export function Card({ link }) {
     const minutes = calTime(diffMSec, MIN);
     const hours = calTime(diffMSec, HOUR);
     const days = calTime(diffMSec, DAY);
-    const months = calTime(diffMSec, MONTH) + 1;
+    const months = calTime(diffMSec, MONTH);
 
     if (months > 23) {
       setMins(`${Math.floor(months / 12)} years ago`);
     } else if (months >= 12) {
       setMins(`1 year ago`);
-    } else if (days >= 31) {
+    } else if (days > 30) {
       setMins(`${months} month ago`);
     } else if (days <= 30) {
       setMins(`${days} days ago`);
@@ -69,8 +72,12 @@ export function Card({ link }) {
     setIsHovered(false);
   }
   useEffect(() => {
+    calCreatedDates();
+  }, [createdAt]);
+  useEffect(() => {
+    // calCreatedDates();
     calCreatedAt();
-  }, [{ mins }]);
+  }, [createdDates]);
 
   return (
     <>
@@ -96,19 +103,6 @@ export function Card({ link }) {
             description={description}
             createdDates={createdDates}
           />
-          {/* <div className="info-wrapper">
-            <div>
-              <div className="mins">{mins}</div>
-              <img src={kebab} />
-            </div>
-            <div className="infos">
-              <div className="title">{title}</div>
-              <div className="description">{description}</div>
-            </div>
-            <div className="created">
-              {createdDates.year}. {createdDates.month}. {createdDates.day}
-            </div>
-          </div> */}
         </div>
       </a>
     </>
