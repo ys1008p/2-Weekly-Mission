@@ -1,5 +1,4 @@
 footer {
-  margin-top: 120px;
   background-color: $dark-blue;
 
   .footer-container {
@@ -67,7 +66,6 @@ footer {
 
   @include responsive(M) {
     height: 160px;
-    margin-top: 40px;
 
     position: relative;
 
