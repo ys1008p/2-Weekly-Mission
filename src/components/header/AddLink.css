@@ -11,7 +11,7 @@
   margin: auto;
 }
 .add-link {
-  width: 50rem;
+  width: 100%;
   height: 4.31rem;
   margin: 3.75rem 0 5.62rem 0;
   background: var(--linkbrary-white, #fff);

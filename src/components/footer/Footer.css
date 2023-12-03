@@ -4,7 +4,7 @@
   background: #111322;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .footer-wrapper > span {
@@ -23,8 +23,7 @@
 }
 
 span > a {
-  color: #676767;
-  font-family: Arial;
+  color: #cfcfcf;
   font-size: 1rem;
   font-weight: 400;
 }

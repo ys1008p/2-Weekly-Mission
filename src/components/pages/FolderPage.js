@@ -9,6 +9,7 @@ import CardWrapper from "../main/CardWrapper.js";
 import FolderOptions from "../main/FolderOptions.js";
 import add from "../../assets/add.svg";
 import "../main/Main.css";
+import "../main/Responsive.css";
 import Nolinks from "../error/NoLinks.js";
 
 function FolderPage() {

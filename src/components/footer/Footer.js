@@ -14,12 +14,17 @@ export function Footer() {
   const footerSnsDatas = [
     { id: 1, name: "facebook", url: "https://www.facebook.com", img: facebook },
     { id: 2, name: "twitter", url: "https://www.twitter.com", img: twitter },
-    { id: 3, name: "youtube", url: "https://www.youtube.com", img: instagram },
+    {
+      id: 3,
+      name: "youtube",
+      url: "https://www.youtube.com",
+      img: youtube,
+    },
     {
       id: 4,
       name: "instagram",
       url: "https://www.instagram.com",
-      img: youtube,
+      img: instagram,
     },
   ];
 

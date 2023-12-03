@@ -50,17 +50,17 @@ nav {
   width: 8rem;
 }
 
-@media (min-width: 768px) and (max-width: 1123px) {
+@media (min-width: 770px) and (max-width: 1199px) {
   nav {
-    min-width: 768px;
+    min-width: 705px;
     max-width: 864px;
     justify-content: space-between;
-    padding: 1.25rem 32px;
+    padding: 1.25rem 2.03rem;
     margin: 0 auto;
   }
 }
 
-@media (min-width: 375px) and (max-width: 767px) {
+@media (min-width: 390px) and (max-width: 769px) {
   nav {
     padding: 0.81rem 32px;
   }

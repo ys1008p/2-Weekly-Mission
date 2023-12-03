@@ -116,21 +116,3 @@
   font-size: 0.875rem;
   font-weight: 600;
 }
-@media (min-width: 768px) and (max-width: 1124px) {
-  .main-wrapper {
-    width: 44rem;
-  }
-
-  .card-wrapper {
-    grid-template-columns: repeat(2, 21.25rem);
-  }
-}
-
-@media (min-width: 375px) and (max-width: 767px) {
-  .main-wrapper {
-    width: 21.25rem;
-  }
-  .card-wrapper {
-    grid-template-columns: repeat(1, 21.25rem);
-  }
-}
