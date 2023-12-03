@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import TitleArea from './TitleArea';
+import { useState } from 'react';
 
 const StyledButton = styled.button`
   background-color: #ffffff;
@@ -41,23 +43,13 @@ function Button({folder,setId}){
     )
   }
   
-function AllButton({setId, uniqueKey}){
-  const handleChangeAll = (folderId) => {
-    setId(folderId)
-  };
-  return(
-    <StyledButton onClick={() =>handleChangeAll(uniqueKey)}>전체</StyledButton>
-  )
-}
 
-function ButtonList({setId,folders,allFolderId}){
-
+function ButtonList({setId,folders}){
     return(
         <>
         <div>
         <ButtonBox>
           <Buttons>
-            <AllButton uniqueKey={allFolderId}  setId={setId} />
              {folders && folders.map((folder)=>(<Button setId={setId} folder={folder} key={folder.id}/>))}
           </Buttons>
           <AddLink>+</AddLink>

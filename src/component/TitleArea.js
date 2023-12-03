@@ -1,56 +1,51 @@
 import styled from "styled-components";
 
-const categories = [
+const categoryList = [
   { title: "공유", image: process.env.PUBLIC_URL + "/images/share.png" },
   { title: "이름 변경", image: process.env.PUBLIC_URL + "/images/pen.png" },
   { title: "삭제", image: process.env.PUBLIC_URL + "/images/delete.png" },
 ];
+// 카테고리는 세개이다 map을 이용해 만든다
+// 카테고리 박스를 글씨 영역에 타이틀과 함께 넣어준다
+const StyledCategoryBox = styled.div``;
 
-const CategoryBox = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-gap:0.4rem;
-font-size:1.4rem;
-color:rgb(159, 166, 178);
-`
+const StyledCategory = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+`;
 
 function Category({ category }) {
-  const { title, image } = category;
+  const { title, image } = categoryList;
   return (
-    <CategoryBox>
+    <StyledCategory>
       <img src={image} alt={`${title} 아이콘`} />
       <div>{title}</div>
-    </CategoryBox>
+    </StyledCategory>
   );
 }
 
-
-
-const CategoriesBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size:2.4rem;
-  margin-bottom: 2.4rem;
-`;
-
-const Categories = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-gap:1.2rem;
-`;
-
-
-function TitleArea() {
+function CategoryBox({ folder }) {
   return (
-    <>
-      <CategoriesBox>
-        <h1>유용한 글</h1>
-        <Categories>{categories && categories.map((category) => <Category key={category.title} category={category} />)}</Categories>
-      </CategoriesBox>
-    </>
+    <StyledCategoryBox>
+      <h1>{folder.name}</h1>
+      {categoryList.map((category) => (
+        <Category category={category} />
+      ))}
+    </StyledCategoryBox>
   );
+}
+
+function TitleArea({ folders,id }) {
+  
+  return 
+  <>
+   {folders &&
+        folders
+          .filter((folder) => folder.id === id)
+          .map((filteredFolder) => <CategoryBox folder={filteredFolder} />)}
+  </>
 }
 
 export default TitleArea;

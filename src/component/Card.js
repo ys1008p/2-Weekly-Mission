@@ -6,10 +6,10 @@ import getUploadDate from "../utils/getUploadDate";
 function Card({ link }) {
   const [isHover, setIsHover] = useState(false);
   const [hoverClass, setIsHoverClass] = useState();
-  const createdAtString = link.createdAt;
+  const createdAtString = link.created_at;
   const elapseTime = getElapseTime(createdAtString);
   const postedDate =getUploadDate(createdAtString)
- 
+  
   const handleHover = () => {
     setIsHover(true);
     setIsHoverClass(styles.hover);
@@ -19,11 +19,12 @@ function Card({ link }) {
     setIsHoverClass("");
   };
 
-
+  console.log(link)
+ 
   return (
     <div onMouseOver={handleHover} onMouseOut={handleHoverOut} className={styles.card} onClick={() => window.open(`${link.url}`, "_blank")}>
       <div className={styles.cardImageBox}>
-        <img className={link && link.imageSource ? `${styles.cardImage} ${hoverClass}` : `${styles.noImage} ${hoverClass}`} src={link && link.imageSource ? link.imageSource : "/images/noImage.svg"} />
+        <img className={link && link.imageSource ? `${styles.cardImage} ${hoverClass}` : `${styles.noImage} ${hoverClass}`} src={link && link.image_source ? link.image_source : "/images/noImage.svg"} />
       </div>
       <div className={isHover ? `${styles.cardDescription} ${styles.hover}` : styles.cardDescription}>
         <div className={styles.timeBox}>

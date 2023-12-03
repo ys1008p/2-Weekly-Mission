@@ -32,20 +32,13 @@ header {
   align-items: center;
 }
 
-.profileIconBox {
-  padding: 0.9rem;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-}
-
 .profileIcon {
-  width: 1rem;
-  height: 1rem;
+  width: 2.8rem;
+  height: 2.8rem;
 }
 
 .email {
   font-size: 1.4rem;
-  margin-left: 1rem;
 }
 
 /*Tablet*/
