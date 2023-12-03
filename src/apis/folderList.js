@@ -4,7 +4,6 @@ import { instance } from './axiosInstance';
 export const getFolderList = async () => {
   try {
     const res = await instance.get('/api/sample/folder');
-    // return res?.data.folder;
     return res?.data.folder;
   } catch (e) {
     console.error('[API ERROR] NOT FOUND FOLDER LIST: ', e);
