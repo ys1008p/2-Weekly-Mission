@@ -1,3 +1,21 @@
+$lg-add-banner-height: 220px;
+$sm-add-banner-height: 118px;
+
+$lg-main-padding: 100px;
+$lg-search-height: 54px;
+
 .mainLayout {
-  height: calc(100% - ($lg-header-height + $lg-footer-height));
+  min-height: calc(100vh - ($lg-header-height + $lg-footer-height));
+}
+
+.link-content {
+  min-height: calc(
+    100vh - ($lg-header-height + $lg-add-banner-height + $lg-footer-height)
+  );
+
+  @include responsive(M) {
+    min-height: calc(
+      100vh - ($sm-header-height + $sm-add-banner-height + $sm-footer-height)
+    );
+  }
 }
