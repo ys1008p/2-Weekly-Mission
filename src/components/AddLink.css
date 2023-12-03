@@ -1,0 +1,13 @@
+.add-link-form {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-primary);
+  background: var(--color-white);
+  border-radius: 1.5rem;
+}
+
+.add-link {
+  border: none;
+  width: calc(100% - 8rem);
+}

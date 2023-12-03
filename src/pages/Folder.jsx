@@ -5,6 +5,8 @@ import FolderButtons from '../components/FolderButtons';
 import FolderCardList from '../components/FolderCardList';
 import Footer from '../components/Footer';
 import './Folder.css';
+import AddLinkHeader from '../components/AddLinkHeader';
+import AddLink from '../components/AddLink';
 
 export default function Folder() {
   const [selectedFolder, setSelectedFolder] = useState({
@@ -21,6 +23,9 @@ export default function Folder() {
   return (
     <>
       <Navbar profileUrl='users/1' className='navbar' />
+      <AddLinkHeader>
+        <AddLink />
+      </AddLinkHeader>
       <SearchBar />
       <FolderButtons folderId={selectedFolder.id} onClick={handleFolderClick} />
       <FolderCardList selectedFolder={selectedFolder} />
