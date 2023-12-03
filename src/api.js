@@ -36,7 +36,7 @@ async function getFolderMenu() {
   }
 }
 
-async function getProfileAsync() {
+async function getProfileSample() {
   try{
     const respones = await fetch(`${BASE_URL}/sample/user`);
     if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
@@ -48,7 +48,7 @@ async function getProfileAsync() {
   }
 }
 
-async function getFolderAsync() {
+async function getFolderSample() {
   try{
     const respones = await fetch(`${BASE_URL}/sample/folder`);
     if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
@@ -61,4 +61,4 @@ async function getFolderAsync() {
 }
 
 
-export { getProfile, getFolder, getFolderMenu, getProfileAsync, getFolderAsync }
+export { getProfile, getFolder, getFolderMenu, getProfileSample, getFolderSample }

@@ -69,6 +69,7 @@ function Folder() {
   return (
     <div className="container">
       <Header 
+        className="header"
         profileImg={profileImg}
         profileEmail={profileEmail}
       />
