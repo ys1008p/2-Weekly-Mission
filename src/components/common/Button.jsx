@@ -11,7 +11,7 @@ export const Button = ({
 }) => {
   return (
     <button
-      className={['btn-primary', `${className}`].join(' ')}
+      className={['btn-primary', className || ''].join(' ')}
       onClick={onClick}
       type={type}
       disabled={disabled}
@@ -31,18 +31,22 @@ Button.propTypes = {
 
 // [아이콘 단일 버튼]
 export const IconButton = ({
+  icon,
+  img,
+  alt,
   size,
-  color,
   label,
-  children,
-  onClick,
+  color = '',
+  name = '',
+  onClick = null,
   type = 'button',
   disabled = false,
 }) => {
   const className = [
-    'ic-button-primary',
-    `ic-button--size-${size}`,
-    `ic-button--color-${color}`,
+    'ic-btn',
+    `${name}`,
+    `ic-btn--size-${size}`,
+    `ic-btn--color-${color}`,
   ].join(' ');
   return (
     <button
@@ -52,12 +56,17 @@ export const IconButton = ({
       type={type}
       disabled={disabled}
     >
-      {children}
+      {icon && <i className={icon}></i>}
+      {img && <img src={img} alt={alt} />}
     </button>
   );
 };
 
 IconButton.propTypes = {
+  icon: PropTypes.string,
+  img: PropTypes.string,
+  alt: PropTypes.string,
+  name: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string,
   label: PropTypes.string,
@@ -70,35 +79,43 @@ IconButton.propTypes = {
 // [혼합형]아이콘+텍스트
 export const MixButton = ({
   text,
+  textSize,
+  textColor,
   size,
   color,
-  onClick,
+  name = '',
+  onClick = null,
   type = 'button',
   startIcon = null,
   endIcon = null,
   disabled = false,
 }) => {
   const className = [
-    'mix-button-primary',
-    `mix-button--size-${size}`,
-    `mix-button--color-${color}`,
+    'mx-btn',
+    `${name}`,
+    `mx-btn--size-${size}`,
+    `mx-btn--color-${color}`,
   ].join(' ');
   return (
-    <button
-      className={className}
-      onClick={onClick}
-      type={type}
-      disabled={disabled}
-    >
-      {startIcon}
-      {text && <span className='mix-button-text'>{text}</span>}
-      {endIcon}
+    <button className={className} onClick={onClick} type={type} disabled={disabled}>
+      {startIcon && <i className={startIcon}></i>}
+      {text && (
+        <span
+          className={`mx-btn-text mx-btn-text--size-${textSize} mx-btn-text--color-${textColor}`}
+        >
+          {text}
+        </span>
+      )}
+      {endIcon && <i className={endIcon}></i>}
     </button>
   );
 };
 
 MixButton.propTypes = {
   text: PropTypes.string,
+  textSize: PropTypes.number,
+  textColor: PropTypes.string,
+  name: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string,
   type: PropTypes.string,

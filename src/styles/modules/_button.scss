@@ -16,7 +16,18 @@
   border-radius: 5px;
 }
 
+%ic-button-base {
+  @include inline-flexbox;
+  @include text-style(16);
+}
+
+%mix-button-base {
+  @include inline-flexbox;
+  @include text-style(18);
+}
+
 /* --------- Btn style --------- */
+// [default]기본 버튼
 .btn-primary {
   @extend %btn-base;
   color: $white;
@@ -35,8 +46,97 @@
   }
 }
 
-.tab-outlined {
+// [아이콘 단일 버튼]
+.ic-btn {
+  @extend %ic-button-base;
+
+  &--size {
+    &-16 {
+      @include text-style(16);
+    }
+    &-18 {
+      @include text-style(18);
+    }
+    &-24 {
+      @include text-style(24);
+    }
+    &-34 {
+      @include text-style(34);
+    }
+  }
+
+  &--color {
+    &-primary {
+      color: $primary;
+    }
+  }
+}
+
+// [혼합형]아이콘+텍스트
+.mx-btn {
+  @extend %mix-button-base;
+
+  &--size {
+    &-16 {
+      @include text-style(16);
+    }
+    &-18 {
+      @include text-style(18);
+    }
+    &-24 {
+      @include text-style(24);
+    }
+  }
+
+  &--color {
+    &-primary {
+      color: $primary;
+    }
+    &-gray-80 {
+      color: $blue-gray-80;
+    }
+    &-white {
+      color: $white;
+    }
+  }
+
+  &-text {
+    margin: 0 4px;
+
+    &--size {
+      &-14 {
+        @include text-style(14);
+      }
+      &-16 {
+        @include text-style(16);
+      }
+      &-18 {
+        @include text-style(18);
+      }
+      &-24 {
+        @include text-style(24);
+      }
+    }
+
+    &--color {
+      &-primary {
+        color: $primary;
+      }
+      &-gray-80 {
+        color: $blue-gray-80;
+      }
+      &-white {
+        color: $white;
+      }
+    }
+  }
+}
+
+/* --------- Filter style --------- */
+.filter-outlined {
   @extend %tab-base;
+  @include text-style(16);
+
   color: $black;
   border: 1px solid $primary;
   transition: background-color 200ms ease-in-out;
@@ -48,13 +148,17 @@
   &.is-active {
     color: $white;
     background-color: $primary;
+
+    &:not(:disabled):hover {
+      background-color: #504cff;
+    }
   }
 }
 
-.tab-lg {
+.filter-lg {
   padding: 8px 12px;
 }
 
-.tab-sm {
+.filter-sm {
   padding: 6px 14px;
 }
