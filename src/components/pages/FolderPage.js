@@ -6,7 +6,7 @@ import Header from "../header/Header.js";
 import Folders from "../main/Folders.js";
 import SearchBar from "../main/SearchBar.js";
 import CardWrapper from "../main/CardWrapper.js";
-import Option from "../main/Option.js";
+import FolderOptions from "../main/FolderOptions.js";
 import add from "../../assets/add.svg";
 import "../main/Main.css";
 
@@ -23,7 +23,7 @@ function FolderPage() {
   const [links, setLinks] = useState([]);
   const [folderLists, setFolderLists] = useState([]);
   const [currentFolderId, setCurrentFolderId] = useState("");
-  const [currentFolderName, setCurrentFolderName] = useState("");
+  const [currentFolderName, setCurrentFolderName] = useState("전체");
 
   const getUserData = async () => {
     try {
@@ -125,7 +125,7 @@ function FolderPage() {
                     <Folders
                       className={`listed-folder-name ${
                         currentFolderName === folder.name
-                          ? "clicked_folder"
+                          ? "clicked-folder"
                           : ""
                       }`}
                       folder={folder}
@@ -141,9 +141,9 @@ function FolderPage() {
             <img src={add} />
           </div>
         </div>
-        <div>
+        <div className="current-folder-option-wrapper">
           <div class="current-folder-name">{currentFolderName}</div>
-          <Option />
+          <FolderOptions />
         </div>
         <CardWrapper links={links} />
       </div>

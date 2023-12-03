@@ -1,10 +1,13 @@
-export function Option() {
+export function Option({ optionData }) {
+  const { name, img } = optionData;
+  //   console.log("name=>", name);
+  //   console.log(optionData);
+
   return (
-    <>
-      <div>공유</div>
-      <div>이름 변경</div>
-      <div>삭제</div>
-    </>
+    <div className="option-wrapper">
+      <img className="option-img" src={img} />
+      <div className="option-name">{name}</div>
+    </div>
   );
 }
 

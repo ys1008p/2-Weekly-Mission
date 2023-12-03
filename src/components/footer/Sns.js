@@ -1,11 +1,10 @@
-export function Sns({ footerSnsData, imageMap }) {
-  const { name, url } = footerSnsData;
-  const imageSource = imageMap;
+export function Sns({ footerSnsData }) {
+  const { name, url, img } = footerSnsData;
 
   return (
     <>
       <a href={url} target="_blank">
-        <img src={imageSource} alt={name} />
+        <img src={img} alt={name} />
       </a>
     </>
   );
