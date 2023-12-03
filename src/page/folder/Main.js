@@ -46,6 +46,9 @@ function Main({
           />
         </ul>
       </div>
+      <div>
+        <button type="button" className="btn-add-folder"></button>
+      </div>
     </div>
   )
 }
