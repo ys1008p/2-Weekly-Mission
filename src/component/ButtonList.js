@@ -9,13 +9,15 @@ const StyledButton = styled.button`
   cursor: pointer;
 
   &:hover{
-    background-color:var(--primary-color)
+    background-color:var(--primary-color);
+    color: #ffffff;
   }
 `;
 
 const ButtonBox = styled.div`
 display:flex;
 justify-content: space-between;
+margin-bottom: 2.4rem;
 `
 
 const Buttons =styled.div`
@@ -39,12 +41,12 @@ function Button({folder,setId}){
     )
   }
   
-function AllButton({setId, key}){
+function AllButton({setId, uniqueKey}){
   const handleChangeAll = (folderId) => {
     setId(folderId)
   };
   return(
-    <StyledButton onClick={() =>handleChangeAll(key)}>전체</StyledButton>
+    <StyledButton onClick={() =>handleChangeAll(uniqueKey)}>전체</StyledButton>
   )
 }
 
@@ -55,7 +57,7 @@ function ButtonList({setId,folders,allFolderId}){
         <div>
         <ButtonBox>
           <Buttons>
-            <AllButton key={allFolderId}  setId={setId} />
+            <AllButton uniqueKey={allFolderId}  setId={setId} />
              {folders && folders.map((folder)=>(<Button setId={setId} folder={folder} key={folder.id}/>))}
           </Buttons>
           <AddLink>+</AddLink>

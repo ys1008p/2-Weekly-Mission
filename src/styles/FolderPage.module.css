@@ -1,10 +1,13 @@
 .contentFlax {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 4rem; gap이 안먹혀요..*/
 }
 
 .contentBox {
-  width: 106rem;
+  max-width: 106rem;
   padding: 4rem 3.2rem 0;
 }
 

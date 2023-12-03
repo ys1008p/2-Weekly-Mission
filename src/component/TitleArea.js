@@ -31,13 +31,14 @@ const CategoriesBox = styled.div`
   display: flex;
   justify-content: space-between;
   font-size:2.4rem;
+  margin-bottom: 2.4rem;
 `;
 
 const Categories = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-gap:1.2rem
+gap:1.2rem;
 `;
 
 
@@ -45,7 +46,7 @@ function TitleArea() {
   return (
     <>
       <CategoriesBox>
-        <h1>유용한글</h1>
+        <h1>유용한 글</h1>
         <Categories>{categories && categories.map((category) => <Category key={category.title} category={category} />)}</Categories>
       </CategoriesBox>
     </>
