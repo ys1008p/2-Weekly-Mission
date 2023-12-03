@@ -91,6 +91,7 @@ function FolderPage() {
     setCurrentFolderName(e.target.textContent);
     if (e.target.textContent === "전체") {
       getTotalLinksData();
+
       return;
     }
     const clikedFolder = folderLists.filter(
@@ -108,6 +109,7 @@ function FolderPage() {
   useEffect(() => {
     getFolder();
   }, [currentFolderId]);
+
   return (
     <>
       <Header profileDatas={profileDatas} />
@@ -143,7 +145,7 @@ function FolderPage() {
             </div>
             <div className="current-folder-option-wrapper">
               <div class="current-folder-name">{currentFolderName}</div>
-              <FolderOptions />
+              {currentFolderName === "전체" ? "" : <FolderOptions />}
             </div>
             {!links.length ? (
               <Nolinks msg={"이 폴더에 아직 저장된 링크가 없습니다"} />
