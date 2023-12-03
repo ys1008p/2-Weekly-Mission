@@ -116,9 +116,9 @@ function FolderPage() {
         <SearchBar />
         <div>
           {folderLists ? (
-            folderLists.map((folder) => {
+            folderLists.map((folder, i) => {
               return (
-                <div key={folder.id} onClick={handleFolderClick}>
+                <div key={`folder-${i}`} onClick={handleFolderClick}>
                   <Folders folder={folder} />
                 </div>
               );

@@ -38,9 +38,9 @@ export function Footer() {
           </span>
         </div>
         <div className="footer-sns">
-          {footerSnsDatas.map((data) => {
+          {footerSnsDatas.map((data, i) => {
             return (
-              <div key={data.id}>
+              <div key={`sns-${i}`}>
                 <Sns footerSnsData={data} imageMap={imageMap[data.name]} />
               </div>
             );
