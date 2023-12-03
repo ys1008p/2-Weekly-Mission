@@ -68,7 +68,7 @@
   object-fit: cover;
 }
 
-.main .card ul li.active img {
+.main .card ul li.active .img-card {
   transform: scale(1.3);
   transition: all 0.5s;
 }

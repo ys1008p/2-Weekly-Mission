@@ -1,4 +1,5 @@
 import noImg from '../assets/no-img.svg';
+import star from '../assets/ico-star.png';
 
 function DateText({ createdAt }){
   const idx = createdAt.indexOf('T');
@@ -42,7 +43,8 @@ function CardList ({ links, onMouseOver, onMouseOut }){
             card.image_source ? 
             card.image_source : noImg
             } 
-            alt="카드 이미지" />
+            alt="카드 이미지" className="img-card"/>
+          <img src={star} alt="별 이미지" className="star"/>
         </div>
         <div className="card-text">
           <p className="created-at">
