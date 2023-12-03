@@ -33,27 +33,29 @@ const AddLink = styled.div`
 function Button({folder,setId}){
   const handleChangeID = (folderId) => {
     setId(folderId)
-    console.log(folderId)
   };
   return(
     <StyledButton onClick={() => handleChangeID(folder.id)}>{folder && folder.name}</StyledButton>
     )
   }
   
-function AllButton(){
+function AllButton({setId, key}){
+  const handleChangeAll = (folderId) => {
+    setId(folderId)
+  };
   return(
-    <StyledButton>전체</StyledButton>
+    <StyledButton onClick={() =>handleChangeAll(key)}>전체</StyledButton>
   )
 }
 
-function ButtonList({setId,folders}){
+function ButtonList({setId,folders,allFolderId}){
 
     return(
         <>
         <div>
         <ButtonBox>
           <Buttons>
-            <AllButton />
+            <AllButton key={allFolderId}  setId={setId} />
              {folders && folders.map((folder)=>(<Button setId={setId} folder={folder} key={folder.id}/>))}
           </Buttons>
           <AddLink>+</AddLink>

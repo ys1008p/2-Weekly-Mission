@@ -16,9 +16,9 @@ function FolderPage() {
     select:[]
   });
   const [email, setEmail] = useState();
-  const [id , setId] = useState();
+  const [id , setId] = useState(0);
 
-
+  
   const handleEmailLoad = async () => {
     const { data } = await getFolderUserData();
     setEmail(data[0].email);
@@ -30,27 +30,35 @@ function FolderPage() {
   };
   const handleAllLinksLoad = async () => {
     const { data } = await getAllLinksData();
-    setLinks((prevLinks) => ({
-      ...prevLinks,
+    setLinks({
+      ...links,
       all: data,
-    }));
+    });
+ 
   };
 
   const selectFolderLoad = async () => {
     const { data } = await getSelectData(id);
-    setLinks((prevLinks) => ({
-      ...prevLinks,
+    setLinks({
+      ...links,
       select: data,
-    }));
+    });
+
   };
 
   
   useEffect(() => {
     handleEmailLoad();
-    handleFoldersLoad()
-    handleAllLinksLoad();
-    selectFolderLoad();
+    handleFoldersLoad();
+   
+    if(id==0){
+      handleAllLinksLoad();
+    }else if(id!==0){
+      selectFolderLoad();
+    }
+
   }, [id]);
+
 
 
   return (
@@ -60,9 +68,9 @@ function FolderPage() {
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
           <SearchInput />
-          <ButtonList folders={folders} setId={setId}/>
+          <ButtonList folders={folders} allFolderId={0} setId={setId}/>
           <TitleArea/>
-          {/* {links ? <CardList folderLinks={links} page={"folderPage"} />:<div className={styles.linksNull}><div>저장된 링크가 없습니다.</div></div>} */}
+         <CardList foldersLink={links} page={"folderPage"} />
         </div>
       </section>
       <Footer />
@@ -71,3 +79,6 @@ function FolderPage() {
 }
 
 export default FolderPage;
+
+
+{/* <div className={styles.linksNull}><div>저장된 링크가 없습니다.</div></div> */}

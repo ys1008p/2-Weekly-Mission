@@ -4,7 +4,6 @@ import getElapseTime from "../utils/getElapseTime";
 import getUploadDate from "../utils/getUploadDate";
 
 function Card({ link }) {
-  console.log(link)
   const [isHover, setIsHover] = useState(false);
   const [hoverClass, setIsHoverClass] = useState();
   const createdAtString = link.createdAt;
