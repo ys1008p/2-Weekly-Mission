@@ -13,7 +13,6 @@ export default function FolderButtons({ folderId, onClick }) {
   const list = folderList.map(({ id, name }) => (
     <li key={id}>
       <button
-        // 클릭된 버튼의 경우, 색깔을 바꾸려는데 이렇게 하는게 아닐까요?
         className={
           folderId === id ? 'folder-button active-button' : 'folder-button'
         }
