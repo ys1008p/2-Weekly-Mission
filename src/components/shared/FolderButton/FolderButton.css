@@ -9,6 +9,10 @@
   color: #000;
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
   background: #fff;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 }
 
 .chosenFolderButton {

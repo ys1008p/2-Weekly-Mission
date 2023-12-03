@@ -20,11 +20,18 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.2px;
+  grid-area: 'folderName';
+
+  @media (max-width: 1119px) {
+    margin-left: 32px;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
 }
 
-.folderName {
-  grid-area: 'folderName';
-}
 .folderEditButtons {
   grid-area: 'folderEditButtons';
   justify-self: end;

@@ -4,6 +4,10 @@
   flex-direction: row;
   justify-self: end;
   gap: 12px;
+
+  @media (max-width: 1119px) {
+    padding: 0 32px;
+  }
   @media (max-width: 767px) {
     justify-self: start;
   }
