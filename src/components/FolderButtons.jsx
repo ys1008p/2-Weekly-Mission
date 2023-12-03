@@ -1,7 +1,7 @@
 import React from 'react';
 import useGetData from '../hooks/useGetData';
 
-export default function FolderList() {
+export default function FolderButtons({ onClick }) {
   const [loading, error, user] = useGetData('users/1/folders');
 
   if (loading) return <div>loading..</div>;
@@ -9,15 +9,17 @@ export default function FolderList() {
 
   const folderList = user?.data;
 
-  const list = folderList.map((folder) => (
-    <li key={folder.id}>
-      <FolderButton name={folder.name} />
+  const list = folderList.map(({ id, name }) => (
+    <li key={id}>
+      <button
+        onClick={() => {
+          onClick(id, name);
+        }}
+      >
+        {name}
+      </button>
     </li>
   ));
 
   return <ul>{list}</ul>;
-}
-
-function FolderButton({ name }) {
-  return <button>{name}</button>;
 }
