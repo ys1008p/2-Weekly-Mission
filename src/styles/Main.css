@@ -1,6 +1,14 @@
 .Main {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  padding-bottom: 100px;
+}
+
+@media (min-width: 451px) and (max-width: 1124px) {
+  .Main {
+    margin: 40px 32px 0;
+  }
 }

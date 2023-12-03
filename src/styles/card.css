@@ -7,6 +7,7 @@ h1 {
 }
 
 .card {
+  border-radius: 0 0 15px 15px;
   list-style-type: none;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   width: 340px;
@@ -15,25 +16,31 @@ h1 {
 
 .cardATag {
   text-decoration: none;
-  display: flex;
-  width: 340px;
-  padding: 15px 20px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 0px 0px 15px 15px;
-  background: #FFF;
+  overflow: hidden;
 }
 
 .cardImgtag {
-  width: 340px;
+  width: 100%;
   height: 253.746px;
   flex-shrink: 0;
+  transition: all 0.2s linear;
+}
+
+.imgHover {
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+}
+
+.cardImgtag:hover {
+  transform: scale(1.3);
 }
 
 .textLine {
+  display: flex;
   width: 340px;
-
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .cardDescripTag {
@@ -47,16 +54,35 @@ h1 {
   font-weight: 400;
   line-height: 24px; /* 150% */
   word-wrap: break-word;
-  
 }
 
 .cardDateTag {
   overflow: hidden;
   color: #333;
   text-overflow: ellipsis;
-  white-space: nowrap; 
+  white-space: nowrap;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.cardList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+/* 이거 왜 1줄로 안 되는지 잘 모르겠습니다.. */
+
+@media (max-width: 765px) {
+  .cardList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1124px) {
+  .cardList {
+    grid-template-columns: 1fr 1fr;
+  }
 }
