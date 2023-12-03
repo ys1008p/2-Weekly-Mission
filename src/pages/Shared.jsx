@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import CardList from '../components/CardList';
 import Footer from '../components/Footer';
-import './App.css';
 
 export default function Shared() {
   const [loading, error, data] = useGetData('sample/folder');
