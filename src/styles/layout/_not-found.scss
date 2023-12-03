@@ -1,0 +1,49 @@
+.not-found {
+  @include flexbox();
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100vh;
+  background-color: #1e222c;
+
+  &-content {
+    @include column-flexbox();
+
+    img {
+      width: 400px;
+    }
+  }
+
+  &-title {
+    @include text-style(24, #434a5c);
+
+    margin: 40px 0 32px;
+  }
+
+  .btn-not-found {
+    @include text-style(16);
+    padding: 16px 40px;
+    border: 1px solid #853af7;
+    background: transparent;
+    transition: all ease-in-out 0.3s;
+
+    position: relative;
+    z-index: 10;
+
+    &:hover {
+      background: #853af7;
+    }
+  }
+
+  @include responsive(M) {
+    &-content {
+      img {
+        width: 200px;
+      }
+    }
+    .btn-not-found {
+      background: #853af7;
+    }
+  }
+}
