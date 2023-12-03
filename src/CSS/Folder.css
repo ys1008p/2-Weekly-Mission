@@ -1,0 +1,373 @@
+@import "./global.css";
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.FolderNavContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #edf7ff;
+}
+.FolderNavBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 63px;
+  padding: 0 32px;
+
+  @media (min-width: 768px) {
+    height: 94px;
+    max-width: 863px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 94px;
+    max-width: 1920px;
+    padding: 0 200px;
+  }
+}
+
+.Folderlogo {
+  height: 16px;
+
+  @media (min-width: 768px) {
+    height: 24px;
+  }
+}
+
+.FolderUserContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.FolderUserImg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.FolderUserEmail {
+  color: var(--linkbrary-gray-100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.FolderHeaderContainer {
+  position: relative;
+  display: flex;
+  padding: 60px 320px 90px 320px;
+  background: var(--linkbrary-bg);
+}
+.FolderHeaderInput {
+  width: 800px;
+  padding: 16px 45px;
+  border-radius: 15px;
+  border: 1px solid var(--primary);
+  background: var(--white);
+}
+
+.FolderHeaderImg {
+  position: absolute;
+  padding: 16px 20px;
+  gap: 8px;
+}
+.FolderHeaderBtn {
+  position: absolute;
+  padding: 10px 16px;
+  margin: 7px 700px 20px;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: var(--grey-light);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 600;
+}
+.FolderMain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 0px;
+  gap: 24px;
+}
+
+.MainSearchBarContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.MainSearchBar {
+  width: 100%;
+  display: flex;
+  padding: 15px 32px;
+  justify-content: space-between;
+  border-radius: 10px;
+  border-style: none;
+  background: var(--grey-light);
+}
+
+.SearchBtn {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  bottom: 100%;
+}
+
+.BtnContainer {
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.BtnBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.FolderBtn {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  background: #fff;
+}
+
+.FolderPlusBtn {
+  width: 16px;
+  height: 16px;
+}
+
+.FolderCardHeaderContainer {
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.FolderLinksBtn {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.FolderBtnName {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.FolderLinks {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--linkbrary-gray-60, #9fa6b2);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.FolderCardBoxContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  @media (max-width: 1124px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+    padding: 0 32px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 0 32px;
+  }
+}
+
+.FolderCardBox {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 330px;
+  margin-right: 20px;
+}
+
+.FolderCardImg {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  transform: scale(1);
+  transition: 0.3s all;
+}
+
+.FolderCardImg:hover {
+  transform: scale(1.3);
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.StarBtn {
+  position: absolute;
+  margin: 5px -40px;
+  cursor: copy;
+  z-index: 1;
+}
+
+.KebabBtn {
+  display: inline;
+  float: right;
+  padding: 0 10px;
+  cursor: context-menu;
+}
+
+.FolderCardUpLoadTime {
+  color: #666;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+
+.FolderCardTextDescription {
+  height: 49px;
+  align-self: stretch;
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.FolderCardTextYears {
+  height: 19px;
+  align-self: stretch;
+  overflow: hidden;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.FolderNullContainer{
+  display: flex;
+width: 1060px;
+height: 100px;
+padding: 41px 0px 35px 0px;
+justify-content: center;
+align-items: center;
+}
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
+  border-radius: 8px;
+  color: #f5f5f5;
+  font-size: 14px;
+  font-weight: 600;
+
+  @media (min-width: 768px) {
+    height: 54px;
+    border-radius: 8px;
+    font-size: 18px;
+  }
+}
+
+.cta-short {
+  width: 80px;
+
+  @media (min-width: 768px) {
+    width: 128px;
+  }
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 160px;
+  background-color: var(--black);
+}
+
+.footer-box {
+  display: grid;
+  justify-content: space-between;
+  grid-template:
+    "footer-links sns"
+    ". ." 1fr
+    "copyright .";
+  width: 100%;
+  padding: 32px;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    grid-template: "copyright footer-links sns";
+    height: fit-content;
+    max-width: 1920px;
+    padding: 32px 104px 0;
+  }
+}
+
+.copyright {
+  grid-area: copyright;
+  color: #676767;
+  font-family: Arial;
+  font-size: 16px;
+}
+
+.footer-links {
+  grid-area: footer-links;
+  display: flex;
+  column-gap: 30px;
+  padding-right: 18px;
+}
+
+.footer-link {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 16px;
+}
+
+.sns {
+  grid-area: sns;
+  display: flex;
+  column-gap: 12px;
+  height: 20px;
+}

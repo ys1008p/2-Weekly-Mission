@@ -1,5 +1,6 @@
 import React from "react";
 import IconSearchBar from "../../images/Search.svg";
+import "../../CSS/Landing.css";
 
 export default function MainSearchBar() {
   return (

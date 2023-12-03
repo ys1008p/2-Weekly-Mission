@@ -2,6 +2,7 @@ import React from "react";
 import LogoImg from "../../images/logo.svg";
 import { HeaderApi } from "../../api";
 import { useEffect, useState } from "react";
+import "../../CSS/Landing.css";
 
 export default function NavBar() {
   const [userData, setUserData] = useState(null);
@@ -16,13 +17,11 @@ export default function NavBar() {
   return (
     <nav className="nav-container">
       <div className="nav-box">
-        <a href="index.html">
-          <img
-            src={LogoImg}
-            alt="홈으로 연결된 Linkbrary 로고"
-            className="logo"
-          />
-        </a>
+        <img
+          src={LogoImg}
+          alt="홈으로 연결된 Linkbrary 로고"
+          className="logo"
+        />
         {userData ? (
           <div className="UserContainer">
             <p className="UserEmail">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LoginProfile } from "../../api";
+import "../../CSS/Landing.css";
 
 function timeAgo(timestamp) {
   const now = new Date();

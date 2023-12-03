@@ -34,16 +34,16 @@ export default function Footer() {
     <footer className="footer-container">
       <div className="footer-box">
         <span className="copyright">©codeit - 2023</span>
-          <div className="footer-links">
-            <Link href="privacy.html" text="Privacy Policy" />
-            <Link href="faq.html" text="FAQ" />
-          </div>
-          <div className="sns">
-            {socialMediaLinks.map((link, index) => (
-              <SocialLink key={index} {...link} />
-            ))}
-          </div>
+        <div className="footer-links">
+          <Link href="privacy.html" text="Privacy Policy" />
+          <Link href="faq.html" text="FAQ" />
         </div>
+        <div className="sns">
+          {socialMediaLinks.map((link, index) => (
+            <SocialLink key={index} {...link} />
+          ))}
+        </div>
+      </div>
     </footer>
   );
 }

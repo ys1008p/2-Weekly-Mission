@@ -1,20 +1,21 @@
-import React, { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
-import NavBar from './Component/Header/NavBar';
-import Header from './Component/Header/Header';
-import Footer from './Component/Footer/Footer';
-import Main from './Component/Main/Main';
-import './CSS/Landing.css'
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import LandingRoot from "./pages/LandingRoot";
+import FolderRoot from "./pages/folderRoot";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <StrictMode>
-    <NavBar/>
-    <Header/>
-    <Main/>
-    <Footer/>
-    </StrictMode>
+const router = createBrowserRouter([
+  {
+    path: "/landing",
+    element: <LandingRoot />,
+    errorElement: <p>Not Found Error</p>,
+  },
+  {
+    path: "/folder",
+    element: <FolderRoot />,
+    errorElement: <></>,
+  },
+]);
 
-);
-
-
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={router} />);
