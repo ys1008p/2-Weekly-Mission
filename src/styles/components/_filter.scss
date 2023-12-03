@@ -29,6 +29,17 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: $fix-button;
+
+    transition: all ease-in-out 0.2s;
+
+    &:hover {
+      border-color: $black;
+      background-color: $black;
+    }
+
+    &.hide {
+      display: none;
+    }
   }
 
   @include responsive(T) {

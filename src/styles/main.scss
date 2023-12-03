@@ -24,7 +24,11 @@
 @import './components/profile';
 @import './components/cardItem';
 @import './components/search-bar';
-@import './components//skeleton';
+@import './components/skeleton';
+@import './components/empty-content';
+@import './components/add-link';
+@import './components/filter';
+@import './components/spinner';
 
 @import './layout/grid';
 @import './layout/myLayout';
@@ -34,3 +38,5 @@
 @import './layout/loading';
 @import './layout/folder';
 @import './layout/shareLink-banner';
+@import './layout/filter-content';
+@import './layout/not-found';

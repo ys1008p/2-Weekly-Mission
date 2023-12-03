@@ -1,4 +1,4 @@
-import { LinkProvider } from './contexts/linkProvider';
+import { LinkProvider } from './contexts/LinkProvider';
 import MyRouter from './Router';
 
 const App = () => {
