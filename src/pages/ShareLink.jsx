@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { MainBanner } from '../components/shareLink/MainBanner';
-import { Content } from '../components/shareLink/Content';
+import { MainContent } from '../components/shareLink/MainContent';
 
 const ShareLink = () => {
   return (
@@ -10,7 +10,7 @@ const ShareLink = () => {
       </Helmet>
 
       <MainBanner />
-      <Content />
+      <MainContent />
     </div>
   );
 };
