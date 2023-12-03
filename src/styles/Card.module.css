@@ -10,6 +10,12 @@
   width: 34rem;
   margin: 0 auto;
 }
+.starIcon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 5;
+}
 
 .cardImageBox {
   width: 34rem;
@@ -78,9 +84,6 @@
 
 .date {
   font-size: 1.4rem;
-}
-
-@media (max-width: 1px) {
 }
 
 /* Tablet*/

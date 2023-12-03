@@ -21,6 +21,7 @@ function Card({ link }) {
  
   return (
     <div onMouseOver={handleHover} onMouseOut={handleHoverOut} className={styles.card} onClick={() => window.open(`${link.url}`, "_blank")}>
+      <img className={styles.starIcon} src={`${process.env.PUBLIC_URL}/images/star.svg`}/>
       <div className={styles.cardImageBox}>
         <img className={link && link.imageSource ? `${styles.cardImage} ${hoverClass}` : `${styles.noImage} ${hoverClass}`} src={link && link.image_source ? link.image_source : "/images/noImage.svg"} />
       </div>

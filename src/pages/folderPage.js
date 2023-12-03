@@ -6,6 +6,7 @@ import SearchInput from "../component/SearchInput";
 import styles from "../styles/FolderPage.module.css";
 import ButtonList from "../component/ButtonList";
 import TitleArea from "../component/TitleArea";
+import FloatingButton from "../component/FloatingButton";
 import { getFolderUserData, getSelectData, getAllLinksData, getFoldersData } from "../apis/folder/folderApi.js";
 import { useEffect, useState } from "react";
 
@@ -57,16 +58,18 @@ function FolderPage() {
           <SearchInput />
           <ButtonList folders={folders} setId={setId} />
           <TitleArea folders={folders} id={id} />
-          {links.length === 0 ? (
+          {
+            links.length ===0?
             <div className={styles.linksNull}>
               <div>저장된 링크가 없습니다.</div>
             </div>
-          ) : (
+            :
             <CardList foldersLink={links} page={"folderPage"} />
-          )}
+          }
         </div>
       </section>
       <Footer />
+      <FloatingButton/>
     </>
   );
 }
