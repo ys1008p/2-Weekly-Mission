@@ -32,11 +32,6 @@
 
     transition: all ease-in-out 0.2s;
 
-    &:hover {
-      border-color: $black;
-      background-color: $black;
-    }
-
     &.hide {
       display: none;
     }
