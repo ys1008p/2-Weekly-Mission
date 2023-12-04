@@ -71,7 +71,7 @@ export default function FolderCardContainer() {
                 </button>
               </p>
               <p className="FolderCardTextDescription">{link.description}</p>
-              <p className="FolderCardTextYears">{link.created_at}</p>
+              <p className="FolderCardTextYears">{link.created_at.slice(0,10)}</p>
             </div>
           </a>
         </div>

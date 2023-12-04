@@ -65,7 +65,7 @@ export default function MainCardContainer() {
                     {timeAgo(new Date(item.createdAt))}
                   </p>
                   <p className="CardTextDescription">{item.description}</p>
-                  <p className="CardTextYears">{item.createdAt}</p>
+                  <p className="CardTextYears">{item.createdAt.slice(0,10)}</p>
                 </div>
               </a>
             </div>
