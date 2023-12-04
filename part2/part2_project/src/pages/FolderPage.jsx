@@ -2,16 +2,20 @@ import { useEffect, useState } from "react";
 import { forUser1, TasteUser1, getUserList } from "../util/api";
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
-
+import styled from "styled-components";
 import HeaderWithInPut from "../Components/HeaderWithInput";
 import Main from "../Components/Main_folderPage";
 import "../css/index.css";
+
+const ForFolderNav = styled(Nav)`
+  position: static;
+`;
 
 export default function FolderPage() {
   const [userData, setUSerData] = useState(null);
   const [buttons, setButtons] = useState();
   const [cardData, setCardData] = useState();
-  const [] = useState();
+  const [sortId, setSortId] = useState();
 
   const myUser = async () => {
     const { data } = await forUser1();
@@ -22,14 +26,12 @@ export default function FolderPage() {
 
   const getUserTasteButton = async () => {
     const { data } = await TasteUser1();
-    console.log(data);
     return setButtons(data);
   };
 
   const yorPick = async () => {
     const { data } = await getUserList();
-    const { foder_id } = data;
-    console.log(data);
+
     setCardData(data);
   };
 
@@ -41,7 +43,7 @@ export default function FolderPage() {
 
   return (
     <>
-      <Nav userData={userData} />
+      <ForFolderNav userData={userData} />
       <HeaderWithInPut />
       <Main buttons={buttons} cardData={cardData} />
       <Footer />

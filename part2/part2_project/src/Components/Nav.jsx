@@ -1,5 +1,4 @@
 import logoImg from "../img/logo.svg";
-
 import "../css/Nav.css";
 
 const handleLoginClick = () => location.assign("signin.html");
@@ -17,9 +16,9 @@ const User = ({ userData }) => {
   );
 };
 
-export default function Nav({ userData }) {
+export default function Nav({ userData, className }) {
   return (
-    <nav>
+    <nav className={className}>
       <div className="nav-bar">
         <a id="logo" href="/">
           <img src={logoImg} alt="LinkBrary logo" />
