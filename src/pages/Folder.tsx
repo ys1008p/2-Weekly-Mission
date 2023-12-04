@@ -20,7 +20,7 @@ import GrayIconButton from '@/components/button/GrayIconButton';
 
 interface FolderType {
   id: null | number;
-  name: null | string;
+  name: string;
 }
 
 const linkMessage = {
@@ -34,13 +34,16 @@ const folderMessage = {
   error: '폴더 가져오기 실패',
 };
 
+const INITIAL_FOLDER = {
+  id: null,
+  name: '전체',
+};
+
 const Folder = () => {
   const [items, setItems] = useState([]);
   const [folders, setFolders] = useState([]);
-  const [selectedFolder, setSelectedFolder] = useState<FolderType>({
-    id: null,
-    name: null,
-  });
+  const [selectedFolder, setSelectedFolder] =
+    useState<FolderType>(INITIAL_FOLDER);
   const [linkLoading, linkError, fetchLinkData] = useAsync(fetchGetRequest);
   const [folderLoading, folderError, fetchFolderData] =
     useAsync(fetchGetRequest);
@@ -48,7 +51,7 @@ const Folder = () => {
   const initFolderData = useCallback(async () => {
     const data = await fetchFolderData('/api/users/1/folders');
 
-    setFolders(data.data);
+    setFolders(data?.data ?? []);
   }, [fetchFolderData]);
 
   const initLinkData = useCallback(async () => {
@@ -58,8 +61,12 @@ const Folder = () => {
       }`,
     );
 
-    setItems(data.data);
+    setItems(data?.data ?? []);
   }, [fetchLinkData, selectedFolder]);
+
+  const handleSelectFolder = (folder: FolderType) => {
+    setSelectedFolder(folder);
+  };
 
   useEffect(() => {
     void initFolderData();
@@ -85,7 +92,12 @@ const Folder = () => {
                 <div className={styles.folder}>
                   <ul className={styles['folder-list']}>
                     <li>
-                      <FolderButton name="전체" />
+                      <FolderButton
+                        id={null}
+                        name="전체"
+                        selected={!selectedFolder.id}
+                        onSelected={handleSelectFolder}
+                      />
                     </li>
                     {folderLoading ? (
                       <span>{folderMessage.loading}</span>
@@ -94,7 +106,12 @@ const Folder = () => {
                     ) : (
                       folders.map(({ id, name }: FolderType) => (
                         <li key={id}>
-                          <FolderButton name={name ?? ''} />
+                          <FolderButton
+                            id={id}
+                            name={name}
+                            selected={selectedFolder.id === id}
+                            onSelected={handleSelectFolder}
+                          />
                         </li>
                       ))
                     )}
@@ -111,8 +128,10 @@ const Folder = () => {
                   />
                 </button>
                 <div className={styles.title}>
-                  <span className={styles['folder-title']}>폴더명</span>
-                  {selectedFolder.name && (
+                  <span className={styles['folder-title']}>
+                    {selectedFolder.name}
+                  </span>
+                  {selectedFolder.id && (
                     <div className={styles['title-btns']}>
                       <GrayIconButton icon={ShareIcon} text="공유" />
                       <GrayIconButton icon={PenIcon} text="이름 변경" />

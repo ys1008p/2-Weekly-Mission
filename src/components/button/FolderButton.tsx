@@ -1,15 +1,23 @@
-import { useState } from 'react';
 import styles from './FolderButton.module.css';
 
-interface FolderButtonProps {
+interface FolderType {
+  id: number | null;
   name: string;
 }
 
-const FolderButton = ({ name }: FolderButtonProps) => {
-  const [selected, setSelected] = useState(false);
+interface FolderButtonProps extends FolderType {
+  selected: boolean;
+  onSelected: ({ id, name }: FolderType) => void;
+}
 
+const FolderButton = ({
+  id,
+  name,
+  selected,
+  onSelected,
+}: FolderButtonProps) => {
   const handleClick = () => {
-    setSelected((prev) => !prev);
+    onSelected({ id, name });
   };
 
   return (
