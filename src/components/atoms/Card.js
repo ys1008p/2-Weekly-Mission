@@ -9,13 +9,19 @@ const Div = styled.div`
   @media (max-width: 767) {
     max-width: 32.5rem;
   }
-`
+  `
 const Img = styled.img`
+  position: relative;
   width: 100%;
   height: 20rem;
   object-fit: cover;
   border-top-right-radius: inherit;
   border-top-left-radius: inherit;
+  &:hover {
+    z-index: 1;
+    transform: scale(1.3, 1.3);
+    transition-duration: 0.3s;
+  }
   @media (max-width: 767) {
     height: 19.2rem;
   }
