@@ -34,16 +34,7 @@ function FolderPage() {
     return [loadingFolderMenu, errorFolderMenu];
   };
 
-  const handleClick = (item) => {
-    setMenuActive(item.id);
-    setBtnOption(true);
-    setTitle(`${item.name !== '전체' ? item.name : ""}`);
-  }
-
-  const handleMouseOver = (e) => e.currentTarget.classList.add("active");
-
-  const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
-
+  
   const handleLoadFolder = async (options) => {
     if(options !== 'all') {
       const { data } = await getFolderList(options);
@@ -53,6 +44,16 @@ function FolderPage() {
       setCardList(data);
     }
   };
+
+  const handleClick = (item) => {
+    setMenuActive(item.id);
+    setBtnOption(true);
+    setTitle(`${item.name !== '전체' ? item.name : ""}`);
+  }
+
+  const handleMouseOver = (e) => e.currentTarget.classList.add("active");
+
+  const handleMouseOut = (e) => e.currentTarget.classList.remove("active");
 
   useEffect(() => {
     handleLoadProfile();
