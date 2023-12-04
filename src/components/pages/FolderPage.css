@@ -1,0 +1,48 @@
+.noLinks {
+  margin: 41px auto 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.folderName {
+  display: block;
+  margin: 40px 68px;
+
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  grid-area: 'folderName';
+
+  @media (max-width: 1119px) {
+    margin-left: 32px;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
+}
+
+.folderEditButtons {
+  grid-area: 'folderEditButtons';
+  justify-self: end;
+}
+
+.folderDescription {
+  display: grid;
+  grid-template-areas: 'folderName folderEditButtons';
+  @media (max-width: 767px) {
+    grid-template-areas:
+      'folderName'
+      'folderEditButtons';
+  }
+}

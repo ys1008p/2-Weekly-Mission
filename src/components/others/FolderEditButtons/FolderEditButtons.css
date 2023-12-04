@@ -1,0 +1,32 @@
+.FolderEditButtons {
+  padding: 0 68px;
+  display: flex;
+  flex-direction: row;
+  justify-self: end;
+  gap: 12px;
+
+  @media (max-width: 1119px) {
+    padding: 0 32px;
+  }
+  @media (max-width: 767px) {
+    justify-self: start;
+  }
+}
+
+.FolderEditButtons__option {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.FolderEditButtons__des {
+  flex-wrap: nowrap;
+  color: var(--linkbrary-gray-60, #9fa6b2);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

@@ -1,0 +1,14 @@
+.starIcon {
+  height: 34px;
+  width: 34px;
+}
+
+.starToggle {
+  display: block;
+  border: none;
+  background-color: transparent;
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
