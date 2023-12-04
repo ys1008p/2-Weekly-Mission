@@ -13,8 +13,6 @@ export default function Folder() {
     name: '전체',
   });
 
-  console.log(selectedFolder);
-
   const handleFolderClick = (id, name) => {
     setSelectedFolder({ id, name });
   };

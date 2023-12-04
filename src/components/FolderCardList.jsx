@@ -13,11 +13,7 @@ export default function FolderCardList({ selectedFolder }) {
     selectedFolder
   );
 
-  if (loading) return <div>잠시만 기다려 주세요.</div>;
-  if (error) return <p>저장된 링크를 찾을 수 없습니다.</p>;
-
   const links = linkData?.data;
-  console.log(links);
 
   if (loading) return <p>loading..</p>;
   if (error) return <EmptyCardList />;
