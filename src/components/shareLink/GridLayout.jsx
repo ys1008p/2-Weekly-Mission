@@ -4,8 +4,8 @@ import { useStoredData } from '../../utils/useStoredData';
 import { IMAGE_URL } from '../../store/common';
 
 export const GridLayout = () => {
-  const linkData = useStoredData(LinkContext);
-  const { links } = linkData;
+  const { storedData } = useStoredData(LinkContext);
+  const { links } = storedData;
   const { empty } = IMAGE_URL;
 
   return (

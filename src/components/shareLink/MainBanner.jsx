@@ -3,8 +3,8 @@ import { useStoredData } from '../../utils/useStoredData';
 import { ICON } from '../../store/common';
 
 export const MainBanner = () => {
-  const bannerData = useStoredData(LinkContext);
-  const { name, owner } = bannerData;
+  const { storedData } = useStoredData(LinkContext);
+  const { name, owner } = storedData;
   const { avatar } = ICON;
 
   return (
