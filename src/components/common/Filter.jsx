@@ -1,12 +1,13 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useSetStoredData } from '../../utils/useStoredData';
 import { FolderContext } from '../../contexts/FolderProvider';
 
 import { IconButton, MixButton } from '../../components/common/Button';
 import { FLOATING_BUTTON_POSITION } from '../../store/common';
 
 export const Filter = ({ data, setTitle }) => {
-  const { setCurrentId } = useContext(FolderContext);
+  const { setCurrentId } = useSetStoredData(FolderContext);
   const [isActiveId, setIsActiveId] = useState(undefined);
 
   const [position, setPosition] = useState(0);
