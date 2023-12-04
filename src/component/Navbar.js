@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const NavbarContainer = styled.nav`
+const StyledNavbarContainer = styled.nav`
   background-color: #f0f6ff;
   margin: 0 auto;
-  position: ${({ path }) => (path ? "fixed" : "static")};
+  position: ${({ $path }) => ($path ? "fixed" : "static")};
   width: 100%;
   top: 0;
   left: 50%;
-  transform: ${({ path }) => (path ? "translate(-50%, 0);" : "none")};
+  transform: ${({ $path }) => ($path ? "translate(-50%, 0);" : "none")};
   z-index: 99;
 `;
 
-const NavItem = styled.div`
+const StyledNavItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,26 +30,26 @@ const NavItem = styled.div`
   }
 `;
 
-const NavLogo = styled.img`
+const StyledNavLogo = styled.img`
   width: 13rem;
 `;
 
-const NavProfile = styled.div`
+const StyledNavProfile = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
 `;
 
-const NavProfileImg = styled.img`
+const StyledNavProfileImg = styled.img`
   width: 2.8rem;
   border-radius: 50%;
 `;
 
-const NavProfileEmail = styled.p`
+const StyledNavProfileEmail = styled.p`
   font-size: 14px;
 `;
 
-const NavLoginBtn = styled.button`
+const StyledNavLoginBtn = styled.button`
   border-radius: 8px;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   border: none;
@@ -68,22 +68,28 @@ function Navbar({ userData, location }) {
 
   return (
     <>
-      <NavbarContainer path={getPathname}>
-        <NavItem>
+      <StyledNavbarContainer path={getPathname}>
+        <StyledNavItem>
           <Link to="/">
-            <NavLogo src="img/logo.png" alt="logo" className="nav-item-logo" />
+            <StyledNavLogo
+              src="img/logo.png"
+              alt="logo"
+              className="nav-item-logo"
+            />
           </Link>
 
           {userData?.id ? (
-            <NavProfile>
-              <NavProfileImg src={image_source} alt="profile-img" />
-              <NavProfileEmail>{email}</NavProfileEmail>
-            </NavProfile>
+            <StyledNavProfile>
+              <StyledNavProfileImg src={image_source} alt="profile-img" />
+              <StyledNavProfileEmail>{email}</StyledNavProfileEmail>
+            </StyledNavProfile>
           ) : (
-            <NavLoginBtn className="nav-login-btn">로그인</NavLoginBtn>
+            <StyledNavLoginBtn className="nav-login-btn">
+              로그인
+            </StyledNavLoginBtn>
           )}
-        </NavItem>
-      </NavbarContainer>
+        </StyledNavItem>
+      </StyledNavbarContainer>
     </>
   );
 }

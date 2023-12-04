@@ -1,7 +1,7 @@
 import Card from "./Card";
 import styled from "styled-components";
 
-const CardListContainer = styled.div`
+const StyledCardListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 33rem;
@@ -25,11 +25,11 @@ const CardListContainer = styled.div`
 
 function CardList({ cardData }) {
   return (
-    <CardListContainer>
+    <StyledCardListContainer>
       {cardData.map((data) => (
         <Card key={data.id} data={data} />
       ))}
-    </CardListContainer>
+    </StyledCardListContainer>
   );
 }
 

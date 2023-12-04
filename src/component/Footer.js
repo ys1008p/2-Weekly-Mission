@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FooterContainer = styled.footer`
+const StyledFooterContainer = styled.footer`
   background-color: #111322;
   padding: 3.2rem 10.4rem 6.4rem;
 
@@ -8,7 +8,7 @@ const FooterContainer = styled.footer`
     padding: 3.2rem;
   }
 `;
-const FooterItemContainer = styled.div`
+const StyledFooterItemContainer = styled.div`
   background-color: #111322;
   max-width: 192rem;
   display: flex;
@@ -24,7 +24,7 @@ const FooterItemContainer = styled.div`
     gap: 6rem 0;
   }
 `;
-const FooterSrc = styled.div`
+const StyledFooterSrc = styled.div`
   color: #676767;
   font-family: Arial;
   font-size: 1.6rem;
@@ -33,12 +33,12 @@ const FooterSrc = styled.div`
     grid-area: codeit;
   }
 `;
-const FooterGuideLink = styled.a`
+const StyledFooterGuideLink = styled.a`
   color: #676767;
   font-family: Arial;
   font-size: 1.6rem;
 `;
-const FooterGuideContainer = styled.div`
+const StyledFooterGuideContainer = styled.div`
   display: flex;
   gap: 3rem;
 
@@ -47,7 +47,7 @@ const FooterGuideContainer = styled.div`
     justify-content: space-between;
   }
 `;
-const FooterIconContainer = styled.div`
+const StyledFooterIconContainer = styled.div`
   display: flex;
   gap: 1.2rem;
 
@@ -59,18 +59,20 @@ const FooterIconContainer = styled.div`
 
 function Footer() {
   return (
-    <FooterContainer>
-      <FooterItemContainer>
-        <FooterSrc>
+    <StyledFooterContainer>
+      <StyledFooterItemContainer>
+        <StyledFooterSrc>
           <p>©codeit - 2023</p>
-        </FooterSrc>
+        </StyledFooterSrc>
 
-        <FooterGuideContainer>
-          <FooterGuideLink href="/privacy">Privacy Policy</FooterGuideLink>
-          <FooterGuideLink href="/faq">FAQ</FooterGuideLink>
-        </FooterGuideContainer>
+        <StyledFooterGuideContainer>
+          <StyledFooterGuideLink href="/privacy">
+            Privacy Policy
+          </StyledFooterGuideLink>
+          <StyledFooterGuideLink href="/faq">FAQ</StyledFooterGuideLink>
+        </StyledFooterGuideContainer>
 
-        <FooterIconContainer>
+        <StyledFooterIconContainer>
           <a href="https://www.facebook.com" rel="noopener noreferrer">
             <img src="img/akar-icons_facebook-fill.svg " alt="facebook_icon" />
           </a>
@@ -86,9 +88,9 @@ function Footer() {
               alt="instagram_icon"
             />
           </a>
-        </FooterIconContainer>
-      </FooterItemContainer>
-    </FooterContainer>
+        </StyledFooterIconContainer>
+      </StyledFooterItemContainer>
+    </StyledFooterContainer>
   );
 }
 

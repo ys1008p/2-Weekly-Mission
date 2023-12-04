@@ -2,7 +2,7 @@ import UserPersonalFolder from "./UserPersonalFolder";
 import UserPersonalFolderSideBar from "./UserPersonalFolderSideBar";
 import styled from "styled-components";
 
-const PersonalFolderBtn = styled.button`
+const StyledPersonalFolderBtn = styled.button`
   border-radius: 5px;
   border: 1px solid #6d6afe;
   background: #fff;
@@ -18,12 +18,12 @@ const PersonalFolderBtn = styled.button`
   }
 `;
 
-const PersonalFolderContainer = styled.div`
+const StyledPersonalFolderBtnContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-const PersonalFolderAddBtn = styled.button`
+const StyledPersonalFolderAddBtn = styled.button`
   color: #6d6afe;
   font-size: 16px;
   font-weight: 500;
@@ -35,15 +35,15 @@ const PersonalFolderAddBtn = styled.button`
 function UserPersonalFolderList({ psFolderData }) {
   return (
     <>
-      <PersonalFolderContainer>
+      <StyledPersonalFolderBtnContainer>
         <div>
-          <PersonalFolderBtn>전체</PersonalFolderBtn>
+          <StyledPersonalFolderBtn>전체</StyledPersonalFolderBtn>
           {psFolderData.map((data) => (
             <UserPersonalFolder key={data.id} data={data} />
           ))}
         </div>
-        <PersonalFolderAddBtn>폴더 추가 +</PersonalFolderAddBtn>
-      </PersonalFolderContainer>
+        <StyledPersonalFolderAddBtn>폴더 추가 +</StyledPersonalFolderAddBtn>
+      </StyledPersonalFolderBtnContainer>
       <UserPersonalFolderSideBar />
     </>
   );

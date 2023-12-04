@@ -1,23 +1,23 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const StyledSideBarMainContainer = styled.div`
   display: flex;
   margin: 2.4rem 0;
   justify-content: space-between;
 `;
 
-const SideBtnContainer = styled.div`
+const StyledSideBtnContainer = styled.div`
   display: flex;
   gap: 1.2rem;
 `;
 
-const H2 = styled.h2`
+const StyledSelectFolderName = styled.h2`
   font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: -0.2px;
 `;
 
-const Span = styled.span`
+const StyledSideBtn = styled.span`
   color: #9fa6b2;
   font-size: 1.4rem;
   font-weight: 600;
@@ -27,27 +27,27 @@ const Span = styled.span`
   cursor: pointer;
 `;
 
-const Image = styled.img``;
+const StyledSideBtnImg = styled.img``;
 
 function UserPersonalFolderSideBar() {
   return (
-    <Container>
-      <H2>테스트</H2>
-      <SideBtnContainer>
-        <Span>
-          <Image src="img/share.svg" alt="share" />
+    <StyledSideBarMainContainer>
+      <StyledSelectFolderName>테스트</StyledSelectFolderName>
+      <StyledSideBtnContainer>
+        <StyledSideBtn>
+          <StyledSideBtnImg src="img/share.svg" alt="share" />
           공유
-        </Span>
-        <Span>
-          <Image src="img/pen.svg" alt="changeName" />
+        </StyledSideBtn>
+        <StyledSideBtn>
+          <StyledSideBtnImg src="img/pen.svg" alt="changeName" />
           이름 변경
-        </Span>
-        <Span>
-          <Image src="img/delete.svg" alt="delete" />
+        </StyledSideBtn>
+        <StyledSideBtn>
+          <StyledSideBtnImg src="img/delete.svg" alt="delete" />
           삭제
-        </Span>
-      </SideBtnContainer>
-    </Container>
+        </StyledSideBtn>
+      </StyledSideBtnContainer>
+    </StyledSideBarMainContainer>
   );
 }
 

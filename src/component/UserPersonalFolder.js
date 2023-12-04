@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PersonalFolderBtn = styled.button`
+const StyledPersonalFolderBtn = styled.button`
   border-radius: 5px;
   border: 1px solid #6d6afe;
   background: #fff;
@@ -17,7 +17,7 @@ const PersonalFolderBtn = styled.button`
 `;
 
 function UserPersonalFolder({ data }) {
-  return <PersonalFolderBtn>{data.name}</PersonalFolderBtn>;
+  return <StyledPersonalFolderBtn>{data.name}</StyledPersonalFolderBtn>;
 }
 
 export default UserPersonalFolder;

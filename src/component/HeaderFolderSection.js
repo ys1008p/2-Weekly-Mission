@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HeaderOwnerContainer = styled.section`
+const StyledHeaderOwnerContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,17 +13,17 @@ const HeaderOwnerContainer = styled.section`
     margin: 6.4rem 0 0;
   }
 `;
-const OwnerImg = styled.img`
+const StyledOwnerImg = styled.img`
   border-radius: 50%;
   width: 6rem;
   background-color: #dddddd;
   margin-bottom: 1.2rem;
 `;
-const OwenerName = styled.p`
+const StyledOwnerName = styled.p`
   font-size: 1.6rem;
   margin-bottom: 2rem;
 `;
-const SelectFolderName = styled.h2`
+const StyledSelectFolderName = styled.h2`
   font-size: 4rem;
   font-weight: 600;
 `;
@@ -34,15 +34,15 @@ function HeaderFoloderSection({ folderData }) {
   const ownerImg = folderData.owner?.profileImageSource;
 
   return (
-    <HeaderOwnerContainer>
-      <OwnerImg
+    <StyledHeaderOwnerContainer>
+      <StyledOwnerImg
         src={ownerImg}
         alt="folderImg"
         className="header-owner-section-ownerImg"
       />
-      <OwenerName>{ownerName}</OwenerName>
-      <SelectFolderName>{folderName}</SelectFolderName>
-    </HeaderOwnerContainer>
+      <StyledOwnerName>{ownerName}</StyledOwnerName>
+      <StyledSelectFolderName>{folderName}</StyledSelectFolderName>
+    </StyledHeaderOwnerContainer>
   );
 }
 

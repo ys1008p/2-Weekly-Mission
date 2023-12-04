@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HeaderSectionContainer = styled.section`
+const StyledHeaderSectionContainer = styled.section`
   padding: 6rem 32rem 9rem;
   background-color: #f0f6ff;
   text-align: center;
@@ -12,7 +12,7 @@ const HeaderSectionContainer = styled.section`
   }
 `;
 
-const HeaderSectionForm = styled.form`
+const StyledHeaderSectionForm = styled.form`
   position: relative;
 
   @media all and (max-width: 1124px) {
@@ -20,7 +20,7 @@ const HeaderSectionForm = styled.form`
   }
 `;
 
-const HeaderSectionInput = styled.input`
+const StyledHeaderSectionInput = styled.input`
   width: 100%;
   padding: 2.2rem 2rem;
   border-radius: 15px;
@@ -46,7 +46,7 @@ const HeaderSectionInput = styled.input`
   }
 `;
 
-const HeaderSectionButton = styled.button`
+const StyledHeaderSectionButton = styled.button`
   padding: 1rem 1.6rem;
   border: none;
   border-radius: 8px;
@@ -63,12 +63,17 @@ const HeaderSectionButton = styled.button`
 
 function HeaderSearchSection() {
   return (
-    <HeaderSectionContainer>
-      <HeaderSectionForm>
-        <HeaderSectionInput type="text" placeholder="링크를 추가해 보세요" />
-        <HeaderSectionButton type="submit">추가하기</HeaderSectionButton>
-      </HeaderSectionForm>
-    </HeaderSectionContainer>
+    <StyledHeaderSectionContainer>
+      <StyledHeaderSectionForm>
+        <StyledHeaderSectionInput
+          type="text"
+          placeholder="링크를 추가해 보세요"
+        />
+        <StyledHeaderSectionButton type="submit">
+          추가하기
+        </StyledHeaderSectionButton>
+      </StyledHeaderSectionForm>
+    </StyledHeaderSectionContainer>
   );
 }
 
