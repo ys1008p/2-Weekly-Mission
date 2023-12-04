@@ -2,7 +2,7 @@ import Footer from "../../components/Footer";
 import "../../components/reset.css";
 import "../../components/root.css";
 import { useEffect, useState } from "react";
-import { getFolder, getFolderList } from "../../api";
+import { getFolder, getFolderData } from "../../api";
 import Header from './Header';
 import Main from './Main';
 import useAsync from "../hook/useAsync";
@@ -33,11 +33,10 @@ function FolderPage() {
 
     return [loadingFolderMenu, errorFolderMenu];
   };
-
   
-  const handleLoadFolder = async (options) => {
+  const handleLoadFolderData = async (options) => {
     if(options !== 'all') {
-      const { data } = await getFolderList(options);
+      const { data } = await getFolderData(options);
       setCardList(data);
     }else{
       const { data } = await getFolder();
@@ -61,7 +60,7 @@ function FolderPage() {
   },[])
 
   useEffect(() => {
-    handleLoadFolder(menuActive);
+    handleLoadFolderData(menuActive);
   }, [menuActive]);
 
   return (
