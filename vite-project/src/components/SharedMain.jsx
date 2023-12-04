@@ -1,6 +1,6 @@
-import MainCard from "./MainCard";
+import SharedMainCard from "./SharedMainCard";
 import search from "../../../images/shared/search.svg";
-import "./Main.css";
+import * as S from "./styled";
 
 const MainSearchBox = ({ className }) => (
   <form className={className}>
@@ -11,14 +11,14 @@ const MainSearchBox = ({ className }) => (
   </form>
 );
 
-function Main({ links }) {
+function SharedMain({ links }) {
   return (
-    <main>
+    <S.SharedMain>
       <MainSearchBox className="search" />{" "}
       <ul className="cards">
         {links.map((item) => {
           return (
-            <MainCard
+            <SharedMainCard
               key={item.id}
               item={item}
               target="_blank"
@@ -27,8 +27,8 @@ function Main({ links }) {
           );
         })}
       </ul>
-    </main>
+    </S.SharedMain>
   );
 }
 
-export default Main;
+export default SharedMain;

@@ -1,22 +1,20 @@
-import "./Header.css";
+import * as S from "./styled";
 
-function Header({ folder }) {
-  // if (Object.keys(folder).length === 0) return null;
-
+function SharedHeader({ folder }) {
   const {
     name,
     owner: { name: ownerName, profileImageSource },
   } = folder;
 
   return (
-    <header>
+    <S.SharedHeader>
       <div className="folder-owner">
         <img className="owner-img" src={profileImageSource} alt={ownerName} />
         <span className="owner-name">@{ownerName}</span>
       </div>
       <h1 className="folder-name">{name}</h1>
-    </header>
+    </S.SharedHeader>
   );
 }
 
-export default Header;
+export default SharedHeader;

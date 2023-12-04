@@ -1,34 +1,26 @@
+import * as S from "./styled";
 import logo from "../../../images/landing/logo.svg";
-import "./Navigation.css";
 import { useEffect, useState } from "react";
 import useAsync from "../hooks/useAsync";
-import { getApiInfo } from "../api";
-
-const apiSettings = {
-  endpoints: {
-    profile: "/api/sample/user",
-    folder: "/api/sample/folder",
-  },
-  errorMessages: {
-    profile: "유저 정보를 불러오는데 실패했습니다.",
-    folder: "폴더를 불러오는데 실패했습니다.",
-  },
-};
+import { apiSettings, getApiInfo } from "../api";
+import { useLocation } from "react-router-dom";
 
 function Navigation() {
+  const location = useLocation();
+  const isFolderPage = location.pathname === "/folder";
   const [profile, setProfile] = useState({});
   const [isProfileLoading, ProfileError, getProfileAsync] =
     useAsync(getApiInfo);
 
   const loadProfile = async () => {
     const result = await getProfileAsync(
-      apiSettings.endpoints.profile,
-      apiSettings.errorMessages.profile
+      apiSettings.endpoints.user,
+      apiSettings.errorMessages.user
     );
     if (!result) return;
-
-    const { profileImageSource, email } = result;
-    setProfile({ profileImageSource, email });
+    const { data } = result;
+    const { image_source, email } = data[0];
+    setProfile({ image_source, email });
   };
 
   useEffect(() => {
@@ -36,7 +28,7 @@ function Navigation() {
   }, []);
 
   return (
-    <nav>
+    <S.Nav $isFolderPage={isFolderPage}>
       <div className="gnb">
         <a href="/">
           <img className="cta logo" src={logo} alt="로고" />
@@ -45,7 +37,7 @@ function Navigation() {
           <div className="cta profile">
             <img
               className="profile-logo"
-              src={profile.profileImageSource}
+              src={profile.image_source}
               alt="프로필 로고"
             />
             <span className="profile-email">{profile.email}</span>
@@ -58,7 +50,7 @@ function Navigation() {
           </a>
         )}
       </div>
-    </nav>
+    </S.Nav>
   );
 }
 

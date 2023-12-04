@@ -30,7 +30,7 @@ function countAgo(value) {
   }
 }
 
-function MainLinkList({ item, target, rel }) {
+function SharedMainCard({ item, target, rel }) {
   const { createdAt, url, title, description, imageSource } = item;
 
   return (
@@ -55,4 +55,4 @@ function MainLinkList({ item, target, rel }) {
   );
 }
 
-export default MainLinkList;
+export default SharedMainCard;
