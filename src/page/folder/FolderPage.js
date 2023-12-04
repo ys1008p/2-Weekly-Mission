@@ -2,11 +2,9 @@ import Footer from "../../components/Footer";
 import "../../components/reset.css";
 import "../../components/root.css";
 import { useEffect, useState } from "react";
-import { getProfile, getFolder, getFolderMenu } from "../../api";
+import { getProfile, getFolder, getFolderMenu, getFolderList } from "../../api";
 import Header from './Header';
 import Main from './Main';
-
-const BASE_URL = "https://bootcamp-api.codeit.kr/api/users/1";
 
 function FolderPage() {
   const [profileImg, setProfileImg] = useState(null);
@@ -47,18 +45,6 @@ function FolderPage() {
       setCardList(data);
     }
   };
-
-  async function getFolderList(menuActive) {
-    try{
-      const respones = await fetch(`${BASE_URL}/links?folderId=${menuActive}`);
-      if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
-      
-      const result = await respones.json();
-      return result;
-    }catch(error){
-      console.log(error);
-    }
-  }
 
   useEffect(() => {
     handleLoadProfile();

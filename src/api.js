@@ -36,6 +36,18 @@ async function getFolderMenu() {
   }
 }
 
+async function getFolderList(menuActive) {
+  try{
+    const respones = await fetch(`${BASE_URL}/links?folderId=${menuActive}`);
+    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+    
+    const result = await respones.json();
+    return result;
+  }catch(error){
+    console.log(error);
+  }
+}
+
 async function getProfileSample() {
   try{
     const respones = await fetch(`${BASE_URL}/sample/user`);
@@ -61,4 +73,4 @@ async function getFolderSample() {
 }
 
 
-export { getProfile, getFolder, getFolderMenu, getProfileSample, getFolderSample }
+export { getProfile, getFolder, getFolderMenu, getFolderList, getProfileSample, getFolderSample }
