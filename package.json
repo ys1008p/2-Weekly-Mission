@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "firse-react",
+=======
+  "name": "1-weekly-mission",
+>>>>>>> 19de4925ef7d1393a9b1fc3c9e387d31cb45cbbd
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,7 +13,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
     "styled-components": "^6.1.1",
+=======
+>>>>>>> 19de4925ef7d1393a9b1fc3c9e387d31cb45cbbd
     "web-vitals": "^2.1.4"
   },
   "scripts": {
