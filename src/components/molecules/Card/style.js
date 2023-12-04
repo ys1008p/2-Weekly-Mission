@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Div = styled.div`
+export const Div = styled.div`
   position: relative;
   max-width: 34rem;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
@@ -10,7 +10,7 @@ const Div = styled.div`
     max-width: 32.5rem;
   }
   `
-const Img = styled.img`
+export const Img = styled.img`
   position: relative;
   width: 100%;
   height: 20rem;
@@ -26,7 +26,7 @@ const Img = styled.img`
     height: 19.2rem;
   }
 `
-const DetailBox= styled.div`
+export const DetailBox= styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,13 +36,13 @@ const DetailBox= styled.div`
   border-radius: 0 0 1.5rem 1.5rem;
   text-align: left;
   `
-const ElapsedTime = styled.p`
+export const ElapsedTime = styled.p`
   font-size: 1.3rem;
   font-weight: 400;
   line-height: 1.6rem;
   color: var(--lightgray-text);
   `
-const Description = styled.p`
+export const Description = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -52,29 +52,9 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 2.4rem;
 `
-const CreateDate = styled.p`
+export const CreateDate = styled.p`
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 1.7rem;
   color: var(--darkgray-text);
 `
-
-const noImage = "./images/no-image.png";
-const elapsedTime = "10 minutes ago";
-
-const Card = ({imgSrc = noImage, description, createdAt, url}) => {
-  return (
-    <a href={url} target="_blank">
-      <Div>
-        <Img src={imgSrc} alt="링크 프리뷰 이미지" />
-        <DetailBox>
-          <ElapsedTime>{elapsedTime}</ElapsedTime>
-          <Description>{description}</Description>
-          <CreateDate>{createdAt}</CreateDate>
-        </DetailBox>    
-      </Div>
-    </a>
-  )
-}
-
-export default Card;

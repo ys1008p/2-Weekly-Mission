@@ -4,13 +4,13 @@ const Img = styled.img`
   width: 13.3rem;
   height: 2.4rem;
   @media (max-width: 767px) {  
-  ${({ parent }) => {
-    if(parent === "gnb"){
-      return `
-      width: 8.8rem;
-      height: 1.6rem;
-    `}
-  }}
+    ${({ parent = undefined }) => {
+      if(parent === "gnb"){
+        return `
+        width: 8.8rem;
+        height: 1.6rem;
+      `}
+    }}
   }
 `;
 

@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import * as S from './style'
 import SearchBar from "../../../atoms/SearchBar";
-import Card from "../../../atoms/Card";
+import Card from "../../../molecules/Card";
 import { DataContext } from "../../../../pages/SharedPage";
 const SharedPageMain = () => {
   const {folderLinksData} = useContext(DataContext);
@@ -16,7 +16,7 @@ const SharedPageMain = () => {
                 <Card 
                 key={id}
                 imgSrc={imageSource}
-                createAt={createdAt}
+                createdAt={createdAt}
                 description={description}
                 url={url}/>
               ))}
