@@ -2,7 +2,7 @@ import React from 'react';
 import useGetData from '../hooks/useGetData';
 import styles from './FolderButtons.module.css';
 
-export default function FolderButtons({ folderId, onClick }) {
+export default function FolderButtons({ folderId, handleFolderClick }) {
   const [loading, error, user] = useGetData('users/1/folders');
 
   if (loading) return <div>loading..</div>;
@@ -17,7 +17,7 @@ export default function FolderButtons({ folderId, onClick }) {
           folderId === id ? styles.activeButton : ''
         }`}
         onClick={() => {
-          onClick(id, name);
+          handleFolderClick(id, name);
         }}
       >
         {name}
@@ -34,7 +34,7 @@ export default function FolderButtons({ folderId, onClick }) {
               !folderId ? styles.activeButton : ''
             }`}
             onClick={() => {
-              onClick(null, '전체');
+              handleFolderClick(null, '전체');
             }}
           >
             전체

@@ -24,7 +24,10 @@ export default function Folder() {
         <AddLink />
       </AddLinkHeader>
       <SearchBar />
-      <FolderButtons folderId={selectedFolder.id} onClick={handleFolderClick} />
+      <FolderButtons
+        folderId={selectedFolder.id}
+        handleFolderClick={handleFolderClick}
+      />
       <FolderCardList selectedFolder={selectedFolder} />
       <Footer />
     </>
