@@ -1,0 +1,28 @@
+.heading-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem 0 6rem;
+  background-color: var(--blue-color-bg);
+  row-gap: 2rem;
+}
+
+.heading-content .title {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 4.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .heading-content {
+    padding: 1rem 0 4rem;
+    row-gap: 1rem;
+  }
+  
+  .heading-content .title {
+    font-size: 3.2rem;
+    line-height: 3.8rem;
+    letter-spacing: -0.02rem;
+  }
+}

@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 20rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 192rem;
+  height: 9rem;
+  background-color: var(--blue-color-bg);
+}
+
+.logo img {
+  height: 2.4rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    padding: 0 3.2rem; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    padding: 0 2rem;
+    height: 6.3rem;
+  }
+
+  .logo img {
+    height: 1.6rem;
+  }
+}
