@@ -1,21 +1,40 @@
-import React from "react";
-import "../../CSS/Folder.css";
+import React, { useEffect, useState } from "react";
+import { FolderButtonApi } from "../../api";
 import ShareIcon from "../../images/share.svg";
 import PenIcon from "../../images/pen.svg";
 import DeleteIcon from "../../images/Group 36.svg";
 import PlusIcon from "../../images/add.svg";
 
 export default function FolderButtons() {
+  const [folderData, setFolderData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const { data } = await FolderButtonApi();
+      setFolderData(data);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="BtnContainer">
         <div className="BtnBox">
           <button className="FolderBtn">전체</button>
-          <button className="FolderBtn">⭐️ 즐겨찾기</button>
-          <button className="FolderBtn">코딩 팁</button>
-          <button className="FolderBtn">채용 사이트</button>
-          <button className="FolderBtn">유용한 글</button>
-          <button className="FolderBtn">나만의 장소</button>
+          {folderData ? (
+            folderData?.map((data) => (
+              <div key={data}>
+                <button className="FolderBtn">{data.name}</button>
+              </div>
+            ))
+          ) : (
+            <button className="FolderBtn">error</button>
+          )}
         </div>
         <button className="FolderPlusBtn">
           <img src={PlusIcon} alt="Plus" />

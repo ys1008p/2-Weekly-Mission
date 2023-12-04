@@ -19,6 +19,12 @@ export async function FolderHeaderApi() {
   return response;
 }
 
+export async function FolderButtonApi() {
+   const query = await fetch(`${FOLDER_URL}/folders`);
+   const response = await query.json();
+   return response;
+}
+
 export async function FolderLoginProfile() {
   const query = await fetch(`${FOLDER_URL}/links`);
   const response = await query.json();
