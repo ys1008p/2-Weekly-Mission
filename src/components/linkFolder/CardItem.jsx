@@ -62,7 +62,11 @@ export const CardItem = ({ url, image_source, title, created_at, description }) 
               </ul>
             </div>
           </div>
-          <p>{description}</p>
+          <p>
+            <a href={url} target='_blank' rel='noreferrer'>
+              {description}
+            </a>
+          </p>
           <span className='textBox-date'>{formatDate(created_at)}</span>
         </div>
       </div>
