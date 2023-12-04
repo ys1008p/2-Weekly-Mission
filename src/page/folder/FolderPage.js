@@ -2,9 +2,10 @@ import Footer from "../../components/Footer";
 import "../../components/reset.css";
 import "../../components/root.css";
 import { useEffect, useState } from "react";
-import { getProfile, getFolder, getFolderMenu, getFolderList } from "../../api";
+import { getFolder, getFolderList } from "../../api";
 import Header from './Header';
 import Main from './Main';
+import useAsync from "../hook/useAsync";
 
 function FolderPage() {
   const [profileImg, setProfileImg] = useState(null);
@@ -15,15 +16,22 @@ function FolderPage() {
   const [btnOption, setBtnOption] = useState(false);
   const [title, setTitle] = useState('');
 
+  const [loadingProfile, errorProfile, getProfile] = useAsync('/users/1');
+  const [loadingFolderMenu, errorFolderMenu, getFolderMenu] = useAsync('/users/1/folders'); 
+
   const handleLoadProfile = async () => {
     const { data } = await getProfile();
     setProfileImg(data[0].image_source);
     setProfileEmail(data[0].email);
+
+    return [loadingProfile, errorProfile];
   };
 
   const handleLoadFolderMenu = async () => {
     const { data } = await getFolderMenu();
     setFolderMenu(data);
+
+    return [loadingFolderMenu, errorFolderMenu];
   };
 
   const handleClick = (item) => {
@@ -49,7 +57,7 @@ function FolderPage() {
   useEffect(() => {
     handleLoadProfile();
     handleLoadFolderMenu();
-  })
+  },[])
 
   useEffect(() => {
     handleLoadFolder(menuActive);

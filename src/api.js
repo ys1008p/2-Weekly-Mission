@@ -1,16 +1,16 @@
 const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 
-async function getProfile() {
-  try{
-    const respones = await fetch(`${BASE_URL}/users/1`);
-    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+// async function getProfile() {
+//   try{
+//     const respones = await fetch(`${BASE_URL}/users/1`);
+//     if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
     
-    const result = await respones.json();
-    return result;
-  }catch(error){
-    console.log(error);
-  }
-}
+//     const result = await respones.json();
+//     return result;
+//   }catch(error){
+//     console.log(error);
+//   }
+// }
 
 async function getFolder() {
   try{
@@ -24,17 +24,17 @@ async function getFolder() {
   }
 }
 
-async function getFolderMenu() {
-  try{
-    const respones = await fetch(`${BASE_URL}/users/1/folders`);
-    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+// async function getFolderMenu() {
+//   try{
+//     const respones = await fetch(`${BASE_URL}/users/1/folders`);
+//     if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
     
-    const result = await respones.json();
-    return result;
-  }catch(error){
-    console.log(error);
-  }
-}
+//     const result = await respones.json();
+//     return result;
+//   }catch(error){
+//     console.log(error);
+//   }
+// }
 
 async function getFolderList(menuActive) {
   try{
@@ -73,4 +73,4 @@ async function getFolderSample() {
 }
 
 
-export { getProfile, getFolder, getFolderMenu, getFolderList, getProfileSample, getFolderSample }
+export { getFolder, getFolderList, getProfileSample, getFolderSample }
