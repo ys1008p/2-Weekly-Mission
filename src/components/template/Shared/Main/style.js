@@ -8,8 +8,11 @@ export const MainLayout = styled.div`
   padding: 4rem 0 6rem;
   background-color: var(--linkbrary-backgroundgray);
   width: 100%;
+  @media (max-width: 1199px){
+    padding: 4rem 3.2rem 6rem
+  }
   @media (max-width: 767px){
-    padding: 2rem 0 4rem;
+    padding: 2rem 3.2rem 4rem;
   }
 `
 export const MainContainer = styled.div`
@@ -17,8 +20,7 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 107rem;
-
+  max-width: 106rem;
   @media (max-width: 1124px){
     max-width: 70.4rem;
   }
@@ -33,7 +35,7 @@ export const CardListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 2rem 2.5rem;
+  gap: 2.5rem 2rem;
   margin-top: 4rem;
   @media (max-width: 1124px){
     gap: 2.4rem;

@@ -12,6 +12,14 @@ const A = styled.a`
   font-size: 1.8rem;
   font-weight: 600;
   width: 12.8rem;
+  ${({ parent }) => {
+    if(parent === "gnb"){
+      return `
+      height: 3.7rem;
+      font-size: 1.4rem;
+      width: 8rem;
+  `}}
+  }
 `;
 
 const Cta = ({href, children}) => {

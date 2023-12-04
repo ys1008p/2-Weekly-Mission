@@ -29,6 +29,7 @@ export const h1 = styled.h1`
   font-weight: 600;
   line-height: 4.8rem;
   margin-top: 2rem;
+  width: max-content;
 
   @media (max-width: 767px) {
     font-size: 3.2rem;

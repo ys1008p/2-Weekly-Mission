@@ -19,6 +19,7 @@ const useFetch = (resource, opts = {}) => {
     if (!resource){
       return;
     }
+    console.log("fetch()호출됨")
     fetch(resource, opts)
       .then(res => res.json())
       .then(data =>{

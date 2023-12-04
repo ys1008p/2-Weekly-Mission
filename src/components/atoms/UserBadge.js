@@ -3,6 +3,7 @@ import styled from "styled-components"
 const Img = styled.img`
   width: 2.8rem;
   height: 2.8rem;
+  border-radius: 50%;
 `;
 const Span = styled.span`
   @media (max-width: 767px) {
@@ -20,12 +21,12 @@ const Div = styled.div`
   line-height: 1.7rem;
 `;
 
-const UserBadge = ({ profileImg, account}) => {
+const UserBadge = ({ profileImg, email}) => {
   
   return (
     <Div>
-      <Img src="./images/kakao.svg"></Img>
-      <Span>Codeit@codeit.com</Span>
+      <Img src={profileImg}></Img>
+      <Span>{email}</Span>
     </Div>
   )
 }
