@@ -1,5 +1,5 @@
 import CardList from './cardList/CardList';
-import SearchBar from '../../components/searchBar/SearchBar';
+import SearchBar from '../../components/SearchBar';
 
 function Main({ className, links, onMouseOver, onMouseOut }){
   return(

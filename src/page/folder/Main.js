@@ -1,7 +1,7 @@
 import './Main.css';
 import CardList from './cardList/CardList';
 import TabMenu from '../../components/tabMenu/TabMenu';
-import SearchBar from '../../components/searchBar/SearchBar';
+import SearchBar from '../../components/SearchBar';
 import BtnOption from '../../components/btnOption/BtnOption';
 
 function Main({ 
