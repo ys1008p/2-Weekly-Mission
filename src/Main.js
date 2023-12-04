@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import "./css/Main.css";
 import { getFolderData } from "./Components/Api";
 import LinkCard from "./Components/LinkCard";
+import search from "./images/search.svg";
+import { Profile } from "./Components/Profile";
 
 function Main() {
   const [folderData, setFolderData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   const dataLoad = async () => {
     try {
@@ -14,7 +15,6 @@ function Main() {
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
       setFolderData(result);
-      setIsLoading(false);
     } catch (error) {
       console.error(error.message);
     }
@@ -26,10 +26,12 @@ function Main() {
 
   return (
     <main>
+      <div>{folderData && <Profile folderData={folderData} />}</div>
       <div className="searchBar">
-        <input type="text"></input>
+        <input type="search" placeholder="링크를 검색해 보세요" />
+        <img src={search} alt="돋보기" />
       </div>
-      {!isLoading && folderData && <LinkCard linkData={folderData} />}
+      {folderData && <LinkCard linkData={folderData} />}
     </main>
   );
 }

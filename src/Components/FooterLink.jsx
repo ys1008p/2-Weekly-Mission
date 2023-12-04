@@ -31,8 +31,8 @@ const ImageData = [
 function FooterLink() {
   return (
     <div className="FooterLink">
-      {ImageData.map((image, index) => (
-        <a key={index} href={image.link}>
+      {ImageData.map((image) => (
+        <a key={image.alt} href={image.link} target="_blank">
           <img src={image.url} alt={image.alt} />
         </a>
       ))}

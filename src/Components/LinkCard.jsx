@@ -1,3 +1,4 @@
+import nodata from "../images/nonedata.svg";
 import "../css/LinkCard.css";
 
 const TIME_MILISECONDS = {
@@ -20,7 +21,7 @@ function LinksComponent({ links }) {
     const elapsedTime = now - new Date(createdAt);
     const { minute, hour, day, month, year } = TIME_MILISECONDS;
     if (year * 2 <= elapsedTime) {
-      return `${Math.floor(elapsedTime / year)}`;
+      return `${Math.floor(elapsedTime / year)} year ago`;
     }
     if (year <= elapsedTime) {
       return `1 year ago`;
@@ -54,14 +55,27 @@ function LinksComponent({ links }) {
   };
   const alt = `${links.title}의 로고`;
   return (
-    <div className="links">
-      {links.map((link, index) => (
-        <div className="linksContainer" key={index}>
-          <img src={link.imageSource} alt={alt} />
-          <span>{getElapsedTime(link)}</span>
-          <p>{link.description}</p>
-          <span>{formatDate(link.createdAt)}</span>
-        </div>
+    <div className="card">
+      {links.map((link) => (
+        <a
+          href={link.url}
+          className="card-container"
+          key={link.id}
+          target="_blank"
+        >
+          <div className="card-container-box">
+            {link.imageSource ? (
+              <img src={link.imageSource} alt={alt} />
+            ) : (
+              <img src={nodata} alt="프로필 이미지" />
+            )}
+          </div>
+          <div className="card-container-text">
+            <span className="elapsedTime">{getElapsedTime(link)}</span>
+            <p>{link.description}</p>
+            <span className="created-At">{formatDate(link.createdAt)}</span>
+          </div>
+        </a>
       ))}
     </div>
   );

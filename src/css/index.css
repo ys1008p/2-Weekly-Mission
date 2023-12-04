@@ -17,5 +17,13 @@ body {
   --gray2: #ccd5e3;
   --gray3: #9fa6b2;
   --gray4: #3e3e43;
-  --linkbrary-bg: #F0F6FF;
+  --linkbrary-bg: #f0f6ff;
+  --light-blue: #f0f6ff;
+}
+input:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
