@@ -10,6 +10,12 @@ import Header from '@/components/layout/Header';
 import useAsync from '@/hooks/useAsync';
 import { fetchGetRequest } from '@/utils/api';
 
+const message = {
+  loading: '로딩중입니다..',
+  error: '데이터를 불러올 수 없습니다',
+  empty: '저장된 링크가 없습니다',
+};
+
 const Folder = () => {
   const [items, setItems] = useState([]);
   const [folders, setFolders] = useState([]);
@@ -25,7 +31,7 @@ const Folder = () => {
       }`,
     );
 
-    setItems(data.data);
+    // setItems(data.data);
   }, [fetchLinkData, selectedFolderId]);
 
   useEffect(() => {
@@ -40,7 +46,15 @@ const Folder = () => {
         <div className={styles.wrapper}>
           <section className={styles.container}>
             <SearchBar placeholder="링크를 검색해 보세요." />
-            <FolderCardContainer items={items} />
+            {loading ? (
+              <p className={styles.message}>{message.loading}</p>
+            ) : error ? (
+              <p className={styles.message}>{message.error}</p>
+            ) : !items.length ? (
+              <p className={styles.message}>{message.empty}</p>
+            ) : (
+              <FolderCardContainer items={items} />
+            )}
           </section>
         </div>
       </main>

@@ -14,3 +14,8 @@
   flex-direction: column;
   gap: 40px;
 }
+
+.message {
+  padding: 40px 0;
+  text-align: center;
+}
