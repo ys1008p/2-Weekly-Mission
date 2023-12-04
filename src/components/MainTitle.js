@@ -5,14 +5,15 @@ import del from '../assets/btn-delete.png';
 
 const Container = styled.div`
   position: relative;
-`
-const Title = styled.h2`
-  margin: 2.4rem 0;
-  padding: 0;
-  font-size: 2.4rem;
-  font-weight: 600;
-  line-height: 2.8rem;
-  letter-spacing: -0.02rem;
+
+  h2 {
+    margin: 2.4rem 0;
+    padding: 0;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 2.8rem;
+    letter-spacing: -0.02rem;
+  }
 `
 const ButtonOption = styled.div`
   display: ${({ $btnOption, $menuActive }) => $btnOption === true && $menuActive !== 'all' ? "block" : "none"};
@@ -70,7 +71,7 @@ function MainTitle({
  }){
   return ( 
     <Container>
-      <Title>{title}</Title>
+      <h2>{title}</h2>
       <ButtonOption 
       $btnOption={btnOption} 
       $menuActive={menuActive}

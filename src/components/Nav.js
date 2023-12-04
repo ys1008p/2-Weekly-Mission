@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 
-const NavContainer = styled.nav`
+const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,17 +23,17 @@ const NavContainer = styled.nav`
     padding: 0 3.2rem; 
     height: 6.3rem;
   }
-`
-const Logo = styled.a`
-  display: block;
 
- img {
-  @media screen and (min-width:375px) and (max-width:768px) {
-    width: 8.8rem;
+  h1 {
+    display: block;
+
+    img {
+      @media screen and (min-width:375px) and (max-width:768px) {
+        width: 8.8rem;
+      }
+    }
   }
- }
-}
-` 
+`
 const Email = styled.a`
   display: flex;
   align-items: center;
@@ -82,10 +83,12 @@ function Nav({
   profileImg
 }){
   return (
-    <NavContainer>
-      <Logo Link to="/">
-        <img src={logo} alt="홈으로 연결된 Linkbrary 로고" />
-      </Logo>
+    <Container>
+      <h1>
+        <Link to="/">
+          <img src={logo} alt="홈으로 연결된 Linkbrary 로고" />
+        </Link>
+      </h1>
       <div>
         {profileEmail ? 
         <Email Link to="/">
@@ -96,7 +99,7 @@ function Nav({
           <span>로그인</span>
         </Login>}
       </div>
-    </NavContainer>
+    </Container>
   )
 }
 
