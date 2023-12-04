@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import emptyImage from '../images/emptyImage.svg';
+import StarImg from '../images/star.svg';
+import KebabImg from '../images/kebab.svg';
 import './Card.css';
 
 export default function Card({
@@ -26,10 +28,19 @@ export default function Card({
           />
         )}
       </div>
+      <button className='add-bookmark-icon'>
+        <img src={StarImg} alt='즐겨찾기 추가' />
+      </button>
       <div className='card-info'>
         <p className='card-log-time'>{logTime}</p>
         <p className='card-description'>{description}</p>
         <p className='card-date'>{date}</p>
+        <button className='kebab-icon'>
+          <img
+            src={KebabImg}
+            alt='개별 링크 삭제 혹은 폴더에 추가하기 기능 리스트 토글'
+          />
+        </button>
       </div>
     </a>
   );
