@@ -1,20 +1,15 @@
 import { Outlet } from "react-router-dom";
 import HeaderSearchSection from "./HeaderSearchSection";
-
 import MainContainer from "./MainContainer";
 import UserPersonalFolderList from "./UserPersonalFolderList";
 import LinkSearchInput from "./LinkSearchInput";
-
-function Folder({ cardData, psFolderData }) {
+function Folder({ psFolderData }) {
   return (
     <>
       <HeaderSearchSection />
       <MainContainer>
         <LinkSearchInput />
-        <UserPersonalFolderList
-          psFolderData={psFolderData}
-          cardData={cardData}
-        />
+        <UserPersonalFolderList psFolderData={psFolderData} />
         <div>
           <Outlet />
         </div>

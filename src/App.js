@@ -10,13 +10,16 @@ import Shared from "./component/Shared";
 import Folder from "./component/Folder";
 import { getUserPersonalFolderData } from "./api/getUserPersonalFolderData";
 import Test from "./component/Test";
+import { getUserPersonalLinkData } from "./api/getUserPersoanlLinkData";
 import CardList from "./component/CardList";
+import { transformLinkData, transformShareCardData } from "./api/dataTransform";
 
 function App() {
   const [userData, setUserData] = useState({});
   const [folderData, setFolderData] = useState({});
   const [shareCardData, setShareCardData] = useState([]);
   const [personalFolderData, setPersonalFolderData] = useState([]);
+  const [personalLinkData, setPersonalLinkData] = useState([]);
   const [loding, setLoding] = useState(false);
 
   const location = useLocation();
@@ -40,8 +43,8 @@ function App() {
   useEffect(() => {
     getShareCardData()
       .then((result) => {
-        setShareCardData(result.folder?.links);
-
+        transformShareCardData(result.folder.links);
+        setShareCardData(transformShareCardData);
         setFolderData(result.folder);
       })
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
@@ -52,7 +55,16 @@ function App() {
     getUserPersonalFolderData()
       .then((result) => {
         setPersonalFolderData(result.data);
-        console.log("퍼스널카드데이터 : ", result.data);
+      })
+      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
+  }, []);
+
+  // folder 링크데이터
+  useEffect(() => {
+    getUserPersonalLinkData()
+      .then((result) => {
+        transformLinkData(result.data);
+        setPersonalLinkData(transformLinkData);
       })
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
   }, []);
@@ -60,20 +72,28 @@ function App() {
   return (
     <>
       {loding && <Loding />}
+
       <GlobalStyle />
+
       <Navbar userData={userData} location={location} />
+      {/* ========================================== */}
       <Routes>
         <Route path="/" element={<Test></Test>}></Route>
         <Route
           path="/shared"
           element={<Shared folderData={folderData} cardData={shareCardData} />}
         />
+        {/* ========================================== */}
         <Route
           path="/folder"
           element={<Folder psFolderData={personalFolderData} />}
         >
-          <Route path=":id" element={<CardList cardData={shareCardData} />} />
+          <Route
+            path="/folder"
+            element={<CardList cardData={personalLinkData} />}
+          />
         </Route>
+        {/* ========================================== */}
       </Routes>
       <Footer />
     </>
