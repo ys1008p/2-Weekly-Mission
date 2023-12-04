@@ -3,6 +3,7 @@
   border-radius: 5px;
   border: 1px solid var(--primary);
   line-height: normal;
+  height: 35px;
 }
 
 .selected {
@@ -14,5 +15,6 @@
   .btn {
     padding: 5px 10px;
     font-size: 14px;
+    height: 30px;
   }
 }

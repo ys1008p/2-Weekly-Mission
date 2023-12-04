@@ -23,10 +23,15 @@ interface FolderType {
   name: null | string;
 }
 
-const message = {
+const linkMessage = {
   loading: '로딩중입니다..',
   error: '데이터를 불러올 수 없습니다',
   empty: '저장된 링크가 없습니다',
+};
+
+const folderMessage = {
+  loading: '...',
+  error: '폴더 가져오기 실패',
 };
 
 const Folder = () => {
@@ -36,7 +41,15 @@ const Folder = () => {
     id: null,
     name: null,
   });
-  const [loading, error, fetchLinkData] = useAsync(fetchGetRequest);
+  const [linkLoading, linkError, fetchLinkData] = useAsync(fetchGetRequest);
+  const [folderLoading, folderError, fetchFolderData] =
+    useAsync(fetchGetRequest);
+
+  const initFolderData = useCallback(async () => {
+    const data = await fetchFolderData('/api/users/1/folders');
+
+    setFolders(data.data);
+  }, [fetchFolderData]);
 
   const initLinkData = useCallback(async () => {
     const data = await fetchLinkData(
@@ -49,8 +62,9 @@ const Folder = () => {
   }, [fetchLinkData, selectedFolder]);
 
   useEffect(() => {
+    void initFolderData();
     void initLinkData();
-  }, [initLinkData]);
+  }, [initFolderData, initLinkData]);
 
   return (
     <>
@@ -60,12 +74,12 @@ const Folder = () => {
         <div className={styles.wrapper}>
           <section className={styles.container}>
             <SearchBar placeholder="링크를 검색해 보세요." />
-            {loading ? (
-              <p className={styles.message}>{message.loading}</p>
-            ) : error ? (
-              <p className={styles.message}>{message.error}</p>
+            {linkLoading ? (
+              <p className={styles.message}>{linkMessage.loading}</p>
+            ) : linkError ? (
+              <p className={styles.message}>{linkMessage.error}</p>
             ) : !items.length ? (
-              <p className={styles.message}>{message.empty}</p>
+              <p className={styles.message}>{linkMessage.empty}</p>
             ) : (
               <div>
                 <div className={styles.folder}>
@@ -73,9 +87,17 @@ const Folder = () => {
                     <li>
                       <FolderButton name="전체" />
                     </li>
-                    <li>
-                      <FolderButton name="폴더1" selected />
-                    </li>
+                    {folderLoading ? (
+                      <span>{folderMessage.loading}</span>
+                    ) : folderError ? (
+                      <span>{folderMessage.error}</span>
+                    ) : (
+                      folders.map(({ id, name }: FolderType) => (
+                        <li key={id}>
+                          <FolderButton name={name ?? ''} />
+                        </li>
+                      ))
+                    )}
                   </ul>
                   <button className={styles['btn-add']} type="button">
                     <img src={AddIcon} alt="add" />
