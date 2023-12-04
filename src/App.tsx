@@ -1,33 +1,31 @@
 import { useSetAuth } from '@/contexts/AuthContexts';
 import useAsync from '@/hooks/useAsync';
+import Folder from '@/pages/Folder';
 import Shared from '@/pages/Shared';
 import { fetchGetRequest } from '@/utils/api';
 import { useCallback, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
-  const setUser = useSetAuth();
-  const [loading, error, fetchUserData] = useAsync(fetchGetRequest);
+  const setAuth = useSetAuth();
+  const [loading, error, fetchAuthData] = useAsync(fetchGetRequest);
 
-  const initUserData = useCallback(async () => {
-    const data = await fetchUserData('/api/sample/user');
+  const initAuthData = useCallback(async () => {
+    const data = await fetchAuthData('/api/sample/user');
 
-    setUser(data);
-  }, [fetchUserData, setUser]);
+    setAuth(data);
+  }, [fetchAuthData, setAuth]);
 
   useEffect(() => {
-    void initUserData();
-  }, [initUserData]);
+    void initAuthData();
+  }, [initAuthData]);
 
   return (
-    <>
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>유저 정보를 불러올 수 없습니다</p>
-      ) : (
-        <Shared />
-      )}
-    </>
+    <Routes>
+      <Route path="/" element={<Shared />} />
+      <Route path="/shared" element={<Shared />} />
+      <Route path="/folder" element={<Folder />} />
+    </Routes>
   );
 };
 
