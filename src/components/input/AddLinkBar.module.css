@@ -27,17 +27,10 @@
 
 .btn-add {
   position: absolute;
-  padding: 10px 16px;
-  min-width: 80px;
+  width: 82px;
   height: 37px;
   top: 17px;
   right: 21px;
-  border-radius: 8px;
-  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  color: var(--gray-light);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: normal;
 }
 
 @media only screen and (max-width: 767px) {

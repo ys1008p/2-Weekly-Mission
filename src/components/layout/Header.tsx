@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 
 import Logo from '@/assets/images/icon/logo.svg';
+import GradientButton from '@/components/button/GradientButton';
 import Profile from '@/components/profile/Profile';
 import { useAuth } from '@/contexts/AuthContexts';
 
@@ -21,9 +22,9 @@ const Header = ({ sticky }: HeaderProps) => {
           <Profile user={user} />
         ) : (
           <a href="/">
-            <button type="button" className={styles['btn-login']}>
-              로그인
-            </button>
+            <div className={styles['btn-login']}>
+              <GradientButton text="로그인" />
+            </div>
           </a>
         )}
       </div>
