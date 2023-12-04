@@ -1,3 +1,5 @@
+import styles from './CardItem.module.css';
+
 import getTimeDiff from '@/utils/getTimeDiff';
 import { useState } from 'react';
 
@@ -31,7 +33,7 @@ const CardItem = ({
   const parsedDate = createdAt.split('T')[0]?.replaceAll('-', '.');
 
   return (
-    <article className="card-item">
+    <article className={styles['card-item']}>
       <a
         href={url}
         onMouseOver={handleMouseOver}
@@ -40,16 +42,16 @@ const CardItem = ({
         rel="noreferrer"
       >
         <div
-          className="thumbnail"
+          className={styles.thumbnail}
           style={{
             backgroundImage: `url(${thumbnail})`,
             backgroundSize: isZoomed ? '130%' : 'cover',
           }}
         ></div>
-        <div className="contents">
-          <span className="time">{timeAgo}</span>
-          <div className="title">{title}</div>
-          <span className="date">{parsedDate}</span>
+        <div className={styles.contents}>
+          <span className={styles.time}>{timeAgo}</span>
+          <div className={styles.title}>{title}</div>
+          <span className={styles.date}>{parsedDate}</span>
         </div>
       </a>
     </article>

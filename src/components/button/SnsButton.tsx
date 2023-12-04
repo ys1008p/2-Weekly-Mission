@@ -1,3 +1,5 @@
+import styles from './SnsButton.module.css';
+
 interface SnsButtonProps {
   url: string;
   icon: string;
@@ -6,7 +8,7 @@ interface SnsButtonProps {
 
 const SnsButton = ({ url, icon, altText }: SnsButtonProps) => (
   <a href={url} target="_blank" rel="noreferrer">
-    <img src={icon} alt={altText} />
+    <img className={styles.icon} src={icon} alt={altText} />
   </a>
 );
 

@@ -1,8 +1,7 @@
-import '@/styles/Shared.css';
-
-import { useEffect, useState } from 'react';
+import styles from './Shared.module.css';
 
 import { fetchGetRequest } from '@/utils/api';
+import { useEffect, useState } from 'react';
 
 import Banner from '@/components/banner/Banner';
 import CardContainer from '@/components/card/CardContainer';
@@ -36,10 +35,10 @@ const Shared = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className={styles.main}>
         <Banner folder={folderName} owner={owner} />
-        <div className="wrapper">
-          <section className="container">
+        <div className={styles.wrapper}>
+          <section className={styles.container}>
             <SearchBar placeholder="링크를 검색해 보세요." />
             <CardContainer items={items} />
           </section>

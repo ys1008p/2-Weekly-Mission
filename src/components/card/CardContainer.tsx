@@ -1,4 +1,7 @@
+import styles from './CardContainer.module.css';
+
 import CardItem from '@/components/card/CardItem';
+
 interface CardContainerProps {
   items: Array<{
     id: number;
@@ -10,7 +13,7 @@ interface CardContainerProps {
 }
 
 const CardContainer = ({ items }: CardContainerProps) => (
-  <div className="card-container">
+  <div className={styles['card-container']}>
     {items.map((item) => (
       <CardItem
         key={item.id}

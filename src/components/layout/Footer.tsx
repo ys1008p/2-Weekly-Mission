@@ -1,3 +1,5 @@
+import styles from './Footer.module.css';
+
 import Facebook from '@/assets/images/icon/akar-icons_facebook-fill.svg';
 import Twitter from '@/assets/images/icon/akar-icons_twitter-fill.svg';
 import Youtube from '@/assets/images/icon/akar-icons_youtube-fill.svg';
@@ -6,14 +8,14 @@ import Instagram from '@/assets/images/icon/ant-design_instagram-filled.svg';
 import SnsButton from '@/components/button/SnsButton';
 
 const Footer = () => (
-  <footer>
-    <div>
-      <span className="company">©codeit - 2023</span>
-      <span className="link">
+  <footer className={styles.footer}>
+    <div className={styles.wrapper}>
+      <span className={styles.company}>©codeit - 2023</span>
+      <span className={styles.link}>
         <a href="/">Privacy Policy</a>
         <a href="/">FAQ</a>
       </span>
-      <span className="sns">
+      <span className={styles.sns}>
         <SnsButton
           url="https://www.facebook.com/?locale=ko_KR"
           icon={Facebook}

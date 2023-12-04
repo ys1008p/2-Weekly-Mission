@@ -1,14 +1,20 @@
+import styles from './Banner.module.css';
+
 interface BannerProps {
   owner: { name: string; profileImageSource: string };
   folder: string;
 }
 
 const Banner = ({ owner, folder }: BannerProps) => (
-  <section className="banner">
-    <div>
-      <img src={owner.profileImageSource} alt="avatar" />
+  <section className={styles.banner}>
+    <div className={styles.wrapper}>
+      <img
+        className={styles.icon}
+        src={owner.profileImageSource}
+        alt="avatar"
+      />
       <span>{owner.name}</span>
-      <h1>{folder}</h1>
+      <h1 className={styles.folder}>{folder}</h1>
     </div>
   </section>
 );

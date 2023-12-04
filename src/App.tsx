@@ -1,5 +1,3 @@
-import '@/styles/App.css';
-
 import { useSetAuth } from '@/contexts/AuthContexts';
 import Shared from '@/pages/Shared';
 import { fetchGetRequest } from '@/utils/api';

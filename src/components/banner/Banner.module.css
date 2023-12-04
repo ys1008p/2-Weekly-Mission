@@ -1,0 +1,43 @@
+.banner {
+  background-color: var(--gray-bg);
+  padding: 20px 0 60px;
+}
+
+.wrapper {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 60px;
+  margin: 0 auto 12px;
+}
+
+.folder {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .banner {
+    padding: 10px 0 40px;
+  }
+
+  .wrapper {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .icon {
+    width: 40px;
+    margin: 0 auto 6px;
+  }
+
+  .folder {
+    font-size: 32px;
+    margin-top: 10px;
+    letter-spacing: -0.2px;
+  }
+}
