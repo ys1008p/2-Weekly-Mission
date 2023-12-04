@@ -12,8 +12,13 @@ const SharedPageMain = () => {
         <S.MainContainer>
           <SearchBar></SearchBar>
           <S.CardListContainer>
-            {folderLinksData && folderLinksData.map(({id,imageSource,createdAt,description}) => (
-                <Card key={id} imgSrc={imageSource} createAt={createdAt} description={description}/>
+            {folderLinksData && folderLinksData.map(({id,imageSource,createdAt,description,url}) => (
+                <Card 
+                key={id}
+                imgSrc={imageSource}
+                createAt={createdAt}
+                description={description}
+                url={url}/>
               ))}
           </S.CardListContainer>
         </S.MainContainer>

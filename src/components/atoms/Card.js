@@ -20,7 +20,7 @@ const Img = styled.img`
   &:hover {
     z-index: 1;
     transform: scale(1.3, 1.3);
-    transition-duration: 0.3s;
+    transition-duration: 0.1s;
   }
   @media (max-width: 767) {
     height: 19.2rem;
@@ -61,18 +61,19 @@ const CreateDate = styled.p`
 
 const noImage = "./images/no-image.png";
 const elapsedTime = "10 minutes ago";
-// const description= "Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd"; 
-// const createAt = "2023.3.15";
-const Card = ({imgSrc = noImage, description, createdAt, link}) => {
+
+const Card = ({imgSrc = noImage, description, createdAt, url}) => {
   return (
-    <Div>
-      <Img src={imgSrc} alt="링크 프리뷰 이미지" />
-      <DetailBox>
-        <ElapsedTime>{elapsedTime}</ElapsedTime>
-        <Description>{description}</Description>
-        <CreateDate>{createdAt}</CreateDate>
-      </DetailBox>    
-    </Div>
+    <a href={url} target="_blank">
+      <Div>
+        <Img src={imgSrc} alt="링크 프리뷰 이미지" />
+        <DetailBox>
+          <ElapsedTime>{elapsedTime}</ElapsedTime>
+          <Description>{description}</Description>
+          <CreateDate>{createdAt}</CreateDate>
+        </DetailBox>    
+      </Div>
+    </a>
   )
 }
 
