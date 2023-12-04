@@ -2,12 +2,15 @@ import styles from './GradientButton.module.css';
 
 interface GradientButtonProps {
   text: string;
-  className?: string;
+  small?: boolean;
 }
 
-const GradientButton = ({ text, className = '' }: GradientButtonProps) => {
+const GradientButton = ({ text, small = false }: GradientButtonProps) => {
   return (
-    <button type="button" className={`${styles.btn} ${styles[className]}`}>
+    <button
+      type="button"
+      className={`${styles.btn} ${small ? styles.small : ''}`}
+    >
       {text}
     </button>
   );

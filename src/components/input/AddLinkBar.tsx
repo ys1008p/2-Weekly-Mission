@@ -12,7 +12,7 @@ const AddLinkBar = ({ placeholder }: AddLinkBarProps) => (
     <img className={styles.icon} src={LinkIcon} alt="link" />
     <input className={styles.input} type="text" placeholder={placeholder} />
     <div className={styles['btn-add']}>
-      <GradientButton text="추가하기" className="add" />
+      <GradientButton text="추가하기" small />
     </div>
   </div>
 );
