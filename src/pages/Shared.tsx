@@ -31,7 +31,7 @@ const Shared = () => {
 
   return (
     <>
-      <Header />
+      <Header sticky={true} />
       <main className={styles.main}>
         <SharedBanner folder={folderName} owner={owner} />
         <div className={styles.wrapper}>

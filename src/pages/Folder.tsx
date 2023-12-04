@@ -5,9 +5,10 @@ import Header from '@/components/layout/Header';
 const Folder = () => {
   return (
     <>
-      <Header />
-      <FolderBanner />
-      <main></main>
+      <Header sticky={false} />
+      <main>
+        <FolderBanner />
+      </main>
       <Footer />
     </>
   );
