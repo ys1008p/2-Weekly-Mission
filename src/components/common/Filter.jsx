@@ -1,14 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { FolderContext } from '../../contexts/FolderProvider';
 
-import { getFilterList } from '../../apis/folderList';
 import { IconButton, MixButton } from '../../components/common/Button';
-
-import { INITIAL_FILTER_DATA } from '../../store/type';
 import { FLOATING_BUTTON_POSITION } from '../../store/common';
 
-export const Filter = ({ setCurrentId, setTitle }) => {
-  const [filterData, setFilterData] = useState(INITIAL_FILTER_DATA);
+export const Filter = ({ data, setTitle }) => {
+  const { setCurrentId } = useContext(FolderContext);
   const [isActiveId, setIsActiveId] = useState(undefined);
 
   const [position, setPosition] = useState(0);
@@ -33,19 +31,6 @@ export const Filter = ({ setCurrentId, setTitle }) => {
     };
   }, []);
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const initData = await getFilterList();
-        setFilterData(initData);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-
-    getData();
-  }, []);
-
   const handleFilterClick = (id, name) => {
     setCurrentId(id);
     setIsActiveId(id);
@@ -68,7 +53,7 @@ export const Filter = ({ setCurrentId, setTitle }) => {
             전체
           </button>
         </li>
-        {filterData.map((item) => (
+        {data.map((item) => (
           <li
             key={item.id}
             className='filter-list-item'
@@ -107,6 +92,7 @@ export const Filter = ({ setCurrentId, setTitle }) => {
 };
 
 Filter.propTypes = {
+  data: PropTypes.array,
   setTitle: PropTypes.func,
   setCurrentId: PropTypes.func,
 };

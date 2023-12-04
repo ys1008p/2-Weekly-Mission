@@ -5,8 +5,9 @@ import { INITIAL_FOLDER_DATA } from '../store/type';
 
 export const FolderContext = createContext();
 
-export const FolderProvider = ({ children, currentId }) => {
+export const FolderProvider = ({ children }) => {
   const [storedData, setStoredData] = useState(INITIAL_FOLDER_DATA);
+  const [currentId, setCurrentId] = useState(undefined);
 
   useEffect(() => {
     const getData = async () => {
@@ -22,7 +23,9 @@ export const FolderProvider = ({ children, currentId }) => {
   }, [currentId]);
 
   return (
-    <FolderContext.Provider value={{ storedData, setStoredData }}>
+    <FolderContext.Provider
+      value={{ storedData, setStoredData, currentId, setCurrentId }}
+    >
       {children}
     </FolderContext.Provider>
   );
@@ -30,5 +33,4 @@ export const FolderProvider = ({ children, currentId }) => {
 
 FolderProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  currentId: PropTypes.number,
 };
