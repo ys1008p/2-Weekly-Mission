@@ -18,14 +18,14 @@ const CardItem = ({
   title,
   url,
 }: CardItemProps) => {
-  const [isZoomed, setZoom] = useState(false);
+  const [enlarged, setInlarged] = useState(false);
 
   const handleMouseOver = () => {
-    setZoom(true);
+    setInlarged(true);
   };
 
   const handleMouseLeave = () => {
-    setZoom(false);
+    setInlarged(false);
   };
 
   // (createdAt) 2023-12-02T23:35:12Z
@@ -41,13 +41,13 @@ const CardItem = ({
         target="_blank"
         rel="noreferrer"
       >
-        <div
-          className={styles.thumbnail}
-          style={{
-            backgroundImage: `url(${thumbnail})`,
-            backgroundSize: isZoomed ? '130%' : 'cover',
-          }}
-        ></div>
+        <div className={styles['img-box']}>
+          <img
+            className={`${styles.thumbnail} ${enlarged ? styles.enlarged : ''}`}
+            src={thumbnail}
+            alt="thumbnail"
+          />
+        </div>
         <div className={styles.contents}>
           <span className={styles.time}>{timeAgo}</span>
           <div className={styles.title}>{title}</div>
