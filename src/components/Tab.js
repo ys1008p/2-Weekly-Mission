@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TabMenu from './TabMenu';
 import add from '../assets/btn-add.png';
 
-const TabMenuContainer = styled.div`
+const Container = styled.div`
   position: relative;
 
   ul {
@@ -61,7 +61,7 @@ function Tab({
   btnOption
 }) {
   return (
-    <TabMenuContainer>
+    <Container>
       <ul>
         <TabMenu
           menu={menu}
@@ -71,7 +71,7 @@ function Tab({
         />
       </ul>
       <Button type="button"></Button>
-    </TabMenuContainer>
+    </Container>
   )
 }
 
