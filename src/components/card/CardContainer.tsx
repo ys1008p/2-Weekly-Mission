@@ -10,9 +10,10 @@ interface CardContainerProps {
     title: string;
     imageSource?: string;
   }>;
+  isFolder: boolean;
 }
 
-const CardContainer = ({ items }: CardContainerProps) => (
+const CardContainer = ({ items, isFolder }: CardContainerProps) => (
   <div className={styles['card-container']}>
     {items.map((item) => (
       <CardItem
@@ -21,6 +22,7 @@ const CardContainer = ({ items }: CardContainerProps) => (
         createdAt={item.createdAt}
         title={item.title}
         url={item.url}
+        isFolder={isFolder}
       />
     ))}
   </div>

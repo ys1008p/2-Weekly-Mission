@@ -39,7 +39,7 @@ const Shared = () => {
             <SearchBar placeholder="링크를 검색해 보세요." />
             {loading && <p>Loading...</p>}
             {error && <p>데이터를 불러올 수 없습니다</p>}
-            <CardContainer items={items} />
+            <CardContainer items={items} isFolder={false} />
           </section>
         </div>
       </main>

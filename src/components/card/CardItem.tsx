@@ -15,6 +15,7 @@ interface CardItemProps {
   createdAt: string;
   title: string;
   url: string;
+  isFolder: boolean;
 }
 
 const CardItem = ({
@@ -22,6 +23,7 @@ const CardItem = ({
   createdAt,
   title,
   url,
+  isFolder,
 }: CardItemProps) => {
   const [enlarged, setInlarged] = useState(false);
   const [selected, setSelected] = useState(false);
@@ -58,17 +60,21 @@ const CardItem = ({
             src={thumbnail}
             alt="thumbnail"
           />
-          <img
-            className={styles.star}
-            src={selected ? SelectedStar : Star}
-            onClick={handleStarClick}
-            alt="star"
-          />
+          {isFolder && (
+            <img
+              className={styles.star}
+              src={selected ? SelectedStar : Star}
+              onClick={handleStarClick}
+              alt="star"
+            />
+          )}
         </div>
         <div className={styles.contents}>
           <div className={styles.header}>
             <span className={styles.time}>{timeAgo}</span>
-            <img className={styles.kebab} src={Kebab} alt="kebab" />
+            {isFolder && (
+              <img className={styles.kebab} src={Kebab} alt="kebab" />
+            )}
           </div>
           <div className={styles.title}>{title}</div>
           <span className={styles.date}>{parsedDate}</span>
