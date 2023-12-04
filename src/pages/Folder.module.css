@@ -1,1 +1,22 @@
+.add-floating-button {
+  position: fixed;
+  left: 50%;
+  bottom: 101px;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 13.5rem;
+  padding: 0.8rem 2.4rem;
+  background-color: var(--color-primary);
+  border-radius: 2rem;
+  transform: translateX(-50%);
+}
 
+.add-floating-icon {
+  fill: var(--color-gray-10);
+}
+
+@media screen and (min-width: 768px) {
+  .add-floating-button {
+    display: none;
+  }
+}

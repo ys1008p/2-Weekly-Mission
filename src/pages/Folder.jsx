@@ -6,6 +6,8 @@ import FolderCardList from '../components/FolderCardList';
 import Footer from '../components/Footer';
 import AddLinkHeader from '../components/AddLinkHeader';
 import AddLink from '../components/AddLink';
+import AddIcon from '../images/add.svg';
+import styles from './Folder.module.css';
 
 export default function Folder() {
   const [selectedFolder, setSelectedFolder] = useState({
@@ -30,6 +32,13 @@ export default function Folder() {
       />
       <FolderCardList selectedFolder={selectedFolder} />
       <Footer />
+      <aside className={styles['add-floating-button']}>
+        <img
+          className={styles['add-floating-icon']}
+          src={AddIcon}
+          alt='폴터 추가 아이콘'
+        />
+      </aside>
     </>
   );
 }
