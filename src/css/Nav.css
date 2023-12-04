@@ -1,0 +1,26 @@
+nav {
+  background-color: var(--linkbrary-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 33px 200px 32px;
+}
+.navContainer img {
+  width: 133px;
+  height: 24px;
+}
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 18px 32px 17px;
+  }
+  .navContainer img {
+    width: 88.667px;
+    height: 16px;
+  }
+}

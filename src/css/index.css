@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray0: #f0f6ff;
+  --gray1: #e7effb;
+  --gray2: #ccd5e3;
+  --gray3: #9fa6b2;
+  --gray4: #3e3e43;
+  --linkbrary-bg: #f0f6ff;
+  --light-blue: #f0f6ff;
+}
+input:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
