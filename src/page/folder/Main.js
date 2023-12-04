@@ -2,7 +2,7 @@ import './Main.css';
 import CardList from './cardList/CardList';
 import Tab from '../../components/Tab';
 import SearchBar from '../../components/SearchBar';
-import BtnOption from '../../components/btnOption/BtnOption';
+import MainTitle from '../../components/MainTitle';
 
 function Main({ 
   className, 
@@ -17,28 +17,17 @@ function Main({
   return(
     <div className={className}>
       <SearchBar />
-      <div className="tab-menu-wrap">
-        <div className="tab-menu">
-          <ul>
-            <Tab 
-              menu={menu}
-              handleClick={handleClick}  
-              menuActive={menuActive}
-              btnOption={btnOption}
-            />
-          </ul>
-        </div>
-        {/* <button type="button" className="btn-add mobile-hide"></button> */}
-      </div>
-      <div className="main-wrap">
-        <h2 className="main-title">
-          {title}
-        </h2>
-        <BtnOption 
-          btnOption={btnOption}
-          menuActive={menuActive}
-        />
-      </div>
+      <Tab 
+        menu={menu}
+        handleClick={handleClick}  
+        menuActive={menuActive}
+        btnOption={btnOption}
+      />
+      <MainTitle 
+        title={title}
+        btnOption={btnOption}
+        menuActive={menuActive}
+      />
       <div className="card">
         <ul>
           <CardList 

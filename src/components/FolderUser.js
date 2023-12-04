@@ -17,7 +17,6 @@ const FolderInfo = styled.div`
   }
 }
 `
-
 const UserName = styled.p`
   margin: 1.2rem 0 2rem 0 ;
   font-size: 1.6rem;
@@ -28,7 +27,6 @@ const UserName = styled.p`
     line-height: 1.6rem;
   }
 `
-
 const Name = styled.p`
   font-size: 4rem;
   line-height: 4.8rem;

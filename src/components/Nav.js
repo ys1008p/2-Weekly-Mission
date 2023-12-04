@@ -22,8 +22,7 @@ const NavContainer = styled.nav`
     padding: 0 3.2rem; 
     height: 6.3rem;
   }
-`;
-
+`
 const Logo = styled.a`
   display: block;
 
@@ -34,7 +33,6 @@ const Logo = styled.a`
  }
 }
 ` 
-
 const Email = styled.a`
   display: flex;
   align-items: center;
@@ -60,7 +58,6 @@ const Email = styled.a`
     }
   }
 `
-
 const Login = styled.span`
   display: flex;
   justify-content: center;
@@ -80,7 +77,6 @@ const Login = styled.span`
     font-size: 2.4rem;
   }
 `
-
 function Nav({ 
   profileEmail,
   profileImg

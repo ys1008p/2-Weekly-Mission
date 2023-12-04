@@ -7,7 +7,6 @@ const Container = styled.div`
     padding: 2.4rem 0 4rem 0;
   }
 `
-
 const AddLink = styled.div`
   position: relative;
   width: 80rem;
@@ -52,7 +51,6 @@ const AddLink = styled.div`
     }
   }
 `
-
 const AddButton = styled.a`
   position: absolute;
   right: 2rem;
