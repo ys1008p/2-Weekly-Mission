@@ -12,19 +12,22 @@ const Shared = () => {
   const [profileImage, setProfileImage] = useState("");
   const [ownerName, setOwnerName] = useState("");
   const [folderName, setFolderName] = useState("");
-  const [links, setLinks] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { folder } = await getCodeItInfo("sample/folder");
+      const { data } = await getCodeItInfo(`users/1/links`);
+      setData(data);
+
+      const { folder } = await getCodeItInfo(`sample/folder`);
+
       const { name: ownerName, profileImageSource: profileImage } =
         folder.owner || {};
-      const { name: folderName, links } = folder || {};
+      const { name: folderName } = folder || {};
 
       setProfileImage(profileImage);
       setOwnerName(ownerName);
       setFolderName(folderName);
-      setLinks(links);
     };
 
     fetchData();
@@ -43,8 +46,8 @@ const Shared = () => {
         searchBar={<SearchBar />}
         cardList={
           <CardList>
-            {links?.map((link) => (
-              <ReadOnlyCard key={link?.id} {...link} />
+            {data?.map((data) => (
+              <ReadOnlyCard key={data?.id} {...data} />
             ))}
           </CardList>
         }

@@ -38,3 +38,8 @@ button {
   background-color: unset;
   cursor: pointer;
 }
+
+ul,
+li {
+  list-style-type: none;
+}

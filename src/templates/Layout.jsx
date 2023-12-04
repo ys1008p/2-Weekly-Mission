@@ -8,9 +8,9 @@ export const Layout = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getCodeItInfo(`sample/user`);
-      const { email, profileImageSource } = data || {};
-      const profile = data ? { email, profileImageSource } : null;
+      const { data } = await getCodeItInfo(`users/1`);
+      const { email, image_source } = data[0] || {};
+      const profile = data ? { email, image_source } : null;
       setProfile(profile);
     };
 
