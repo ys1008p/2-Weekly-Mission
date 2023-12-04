@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import "../../components/reset.css";
 import "../../components/root.css";
 import { useEffect, useState } from "react";
-import { getProfileSample, getFolderSample } from "../../api";
+import useAsync from "../hook/useAsync";
 
 function SharedPage() {
   const [cardList, setCardList] = useState([]);
@@ -13,6 +13,9 @@ function SharedPage() {
   const [folderUserProfile, setFolderUserProfile] = useState(null);
   const [folderUserName, setFolderUserName] = useState("");
   const [folderName, setFolderName] = useState("");
+
+  const [getProfileSample] = useAsync('/sample/user', '', '', '');
+  const [getFolderSample] = useAsync('/sample/folder', '', '', '');
 
   const handleLoadProfile = async () => {
     const { email, profileImageSource } = await getProfileSample();

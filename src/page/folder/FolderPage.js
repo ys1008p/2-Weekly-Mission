@@ -2,7 +2,6 @@ import Footer from "../../components/Footer";
 import "../../components/reset.css";
 import "../../components/root.css";
 import { useEffect, useState } from "react";
-import { getFolderData } from "../../api";
 import Header from './Header';
 import Main from './Main';
 import useAsync from "../hook/useAsync";
@@ -19,7 +18,7 @@ function FolderPage() {
   const [getProfile] = useAsync('/users', '/1', '', '');
   const [getFolderMenu] = useAsync('/users', '/1', '/folders', ''); 
   const [getFolderAll] = useAsync('/users', '/1', '/links', '');
-  const [getFolderData] = useAsync('/users','/1','/links?folderId=',`${menuActive}`); 
+  const [getFolderData] = useAsync('/users', '/1', '/links?folderId=', `${menuActive}`); 
 
   const handleLoadProfile = async () => {
     const { data } = await getProfile();
