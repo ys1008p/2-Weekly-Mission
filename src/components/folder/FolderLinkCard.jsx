@@ -20,7 +20,7 @@ export default function LinkInfoCard({ linkInfo }) {
       <div className="relative h-[19.2rem] w-full overflow-hidden rounded-t-[1.5rem]">
         <Card.Thumbnail
           src={
-            linkInfo.imageSource ??
+            linkInfo.image_source ??
             "https://res.cloudinary.com/divjslgco/image/upload/v1700841157/codeit/images/link-sample-thumbnail.jpg"
           }
           className="h-full w-full origin-center transform-gpu object-cover transition-transform will-change-transform hover:scale-[1.3]"
