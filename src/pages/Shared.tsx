@@ -4,7 +4,7 @@ import { fetchGetRequest } from '@/utils/api';
 import { useCallback, useEffect, useState } from 'react';
 
 import SharedBanner from '@/components/banner/SharedBanner';
-import CardContainer from '@/components/card/CardContainer';
+import SharedCardContainer from '@/components/card/SharedCardContainer';
 import SearchBar from '@/components/input/SearchBar';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
@@ -39,7 +39,7 @@ const Shared = () => {
             <SearchBar placeholder="링크를 검색해 보세요." />
             {loading && <p>Loading...</p>}
             {error && <p>데이터를 불러올 수 없습니다</p>}
-            <CardContainer items={items} isFolder={false} />
+            <SharedCardContainer items={items} />
           </section>
         </div>
       </main>

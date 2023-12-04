@@ -11,7 +11,7 @@ import Star from '@/assets/images/icon/star.svg';
 type ImageClickEventHandler = React.MouseEventHandler<HTMLImageElement>;
 
 interface CardItemProps {
-  thumbnail?: string;
+  thumbnail?: string | null;
   createdAt: string;
   title: string;
   url: string;
@@ -41,7 +41,8 @@ const CardItem = ({
     setSelected((prev) => !prev);
   };
 
-  // (createdAt) 2023-12-02T23:35:12Z
+  // (shared) 2023-12-02T23:35:12Z
+  // (folder) 2023-10-27T02:04:53.276659+00:00
   const timeAgo = getTimeDiff(createdAt);
   const parsedDate = createdAt.split('T')[0]?.replaceAll('-', '.');
 
@@ -57,7 +58,7 @@ const CardItem = ({
         <div className={styles['img-box']}>
           <img
             className={`${styles.thumbnail} ${enlarged ? styles.enlarged : ''}`}
-            src={thumbnail}
+            src={thumbnail ?? NoImage}
             alt="thumbnail"
           />
           {isFolder && (

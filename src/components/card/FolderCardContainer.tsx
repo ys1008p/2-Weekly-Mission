@@ -2,30 +2,29 @@ import styles from './CardContainer.module.css';
 
 import CardItem from '@/components/card/CardItem';
 
-interface CardContainerProps {
+interface FolderCardContainerProps {
   items: Array<{
     id: number;
-    createdAt: string;
+    created_at: string;
     url: string;
     title: string;
-    imageSource?: string;
+    image_source?: string | null;
   }>;
-  isFolder: boolean;
 }
 
-const CardContainer = ({ items, isFolder }: CardContainerProps) => (
+const FolderCardContainer = ({ items }: FolderCardContainerProps) => (
   <div className={styles['card-container']}>
     {items.map((item) => (
       <CardItem
         key={item.id}
-        thumbnail={item.imageSource}
-        createdAt={item.createdAt}
+        thumbnail={item.image_source}
+        createdAt={item.created_at}
         title={item.title}
         url={item.url}
-        isFolder={isFolder}
+        isFolder={true}
       />
     ))}
   </div>
 );
 
-export default CardContainer;
+export default FolderCardContainer;
