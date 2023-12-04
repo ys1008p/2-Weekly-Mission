@@ -3,6 +3,7 @@ import CardList from './cardList/CardList';
 import Tab from '../../components/Tab';
 import SearchBar from '../../components/SearchBar';
 import MainTitle from '../../components/MainTitle';
+import AddFolder from '../../components/AddFolder';
 
 function Main({ 
   className, 
@@ -37,9 +38,7 @@ function Main({
           />
         </ul>
       </div>
-      <div>
-        <button type="button" className="btn-add-folder"></button>
-      </div>
+      <AddFolder />
     </div>
   )
 }
