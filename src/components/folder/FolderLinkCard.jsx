@@ -34,7 +34,7 @@ export default function LinkInfoCard({ linkInfo }) {
       </div>
       <div className="flex flex-col gap-[1rem] px-[2rem] py-[1.5rem]">
         <div className="flex w-full items-center justify-between text-[1.3rem] text-[#666]">
-          {formatPastInCard(linkInfo.createdAt)}
+          {formatPastInCard(linkInfo.created_at)}
           <CardOptionMenu onClickMenuItem={handleCardMenuClick} />
         </div>
         <Card.Description
@@ -42,7 +42,7 @@ export default function LinkInfoCard({ linkInfo }) {
           className="line-clamp-2 h-[4.9rem] w-full text-ellipsis text-[1.6rem]"
         />
         <div className="line-clamp-1 w-full text-ellipsis text-[1.4rem] text-[#333]">
-          {formatCreatedAtInCard(linkInfo.createdAt)}
+          {formatCreatedAtInCard(linkInfo.created_at)}
         </div>
       </div>
     </Card>
