@@ -2,13 +2,19 @@ import { useCallback, useState } from 'react';
 
 type AsyncFunctionType = (...args: any[]) => Promise<any>;
 
-const useAsync = (asyncFunction: AsyncFunctionType) => {
-  const [pending, setPending] = useState(false);
+type UseAsyncReturnType = [
+  boolean,
+  Error | null,
+  (...args: any[]) => Promise<any>,
+];
+
+const useAsync = (asyncFunction: AsyncFunctionType): UseAsyncReturnType => {
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
   const wrappedFunction = useCallback(
     async (...args: any[]) => {
-      setPending(true);
+      setLoading(true);
       setError(null);
       try {
         return await asyncFunction(...args);
@@ -16,14 +22,15 @@ const useAsync = (asyncFunction: AsyncFunctionType) => {
         const errorObject =
           error instanceof Error ? error : new Error(String(error));
         setError(errorObject);
+        return;
       } finally {
-        setPending(false);
+        setLoading(false);
       }
     },
     [asyncFunction],
   );
 
-  return [pending, error, wrappedFunction];
+  return [loading, error, wrappedFunction];
 };
 
 export default useAsync;

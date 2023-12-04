@@ -1,27 +1,34 @@
 import { useSetAuth } from '@/contexts/AuthContexts';
+import useAsync from '@/hooks/useAsync';
 import Shared from '@/pages/Shared';
 import { fetchGetRequest } from '@/utils/api';
 import { useCallback, useEffect } from 'react';
 
 const App = () => {
   const setUser = useSetAuth();
+  const [loading, error, fetchUserData] = useAsync(fetchGetRequest);
 
-  const getUserProfile = useCallback(async () => {
-    let result;
-    try {
-      result = await fetchGetRequest('/api/sample/user');
-    } catch (error) {
-      return;
-    }
+  const initUserData = useCallback(async () => {
+    const data = await fetchUserData('/api/sample/user');
 
-    setUser(result);
-  }, [setUser]);
+    setUser(data);
+  }, [fetchUserData, setUser]);
 
   useEffect(() => {
-    void getUserProfile();
-  }, [getUserProfile]);
+    void initUserData();
+  }, [initUserData]);
 
-  return <Shared />;
+  return (
+    <>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>유저 정보를 불러올 수 없습니다</p>
+      ) : (
+        <Shared />
+      )}
+    </>
+  );
 };
 
 export default App;
