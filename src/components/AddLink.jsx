@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import SignButton from './SignButton';
-import './AddLink.css';
+import styles from './AddLink.module.css';
 
 export default function AddLink() {
   const [url, setUrl] = useState('');
   return (
-    <form className='add-link-form'>
+    <form className={styles.form}>
       <input
-        className='add-link'
+        className={styles.input}
         type='url'
         value={url}
         onChange={(e) => {

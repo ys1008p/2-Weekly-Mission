@@ -1,6 +1,6 @@
 import React from 'react';
-import './AddLinkHeader.css';
+import styles from './AddLinkHeader.module.css';
 
 export default function AddLinkHeader({ children }) {
-  return <div className='hero-background'>{children}</div>;
+  return <div className={styles.background}>{children}</div>;
 }
