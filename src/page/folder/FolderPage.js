@@ -16,29 +16,27 @@ function FolderPage() {
   const [btnOption, setBtnOption] = useState(false);
   const [title, setTitle] = useState('');
 
-  const [loadingProfile, errorProfile, getProfile] = useAsync('/users/1');
-  const [loadingFolderMenu, errorFolderMenu, getFolderMenu] = useAsync('/users/1/folders'); 
-  const [loadinggetgetFolderAll, errorgetgetFolderAll, getFolderAll] = useAsync('/users/1/links'); 
+  const [getProfile] = useAsync('/users', '/1', '', '');
+  const [getFolderMenu] = useAsync('/users', '/1', '/folders', ''); 
+  const [getFolderAll] = useAsync('/users', '/1', '/links', '');
+  const [getFolderData] = useAsync('/users','/1','/links?folderId=',`${menuActive}`); 
 
   const handleLoadProfile = async () => {
     const { data } = await getProfile();
     setProfileImg(data[0].image_source);
     setProfileEmail(data[0].email);
-
-    return [loadingProfile, errorProfile];
   };
 
   const handleLoadFolderMenu = async () => {
     const { data } = await getFolderMenu();
     setFolderMenu(data);
-
-    return [loadingFolderMenu, errorFolderMenu];
   };
   
   const handleLoadFolderData = async (options) => {
     if(options !== 'all') {
-      const { data } = await getFolderData(options);
+      const { data }= await getFolderData(options);
       setCardList(data);
+      console.log(data)
     }else{
       const { data } = await getFolderAll();
       setCardList(data);
