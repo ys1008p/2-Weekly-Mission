@@ -1,6 +1,8 @@
-import './TabMenu.css'
-
-function TabMenu({ menu, menuActive, handleClick }){
+function TabMenu({ 
+  menu, 
+  menuActive, 
+  handleClick 
+}){
   const All = {
     id: 'all',
     name: '전체',

@@ -1,4 +1,4 @@
-import FolderUser from '../../components/FolderUser/FolderUser'
+import FolderUser from '../../components/FolderUser'
 import Nav from '../../components/Nav';
 
 function SharedHeader({ 

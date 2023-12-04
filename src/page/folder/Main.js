@@ -1,6 +1,6 @@
 import './Main.css';
 import CardList from './cardList/CardList';
-import TabMenu from '../../components/tabMenu/TabMenu';
+import Tab from '../../components/Tab';
 import SearchBar from '../../components/SearchBar';
 import BtnOption from '../../components/btnOption/BtnOption';
 
@@ -20,7 +20,7 @@ function Main({
       <div className="tab-menu-wrap">
         <div className="tab-menu">
           <ul>
-            <TabMenu 
+            <Tab 
               menu={menu}
               handleClick={handleClick}  
               menuActive={menuActive}
@@ -28,7 +28,7 @@ function Main({
             />
           </ul>
         </div>
-        <button type="button" className="btn-add mobile-hide"></button>
+        {/* <button type="button" className="btn-add mobile-hide"></button> */}
       </div>
       <div className="main-wrap">
         <h2 className="main-title">
