@@ -1,0 +1,59 @@
+.input-bar {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  width: 20px;
+  left: 21px;
+  top: 25px;
+}
+
+.input {
+  width: 100%;
+  height: 70px;
+  padding: 16px 112px 16px 52px;
+  border-radius: 15px;
+  border: 1px solid var(--primary-color);
+  margin: 0 auto;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--gray-60);
+  font-size: 14px;
+  line-height: normal;
+}
+
+.btn-add {
+  position: absolute;
+  padding: 10px 16px;
+  min-width: 80px;
+  height: 37px;
+  top: 17px;
+  right: 21px;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--gray-light);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+@media only screen and (max-width: 767px) {
+  .icon {
+    width: 16px;
+    left: 11px;
+    top: 18px;
+  }
+
+  .input {
+    height: 53px;
+    padding: 8px 98px 8px 34px;
+  }
+
+  .btn-add {
+    top: 8px;
+    right: 11px;
+  }
+}

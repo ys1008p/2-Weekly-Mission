@@ -15,8 +15,22 @@
   border-radius: 10px;
   border: none;
   width: 100%;
+  height: 54px;
+  outline: none;
 }
 
 .input::placeholder {
   color: #666;
+}
+
+@media only screen and (max-width: 767px) {
+  .icon {
+    top: 13px;
+    left: 16px;
+  }
+
+  .input {
+    height: 43px;
+    padding: 13px 16px 13px 38px;
+  }
 }

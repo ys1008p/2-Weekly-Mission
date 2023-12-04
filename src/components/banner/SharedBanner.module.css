@@ -1,6 +1,6 @@
 .banner {
   background-color: var(--gray-bg);
-  padding: 20px 0 60px;
+  padding: 20px 32px 60px;
 }
 
 .wrapper {
@@ -22,7 +22,7 @@
 
 @media only screen and (max-width: 767px) {
   .banner {
-    padding: 10px 0 40px;
+    padding: 10px 32px 40px;
   }
 
   .wrapper {

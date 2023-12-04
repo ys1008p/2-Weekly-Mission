@@ -1,11 +1,11 @@
-import styles from './Banner.module.css';
+import styles from './SharedBanner.module.css';
 
-interface BannerProps {
+interface SharedBannerProps {
   owner: { name: string; profileImageSource: string };
   folder: string;
 }
 
-const Banner = ({ owner, folder }: BannerProps) => (
+const SharedBanner = ({ owner, folder }: SharedBannerProps) => (
   <section className={styles.banner}>
     <div className={styles.wrapper}>
       <img
@@ -19,4 +19,4 @@ const Banner = ({ owner, folder }: BannerProps) => (
   </section>
 );
 
-export default Banner;
+export default SharedBanner;
