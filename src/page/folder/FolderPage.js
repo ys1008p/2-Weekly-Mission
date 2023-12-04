@@ -63,6 +63,9 @@ function FolderPage() {
   useEffect(() => {
     handleLoadProfile();
     handleLoadFolderMenu();
+  })
+
+  useEffect(() => {
     handleLoadFolder(menuActive);
   }, [menuActive]);
 
