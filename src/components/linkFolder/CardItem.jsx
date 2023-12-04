@@ -53,7 +53,7 @@ export const CardItem = ({ url, image_source, title, created_at, description }) 
                 label='더보기 버튼'
                 onClick={handleMenuClick}
               />
-              <ul className={isActive ? 'select-menu is-active' : 'select-menu'}>
+              <ul className={`select-menu ${isActive ? 'is-active' : ''}`}>
                 {SELECT_MENU.map((item) => (
                   <li key={item.id} className='select-menu-item'>
                     <button>{item.name}</button>

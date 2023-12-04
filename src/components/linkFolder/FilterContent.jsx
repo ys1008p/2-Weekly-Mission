@@ -31,14 +31,14 @@ export const FilterContent = () => {
 
   return (
     <div className='filter-content'>
-      <Filter data={filterData} setTitle={setTitle} />
+      <Filter filterData={filterData} setTitle={setTitle} />
 
       <header className='filter-content-header'>
         <h3>{title}</h3>
         {currentId && <FilterOptions />}
       </header>
 
-      {isFolderDataEmpty ? <EmptyContent /> : <GridLayout data={storedData} />}
+      {isFolderDataEmpty ? <EmptyContent /> : <GridLayout folderData={storedData} />}
     </div>
   );
 };

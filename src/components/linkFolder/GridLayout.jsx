@@ -1,10 +1,10 @@
 import { CardItem } from './CardItem';
 import PropTypes from 'prop-types';
 
-export const GridLayout = ({ data }) => {
+export const GridLayout = ({ folderData }) => {
   return (
     <div className='cardItemWrapper folder-link'>
-      {data.map((item) => (
+      {folderData.map((item) => (
         <CardItem
           key={item.id}
           url={item.url}
@@ -19,5 +19,5 @@ export const GridLayout = ({ data }) => {
 };
 
 GridLayout.propTypes = {
-  data: PropTypes.array.isRequired,
+  folderData: PropTypes.array.isRequired,
 };

@@ -6,7 +6,7 @@ import { FolderContext } from '../../contexts/FolderProvider';
 import { IconButton, MixButton } from '../../components/common/Button';
 import { FLOATING_BUTTON_POSITION } from '../../store/common';
 
-export const Filter = ({ data, setTitle }) => {
+export const Filter = ({ filterData, setTitle }) => {
   const { setCurrentId } = useSetStoredData(FolderContext);
   const [isActiveId, setIsActiveId] = useState(undefined);
 
@@ -54,7 +54,7 @@ export const Filter = ({ data, setTitle }) => {
             전체
           </button>
         </li>
-        {data.map((item) => (
+        {filterData.map((item) => (
           <li
             key={item.id}
             className='filter-list-item'
@@ -93,7 +93,7 @@ export const Filter = ({ data, setTitle }) => {
 };
 
 Filter.propTypes = {
-  data: PropTypes.array,
+  filterData: PropTypes.array,
   setTitle: PropTypes.func,
   setCurrentId: PropTypes.func,
 };
