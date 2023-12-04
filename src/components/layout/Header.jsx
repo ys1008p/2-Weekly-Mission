@@ -4,7 +4,7 @@ import Gnb from './Gnb';
 
 function Header({ children }) {
   return (
-    <header className="bgc-blue">
+    <header className='bgc-blue'>
       <Gnb></Gnb>
       {children}
     </header>

@@ -10,6 +10,11 @@
   top: 0;
   right: 0;
   left: 0;
+  padding: 2rem 0;
+}
+.gnb-static {
+  position: static;
+  padding: 2rem 0;
 }
 
 .hero {
@@ -96,10 +101,6 @@
 
 /* PC */
 @media only screen and (min-width: 1200px) {
-  .gnb {
-    padding: 2rem 0;
-  }
-
   .gnb__signin {
     width: 12.8rem;
     margin-right: 200px;
@@ -183,10 +184,6 @@
 
 /* Tablet */
 @media only screen and (max-width: 1199px) and (min-width: 768px) {
-  .gnb {
-    padding: 2rem 0;
-  }
-
   .gnb__container {
     gap: 53.8rem;
   }
@@ -284,6 +281,10 @@
 /* Mobile */
 @media only screen and (max-width: 767px) and (min-width: 375px) {
   .gnb {
+    padding: 1.3rem 0;
+  }
+
+  .gnb-static {
     padding: 1.3rem 0;
   }
 

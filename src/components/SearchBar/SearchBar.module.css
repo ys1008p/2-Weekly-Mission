@@ -1,19 +1,25 @@
-.search-bar {
+.searchBar {
   display: flex;
-  padding: 15px;
+  padding: 1.5rem;
   border-radius: 1rem;
   background: #f5f5f5;
   color: #666;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 2.4rem; /* 150% */
 }
 
-.search-bar__icon {
+.icon {
   width: 1.6rem;
   background: center / contain no-repeat url('/images/icons/search.svg');
 }
 
-.search-bar__input {
+.input {
   width: 100%;
   margin-left: 1rem;
+}
+
+@media only screen and (max-width: 767px) and (min-width: 375px) {
+  .searchBar {
+    font-size: 1.4rem;
+  }
 }

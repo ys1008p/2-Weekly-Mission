@@ -1,38 +1,38 @@
-.title {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 9.4rem;
 }
 
-.title__avatar {
-  margin-top: 2rem;
+.header__avatar {
   width: 6rem;
   height: 6rem;
+  margin-top: 2rem;
 }
 
-.title__user-name {
+.header__user-name {
   margin-top: 1.2rem;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.4rem; /* 150% */
 }
 
-.title__folder-name {
+.header__folder-name {
   margin: 2rem 0 6rem;
-  text-align: center;
   font-feature-settings:
     'clig' off,
     'liga' off;
   font-size: 4rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
   margin-top: 4rem;
+  gap: 4rem;
 }
 
 .main__content {
@@ -67,28 +67,28 @@
 
 /* Mobile */
 @media only screen and (max-width: 767px) and (min-width: 375px) {
-  .title {
+  .header {
     padding-top: 7.4rem;
   }
 
-  .title__avatar {
-    margin-top: 1rem;
+  .header__avatar {
     width: 4rem;
     height: 4rem;
+    margin-top: 1rem;
   }
 
-  .title__user-name {
+  .header__user-name {
     margin-top: 0.6rem;
     font-size: 1.4rem;
     line-height: normal;
   }
 
-  .title__folder-name {
+  .header__folder-name {
     margin: 1rem 0 4rem;
-    text-align: center;
     font-size: 3.2rem;
     font-weight: 600;
     letter-spacing: -0.2px;
+    text-align: center;
   }
 
   .main__content {
@@ -101,7 +101,7 @@
   }
 
   .main {
-    gap: 3.2rem;
     margin: 2rem 0 6rem;
+    gap: 3.2rem;
   }
 }

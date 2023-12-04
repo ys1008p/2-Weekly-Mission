@@ -1,13 +1,13 @@
-import './style.css';
+import style from './SearchBar.module.css';
 
 function SearchBar({ placeholder, value, onChange, className }) {
-  const classNames = `search-bar ${className}`;
+  const classNames = `${style.searchBar} ${className}`;
   return (
     <div className={classNames}>
-      <div className="search-bar__icon"></div>
+      <div className={style.icon}></div>
       <input
-        className="search-bar__input"
-        type="text"
+        className={style.input}
+        type='text'
         placeholder={placeholder}
         value={value}
         onChange={onChange}
