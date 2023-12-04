@@ -39,10 +39,20 @@
   gap: 10px;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .time {
   font-size: 13px;
   line-height: normal;
   color: #666;
+}
+
+.kebab {
+  width: 21px;
 }
 
 .title {
@@ -68,5 +78,9 @@
 
   .img-box {
     height: 192px;
+  }
+
+  .star {
+    width: 30px;
   }
 }

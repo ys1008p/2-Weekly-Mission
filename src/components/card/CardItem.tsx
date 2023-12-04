@@ -3,6 +3,7 @@ import styles from './CardItem.module.css';
 import getTimeDiff from '@/utils/getTimeDiff';
 import { useState } from 'react';
 
+import Kebab from '@/assets/images/icon/kebab.svg';
 import NoImage from '@/assets/images/icon/no-image.svg';
 import SelectedStar from '@/assets/images/icon/star-selected.svg';
 import Star from '@/assets/images/icon/star.svg';
@@ -65,7 +66,10 @@ const CardItem = ({
           />
         </div>
         <div className={styles.contents}>
-          <span className={styles.time}>{timeAgo}</span>
+          <div className={styles.header}>
+            <span className={styles.time}>{timeAgo}</span>
+            <img className={styles.kebab} src={Kebab} alt="kebab" />
+          </div>
           <div className={styles.title}>{title}</div>
           <span className={styles.date}>{parsedDate}</span>
         </div>
