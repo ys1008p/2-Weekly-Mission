@@ -1,6 +1,7 @@
 import React from 'react';
 import useGetData from '../hooks/useGetData';
 import styles from './FolderButtons.module.css';
+import AddIcon from '../images/add.svg';
 
 export default function FolderButtons({ folderId, handleFolderClick }) {
   const [loading, error, user] = useGetData('users/1/folders');
@@ -42,6 +43,13 @@ export default function FolderButtons({ folderId, handleFolderClick }) {
         </li>
         {list}
       </ul>
+      <button>
+        <img
+          className={styles.addButton}
+          src={AddIcon}
+          alt='폴더 추가하기 버튼'
+        />
+      </button>
     </div>
   );
 }

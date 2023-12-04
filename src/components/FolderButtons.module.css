@@ -1,4 +1,7 @@
 .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: auto;
   padding: 3.2rem 0 2.8rem;
   width: calc(100% - var(--size-mobile-padding) * 2);
@@ -26,6 +29,14 @@
   background-color: var(--color-primary);
 }
 
+.addButton {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  visibility: hidden;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     padding: 4rem 0 2.4rem;
@@ -34,5 +45,9 @@
   .button {
     padding: 0.8rem 1.2rem;
     font-size: 1.6rem;
+  }
+
+  .addButton {
+    visibility: visible;
   }
 }
