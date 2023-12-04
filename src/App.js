@@ -6,8 +6,8 @@ import GlobalStyle from "./GlobalStyles";
 import Loding from "./component/loding/Loding";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
-import Shared from "./component/Shared";
-import Folder from "./component/Folder";
+import Shared from "./pages/Shared";
+import Folder from "./pages/Folder";
 import { getUserPersonalFolderData } from "./api/getUserPersonalFolderData";
 import Test from "./component/Test";
 import { getUserPersonalLinkData } from "./api/getUserPersoanlLinkData";
@@ -43,8 +43,7 @@ function App() {
   useEffect(() => {
     getShareCardData()
       .then((result) => {
-        transformShareCardData(result.folder.links);
-        setShareCardData(transformShareCardData);
+        setShareCardData(transformShareCardData(result.folder.links));
         setFolderData(result.folder);
       })
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
@@ -63,8 +62,7 @@ function App() {
   useEffect(() => {
     getUserPersonalLinkData()
       .then((result) => {
-        transformLinkData(result.data);
-        setPersonalLinkData(transformLinkData);
+        setPersonalLinkData(transformLinkData(result.data));
       })
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
   }, []);

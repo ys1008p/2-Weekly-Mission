@@ -1,7 +1,7 @@
-import CardList from "./CardList";
-import HeaderFoloderSection from "./HeaderFolderSection";
-import LinkSearchInput from "./LinkSearchInput";
-import MainContainer from "./MainContainer";
+import CardList from "../component/CardList";
+import HeaderFoloderSection from "../component/HeaderFolderSection";
+import LinkSearchInput from "../component/LinkSearchInput";
+import MainContainer from "../component/MainContainer";
 
 function Shared({ cardData, folderData }) {
   return (
