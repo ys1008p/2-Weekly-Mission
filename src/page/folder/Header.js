@@ -1,6 +1,6 @@
 import './Header.css';
-import AddLinkBar from '../../components/addLinkBar/AddLinkBar';
-import Nav from './nav/Nav';
+import AddLinkBar from '../../components/AddLinkBar';
+import Nav from '../../components/Nav';
 
 function Header({
   className,

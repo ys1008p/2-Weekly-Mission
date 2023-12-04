@@ -1,5 +1,5 @@
-import logo from '../../../assets/logo.svg';
 import styled from 'styled-components';
+import logo from '../assets/logo.svg';
 
 const NavContainer = styled.nav`
   display: flex;

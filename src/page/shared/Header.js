@@ -1,5 +1,5 @@
 import FolderUser from '../../components/FolderUser/FolderUser'
-import Nav from './nav/Nav';
+import Nav from '../../components/Nav';
 
 function SharedHeader({ 
   className, 
