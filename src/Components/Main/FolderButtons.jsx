@@ -5,15 +5,15 @@ import PenIcon from "../../images/pen.svg";
 import DeleteIcon from "../../images/Group 36.svg";
 import PlusIcon from "../../images/add.svg";
 
-export default function FolderButtons() {
+export default function FolderButtons({ onSelectValue }) {
   const [folderData, setFolderData] = useState([]);
-  const [value , setValue] = useState('전체');
+  const [value, setValue] = useState('전체');
 
-  const handleClickButton = e =>{
+  const handleClickButton = (e) => {
     const { name } = e.target;
     setValue(name);
-  }
-
+    onSelectValue(name); 
+  };
   const fetchData = async () => {
     try {
       const { data } = await FolderButtonApi();
@@ -27,7 +27,6 @@ export default function FolderButtons() {
     fetchData();
   }, []);
 
-
   return (
     <>
       <div className="BtnContainer">
@@ -36,7 +35,8 @@ export default function FolderButtons() {
           {folderData ? (
             folderData?.map((data) => (
               <div key={data}>
-                <button onClick={handleClickButton} name={data.name} className="FolderBtn">{data.name}</button>
+                <button key={data.id} onClick={handleClickButton} name={data.name} className="FolderBtn">{data.name}</button>
+                <p>{data.id}</p>
               </div>
             ))
           ) : (

@@ -35,7 +35,7 @@ function timeAgo(timestamp) {
   }
 }
 
-export default function FolderCardContainer() {
+export default function FolderCardContainer({ selectedValue }) {
   const [folderData, setFolderData] = useState([]);
   const fetchData = async () => {
     try {
@@ -52,8 +52,11 @@ export default function FolderCardContainer() {
 
   return (
     <div className="FolderCardBoxContainer">
-      {folderData? folderData?.map((link) => (
-        <div key={link} className="FolderCardBox">
+      {folderData ? (
+        folderData
+          .filter((link) => selectedValue === '전체' || link.folder_id === selectedValue)
+          .map((link) => (
+            <div key={link} className="FolderCardBox">
           <a href={link.url} alt="targetUrl">
             <img
               src={link.image_source || NullImg}
@@ -71,15 +74,17 @@ export default function FolderCardContainer() {
                 </button>
               </p>
               <p className="FolderCardTextDescription">{link.description}</p>
+              <p>{link.folder_id}</p>
               <p className="FolderCardTextYears">{link.created_at.slice(0,10)}</p>
             </div>
           </a>
+          </div>
+          ))
+      ) : (
+        <div className="FolderNullContainer">
+          <p>저장된 링크가 없습니다.</p>
         </div>
-      ))
-      
-      :<div className="FolderNullContainer"> 
-        <p>저장된 링크가 없습니다.</p>
-      </div>}
+      )}
     </div>
   );
 }
