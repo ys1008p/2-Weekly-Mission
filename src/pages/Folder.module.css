@@ -14,3 +14,95 @@
   padding: 40px 0;
   text-align: center;
 }
+
+.folder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 60px;
+}
+
+.folder-list {
+  display: flex;
+  align-items: center;
+  gap: 12px 8px;
+  flex-wrap: wrap;
+}
+
+.btn-add {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 12px 60px;
+  flex-wrap: wrap;
+}
+
+.folder-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.title-btns {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.disappear {
+  display: none;
+}
+
+.floating {
+  display: none;
+  position: fixed;
+  width: 135px;
+  height: 36px;
+  bottom: 101px;
+  left: 50%;
+  margin-left: -67px;
+  background-color: var(--primary);
+  border-radius: 20px;
+  border: 1px solid var(--white);
+  z-index: 3;
+}
+
+.floating-icon {
+  width: 16px;
+  position: absolute;
+  top: 11px;
+  right: 25px;
+}
+
+@media only screen and (max-width: 767px) {
+  .btn-add {
+    display: none;
+  }
+
+  .floating {
+    display: unset;
+  }
+
+  .folder {
+    margin-bottom: 28px;
+  }
+
+  .title {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .folder-title {
+    font-size: 20px;
+  }
+}

@@ -14,7 +14,7 @@
   height: 70px;
   padding: 16px 112px 16px 52px;
   border-radius: 15px;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary);
   margin: 0 auto;
   outline: none;
 }
