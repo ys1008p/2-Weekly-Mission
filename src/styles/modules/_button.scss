@@ -153,6 +153,18 @@
       background-color: #504cff;
     }
   }
+
+  @include responsive(M) {
+    &:not(:disabled):hover {
+      background-color: $white;
+    }
+
+    &.is-active {
+      &:not(:disabled):hover {
+        background-color: $primary;
+      }
+    }
+  }
 }
 
 .filter-lg {
