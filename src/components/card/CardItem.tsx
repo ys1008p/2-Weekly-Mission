@@ -4,6 +4,10 @@ import getTimeDiff from '@/utils/getTimeDiff';
 import { useState } from 'react';
 
 import NoImage from '@/assets/images/icon/no-image.svg';
+import SelectedStar from '@/assets/images/icon/star-selected.svg';
+import Star from '@/assets/images/icon/star.svg';
+
+type ImageClickEventHandler = React.MouseEventHandler<HTMLImageElement>;
 
 interface CardItemProps {
   thumbnail?: string;
@@ -19,6 +23,7 @@ const CardItem = ({
   url,
 }: CardItemProps) => {
   const [enlarged, setInlarged] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   const handleMouseOver = () => {
     setInlarged(true);
@@ -26,6 +31,11 @@ const CardItem = ({
 
   const handleMouseLeave = () => {
     setInlarged(false);
+  };
+
+  const handleStarClick: ImageClickEventHandler = (event) => {
+    event.preventDefault();
+    setSelected((prev) => !prev);
   };
 
   // (createdAt) 2023-12-02T23:35:12Z
@@ -46,6 +56,12 @@ const CardItem = ({
             className={`${styles.thumbnail} ${enlarged ? styles.enlarged : ''}`}
             src={thumbnail}
             alt="thumbnail"
+          />
+          <img
+            className={styles.star}
+            src={selected ? SelectedStar : Star}
+            onClick={handleStarClick}
+            alt="star"
           />
         </div>
         <div className={styles.contents}>

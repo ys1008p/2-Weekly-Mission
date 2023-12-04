@@ -10,6 +10,7 @@
   width: 100%;
   height: 200px;
   overflow: hidden;
+  position: relative;
 }
 
 .thumbnail {
@@ -22,6 +23,13 @@
   transform: scale(1.3);
   transform-origin: center center;
   transition: transform ease 0.3s;
+}
+
+.star {
+  position: absolute;
+  width: 34px;
+  top: 15px;
+  right: 15px;
 }
 
 .contents {
