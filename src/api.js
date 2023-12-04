@@ -1,16 +1,16 @@
 const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 
-async function getFolder() {
-  try{
-    const respones = await fetch(`${BASE_URL}/users/1/links`);
-    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+// async function getFolder() {
+//   try{
+//     const respones = await fetch(`${BASE_URL}/users/1/links`);
+//     if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
     
-    const result = await respones.json();
-    return result;
-  }catch(error){
-    console.log(error);
-  }
-}
+//     const result = await respones.json();
+//     return result;
+//   }catch(error){
+//     console.log(error);
+//   }
+// }
 
 async function getFolderData(menuActive) {
   try{
@@ -49,4 +49,4 @@ async function getFolderSample() {
 }
 
 
-export { getFolder, getFolderData, getProfileSample, getFolderSample }
+export { getFolderData, getProfileSample, getFolderSample }

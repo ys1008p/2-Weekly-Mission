@@ -2,7 +2,7 @@ import Footer from "../../components/Footer";
 import "../../components/reset.css";
 import "../../components/root.css";
 import { useEffect, useState } from "react";
-import { getFolder, getFolderData } from "../../api";
+import { getFolderData } from "../../api";
 import Header from './Header';
 import Main from './Main';
 import useAsync from "../hook/useAsync";
@@ -18,6 +18,7 @@ function FolderPage() {
 
   const [loadingProfile, errorProfile, getProfile] = useAsync('/users/1');
   const [loadingFolderMenu, errorFolderMenu, getFolderMenu] = useAsync('/users/1/folders'); 
+  const [loadinggetgetFolderAll, errorgetgetFolderAll, getFolderAll] = useAsync('/users/1/links'); 
 
   const handleLoadProfile = async () => {
     const { data } = await getProfile();
@@ -39,7 +40,7 @@ function FolderPage() {
       const { data } = await getFolderData(options);
       setCardList(data);
     }else{
-      const { data } = await getFolder();
+      const { data } = await getFolderAll();
       setCardList(data);
     }
   };
