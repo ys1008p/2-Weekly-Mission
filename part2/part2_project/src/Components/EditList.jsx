@@ -8,14 +8,15 @@ const EditBox = styled.section`
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 `;
 
 const EditButtons = styled.article`
   display: flex;
   gap: 0.25rem;
-
-    color: var(--linkbrary-gray-60);
+  color: var(--linkbrary-gray-60, #9FA6B2);
+  font-size: 14px;
+  font-weight: 600;
   }
 `;
 

@@ -11,12 +11,14 @@ export default function Main({ buttons, cardData }) {
       <section className={styled.buttonLine}>
         <ul className={styled.list}>
           <li>
-            <button>전체</button>
+            <button className={styled.listUpButton}>전체</button>
           </li>
           {buttons?.map((btn) => {
             return (
               <li key={btn.id}>
-                <button links={btn.link}>{btn.name}</button>
+                <button className={styled.listUpButton} links={btn.link}>
+                  {btn.name}
+                </button>
               </li>
             );
           })}

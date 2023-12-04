@@ -14,7 +14,7 @@
   gap: 0.75rem;
 }
 
-button {
+.listUpButton {
   padding: 0.5rem 0.75rem;
 
   border-radius: 5px;
@@ -23,7 +23,7 @@ button {
   margin: 0;
 }
 
-button:hover {
+.listUpButton:hover {
   outline: 1px solid var(--linkbrary-primary-color, #6d6afe);
   background: var(--linkbrary-gray-10, #e7effb);
 }

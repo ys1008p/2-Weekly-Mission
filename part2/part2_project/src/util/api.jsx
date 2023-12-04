@@ -24,8 +24,7 @@ export async function getUserPick() {
   }
 }
 
-export async function forUser1({ id }) {
-  const query = `${`links?folderId=${id}`}`;
+export async function forUser1() {
   try {
     const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1");
     const body = await response.json();
@@ -58,6 +57,8 @@ export async function getUserList() {
     console.log(err.message);
   }
 }
+
+//  const query = `?folderId=${id}`;
 
 //폴더 목록에 필요한 데이터는 “/api/users/1/folders”를 활용해 주세요.
 //“전체” 폴더에 필요한 링크들 데이터는 “/api/users/1/links”를 활용하고,

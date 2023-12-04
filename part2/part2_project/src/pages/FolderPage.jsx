@@ -11,6 +11,7 @@ export default function FolderPage() {
   const [userData, setUSerData] = useState(null);
   const [buttons, setButtons] = useState();
   const [cardData, setCardData] = useState();
+  const [] = useState();
 
   const myUser = async () => {
     const { data } = await forUser1();
@@ -21,12 +22,14 @@ export default function FolderPage() {
 
   const getUserTasteButton = async () => {
     const { data } = await TasteUser1();
-
+    console.log(data);
     return setButtons(data);
   };
 
   const yorPick = async () => {
     const { data } = await getUserList();
+    const { foder_id } = data;
+    console.log(data);
     setCardData(data);
   };
 
