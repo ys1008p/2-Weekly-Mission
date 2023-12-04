@@ -3,6 +3,7 @@ import useGetData from '../hooks/useGetData';
 import CardList from './CardList';
 import EmptyCardList from './EmptyCardList';
 import styles from './FolderCardList.module.css';
+import EditFeatures from './EditFeatures';
 
 export default function FolderCardList({ selectedFolder }) {
   const { id: folderId, name: folderName } = selectedFolder;
@@ -13,15 +14,16 @@ export default function FolderCardList({ selectedFolder }) {
     selectedFolder
   );
 
-  const links = linkData?.data;
-
   if (loading) return <p>loading..</p>;
   if (error) return <EmptyCardList />;
+
+  const links = linkData?.data;
 
   return (
     <div>
       <div className={styles.nameContainer}>
         <h2 className={styles.name}>{folderName}</h2>
+        {folderId && <EditFeatures />}
       </div>
       {links.length === 0 ? <EmptyCardList /> : <CardList links={links} />}
     </div>
