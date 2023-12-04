@@ -8,7 +8,7 @@ import Main from './Main';
 
 const BASE_URL = "https://bootcamp-api.codeit.kr/api/users/1";
 
-function Folder() {
+function FolderPage() {
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState("");
   const [cardList, setCardList] = useState([]);
@@ -89,4 +89,4 @@ function Folder() {
   );
 }
 
-export default Folder;
+export default FolderPage;

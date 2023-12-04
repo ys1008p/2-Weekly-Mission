@@ -6,7 +6,7 @@ import "../../components/root.css";
 import { useEffect, useState } from "react";
 import { getProfileSample, getFolderSample } from "../../api";
 
-function Shared() {
+function SharedPage() {
   const [cardList, setCardList] = useState([]);
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState("");
@@ -59,4 +59,4 @@ function Shared() {
   );
 }
 
-export default Shared;
+export default SharedPage;

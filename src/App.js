@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Shared from "./page/shared/Shared";
-import Folder from "./page/folder/Folder";
+import SharedPage from "./page/shared/SharedPage";
+import FolderPage from "./page/folder/FolderPage";
 
 function App(){
   return(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate  replace to="/folder" />} />
-        <Route path="/shared" element={<Shared />}></Route>
-        <Route path="/folder" element={<Folder />}></Route>
+        <Route path="/shared" element={<SharedPage />}></Route>
+        <Route path="/folder" element={<FolderPage />}></Route>
       </Routes>
     </BrowserRouter>
   )
