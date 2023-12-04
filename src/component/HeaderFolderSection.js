@@ -1,4 +1,32 @@
-import "./HeaderFolderSection.css";
+import styled from "styled-components";
+
+const HeaderOwnerContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 6rem;
+  margin: 9.2rem 0 0;
+  width: 100%;
+  background-color: #f0f6ff;
+
+  @media all and (max-width: 768px) {
+    margin: 6.4rem 0 0;
+  }
+`;
+const OwnerImg = styled.img`
+  border-radius: 50%;
+  width: 6rem;
+  background-color: #dddddd;
+  margin-bottom: 1.2rem;
+`;
+const OwenerName = styled.p`
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+`;
+const SelectFolderName = styled.h2`
+  font-size: 4rem;
+  font-weight: 600;
+`;
 
 function HeaderFoloderSection({ folderData }) {
   const folderName = folderData.name;
@@ -6,15 +34,15 @@ function HeaderFoloderSection({ folderData }) {
   const ownerImg = folderData.owner?.profileImageSource;
 
   return (
-    <section className="header-owner-container">
-      <img
+    <HeaderOwnerContainer>
+      <OwnerImg
         src={ownerImg}
         alt="folderImg"
         className="header-owner-section-ownerImg"
       />
-      <p className="header-owner-section-ownerName">{ownerName}</p>
-      <h2 className="header-owner-section-folderName">{folderName}</h2>
-    </section>
+      <OwenerName>{ownerName}</OwenerName>
+      <SelectFolderName>{folderName}</SelectFolderName>
+    </HeaderOwnerContainer>
   );
 }
 

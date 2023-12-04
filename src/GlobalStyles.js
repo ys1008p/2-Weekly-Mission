@@ -8,10 +8,12 @@ ${reset};
 *::before,
 *::after {
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 html{
     font-size: 62.5%;
+    
 }
 
 body {

@@ -1,7 +1,23 @@
-import "./UserPersonalFolder.css";
+import styled from "styled-components";
+
+const PersonalFolderBtn = styled.button`
+  border-radius: 5px;
+  border: 1px solid #6d6afe;
+  background: #fff;
+  padding: 0.8rem 1.2rem;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 0.8rem;
+  cursor: pointer;
+
+  &:hover {
+    background: #6d6afe;
+    color: #fff;
+  }
+`;
 
 function UserPersonalFolder({ data }) {
-  return <button className="personal-folder-button">{data.name}</button>;
+  return <PersonalFolderBtn>{data.name}</PersonalFolderBtn>;
 }
 
 export default UserPersonalFolder;
