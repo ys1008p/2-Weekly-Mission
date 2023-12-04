@@ -30,6 +30,7 @@
   width: 100%;
   height: 100%;
   transition: transform 0.3s ease;
+  object-fit: cover;
 }
 
 .link-image:hover {
@@ -105,11 +106,13 @@
     
     width: 325px;
     height: 327px;
-
-    overflow: hidden;
   }
   
   .link-detail--container {
+    width: 325px;
+  }
+
+  .link-image--container {
     width: 325px;
   }
 }

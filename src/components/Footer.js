@@ -4,6 +4,29 @@ import twitter from '../assets/twitter.svg';
 import youtube from '../assets/youtube.svg';
 import instagram from '../assets/instagram.svg';
 
+const snsReferenceLinks = [
+  {
+    name:'facebook',
+    iconImg:facebook,
+    link:'https://www.facebook.com/?locale=ko_KR',
+  },
+  {
+    name:'twitter',
+    iconImg:twitter,
+    link:'https://twitter.com/?lang=ko',
+  },
+  {
+    name:'youtube',
+    iconImg:youtube,
+    link:'https://www.youtube.com/',
+  },
+  {
+    name:'instagram',
+    iconImg:instagram,
+    link:'https://www.instagram.com/',
+  }
+]
+
 const Icon = ({name, iconImg, link}) => {
   return(
     <a target='_blank' rel='noopener noreferrer' href={link}>
@@ -13,29 +36,6 @@ const Icon = ({name, iconImg, link}) => {
 };
 
 const Footer = () => {
-  const snsReferenceLinks = [
-    {
-      name:'facebook',
-      iconImg:facebook,
-      link:'https://www.facebook.com/?locale=ko_KR',
-    },
-    {
-      name:'twitter',
-      iconImg:twitter,
-      link:'https://twitter.com/?lang=ko',
-    },
-    {
-      name:'youtube',
-      iconImg:youtube,
-      link:'https://www.youtube.com/',
-    },
-    {
-      name:'instagram',
-      iconImg:instagram,
-      link:'https://www.instagram.com/',
-    }
-  ]
-
   return(
     <footer>
       <div className="info">
