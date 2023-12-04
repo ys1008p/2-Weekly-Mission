@@ -7,11 +7,17 @@ import PlusIcon from "../../images/add.svg";
 
 export default function FolderButtons() {
   const [folderData, setFolderData] = useState([]);
+  const [value , setValue] = useState('전체');
+
+  const handleClickButton = e =>{
+    const { name } = e.target;
+    setValue(name);
+  }
 
   const fetchData = async () => {
     try {
       const { data } = await FolderButtonApi();
-      setFolderData(data);
+      setFolderData(data); 
     } catch (error) {
       alert(error);
     }
@@ -21,15 +27,16 @@ export default function FolderButtons() {
     fetchData();
   }, []);
 
+
   return (
     <>
       <div className="BtnContainer">
         <div className="BtnBox">
-          <button className="FolderBtn">전체</button>
+          <button onClick={handleClickButton} name='전체' className="FolderBtn">전체</button>
           {folderData ? (
             folderData?.map((data) => (
               <div key={data}>
-                <button className="FolderBtn">{data.name}</button>
+                <button onClick={handleClickButton} name={data.name} className="FolderBtn">{data.name}</button>
               </div>
             ))
           ) : (
@@ -41,7 +48,7 @@ export default function FolderButtons() {
         </button>
       </div>
       <div className="FolderCardHeaderContainer">
-        <h1 className="FolderBtnName">전체</h1>
+        <h1 className="FolderBtnName">{value}</h1>
         <div className="FolderLinksBtn">
           <button className="FolderLinks">
             <img src={ShareIcon} alt="Share" />
