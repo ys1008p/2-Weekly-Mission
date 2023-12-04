@@ -5,13 +5,16 @@ import "../../CSS/Landing.css";
 export default function Header() {
   const [folderData, setFolderData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async () => {
+    try {
       const folderResponse = await LoginProfile();
 
       setFolderData(folderResponse.folder);
-    };
-
+    } catch (error) {
+      alert(error);
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, []);
 

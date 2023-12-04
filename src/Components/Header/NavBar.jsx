@@ -7,13 +7,19 @@ import "../../CSS/Landing.css";
 export default function NavBar() {
   const [userData, setUserData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async () => {
+    try {
       const userResponse = await HeaderApi();
       setUserData(userResponse);
-    };
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <nav className="nav-container">
       <div className="nav-box">

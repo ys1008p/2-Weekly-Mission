@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LoginProfile } from "../../api";
-import NullImg from "../../images/logo.svg"
+import NullImg from "../../images/logo.svg";
 import "../../CSS/Landing.css";
 
 function timeAgo(timestamp) {
@@ -35,11 +35,17 @@ function timeAgo(timestamp) {
 
 export default function MainCardContainer() {
   const [folderData, setFolderData] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
+
+  const fetchData = async () => {
+    try {
       const folderResponse = await LoginProfile();
       setFolderData(folderResponse.folder);
-    };
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -49,7 +55,11 @@ export default function MainCardContainer() {
         ? folderData.links.map((item, index) => (
             <div key={index} className="CardBox">
               <a href={item.url} alt="targetUrl">
-                <img src={item.imageSource || NullImg} alt="이미지" className="CardImg" />
+                <img
+                  src={item.imageSource || NullImg}
+                  alt="이미지"
+                  className="CardImg"
+                />
                 <div className="CardTextBox">
                   <p className="CardUpLoadTime">
                     {timeAgo(new Date(item.createdAt))}
