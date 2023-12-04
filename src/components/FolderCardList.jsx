@@ -2,6 +2,7 @@ import React from 'react';
 import useGetData from '../hooks/useGetData';
 import CardList from './CardList';
 import EmptyCardList from './EmptyCardList';
+import styles from './FolderCardList.module.css';
 
 export default function FolderCardList({ selectedFolder }) {
   const { id: folderId, name: folderName } = selectedFolder;
@@ -23,7 +24,9 @@ export default function FolderCardList({ selectedFolder }) {
 
   return (
     <div>
-      <h2>{folderName}</h2>
+      <div className={styles.nameContainer}>
+        <h2 className={styles.name}>{folderName}</h2>
+      </div>
       {links.length === 0 ? <EmptyCardList /> : <CardList links={links} />}
     </div>
   );

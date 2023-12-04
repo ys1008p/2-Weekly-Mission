@@ -6,7 +6,6 @@ import FolderCardList from '../components/FolderCardList';
 import Footer from '../components/Footer';
 import AddLinkHeader from '../components/AddLinkHeader';
 import AddLink from '../components/AddLink';
-import './Folder.css';
 
 export default function Folder() {
   const [selectedFolder, setSelectedFolder] = useState({

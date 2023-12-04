@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './SearchBar.css';
+import styles from './SearchBar.module.css';
 
 export default function SearchBar() {
   const [search, setSearch] = useState('');
 
   return (
     <input
-      className='search'
+      className={styles.search}
       type='text'
       value={search}
       onChange={(e) => {
