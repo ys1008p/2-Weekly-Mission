@@ -1,6 +1,8 @@
 import noImg from '../../../assets/no-img.svg';
 import './CardList.css';
 
+
+
 function DateText({ createdAt }){
   const idx = createdAt.indexOf('T');
   const text = createdAt.slice(0, idx);

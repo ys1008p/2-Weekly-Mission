@@ -1,7 +1,6 @@
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "../../components/Footer";
-import "../../components/reset.css";
 import "../../components/root.css";
 import { useEffect, useState } from "react";
 import useAsync from "../hook/useAsync";
