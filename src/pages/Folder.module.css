@@ -58,10 +58,6 @@
   align-items: center;
 }
 
-.disappear {
-  display: none;
-}
-
 .floating {
   display: none;
   position: fixed;

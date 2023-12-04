@@ -90,11 +90,13 @@ const Folder = () => {
                 </button>
                 <div className={styles.title}>
                   <span className={styles['folder-title']}>폴더명</span>
-                  <div className={styles['title-btns']}>
-                    <GrayIconButton icon={ShareIcon} text="공유" />
-                    <GrayIconButton icon={PenIcon} text="이름 변경" />
-                    <GrayIconButton icon={DeleteIcon} text="삭제" />
-                  </div>
+                  {selectedFolder.name && (
+                    <div className={styles['title-btns']}>
+                      <GrayIconButton icon={ShareIcon} text="공유" />
+                      <GrayIconButton icon={PenIcon} text="이름 변경" />
+                      <GrayIconButton icon={DeleteIcon} text="삭제" />
+                    </div>
+                  )}
                 </div>
                 <FolderCardContainer items={items} />
               </div>
