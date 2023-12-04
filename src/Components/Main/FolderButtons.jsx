@@ -7,17 +7,17 @@ import PlusIcon from "../../images/add.svg";
 
 export default function FolderButtons({ onSelectValue }) {
   const [folderData, setFolderData] = useState([]);
-  const [value, setValue] = useState('전체');
+  const [value, setValue] = useState("전체");
 
-  const handleClickButton = (e) => {
+  const handleClickButton = (e, id) => {
     const { name } = e.target;
     setValue(name);
-    onSelectValue(name); 
+    onSelectValue(name, id);
   };
   const fetchData = async () => {
     try {
       const { data } = await FolderButtonApi();
-      setFolderData(data); 
+      setFolderData(data);
     } catch (error) {
       alert(error);
     }
@@ -31,11 +31,20 @@ export default function FolderButtons({ onSelectValue }) {
     <>
       <div className="BtnContainer">
         <div className="BtnBox">
-          <button onClick={handleClickButton} name='전체' className="FolderBtn">전체</button>
+          <button onClick={handleClickButton} name="전체" className="FolderBtn">
+            전체
+          </button>
           {folderData ? (
             folderData?.map((data) => (
-              <div key={data}>
-                <button key={data.id} onClick={handleClickButton} name={data.name} className="FolderBtn">{data.name}</button>
+              <div key={data.id}>
+                <button
+                  key={data.id}
+                  onClick={(e) => handleClickButton(e, data.id)}
+                  name={data.name}
+                  className="FolderBtn"
+                >
+                  {data.name}
+                </button>
                 <p>{data.id}</p>
               </div>
             ))

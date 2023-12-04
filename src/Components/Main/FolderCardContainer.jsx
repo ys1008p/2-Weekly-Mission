@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FolderLoginProfile } from "../../api";
 import KebabIcon from "../../images/kebab.svg";
 import StarIcon from "../../images/star.svg";
-import NullImg from "../../images/logo.svg"
+import NullImg from "../../images/logo.svg";
 import "../../CSS/Folder.css";
 
 function timeAgo(timestamp) {
@@ -35,7 +35,7 @@ function timeAgo(timestamp) {
   }
 }
 
-export default function FolderCardContainer({ selectedValue }) {
+export default function FolderCardContainer({ selectedValue, dataId }) {
   const [folderData, setFolderData] = useState([]);
   const fetchData = async () => {
     try {
@@ -54,31 +54,37 @@ export default function FolderCardContainer({ selectedValue }) {
     <div className="FolderCardBoxContainer">
       {folderData ? (
         folderData
-          .filter((link) => selectedValue === '전체' || link.folder_id === selectedValue)
+          .filter(
+            (link) => selectedValue === "전체" || link.folder_id === dataId
+          )
           .map((link) => (
             <div key={link} className="FolderCardBox">
-          <a href={link.url} alt="targetUrl">
-            <img
-              src={link.image_source || NullImg}
-              alt="이미지"
-              className="FolderCardImg"
-            />
-            <button className="StarBtn">
-              <img src={StarIcon} alt="Star" className="StarImg" />
-            </button>
-            <div className="FolderCardTextBox">
-              <p className="FolderCardUpLoadTime">
-                {timeAgo(new Date(link.created_at))}
-                <button className="KebabBtn">
-                  <img src={KebabIcon} alt="Kebab" />
+              <a href={link.url} alt="targetUrl">
+                <img
+                  src={link.image_source || NullImg}
+                  alt="이미지"
+                  className="FolderCardImg"
+                />
+                <button className="StarBtn">
+                  <img src={StarIcon} alt="Star" className="StarImg" />
                 </button>
-              </p>
-              <p className="FolderCardTextDescription">{link.description}</p>
-              <p>{link.folder_id}</p>
-              <p className="FolderCardTextYears">{link.created_at.slice(0,10)}</p>
+                <div className="FolderCardTextBox">
+                  <p className="FolderCardUpLoadTime">
+                    {timeAgo(new Date(link.created_at))}
+                    <button className="KebabBtn">
+                      <img src={KebabIcon} alt="Kebab" />
+                    </button>
+                  </p>
+                  <p className="FolderCardTextDescription">
+                    {link.description}
+                  </p>
+                  <p>{link.folder_id}</p>
+                  <p className="FolderCardTextYears">
+                    {link.created_at.slice(0, 10)}
+                  </p>
+                </div>
+              </a>
             </div>
-          </a>
-          </div>
           ))
       ) : (
         <div className="FolderNullContainer">
