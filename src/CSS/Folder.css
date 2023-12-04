@@ -222,6 +222,11 @@ background: var(--primary);
   margin-right: 20px;
 }
 
+.FolderCardBox:hover{
+border: 2px solid var(--primary);
+overflow: hidden;
+overflow-y: hidden;
+}
 .FolderCardImg {
   position: relative;
   width: 100%;
