@@ -1,4 +1,4 @@
-import '../components/Footer.css';
+import './Footer.css';
 import facebook from '../assets/ico-facebook.png';
 import twitter from '../assets/ico-twitter.png';
 import youtube from '../assets/ico-youtube.png';

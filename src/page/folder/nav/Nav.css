@@ -1,0 +1,16 @@
+
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: static;
+  padding: 0;
+  height: 9.4rem;
+}
+
+@media screen and (min-width:375px) and (max-width:768px) {
+  .header nav {
+    padding: 0; 
+    height: 6.3rem;
+  }
+}

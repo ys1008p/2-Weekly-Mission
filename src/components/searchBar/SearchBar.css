@@ -1,0 +1,26 @@
+.main .search {
+  position: relative;
+}
+
+.main .search::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 1.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url('../../assets/ico-search.png') no-repeat;
+}
+
+.main .search input {
+  width: 100%;
+  padding: 1.5rem 4.2rem;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  color: var(--color-gray);
+  background-color: var(--color-very-light-gray);
+}

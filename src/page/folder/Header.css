@@ -1,0 +1,11 @@
+.header {
+  padding: 0 20rem; 
+  background-color: var(--color-sky-blue);
+}
+
+@media screen and (max-width:1124px) {
+  .header {
+    padding: 0 3.2rem;
+  }
+}
+

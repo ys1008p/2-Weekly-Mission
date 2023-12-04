@@ -1,15 +1,64 @@
-// 프로필 데이터 확인하기
-async function getProfile(){
-  const respones = await fetch('https://bootcamp-api.codeit.kr/api/sample/user');
-  const result = await respones.json();
-  return result;
+const BASE_URL = "https://bootcamp-api.codeit.kr/api";
+
+async function getProfile() {
+  try{
+    const respones = await fetch(`${BASE_URL}/users/1`);
+    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+    
+    const result = await respones.json();
+    return result;
+  }catch(error){
+    console.log(error);
+  }
 }
 
-// 폴더 정보 확인하기
-async function getFolder(){
-  const respones = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
-  const result = await respones.json();
-  return result;
+async function getFolder() {
+  try{
+    const respones = await fetch(`${BASE_URL}/users/1/links`);
+    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+    
+    const result = await respones.json();
+    return result;
+  }catch(error){
+    console.log(error);
+  }
 }
 
-export { getProfile, getFolder };
+async function getFolderMenu() {
+  try{
+    const respones = await fetch(`${BASE_URL}/users/1/folders`);
+    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+    
+    const result = await respones.json();
+    return result;
+  }catch(error){
+    console.log(error);
+  }
+}
+
+async function getProfileSample() {
+  try{
+    const respones = await fetch(`${BASE_URL}/sample/user`);
+    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+    
+    const result = await respones.json();
+    return result;
+  }catch(error){
+    console.log(error);
+  }
+}
+
+async function getFolderSample() {
+  try{
+    const respones = await fetch(`${BASE_URL}/sample/folder`);
+    if(!respones.ok) throw new Error('데이터를 불러오는데 실패했습니다');
+    
+    const result = await respones.json();
+    return result;
+  }catch(error){
+    console.log(error);
+  }
+}
+
+
+export { getProfile, getFolder, getFolderMenu, getProfileSample, getFolderSample }
