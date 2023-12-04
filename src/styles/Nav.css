@@ -1,0 +1,42 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 192rem;
+  padding: 3.3rem 20rem;
+  position: fixed;
+  background-color: var(--gray-5);
+
+  @media (max-width: 1124px) {
+    padding: 3.3rem 3.2rem;
+  }
+}
+
+.signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem 2rem;
+  width: 12.8rem;
+  color: var(--gray-6);
+  font-family: pretendard;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  background: linear-gradient(
+    91deg,
+    var(--blue-1) 0.12%,
+    var(--blue-2) 101.84%
+  );
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--gray-1);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 00;
+}
