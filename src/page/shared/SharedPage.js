@@ -57,7 +57,7 @@ function SharedPage() {
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       />
-      <Footer className="footer" />
+      <Footer />
     </div>
   );
 }

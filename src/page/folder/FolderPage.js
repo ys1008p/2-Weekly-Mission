@@ -79,7 +79,7 @@ function FolderPage() {
         btnOption={btnOption}
         title={title}
       />
-      <Footer className="footer"/>
+      <Footer />
     </div>
   );
 }

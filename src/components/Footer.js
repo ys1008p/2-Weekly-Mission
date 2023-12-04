@@ -1,34 +1,79 @@
-import './Footer.css';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import facebook from '../assets/ico-facebook.png';
 import twitter from '../assets/ico-twitter.png';
 import youtube from '../assets/ico-youtube.png';
 import instagram from '../assets/ico-instagram.png';
 
-function Footer({ className }){
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 3.2rem 10.4rem 10.8rem 10.4rem;
+  background-color: var(--bg-black);
+
+  @media screen and (min-width:375px) and (max-width:768px) {
+    position: relative;
+    padding: 3.2rem 3.2rem 10.8rem 3.2rem;
+  }  
+
+  span {
+    color: var(--color-dark-gray);
+    font-family: Arial;
+    font-size: 1.6rem;
+
+    @media screen and (min-width:375px) and (max-width:768px) {
+      position: absolute;
+      bottom: 3.2rem;
+    }  
+  }
+`
+const FootInfo = styled.div`
+  a {
+    font-size: 1.6rem;
+    color: var(--color-light-gray);
+  }
+
+  a:last-child {
+    margin: 0 0 0 3rem;
+  }
+`
+const Sns = styled.ul`
+  display: flex;
+  gap: 1.2rem;
+`
+function Footer(){
   return(
-    <footer className={ className }>
-       <div className="footer-box">
-        <span className="copyright">©codeit - 2023</span>
-        <div className="footer-links">
-          <a className="footer-link" href="privacy.html">Privacy Policy</a>
-          <a className="footer-link" href="faq.html">FAQ</a>
+    <Container>
+       <span>©codeit - 2023</span>
+        <FootInfo>
+          <Link to="/">Privacy Policy</Link>
+          <Link to="/">FAQ</Link>
+        </FootInfo>
+        <div>
+          <Sns>
+            <li>
+              <Link to="/" target="_blank">
+                <img src={facebook} alt="facebook 홈페이지로 연결된 facebook 로고" />
+              </Link>
+            </li>
+            <li>
+              <Link to="/" target="_blank">
+                <img src={twitter} alt="twitter 홈페이지로 연결된 twitter 로고" />
+              </Link>
+            </li>
+            <li>
+              <Link to="/" target="_blank">
+                <img src={youtube} alt="youtube 홈페이지로 연결된 youtube 로고" />
+              </Link>
+            </li>
+            <li>
+              <Link to="/" target="_blank">
+                <img src={instagram} alt="instagram 홈페이지로 연결된 instagram 로고" />
+              </Link>
+            </li>
+          </Sns>
         </div>
-        <div className="sns">
-          <a href="/" target="_blank" rel="noopener noreferrer">
-            <img src={facebook} alt="facebook 홈페이지로 연결된 facebook 로고" />
-          </a>
-          <a href="/" target="_blank" rel="noopener noreferrer">
-            <img src={twitter} alt="twitter 홈페이지로 연결된 twitter 로고" />
-          </a>
-          <a href="/" target="_blank" rel="noopener noreferrer">
-            <img src={youtube} alt="youtube 홈페이지로 연결된 youtube 로고" />
-          </a>
-          <a href="/" target="_blank" rel="noopener noreferrer">
-            <img src={instagram} alt="instagram 홈페이지로 연결된 instagram 로고" />
-          </a>
-        </div>
-      </div>
-    </footer>
+    </Container>
   )
 }
 
