@@ -11,9 +11,9 @@ const App = () => {
   const [loading, error, fetchAuthData] = useAsync(fetchGetRequest);
 
   const initAuthData = useCallback(async () => {
-    const data = await fetchAuthData('/api/sample/user');
+    const data = await fetchAuthData('/api/users/1');
 
-    setAuth(data);
+    setAuth(data?.data[0]);
   }, [fetchAuthData, setAuth]);
 
   useEffect(() => {

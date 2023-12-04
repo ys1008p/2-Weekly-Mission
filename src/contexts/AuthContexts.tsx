@@ -2,7 +2,7 @@ import { createContext, useContext, useState, type ReactNode } from 'react';
 
 interface Auth {
   email: string;
-  profileImageSource: string;
+  image_source: string;
 }
 
 interface AuthContextValue {
