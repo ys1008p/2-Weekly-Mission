@@ -45,7 +45,6 @@ export default function FolderButtons({ onSelectValue }) {
                 >
                   {data.name}
                 </button>
-                <p>{data.id}</p>
               </div>
             ))
           ) : (

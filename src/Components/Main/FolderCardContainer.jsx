@@ -78,7 +78,6 @@ export default function FolderCardContainer({ selectedValue, dataId }) {
                   <p className="FolderCardTextDescription">
                     {link.description}
                   </p>
-                  <p>{link.folder_id}</p>
                   <p className="FolderCardTextYears">
                     {link.created_at.slice(0, 10)}
                   </p>
