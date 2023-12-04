@@ -1,5 +1,5 @@
 function useAsync(baseUrl, folderId, path, userId){
-  const wrappedFunction = async () => {
+  const fetchUrl = async () => {
     try{
       const response = await fetch(`https://bootcamp-api.codeit.kr/api${baseUrl}${folderId}${path}${userId}`);
 console.log(response)
@@ -11,7 +11,7 @@ console.log(response)
       console.log(error)
     }
   }
-  return [wrappedFunction];
+  return [fetchUrl];
 }
 
 export default useAsync;
