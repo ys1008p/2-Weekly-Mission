@@ -80,10 +80,11 @@ const Login = styled.span`
 `
 function Nav({ 
   profileEmail,
-  profileImg
+  profileImg,
+  a
 }){
   return (
-    <Container>
+    <Container a={a}>
       <h1>
         <Link to="/">
           <img src={logo} alt="홈으로 연결된 Linkbrary 로고" />

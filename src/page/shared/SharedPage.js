@@ -1,9 +1,10 @@
+import { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet';
+import useAsync from "../hook/useAsync";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "../../components/Footer";
 import "../../components/root.css";
-import { useEffect, useState } from "react";
-import useAsync from "../hook/useAsync";
 
 function SharedPage() {
   const [cardList, setCardList] = useState([]);
@@ -41,23 +42,28 @@ function SharedPage() {
   }, []);
 
   return (
-    <div className="container">
-      <Header
-        className="header"
-        profileEmail={profileEmail}
-        profileImg={profileImg}
-        folderUserProfile={folderUserProfile}
-        folderUserName={folderUserName}
-        folderName={folderName}
-      />
-      <Main
-        className="main"
-        links={cardList}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      />
-      <Footer />
-    </div>
+    <>
+      <Helmet>
+        <title>SharedPage</title>
+      </Helmet>
+      <div className="container">
+        <Header
+          className="header"
+          profileEmail={profileEmail}
+          profileImg={profileImg}
+          folderUserProfile={folderUserProfile}
+          folderUserName={folderUserName}
+          folderName={folderName}
+        />
+        <Main
+          className="main"
+          links={cardList}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        />
+        <Footer />
+      </div>
+    </>
   );
 }
 

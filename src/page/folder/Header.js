@@ -5,13 +5,15 @@ import Nav from '../../components/Nav';
 function Header({
   className,
   profileImg,
-  profileEmail
+  profileEmail,
+  a
 }){
   return (
     <header className={className}>  
       <Nav 
         profileImg={profileImg}
         profileEmail={profileEmail}
+        a={a}
       />
       <AddLinkBar />
     </header>

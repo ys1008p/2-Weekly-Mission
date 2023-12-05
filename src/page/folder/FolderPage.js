@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet';
 import Footer from "../../components/Footer";
 import "../../components/root.css";
-import { useEffect, useState } from "react";
 import Header from './Header';
 import Main from './Main';
 import useAsync from "../hook/useAsync";
@@ -34,7 +35,6 @@ function FolderPage() {
     if(options !== 'all') {
       const { data }= await getFolderData(options);
       setCardList(data);
-      console.log(data)
     }else{
       const { data } = await getFolderAll();
       setCardList(data);
@@ -61,25 +61,30 @@ function FolderPage() {
   }, [menuActive]);
 
   return (
-    <div className="container">
-      <Header 
-        className="header"
-        profileImg={profileImg}
-        profileEmail={profileEmail}
-      />
-      <Main
-        className="main"
-        links={cardList}
-        menu={folderMenu}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-        menuActive={menuActive}
-        handleClick={handleClick}
-        btnOption={btnOption}
-        title={title}
-      />
-      <Footer />
-    </div>
+    <>
+      <Helmet>
+        <title>FolderPage</title>
+      </Helmet>
+      <div className="container">
+        <Header 
+          className="header"
+          profileImg={profileImg}
+          profileEmail={profileEmail}
+        />
+        <Main
+          className="main"
+          links={cardList}
+          menu={folderMenu}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+          menuActive={menuActive}
+          handleClick={handleClick}
+          btnOption={btnOption}
+          title={title}
+        />
+        <Footer />
+      </div>
+    </>
   );
 }
 

@@ -8,7 +8,7 @@ function App(){
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Navigate  replace to="/folder" />} />
+        <Route path="/" element={<Navigate replace to="/folder" />} />
         <Route path="/shared" element={<SharedPage />}></Route>
         <Route path="/folder" element={<FolderPage />}></Route>
       </Routes>

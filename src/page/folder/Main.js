@@ -1,6 +1,6 @@
 import './Main.css';
 import CardList from './cardList/CardList';
-import Tab from '../../components/Tab';
+import TabMenu from '../../components/TabMenu';
 import SearchBar from '../../components/SearchBar';
 import MainTitle from '../../components/MainTitle';
 import AddFolder from '../../components/AddFolder';
@@ -18,7 +18,7 @@ function Main({
   return(
     <div className={className}>
       <SearchBar />
-      <Tab 
+      <TabMenu 
         menu={menu}
         handleClick={handleClick}  
         menuActive={menuActive}
