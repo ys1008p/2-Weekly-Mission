@@ -1,10 +1,15 @@
 import "./Card.css";
-import noImage from "../../assets/folder_preview_no_image.svg";
+import noImage from "../../assets/folder-preview-no-image.svg";
 
 const Card = ({ data }) => {
   const { createdAt, description, imageSource, url } = data;
 
   const createdDate = new Date(createdAt);
+
+  const formatDate = `${createdDate.getFullYear()}. ${
+    createdDate.getMonth() + 1
+  }. ${createdDate.getDate()}`;
+
   const currentDate = new Date();
 
   const timeDifference = currentDate - createdDate;
@@ -28,18 +33,16 @@ const Card = ({ data }) => {
   }
 
   return (
-    <li>
-      <a href={url} target="_blank" rel="noreferrer">
-        <div className="image-wrap">
-          <img src={imageSource || noImage} alt="링크 미리보기 이미지" />
-        </div>
-        <div className="link-information-wrap">
-          <span className="link-created-ago">{timeAgo}</span>
-          <span className="link-description">{description}</span>
-          <span className="link-created-time">{createdAt}</span>
-        </div>
-      </a>
-    </li>
+    <a href={url} target="_blank" rel="noreferrer">
+      <div className="image-wrap">
+        <img src={imageSource || noImage} alt="링크 미리보기 이미지" />
+      </div>
+      <div className="link-information-wrap">
+        <span className="link-created-ago">{timeAgo}</span>
+        <span className="link-description">{description}</span>
+        <span className="link-created-time">{formatDate}</span>
+      </div>
+    </a>
   );
 };
 
