@@ -1,7 +1,7 @@
 import React from 'react';
 import useGetData from '../hooks/useGetData';
-import styles from './FolderButtons.module.css';
 import { ReactComponent as AddIcon } from '../images/add.svg';
+import styles from './FolderButtons.module.css';
 
 export default function FolderButtons({ folderId, handleFolderClick }) {
   const [loading, error, user] = useGetData('users/1/folders');
