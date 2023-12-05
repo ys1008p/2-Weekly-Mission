@@ -1,4 +1,4 @@
-import {useState } from "react";
+import { useState } from "react";
 import styles from "../styles/Card.module.css";
 import getElapseTime from "../utils/getElapseTime";
 import getUploadDate from "../utils/getUploadDate";
@@ -8,8 +8,8 @@ function Card({ link }) {
   const [hoverClass, setIsHoverClass] = useState();
   const createdAtString = link.created_at;
   const elapseTime = getElapseTime(createdAtString);
-  const postedDate =getUploadDate(createdAtString)
-  
+  const postedDate = getUploadDate(createdAtString);
+
   const handleHover = () => {
     setIsHover(true);
     setIsHoverClass(styles.hover);
@@ -18,10 +18,10 @@ function Card({ link }) {
     setIsHover(false);
     setIsHoverClass("");
   };
- 
+
   return (
     <div onMouseOver={handleHover} onMouseOut={handleHoverOut} className={styles.card} onClick={() => window.open(`${link.url}`, "_blank")}>
-      <img className={styles.starIcon} src={`${process.env.PUBLIC_URL}/images/star.svg`}/>
+      <img className={styles.starIcon} src={`${process.env.PUBLIC_URL}/images/star.svg`} />
       <div className={styles.cardImageBox}>
         <img className={link && link.imageSource ? `${styles.cardImage} ${hoverClass}` : `${styles.noImage} ${hoverClass}`} src={link && link.image_source ? link.image_source : "/images/noImage.svg"} />
       </div>

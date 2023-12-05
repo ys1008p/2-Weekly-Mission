@@ -15,9 +15,8 @@ const StyledCategoryBox = styled.div`
   width: 106rem;
 
   @media (max-width: 1200px) {
-     width: 100%;
+    width: 100%;
   }
-  
 `;
 
 const StyledCategory = styled.div`
@@ -28,10 +27,10 @@ const StyledCategory = styled.div`
 `;
 
 const CategoryList = styled.div`
-display: flex;
-justify-content: center;
-font-size: 1.4rem;
-`
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+`;
 
 function Category({ category }) {
   const { title, image } = category;
@@ -47,20 +46,20 @@ function CategoryBox({ folder }) {
   return (
     <StyledCategoryBox>
       <h1>{folder.name}</h1>
-      {
-        folder.name !=='전체'?
-      <CategoryList>
-        {categoryList.map((category) => (
-          <Category key={category.title} category={category} />
-        ))}
-      </CategoryList>
-      : ""
-      }
+      {folder.name !== "전체" ? (
+        <CategoryList>
+          {categoryList.map((category) => (
+            <Category key={category.title} category={category} />
+          ))}
+        </CategoryList>
+      ) : (
+        ""
+      )}
     </StyledCategoryBox>
   );
 }
 
-function TitleArea({ folders, id }) {
+function FoldersTitle({ folders, id }) {
   return (
     <>
       {folders &&
@@ -72,4 +71,4 @@ function TitleArea({ folders, id }) {
     </>
   );
 }
-export default TitleArea;
+export default FoldersTitle;

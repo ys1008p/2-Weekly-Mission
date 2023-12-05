@@ -19,20 +19,20 @@ const StyledButton = styled.button`
   }
 `;
 
-const ButtonBox = styled.div`
+const StyledButtonBox = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2.4rem;
 `;
 
-const Buttons = styled.div`
+const StyledButtons = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 1.2rem;
   flex-wrap: wrap;
 `;
 
-const AddLink = styled.div`
+const StyledAddLink = styled.div`
   color: var(--primary-color);
   border: none;
   font-size: 3rem;
@@ -41,7 +41,6 @@ const AddLink = styled.div`
   @media (max-width: 390px) {
     display: none;
   }
-
 `;
 
 function Button({ folder, setId }) {
@@ -51,17 +50,15 @@ function Button({ folder, setId }) {
   return <StyledButton onClick={() => handleChangeID(folder.id)}>{folder && folder.name}</StyledButton>;
 }
 
-function ButtonList({ setId, folders }) {
+function FolderButtonList({ setId, folders }) {
   return (
-    <>
-      <div>
-        <ButtonBox>
-          <Buttons>{folders && folders.map((folder) => <Button setId={setId} folder={folder} key={folder.id} />)}</Buttons>
-          <AddLink>+</AddLink>
-        </ButtonBox>
-      </div>
-    </>
+    <div>
+      <StyledButtonBox>
+        <StyledButtons>{folders && folders.map((folder) => <Button setId={setId} folder={folder} key={folder.id} />)}</StyledButtons>
+        <StyledAddLink>+</StyledAddLink>
+      </StyledButtonBox>
+    </div>
   );
 }
 
-export default ButtonList;
+export default FolderButtonList;

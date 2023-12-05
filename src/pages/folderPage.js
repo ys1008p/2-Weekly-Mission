@@ -1,13 +1,13 @@
-import Header from "../component/Header";
-import Footer from "../component/Footer";
-import FolderBanner from "../component/FolderBanner";
-import CardList from "../component/CardList";
-import SearchInput from "../component/SearchInput";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import FolderBanner from "../components/FolderBanner";
+import CardList from "../components/CardList";
+import SearchInput from "../components/SearchInput";
 import styles from "../styles/FolderPage.module.css";
-import ButtonList from "../component/ButtonList";
-import TitleArea from "../component/TitleArea";
-import FloatingButton from "../component/FloatingButton";
-import { getFolderUserData, getSelectData, getAllLinksData, getFoldersData } from "../apis/folder/folderApi.js";
+import FolderButtonList from "../components/FolderButtonList";
+import FolderTitle from "../components/FolderTitle";
+import FloatingButton from "../components/FloatingButton";
+import { getFolderUserData, getSelectData, getAllLinksData, getFoldersData } from "../services/FolderApi";
 import { useEffect, useState } from "react";
 
 function FolderPage() {
@@ -56,20 +56,19 @@ function FolderPage() {
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
           <SearchInput />
-          <ButtonList folders={folders} setId={setId} />
-          <TitleArea folders={folders} id={id} />
-          {
-            links.length ===0?
+          <FolderButtonList folders={folders} setId={setId} />
+          <FolderTitle folders={folders} id={id} />
+          {links.length === 0 ? (
             <div className={styles.linksNull}>
               <div>저장된 링크가 없습니다.</div>
             </div>
-            :
-            <CardList foldersLink={links} page={"folderPage"} />
-          }
+          ) : (
+            <CardList links={links} page={"folderPage"} />
+          )}
         </div>
       </section>
       <Footer />
-      <FloatingButton/>
+      <FloatingButton />
     </>
   );
 }

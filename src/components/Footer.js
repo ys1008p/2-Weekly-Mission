@@ -23,7 +23,7 @@ function Footer() {
           <img src={process.env.PUBLIC_URL + "/images/youtube.png"} alt="유튜브 아이콘" />
         </a>
         <a name="instagram" href="https://www.instagram.com" target="instagram">
-          <img src={process.env.PUBLIC_URL + "/images/instagram.png"}  alt="인스타 아이콘" />
+          <img src={process.env.PUBLIC_URL + "/images/instagram.png"} alt="인스타 아이콘" />
         </a>
       </div>
     </footer>

@@ -8,7 +8,6 @@ function FolderBanner() {
         <img className={styles.linkIcon} src={process.env.PUBLIC_URL + "/images/linkIcon.png"} alt="링크 아이콘" />
         <button className={styles.button}>추가하기</button>
       </div>
-
     </section>
   );
 }
