@@ -52,6 +52,10 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   background: url('${add}') no-repeat;
+
+  @media screen and (min-width:375px) and (max-width:768px) {
+    display: none;
+  } 
 `
 
 function Tab({
