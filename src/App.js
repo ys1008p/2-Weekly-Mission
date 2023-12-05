@@ -20,9 +20,14 @@ function App() {
   const [shareCardData, setShareCardData] = useState([]);
   const [personalFolderData, setPersonalFolderData] = useState([]);
   const [personalLinkData, setPersonalLinkData] = useState([]);
+  const [selectPersonalLinkData, setSelectPersonalLinkData] = useState([]);
   const [loding, setLoding] = useState(false);
-
+  const [folderId, setFolderId] = useState();
   const location = useLocation();
+
+  const handleId = (id) => {
+    setFolderId(id);
+  };
 
   // shared 유저데이터
   useEffect(() => {
@@ -67,6 +72,21 @@ function App() {
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
   }, []);
 
+  // folder 링크데이터
+  useEffect(() => {
+    getUserPersonalLinkData()
+      .then((result) => {
+        const transformedData = transformLinkData(result.data);
+        const filteredData = transformedData.filter(
+          (item) => item.folderId === folderId
+        );
+        setSelectPersonalLinkData(filteredData);
+      })
+      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
+  }, [folderId]);
+
+  console.log(selectPersonalLinkData);
+
   return (
     <>
       {loding && <Loding />}
@@ -84,8 +104,14 @@ function App() {
         {/* ========================================== */}
         <Route
           path="/folder"
-          element={<Folder psFolderData={personalFolderData} />}
+          element={
+            <Folder psFolderData={personalFolderData} handleId={handleId} />
+          }
         >
+          <Route
+            path=":folderId"
+            element={<CardList cardData={selectPersonalLinkData} />}
+          />
           <Route
             path="/folder"
             element={<CardList cardData={personalLinkData} />}

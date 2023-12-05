@@ -6,6 +6,7 @@ export function transformLinkData(data) {
     title: data.title,
     description: data.description,
     img: data.image_source,
+    folderId: data.folder_id,
   }));
 }
 

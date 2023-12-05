@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledPersonalFolderBtn = styled.button`
@@ -16,8 +17,18 @@ const StyledPersonalFolderBtn = styled.button`
   }
 `;
 
-function UserPersonalFolder({ data }) {
-  return <StyledPersonalFolderBtn>{data.name}</StyledPersonalFolderBtn>;
+function UserPersonalFolder({ data, handleId }) {
+  return (
+    <Link to={`/folder/${data.id}`}>
+      <StyledPersonalFolderBtn
+        onClick={() => {
+          handleId(data.id);
+        }}
+      >
+        {data.name}
+      </StyledPersonalFolderBtn>
+    </Link>
+  );
 }
 
 export default UserPersonalFolder;

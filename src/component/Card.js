@@ -11,7 +11,6 @@ const StyledCardContiner = styled.div`
     border: 3px solid #6d6afe;
   }
 `;
-
 const StyledCardImgContiner = styled.div`
   height: 60%;
   overflow: hidden;
@@ -25,7 +24,6 @@ const StyledCardImg = styled.img`
     transform: scale(1.3);
   }
 `;
-
 const StyledCardInfoContainer = styled.div`
   padding: 1.5rem 2rem;
   display: flex;
@@ -36,7 +34,6 @@ const StyledCardInfoContainer = styled.div`
     background-color: #f0f6ff;
   }
 `;
-
 const StyledCardLastUpdateDate = styled.p`
   color: #666;
   font-size: 1.3rem;

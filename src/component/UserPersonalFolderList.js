@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import UserPersonalFolder from "./UserPersonalFolder";
 import UserPersonalFolderSideBar from "./UserPersonalFolderSideBar";
 import styled from "styled-components";
@@ -32,14 +33,16 @@ const StyledPersonalFolderAddBtn = styled.button`
   cursor: pointer;
 `;
 
-function UserPersonalFolderList({ psFolderData }) {
+function UserPersonalFolderList({ psFolderData, handleId }) {
   return (
     <>
       <StyledPersonalFolderBtnContainer>
         <div>
-          <StyledPersonalFolderBtn>전체</StyledPersonalFolderBtn>
+          <Link to="/folder">
+            <StyledPersonalFolderBtn>전체</StyledPersonalFolderBtn>
+          </Link>
           {psFolderData.map((data) => (
-            <UserPersonalFolder key={data.id} data={data} />
+            <UserPersonalFolder key={data.id} data={data} handleId={handleId} />
           ))}
         </div>
         <StyledPersonalFolderAddBtn>폴더 추가 +</StyledPersonalFolderAddBtn>
