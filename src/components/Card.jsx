@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import emptyImage from '../images/emptyImage.svg';
+import StarImg from '../images/star.svg';
+import KebabImg from '../images/kebab.svg';
 import './Card.css';
 
 export default function Card({
-  link: { title, createdAt, description, imageSource, url },
+  link: { title, created_at, description, image_source, url },
 }) {
   const [logTime, setLogTime] = useState('');
 
-  const date = getDate(createdAt);
+  const date = getDate(created_at);
 
   useEffect(() => {
-    setLogTime(getLogTime(createdAt));
-  }, [createdAt]);
+    setLogTime(getLogTime(created_at));
+  }, [created_at]);
 
   return (
     <a className='card' href={url} target='_blank' rel='noreferrer noopener'>
       <div className='card-image-container'>
-        {imageSource ? (
-          <img className='card-image' src={imageSource} alt={title} />
+        {image_source ? (
+          <img className='card-image' src={image_source} alt={title} />
         ) : (
           <img
             className='card-image'
@@ -26,10 +28,19 @@ export default function Card({
           />
         )}
       </div>
+      <button className='add-bookmark-icon'>
+        <img src={StarImg} alt='즐겨찾기 추가' />
+      </button>
       <div className='card-info'>
         <p className='card-log-time'>{logTime}</p>
         <p className='card-description'>{description}</p>
         <p className='card-date'>{date}</p>
+        <button className='kebab-icon'>
+          <img
+            src={KebabImg}
+            alt='개별 링크 삭제 혹은 폴더에 추가하기 기능 리스트 토글'
+          />
+        </button>
       </div>
     </a>
   );

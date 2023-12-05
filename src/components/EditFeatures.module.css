@@ -1,0 +1,14 @@
+.features {
+  display: flex;
+  gap: 1.2rem;
+  padding-top: 1.2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-gray-60);
+  font-size: 1.4rem;
+  font-weight: 600;
+}

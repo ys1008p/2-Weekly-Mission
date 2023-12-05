@@ -1,0 +1,22 @@
+.nameContainer {
+  margin: auto;
+  width: calc(100% - var(--size-mobile-padding) * 2);
+  max-width: 106rem;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .nameContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .name {
+    font-size: 2.4rem;
+  }
+}

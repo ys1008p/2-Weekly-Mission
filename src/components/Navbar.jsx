@@ -3,22 +3,24 @@ import useGetData from '../hooks/useGetData';
 import Profile from './Profile';
 import SignButton from './SignButton';
 import LinkbraryLogo from '../images/logo.svg';
-import './Navbar.css';
+import styles from './Navbar.module.css';
 
-export default function Navbar() {
-  const [loading, error, user] = useGetData('sample/user');
+export default function Navbar({ profileUrl, className }) {
+  const [loading, error, user] = useGetData(profileUrl);
 
   if (loading) return <div>loading..</div>;
   if (error) return <p>{error}</p>;
 
+  const userData = user?.data[0];
+
   return (
-    <nav className='navbar'>
-      <div className='navbar-container'>
+    <nav className={styles[`${className}`]}>
+      <div className={styles.container}>
         <a href='/'>
-          <img className='logo' src={LinkbraryLogo} alt='로고' />
+          <img className={styles.logo} src={LinkbraryLogo} alt='로고' />
         </a>
         {user ? (
-          <Profile user={user} />
+          <Profile user={userData} />
         ) : (
           <a href='/signin'>
             <SignButton text='로그인' />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useGetData(url) {
+export default function useGetData(url, dependency) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
@@ -19,7 +19,7 @@ export default function useGetData(url) {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [dependency]);
 
   return [loading, error, data];
 }
