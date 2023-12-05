@@ -23,10 +23,13 @@ function App() {
   const [selectPersonalLinkData, setSelectPersonalLinkData] = useState([]);
   const [loding, setLoding] = useState(false);
   const [folderId, setFolderId] = useState();
+  const [folderName, setFolderName] = useState();
   const location = useLocation();
 
-  const handleId = (id) => {
-    setFolderId(id);
+  const handleData = (data) => {
+    setFolderId(data.id);
+    setFolderName(data.name);
+    console.log(data);
   };
 
   // shared 유저데이터
@@ -85,8 +88,6 @@ function App() {
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
   }, [folderId]);
 
-  console.log(selectPersonalLinkData);
-
   return (
     <>
       {loding && <Loding />}
@@ -105,7 +106,11 @@ function App() {
         <Route
           path="/folder"
           element={
-            <Folder psFolderData={personalFolderData} handleId={handleId} />
+            <Folder
+              psFolderData={personalFolderData}
+              handleData={handleData}
+              folderName={folderName}
+            />
           }
         >
           <Route

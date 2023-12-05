@@ -3,8 +3,14 @@ import HeaderSearchSection from "../component/HeaderSearchSection";
 import MainContainer from "../component/MainContainer";
 import UserPersonalFolderList from "../component/UserPersonalFolderList";
 import LinkSearchInput from "../component/LinkSearchInput";
+import { useState } from "react";
 
-function Folder({ psFolderData, handleId }) {
+function Folder({ psFolderData, handleData, folderName }) {
+  const [sideBtnLender, setSideBtnLender] = useState(false);
+  function handleSideBtn(data) {
+    setSideBtnLender(data);
+  }
+
   return (
     <>
       <HeaderSearchSection />
@@ -12,7 +18,10 @@ function Folder({ psFolderData, handleId }) {
         <LinkSearchInput />
         <UserPersonalFolderList
           psFolderData={psFolderData}
-          handleId={handleId}
+          handleData={handleData}
+          handleSideBtn={handleSideBtn}
+          sideBtnLender={sideBtnLender}
+          folderName={folderName}
         />
         <Outlet />
       </MainContainer>

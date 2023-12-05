@@ -1,5 +1,6 @@
 import Card from "./Card";
 import styled from "styled-components";
+import LinkNotFound from "./LinkNotFound";
 
 const StyledCardListContainer = styled.div`
   display: grid;
@@ -25,12 +26,17 @@ const StyledCardListContainer = styled.div`
 
 function CardList({ cardData }) {
   return (
-    <StyledCardListContainer>
-      {cardData.map((data) => (
-        <Card key={data.id} data={data} />
-      ))}
-    </StyledCardListContainer>
+    <>
+      {cardData.length === 0 ? (
+        <LinkNotFound />
+      ) : (
+        <StyledCardListContainer>
+          {cardData.map((data) => (
+            <Card key={data.id} data={data} />
+          ))}
+        </StyledCardListContainer>
+      )}
+    </>
   );
 }
-
 export default CardList;

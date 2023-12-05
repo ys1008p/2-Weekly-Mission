@@ -29,24 +29,26 @@ const StyledSideBtn = styled.span`
 
 const StyledSideBtnImg = styled.img``;
 
-function UserPersonalFolderSideBar() {
+function UserPersonalFolderSideBar({ folderName, sideBtnLender }) {
   return (
     <StyledSideBarMainContainer>
-      <StyledSelectFolderName>테스트</StyledSelectFolderName>
-      <StyledSideBtnContainer>
-        <StyledSideBtn>
-          <StyledSideBtnImg src="img/share.svg" alt="share" />
-          공유
-        </StyledSideBtn>
-        <StyledSideBtn>
-          <StyledSideBtnImg src="img/pen.svg" alt="changeName" />
-          이름 변경
-        </StyledSideBtn>
-        <StyledSideBtn>
-          <StyledSideBtnImg src="img/delete.svg" alt="delete" />
-          삭제
-        </StyledSideBtn>
-      </StyledSideBtnContainer>
+      <StyledSelectFolderName>{folderName || "전체"}</StyledSelectFolderName>
+      {sideBtnLender === true ? (
+        <StyledSideBtnContainer>
+          <StyledSideBtn>
+            <StyledSideBtnImg src="img/share.svg" alt="share" />
+            공유
+          </StyledSideBtn>
+          <StyledSideBtn>
+            <StyledSideBtnImg src="img/pen.svg" alt="changeName" />
+            이름 변경
+          </StyledSideBtn>
+          <StyledSideBtn>
+            <StyledSideBtnImg src="img/delete.svg" alt="delete" />
+            삭제
+          </StyledSideBtn>
+        </StyledSideBtnContainer>
+      ) : null}
     </StyledSideBarMainContainer>
   );
 }

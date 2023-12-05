@@ -33,21 +33,42 @@ const StyledPersonalFolderAddBtn = styled.button`
   cursor: pointer;
 `;
 
-function UserPersonalFolderList({ psFolderData, handleId }) {
+function UserPersonalFolderList({
+  psFolderData,
+  handleData,
+  handleSideBtn,
+  folderName,
+  sideBtnLender,
+}) {
   return (
     <>
       <StyledPersonalFolderBtnContainer>
         <div>
           <Link to="/folder">
-            <StyledPersonalFolderBtn>전체</StyledPersonalFolderBtn>
+            <StyledPersonalFolderBtn
+              onClick={() => {
+                handleData("");
+                handleSideBtn(false);
+              }}
+            >
+              전체
+            </StyledPersonalFolderBtn>
           </Link>
           {psFolderData.map((data) => (
-            <UserPersonalFolder key={data.id} data={data} handleId={handleId} />
+            <UserPersonalFolder
+              key={data.id}
+              data={data}
+              handleData={handleData}
+              handleSideBtn={handleSideBtn}
+            />
           ))}
         </div>
         <StyledPersonalFolderAddBtn>폴더 추가 +</StyledPersonalFolderAddBtn>
       </StyledPersonalFolderBtnContainer>
-      <UserPersonalFolderSideBar />
+      <UserPersonalFolderSideBar
+        folderName={folderName}
+        sideBtnLender={sideBtnLender}
+      />
     </>
   );
 }

@@ -3,9 +3,10 @@ import styled from "styled-components";
 const StyledFooterContainer = styled.footer`
   background-color: #111322;
   padding: 3.2rem 10.4rem 6.4rem;
-
+  margin-top: 6rem;
   @media all and (max-width: 768px) {
     padding: 3.2rem;
+    margin-top: 4rem;
   }
 `;
 const StyledFooterItemContainer = styled.div`

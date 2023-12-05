@@ -17,12 +17,13 @@ const StyledPersonalFolderBtn = styled.button`
   }
 `;
 
-function UserPersonalFolder({ data, handleId }) {
+function UserPersonalFolder({ data, handleData, handleSideBtn }) {
   return (
     <Link to={`/folder/${data.id}`}>
       <StyledPersonalFolderBtn
         onClick={() => {
-          handleId(data.id);
+          handleData(data);
+          handleSideBtn(true);
         }}
       >
         {data.name}
