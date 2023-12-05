@@ -2,8 +2,6 @@
 
 section {
   background-color: var(--white-color);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 }
 
 nav {
@@ -25,7 +23,7 @@ nav {
 }
 
 .button {
-  background-image: var(--gradient-purple-orange);
+  background-image: var(--gradient-purpleblue-skyblue);
   font-size: 1.8rem;
   text-align: center;
   text-decoration: none;
@@ -141,6 +139,7 @@ footer {
   background-color: var(--black-color);
   padding: 3.2rem 10.4rem 6.4rem 10.4rem;
   font-size: 1.6rem;
+  margin-top: 6rem;
 }
 
 .info {
