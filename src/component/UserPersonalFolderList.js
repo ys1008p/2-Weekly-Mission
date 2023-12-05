@@ -25,6 +25,12 @@ const StyledPersonalFolderBtnContainer = styled.div`
   justify-content: space-between;
 `;
 
+const StyledPersonalFolderListBtnContainer = styled.div`
+  display: flex;
+  gap: 1rem 0;
+  flex-wrap: wrap;
+`;
+
 const StyledPersonalFolderAddBtn = styled.button`
   color: #6d6afe;
   font-size: 16px;
@@ -32,6 +38,25 @@ const StyledPersonalFolderAddBtn = styled.button`
   border: none;
   background-color: #fff;
   cursor: pointer;
+  white-space: nowrap;
+
+  @media all and (max-width: 768px) {
+    position: fixed;
+    bottom: 10.1rem;
+    z-index: 999;
+    right: 50%;
+    transform: translate(50%, 0);
+    color: white;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background: #6d6afe;
+    padding: 0.8rem 2.4rem;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #4b4bff;
+    }
+  }
 `;
 
 function UserPersonalFolderList({
@@ -47,7 +72,7 @@ function UserPersonalFolderList({
   return (
     <>
       <StyledPersonalFolderBtnContainer>
-        <div>
+        <StyledPersonalFolderListBtnContainer>
           <Link to="/folder">
             <StyledPersonalFolderBtn
               $isMatching={numPath}
@@ -68,7 +93,7 @@ function UserPersonalFolderList({
               numPath={numPath}
             />
           ))}
-        </div>
+        </StyledPersonalFolderListBtnContainer>
         <StyledPersonalFolderAddBtn>폴더 추가 +</StyledPersonalFolderAddBtn>
       </StyledPersonalFolderBtnContainer>
       <UserPersonalFolderSideBar

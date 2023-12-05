@@ -7,7 +7,7 @@ const StyledPersonalFolderBtn = styled.button`
   background: ${({ $isMatching }) => ($isMatching ? "#6d6afe" : "#fff")};
   color: ${({ $isMatching }) => ($isMatching ? "#fff" : "#000")};
   padding: 0.8rem 1.2rem;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   margin-right: 0.8rem;
   cursor: pointer;

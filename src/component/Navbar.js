@@ -4,11 +4,12 @@ import styled from "styled-components";
 const StyledNavbarContainer = styled.nav`
   background-color: #f0f6ff;
   margin: 0 auto;
-  position: ${({ $test }) => ($test ? "fixed" : "static")};
+  position: ${({ $isActiveFixed }) => ($isActiveFixed ? "fixed" : "static")};
   width: 100%;
   top: 0;
   left: 50%;
-  transform: ${({ $test }) => ($test ? "translate(-50%, 0);" : "none")};
+  transform: ${({ $isActiveFixed }) =>
+    $isActiveFixed ? "translate(-50%, 0);" : "none"};
   z-index: 99;
 `;
 
@@ -68,7 +69,7 @@ function Navbar({ userData, location }) {
 
   return (
     <>
-      <StyledNavbarContainer $test={getPathname}>
+      <StyledNavbarContainer $isActiveFixed={getPathname}>
         <StyledNavItem>
           <Link to="/">
             <StyledNavLogo
