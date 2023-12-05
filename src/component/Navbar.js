@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import logoIcon from "../img/logo.png";
 
 const StyledNavbarContainer = styled.nav`
   background-color: #f0f6ff;
@@ -73,7 +74,7 @@ function Navbar({ userData, location }) {
         <StyledNavItem>
           <Link to="/">
             <StyledNavLogo
-              src="img/logo.png"
+              src={logoIcon}
               alt="logo"
               className="nav-item-logo"
             />

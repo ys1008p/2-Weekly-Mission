@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import facebookIcon from "../img/akar-icons_facebook-fill.svg";
+import twitterIcon from "../img/akar-icons_twitter-fill.svg";
+import youtubeIcon from "../img/akar-icons_youtube-fill.svg";
+import instagramIcon from "../img/ant-design_instagram-filled.svg";
 
 const StyledFooterContainer = styled.footer`
   background-color: #111322;
@@ -75,19 +79,16 @@ function Footer() {
 
         <StyledFooterIconContainer>
           <a href="https://www.facebook.com" rel="noopener noreferrer">
-            <img src="img/akar-icons_facebook-fill.svg " alt="facebook_icon" />
+            <img src={facebookIcon} alt="facebook_icon" />
           </a>
           <a href="https://www.twitter.com" rel="noopener noreferrer">
-            <img src="img/akar-icons_twitter-fill.svg " alt="twitter_icon" />
+            <img src={twitterIcon} alt="twitter_icon" />
           </a>
           <a href="https://www.youtube.com" rel="noopener noreferrer">
-            <img src="img/akar-icons_youtube-fill.svg " alt="youtube_icon" />
+            <img src={youtubeIcon} alt="youtube_icon" />
           </a>
           <a href="https://www.instagram.com" rel="noopener noreferrer">
-            <img
-              src="img/ant-design_instagram-filled.svg "
-              alt="instagram_icon"
-            />
+            <img src={instagramIcon} alt="instagram_icon" />
           </a>
         </StyledFooterIconContainer>
       </StyledFooterItemContainer>

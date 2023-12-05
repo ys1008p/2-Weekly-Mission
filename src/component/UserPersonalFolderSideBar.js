@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import shareIcon from "../img/share.svg";
+import penIcon from "../img/pen.svg";
+import deleteIcon from "../img/delete.svg";
 
 const StyledSideBarMainContainer = styled.div`
   display: flex;
@@ -36,15 +39,15 @@ function UserPersonalFolderSideBar({ folderName, sideBtnLender }) {
       {sideBtnLender === true ? (
         <StyledSideBtnContainer>
           <StyledSideBtn>
-            <StyledSideBtnImg src="img/share.svg" alt="share" />
+            <StyledSideBtnImg src={shareIcon} alt="share" />
             공유
           </StyledSideBtn>
           <StyledSideBtn>
-            <StyledSideBtnImg src="img/pen.svg" alt="changeName" />
+            <StyledSideBtnImg src={penIcon} alt="changeName" />
             이름 변경
           </StyledSideBtn>
           <StyledSideBtn>
-            <StyledSideBtnImg src="img/delete.svg" alt="delete" />
+            <StyledSideBtnImg src={deleteIcon} alt="delete" />
             삭제
           </StyledSideBtn>
         </StyledSideBtnContainer>

@@ -9,7 +9,7 @@ import Footer from "./component/Footer";
 import Shared from "./pages/Shared";
 import Folder from "./pages/Folder";
 import { getUserPersonalFolderData } from "./api/getUserPersonalFolderData";
-import Test from "./component/Test";
+import TestLanding from "./component/TestLanding";
 import { getUserPersonalLinkData } from "./api/getUserPersoanlLinkData";
 import CardList from "./component/CardList";
 import { transformLinkData, transformShareCardData } from "./api/dataTransform";
@@ -96,7 +96,7 @@ function App() {
       <Navbar userData={userData} location={location} />
       {/* ========================================== */}
       <Routes>
-        <Route path="/" element={<Test></Test>}></Route>
+        <Route path="/" element={<TestLanding />}></Route>
         <Route
           path="/shared"
           element={<Shared folderData={folderData} cardData={shareCardData} />}

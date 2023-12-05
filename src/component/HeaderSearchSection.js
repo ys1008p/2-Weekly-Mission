@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import linkIcon from "../img/link.svg";
 
 const StyledHeaderSectionContainer = styled.section`
   padding: 6rem 32rem 9rem;
@@ -28,7 +29,7 @@ const StyledHeaderSectionInput = styled.input`
   min-width: 80rem;
 
   &::placeholder {
-    background-image: url(img/link.svg);
+    background-image: url(${linkIcon});
     background-size: contain;
     background-position: 0.1rem center;
     background-repeat: no-repeat;
