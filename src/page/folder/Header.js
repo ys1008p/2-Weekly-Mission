@@ -13,7 +13,6 @@ function Header({
       <Nav 
         profileImg={profileImg}
         profileEmail={profileEmail}
-        a={a}
       />
       <AddLinkBar />
     </header>
