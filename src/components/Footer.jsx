@@ -1,62 +1,31 @@
 import React from "react";
 import { footerIcon } from "assets/icons/footer";
+import { Link } from "react-router-dom";
+import { footer } from "assets/styles/footer";
+
 const Footer = () => {
   return (
-    <footer>
-      <div className="footer-box">
-        <span className="copyright">©codeit - 2023</span>
-        <div className="footer-links">
-          <a className="footer-link" href="privacy.html">
-            Privacy Policy
-          </a>
-          <a className="footer-link" href="faq.html">
-            FAQ
-          </a>
-        </div>
-        <div className="sns">
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={footerIcon.facebook}
-              alt="facebook 홈페이지로 연결된 facebook 로고"
-            />
-          </a>
-          <a
-            href="https://twitter.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={footerIcon.twitter}
-              alt="twitter 홈페이지로 연결된 twitter 로고"
-            />
-          </a>
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={footerIcon.youtube}
-              alt="youtube 홈페이지로 연결된 youtube 로고"
-            />
-          </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={footerIcon.instagram}
-              alt="instagram 홈페이지로 연결된 instagram 로고"
-            />
-          </a>
-        </div>
-      </div>
-    </footer>
+    <footer.Container>
+      <footer.Box>
+        <footer.CopyRight>©codeit - 2023</footer.CopyRight>
+        <footer.Links>
+          <footer.SLink to="privacy.html">Privacy Policy</footer.SLink>
+          <footer.SLink to="faq.html">FAQ</footer.SLink>
+        </footer.Links>
+        <footer.SNS>
+          {Object.entries(footerIcon).map(([urlName, Icon]) => (
+            <Link
+              to={`https://www.${urlName}.com`}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={urlName}
+            >
+              <Icon />
+            </Link>
+          ))}
+        </footer.SNS>
+      </footer.Box>
+    </footer.Container>
   );
 };
 

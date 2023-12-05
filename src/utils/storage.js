@@ -1,4 +1,3 @@
-//현재는 사용하지 않음.
 // export function getStorageItem(key) {
 //   try {
 //     const res = localStorage.getItem(key);
