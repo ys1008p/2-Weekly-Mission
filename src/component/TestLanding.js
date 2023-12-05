@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import MainContainer from "./MainContainer";
 
 const Div = styled.div`
   display: flex;
