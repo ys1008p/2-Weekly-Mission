@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/Card.module.css";
-import getElapseTime from "../utils/getElapseTime";
-import getUploadDate from "../utils/getUploadDate";
+import getElapseTime from "../utils/GetElapseTime";
+import getUploadDate from "../utils/GetUploadDate";
 
 function Card({ link }) {
   const [isHover, setIsHover] = useState(false);

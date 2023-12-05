@@ -1,6 +1,8 @@
+import API_BASE_URL from "../utils/ApiBaseUrl.js"
+
 export async function getUserData() {
   try {
-    const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/user");
+    const response = await fetch(`${API_BASE_URL}/sample/user`);
     if (!response.ok) throw new Error();
     return await response.json();
   } catch (error) {
@@ -10,7 +12,7 @@ export async function getUserData() {
 
 export async function getSharedData() {
   try {
-    const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/folder");
+    const response = await fetch(`${API_BASE_URL}/sample/folder`);
     if (!response.ok) throw new Error();
     return await response.json();
   } catch (error) {

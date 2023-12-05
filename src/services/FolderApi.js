@@ -1,6 +1,8 @@
+import API_BASE_URL from "../utils/ApiBaseUrl.js"
+
 export async function getFolderUserData() {
   try {
-    const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1");
+    const response = await fetch(`${API_BASE_URL}/users/1`);
     if (!response.ok) throw new Error();
     return await response.json();
   } catch (error) {
@@ -10,7 +12,7 @@ export async function getFolderUserData() {
 
 export async function getFoldersData() {
   try {
-    const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1/folders");
+    const response = await fetch(`${API_BASE_URL}/users/1/folders`);
     if (!response.ok) throw new Error();
     return await response.json();
   } catch (error) {
@@ -20,7 +22,7 @@ export async function getFoldersData() {
 
 export async function getAllLinksData() {
   try {
-    const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1/links");
+    const response = await fetch(`${API_BASE_URL}/users/1/links`);
     if (!response.ok) throw new Error();
     return await response.json();
   } catch (error) {
@@ -30,7 +32,7 @@ export async function getAllLinksData() {
 
 export async function getSelectData(id) {
   try {
-    const response = await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${id}`);
+    const response = await fetch(`${API_BASE_URL}/users/1/links?folderId=${id}`);
     if (!response.ok) throw new Error();
     return await response.json();
   } catch (error) {
