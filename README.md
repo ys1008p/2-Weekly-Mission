@@ -1,4 +1,4 @@
-<img src='public/img/codeit.png'>
+<img src='./src/img/codeit.png'>
 <br>
 <br>
 <br>

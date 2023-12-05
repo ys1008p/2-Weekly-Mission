@@ -13,6 +13,7 @@ import TestLanding from "./component/TestLanding";
 import { getUserPersonalLinkData } from "./api/getUserPersoanlLinkData";
 import CardList from "./component/CardList";
 import { transformLinkData, transformShareCardData } from "./api/dataTransform";
+import NotFoundPage from "./component/NotFoundPage";
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -122,6 +123,7 @@ function App() {
           />
         </Route>
         {/* ========================================== */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </>
