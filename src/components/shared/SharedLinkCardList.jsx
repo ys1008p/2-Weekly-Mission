@@ -1,6 +1,6 @@
 import SharedLinkCard from "@/components/shared/SharedLinkCard";
 
-export default function LinkInfoCardList({ linkInfoList }) {
+export default function SharedLinkCardList({ linkInfoList }) {
   return (
     <ul className="relative grid w-full grid-cols-fill-max-34 gap-x-[2rem] gap-y-[2.5rem]">
       {linkInfoList.map((linkInfo) => (

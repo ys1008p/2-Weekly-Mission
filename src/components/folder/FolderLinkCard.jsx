@@ -6,7 +6,7 @@ import {
 import Icon from "@/components/common/Icon";
 import CardOptionMenu from "./CardOptionMenu";
 
-export default function LinkInfoCard({ linkInfo }) {
+export default function FolderLinkInfoCard({ linkInfo }) {
   const handleCardMenuClick = (e) => {
     e.preventDefault();
   };
