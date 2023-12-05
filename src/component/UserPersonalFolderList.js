@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import UserPersonalFolder from "./UserPersonalFolder";
 import UserPersonalFolderSideBar from "./UserPersonalFolderSideBar";
 import styled from "styled-components";
@@ -6,7 +6,8 @@ import styled from "styled-components";
 const StyledPersonalFolderBtn = styled.button`
   border-radius: 5px;
   border: 1px solid #6d6afe;
-  background: #fff;
+  background: ${({ $isMatching }) => (!$isMatching ? "#6d6afe" : "#fff")};
+  color: ${({ $isMatching }) => (!$isMatching ? "#fff" : "#000")};
   padding: 0.8rem 1.2rem;
   font-size: 16px;
   font-weight: 400;
@@ -40,12 +41,16 @@ function UserPersonalFolderList({
   folderName,
   sideBtnLender,
 }) {
+  const path = useParams();
+  const numPath = Number(path.folderId);
+
   return (
     <>
       <StyledPersonalFolderBtnContainer>
         <div>
           <Link to="/folder">
             <StyledPersonalFolderBtn
+              $isMatching={numPath}
               onClick={() => {
                 handleData("");
                 handleSideBtn(false);
@@ -60,6 +65,7 @@ function UserPersonalFolderList({
               data={data}
               handleData={handleData}
               handleSideBtn={handleSideBtn}
+              numPath={numPath}
             />
           ))}
         </div>

@@ -29,7 +29,6 @@ function App() {
   const handleData = (data) => {
     setFolderId(data.id);
     setFolderName(data.name);
-    console.log(data);
   };
 
   // shared 유저데이터
