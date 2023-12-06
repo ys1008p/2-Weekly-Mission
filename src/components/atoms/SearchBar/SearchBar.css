@@ -1,5 +1,6 @@
 .SearchBar {
   position: relative;
+  margin: 0 auto;
 }
 .SearchBar-input {
   width: 100%;
@@ -17,4 +18,23 @@
   position: absolute;
   top: 1.5rem;
   left: 1.6rem;
+}
+
+@media (min-width: 375px) {
+  .SearchBar {
+    width: 32.5rem;
+  }
+}
+
+/* for tablet, pc */
+@media (min-width: 768px) {
+  .SearchBar {
+    width: 100%;
+    min-width: 70.4rem;
+  }
+}
+@media (min-width: 1200px) {
+  .SearchBar {
+    width: 106rem;
+  }
 }
