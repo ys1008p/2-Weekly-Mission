@@ -1,5 +1,5 @@
-import './Sorting.css';
-import FolderButton from '../../shared/FolderButton/FolderButton';
+import './Filtering.css';
+import FolderButton from '../../shared/FolderButton';
 import addFolderIcon from './add.png';
 import { useMediaQuery } from 'react-responsive';
 

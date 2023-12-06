@@ -1,10 +1,10 @@
 import './FolderPage.css';
-import AddLinkBar from '../shared/AddLinkBar/AddLinkBar';
-import SearchBar from '../shared/SearchBar/SearchBar';
-import Sorting from '../others/Sorting/Sorting';
-import FolderEditButtons from '../others/FolderEditButtons/FolderEditButtons';
-import { Cards } from '../shared/Cards/Cards';
-import FloatingActionButton from '../shared/FloatingActionButton/FloatingActionButton';
+import AddLinkBar from '../shared/AddLinkBar';
+import SearchBar from '../shared/SearchBar';
+import Filtering from '../others/Filtering';
+import FolderEditButtons from '../others/FolderEditButtons';
+import { Cards } from '../shared/Cards';
+import FloatingActionButton from '../shared/FloatingActionButton';
 import { useState, useEffect } from 'react';
 import { getFolder, getLinks } from '../fetchApi';
 
@@ -44,7 +44,7 @@ export default function FolderPage() {
     <div>
       <AddLinkBar />
       <SearchBar />
-      <Sorting chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
+      <Filtering chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
       <div className="folderDescription">
         <h1 className="folderName">{chosenFolderName}</h1>
         {chosenFolderId && <FolderEditButtons className="folderEditButtons" />}

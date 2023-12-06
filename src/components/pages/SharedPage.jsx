@@ -1,9 +1,9 @@
 import './FolderPage.css';
 import { useState, useEffect } from 'react';
 import { getSampleUserFolder } from '../fetchApi';
-import FolderBanner from '../others/FolderBanner/FolderBanner';
-import SearchBar from '../shared/SearchBar/SearchBar';
-import { CardForShared } from '../shared/CardForShared/CardForShared';
+import FolderBanner from '../others/FolderBanner';
+import SearchBar from '../shared/SearchBar';
+import { CardForShared } from '../shared/CardForShared';
 
 export default function FolderPage() {
   const [sampleUserFolder, setSampleUserFolder] = useState({

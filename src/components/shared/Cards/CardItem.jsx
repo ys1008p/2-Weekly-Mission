@@ -1,4 +1,4 @@
-import Stars from '../Stars/Stars';
+import Stars from '../Stars';
 import kebapImg from './images/kebab.png';
 import { timeAgo, getYYYYMMYY, getShortDescription } from '../../../utils/formatting';
 import emptyCard from './images/emptyCard.jpeg';

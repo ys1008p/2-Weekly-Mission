@@ -1,6 +1,6 @@
 import './AddLinkBar.css';
 import linkIcon from './link.svg';
-import CTA from '../CTA/CTA';
+import CTA from '../CTA';
 export default function AddLinkBar() {
   return (
     <div className="AddLinkBar__container">
