@@ -21,6 +21,7 @@ function FolderPage() {
   const [menuActive, setMenuActive] = useState('all')
   const [btnOption, setBtnOption] = useState(false)
   const [title, setTitle] = useState('')
+  const [position, setPosition] = useState('')
 
   const [getProfile] = useAsync('/users', '/1', '', '')
   const [getFolderMenu] = useAsync('/users', '/1', '/folders', '')
@@ -29,7 +30,7 @@ function FolderPage() {
     '/users',
     '/1',
     '/links?folderId=',
-    `${menuActive}`
+    menuActive
   )
 
   const handleLoadProfile = async () => {
@@ -66,6 +67,7 @@ function FolderPage() {
   useEffect(() => {
     handleLoadProfile()
     handleLoadFolderMenu()
+    setPosition('static');
   }, [])
 
   useEffect(() => {
@@ -78,8 +80,8 @@ function FolderPage() {
         <title>FolderPage</title>
       </Helmet>
       <div className="container">
-        <header className="header">
-          <Nav profileImg={profileImg} profileEmail={profileEmail} />
+        <header>
+          <Nav profileImg={profileImg} profileEmail={profileEmail} position={position}/>
           <AddLinkBar />
         </header>
         <div className="main">

@@ -5,7 +5,7 @@ const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: ${({ position }) => (position ? 'static' : 'fixed')};
   left: 0;
   top: 0;
   z-index: 10;
@@ -77,9 +77,9 @@ const Login = styled.span`
     font-size: 2.4rem;
   }
 `
-function Nav({ profileEmail, profileImg, a }) {
+function Nav({ profileEmail, profileImg, position }) {
   return (
-    <Container a={a}>
+    <Container position={position}>
       <h1>
         <a href="/">
           <img src={logo} alt="홈으로 연결된 abrary 로고" />
