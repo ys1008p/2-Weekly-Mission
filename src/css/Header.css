@@ -1,0 +1,44 @@
+header {
+  background-color: #f0f6ff;
+  display: flex;
+  justify-content: center;
+}
+.headerCenter {
+  width: 188px;
+  text-align: center;
+  margin: 20px 0 60px;
+}
+.headerCenter img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px;
+}
+.userName {
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+.clickFile {
+  font-size: 30px;
+  font-weight: 600;
+}
+@media (max-width: 1124px) {
+}
+@media (max-width: 390px) {
+  .headerCenter {
+    width: 150px;
+    margin: 10px 0 40px;
+  }
+  .headerCenter img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 6px;
+  }
+  .userName {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .clickFile {
+    font-size: 22px;
+  }
+}
