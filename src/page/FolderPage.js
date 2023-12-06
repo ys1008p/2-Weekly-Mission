@@ -9,7 +9,6 @@ import MainTitle from '../components/MainTitle';
 import AddFolder from '../components/AddFolder';
 import CardList from '../components/CardList';
 import useAsync from '../hook/useAsync';
-import '../components/root.css';
 function FolderPage() {
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState('');

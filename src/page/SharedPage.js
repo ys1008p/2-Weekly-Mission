@@ -6,8 +6,6 @@ import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
 import CardList from '../components/CardList';
 import useAsync from '../hook/useAsync';
-import '../components/root.css';
-
 
 function SharedPage() {
   const [cardList, setCardList] = useState([]);
