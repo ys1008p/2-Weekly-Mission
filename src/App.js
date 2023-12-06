@@ -1,47 +1,18 @@
-import styles from "./styles/App.module.css";
-import Header from "./component/Header";
-import Footer from "./component/Footer";
-import Banner from "./component/Banner";
-import CardList from "./component/CardList";
-import { useEffect, useState } from "react";
-import { getUserData, getFolderData } from "./api";
+
+import { Routes,Route} from 'react-router-dom';
+import FolderPage from "./pages/FolderPage.js"
+import SharedPage from "./pages/SharedPage.js"
+
 
 function App() {
-  const [email, setEmail] = useState();
-  const [folder, setFolder] = useState();
-
-  const handleEmailLoad = async () => {
-    const { email } = await getUserData();
-    setEmail(email);
-  };
-
-  const handleFolderLoad = async () => {
-    const { folder } = await getFolderData();
-    setFolder(folder);
-    console.log(folder.links);
-  };
-
-  useEffect(() => {
-    handleEmailLoad();
-    handleFolderLoad();
-  }, []);
 
   return (
-    <div className={styles.bodyWrapper}>
-      <main className={styles.bodyContent}>
-        <Header email={email} />
-        <Banner folder={folder} />
-        <section className={styles.contentFlax}>
-          <div className={styles.contentBox}>
-            <div className={styles.searchBox}>
-              <input className={styles.searchInput} placeholder="링크를 검색해주세요" />
-              <img className={styles.searchIcon} src={process.env.PUBLIC_URL + "/images/search.png"}></img>
-            </div>
-            <CardList links={folder && folder.links} />
-          </div>
-        </section>
-      </main>
-      <Footer />
+    <div>
+        <Routes>
+          <Route path="/" element={<FolderPage />} />
+          <Route path="shared" element={<SharedPage />} />
+          <Route path="folder" element={<FolderPage />} />
+        </Routes>
     </div>
   );
 }
