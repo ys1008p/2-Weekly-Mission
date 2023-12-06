@@ -1,53 +1,131 @@
 import { useEffect, useState } from "react";
-import Footer from "./component/shared/footer/Footer";
-import Header from "./component/shared/header/Header";
-import Main from "./component/shared/main/Main";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { getUserData } from "./api/getUserData";
+import { getShareCardData } from "./api/getShareCardData";
 import GlobalStyle from "./GlobalStyles";
 import Loding from "./component/loding/Loding";
+import Navbar from "./component/Navbar";
+import Footer from "./component/Footer";
+import Shared from "./pages/Shared";
+import Folder from "./pages/Folder";
+import { getUserPersonalFolderData } from "./api/getUserPersonalFolderData";
+import TestLanding from "./component/TestLanding";
+import { getUserPersonalLinkData } from "./api/getUserPersoanlLinkData";
+import CardList from "./component/CardList";
+import { transformLinkData, transformShareCardData } from "./api/dataTransform";
+import NotFoundPage from "./component/NotFoundPage";
 
 function App() {
-  //유저데이터 불러오기
   const [userData, setUserData] = useState({});
-  // 로딩구현
-  const [loding, setLoding] = useState();
-  // 사이드 이펙트 처리 & 데이터 GET
+  const [folderData, setFolderData] = useState({});
+  const [shareCardData, setShareCardData] = useState([]);
+  const [personalFolderData, setPersonalFolderData] = useState([]);
+  const [personalLinkData, setPersonalLinkData] = useState([]);
+  const [selectPersonalLinkData, setSelectPersonalLinkData] = useState([]);
+  const [loding, setLoding] = useState(false);
+  const [folderId, setFolderId] = useState();
+  const [folderName, setFolderName] = useState();
+  const location = useLocation();
+
+  const handleData = (data) => {
+    setFolderId(data.id);
+    setFolderName(data.name);
+  };
+
+  // shared 유저데이터
   useEffect(() => {
-    async function getServerData() {
-      setLoding(true);
-      try {
-        const res = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/user"
-        );
+    setLoding(true);
 
-        if (!res.ok) {
-          throw new Error();
-        }
-
-        const data = await res.json();
-        setUserData(data);
-        // 로딩완료시 로딩창 안 보이게
-      } catch (e) {
-        console.log("에러 발생: " + e);
-        alert("사용자 데이터를 불러오는중 에러가 발생하였습니다.");
-      } finally {
+    getUserData()
+      .then((result) => {
+        setUserData(result.data[0]);
         setLoding(false);
-      }
-    }
-
-    getServerData();
+      })
+      .catch(() => alert("회원정보를 불러오는중 에러가 발생하였습니다."))
+      .finally(() => {
+        setLoding(false);
+      });
   }, []);
 
-  const renderHeader = !loding && <Header userData={userData} />;
-  const renderMain = userData.id && !loding && <Main />;
-  const renderFooter = !loding && <Footer />;
+  //shared 카드데이터
+  useEffect(() => {
+    getShareCardData()
+      .then((result) => {
+        setShareCardData(transformShareCardData(result.folder.links));
+        setFolderData(result.folder);
+      })
+      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
+  }, []);
+
+  // folder 목록데이터
+  useEffect(() => {
+    getUserPersonalFolderData()
+      .then((result) => {
+        setPersonalFolderData(result.data);
+      })
+      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
+  }, []);
+
+  // folder 링크데이터
+  useEffect(() => {
+    getUserPersonalLinkData()
+      .then((result) => {
+        setPersonalLinkData(transformLinkData(result.data));
+      })
+      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
+  }, []);
+
+  // folder 링크데이터
+  useEffect(() => {
+    getUserPersonalLinkData()
+      .then((result) => {
+        const transformedData = transformLinkData(result.data);
+        const filteredData = transformedData.filter(
+          (item) => item.folderId === folderId
+        );
+        setSelectPersonalLinkData(filteredData);
+      })
+      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
+  }, [folderId]);
 
   return (
     <>
       {loding && <Loding />}
+
       <GlobalStyle />
-      {renderHeader}
-      {renderMain}
-      {renderFooter}
+
+      <Navbar userData={userData} location={location} />
+      {/* ========================================== */}
+      <Routes>
+        <Route path="/" element={<TestLanding />}></Route>
+        <Route
+          path="/shared"
+          element={<Shared folderData={folderData} cardData={shareCardData} />}
+        />
+        {/* ========================================== */}
+        <Route
+          path="/folder"
+          element={
+            <Folder
+              psFolderData={personalFolderData}
+              handleData={handleData}
+              folderName={folderName}
+            />
+          }
+        >
+          <Route
+            path=":folderId"
+            element={<CardList cardData={selectPersonalLinkData} />}
+          />
+          <Route
+            path="/folder"
+            element={<CardList cardData={personalLinkData} />}
+          />
+        </Route>
+        {/* ========================================== */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
