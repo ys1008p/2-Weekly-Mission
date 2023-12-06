@@ -1,16 +1,20 @@
-function FolderHeader({ folder }) {
-  if (!folder.owner) {
-    return <div>Loading...</div>;
-  }
+import FolderHeaderUtils from './FolderHeaderUtils';
+import styles from './FolderHeader.module.css';
+
+function FolderHeader({ tabs, selectedTab }) {
+  const matchingFolder = tabs?.find(tab => tab.id === selectedTab);
 
   return (
-    <div className="folder-header">
-      <div className="folder-info">
-        <img className="img" src={folder.owner.profileImageSource} alt="폴더 프로필" />
-        <span className="name">{folder.owner.name}</span>
-      </div>
-      <p className="favorite">{folder.name}</p>
-    </div>
+    <>
+      {matchingFolder === undefined ? (
+        <h2>전체</h2>
+      ) : (
+        <div className={styles['folder-header']}>
+          <h2>{matchingFolder.name}</h2>
+          <FolderHeaderUtils />
+        </div>
+      )}
+    </>
   );
 }
 
