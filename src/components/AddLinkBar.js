@@ -3,12 +3,7 @@ import link from '../assets/ico-link.png';
 
 const Container = styled.div`
   padding: 6rem 0 9rem 0;
-  background-color: var(--color-sky-blue);
-
-  @media screen and (max-width: 1124px) {
-    padding: 6rem 3.2rem 9rem 3.2rem;
-  }
-
+  
   @media screen and (min-width: 375px) and (max-width: 768px) {
     padding: 2.4rem 0 4rem 0;
   }

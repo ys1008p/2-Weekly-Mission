@@ -4,9 +4,10 @@ import FolderUser from '../../components/FolderUser';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import SearchBar from '../../components/SearchBar';
+import CardList from '../../components/CardList';
 import useAsync from '../../hook/useAsync';
-import CardList from './cardList/CardList';
 import '../../components/root.css';
+
 
 function SharedPage() {
   const [cardList, setCardList] = useState([]);
@@ -59,15 +60,11 @@ function SharedPage() {
         </header>
         <div className="main">
           <SearchBar />
-          <div className="card">
-            <ul>
-              <CardList
-                links={cardList}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              />
-            </ul>
-          </div>
+          <CardList
+            links={cardList}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
+          />
         </div>
         <footer>
           <Footer />

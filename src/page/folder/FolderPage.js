@@ -8,10 +8,8 @@ import TabMenu from '../../components/TabMenu';
 import SearchBar from '../../components/SearchBar';
 import MainTitle from '../../components/MainTitle';
 import AddFolder from '../../components/AddFolder';
-import CardList from './cardList/CardList';
+import CardList from '../../components/CardList';
 import useAsync from '../../hook/useAsync';
-import './Main.css';
-
 function FolderPage() {
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState('');
@@ -21,6 +19,7 @@ function FolderPage() {
   const [btnOption, setBtnOption] = useState(false);
   const [title, setTitle] = useState('');
   const [position, setPosition] = useState('');
+  const [data, setData] = useState(null);
 
   const [getProfile] = useAsync('/users', '/1', '', '');
   const [getFolderMenu] = useAsync('/users', '/1', '/folders', '');
@@ -67,6 +66,7 @@ function FolderPage() {
     handleLoadProfile();
     handleLoadFolderMenu();
     setPosition('static');
+    setData('created_at');
   }, []);
 
   useEffect(() => {
@@ -100,15 +100,12 @@ function FolderPage() {
             btnOption={btnOption}
             menuActive={menuActive}
           />
-          <div className="card">
-            <ul>
-              <CardList
-                links={cardList}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              />
-            </ul>
-          </div>
+          <CardList
+            links={cardList}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
+            data={data}
+          />
           <AddFolder />
         </div>
         <Footer />
