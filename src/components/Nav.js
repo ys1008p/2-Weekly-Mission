@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import logo from '../assets/logo.svg'
+import styled from 'styled-components';
+import logo from '../assets/logo.svg';
 
 const Container = styled.nav`
   display: flex;
@@ -32,7 +32,7 @@ const Container = styled.nav`
       }
     }
   }
-`
+`;
 const Email = styled.a`
   display: flex;
   align-items: center;
@@ -57,7 +57,7 @@ const Email = styled.a`
       display: none;
     }
   }
-`
+`;
 const Login = styled.span`
   display: flex;
   justify-content: center;
@@ -76,7 +76,7 @@ const Login = styled.span`
     height: 3.7rem;
     font-size: 2.4rem;
   }
-`
+`;
 function Nav({ profileEmail, profileImg, position }) {
   return (
     <Container position={position}>
@@ -98,7 +98,7 @@ function Nav({ profileEmail, profileImg, position }) {
         )}
       </div>
     </Container>
-  )
+  );
 }
 
-export default Nav
+export default Nav;

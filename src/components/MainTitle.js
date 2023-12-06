@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import share from '../assets/btn-share.png'
-import pen from '../assets/btn-pen.png'
-import del from '../assets/btn-delete.png'
+import styled from 'styled-components';
+import share from '../assets/btn-share.png';
+import pen from '../assets/btn-pen.png';
+import del from '../assets/btn-delete.png';
 
 const Container = styled.div`
   position: relative;
@@ -14,7 +14,7 @@ const Container = styled.div`
     line-height: 2.8rem;
     letter-spacing: -0.02rem;
   }
-`
+`;
 const ButtonOption = styled.div`
   display: ${({ btnOption, menuActive }) =>
     btnOption === true && menuActive !== 'all' ? 'block' : 'none'};
@@ -63,7 +63,7 @@ const ButtonOption = styled.div`
   button + button {
     margin: 0 0 0 1.2rem;
   }
-`
+`;
 
 function MainTitle({ title, ...props }) {
   return (
@@ -75,7 +75,7 @@ function MainTitle({ title, ...props }) {
         <button type="button">삭제</button>
       </ButtonOption>
     </Container>
-  )
+  );
 }
 
-export default MainTitle
+export default MainTitle;

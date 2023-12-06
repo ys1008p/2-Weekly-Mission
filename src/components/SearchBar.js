@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import search from '../assets/ico-search.png'
+import styled from 'styled-components';
+import search from '../assets/ico-search.png';
 
 const Search = styled.div`
   position: relative;
@@ -26,14 +26,14 @@ const Search = styled.div`
     color: var(--color-gray);
     background-color: var(--color-very-light-gray);
   }
-`
+`;
 
 function SearchBar() {
   return (
     <Search>
       <input type="search" placeholder="링크를 검색해 보세요." />
     </Search>
-  )
+  );
 }
 
-export default SearchBar
+export default SearchBar;

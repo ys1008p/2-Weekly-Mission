@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import add from '../assets/btn-add.png'
+import styled from 'styled-components';
+import add from '../assets/btn-add.png';
 
 const Container = styled.div`
   position: relative;
@@ -39,7 +39,7 @@ const Container = styled.div`
       }
     }
   }
-`
+`;
 
 const Button = styled.button`
   position: absolute;
@@ -55,15 +55,15 @@ const Button = styled.button`
   @media screen and (min-width: 375px) and (max-width: 768px) {
     display: none;
   }
-`
+`;
 
 function TabMenuFunction({ menu, menuActive, handleClick }) {
   const All = {
     id: 'all',
     name: '전체',
-  }
-  const folderNameArr = [...menu]
-  folderNameArr.unshift(All)
+  };
+  const folderNameArr = [...menu];
+  folderNameArr.unshift(All);
 
   const folderName = folderNameArr.map((item) => (
     <li key={item.id}>
@@ -75,8 +75,8 @@ function TabMenuFunction({ menu, menuActive, handleClick }) {
         {item.name}
       </button>
     </li>
-  ))
-  return folderName
+  ));
+  return folderName;
 }
 
 function TabMenu({ menu, menuActive, handleClick, btnOption }) {
@@ -92,7 +92,7 @@ function TabMenu({ menu, menuActive, handleClick, btnOption }) {
       </ul>
       <Button type="button"></Button>
     </Container>
-  )
+  );
 }
 
-export default TabMenu
+export default TabMenu;

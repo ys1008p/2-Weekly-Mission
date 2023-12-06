@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import GlobalStyle from './components/GlobalStyle';
-import SharedPage from "./page/shared/SharedPage";
-import FolderPage from "./page/folder/FolderPage";
+import SharedPage from './page/shared/SharedPage';
+import FolderPage from './page/folder/FolderPage';
 
-function App(){
-  return(
+function App() {
+  return (
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
@@ -13,7 +13,7 @@ function App(){
         <Route path="/folder" element={<FolderPage />}></Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App;

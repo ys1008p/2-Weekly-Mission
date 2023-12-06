@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const FolderInfo = styled.div`
   margin: 9.4rem 0 0;
@@ -17,7 +17,7 @@ const FolderInfo = styled.div`
       width: 4rem;
     }
   }
-`
+`;
 const UserName = styled.p`
   margin: 1.2rem 0 2rem 0;
   font-size: 1.6rem;
@@ -27,7 +27,7 @@ const UserName = styled.p`
     font-size: 1.4rem;
     line-height: 1.6rem;
   }
-`
+`;
 const Name = styled.p`
   font-size: 4rem;
   line-height: 4.8rem;
@@ -37,7 +37,7 @@ const Name = styled.p`
     font-size: 3.2rem;
     line-height: 3.8rem;
   }
-`
+`;
 
 function FolderUser({ folderName, folderUserName, folderUserProfile }) {
   return (
@@ -46,7 +46,7 @@ function FolderUser({ folderName, folderUserName, folderUserProfile }) {
       <UserName>{folderUserName}</UserName>
       <Name>{folderName}</Name>
     </FolderInfo>
-  )
+  );
 }
 
-export default FolderUser
+export default FolderUser;

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import link from '../assets/ico-link.png'
+import styled from 'styled-components';
+import link from '../assets/ico-link.png';
 
 const Container = styled.div`
   padding: 6rem 0 9rem 0;
@@ -79,7 +79,7 @@ const Container = styled.div`
       }
     }
   }
-`
+`;
 
 function AddLinkBar() {
   return (
@@ -91,7 +91,7 @@ function AddLinkBar() {
         </a>
       </div>
     </Container>
-  )
+  );
 }
 
-export default AddLinkBar
+export default AddLinkBar;

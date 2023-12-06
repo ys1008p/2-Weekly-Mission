@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import addFolder from '../assets/btn-add-folder.png'
+import styled from 'styled-components';
+import addFolder from '../assets/btn-add-folder.png';
 
 const Button = styled.button`
   @media screen and (min-width: 375px) and (max-width: 768px) {
@@ -28,10 +28,10 @@ const Button = styled.button`
       background: url('${addFolder}') no-repeat;
     }
   }
-`
+`;
 
 function AddFolder() {
-  return <Button type="button"></Button>
+  return <Button type="button"></Button>;
 }
 
-export default AddFolder
+export default AddFolder;

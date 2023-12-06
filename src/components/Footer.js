@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import facebook from '../assets/ico-facebook.png'
-import twitter from '../assets/ico-twitter.png'
-import youtube from '../assets/ico-youtube.png'
-import instagram from '../assets/ico-instagram.png'
+import styled from 'styled-components';
+import facebook from '../assets/ico-facebook.png';
+import twitter from '../assets/ico-twitter.png';
+import youtube from '../assets/ico-youtube.png';
+import instagram from '../assets/ico-instagram.png';
 
 const Container = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const Container = styled.div`
       bottom: 3.2rem;
     }
   }
-`
+`;
 const FootInfo = styled.div`
   a {
     font-size: 1.6rem;
@@ -35,11 +35,15 @@ const FootInfo = styled.div`
   a:last-child {
     margin: 0 0 0 3rem;
   }
-`
-const Sns = styled.ul`
-  display: flex;
-  gap: 1.2rem;
-`
+`;
+
+const Sns = styled.div`
+  ul {
+    display: flex;
+    gap: 1.2rem;
+  }
+`;
+
 function Footer() {
   return (
     <Container>
@@ -48,8 +52,8 @@ function Footer() {
         <a href="/">Privacy Policy</a>
         <a href="/">FAQ</a>
       </FootInfo>
-      <div>
-        <Sns>
+      <Sns>
+        <ul>
           <li>
             <a href="/" target="_blank" rel="noopener noreferrer">
               <img
@@ -76,10 +80,10 @@ function Footer() {
               />
             </a>
           </li>
-        </Sns>
-      </div>
+        </ul>
+      </Sns>
     </Container>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
