@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import Footer from '../../components/Footer';
-import '../../components/root.css';
-import AddLinkBar from '../../components/AddLinkBar';
-import Nav from '../../components/Nav';
-import TabMenu from '../../components/TabMenu';
-import SearchBar from '../../components/SearchBar';
-import MainTitle from '../../components/MainTitle';
-import AddFolder from '../../components/AddFolder';
-import CardList from '../../components/CardList';
-import useAsync from '../../hook/useAsync';
+import Footer from '../components/Footer';
+import AddLinkBar from '../components/AddLinkBar';
+import Nav from '../components/Nav';
+import TabMenu from '../components/TabMenu';
+import SearchBar from '../components/SearchBar';
+import MainTitle from '../components/MainTitle';
+import AddFolder from '../components/AddFolder';
+import CardList from '../components/CardList';
+import useAsync from '../hook/useAsync';
+import '../components/root.css';
 function FolderPage() {
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState('');

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import FolderUser from '../../components/FolderUser';
-import Nav from '../../components/Nav';
-import Footer from '../../components/Footer';
-import SearchBar from '../../components/SearchBar';
-import CardList from '../../components/CardList';
-import useAsync from '../../hook/useAsync';
-import '../../components/root.css';
+import FolderUser from '../components/FolderUser';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+import SearchBar from '../components/SearchBar';
+import CardList from '../components/CardList';
+import useAsync from '../hook/useAsync';
+import '../components/root.css';
 
 
 function SharedPage() {

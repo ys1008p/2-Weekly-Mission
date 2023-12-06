@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import GlobalStyle from './components/GlobalStyle';
-import SharedPage from './page/shared/SharedPage';
-import FolderPage from './page/folder/FolderPage';
+import SharedPage from './page/SharedPage';
+import FolderPage from './page/FolderPage';
 
 function App() {
   return (
