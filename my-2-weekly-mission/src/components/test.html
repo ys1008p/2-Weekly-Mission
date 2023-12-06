@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .search-container {
+        display: flex;
+        align-items: center;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .search-icon {
+        cursor: pointer;
+        margin-right: 8px;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: #007bff; /* 예시: 포커스시 테두리 색상 변경 */
+      }
+    </style>
+    <title>Search Bar</title>
+  </head>
+  <body>
+    <div class="search-container">
+      <div class="search-icon" onclick="toggleSearch()">
+        <!-- 돋보기 아이콘 SVG 코드 -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a7.5 7.5 0 1 0-1.397-1.398h0c-2.827 0-5.122 2.295-5.122 5.122h0c0 2.828 2.295 5.122 5.122 5.122h0c2.828 0 5.122-2.294 5.122-5.122h0a5.12 5.12 0 0 0-1.48-3.635h0zM14.86 13.448h0c-.79.79-2.073.79-2.864 0h0a2.03 2.03 0 0 0-2.864 0h0a2.03 2.03 0 0 0 0 2.864h0a2.03 2.03 0 0 0 2.864 0h0a2.03 2.03 0 0 0 0-2.864z"
+          />
+        </svg>
+      </div>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="링크를 검색해 보세요"
+        id="searchInput"
+        disabled
+      />
+    </div>
+
+    <script>
+      function toggleSearch() {
+        const searchInput = document.getElementById("searchInput");
+        searchInput.disabled = !searchInput.disabled;
+        if (!searchInput.disabled) {
+          searchInput.focus();
+        }
+      }
+    </script>
+  </body>
+</html>
