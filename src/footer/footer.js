@@ -1,8 +1,8 @@
-import TwitImg from "../img/akar-icons_facebook-fill.jpg";
+import twitterImg from "../img/akar-icons_twitter-fill.png";
+import youtubeImg from "../img/akar-icons_youtube-fill.png";
+import instarImg from "../img/ant-design_instagram-filled.png";
+import facebookImg from "../img/akar-icons_facebook-fill.png";
 import React from "react";
-import { ReactComponent as FaceImg } from "../img/facebook.svg";
-import { ReactComponent as InstarImg } from "../img/instagram.svg";
-import { ReactComponent as YoutubeImg } from "../img/youtube.svg";
 import "../styles/footer.css";
 
 export function Footer() {
@@ -14,18 +14,18 @@ export function Footer() {
           <a className="footer-link">Privacy Policy</a>
           <a className="footer-link">FQA</a>
         </div>
-        <div>
+        <div className="SNS">
           <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-            <img src={FaceImg} alt="페이스북링크" />
+            <img src={facebookImg} alt="페이스북링크" />
           </a>
           <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
-            <img src={TwitImg} alt="트위터링크" />
+            <img src={twitterImg} alt="트위터링크" />
           </a>
           <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
-            <img src={YoutubeImg} alt="유튜브링크" />
+            <img src={youtubeImg} alt="유튜브링크" />
           </a>
           <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
-            <img src={InstarImg} alt="인스타링크" />
+            <img src={instarImg} alt="인스타링크" />
           </a>
         </div>
       </div>

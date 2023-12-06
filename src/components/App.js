@@ -1,11 +1,11 @@
-import "../styles/nav.css";
 import { getFolder, getFolderList } from "../Api";
 import { getProfile } from "../Api";
-import logoImg from "../img/logo.jpg";
 import React, { useState, useEffect } from "react";
 import Main from "./Main";
 import SearchBar from "./SearchBar";
 import { Footer } from "../footer/footer";
+import Nav from "./Nav";
+import Header from "./Header";
 // import { FolderList } from "./FolderList";
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
       const { data } = await getFolderList();
       setUseFolderList(data);
     } catch (error) {
-      console.error("Error fetching data2:", error);
+      console.error("Error fetching data3:", error);
     }
   };
 
@@ -66,42 +66,15 @@ function App() {
 
   // console.log(useFolderList[0].name);
 
-  const { owner, name } = userFolderType;
-  const { email, profileImageSource } = userType;
   // 어지저찌하다 해결은 하였는데. name이 중복되는게 있어 해결해야할것같습니다.
   // 컴포넌트를 쪼개야할것같습니다.
   // const [{ name }] = useFolderList;
 
   return (
     <>
-      <nav>
-        <div className="gnb">
-          <a href="index.html">
-            <img src={logoImg} alt="로고이미지" className="logo" />
-          </a>
-          <a className="cta cta-short" href="signin.html">
-            <img
-              src={profileImageSource}
-              alt="회원이미지"
-              className="userImg"
-            />
-            <span className="userEmail">{email}</span>
-          </a>
-        </div>
-      </nav>
-      <header>
-        <div className="hero-header">
-          <div className="proFileGap">
-            <img
-              src={owner.profileImageSource}
-              alt="프로필이미지"
-              className="profile"
-            />
-            <p className="folderUserName">{owner.name}</p>
-          </div>
-          <div className="folderName">{name}</div>
-        </div>
-      </header>
+      <Nav userType={userType} />
+      <Header userFolderType={userFolderType} />
+
       <div className="Main">
         <SearchBar />
         {/* <div>{user_id}</div> */}

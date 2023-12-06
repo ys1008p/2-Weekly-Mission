@@ -41,3 +41,9 @@ footer {
   align-items: flex-start;
   align-self: stretch;
 }
+
+.SNS {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
