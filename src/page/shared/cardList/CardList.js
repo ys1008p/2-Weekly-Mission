@@ -1,8 +1,6 @@
 import noImg from '../../../assets/no-img.svg';
 import './CardList.css';
 
-
-
 function DateText({ createdAt }){
   const idx = createdAt.indexOf('T');
   const text = createdAt.slice(0, idx);
@@ -37,7 +35,7 @@ function CardList ({ links, onMouseOver, onMouseOut }){
       onMouseOver={onMouseOver} 
       onMouseOut={onMouseOut}
     >
-      <a href={card.url} target="_blank">
+      <a href={card.url} target="_blank" rel="noopener noreferrer">
         <div className="img-box">
           <img src= {card.imageSource ? card.imageSource : noImg} alt="카드 이미지" className="img-card" />
         </div>

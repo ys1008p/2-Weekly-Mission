@@ -39,7 +39,7 @@ function CardList ({ links, onMouseOver, onMouseOut }){
       onMouseOver={onMouseOver} 
       onMouseOut={onMouseOut}
     >
-      <a href={card.url} target="_blank">
+      <a href={card.url} target="_blank" rel="noopener noreferrer">
         <div className='img-box'>
           <img src= {
             card.image_source ? 

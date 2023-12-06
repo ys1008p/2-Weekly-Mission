@@ -51,7 +51,7 @@ function Footer() {
       <div>
         <Sns>
           <li>
-            <a href="/" target="_blank">
+            <a href="/" target="_blank" rel="noopener noreferrer">
               <img
                 src={facebook}
                 alt="facebook 홈페이지로 연결된 facebook 로고"
@@ -59,17 +59,17 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="/" target="_blank">
+            <a href="/" target="_blank" rel="noopener noreferrer">
               <img src={twitter} alt="twitter 홈페이지로 연결된 twitter 로고" />
             </a>
           </li>
           <li>
-            <a href="/" target="_blank">
+            <a href="/" target="_blank" rel="noopener noreferrer">
               <img src={youtube} alt="youtube 홈페이지로 연결된 youtube 로고" />
             </a>
           </li>
           <li>
-            <a href="/" target="_blank">
+            <a href="/" target="_blank" rel="noopener noreferrer">
               <img
                 src={instagram}
                 alt="instagram 홈페이지로 연결된 instagram 로고"
