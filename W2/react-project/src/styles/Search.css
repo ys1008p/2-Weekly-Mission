@@ -1,9 +1,14 @@
 .input-structure {
   display: flex;
   justify-content: center;
+  padding: 60px  90px ;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .input-box {
+  display: flex;
   width: 100%;
   padding: 15px 16px;
   justify-content: space-between;
@@ -25,4 +30,25 @@
 .search-button {
   border: none;
   background: #f5f5f5;
+}
+
+.search-box{
+display: flex;
+gap: 5px;
+justify-content: center;
+padding-top: 1rem;
+}
+
+.add-button{
+  color: white;
+  border-radius: 8px;
+  background:linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%);
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
 }

@@ -8,7 +8,8 @@ function Footer() {
   return (
     <footer>
       <div className="footer-box">
-        <span className="copyright">©codeit - 2023</span>
+        <section className="copyright">©codeit - 2023</section>
+        
         <div className="footer-links">
           <a className="footer-link" href="privacy.html">
             Privacy Policy

@@ -1,15 +1,21 @@
-import SearchIcon from "../assets/Icon_search.svg";
+import searchIcon from "../assets/Icon_search.svg"
 import "../styles/Search.css";
 
 function Search() {
-  const searchValue = "검색어를 입력해주세요";
+  const inputPlaceHolder = "링크를 검색해주세요";
+  const inputIcon = searchIcon;
+  
+
+  
   return (
     <section className="input-structure">
       <div className="input-box">
-        <button className="search-button">
-          <img src={SearchIcon} alt="searchButton" />
-        </button>
-        <input className="input" type="text" placeholder={searchValue} />
+      <form className="search-box">
+      <img src={inputIcon} alt="searchButton" />
+        <input className="input" type="text" placeholder={inputPlaceHolder} />
+        </form>
+      
+       
       </div>
     </section>
   );

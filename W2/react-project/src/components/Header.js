@@ -1,7 +1,29 @@
 import { useState, useEffect } from "react";
 import "../styles/Header.css";
-import profile from "../assets/profile.png";
+//import profileImageSource from "../assets/profile.png";
 import logo from "../assets/logo.svg";
+//import Search from "./Search"
+import linkIcon from "../assets/link.svg";
+
+
+function InputAddLink(){
+  const inputPlaceHolder ="링크를 추가해 보세요" 
+  const inputIcon = linkIcon
+
+  return (
+    <section className="header-input-structure">
+      <div className="header-input-box">
+      <form className="header-add-box">
+      <img src={inputIcon} alt="searchButton" />
+        <input className="header-input" type="text" placeholder={inputPlaceHolder} />
+        </form> 
+         
+        <button className="header-add-button">추가하기</button>
+        
+      </div>
+    </section>
+  )
+}
 
 
 function Header(){
@@ -9,9 +31,14 @@ function Header(){
  const [page, setPage] = useState(1);
  
  useEffect(()=>{
-  fetch(`https://bootcamp-api.codeit.kr/api/sample/user?page=${page}`)
-  .then((response)=>response.json())
-  .then((data)=>setProfileData(data));
+   fetch(`https://bootcamp-api.codeit.kr/api/sample/user?page=${page}`)
+  .then (async (response)=>{
+    const data = await response.json()
+    setProfileData(data)
+  })
+  // .then((data)=>{
+    
+  //   });
  }, [page])
 
 return (
@@ -27,6 +54,7 @@ return (
           </div>
         </div>
       </nav>
+       <InputAddLink/>
     </header>
   );
 
