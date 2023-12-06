@@ -1,6 +1,7 @@
 import noImg from '../../../assets/no-img.svg';
 import star from '../../../assets/ico-star.png';
 import './CardList.css';
+import styled from 'styled-components';
 
 function DateText({ createdAt }){
   const idx = createdAt.indexOf('T');
@@ -39,7 +40,7 @@ function CardList ({ links, onMouseOver, onMouseOut }){
       onMouseOut={onMouseOut}
     >
       <a href={card.url} target="_blank">
-        <div className="img-box">
+        <div className='img-box'>
           <img src= {
             card.image_source ? 
             card.image_source : noImg

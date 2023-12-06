@@ -1,11 +1,10 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import link from '../assets/ico-link.png';
+import styled from 'styled-components'
+import link from '../assets/ico-link.png'
 
 const Container = styled.div`
   padding: 6rem 0 9rem 0;
 
-  @media screen and (min-width:375px) and (max-width:768px) {
+  @media screen and (min-width: 375px) and (max-width: 768px) {
     padding: 2.4rem 0 4rem 0;
   }
 
@@ -14,7 +13,7 @@ const Container = styled.div`
     width: 80rem;
     margin: 0 auto;
 
-    @media screen and (max-width:1124px) {
+    @media screen and (max-width: 1124px) {
       width: 100%;
     }
 
@@ -28,12 +27,12 @@ const Container = styled.div`
       width: 20px;
       height: 20px;
       background: url('${link}') no-repeat;
-  
-      @media screen and (min-width:375px) and (max-width:768px) {
+
+      @media screen and (min-width: 375px) and (max-width: 768px) {
         left: 1rem;
       }
     }
-  
+
     input {
       width: 80rem;
       padding: 2.2rem 5.2rem;
@@ -42,14 +41,14 @@ const Container = styled.div`
       color: var(--color-middle-gray);
       font-size: 1.6rem;
       outline: none;
-  
-      @media screen and (max-width:1124px) {
+
+      @media screen and (max-width: 1124px) {
         width: 100%;
       }
-  
-      @media screen and (min-width:375px) and (max-width:768px) {
+
+      @media screen and (min-width: 375px) and (max-width: 768px) {
         padding: 1.8rem 3.4rem;
-        font-size: 1.4rem; 
+        font-size: 1.4rem;
       }
     }
 
@@ -70,24 +69,24 @@ const Container = styled.div`
       text-align: center;
       line-height: 3.7rem;
 
-      @media screen and (min-width:375px) and (max-width:768px) {
+      @media screen and (min-width: 375px) and (max-width: 768px) {
         right: 1rem;
       }
     }
   }
 `
 
-function AddLinkBar(){
+function AddLinkBar() {
   return (
     <Container>
       <div>
-        <input type="text" placeholder="링크를 추가해보세요"/>
-        <Link to="/">
+        <input type="text" placeholder="링크를 추가해보세요" />
+        <a href="/">
           <span>추가하기</span>
-        </Link>
+        </a>
       </div>
     </Container>
   )
 }
 
-export default AddLinkBar;
+export default AddLinkBar

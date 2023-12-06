@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import logo from '../assets/logo.svg';
+import styled from 'styled-components'
+import logo from '../assets/logo.svg'
 
 const Container = styled.nav`
   display: flex;
@@ -12,15 +11,15 @@ const Container = styled.nav`
   z-index: 10;
   width: 100%;
   height: 9.4rem;
-  padding: 0 20rem; 
+  padding: 0 20rem;
   background-color: var(--color-sky-blue);
 
-  @media screen and (max-width:1124px) {
+  @media screen and (max-width: 1124px) {
     padding: 0 3.2rem;
   }
 
-  @media screen and (min-width:375px) and (max-width:768px) {
-    padding: 0 3.2rem; 
+  @media screen and (min-width: 375px) and (max-width: 768px) {
+    padding: 0 3.2rem;
     height: 6.3rem;
   }
 
@@ -28,7 +27,7 @@ const Container = styled.nav`
     display: block;
 
     img {
-      @media screen and (min-width:375px) and (max-width:768px) {
+      @media screen and (min-width: 375px) and (max-width: 768px) {
         width: 8.8rem;
       }
     }
@@ -54,7 +53,7 @@ const Email = styled.a`
     line-height: 1.6rem;
     color: var(--color-black);
 
-    @media screen and (min-width:375px) and (max-width:768px) {
+    @media screen and (min-width: 375px) and (max-width: 768px) {
       display: none;
     }
   }
@@ -72,36 +71,34 @@ const Login = styled.span`
   font-size: 2.8rem;
   font-weight: 600;
 
-  @media screen and (min-width:375px) and (max-width:768px) {
+  @media screen and (min-width: 375px) and (max-width: 768px) {
     width: 8rem;
     height: 3.7rem;
     font-size: 2.4rem;
   }
 `
-function Nav({ 
-  profileEmail,
-  profileImg,
-  a
-}){
+function Nav({ profileEmail, profileImg, a }) {
   return (
     <Container a={a}>
       <h1>
-        <Link to="/">
-          <img src={logo} alt="홈으로 연결된 Linkbrary 로고" />
-        </Link>
+        <a href="/">
+          <img src={logo} alt="홈으로 연결된 abrary 로고" />
+        </a>
       </h1>
       <div>
-        {profileEmail ? 
-        <Email Link to="/">
-          <img src={profileImg} alt="프로필 이미지" />
-          <p>{profileEmail}</p>
-        </Email> :
-        <Login Link to="/">
-          <span>로그인</span>
-        </Login>}
+        {profileEmail ? (
+          <Email a href="/">
+            <img src={profileImg} alt="프로필 이미지" />
+            <p>{profileEmail}</p>
+          </Email>
+        ) : (
+          <Login a href="/">
+            <span>로그인</span>
+          </Login>
+        )}
       </div>
     </Container>
   )
 }
 
-export default Nav;
+export default Nav

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import share from '../assets/btn-share.png';
-import pen from '../assets/btn-pen.png';
-import del from '../assets/btn-delete.png';
+import styled from 'styled-components'
+import share from '../assets/btn-share.png'
+import pen from '../assets/btn-pen.png'
+import del from '../assets/btn-delete.png'
 
 const Container = styled.div`
   position: relative;
@@ -16,12 +16,13 @@ const Container = styled.div`
   }
 `
 const ButtonOption = styled.div`
-  display: ${({ $btnOption, $menuActive }) => $btnOption === true && $menuActive !== 'all' ? "block" : "none"};
+  display: ${({ $btnOption, $menuActive }) =>
+    $btnOption === true && $menuActive !== 'all' ? 'block' : 'none'};
   position: absolute;
   top: 0;
   right: 0;
 
-  @media screen and (min-width:375px) and (max-width:768px) {
+  @media screen and (min-width: 375px) and (max-width: 768px) {
     position: static;
     margin: 0 0 2rem 0;
   }
@@ -64,18 +65,11 @@ const ButtonOption = styled.div`
   }
 `
 
-function MainTitle({ 
-  btnOption,
-  menuActive,
-  title
- }){
-  return ( 
+function MainTitle({ btnOption, menuActive, title }) {
+  return (
     <Container>
       <h2>{title}</h2>
-      <ButtonOption 
-      $btnOption={btnOption} 
-      $menuActive={menuActive}
-      >
+      <ButtonOption $btnOption={btnOption} $menuActive={menuActive}>
         <button type="button">공유</button>
         <button type="button">이름 변경</button>
         <button type="button">삭제</button>
@@ -84,4 +78,4 @@ function MainTitle({
   )
 }
 
-export default MainTitle;
+export default MainTitle
