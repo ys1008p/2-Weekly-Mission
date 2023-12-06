@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const FolderInfo = styled.div`
+  margin: 9.4rem 0 0;
   padding: 2rem 0 6rem 0;
   text-align: center;
   background-color: var(--color-sky-blue);
