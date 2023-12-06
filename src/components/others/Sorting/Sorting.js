@@ -12,7 +12,7 @@ export default function Sorting({ chosenFolderId, folder, handleQuery }) {
     id: undefined,
     name: '전체',
   };
-  const needAllLink = chosenFolderId === allInfo.id ? true : false;
+  const needAllLink = chosenFolderId === allInfo.id;
 
   return (
     <div className="folderNav">
@@ -24,7 +24,7 @@ export default function Sorting({ chosenFolderId, folder, handleQuery }) {
           handleQuery={handleQuery}
         />
         {folder.map((folderInfo) => {
-          const isFolderChosen = +chosenFolderId === folderInfo.id ? true : false; // 선택된 폴더인지 확인
+          const isFolderChosen = +chosenFolderId === folderInfo.id; // 선택된 폴더인지 확인
           return (
             <FolderButton
               isFolderChosen={isFolderChosen}

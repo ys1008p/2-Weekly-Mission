@@ -47,7 +47,7 @@ export default function FolderPage() {
       <Sorting chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
       <div className="folderDescription">
         <h1 className="folderName">{chosenFolderName}</h1>
-        {chosenFolderId ? <FolderEditButtons className="folderEditButtons" /> : ''}
+        {chosenFolderId && <FolderEditButtons className="folderEditButtons" />}
       </div>
       {links.length ? <Cards links={links} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
       <FloatingActionButton />
