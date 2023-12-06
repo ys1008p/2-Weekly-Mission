@@ -1,13 +1,14 @@
 import { useState, useCallback, useEffect } from "react";
 import kebab from "../../assets/kebab.png";
 import "./Kebab.css";
+import { Link } from "react-router-dom";
 
 function Kebab() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleButton = useCallback((e) => {
     e.stopPropagation();
-    setIsOpen((nextIsOpen) => !nextIsOpen);
+    setIsOpen((prev) => !prev);
   }, []);
 
   useEffect(() => {
@@ -25,9 +26,18 @@ function Kebab() {
     <div className="kebab-img" onMouseEnter={handleButton}>
       <img src={kebab} alt="kebab icon" />
       {isOpen && (
-        <ul className="popup">
-          <li className="delete">삭제하기</li>
-          <li className="add-in-folder">폴더에 추가</li>
+        <ul
+          className="popup"
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <li className="delete">
+            <Link to="/">삭제하기</Link>
+          </li>
+          <li className="add-in-folder">
+            <Link to="/">폴더에 추가</Link>
+          </li>
         </ul>
       )}
     </div>

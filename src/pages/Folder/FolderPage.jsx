@@ -9,21 +9,16 @@ import "./FolderPage.css";
 function FolderPage() {
   return (
     <>
-      <div>
-        <Gnb />
-      </div>
-      <div>
+      <Gnb />
+      <main>
         <AddLink />
-        <section>
-          <div className="folder-section">
-            <SearchBar />
-            <FolderContainer />
-          </div>
+        <section className="folder-section">
+          <SearchBar />
+          <FolderContainer />
+          <FolderAddButton />
         </section>
-        <FolderAddButton />
-
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { getLinks } from "../../services/api";
 import { useEffect, useState } from "react";
 import Kebab from "./Kebab";
-import formatTimeAgo from "../../utils/FormatTimeAgo";
+import formatTimeAgo from "../../utils/formatTimeAgo";
 import formatDate from "../../utils/formatDate";
 import noimage from "../../assets/noimage.svg";
 import starDefault from "../../assets/star-default.png";
@@ -43,24 +43,24 @@ function Card({ card }) {
 }
 
 function FolderCardList({ folderId }) {
-  const [link, setLink] = useState([]);
+  const [links, setLinks] = useState([]);
 
   useEffect(() => {
-    const handleLink = async () => {
+    const fetchLinks = async () => {
       const apiEndpoint = folderId ? `${folderId}` : ``;
 
       const link = await getLinks(apiEndpoint);
-      setLink(link);
+      setLinks(link);
     };
 
-    handleLink();
+    fetchLinks();
   }, [folderId]);
 
   return (
     <>
-      {link.data && link.data.length > 0 ? (
+      {links.data && links.data.length > 0 ? (
         <div className="cards">
-          {link.data?.map((card) => {
+          {links.data?.map((card) => {
             return <Card key={card.id} card={card} />;
           })}
         </div>

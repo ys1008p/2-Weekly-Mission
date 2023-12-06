@@ -8,19 +8,15 @@ import "./SharedPage.css";
 function SharedPage() {
   return (
     <>
-      <div>
-        <Gnb />
-      </div>
-      <div>
+      <Gnb />
+      <main>
         <Profile />
-        <section>
-          <div className="folder">
-            <SearchBar />
-            <SharedCardList />
-          </div>
+        <section className="folder">
+          <SearchBar />
+          <SharedCardList />
         </section>
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }

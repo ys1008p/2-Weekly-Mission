@@ -6,7 +6,7 @@ function FolderButton({ folderId, folderName, onFolderClick }) {
 
   const handleFolderClick = () => {
     setIsActive(!isActive);
-    onFolderClick(folderId, folderName);
+    onFolderClick({ folderId, folderName });
   };
 
   return (

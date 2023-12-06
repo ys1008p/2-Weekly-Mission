@@ -1,11 +1,11 @@
 import { getSharedFolders } from "../../services/api";
 import { useEffect, useState } from "react";
-import formatTimeAgo from "../../utils/FormatTimeAgo";
+import formatTimeAgo from "../../utils/formatTimeAgo";
 import formatDate from "../../utils/formatDate";
 import noimage from "../../assets/noimage.svg";
 import "./Card.css";
 
-function Card({ card }) {
+function SharedCard({ card }) {
   const timeAgo = formatTimeAgo(card.createdAt);
   const date = formatDate(card.createdAt);
 
@@ -49,7 +49,7 @@ function SharedCardList() {
   return (
     <div className="cards">
       {folder.links?.map((card) => {
-        return <Card key={card.id} card={card} />;
+        return <SharedCard key={card.id} card={card} />;
       })}
     </div>
   );

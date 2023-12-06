@@ -8,23 +8,29 @@ import "./FolderContainer.css";
 
 function FolderContainer() {
   const [folders, setFolders] = useState([]);
-  const [selectedFolderId, setSelectedFolderId] = useState(null);
-  const [selectedFolderName, setSelectedFolderName] = useState(null);
+  const [selectedFolder, setSelectedFolder] = useState({
+    id: null,
+    name: null,
+  });
 
   useEffect(() => {
-    const fetchLinks = async () => {
+    const fetchFolders = async () => {
       const folder = await getFolders();
 
       setFolders(folder);
     };
 
-    fetchLinks();
+    fetchFolders();
   }, []);
 
-  const handleFolderClick = (folderId, folderName) => {
-    setSelectedFolderId(folderId);
-    setSelectedFolderName(folderName);
+  const handleFolderClick = ({ folderId, folderName }) => {
+    setSelectedFolder({ id: folderId, name: folderName });
   };
+
+  const isFolderSelected =
+    selectedFolder.id !== null && selectedFolder.name !== "전체";
+
+  console.log(selectedFolder.id);
 
   return (
     <div className="folders">
@@ -33,7 +39,7 @@ function FolderContainer() {
           <FolderButton
             folderName="전체"
             onFolderClick={handleFolderClick}
-            isActive={selectedFolderId === null}
+            isActive={selectedFolder.id === null}
           />
           {folders.data?.map((folder) => (
             <FolderButton
@@ -47,14 +53,10 @@ function FolderContainer() {
         <img className="addIcon-img" src={addIcon} alt="add icon" />
       </div>
       <div className="name-and-option">
-        <div className="folder-name">{selectedFolderName}</div>
-        {selectedFolderId === null || selectedFolderName === "전체" ? (
-          ""
-        ) : (
-          <Option />
-        )}
+        <div className="folder-name">{selectedFolder.name}</div>
+        {isFolderSelected ? <Option /> : null}
       </div>
-      <FolderCardList folderId={selectedFolderId} />
+      <FolderCardList folderId={selectedFolder.id} />
     </div>
   );
 }
