@@ -33,7 +33,6 @@ export default function FolderPage() {
 
   useEffect(() => {
     loadFolder();
-    loadLinks();
   }, []);
 
   useEffect(() => {
