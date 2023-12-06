@@ -2,6 +2,7 @@ import Stars from '../Stars';
 import kebapImg from './images/kebab.png';
 import { timeAgo, getYYYYMMYY, getShortDescription } from '../../../utils/formatting';
 import emptyCard from './images/emptyCard.jpeg';
+import KebabButtons from './KebabButton';
 
 export default function CardItem({ link }) {
   // null값을 가진 link가 들어오는 경우 -> nullish 사용
@@ -25,7 +26,7 @@ export default function CardItem({ link }) {
       <section className="contentText">
         <div className="contentNav">
           <div className="timeCreated">{timeAgo(link.created_at ?? `''`)}</div>
-          <img className="moreInfoCebap" src={kebapImg}></img>
+          <KebabButtons />
         </div>
         <div className="description">{getShortDescription(link.description ?? `''`)}</div>
         <div className="dateCreated">{getYYYYMMYY(link.created_at ?? `''`)}</div>
