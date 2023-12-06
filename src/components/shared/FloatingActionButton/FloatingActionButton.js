@@ -9,7 +9,7 @@ export default function FloatingActionButton() {
   return (
     <>
       {isMobile && (
-        <div class="FloatingActionButtonContainer">
+        <div className="FloatingActionButtonContainer">
           <button className="FloatingActionButton">
             <div>폴더추가</div>
             <img className="FloatingActionButtonIcon" src={addIcon}></img>

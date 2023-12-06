@@ -45,7 +45,7 @@ export default function FolderPage() {
       <AddLinkBar />
       <SearchBar />
       <Sorting chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
-      <div class="folderDescription">
+      <div className="folderDescription">
         <h1 className="folderName">{chosenFolderName}</h1>
         {chosenFolderId ? <FolderEditButtons className="folderEditButtons" /> : ''}
       </div>
