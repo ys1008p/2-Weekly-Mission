@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     --bg-black: #111322;
     --bg-sky-blue: #f0f6ff;
   }
-  
+
   * {
     margin: 0;
     padding: 0;
@@ -30,23 +30,12 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  .header {
-    padding: 0 20rem;
-    background-color: var(--color-sky-blue);
-
-    @media screen and (max-width: 1124px) {
-      padding: 6rem 3.2rem 9rem 3.2rem;
-    }
-  }
-
   .main {
     margin: 4rem 0 10rem 0;
     padding: 0 19rem;
 
     @media screen and (max-width:1124px) {
-      .main {
-        padding: 0 3.2rem;
-      }
+      padding: 0 3.2rem;
     }
   }
 

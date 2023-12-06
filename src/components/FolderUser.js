@@ -7,6 +7,7 @@ const FolderInfo = styled.div`
   background-color: var(--color-sky-blue);
 
   @media screen and (min-width: 375px) and (max-width: 768px) {
+    margin: 6.3rem 0 0;
     padding: 1rem 0 4rem 0;
   }
 

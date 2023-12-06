@@ -3,6 +3,7 @@ import search from '../assets/ico-search.png';
 
 const Search = styled.div`
   position: relative;
+  margin: 0 0 4rem 0;
 
   &::before {
     content: '';
