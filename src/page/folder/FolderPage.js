@@ -10,7 +10,6 @@ import MainTitle from '../../components/MainTitle'
 import AddFolder from '../../components/AddFolder'
 import CardList from './cardList/CardList'
 import useAsync from '../../hook/useAsync'
-import './Header.css'
 import './Main.css'
 
 function FolderPage() {
