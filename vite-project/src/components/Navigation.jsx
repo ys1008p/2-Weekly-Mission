@@ -1,44 +1,56 @@
+import * as S from "./styled";
 import logo from "../../../images/landing/logo.svg";
-import "./Navigation.css";
+import { useEffect, useState } from "react";
+import useAsync from "../hooks/useAsync";
+import { apiSettings, getApiInfo } from "../api";
+import { useLocation } from "react-router-dom";
 
-const Logo = ({ className }) => (
-  <a href="/">
-    <img className={className} src={logo} alt="로고" />
-  </a>
-);
+function Navigation() {
+  const location = useLocation();
+  const isFolderPage = location.pathname === "/folder";
+  const [profile, setProfile] = useState({});
+  const [isProfileLoading, ProfileError, getProfileAsync] =
+    useAsync(getApiInfo);
 
-const Profile = ({ className, profile }) => (
-  <div className={className}>
-    <img
-      className="profile-logo"
-      src={profile.profileImageSource}
-      alt="프로필 로고"
-    />
-    <span className="profile-email">{profile.email}</span>
-  </div>
-);
+  const loadProfile = async () => {
+    const result = await getProfileAsync(
+      apiSettings.endpoints.user,
+      apiSettings.errorMessages.user
+    );
+    if (!result) return;
+    const { data } = result;
+    const { image_source, email } = data[0];
+    setProfile({ image_source, email });
+  };
 
-const Login = ({ className, onClick }) => (
-  <button className={className} type="button" onClick={onClick}>
-    로그인
-  </button>
-);
+  useEffect(() => {
+    loadProfile();
+  }, []);
 
-function Navigation({ profile }) {
-  function handleClick() {
-    window.location.href = "../../../signin/index.html";
-  }
   return (
-    <nav>
+    <S.Nav $isFolderPage={isFolderPage}>
       <div className="gnb">
-        <Logo className="cta logo" />
+        <a href="/">
+          <img className="cta logo" src={logo} alt="로고" />
+        </a>
         {profile ? (
-          <Profile className="cta profile" profile={profile} />
+          <div className="cta profile">
+            <img
+              className="profile-logo"
+              src={profile.image_source}
+              alt="프로필 로고"
+            />
+            <span className="profile-email">{profile.email}</span>
+          </div>
         ) : (
-          <Login className="cta login" onClick={handleClick} />
+          <a href="../../../signin/index.html">
+            <button className="cta login" type="button">
+              로그인
+            </button>
+          </a>
         )}
       </div>
-    </nav>
+    </S.Nav>
   );
 }
 

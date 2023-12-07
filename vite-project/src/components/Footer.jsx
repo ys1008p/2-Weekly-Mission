@@ -1,5 +1,5 @@
 import FooterSocialLinks from "./FooterSocialLinks";
-import "./Footer.css";
+import * as S from "./styled";
 
 function FooterLinks({ children, href }) {
   return (
@@ -11,7 +11,7 @@ function FooterLinks({ children, href }) {
 
 function Footer() {
   return (
-    <footer>
+    <S.Footer>
       <div className="footer-notice">
         <div className="copyright">©codeit - 2023</div>
         <div className="footer-links">
@@ -22,7 +22,7 @@ function Footer() {
           <FooterSocialLinks target="_blank" rel="noreferrer" />
         </div>
       </div>
-    </footer>
+    </S.Footer>
   );
 }
 
