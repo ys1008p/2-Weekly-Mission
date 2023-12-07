@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
   background-color: #ffffff;
@@ -54,7 +54,9 @@ function FolderButtonList({ setId, folders }) {
   return (
     <div>
       <StyledButtonBox>
-        <StyledButtons>{folders && folders.map((folder) => <Button setId={setId} folder={folder} key={folder.id} />)}</StyledButtons>
+        <StyledButtons>
+          {folders && folders.map((folder) => <Button setId={setId} folder={folder} key={folder.id} />)}
+        </StyledButtons>
         <StyledAddLink>+</StyledAddLink>
       </StyledButtonBox>
     </div>

@@ -1,12 +1,12 @@
 import Header from "../components/Header";
-import Footer from "../components/Footer";
-import FolderBanner from "../components/FolderBanner";
+import Footer from "../components/commons/Footer";
+import FolderAddLinkInput from "../components/domains/folder/FolderAddLinkInput";
 import CardList from "../components/CardList";
 import SearchInput from "../components/SearchInput";
 import styles from "../styles/FolderPage.module.css";
-import FolderButtonList from "../components/FolderButtonList";
-import FolderTitle from "../components/FolderTitle";
-import FloatingButton from "../components/FloatingButton";
+import FolderButtonList from "../components/domains/folder/FolderButtonList";
+import FolderTitle from "../components//domains/folder/FolderTitle";
+import FloatingButton from "../components/domains/folder/FloatingButton";
 import { getFolderUserData, getSelectData, getAllLinksData, getFoldersData } from "../services/FolderApi";
 import { useEffect, useState } from "react";
 
@@ -31,7 +31,7 @@ function FolderPage() {
     const { data } = await getFoldersData();
     addFolder.link = allData.data;
     setFolders([addFolder, ...data]);
-    if (id == 0) {
+    if (id === 0) {
       setLinks(addFolder.link);
     }
   };
@@ -44,7 +44,7 @@ function FolderPage() {
   useEffect(() => {
     handleEmailLoad();
     handleFoldersLoad();
-    if (id != 0) {
+    if (id !== 0) {
       selectFolderLoad();
     }
   }, [id]);
@@ -52,7 +52,7 @@ function FolderPage() {
   return (
     <>
       <Header user={user} />
-      <FolderBanner />
+      <FolderAddLinkInput />
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
           <SearchInput />
