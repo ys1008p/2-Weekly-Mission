@@ -36,9 +36,6 @@ function Header(){
     const data = await response.json()
     setProfileData(data)
   })
-  // .then((data)=>{
-    
-  //   });
  }, [page])
 
 return (
@@ -62,26 +59,3 @@ return (
 
 export default Header;
 
-/*
-function Header({sendHeader}) {
-  
-
-  return (
-    <header>
-      <nav>
-        <div className="gnb">
-          <a href="index.html">
-            <img src={logo} alt="Linkbrary logo to home page" />
-          </a>
-          <div className="profile-contents">
-            <img className="profile-image" src={profile} alt="profile" />
-            <p>{sendHeader.email}</p>
-          </div>
-        </div>
-      </nav>
-    </header>
-  );
-}
-
-export default Header;
-*/

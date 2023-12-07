@@ -22,3 +22,27 @@ h1{
   line-height: normal;
   padding: 10px 90px 16px;
 }
+
+.sort-edit-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10rem;
+}
+
+.icon{
+  width: 18px;
+  height: 18px;
+}
+
+.sort-edit-button{
+  border: none;
+  color:#9FA6B2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sort-edit-buttons{
+  display: flex;
+}
