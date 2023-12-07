@@ -8,7 +8,7 @@ import starDefault from "../../assets/star-default.png";
 import "./FolderCardList.css";
 import "./Card.css";
 
-function Card({ card }) {
+function FolderCard({ card }) {
   const timeAgo = formatTimeAgo(card.created_at);
   const date = formatDate(card.created_at);
 
@@ -61,7 +61,7 @@ function FolderCardList({ folderId }) {
       {links.data && links.data.length > 0 ? (
         <div className="cards">
           {links.data?.map((card) => {
-            return <Card key={card.id} card={card} />;
+            return <FolderCard key={card.id} card={card} />;
           })}
         </div>
       ) : (
