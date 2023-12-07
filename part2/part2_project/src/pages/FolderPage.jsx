@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { forUser1, TasteUser1, getUserList } from "../util/api";
+import { forUser1, TasteUser1, getUserList } from "../util/api.js";
 import Nav from "../Components/sharing/Nav";
 import Footer from "../Components/sharing/Footer";
 import styled from "styled-components";
 import HeaderWithInPut from "../Components/folderPage/HeaderWithInput";
-import Main from "../Components/folderPage/Main_folderPage";
+import Main from "../Components/folderPage/FolderPageMain.jsx";
 import "../css/index.css";
 
 const ForFolderNav = styled(Nav)`

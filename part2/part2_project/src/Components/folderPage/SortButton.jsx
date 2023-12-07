@@ -1,4 +1,4 @@
-import { TasteUser1 } from "../../util/api";
+import { TasteUser1 } from "../../util/api.js";
 
 import { useEffect, useState } from "react";
 
