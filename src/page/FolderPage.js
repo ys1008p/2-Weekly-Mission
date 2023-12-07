@@ -9,6 +9,7 @@ import MainTitle from '../components/MainTitle';
 import AddFolder from '../components/AddFolder';
 import CardList from '../components/CardList';
 import useAsync from '../hook/useAsync';
+
 function FolderPage() {
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState('');
@@ -107,7 +108,9 @@ function FolderPage() {
           />
           <AddFolder />
         </div>
-        <Footer />
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </>
   );

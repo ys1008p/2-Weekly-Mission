@@ -117,27 +117,27 @@ const NoLink = styled.p`
   font-size: 1.6rem;
 `;
 
-function DateText({ createdAt }) {
+function getDateText({ createdAt }) {
   const idx = createdAt.indexOf('T');
   const text = createdAt.slice(0, idx);
   return text;
 }
 
-function DateInfo({ createdAt }) {
+function getDateInfo({ createdAt }) {
   const createdDate = new Date(createdAt);
   const today = new Date();
   const result = today - createdDate;
 
   const second = result / 1000;
-  const minite = second / 60;
-  const hours = minite / 60;
-  const date = hours / 24;
-  const year = date / 30;
+  const minites = second / 60;
+  const hour = minites / 60;
+  const month = hour / 24;
+  const year = month / 30;
 
-  if (minite < 2) return '1 minute ago';
-  if (minite < 60) return `${Math.floor(minite)} minutes ago`;
-  if (hours < 24) return `${Math.floor(hours)} hours ago`;
-  if (date < 30) return `${Math.floor(date)} days ago`;
+  if (minites < 2) return '1 minute ago';
+  if (minites < 60) return `${Math.floor(minites)} minutes ago`;
+  if (hour < 24) return `${Math.floor(hour)} hour ago`;
+  if (month < 30) return `${Math.floor(month)} days ago`;
   if (year < 12) return `${Math.floor(year)} months ago`;
   if (year >= 12) {
     const yearDate = Math.floor(year / 12);
@@ -160,10 +160,10 @@ function CardList({ links, onMouseOver, onMouseOut, data }) {
             <Star src={star} alt="별 이미지" />
           </ImgBox>
           <Text>
-            <p>{DateInfo({ createdAt: card.created_at })}</p>
+            <p>{getDateInfo({ createdAt: card.created_at })}</p>
             <span></span>
             <p>{card.description}</p>
-            <p>{DateText({ createdAt: card.created_at })}</p>
+            <p>{getDateText({ createdAt: card.created_at })}</p>
           </Text>
         </a>
       </li>
@@ -177,9 +177,9 @@ function CardList({ links, onMouseOver, onMouseOut, data }) {
             />
           </ImgBox>
           <Text>
-            <p>{DateInfo({ createdAt: card.createdAt })}</p>
+            <p>{getDateInfo({ createdAt: card.createdAt })}</p>
             <p>{card.description}</p>
-            <p>{DateText({ createdAt: card.createdAt })}</p>
+            <p>{getDateInfo({ createdAt: card.createdAt })}</p>
           </Text>
         </a>
       </li>
