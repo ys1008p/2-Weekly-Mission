@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import linkImg from "../img/link.svg";
+import linkImg from "../../img/link.svg";
 
 const Form = styled.form`
   padding: 5rem 0;
@@ -19,6 +19,10 @@ const Input = styled.input`
   border-radius: 15px;
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
   background: var(--linkbrary-white, #fff);
+
+  &:hover {
+    outline-color: var(--linkbrary-primary-color, #6d6afe);
+  }
 `;
 
 const Button = styled.button`

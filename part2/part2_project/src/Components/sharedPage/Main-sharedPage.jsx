@@ -1,5 +1,5 @@
-import CardsList from "./CardsList";
-import SearchBox from "./SearchBox";
+import CardsList from "../sharing/CardsList";
+import SearchBox from "../sharing/SearchBox";
 
 export default function Main({ cardData }) {
   return (

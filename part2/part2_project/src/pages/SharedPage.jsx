@@ -1,9 +1,9 @@
-import Nav from "../Components/Nav";
-import Footer from "../Components/Footer";
+import Nav from "../Components/sharing/Nav";
+import Footer from "../Components/sharing/Footer";
 import { getUserData, getUserPick } from "../util/api";
 import { useEffect, useState } from "react";
-import Header from "../Components/Haeder_sharedPage";
-import Main from "../Components/Main-sharedPage";
+import Header from "../Components/sharedPage/Haeder_sharedPage";
+import Main from "../Components/sharedPage/Main-sharedPage";
 
 function SharedPage() {
   const [userInfo, setUserInfo] = useState(null);

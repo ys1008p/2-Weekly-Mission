@@ -1,7 +1,7 @@
 import { Children } from "react";
-import penImg from "../img/pen.svg";
-import shardImg from "../img/share.svg";
-import deleteImg from "../img/trashCan.svg";
+import penImg from "../../img/pen.svg";
+import shardImg from "../../img/share.svg";
+import deleteImg from "../../img/trashCan.svg";
 import styled from "styled-components";
 
 const EditBox = styled.section`

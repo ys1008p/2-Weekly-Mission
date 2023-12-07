@@ -1,4 +1,4 @@
-import searchImg from "../img/Search.svg";
+import searchImg from "../../img/Search.svg";
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -23,6 +23,10 @@ const Input = styled.input`
   border-radius: 10px;
   background: #f5f5f5;
   border: none;
+
+  &:hover {
+    outline-color: var(--linkbrary-primary-color, #6d6afe);
+  }
 `;
 
 export default function SearchBox() {

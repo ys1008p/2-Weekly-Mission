@@ -1,6 +1,8 @@
-import { timeAgo } from "../util/time.js";
-import noneImg from "../img/!img.svg";
-import "../css/card.css";
+import { timeAgo } from "../../util/time.js";
+import noneImg from "../../img/!img.svg";
+import "../../css/card.css";
+import starImg from "../../img/star.svg";
+import kebab from "../../img/kebab.svg";
 
 const Cards = ({ card }) => {
   const {
@@ -11,6 +13,7 @@ const Cards = ({ card }) => {
     imageSource,
     title,
     url,
+    folder_id,
   } = card;
 
   function formatDate(value) {
@@ -27,6 +30,8 @@ const Cards = ({ card }) => {
           alt={title}
         />
       </div>
+      <img className=" star" src={starImg} alt="즐겨찾기 버튼" />
+      <img className="kebab" src={kebab} alt="기능 버튼" />
       <div className="cardText">
         <p className="timeAgo">{timeAgo(createdAt || created_at)}</p>
         <h6 className="cardDescription">{description}</h6>
@@ -37,11 +42,12 @@ const Cards = ({ card }) => {
 };
 
 export default function CardsList({ cardData }) {
+  console.log(cardData);
   return (
     <ul className="CardList">
       {cardData?.map((card) => (
         <li className="cardBox" key={card.id}>
-          <Cards card={card} />
+          <Cards card={card} folderId={card.folder_id ? folderId : ""} />
         </li>
       ))}
     </ul>

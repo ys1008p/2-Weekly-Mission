@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { forUser1, TasteUser1, getUserList } from "../util/api";
-import Nav from "../Components/Nav";
-import Footer from "../Components/Footer";
+import Nav from "../Components/sharing/Nav";
+import Footer from "../Components/sharing/Footer";
 import styled from "styled-components";
-import HeaderWithInPut from "../Components/HeaderWithInput";
-import Main from "../Components/Main_folderPage";
+import HeaderWithInPut from "../Components/folderPage/HeaderWithInput";
+import Main from "../Components/folderPage/Main_folderPage";
 import "../css/index.css";
 
 const ForFolderNav = styled(Nav)`
@@ -31,7 +31,7 @@ export default function FolderPage() {
 
   const yorPick = async () => {
     const { data } = await getUserList();
-
+    console.log(data);
     setCardData(data);
   };
 

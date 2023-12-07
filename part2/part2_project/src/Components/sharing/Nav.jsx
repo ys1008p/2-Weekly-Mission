@@ -1,5 +1,5 @@
-import logoImg from "../img/logo.svg";
-import "../css/Nav.css";
+import logoImg from "../../img/logo.svg";
+import "../../css/Nav.css";
 
 const handleLoginClick = () => location.assign("signin.html");
 
