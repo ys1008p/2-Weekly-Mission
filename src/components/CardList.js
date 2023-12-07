@@ -179,7 +179,7 @@ function CardList({ links, onMouseOver, onMouseOut, data }) {
           <Text>
             <p>{getDateInfo({ createdAt: card.createdAt })}</p>
             <p>{card.description}</p>
-            <p>{getDateInfo({ createdAt: card.createdAt })}</p>
+            <p>{getDateText({ createdAt: card.createdAt })}</p>
           </Text>
         </a>
       </li>
