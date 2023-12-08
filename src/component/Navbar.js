@@ -66,18 +66,14 @@ const StyledNavLoginBtn = styled.button`
 function Navbar({ userData, location }) {
   const { email, image_source } = userData;
 
-  const getPathname = location.pathname === "/shared";
+  const isSharedPath = location.pathname === "/shared";
 
   return (
     <>
-      <StyledNavbarContainer $isActiveFixed={getPathname}>
+      <StyledNavbarContainer $isActiveFixed={isSharedPath}>
         <StyledNavItem>
           <Link to="/">
-            <StyledNavLogo
-              src={logoIcon}
-              alt="logo"
-              className="nav-item-logo"
-            />
+            <StyledNavLogo src={logoIcon} alt="logo" />
           </Link>
 
           {userData?.id ? (
