@@ -2,6 +2,8 @@ import { Link, useParams } from "react-router-dom";
 import FolderSidebar from "./FolderSidebar";
 import FolderFilterButton from "./FolderFilterButton";
 import styled from "styled-components";
+import Modal from "./Modal";
+import { useState } from "react";
 
 const StyledFolderFilterBtn = styled.button`
   border-radius: 5px;
@@ -31,7 +33,7 @@ const StyledFolderFilterBtnItemContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const StyledFolderAddbtn = styled.button`
+const StyledFolderAddBtn = styled.button`
   color: #6d6afe;
   font-size: 16px;
   font-weight: 500;
@@ -69,8 +71,11 @@ function FolderFilterButtonList({
   const path = useParams();
   const numPath = Number(path.folderId);
 
+  const [isModalOn, setIsModalOn] = useState(false);
+
   return (
     <>
+      <Modal $isModalOn={setIsModalOn} $isLender={isModalOn} />
       <StyledFolderFilterBtnContainer>
         <StyledFolderFilterBtnItemContainer>
           <Link to="/folder">
@@ -94,9 +99,19 @@ function FolderFilterButtonList({
             />
           ))}
         </StyledFolderFilterBtnItemContainer>
-        <StyledFolderAddbtn>폴더 추가 +</StyledFolderAddbtn>
+        <StyledFolderAddBtn
+          onClick={() => {
+            setIsModalOn(true);
+          }}
+        >
+          폴더 추가 +
+        </StyledFolderAddBtn>
       </StyledFolderFilterBtnContainer>
-      <FolderSidebar folderName={folderName} sideBtnLender={sideBtnLender} />
+      <FolderSidebar
+        folderName={folderName}
+        sideBtnLender={sideBtnLender}
+        $isModalOn={setIsModalOn}
+      />
     </>
   );
 }

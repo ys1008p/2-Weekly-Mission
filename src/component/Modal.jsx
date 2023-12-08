@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
-const StyledModalContainer = styled.div`
+const StyledModalBackground = styled.div`
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: #000000;
   opacity: 0.4;
   z-index: 98;
+  display: ${({ $isLender }) => ($isLender ? `blcok` : `none`)};
 `;
 
-const StyledModalItem = styled.div`
+const StyledModalItem = styled.form`
   padding: 3.2rem 4rem;
   background-color: #fff;
   border-radius: 15px;
 
-  display: flex;
+  display: ${({ $isLender }) => ($isLender ? `flex` : `none`)};
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -51,15 +54,19 @@ const StyledModalBtn = styled.button`
   border: none;
   width: 28rem;
   padding: 1.6rem 2rem;
-
-7
+  cursor: pointer;
 `;
 
-function Modal() {
+function Modal({ $isModalOn, $isLender }) {
   return (
     <>
-      <StyledModalContainer />
-      <StyledModalItem>
+      <StyledModalBackground
+        onClick={() => {
+          $isModalOn(false);
+        }}
+        $isLender={$isLender}
+      />
+      <StyledModalItem $isLender={$isLender}>
         <StyledModalTitle>폴더이름변경</StyledModalTitle>
         <StyledModalInput type="text" placeholder="내용 입력" />
         <StyledModalBtn>변경하기</StyledModalBtn>

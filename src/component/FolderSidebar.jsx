@@ -32,21 +32,33 @@ const StyledSideBtn = styled.span`
 
 const StyledSideBtnImg = styled.img``;
 
-function FolderSidebar({ folderName, sideBtnLender }) {
+function FolderSidebar({ folderName, sideBtnLender, $isModalOn }) {
   return (
     <StyledSideBarMainContainer>
       <StyledSelectFolderName>{folderName || "전체"}</StyledSelectFolderName>
       {sideBtnLender === true ? (
         <StyledSideBtnContainer>
-          <StyledSideBtn>
+          <StyledSideBtn
+            onClick={() => {
+              $isModalOn(true);
+            }}
+          >
             <StyledSideBtnImg src={shareIcon} alt="share" />
             공유
           </StyledSideBtn>
-          <StyledSideBtn>
+          <StyledSideBtn
+            onClick={() => {
+              $isModalOn(true);
+            }}
+          >
             <StyledSideBtnImg src={penIcon} alt="changeName" />
             이름 변경
           </StyledSideBtn>
-          <StyledSideBtn>
+          <StyledSideBtn
+            onClick={() => {
+              $isModalOn(true);
+            }}
+          >
             <StyledSideBtnImg src={deleteIcon} alt="delete" />
             삭제
           </StyledSideBtn>
