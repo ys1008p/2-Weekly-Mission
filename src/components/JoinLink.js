@@ -24,11 +24,16 @@ const Link = styled.div`
   gap: 0.8rem;
   margin: 1.6rem 0 0;
 
+  p {
+    font-size: 1.6rem;
+  }
+
   a {
     color: var(--primary-color);
     font-weight: 600;
     line-height: 1.9rem;
     border-bottom: 1px solid var(--primary-color);
+    font-size: 1.6rem;
   }
 `;
 

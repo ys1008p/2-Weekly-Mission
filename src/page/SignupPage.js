@@ -6,8 +6,15 @@ import JoinLink from '../components/JoinLink';
 import styled from 'styled-components';
 
 const Container = styled.div`
-/* max-width: 400px;
-  margin: 0 auto; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--main-bg-color);
+`;
+
+const Wrap = styled.div`
+  width: 40rem;
 `
 
 function SignupPage() {
@@ -17,10 +24,12 @@ function SignupPage() {
         <title>회원가입</title>
       </Helmet>
       <Container>
-        <JoinLink />
-        <UserInput />
-        <SignButton />
-        <JoinSns />
+        <Wrap>
+          <JoinLink />
+          <UserInput />
+          <SignButton />
+          <JoinSns />
+        </Wrap>
       </Container>
     </>
   );

@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import eyeOn from '../assets/ico-eye-on.svg';
 
 const Container = styled.div`
-  max-width: 40rem;
   margin: 3rem 0 0;
-
+  
   div + div {
     margin: 2.4rem 0 0;
   }
@@ -17,6 +16,8 @@ const Container = styled.div`
   }
 
   input {
+    outline: none;
+    border: none;
     width: 100%;
     padding: 1.8rem 1.5rem;
     color: var(--black-color);
@@ -26,6 +27,10 @@ const Container = styled.div`
 
     &:focus {
       border: 1px solid var(--primary-color);
+    }
+
+    &.active {
+      border: 1px solid var(--red-color);
     }
   }
 
