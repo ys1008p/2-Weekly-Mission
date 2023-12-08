@@ -50,13 +50,15 @@ const Container = styled.div`
 `;
 
 const Privery = styled.div`
+  float: left;
+  
   a {
     font-size: 1.6rem;
     color: var(--color-light-gray);
   }
 `;
 
-const Faq = styled.div`
+const Faq = styled(Privery)`
   a {
     margin: 0 0 0 3rem;
   }
