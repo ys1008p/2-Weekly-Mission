@@ -1,4 +1,4 @@
-function getUploadDate(createdAtString) {
+function ConvertToFormattedDate(createdAtString) {
   const createdAt = new Date(createdAtString);
   const year = createdAt.getFullYear();
   const month = createdAt.getMonth() + 1;
@@ -7,4 +7,4 @@ function getUploadDate(createdAtString) {
   return date;
 }
 
-export default getUploadDate;
+export default ConvertToFormattedDate;

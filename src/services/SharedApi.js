@@ -1,21 +1,10 @@
-import {API_BASE_URL} from "../constants"
+
+import { getDate } from "./GetData";
 
 export async function getUserData() {
-  try {
-    const response = await fetch(`${API_BASE_URL}/sample/user`);
-    if (!response.ok) throw new Error();
-    return await response.json();
-  } catch (error) {
-    console.error(error);
-  }
+  return await getDate("/sample/user");
 }
 
 export async function getSharedData() {
-  try {
-    const response = await fetch(`${API_BASE_URL}/sample/folder`);
-    if (!response.ok) throw new Error();
-    return await response.json();
-  } catch (error) {
-    console.log(error);
-  }
+  return await getDate("/sample/folder");
 }

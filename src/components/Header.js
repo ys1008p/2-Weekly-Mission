@@ -62,7 +62,7 @@ function Header({ user }) {
     <HeaderLayout>
       <HeaderBox>
         <img src={ASSETS_URL + '/images/logo.png'} alt="로고이미지" />
-        {user && user.email ? (
+        {user? (
           <HeaderProfileBox>
             <img src={user.image_source} alt="프로필 아이콘" />
             <div >{user.email}</div>

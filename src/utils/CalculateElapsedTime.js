@@ -1,4 +1,4 @@
-function getElapseTime(createdAtString) {
+function CalculateElapsedTime(createdAtString) {
   const createdAt = new Date(createdAtString);
   const currentTime = new Date();
 
@@ -23,4 +23,4 @@ function getElapseTime(createdAtString) {
   }
 }
 
-export default getElapseTime;
+export default CalculateElapsedTime;
