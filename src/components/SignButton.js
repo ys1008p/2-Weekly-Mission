@@ -19,10 +19,14 @@ const BtnBox = styled.div`
   }
 `;
 
-function SignButton() {
-  return (
+function SignButton({ signup }) {
+  return signup ? (
     <BtnBox>
       <button type="button">회원가입</button>
+    </BtnBox>
+  ) : (
+    <BtnBox>
+      <button type="button">로그인</button>
     </BtnBox>
   );
 }
