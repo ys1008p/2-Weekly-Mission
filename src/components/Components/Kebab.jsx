@@ -1,7 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import kebab from "../../assets/kebab.png";
 import "./Kebab.css";
-import { Link } from "react-router-dom";
 
 function Kebab() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +22,13 @@ function Kebab() {
   }, [isOpen]);
 
   return (
-    <div className="kebab-img" onClick={handleButton}>
+    <div
+      className="kebab-img"
+      onClick={(e) => {
+        e.preventDefault();
+        handleButton(e);
+      }}
+    >
       <img src={kebab} alt="kebab icon" />
       {isOpen && (
         <ul
@@ -33,10 +38,10 @@ function Kebab() {
           }}
         >
           <li className="delete" key="delete">
-            <Link to="/">삭제하기</Link>
+            삭제하기
           </li>
           <li className="add-in-folder" key="add">
-            <Link to="/">폴더에 추가</Link>
+            폴더에 추가
           </li>
         </ul>
       )}
