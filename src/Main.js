@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import "./css/Main.css";
 import { getFolderData } from "./Components/Api";
-import LinkCard from "./Components/LinkCard";
-import search from "./images/search.svg";
+import { LinkCard } from "./Components/LinkCard";
 import { Profile } from "./Components/Profile";
+import SearchBar from "./Components/SearchBar";
 
 function Main() {
   const [folderData, setFolderData] = useState(null);
@@ -27,11 +26,8 @@ function Main() {
   return (
     <main>
       <div>{folderData && <Profile folderData={folderData} />}</div>
-      <div className="searchBar">
-        <input type="search" placeholder="링크를 검색해 보세요" />
-        <img src={search} alt="돋보기" />
-      </div>
-      {folderData && <LinkCard linkData={folderData} />}
+      <SearchBar />
+      {folderData && <LinkCard linkData={folderData.folder} />}
     </main>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import Main from "./Main";
 import Footer from "./Footer";
-function App() {
+function Shared() {
   return (
     <>
       <Nav />
@@ -11,4 +11,4 @@ function App() {
     </>
   );
 }
-export default App;
+export default Shared;

@@ -33,6 +33,6 @@ footer {
     grid-template-areas:
       "FAQ link"
       "codeit .";
-    gap: 60px;
+    row-gap: 60px;
   }
 }

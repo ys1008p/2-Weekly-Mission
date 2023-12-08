@@ -10,9 +10,26 @@ const TIME_MILISECONDS = {
   year: 1000 * 60 * 60 * 24 * 31 * 12,
 };
 function LinkCard({ linkData }) {
-  const { links } = linkData.folder;
-
+  const { links } = linkData;
   return <LinksComponent links={links} />;
+}
+function FolderCard({ linkData }) {
+  const transFormData = linkData.map((item) => {
+    if (item.created_at) {
+      item.createdAt = item.created_at;
+      delete item.created_at;
+    }
+    if (item.image_source) {
+      item.imageSource = item.image_source;
+      delete item.image_source;
+    }
+    return item;
+  });
+  return transFormData.length ? (
+    <LinksComponent links={transFormData} />
+  ) : (
+    <div className="noneData">저장된 데이터가 없습니다.</div>
+  );
 }
 
 function LinksComponent({ links }) {
@@ -53,7 +70,7 @@ function LinksComponent({ links }) {
     const date = dateString.split("T")[0];
     return `${date}`;
   };
-  const alt = `${links.title}의 로고`;
+  const alt = `${links?.title}의 로고`;
   return (
     <div className="card">
       {links.map((link) => (
@@ -64,7 +81,7 @@ function LinksComponent({ links }) {
           target="_blank"
         >
           <div className="card-container-box">
-            {link.imageSource ? (
+            {link?.imageSource ? (
               <img src={link.imageSource} alt={alt} />
             ) : (
               <img src={nodata} alt="프로필 이미지" />
@@ -81,4 +98,4 @@ function LinksComponent({ links }) {
   );
 }
 
-export default LinkCard;
+export { LinkCard, FolderCard };

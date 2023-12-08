@@ -64,6 +64,9 @@
   font-size: 14px;
   font-weight: 400;
 }
+.noneData {
+  text-align: center;
+}
 @media (max-width: 1124px) {
   .card {
     grid-template-columns: 0.3fr 0.3fr;
