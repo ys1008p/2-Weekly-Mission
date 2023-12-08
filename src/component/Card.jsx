@@ -2,8 +2,9 @@ import styled, { keyframes } from "styled-components";
 import starIcon from "../img/star.svg";
 import menuIcon from "../img/kebab.svg";
 import { formatDate, getTimeDifference } from "../utils/date";
-import FolderPopOver from "./FolderPopOver";
+import CardPopOver from "./CardPopOver";
 import { useState } from "react";
+import Modal from "./Modal";
 
 const transparencyAnimation = keyframes`
 0% {
@@ -101,38 +102,39 @@ function Card({ data }) {
   }
 
   return (
-    <StyledA href={data.url}>
-      <StyledCardContiner>
-        {/* 이미지가 없을시 대체 이미지 */}
-        <StyledCardImgContiner>
-          <StyledCardFavIcon src={starIcon} alt="즐겨찾기 아이콘" />
-          <StyledCardImg
-            src={
-              data.img ||
-              "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
-            }
-            alt="링크 이미지"
-          />
-        </StyledCardImgContiner>
-        <StyledCardInfoContainer>
-          <StyledUpdataAndMenuIconContainer>
-            <StyledCardLastUpdateDate>
-              {getTimeDifference(data.createdAt)}
-            </StyledCardLastUpdateDate>
-            <StyledCardMenuIcon
-              src={menuIcon}
-              alt="메뉴 아이콘"
-              onClick={handleMenuIconClick}
+    <>
+      <StyledA href={data.url}>
+        <StyledCardContiner>
+          <StyledCardImgContiner>
+            <StyledCardFavIcon src={starIcon} alt="즐겨찾기 아이콘" />
+            <StyledCardImg
+              src={
+                data.img ||
+                "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
+              }
+              alt="링크 이미지"
             />
-          </StyledUpdataAndMenuIconContainer>
-          <StyledCardDescription>{data.description}</StyledCardDescription>
-          <StyledCardCreatedAt>
-            {formatDate(data.createdAt)}
-          </StyledCardCreatedAt>
-        </StyledCardInfoContainer>
-      </StyledCardContiner>
-      <FolderPopOver Lender={isPopOverOn} />
-    </StyledA>
+          </StyledCardImgContiner>
+          <StyledCardInfoContainer>
+            <StyledUpdataAndMenuIconContainer>
+              <StyledCardLastUpdateDate>
+                {getTimeDifference(data.createdAt)}
+              </StyledCardLastUpdateDate>
+              <StyledCardMenuIcon
+                src={menuIcon}
+                alt="메뉴 아이콘"
+                onClick={handleMenuIconClick}
+              />
+            </StyledUpdataAndMenuIconContainer>
+            <StyledCardDescription>{data.description}</StyledCardDescription>
+            <StyledCardCreatedAt>
+              {formatDate(data.createdAt)}
+            </StyledCardCreatedAt>
+          </StyledCardInfoContainer>
+        </StyledCardContiner>
+        <CardPopOver $Lender={isPopOverOn} />
+      </StyledA>
+    </>
   );
 }
 
