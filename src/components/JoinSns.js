@@ -6,17 +6,17 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 32px 0 0;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  line-height: 16px;
+  margin: 3.2rem 0 0;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
   border: 1px solid var(--box-border-color);
   background-color: var(--sns-bg-color);
 
   p {
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     color: var(--black-color);
   }
 
@@ -29,8 +29,8 @@ const Container = styled.div`
 
       a {
         display: block;
-        width: 42px;
-        height: 42px;
+        width: 4.2rem;
+        height: 4.2rem;
       }
     }
 

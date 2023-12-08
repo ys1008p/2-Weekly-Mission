@@ -3,6 +3,12 @@ import UserInput from '../components/UserInput';
 import SignButton from '../components/SignButton';
 import JoinSns from '../components/JoinSns';
 import JoinLink from '../components/JoinLink';
+import styled from 'styled-components';
+
+const Container = styled.div`
+/* max-width: 400px;
+  margin: 0 auto; */
+`
 
 function SignupPage() {
   return (
@@ -10,12 +16,12 @@ function SignupPage() {
       <Helmet>
         <title>회원가입</title>
       </Helmet>
-      <div className="container">
+      <Container>
         <JoinLink />
         <UserInput />
         <SignButton />
         <JoinSns />
-      </div>
+      </Container>
     </>
   );
 }

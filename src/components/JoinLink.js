@@ -5,7 +5,7 @@ const Logo = styled.div`
   text-align: center;
 
   img {
-    width: 210px;
+    width: 21rem;
   }
 
   span {
@@ -21,13 +21,13 @@ const Logo = styled.div`
 const Link = styled.div`
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin: 16px 0 0;
+  gap: 0.8rem;
+  margin: 1.6rem 0 0;
 
   a {
     color: var(--primary-color);
     font-weight: 600;
-    line-height: 19px;
+    line-height: 1.9rem;
     border-bottom: 1px solid var(--primary-color);
   }
 `;
