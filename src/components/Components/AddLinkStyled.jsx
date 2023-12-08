@@ -1,4 +1,6 @@
-.add-link-bar {
+import styled from "styled-components";
+
+export const AddLinkBar = styled.div`
   background-color: var(--gray-bg-color);
   padding-top: 6rem;
   padding-bottom: 9rem;
@@ -7,14 +9,14 @@
     padding-left: 3.2rem;
     padding-right: 3.2rem;
   }
-}
-.add-link-container {
+`;
+export const AddLinkContainer = styled.div`
   position: relative;
   max-width: 80rem;
   margin: auto;
-}
+`;
 
-.addLink {
+export const AddLinkInput = styled.input`
   width: 100%;
   padding-left: 5rem;
   height: 6.9rem;
@@ -22,9 +24,12 @@
   border: 1px solid var(--primary-color);
   color: var(--gray-60-color);
   font-size: 1.6rem;
-}
+`;
 
-.add-link-container > button {
+export const AddLinkButton = styled.button`
+  background-image: var(--gradient-purpleblue-skyblue);
+  color: var(--white-color);
+  border-radius: 0.8rem;
   position: absolute;
   top: 50%;
   right: 2rem;
@@ -33,11 +38,12 @@
   font-size: 1.4rem;
   font-weight: 600;
   padding: 1rem 1.6rem;
-}
+  cursor: pointer;
+`;
 
-.add-link-container > img {
+export const AddLinkImg = styled.img`
   position: absolute;
   top: 50%;
   left: 2rem;
   transform: translateY(-50%);
-}
+`;
