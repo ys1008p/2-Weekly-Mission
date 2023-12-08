@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
-import UserPersonalFolder from "./UserPersonalFolder";
-import UserPersonalFolderSideBar from "./UserPersonalFolderSideBar";
+import FolderSidebar from "./FolderSidebar";
+import FolderFilterButton from "./FolderFilterButton";
 import styled from "styled-components";
 
-const StyledPersonalFolderBtn = styled.button`
+const StyledFolderFilterBtn = styled.button`
   border-radius: 5px;
   border: 1px solid #6d6afe;
   background: ${({ $isMatching }) => (!$isMatching ? "#6d6afe" : "#fff")};
@@ -20,18 +20,18 @@ const StyledPersonalFolderBtn = styled.button`
   }
 `;
 
-const StyledPersonalFolderBtnContainer = styled.div`
+const StyledFolderFilterBtnContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-const StyledPersonalFolderListBtnContainer = styled.div`
+const StyledFolderFilterBtnItemContainer = styled.div`
   display: flex;
   gap: 1rem 0;
   flex-wrap: wrap;
 `;
 
-const StyledPersonalFolderAddBtn = styled.button`
+const StyledFolderAddbtn = styled.button`
   color: #6d6afe;
   font-size: 16px;
   font-weight: 500;
@@ -59,7 +59,7 @@ const StyledPersonalFolderAddBtn = styled.button`
   }
 `;
 
-function UserPersonalFolderList({
+function FolderFilterButtonList({
   psFolderData,
   handleData,
   handleSideBtn,
@@ -71,10 +71,10 @@ function UserPersonalFolderList({
 
   return (
     <>
-      <StyledPersonalFolderBtnContainer>
-        <StyledPersonalFolderListBtnContainer>
+      <StyledFolderFilterBtnContainer>
+        <StyledFolderFilterBtnItemContainer>
           <Link to="/folder">
-            <StyledPersonalFolderBtn
+            <StyledFolderFilterBtn
               $isMatching={numPath}
               onClick={() => {
                 handleData("");
@@ -82,10 +82,10 @@ function UserPersonalFolderList({
               }}
             >
               전체
-            </StyledPersonalFolderBtn>
+            </StyledFolderFilterBtn>
           </Link>
           {psFolderData.map((data) => (
-            <UserPersonalFolder
+            <FolderFilterButton
               key={data.id}
               data={data}
               handleData={handleData}
@@ -93,15 +93,12 @@ function UserPersonalFolderList({
               numPath={numPath}
             />
           ))}
-        </StyledPersonalFolderListBtnContainer>
-        <StyledPersonalFolderAddBtn>폴더 추가 +</StyledPersonalFolderAddBtn>
-      </StyledPersonalFolderBtnContainer>
-      <UserPersonalFolderSideBar
-        folderName={folderName}
-        sideBtnLender={sideBtnLender}
-      />
+        </StyledFolderFilterBtnItemContainer>
+        <StyledFolderAddbtn>폴더 추가 +</StyledFolderAddbtn>
+      </StyledFolderFilterBtnContainer>
+      <FolderSidebar folderName={folderName} sideBtnLender={sideBtnLender} />
     </>
   );
 }
 
-export default UserPersonalFolderList;
+export default FolderFilterButtonList;

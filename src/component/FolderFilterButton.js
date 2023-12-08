@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledPersonalFolderBtn = styled.button`
+const StyledFolderFilterButton = styled.button`
   border-radius: 5px;
   border: 1px solid #6d6afe;
   background: ${({ $isMatching }) => ($isMatching ? "#6d6afe" : "#fff")};
@@ -18,10 +18,10 @@ const StyledPersonalFolderBtn = styled.button`
   }
 `;
 
-function UserPersonalFolder({ data, handleData, handleSideBtn, numPath }) {
+function FolderFilterButton({ data, handleData, handleSideBtn, numPath }) {
   return (
     <Link to={`/folder/${data.id}`}>
-      <StyledPersonalFolderBtn
+      <StyledFolderFilterButton
         $isMatching={data.id === numPath}
         onClick={() => {
           handleData(data);
@@ -29,9 +29,9 @@ function UserPersonalFolder({ data, handleData, handleSideBtn, numPath }) {
         }}
       >
         {data.name}
-      </StyledPersonalFolderBtn>
+      </StyledFolderFilterButton>
     </Link>
   );
 }
 
-export default UserPersonalFolder;
+export default FolderFilterButton;

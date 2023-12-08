@@ -32,7 +32,7 @@ const StyledSideBtn = styled.span`
 
 const StyledSideBtnImg = styled.img``;
 
-function UserPersonalFolderSideBar({ folderName, sideBtnLender }) {
+function FolderSidebar({ folderName, sideBtnLender }) {
   return (
     <StyledSideBarMainContainer>
       <StyledSelectFolderName>{folderName || "전체"}</StyledSelectFolderName>
@@ -56,4 +56,4 @@ function UserPersonalFolderSideBar({ folderName, sideBtnLender }) {
   );
 }
 
-export default UserPersonalFolderSideBar;
+export default FolderSidebar;
