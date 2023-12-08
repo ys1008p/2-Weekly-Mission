@@ -30,8 +30,6 @@ function FolderLists() {
   const isFolderSelected =
     selectedFolder.id !== null && selectedFolder.name !== "전체";
 
-  console.log(selectedFolder.id);
-
   return (
     <div className="folders">
       <div className="folders-top">
