@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import starIcon from "../img/star.svg";
 import menuIcon from "../img/kebab.svg";
 import { formatDate, getTimeDifference } from "../utils/date";
+import FolderPopOver from "./FolderPopOver";
 
 const transparencyAnimation = keyframes`
 0% {
@@ -115,6 +116,7 @@ function Card({ data }) {
           </StyledCardCreatedAt>
         </StyledCardInfoContainer>
       </StyledCardContiner>
+      <FolderPopOver />
     </a>
   );
 }
