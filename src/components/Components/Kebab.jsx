@@ -23,7 +23,7 @@ function Kebab() {
   }, [isOpen]);
 
   return (
-    <div className="kebab-img" onMouseEnter={handleButton}>
+    <div className="kebab-img" onClick={handleButton}>
       <img src={kebab} alt="kebab icon" />
       {isOpen && (
         <ul
@@ -32,10 +32,10 @@ function Kebab() {
             e.preventDefault();
           }}
         >
-          <li className="delete">
+          <li className="delete" key="delete">
             <Link to="/">삭제하기</Link>
           </li>
-          <li className="add-in-folder">
+          <li className="add-in-folder" key="add">
             <Link to="/">폴더에 추가</Link>
           </li>
         </ul>

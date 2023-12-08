@@ -4,9 +4,9 @@ import FolderButton from "./FolderButton";
 import FolderCardList from "./FolderCardList";
 import Option from "./Option";
 import addIcon from "../../assets/add-icon.svg";
-import "./FolderContainer.css";
+import "./FolderLists.css";
 
-function FolderContainer() {
+function FolderLists() {
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState({
     id: null,
@@ -61,4 +61,4 @@ function FolderContainer() {
   );
 }
 
-export default FolderContainer;
+export default FolderLists;

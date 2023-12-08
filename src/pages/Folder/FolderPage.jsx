@@ -1,7 +1,7 @@
 import Gnb from "../../components/BaseComponents/Gnb";
 import AddLink from "../../components/Components/AddLink";
 import SearchBar from "../../components/Components/SearchBar";
-import FolderContainer from "../../components/Components/FolderContainer";
+import FolderLists from "../../components/Components/FolderLists";
 import Footer from "../../components/BaseComponents/Footer";
 import FolderAddButton from "../../components/Components/FolderAddButton";
 import "./FolderPage.css";
@@ -14,7 +14,7 @@ function FolderPage() {
         <AddLink />
         <section className="folder-section">
           <SearchBar />
-          <FolderContainer />
+          <FolderLists />
           <FolderAddButton />
         </section>
       </main>
