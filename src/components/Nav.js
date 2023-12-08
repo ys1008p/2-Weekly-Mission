@@ -5,7 +5,7 @@ const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: ${({ position }) => (position ? 'static' : 'fixed')};
+  position: ${({ $position }) => ($position ? 'static' : 'fixed')};
   left: 0;
   top: 0;
   z-index: 10;
@@ -33,13 +33,15 @@ const Container = styled.nav`
     }
   }
 `;
-const Email = styled.a`
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 0.6rem;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  color: var(--color-black);
+const Email = styled.div`
+  a {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 0.6rem;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: var(--color-black);
+  }
 
   img {
     width: 2.8rem;
@@ -58,18 +60,21 @@ const Email = styled.a`
     }
   }
 `;
-const Login = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 12.8rem;
-  height: 5.4rem;
-  cursor: pointer;
-  background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
-  border-radius: 0.8rem;
-  color: var(--color-very-light-gray);
-  font-size: 2.8rem;
-  font-weight: 600;
+
+const Login = styled.div`
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.8rem;
+    height: 5.4rem;
+    cursor: pointer;
+    background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
+    border-radius: 0.8rem;
+    color: var(--color-very-light-gray);
+    font-size: 2.8rem;
+    font-weight: 600;
+  }
 
   @media screen and (min-width: 375px) and (max-width: 768px) {
     width: 8rem;
@@ -79,7 +84,7 @@ const Login = styled.span`
 `;
 function Nav({ profileEmail, profileImg, position }) {
   return (
-    <Container position={position}>
+    <Container $position={position}>
       <h1>
         <a href="/">
           <img src={logo} alt="홈으로 연결된 abrary 로고" />
@@ -87,13 +92,17 @@ function Nav({ profileEmail, profileImg, position }) {
       </h1>
       <div>
         {profileEmail ? (
-          <Email a href="/">
-            <img src={profileImg} alt="프로필 이미지" />
-            <p>{profileEmail}</p>
+          <Email>
+            <a href="/">
+              <img src={profileImg} alt="프로필 이미지" />
+              <p>{profileEmail}</p>
+            </a>
           </Email>
         ) : (
-          <Login a href="/">
-            <span>로그인</span>
+          <Login>
+            <a href="/">
+              <span>로그인</span>
+            </a>
           </Login>
         )}
       </div>

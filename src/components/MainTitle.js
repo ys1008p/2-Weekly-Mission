@@ -16,8 +16,9 @@ const Container = styled.div`
   }
 `;
 const ButtonOption = styled.div`
-  display: ${({ btnOption, menuActive }) =>
-    btnOption === true && menuActive !== 'all' ? 'block' : 'none'};
+  display: ${({ $btnOption, 
+  $menuActive }) =>
+    $btnOption === true && $menuActive !== 'all' ? 'block' : 'none'};
   position: absolute;
   top: 0;
   right: 0;
@@ -65,11 +66,11 @@ const ButtonOption = styled.div`
   }
 `;
 
-function MainTitle({ title, ...props }) {
+function MainTitle({ title, menuActive, btnOption }) {
   return (
     <Container>
       <h2>{title}</h2>
-      <ButtonOption {...props}>
+      <ButtonOption $menuActive={menuActive} $btnOption= {btnOption}>
         <button type="button">공유</button>
         <button type="button">이름 변경</button>
         <button type="button">삭제</button>
