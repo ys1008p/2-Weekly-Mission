@@ -23,49 +23,54 @@ const StyledCategory = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.2rem;
+  gap: 0.1rem;
 `;
 
 const CategoryList = styled.div`
   display: flex;
   justify-content: center;
   font-size: 1.4rem;
+  gap: 1.2rem;
 `;
 
-function Category({ category }) {
+function Category({ category, setSelectPopOver }) {
   const { title, image } = category;
+  const handleSelectPopOver =()=>{
+    setSelectPopOver(title)
+  }
   return (
-    <StyledCategory>
+    <StyledCategory onClick={ handleSelectPopOver}>
       <img src={image} alt={`${title} 아이콘`} />
       <div>{title}</div>
     </StyledCategory>
   );
 }
 
-function CategoryBox({ folder }) {
+function CategoryBox({ folder, setSelectPopOver }) {
+  
   return (
     <StyledCategoryBox>
       <h1>{folder.name}</h1>
       {folder.name !== '전체' ? (
         <CategoryList>
           {categoryList.map((category) => (
-            <Category key={category.title} category={category} />
+            <Category setSelectPopOver={setSelectPopOver}  key={category.title} category={category} />
           ))}
         </CategoryList>
       ) : (
-        ''
+        null
       )}
     </StyledCategoryBox>
   );
 }
 
-function FoldersTitle({ folders, id }) {
+function FoldersTitle({ folders, id,setSelectPopOver }) {
   return (
     <>
-      {folders &&
-        folders.map((folder) => {
+      {
+        folders?.map((folder) => {
           if (folder.id === id) {
-            return <CategoryBox key={folder.id} folder={folder} />;
+            return <CategoryBox setSelectPopOver={setSelectPopOver} key={folder.id} folder={folder} />;
           }
         })}
     </>

@@ -1,14 +1,10 @@
-import { ASSETS_URL } from "../constants";
-import CalculateElapsedTime from "../utils/CalculateElapsedTime";
-import ConvertToFormattedDate from "../utils/ConvertToFormattedDate";
-import styled from "styled-components";
-import noImage from "../noImage.svg";
-function Card({ link }) {
-  const createdAtString = link.created_at;
-  const elapseTime = CalculateElapsedTime(createdAtString);
-  const postedDate = ConvertToFormattedDate(createdAtString);
-
-  console.log(link);
+import { ASSETS_URL } from '../constants';
+import CalculateElapsedTime from '../utils/CalculateElapsedTime';
+import ConvertToFormattedDate from '../utils/ConvertToFormattedDate';
+import styled from 'styled-components';
+import noImage from '../noImage.svg';
+import PopOver from './domains/folder/PopOver';
+import { useState } from 'react';
 
   const CardLayout = styled.div`
     position: relative;
@@ -19,7 +15,6 @@ function Card({ link }) {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin: 0 auto;
 
     & img {
       position: absolute;
@@ -44,8 +39,7 @@ function Card({ link }) {
     }
   `;
   const CardNoImage = styled.img`
-  width: 100%;
-}
+    width: 100%;
   `;
   const CardDescriptionBox = styled.div`
     width: 100%;
@@ -56,7 +50,7 @@ function Card({ link }) {
     top: 20rem;
     z-index: 1;
 
-    $ p {
+    & p {
       width: 30rem;
       font-size: 1.6rem;
       display: -webkit-box;
@@ -85,21 +79,31 @@ function Card({ link }) {
       height: 1.7rem;
     }
   `;
-  console.log(link.image_source);
+function Card({ link }) {
+  const createdAtString = link.created_at;
+  const elapseTime = CalculateElapsedTime(createdAtString);
+  const postedDate = ConvertToFormattedDate(createdAtString);
 
+  const [showPopOver, setShowPopOver] =useState(false)
+const handelClickPopOver=(e)=>{
+  if (e.target.tagName === 'IMG' && e.target.src.includes('meatball.png')) {
+    setShowPopOver(true);
+  } else {
+    setShowPopOver(false);
+  }
+}
+
+// 팝오버 카드에서만이 아닌 다른곳 클릭하면 없어지는거 구현하기
   return (
-    <CardLayout onClick={() => window.open(`${link.url}`, "_blank")}>
-      <CardImageWrapper>
-        {link && link.image_source ? (
-          <CardImage src={link.image_source} />
-        ) : (
-          <CardNoImage src={noImage} />
-        )}
+    <CardLayout onClick={handelClickPopOver}>
+      <CardImageWrapper onClick={() => window.open(`${link.url}`, '_blank')}>
+        {link && link.image_source ? <CardImage src={link.image_source} /> : <CardNoImage src={noImage} />}
       </CardImageWrapper>
       <CardDescriptionBox>
         <TimeBox>
+        <PopOver showPopOver={showPopOver}/> 
           <div>{elapseTime}</div>
-          <img src={ASSETS_URL + "/images/meatball.png"} />
+          <img  src={ASSETS_URL + '/images/meatball.png'} />
         </TimeBox>
         <p>{link && link.description}</p>
         <div>{postedDate}</div>
