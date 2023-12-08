@@ -2,6 +2,14 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   :root {
+    --main-bg-color: #f0f6ff;
+    --primary-color: #6d6afe; 
+    --box-border-color: #ccd5e3;
+    --white-color: #fff;
+    --black-color: #373740;
+    --btn-color: #f5f5f5;
+    --sns-bg-color: #e7effb;
+    --red-color: #ff5b56; 
     --color-black-000: #000;
     --color-black-333: #333;
     --color-black: #373740;
