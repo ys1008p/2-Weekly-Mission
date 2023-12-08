@@ -76,6 +76,7 @@ const StyledCardFavIcon = styled.img`
 
   &:hover {
     animation: ${transparencyAnimation} 1s ease-in-out infinite;
+  }
 `;
 const StyledCardMenuIcon = styled.img`
 &:hover {
