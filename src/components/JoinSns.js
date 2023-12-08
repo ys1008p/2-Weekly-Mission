@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import google from '../assets/ico-google.png';
+import kakao from '../assets/ico-kakao.png';
 
 const Container = styled.div`
   display: flex;
@@ -24,20 +26,16 @@ const Container = styled.div`
 
     li {
       float: left;
-      margin: 0 16px 0 0;
-
-      &:last-child {
-        margin: 0;
-      }
 
       a {
         display: block;
-        overflow: hidden;
         width: 42px;
         height: 42px;
-        text-indent: 100%;
-        white-space: nowrap;
       }
+    }
+
+    li + li {
+      margin: 0 0 0 1.6rem;
     }
   }
 `;
@@ -49,10 +47,14 @@ function JoinSns() {
       <div>
         <ul>
           <li>
-            <a href="https://www.google.com/">구글</a>
+            <a href="https://www.google.com/">
+              <img src={google} alt="구글 홈페이지로 연결된 구글 로고" />
+            </a>
           </li>
           <li>
-            <a href="https://www.kakaocorp.com/page/">카카오톡</a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src={kakao} alt="카카오 홈페이지로 연결된 카카오 로고" />
+            </a>
           </li>
         </ul>
       </div>
