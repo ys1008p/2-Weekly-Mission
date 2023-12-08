@@ -3,7 +3,7 @@ import eyeOn from '../assets/ico-eye-on.svg';
 
 const Container = styled.div`
   margin: 3rem 0 0;
-  
+
   div + div {
     margin: 2.4rem 0 0;
   }
@@ -20,6 +20,7 @@ const Container = styled.div`
     border: none;
     width: 100%;
     padding: 1.8rem 1.5rem;
+    font-size: 1.6rem;
     color: var(--black-color);
     border-radius: 0.8rem;
     border: 1px solid var(--box-border-color);
