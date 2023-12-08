@@ -1,3 +1,5 @@
+
+import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import UserInput from '../components/UserInput';
 import SignButton from '../components/SignButton';
@@ -15,9 +17,9 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   width: 40rem;
-`
+`;
 
-function SignupPage() {
+function SigninPage() {
   return (
     <>
       <Helmet>
@@ -35,4 +37,4 @@ function SignupPage() {
   );
 }
 
-export default SignupPage;
+export default SigninPage;

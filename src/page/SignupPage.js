@@ -16,14 +16,34 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   width: 40rem;
-`
+`;
 
 function SignupPage() {
   const [signup, setSignup] = useState('');
+  const [focus, setFocus] = useState('');
+  const [focusOut, setFocusOut] = useState('');
+  const [values, setValues] = useState({
+    email: '',
+    password: '',
+    passwordCheck: '',
+  });
+
+  const handleFocus = (e) => setFocus(e.target);
+
+  const handleFocusOut = (e) => setFocusOut(e.target);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
 
   useEffect(() => {
     setSignup('signup');
-  }, [])
+  }, []);
 
   return (
     <>
@@ -33,7 +53,15 @@ function SignupPage() {
       <Container>
         <Wrap>
           <JoinLink signup={signup} />
-          <UserInput signup={signup} />
+          <UserInput
+            signup={signup}
+            values={values}
+            focus={focus}
+            focusOut={focusOut}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleFocusOut}
+          />
           <SignButton signup={signup} />
           <JoinSns />
         </Wrap>
