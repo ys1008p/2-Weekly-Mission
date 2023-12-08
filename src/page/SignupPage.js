@@ -32,9 +32,9 @@ function SignupPage() {
       </Helmet>
       <Container>
         <Wrap>
-          <JoinLink signup={signup}/>
-          <UserInput />
-          <SignButton signup={signup}/>
+          <JoinLink signup={signup} />
+          <UserInput signup={signup} />
+          <SignButton signup={signup} />
           <JoinSns />
         </Wrap>
       </Container>

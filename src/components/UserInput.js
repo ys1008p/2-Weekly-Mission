@@ -55,8 +55,8 @@ const PassWord = styled.div`
   }
 `;
 
-function UserInput() {
-  return (
+function UserInput({ signup }) {
+  return signup ?(
     <Container>
       <div>
         <label htmlFor="signup-email">이메일</label>
@@ -72,8 +72,34 @@ function UserInput() {
         </PassWord>
         <p></p>
       </div>
+
+      <div>
+        <label htmlFor="signup-password">비밀번호 확인</label>
+        <PassWord>
+          <input type="password" id="signup-check-password" name="password" />
+          <img src={eyeOn} alt="비밀번호 눈 켜짐" />
+        </PassWord>
+        <p></p>
+      </div>
     </Container>
-  );
+  ):(
+    <Container>
+      <div>
+        <label htmlFor="signup-email">이메일</label>
+        <input type="email" id="signin-email" name="email" />
+        <p></p>
+      </div>
+
+      <div>
+        <label htmlFor="signup-password">비밀번호</label>
+        <PassWord>
+          <input type="password" id="signin-password" name="password" />
+          <img src={eyeOn} alt="비밀번호 눈 켜짐" />
+        </PassWord>
+        <p></p>
+      </div>
+    </Container>
+  )
 }
 
 export default UserInput;
