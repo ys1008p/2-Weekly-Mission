@@ -30,11 +30,11 @@ const Container = styled.div`
         @media screen and (min-width: 375px) and (max-width: 768px) {
           font-size: 1.4rem;
         }
-      }
 
-      button.active {
-        color: var(--color-white);
-        background-color: var(--color-blue);
+        &.active {
+          color: var(--color-white);
+          background-color: var(--color-blue);
+        }
       }
     }
   }

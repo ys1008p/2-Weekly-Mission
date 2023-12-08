@@ -4,6 +4,28 @@ import twitter from '../assets/ico-twitter.png';
 import youtube from '../assets/ico-youtube.png';
 import instagram from '../assets/ico-instagram.png';
 
+const SNSINFO = [
+  {
+    src: facebook,
+    alt: 'facebook',
+  },
+
+  {
+    src: twitter,
+    alt: 'twitter',
+  },
+
+  {
+    src: youtube,
+    alt: 'youtube',
+  },
+
+  {
+    src: instagram,
+    alt: 'instagram',
+  },
+];
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -26,62 +48,56 @@ const Container = styled.div`
     }
   }
 `;
-const FootInfo = styled.div`
+
+const Privery = styled.div`
   a {
     font-size: 1.6rem;
     color: var(--color-light-gray);
   }
+`;
 
-  a:last-child {
+const Faq = styled.div`
+  a {
     margin: 0 0 0 3rem;
   }
 `;
 
-const Sns = styled.div`
-  ul {
-    display: flex;
-    gap: 1.2rem;
-  }
+const Sns = styled.ul`
+  display: flex;
+  gap: 1.2rem;
 `;
+
+function SnsList() {
+  const sns = SNSINFO.map((item, idx) => (
+    <li key={idx}>
+      <a href="/" target="_blank" rel="noopener noreferrer">
+        <img
+          src={item.src}
+          alt={`${item.alt} 홈페이지로 연결된 ${item.alt} 로고`}
+        />
+      </a>
+    </li>
+  ));
+  return sns;
+}
 
 function Footer() {
   return (
     <Container>
       <span>©codeit - 2023</span>
-      <FootInfo>
-        <a href="/">Privacy Policy</a>
-        <a href="/">FAQ</a>
-      </FootInfo>
-      <Sns>
-        <ul>
-          <li>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <img
-                src={facebook}
-                alt="facebook 홈페이지로 연결된 facebook 로고"
-              />
-            </a>
-          </li>
-          <li>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <img src={twitter} alt="twitter 홈페이지로 연결된 twitter 로고" />
-            </a>
-          </li>
-          <li>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <img src={youtube} alt="youtube 홈페이지로 연결된 youtube 로고" />
-            </a>
-          </li>
-          <li>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <img
-                src={instagram}
-                alt="instagram 홈페이지로 연결된 instagram 로고"
-              />
-            </a>
-          </li>
-        </ul>
-      </Sns>
+      <div>
+        <Privery>
+          <a href="/">Privacy Policy</a>
+        </Privery>
+        <Faq>
+          <a href="/">FAQ</a>
+        </Faq>
+      </div>
+      <div>
+        <Sns>
+          <SnsList />
+        </Sns>
+      </div>
     </Container>
   );
 }

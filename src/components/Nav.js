@@ -82,6 +82,7 @@ const Login = styled.div`
     font-size: 2.4rem;
   }
 `;
+
 function Nav({ profileEmail, profileImg, position }) {
   return (
     <Container $position={position}>

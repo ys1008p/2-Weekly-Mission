@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FolderInfo = styled.div`
+const Container = styled.div`
   margin: 9.4rem 0 0;
   padding: 2rem 0 6rem 0;
   text-align: center;
@@ -42,11 +42,11 @@ const Name = styled.p`
 
 function FolderUser({ folderName, folderUserName, folderUserProfile }) {
   return (
-    <FolderInfo>
+    <Container>
       <img src={folderUserProfile} alt="폴더 사용자 프로필 이미지" />
       <UserName>{folderUserName}</UserName>
       <Name>{folderName}</Name>
-    </FolderInfo>
+    </Container>
   );
 }
 
