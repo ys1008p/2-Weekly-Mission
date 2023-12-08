@@ -3,7 +3,14 @@ import noImg from '../assets/no-img.svg';
 import star from '../assets/ico-star.png';
 import kebab from '../assets/btn-kebab.png';
 
-const CardContainer = styled.ul`
+const Card = styled.img`
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+`;
+
+const Container = styled.ul`
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -31,7 +38,7 @@ const CardContainer = styled.ul`
       a {
         border: 3px solid var(--color-blue);
 
-        img:first-child {
+        ${Card} {
           transform: scale(1.3);
           transition: all 0.5s;
         }
@@ -55,13 +62,6 @@ const ImgBox = styled.div`
   overflow: hidden;
   position: relative;
   height: 20rem;
-
-  img:first-child {
-    display: block;
-    width: 100%;
-    height: 20rem;
-    object-fit: cover;
-  }
 `;
 
 const Star = styled.img`
@@ -77,13 +77,6 @@ const Text = styled.div`
   min-height: 11.5rem;
   padding: 1.5rem 2rem;
 
-  p:first-of-type {
-    float: left;
-    font-size: 1.3rem;
-    line-height: 1.5rem;
-    color: var(--color-gray);
-  }
-
   span {
     display: block;
     float: right;
@@ -91,25 +84,32 @@ const Text = styled.div`
     height: 1.7rem;
     background: url('${kebab}') no-repeat;
   }
+`;
 
-  p:nth-of-type(2) {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    min-height: 3.8rem;
-    margin: 2.1rem 0 1rem 0;
-    font-size: 1.6rem;
-    color: var(--color-black-000);
-    clear: both;
-  }
+const BeforeAge = styled.p`
+  float: left;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  color: var(--color-gray);
+`;
 
-  p:last-of-type {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    color: var(--color-black-333);
-  }
+const Desc = styled.p`
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  min-height: 3.8rem;
+  margin: 2.1rem 0 1rem 0;
+  font-size: 1.6rem;
+  color: var(--color-black-000);
+  clear: both;
+`;
+
+const CreatedDate = styled.p`
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: var(--color-black-333);
 `;
 
 const NoLink = styled.p`
@@ -153,17 +153,19 @@ function CardList({ links, onMouseOver, onMouseOut, data }) {
       <li key={card.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
         <a href={card.url} target="_blank" rel="noopener noreferrer">
           <ImgBox>
-            <img
+            <Card
               src={card.image_source ? card.image_source : noImg}
               alt="카드 이미지"
             />
             <Star src={star} alt="별 이미지" />
           </ImgBox>
           <Text>
-            <p>{getDateInfo({ createdAt: card.created_at })}</p>
+            <BeforeAge>{getDateInfo({ createdAt: card.created_at })}</BeforeAge>
             <span></span>
-            <p>{card.description}</p>
-            <p>{getDateText({ createdAt: card.created_at })}</p>
+            <Desc>{card.description}</Desc>
+            <CreatedDate>
+              {getDateText({ createdAt: card.created_at })}
+            </CreatedDate>
           </Text>
         </a>
       </li>
@@ -171,22 +173,24 @@ function CardList({ links, onMouseOver, onMouseOut, data }) {
       <li key={card.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
         <a href={card.url} target="_blank" rel="noopener noreferrer">
           <ImgBox>
-            <img
+            <Card
               src={card.imageSource ? card.imageSource : noImg}
               alt="카드 이미지"
             />
           </ImgBox>
           <Text>
-            <p>{getDateInfo({ createdAt: card.createdAt })}</p>
-            <p>{card.description}</p>
-            <p>{getDateText({ createdAt: card.createdAt })}</p>
+            <BeforeAge>{getDateInfo({ createdAt: card.createdAt })}</BeforeAge>
+            <Desc>{card.description}</Desc>
+            <CreatedDate>
+              {getDateText({ createdAt: card.createdAt })}
+            </CreatedDate>
           </Text>
         </a>
       </li>
     )
   );
 
-  return <CardContainer>{cards}</CardContainer>;
+  return <Container>{cards}</Container>;
 }
 
 export default CardList;
