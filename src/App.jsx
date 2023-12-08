@@ -14,6 +14,7 @@ import { getUserPersonalLinkData } from "./api/getUserPersoanlLinkData";
 import CardList from "./component/CardList";
 import { transformLinkData, transformShareCardData } from "./api/dataTransform";
 import NotFoundPage from "./component/NotFoundPage";
+import Modal from "./component/Modal";
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -93,6 +94,8 @@ function App() {
       {loding && <Loding />}
 
       <GlobalStyle />
+
+      <Modal />
 
       <Navbar userData={userData} location={location} />
       {/* ========================================== */}

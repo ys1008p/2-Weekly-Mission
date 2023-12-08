@@ -4,7 +4,6 @@ import menuIcon from "../img/kebab.svg";
 import { formatDate, getTimeDifference } from "../utils/date";
 import CardPopOver from "./CardPopOver";
 import { useState } from "react";
-import Modal from "./Modal";
 
 const transparencyAnimation = keyframes`
 0% {
