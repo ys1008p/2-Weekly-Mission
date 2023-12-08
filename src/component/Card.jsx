@@ -3,6 +3,7 @@ import starIcon from "../img/star.svg";
 import menuIcon from "../img/kebab.svg";
 import { formatDate, getTimeDifference } from "../utils/date";
 import FolderPopOver from "./FolderPopOver";
+import { useState } from "react";
 
 const transparencyAnimation = keyframes`
 0% {
@@ -14,6 +15,9 @@ const transparencyAnimation = keyframes`
 100% {
   opacity: 1;
 }
+`;
+const StyledA = styled.a`
+  position: relative;
 `;
 const StyledCardContiner = styled.div`
   width: 100%;
@@ -83,14 +87,21 @@ const StyledCardMenuIcon = styled.img`
 &:hover {
   animation: ${transparencyAnimation} 1s ease-in-out infinite;
 `;
-
 const StyledUpdataAndMenuIconContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 function Card({ data }) {
+  const [isPopOverOn, setIsPopOverOn] = useState(false);
+
+  function handleMenuIconClick(e) {
+    e.preventDefault();
+    setIsPopOverOn((ipo) => !ipo);
+  }
+
   return (
-    <a href={data.url}>
+    <StyledA href={data.url}>
       <StyledCardContiner>
         {/* 이미지가 없을시 대체 이미지 */}
         <StyledCardImgContiner>
@@ -108,7 +119,11 @@ function Card({ data }) {
             <StyledCardLastUpdateDate>
               {getTimeDifference(data.createdAt)}
             </StyledCardLastUpdateDate>
-            <StyledCardMenuIcon src={menuIcon} alt="메뉴 아이콘" />
+            <StyledCardMenuIcon
+              src={menuIcon}
+              alt="메뉴 아이콘"
+              onClick={handleMenuIconClick}
+            />
           </StyledUpdataAndMenuIconContainer>
           <StyledCardDescription>{data.description}</StyledCardDescription>
           <StyledCardCreatedAt>
@@ -116,8 +131,8 @@ function Card({ data }) {
           </StyledCardCreatedAt>
         </StyledCardInfoContainer>
       </StyledCardContiner>
-      <FolderPopOver />
-    </a>
+      <FolderPopOver Lender={isPopOverOn} />
+    </StyledA>
   );
 }
 
