@@ -1,13 +1,21 @@
-import useTimeDiff from '@/hooks/useTimeDiff';
+import styles from './CardItem.module.css';
+
+import getTimeDiff from '@/utils/getTimeDiff';
 import { useState } from 'react';
 
+import Kebab from '@/assets/images/icon/kebab.svg';
 import NoImage from '@/assets/images/icon/no-image.svg';
+import SelectedStar from '@/assets/images/icon/star-selected.svg';
+import Star from '@/assets/images/icon/star.svg';
+
+type ImageClickEventHandler = React.MouseEventHandler<HTMLImageElement>;
 
 interface CardItemProps {
-  thumbnail?: string;
+  thumbnail?: string | null;
   createdAt: string;
   title: string;
   url: string;
+  isFolder: boolean;
 }
 
 const CardItem = ({
@@ -15,22 +23,31 @@ const CardItem = ({
   createdAt,
   title,
   url,
+  isFolder,
 }: CardItemProps) => {
-  const [isZoomed, setZoom] = useState(false);
+  const [enlarged, setInlarged] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   const handleMouseOver = () => {
-    setZoom(true);
+    setInlarged(true);
   };
 
   const handleMouseLeave = () => {
-    setZoom(false);
+    setInlarged(false);
   };
 
-  const timeAgo = useTimeDiff(createdAt);
+  const handleStarClick: ImageClickEventHandler = (event) => {
+    event.preventDefault();
+    setSelected((prev) => !prev);
+  };
+
+  // (shared) 2023-12-02T23:35:12Z
+  // (folder) 2023-10-27T02:04:53.276659+00:00
+  const timeAgo = getTimeDiff(createdAt);
   const parsedDate = createdAt.split('T')[0]?.replaceAll('-', '.');
 
   return (
-    <article className="card-item">
+    <article className={styles['card-item']}>
       <a
         href={url}
         onMouseOver={handleMouseOver}
@@ -38,17 +55,30 @@ const CardItem = ({
         target="_blank"
         rel="noreferrer"
       >
-        <div
-          className="thumbnail"
-          style={{
-            backgroundImage: `url(${thumbnail})`,
-            backgroundSize: isZoomed ? '130%' : 'cover',
-          }}
-        ></div>
-        <div className="contents">
-          <span className="time">{timeAgo}</span>
-          <div className="title">{title}</div>
-          <span className="date">{parsedDate}</span>
+        <div className={styles['img-box']}>
+          <img
+            className={`${styles.thumbnail} ${enlarged ? styles.enlarged : ''}`}
+            src={thumbnail ?? NoImage}
+            alt="thumbnail"
+          />
+          {isFolder && (
+            <img
+              className={styles.star}
+              src={selected ? SelectedStar : Star}
+              onClick={handleStarClick}
+              alt="star"
+            />
+          )}
+        </div>
+        <div className={styles.contents}>
+          <div className={styles.header}>
+            <span className={styles.time}>{timeAgo}</span>
+            {isFolder && (
+              <img className={styles.kebab} src={Kebab} alt="kebab" />
+            )}
+          </div>
+          <div className={styles.title}>{title}</div>
+          <span className={styles.date}>{parsedDate}</span>
         </div>
       </a>
     </article>

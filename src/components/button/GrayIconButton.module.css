@@ -1,0 +1,16 @@
+.btn {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.icon {
+  width: 18px;
+}
+
+.text {
+  color: var(--gray-60);
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 600;
+}

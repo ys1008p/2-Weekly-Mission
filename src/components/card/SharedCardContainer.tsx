@@ -1,5 +1,8 @@
+import styles from './CardContainer.module.css';
+
 import CardItem from '@/components/card/CardItem';
-interface CardContainerProps {
+
+interface SharedCardContainerProps {
   items: Array<{
     id: number;
     createdAt: string;
@@ -9,8 +12,8 @@ interface CardContainerProps {
   }>;
 }
 
-const CardContainer = ({ items }: CardContainerProps) => (
-  <div className="card-container">
+const SharedCardContainer = ({ items }: SharedCardContainerProps) => (
+  <div className={styles['card-container']}>
     {items.map((item) => (
       <CardItem
         key={item.id}
@@ -18,9 +21,10 @@ const CardContainer = ({ items }: CardContainerProps) => (
         createdAt={item.createdAt}
         title={item.title}
         url={item.url}
+        isFolder={false}
       />
     ))}
   </div>
 );
 
-export default CardContainer;
+export default SharedCardContainer;

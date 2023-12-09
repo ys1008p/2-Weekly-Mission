@@ -1,0 +1,52 @@
+.input-bar {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  width: 20px;
+  left: 21px;
+  top: 25px;
+}
+
+.input {
+  width: 100%;
+  height: 70px;
+  padding: 16px 112px 16px 52px;
+  border-radius: 15px;
+  border: 1px solid var(--primary);
+  margin: 0 auto;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--gray-60);
+  font-size: 14px;
+  line-height: normal;
+}
+
+.btn-add {
+  position: absolute;
+  width: 82px;
+  height: 37px;
+  top: 17px;
+  right: 21px;
+}
+
+@media only screen and (max-width: 767px) {
+  .icon {
+    width: 16px;
+    left: 11px;
+    top: 18px;
+  }
+
+  .input {
+    height: 53px;
+    padding: 8px 98px 8px 34px;
+  }
+
+  .btn-add {
+    top: 8px;
+    right: 11px;
+  }
+}

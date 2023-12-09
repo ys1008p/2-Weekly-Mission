@@ -1,0 +1,48 @@
+.header {
+  background-color: var(--gray-bg);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.wrapper {
+  max-width: 1584px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 133px;
+}
+
+.btn-login {
+  width: 128px;
+  height: 54px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .wrapper {
+    max-width: 864px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .wrapper {
+    padding: 13px 32px;
+  }
+
+  .logo {
+    width: 88px;
+  }
+
+  .btn-login {
+    width: 80px;
+    height: 37px;
+  }
+}

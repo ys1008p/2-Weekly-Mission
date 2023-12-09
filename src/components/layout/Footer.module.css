@@ -1,0 +1,60 @@
+.footer {
+  background-color: var(--black-footer);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: normal;
+  padding: 32px 104px 64px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  max-width: 1920px;
+  height: 64px;
+  margin: 0 auto;
+}
+
+.company {
+  color: #676767;
+}
+
+.link {
+  display: flex;
+  color: #cfcfcf;
+  gap: 30px;
+}
+
+.sns {
+  display: flex;
+  gap: 12px;
+}
+
+@media only screen and (max-width: 767px) {
+  .footer {
+    padding: 32px;
+  }
+
+  .wrapper {
+    height: 96px;
+  }
+
+  .company {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 374px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .company {
+    position: static;
+  }
+}

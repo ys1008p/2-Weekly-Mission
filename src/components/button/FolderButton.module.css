@@ -1,0 +1,20 @@
+.btn {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  line-height: normal;
+  height: 35px;
+}
+
+.selected {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+@media only screen and (max-width: 767px) {
+  .btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    height: 30px;
+  }
+}
