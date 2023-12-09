@@ -5,6 +5,7 @@ import {
   ModalButton,
   ModalContainer,
   ModalExit,
+  ModalInput,
   ModalLink,
   ModalList,
   ModalShareSNS,
@@ -24,7 +25,7 @@ const useModal = () => {
 
   return {
     Modal: modalOpen
-      ? ({ title, link, list, button, color, shareSNS }) => (
+      ? ({ title, link, list, input, button, color, shareSNS }) => (
           <ModalBackground>
             <ModalBox>
               <ModalContainer>
@@ -35,12 +36,14 @@ const useModal = () => {
                   <ModalTitle>{title}</ModalTitle>
                   <ModalLink>{link}</ModalLink>
                 </ModalTop>
-                {list && <ModalList>{list}</ModalList>}
-                {(
+                {list && <ModalList />}
+                {input && <ModalInput />}
+                {button && (
                   <ModalButton onClick={closeModal} color={color}>
                     {button}
                   </ModalButton>
-                ) || <ModalShareSNS>{shareSNS}</ModalShareSNS>}
+                )}
+                {shareSNS && <ModalShareSNS />}
               </ModalContainer>
             </ModalBox>
           </ModalBackground>

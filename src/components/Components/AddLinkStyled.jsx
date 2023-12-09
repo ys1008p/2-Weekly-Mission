@@ -79,5 +79,4 @@ export const LinkButton = styled.button`
 export const FolderLinkList = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
 `;

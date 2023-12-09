@@ -61,7 +61,27 @@ export const ModalLink = styled.p`
   font-weight: 400;
 `;
 
-export const ModalList = styled.div``;
+export const ModalList = styled.div`
+  height: 17.2rem;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const ModalInput = styled.input`
+  width: 28rem;
+  padding: 1.8rem 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 1px solid var(--gray-20-color);
+
+  &:focus {
+    outline: 1px solid var(--primary-color);
+  }
+`;
 
 export const ModalButton = styled.button`
   background: ${({ color }) => COLORS[color]};

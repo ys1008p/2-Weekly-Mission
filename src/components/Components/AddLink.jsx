@@ -72,20 +72,29 @@ function FolderLinks() {
 
 function AddLink() {
   const { Modal, openModal } = useModal();
+  const [linkInput, setLinkInput] = useState("");
+
+  const handleInputChange = (e) => {
+    setLinkInput(e.target.value);
+  };
 
   return (
     <AddLinkBar>
       <AddLinkContainer>
-        <AddLinkInput placeholder="링크를 추가해 보세요" />
+        <AddLinkInput
+          placeholder="링크를 추가해 보세요"
+          value={linkInput}
+          onChange={handleInputChange}
+        />
         <AddLinkImg src={addLink} alt="링크 아이콘" />
         <AddLinkButton onClick={openModal}>추가하기</AddLinkButton>
         <Modal
           title="폴더에 추가"
-          link="링크주소"
+          link={linkInput}
           list={<FolderLinks />}
           button="추가하기"
           color="blue"
-        ></Modal>
+        />
       </AddLinkContainer>
     </AddLinkBar>
   );

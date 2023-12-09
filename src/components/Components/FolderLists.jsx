@@ -30,6 +30,8 @@ function FolderLists() {
   const isFolderSelected =
     selectedFolder.id !== null && selectedFolder.name !== "전체";
 
+  console.log(selectedFolder.name);
+
   return (
     <div className="folders">
       <div className="folders-top">
@@ -52,7 +54,7 @@ function FolderLists() {
       </div>
       <div className="name-and-option">
         <div className="folder-name">{selectedFolder.name}</div>
-        {isFolderSelected ? <Option /> : null}
+        {isFolderSelected ? <Option folderName={selectedFolder.name} /> : null}
       </div>
       <FolderCardList folderId={selectedFolder.id} />
     </div>
