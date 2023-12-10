@@ -19,7 +19,7 @@ const CardWrapper = styled.div`
   }
 `;
 
-function CardList({ links }) {
+function CardList({ links, }) {
   return <CardWrapper>{links && links.map((link) => <Card key={link.id} link={link} />)}</CardWrapper>;
 }
 

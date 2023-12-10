@@ -6,24 +6,21 @@ import SearchInput from '../components/SearchInput';
 import styles from '../styles/FolderPage.module.css';
 import FolderButtonList from '../components/domains/folder/FolderButtonList';
 import FolderTitle from '../components//domains/folder/FolderTitle';
-import FloatingButton from '../components/domains/folder/FloatingButton';
-import Modal from"../components/domains/folder/modals/Modal"
+import FloatingButton from '../components/domains/folder/FloatingButton'
 import { getFolderUserData, getSelectData, getAllLinksData, getFoldersData } from '../services/FolderApi';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 
+// modal창 기능구현 시 각 기능에 필요한 인자 분류
+// 폴더 추가, 삭제 => 전체 폴더 보내기
+// 폴더 공유 => 선택된 폴더 하나 보내기 
+// 폴더에서 삭제, 폴더에 추가 => 선택된 링크 보내기 
 
-const FolderPageLayout = styled.div`
-  position: relative;
-`
 
 function FolderPage() {
   const [folders, setFolders] = useState([]);
   const [links, setLinks] = useState([]);
   const [user, setUser] = useState();
   const [id, setId] = useState(0);
-  const [selectPopOver, setSelectPopOver] = useState();
-
   const handleEmailLoad = async () => {
     const { data } = await getFolderUserData();
     setUser(data[0]);
@@ -55,18 +52,21 @@ function FolderPage() {
     if (id !== 0) {
       selectFolderLoad();
     }
-    console.log(selectPopOver);
-  }, [id, selectPopOver]);
+
+  }, [id]);
 
   return (
-    <FolderPageLayout>
+    <>
+ 
+        {/* <DeleteModal/> */}
+      
       <Header user={user} />
-      <FolderAddLinkInput />
+      <FolderAddLinkInput   />
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
           <SearchInput />
           <FolderButtonList folders={folders} setId={setId} />
-          <FolderTitle setSelectPopOver={setSelectPopOver} folders={folders} id={id} />
+          <FolderTitle  folders={folders} id={id} />
           {links.length === 0 ? (
             <div className={styles.linksNull}>
               <div>저장된 링크가 없습니다.</div>
@@ -78,12 +78,7 @@ function FolderPage() {
       </section>
       <Footer />
       <FloatingButton />
-      {
-        selectPopOver?
-        <Modal selectPopOver={selectPopOver} setSelectPopOver={setSelectPopOver}/>
-        : null
-      }
-   </FolderPageLayout>
+   </>
   );
 }
 

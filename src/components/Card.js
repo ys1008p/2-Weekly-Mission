@@ -20,7 +20,7 @@ import { useState } from 'react';
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
-      z-index: 5;
+      z-index: 1;
     }
   `;
 
@@ -79,12 +79,12 @@ import { useState } from 'react';
       height: 1.7rem;
     }
   `;
-function Card({ link }) {
+function Card({ link,}) {
   const createdAtString = link.created_at;
   const elapseTime = CalculateElapsedTime(createdAtString);
   const postedDate = ConvertToFormattedDate(createdAtString);
-
   const [showPopOver, setShowPopOver] =useState(false)
+  
 const handelClickPopOver=(e)=>{
   if (e.target.tagName === 'IMG' && e.target.src.includes('meatball.png')) {
     setShowPopOver(true);
@@ -93,7 +93,6 @@ const handelClickPopOver=(e)=>{
   }
 }
 
-// 팝오버 카드에서만이 아닌 다른곳 클릭하면 없어지는거 구현하기
   return (
     <CardLayout onClick={handelClickPopOver}>
       <CardImageWrapper onClick={() => window.open(`${link.url}`, '_blank')}>

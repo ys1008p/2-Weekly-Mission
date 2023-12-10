@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 const PopOverLayout =styled.div`
@@ -23,16 +22,18 @@ const PopOverButton =styled.button`
     }
 `
 
-function PopOver(){
+function PopOver({showPopOver}){
    
     return(
         <>
-
+        {
+            showPopOver?
         <PopOverLayout >
             <PopOverButton>삭제하기</PopOverButton>
             <PopOverButton>폴더에 추가</PopOverButton>
         </PopOverLayout>
-
+        : null
+    }
         </>
     )
 }

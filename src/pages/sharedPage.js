@@ -28,7 +28,7 @@ function SharedPage() {
 
   return (
     <>
-      <Header sharedUser={user} page={"sharedPage"} />
+      <Header sharedUser={user}/>
       <Banner folder={folder} />
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>

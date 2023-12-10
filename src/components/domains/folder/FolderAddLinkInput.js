@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { ASSETS_URL } from '../../../constants';
 
+
 const BannerLayout = styled.section`
   background-color: var(--gray-bg-color);
   padding: 6rem 3.2rem 9rem;
@@ -45,7 +46,7 @@ const BannerBox = styled.div`
 `;
 
 
-function FolderAddLinkInput() {
+function FolderAddLinkInput({setSelectModal}) {
   return (
     <BannerLayout>
       <BannerBox>

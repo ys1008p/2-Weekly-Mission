@@ -33,20 +33,17 @@ const CategoryList = styled.div`
   gap: 1.2rem;
 `;
 
-function Category({ category, setSelectPopOver }) {
+function Category({ category,}) {
   const { title, image } = category;
-  const handleSelectPopOver =()=>{
-    setSelectPopOver(title)
-  }
   return (
-    <StyledCategory onClick={ handleSelectPopOver}>
+    <StyledCategory >
       <img src={image} alt={`${title} 아이콘`} />
       <div>{title}</div>
     </StyledCategory>
   );
 }
 
-function CategoryBox({ folder, setSelectPopOver }) {
+function CategoryBox({ folder,  }) {
   
   return (
     <StyledCategoryBox>
@@ -54,7 +51,7 @@ function CategoryBox({ folder, setSelectPopOver }) {
       {folder.name !== '전체' ? (
         <CategoryList>
           {categoryList.map((category) => (
-            <Category setSelectPopOver={setSelectPopOver}  key={category.title} category={category} />
+            <Category key={category.title} category={category} />
           ))}
         </CategoryList>
       ) : (
@@ -64,13 +61,13 @@ function CategoryBox({ folder, setSelectPopOver }) {
   );
 }
 
-function FoldersTitle({ folders, id,setSelectPopOver }) {
+function FoldersTitle({ folders, id }) {
   return (
     <>
       {
         folders?.map((folder) => {
           if (folder.id === id) {
-            return <CategoryBox setSelectPopOver={setSelectPopOver} key={folder.id} folder={folder} />;
+            return <CategoryBox  key={folder.id} folder={folder} />;
           }
         })}
     </>
