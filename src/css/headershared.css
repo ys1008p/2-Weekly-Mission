@@ -1,0 +1,41 @@
+header {
+  background-color: #edf7ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 60px;
+  gap: 20px;
+  align-items: center;
+}
+.profileImgDiv {
+  width: 60px;
+  height: 60px;
+}
+.profileImg {
+  width: 100%;
+  height: 100%;
+}
+.profileName {
+  color: #000;
+
+  font-family: Pretendard;
+
+  line-height: 24px;
+  text-align: center;
+}
+.userFavorites {
+  color: #000;
+
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+
+  font-family: Pretendard;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

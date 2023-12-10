@@ -1,7 +1,8 @@
 .card {
   border-radius: 15px;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 }
 .card img {
   width: 100%;
@@ -10,7 +11,7 @@
   z-index: -9999;
   object-fit: fill;
 }
-.card:hover img {
+.card:hover .cardImgDiv img {
   transform: scale(1.3);
   transition: transform 0.3s ease;
   z-index: 50;
@@ -33,6 +34,7 @@
   grid-template: auto / repeat(3, 340px);
   grid-template-areas: "num1 num2 num3" "num4 num5 num6" "num7 num8 num9";
   gap: 25px;
+  position: relative;
 
   @media (max-width: 1124px) {
     grid-template: auto / repeat(2, minmax(150px, 340px));
@@ -98,11 +100,60 @@
 
   @media (min-width: 768px) {
     max-height: 40px;
-    overflow: hidden;
+
     text-overflow: ellipsis;
     white-space: normal;
   }
   @media (max-width: 768px) {
     max-height: 39px;
   }
+}
+
+.starimg {
+  clear: both;
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  overflow: visible;
+}
+.kebabTimetogo {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.kebabTimetogo button {
+  width: 21px;
+  height: 17px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.contextMenu {
+  display: flex;
+  text-align: center;
+  position: absolute;
+  right: -9%;
+  top: 71%;
+  z-index: 33;
+  color: #333236;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: white;
+  border: 1px solid black;
+  flex-direction: column;
+}
+.contextMenu button {
+  padding: 7px 12px;
+  background-color: white;
+  border: none;
+}
+.contextMenu button:hover {
+  background: #e7effb;
+  color: #6d6afe;
 }
