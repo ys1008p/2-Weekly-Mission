@@ -90,48 +90,41 @@ function UserInput({ signup }) {
     }));
   };
 
-  const handleFocusout = (e) => {
-    if (e.target.name === 'email') {
+  const handleFocusoutEmail = (e) => {
+    if (!value.email) {
+      setErrorEmail('이메일을 입력하세요');
       e.target.classList.add('active');
-
-      if (!value.email) {
-        setErrorEmail('이메일을 입력하세요');
+    } else {
+      if (!VALIDATE_CHECK.email.test(value.email)) {
+        setErrorEmail('올바른 이메일 주소가 아닙니다');
       } else {
-        if (!VALIDATE_CHECK.email.test(value.email)) {
-          setErrorEmail('올바른 이메일 주소가 아닙니다');
-        } else {
-          setErrorEmail('');
-          e.target.classList.remove('active');
-        }
-      }
-    }
-
-    if (e.target.name === 'password') {
-      e.target.classList.add('active');
-
-      if (!value.password) {
-        setErrorPassword('비밀번호를 입력하세요');
-      } else {
-        if (!VALIDATE_CHECK.password.test(value.password)) {
-          setErrorPassword('비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요');
-        } else {
-          setErrorPassword('');
-          e.target.classList.remove('active');
-        }
-      }
-    }
-
-    if (
-      (e.target.name === 'password' || e.target.name === 'passwordCheck') &&
-      value.passwordCheck
-    ) {
-      if (value.password !== value.passwordCheck) {
-        setErrorPasswordCheck('비밀번호가 일치하지 않습니다');
-        e.target.classList.add('active');
-      } else {
-        setErrorPasswordCheck('');
+        setErrorEmail('');
         e.target.classList.remove('active');
       }
+    }
+  };
+
+  const handleFocusoutPassword = (e) => {
+    if (!value.password) {
+      setErrorPassword('비밀번호를 입력하세요');
+      e.target.classList.add('active');
+    } else {
+      if (!VALIDATE_CHECK.password.test(value.password)) {
+        setErrorPassword('비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요');
+      } else {
+        setErrorPassword('');
+        e.target.classList.remove('active');
+      }
+    }
+  };
+
+  const handleFocusoutPasswordCheck = (e) => {
+    if (value.password !== value.passwordCheck) {
+      setErrorPasswordCheck('비밀번호가 일치하지 않습니다');
+      e.target.classList.add('active');
+    } else {
+      setErrorPasswordCheck('');
+      e.target.classList.remove('active');
     }
   };
 
@@ -145,7 +138,7 @@ function UserInput({ signup }) {
           name="email"
           value={value.email}
           onChange={handleChange}
-          onBlur={handleFocusout}
+          onBlur={handleFocusoutEmail}
         />
         {errorEmail && <p>{errorEmail}</p>}
       </div>
@@ -159,12 +152,20 @@ function UserInput({ signup }) {
             name="password"
             value={value.password}
             onChange={handleChange}
-            onBlur={handleFocusout}
+            onBlur={handleFocusoutPassword}
           />
           {togglePassword ? (
-            <img src={eyeOn} alt="비밀번호 표시" onClick={handleClickPassword} />
+            <img
+              src={eyeOn}
+              alt="비밀번호 표시"
+              onClick={handleClickPassword}
+            />
           ) : (
-            <img src={eyeOff} alt="비밀번호 숨기기" onClick={handleClickPassword} />
+            <img
+              src={eyeOff}
+              alt="비밀번호 숨기기"
+              onClick={handleClickPassword}
+            />
           )}
         </PassWord>
         {errorPassword && <p>{errorPassword}</p>}
@@ -179,12 +180,20 @@ function UserInput({ signup }) {
             name="passwordCheck"
             value={value.passwordCheck}
             onChange={handleChange}
-            onBlur={handleFocusout}
+            onBlur={handleFocusoutPasswordCheck}
           />
           {togglePasswordCheck ? (
-            <img src={eyeOn} alt="비밀번호 표시" onClick={handleClickPasswordCheck} />
+            <img
+              src={eyeOn}
+              alt="비밀번호 표시"
+              onClick={handleClickPasswordCheck}
+            />
           ) : (
-            <img src={eyeOff} alt="비밀번호 숨기기" onClick={handleClickPasswordCheck} />
+            <img
+              src={eyeOff}
+              alt="비밀번호 숨기기"
+              onClick={handleClickPasswordCheck}
+            />
           )}
         </PassWord>
         {errorPasswordCheck && <p>{errorPasswordCheck}</p>}
@@ -200,7 +209,7 @@ function UserInput({ signup }) {
           name="email"
           value={value.email}
           onChange={handleChange}
-          onBlur={handleFocusout}
+          onBlur={handleFocusoutEmail}
         />
         {errorEmail && <p>{errorEmail}</p>}
       </div>
@@ -214,12 +223,20 @@ function UserInput({ signup }) {
             name="password"
             value={value.password}
             onChange={handleChange}
-            onBlur={handleFocusout}
+            onBlur={handleFocusoutPassword}
           />
           {togglePassword ? (
-            <img src={eyeOn} alt="비밀번호 표시" onClick={handleClickPassword} />
+            <img
+              src={eyeOn}
+              alt="비밀번호 표시"
+              onClick={handleClickPassword}
+            />
           ) : (
-            <img src={eyeOff} alt="비밀번호 숨기기" onClick={handleClickPassword} />
+            <img
+              src={eyeOff}
+              alt="비밀번호 숨기기"
+              onClick={handleClickPassword}
+            />
           )}
         </PassWord>
         {errorPassword && <p>{errorPassword}</p>}
