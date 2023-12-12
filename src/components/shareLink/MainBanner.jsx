@@ -1,9 +1,11 @@
-import { useStoredLink } from '../../contexts/linkProvider';
-import { importImg } from '../../store/common';
+import { LinkContext } from '../../contexts/LinkProvider';
+import { useStoredData } from '../../utils/useStoredData';
+import { ICON } from '../../store/common';
+
 export const MainBanner = () => {
-  const bannerData = useStoredLink();
-  const { name, owner } = bannerData;
-  const { share } = importImg;
+  const { storedData } = useStoredData(LinkContext);
+  const { name, owner } = storedData;
+  const { avatar } = ICON;
 
   return (
     <section className='folder-banner'>
@@ -13,11 +15,12 @@ export const MainBanner = () => {
           <div className='folder-symbol-avatar'>
             <img
               className='folder-symbol-avatar-img'
-              src={owner?.profileImageSource || share.emptyAvatar}
-              alt='코드잇 심볼'
+              src={owner.profileImageSource || avatar.default.url}
+              alt={avatar.default.alt}
+              loading='lazy'
             />
           </div>
-          <span>{owner?.name}</span>
+          <span>{owner.name}</span>
         </div>
         <h3 className='folder-banner-title'>{name}</h3>
       </div>

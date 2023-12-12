@@ -42,10 +42,11 @@ $md-card-margin: 32px;
 
   &.share-wrapper {
     max-width: $lg-card-container;
+    padding: 40px 0 100px 0;
 
     @include responsive(TC) {
       width: 100%;
-      padding: 0 $md-card-margin;
+      padding: 40px $md-card-margin 100px;
     }
   }
 
@@ -57,5 +58,17 @@ $md-card-margin: 32px;
   @include responsive(M) {
     width: 100%;
     padding: 0 $sm-margin;
+
+    &.share-wrapper {
+      padding: 20px 32px 60px 32px;
+    }
+
+    &.add-link {
+      max-width: 100%;
+    }
   }
+}
+
+.center {
+  @include flexbox();
 }

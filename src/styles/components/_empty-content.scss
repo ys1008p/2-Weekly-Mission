@@ -1,0 +1,11 @@
+.empty-content {
+  @include flexbox();
+
+  width: 100%;
+  margin-top: 40px;
+  background-color: $white;
+
+  &-text {
+    @include text-style(16);
+  }
+}

@@ -1,10 +1,9 @@
 import { Search } from '../common/Search';
 import { GridLayout } from './GridLayout';
 
-export const Content = () => {
+export const MainContent = () => {
   return (
-    <main>
-      <h2 className='visually-hidden'>즐겨찾기 본문</h2>
+    <main className='link-content'>
       <div className='container share-wrapper'>
         <Search />
         <GridLayout />

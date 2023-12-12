@@ -2,21 +2,10 @@ import PropTypes from 'prop-types';
 import { formatDate } from '../../utils/formatDate';
 import { getDateDiff } from '../../utils/convertDate';
 
-export const CardItem = ({
-  createdAt,
-  url,
-  title,
-  description,
-  imageSource,
-}) => {
+export const CardItem = ({ createdAt, url, title, description, imageSource }) => {
   return (
     <div className='card-item'>
-      <a
-        href={url}
-        className='card-item-content'
-        target='_blank'
-        rel='noreferrer'
-      >
+      <a href={url} className='card-item-content' target='_blank' rel='noreferrer'>
         <div className='card-item-img'>
           <img src={imageSource} alt={title} loading='lazy' />
         </div>

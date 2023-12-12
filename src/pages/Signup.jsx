@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { SocialLogin, importImg } from '../store/common';
+import { SOCIAL_LOGIN, ICON } from '../store/common';
 
 import { Button } from '../components/common/Button';
 
 const Signup = () => {
+  const { logo, eye } = ICON;
+
   return (
     <div className='wrapper bg-blue'>
       <Helmet>
@@ -16,7 +18,7 @@ const Signup = () => {
           <header className='form-header'>
             <h1 className='logo'>
               <Link to={'/'}>
-                <img src={importImg.logo} alt='linkbrary-logo' />
+                <img src={logo.url} alt={logo.alt} />
               </Link>
             </h1>
             <div className='info-user'>
@@ -72,7 +74,7 @@ const Signup = () => {
                         aria-label='비밀번호 숨기기'
                         role='switch'
                       >
-                        <img src={importImg.auth.eyeHideIcon} alt='비밀번호 숨기기' />
+                        <img src={eye.default.url} alt={eye.default.alt} />
                       </button>
                     </div>
                   </div>
@@ -100,21 +102,25 @@ const Signup = () => {
                         aria-label='비밀번호 숨기기'
                         role='switch'
                       >
-                        <img src={importImg.auth.eyeHideIcon} alt='비밀번호 숨기기' />
+                        <img src={eye.default.url} alt={eye.default.alt} />
                       </button>
                     </div>
                   </div>
                   <div className='error-msg error-verify-password hide'></div>
                 </div>
 
-                <Button text='회원가입' type='submit' className='btn-signup btn-primary' />
+                <Button
+                  text='회원가입'
+                  type='submit'
+                  className='btn-signup btn-primary'
+                />
               </fieldset>
             </form>
 
             <div className='social-login'>
               <span className='social-login-title'>다른 방식으로 가입하기</span>
               <ul className='social-login-list'>
-                {SocialLogin.map((item) => (
+                {SOCIAL_LOGIN.map((item) => (
                   <li key={item.id} className='social-login-item'>
                     <a href={item.url}>
                       <img src={item.src} alt={item.alt} />

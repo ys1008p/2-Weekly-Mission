@@ -1,15 +1,26 @@
 .card-item {
   height: 334px;
   border-radius: 15px;
-  overflow: hidden;
   box-shadow: $drop-shadow;
 
+  position: relative;
+
+  > button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: $fix-button;
+  }
+
   &-img {
+    display: block;
     height: 200px;
-    overflow: hidden;
+    border-radius: 15px 15px 0 0;
     background-image: url('../assets/images/empty-card-img.png');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -27,6 +38,19 @@
     }
     transition: background ease-in-out 0.3s;
 
+    position: relative;
+
+    > div {
+      @include flexbox(between, center);
+    }
+
+    > button {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      z-index: $fix-button;
+    }
+
     p {
       @include text-style(16);
       display: -webkit-box;
@@ -36,6 +60,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       margin: 10px 0;
+      height: 49px;
     }
 
     .textBox-date {
@@ -53,6 +78,64 @@
       background-color: $light-blue;
     }
   }
+
+  &-menu {
+    position: relative;
+
+    .select-menu {
+      opacity: 0;
+      visibility: hidden;
+      transition: all ease-in-out 0.2s;
+
+      position: absolute;
+      top: 16px;
+      left: 0;
+      z-index: $fix-button;
+
+      background-color: $white;
+
+      &.is-active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &-item {
+        margin-bottom: 2px;
+        background-color: $white;
+
+        button {
+          @include text-style(14);
+
+          width: 100px;
+          padding: 7px 0;
+          color: $gray-90;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &:nth-child(2n) {
+          background-color: $light-blue;
+
+          button {
+            color: $primary;
+          }
+        }
+      }
+      box-shadow: $select-menu-shadow;
+    }
+  }
+}
+
+@include responsive(T) {
+  .card-item {
+    &-menu {
+      .select-menu {
+        left: -80px;
+      }
+    }
+  }
 }
 
 @include responsive(M) {
@@ -61,6 +144,18 @@
 
     &-img {
       height: 192px;
+    }
+
+    &:hover {
+      .card-item-img {
+        img {
+          transform: scale(1);
+        }
+      }
+
+      .card-item-textBox {
+        background-color: $white;
+      }
     }
   }
 }

@@ -1,15 +1,15 @@
-import { useStoredLink } from '../../contexts/linkProvider';
-import { importImg } from '../../store/common';
 import { CardItem } from './CardItem';
+import { LinkContext } from '../../contexts/LinkProvider';
+import { useStoredData } from '../../utils/useStoredData';
+import { IMAGE_URL } from '../../store/common';
 
 export const GridLayout = () => {
-  const linkData = useStoredLink();
-
-  const { links = [] } = linkData;
-  const { share } = importImg;
+  const { storedData } = useStoredData(LinkContext);
+  const { links } = storedData;
+  const { empty } = IMAGE_URL;
 
   return (
-    <div className='cardItemWrapper'>
+    <div className='cardItemWrapper share-link'>
       {links.map((item) => (
         <CardItem
           key={item.id}
@@ -17,7 +17,7 @@ export const GridLayout = () => {
           url={item.url}
           title={item.title}
           description={item.description}
-          imageSource={item.imageSource || share.emptyThumbnail}
+          imageSource={item.imageSource || empty.url}
         />
       ))}
     </div>
