@@ -1,11 +1,15 @@
 import Layout from "@/components/common/Layout";
 import FolderOwner from "@/components/shared/FolderOwner";
+import GNB from "../common/GNB";
 
 export default function SharedLayout({ folder, children }) {
   const { id, name, owner } = folder;
 
   return (
-    <Layout heroHeader={<HeroHeader folder={{ id, name, owner }} />}>
+    <Layout
+      navigationBar={<GNB />}
+      heroHeader={<HeroHeader folder={{ id, name, owner }} />}
+    >
       {children}
     </Layout>
   );

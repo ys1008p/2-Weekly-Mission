@@ -1,13 +1,13 @@
 import { useAuth } from "@/hooks/use-auth";
-import Logo from "@/components/common/Logo";
-import Account from "@/components/common/Account";
-import SigninCTA from "@/components/common/SigninCTA";
+import Account from "../common/Account";
+import Logo from "../common/Logo";
+import SigninCTA from "../common/SigninCTA";
 
-export default function GNB() {
+export default function FolderNB() {
   const isLoggedIn = useAuth();
 
   return (
-    <div className="sticky top-0 z-50 h-[6.8rem] w-full bg-u-skyblue tablet:h-[9.4rem]">
+    <div className="h-[6.8rem] w-full bg-u-skyblue tablet:h-[9.4rem]">
       <nav className="mx-auto flex h-full w-full items-center justify-between bg-u-skyblue px-[3.2rem] tablet:max-w-[calc(86.4rem+(100vw-100%))] desktop:max-w-[192rem] desktop:px-[20rem]">
         <Logo />
         {isLoggedIn ? (

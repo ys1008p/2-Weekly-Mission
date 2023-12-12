@@ -1,7 +1,7 @@
 import HomeLayout from "@/components/home/HomeLayout";
 import ServiceIntroCard from "@/components/home/ServiceIntroCard";
 
-export default function Page() {
+export default function HomePage() {
   return (
     <HomeLayout>
       <main>
