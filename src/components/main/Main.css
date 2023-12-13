@@ -1,0 +1,118 @@
+.main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 3.75rem;
+  background: var(--linkbrary-bg, #f0f6ff);
+}
+.main-header_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.main-header_profile_img {
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+.main-header_profile_name {
+  color: var(--text-color-light-mode, #000);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.main-header_folder-name {
+  color: #000;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.main-wrapper {
+  width: 66.25rem;
+  padding-top: 2.5rem;
+  padding-bottom: 6.25rem;
+  margin: auto;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 21.25rem);
+  grid-row-gap: 1.56rem;
+  grid-column-gap: 1.25rem;
+}
+
+.folder-plus-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.folder-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.listed-folder-name {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.3125rem;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.folder-add-button {
+  width: 1rem;
+  height: 1rem;
+}
+
+.clicked-folder {
+  color: #fff;
+  background: var(--linkbrary-primary-color, #6d6afe);
+}
+
+.current-folder-name {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.0125rem;
+}
+
+.current-folder-option-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0rem;
+}
+
+.option-container {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.option-wrapper {
+  display: flex;
+  gap: 0.25rem;
+  border-style: none;
+  background: none;
+}
+
+.option-img {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--linkbrary-gray-60, #9fa6b2);
+}
+
+.option-name {
+  color: var(--linkbrary-gray-60, #9fa6b2);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
