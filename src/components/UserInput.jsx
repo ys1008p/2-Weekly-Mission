@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { useState } from 'react';
 import styled from 'styled-components';
 import eyeOn from '../assets/ico-eye-on.svg';
@@ -57,13 +58,34 @@ const PassWord = styled.div`
   }
 `;
 
+const BtnBox = styled.div`
+  margin: 3rem 0 0;
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 1.6rem 2rem;
+    border: 0;
+    border-radius: 0.8rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 2.1rem;
+    cursor: pointer;
+    color: var(--btn-color);
+    background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  }
+`;
+
 const VALIDATE_CHECK = {
   email: /^[A-Za-z0-9.\-_]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,6}$/,
   password: /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/,
 };
 
-// userEmail: 'test@codeit.com',
-// userPassword: 'codeit101'
+const USER_INFO = {
+  email: 'test@codeit.com',
+  password: 'sprint101',
+};
 
 function UserInput({ signup }) {
   const [togglePassword, setTogglePassword] = useState(false);
@@ -125,6 +147,48 @@ function UserInput({ signup }) {
     } else {
       setErrorPasswordCheck('');
       e.target.classList.remove('active');
+    }
+  };
+
+  const handleClickLogin = async () => {
+    try {
+      const response = await fetch(
+        'https://bootcamp-api.codeit.kr/api/sign-in',
+        {
+          method: 'POST',
+          body: JSON.stringify(USER_INFO),
+        }
+      );
+
+      const { email, password } = USER_INFO;
+      
+      if(value.email === email && value.password === password){
+        window.location.href = '../../folder'
+      }else{
+        handleFocusoutEmail();
+      }
+
+      if (!response.ok) throw new Error();
+    } catch (error) {
+      console.error(error)
+    }
+  };
+
+  const handleClickEmailCheck = async () => {
+    try {
+      const response = await fetch(
+        'https://bootcamp-api.codeit.kr/api/check-email',
+        {
+          method: 'POST',
+          body: JSON.stringify(value.email),
+        }
+      );
+      
+      value.email !== USER_INFO.email ? window.location.href = '../../folder' :'';
+
+      if(!response.ok) throw new Error();
+    } catch (error) {
+      setErrorEmail('이미 사용중인 이메일입니다');
     }
   };
 
@@ -198,6 +262,9 @@ function UserInput({ signup }) {
         </PassWord>
         {errorPasswordCheck && <p>{errorPasswordCheck}</p>}
       </div>
+      <BtnBox>
+        <button type="button" onClick={handleClickEmailCheck}>회원가입</button>
+      </BtnBox>
     </Container>
   ) : (
     <Container>
@@ -241,6 +308,11 @@ function UserInput({ signup }) {
         </PassWord>
         {errorPassword && <p>{errorPassword}</p>}
       </div>
+      <BtnBox>
+        <button type="button" onClick={handleClickLogin}>
+          로그인
+        </button>
+      </BtnBox>
     </Container>
   );
 }

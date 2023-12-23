@@ -38,6 +38,7 @@ const Link = styled.div`
 `;
 
 function JoinLink({ signup }) {
+  console.log(signup)
   return signup ? (
     <div>
       <Logo>

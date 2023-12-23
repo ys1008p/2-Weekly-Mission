@@ -30,7 +30,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 10.4rem 10.8rem 10.4rem;
-  background-color: var(--bg-black);
+  background-color: var(--black);
 
   @media screen and (min-width: 375px) and (max-width: 768px) {
     position: relative;

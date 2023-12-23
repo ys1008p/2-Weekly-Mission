@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Navigate replace to="/signup" />} />
+        <Route path="/" element={<Navigate replace to="/folder" />} />
         <Route path="/signin" element={<SigninPage />}></Route>
         <Route path="/signup" element={<SignupPage />}></Route>
         <Route path="/shared" element={<SharedPage />}></Route>
