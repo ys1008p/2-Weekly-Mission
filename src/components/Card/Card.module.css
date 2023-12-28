@@ -31,6 +31,7 @@
 .agoContainer {
   display: flex;
   justify-content: space-between;
+  height: 1.7rem;
 }
 
 .ago {
@@ -45,6 +46,7 @@
 }
 
 .desc {
+  height: 2.4rem;
   overflow: hidden;
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -53,6 +55,7 @@
 }
 
 .createdAt {
+  height: 1.7rem;
   color: #333;
   font-size: 1.4rem;
   text-overflow: ellipsis;

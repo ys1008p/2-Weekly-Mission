@@ -25,7 +25,7 @@ function Card({ imageSource, createdAt, description, url }) {
           <span className={style.ago}>{calculateTimeDiff(createdAt)}</span>
           <button className={style.kebab}></button>
         </div>
-        <p className={style.desc}>{description || 'No description'}</p>
+        <p className={style.desc}>{description}</p>
         <span className={style.createdAt}>{formatDate(createdAt)}</span>
       </div>
     </a>

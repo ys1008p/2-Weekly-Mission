@@ -1,4 +1,4 @@
-import Card from '../Card/';
+import Card from '@/components/Card/';
 import style from './CardList.module.css';
 
 function EmptyMessage() {

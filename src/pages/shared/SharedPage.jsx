@@ -4,11 +4,11 @@ import { useSetUser } from '@/contexts/UserContext';
 import { getUser } from '@/pages/shared/api';
 
 import CardList from '@/components/CardList';
-import CommonPageLayout from '@/components/Layout/CommonPageLayout';
+import CommonPageLayout from '@/components/layout/CommonPageLayout';
 import SearchBar from '@/components/SearchBar';
 
-import SharedHeader from './SharedHeader';
 import { getFolders } from './api';
+import SharedHeader from './SharedHeader';
 import './style.css';
 
 function SharedPage() {
@@ -38,9 +38,16 @@ function SharedPage() {
   }, []);
 
   return (
-    <CommonPageLayout headerChildren={<SharedHeader folder={folder}></SharedHeader>}>
-      <SearchBar placeholder='링크를 검색해 보세요.' className='main__content' />
-      <CardList className='main__content shared__card-list' list={folder.links} />
+    <CommonPageLayout
+      headerChildren={<SharedHeader folder={folder}></SharedHeader>}>
+      <SearchBar
+        placeholder='링크를 검색해 보세요.'
+        className='main__content'
+      />
+      <CardList
+        className='main__content shared__card-list'
+        list={folder.links}
+      />
     </CommonPageLayout>
   );
 }

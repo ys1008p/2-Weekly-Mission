@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 
+import SearchBar from '@/components/SearchBar';
+import CommonPageLayout from '@/components/layout/CommonPageLayout';
+
 import { useSetIsGnbFixed } from '@/contexts/LayoutContext';
 import { useSetUser } from '@/contexts/UserContext';
 
-import CommonPageLayout from '@/components/layout/CommonPageLayout';
-import SearchBar from '@/components/SearchBar';
-
-import { getFolders, getUser } from './api';
 import FolderHeader from './FolderHeader';
 import FolderMain from './FolderMain';
+import { getFolders, getUser } from './api';
 
 function FolderPage() {
   const [folders, setFolders] = useState([]);
@@ -39,8 +39,11 @@ function FolderPage() {
 
   return (
     <CommonPageLayout headerChildren={<FolderHeader />}>
-      <SearchBar placeholder='링크를 검색해 보세요.' className='main__content' />
-      <FolderMain initFolders={folders} className='main__content'></FolderMain>
+      <SearchBar
+        placeholder='링크를 검색해 보세요.'
+        className='main__content'
+      />
+      <FolderMain folders={folders} className='main__content'></FolderMain>
     </CommonPageLayout>
   );
 }
