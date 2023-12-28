@@ -4,7 +4,7 @@ const config = {
   trailingComma: 'all',
   singleQuote: true,
   jsxSingleQuote: true,
-  printWidth: 90,
+  printWidth: 80,
   tabWidth: 2,
   endOfLine: 'auto',
   bracketSpacing: true,
