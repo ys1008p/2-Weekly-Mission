@@ -47,9 +47,11 @@ export default function FolderLayout() {
     <ContentLayout>
       <AddLinkBar />
       <SearchBar filterLinks={filterLinks} setFilteredLinks={setFilteredLinks} />
-      <div className="searchResult">
-        <span className="searchKeyword">{searchValue}</span>로 검색한 결과입니다.{' '}
-      </div>
+      {searchValue && (
+        <div className="searchResult">
+          <span className="searchKeyword">{searchValue}</span>로 검색한 결과입니다.
+        </div>
+      )}
       <Filtering chosenFolderId={selectedFolder.id} folder={folder} />
       <div className="folderDescription">
         <h1 className="folderName">{selectedFolder.name}</h1>
