@@ -37,7 +37,7 @@ const AddFolderButton = styled.button`
 `;
 
 function AddFolder() {
-  return <AddFolderButton type="button">폴더 추가 버튼</AddFolderButton>;
+  return <AddFolderButton type="button">폴더 추가</AddFolderButton>;
 }
 
 export default AddFolder;
