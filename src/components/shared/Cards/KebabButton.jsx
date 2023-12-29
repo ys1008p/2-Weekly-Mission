@@ -1,20 +1,28 @@
 import './KebabButton.css';
 import kebapImg from './images/kebab.png';
-import useToggle from '../../../hooks/useToggle';
 import Selector from '../Selector/Selector';
-
+import { useRef, useState } from 'react';
+import useOutsideClick from '../../../hooks/useClickOutside';
 export default function KebabButtons() {
-  const [isOpened, setIsOpened] = useToggle(false);
+  const [isOpened, setIsOpened] = useState(false);
+  const selectorRef = useRef();
   const handlePreventDefault = (e) => {
     e.preventDefault();
-    setIsOpened();
+    setIsOpened((prev) => !prev);
   };
+
+  useOutsideClick(selectorRef, () => {
+    setIsOpened(false);
+  });
+
   return (
     <>
       <div>
         <button className="kebabButton" onClick={handlePreventDefault}>
-          <img className="moreInfoCebap" src={kebapImg}></img>
-          {isOpened && <Selector />}
+          <div ref={selectorRef}>
+            <img className="moreInfoCebap" src={kebapImg}></img>
+            {isOpened && <Selector />}
+          </div>
         </button>
       </div>
     </>
