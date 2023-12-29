@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import closeModal from '../assets/btn-close-modal.svg';
 
 const ModalContainer = styled.div`
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   position: fixed;
   left: 50%;
   top: 50%;
@@ -10,6 +11,7 @@ const ModalContainer = styled.div`
   padding: 3.2rem 4rem;
   border: 1px solid var(--box-border-color);
   border-radius: 1.5rem;
+  z-index: 999;
   background-color: var(--color-white);
 `;
 
@@ -56,14 +58,48 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-function Modal() {
+const Dim = styled.div`
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black-000);
+  opacity: 0.4;
+`;
+
+function Modal({ isOpen, onClick, edit, add }) {
   return (
-    <ModalContainer>
-      <Title>폴더이름변경</Title>
-      <Input placeholder="내용 입력" />
-      <Button type="button">변경하기</Button>
-      <CloseButton type="button">닫기</CloseButton>
-    </ModalContainer>
+    <>
+      {edit && (
+        <>
+          <ModalContainer isOpen={isOpen}>
+            <Title>폴더 이름 변경</Title>
+            <Input placeholder="내용 입력" />
+            <Button type="button">변경하기</Button>
+            <CloseButton type="button" onClick={onClick}>
+              닫기
+            </CloseButton>
+          </ModalContainer>
+          <Dim isOpen={isOpen}></Dim>
+        </>
+      )}
+
+      {add && (
+        <>
+          <ModalContainer isOpen={isOpen}>
+            <Title>폴더 추가</Title>
+            <Input placeholder="내용 입력" />
+            <Button type="button">추가하기</Button>
+            <CloseButton type="button" onClick={onClick}>
+              닫기
+            </CloseButton>
+          </ModalContainer>
+          <Dim isOpen={isOpen}></Dim>
+        </>
+      )}
+    </>
   );
 }
 

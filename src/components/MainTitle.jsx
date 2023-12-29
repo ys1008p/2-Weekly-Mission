@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import share from '../assets/btn-share.png';
 import pen from '../assets/btn-pen.png';
 import del from '../assets/btn-delete.png';
+import Modal from './Modal';
+import { useEffect, useState } from 'react';
 
 const Container = styled.div`
   position: relative;
@@ -15,14 +17,13 @@ const Container = styled.div`
     letter-spacing: -0.02rem;
   }
 `;
+
 const ButtonOption = styled.div`
-  display: ${({ $btnOption, 
-  $menuActive }) =>
+  display: ${({ $btnOption, $menuActive }) =>
     $btnOption === true && $menuActive !== 'all' ? 'block' : 'none'};
   position: absolute;
   top: 0;
   right: 0;
-
   @media screen and (min-width: 375px) and (max-width: 768px) {
     position: static;
     margin: 0 0 2rem 0;
@@ -37,6 +38,7 @@ const ButtonOption = styled.div`
     font-weight: 600;
     line-height: 1.6rem;
     color: var(--color-middle-gray);
+    cursor: pointer;
 
     &::before {
       content: '';
@@ -67,15 +69,31 @@ const ButtonOption = styled.div`
 `;
 
 function MainTitle({ title, menuActive, btnOption }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [edit, setEdit] = useState(false);
+
+  const handleClickOpen = () => setIsOpen(true);
+
+  const handleClickClose = () => setIsOpen(false);
+
+  useEffect(() => {
+    setEdit(true);
+  }, [])
+
   return (
-    <Container>
-      <h2>{title}</h2>
-      <ButtonOption $menuActive={menuActive} $btnOption= {btnOption}>
-        <button type="button">공유</button>
-        <button type="button">이름 변경</button>
-        <button type="button">삭제</button>
-      </ButtonOption>
-    </Container>
+    <>
+      <Container>
+        <h2>{title}</h2>
+        <ButtonOption $menuActive={menuActive} $btnOption={btnOption}>
+          <button type="button">공유</button>
+          <button type="button" onClick={handleClickOpen}>
+            이름 변경
+          </button>
+          <button type="button">삭제</button>
+        </ButtonOption>
+      </Container>
+      <Modal isOpen={isOpen} onClick={handleClickClose} edit={edit}/>
+    </>
   );
 }
 

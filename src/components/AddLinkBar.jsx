@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import linkIcon from '../assets/ico-link.png';
+import Modal from './Modal';
+import { useEffect, useState } from 'react';
 
 const AddLinkBarContainer = styled.div`
   padding: 6rem 0 9rem 0;
@@ -14,7 +16,7 @@ const AddLinkBarContainer = styled.div`
   }
 `;
 
-const AddLinkBarWrap = styled.div`
+const Wrap = styled.div`
   position: relative;
   width: 80rem;
   margin: 0 auto;
@@ -40,7 +42,7 @@ const AddLinkBarWrap = styled.div`
   }
 `;
 
-const AddLinkInput = styled.input`
+const Input = styled.input`
   width: 80rem;
   padding: 2.2rem 5.2rem;
   border-radius: 15px;
@@ -59,7 +61,7 @@ const AddLinkInput = styled.input`
   }
 `;
 
-const AddLinkButton = styled.button`
+const Button = styled.button`
   border: none;
   position: absolute;
   right: 2rem;
@@ -83,13 +85,37 @@ const AddLinkButton = styled.button`
 `;
 
 function AddLinkBar() {
+  const [value, setValue] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
+  const [add, setAdd] = useState(false);
+
+  const handleOnChangeValue = (e) => setValue(e.target.value);
+
+  const handleClickOpen = () => {if(value) setIsOpen(true);}
+
+  const handleClickClose = () => setIsOpen(false);
+
+  useEffect(() => {
+    setAdd(true);
+  }, [])
+
   return (
-    <AddLinkBarContainer>
-      <AddLinkBarWrap>
-        <AddLinkInput type="text" placeholder="링크를 추가해보세요" />
-        <AddLinkButton type="button">추가하기</AddLinkButton>
-      </AddLinkBarWrap>
-    </AddLinkBarContainer>
+    <>
+      <AddLinkBarContainer>
+        <Wrap>
+          <Input
+            type="text"
+            placeholder="링크를 추가해보세요"
+            onChange={handleOnChangeValue}
+            value={value}
+          />
+          <Button type="button" onClick={handleClickOpen}>
+            추가하기
+          </Button>
+        </Wrap>
+      </AddLinkBarContainer>
+      <Modal isOpen={isOpen} onClick={handleClickClose} add={add}/>
+    </>
   );
 }
 
