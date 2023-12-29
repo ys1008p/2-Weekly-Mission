@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import closeModal from '../assets/btn-close-modal.svg';
+import kakao from '../assets/ico-kakao-share.png';
+import facebook from '../assets/ico-facebook-share.png';
+import link from '../assets/ico-link-share.png';
 
 const ModalContainer = styled.div`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   position: fixed;
   left: 50%;
-  display: block;
+  /* display: block; */
   top: 50%;
   transform: translate(-50%, -50%);
   width: 36rem;
@@ -28,9 +31,18 @@ const Input = styled.input`
   margin: 2.4rem 0 1.5rem 0;
   padding: 1.8rem 1.5rem;
   font-size: 1.6rem;
+  outline: none;
   border: 1px solid var(--primary-color);
   border-radius: 0.8rem;
   color: var(--black-color);
+`;
+
+const Text = styled.p`
+  margin: 0.8rem 0 2.4rem 0;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: var(--color-middle-gray);
 `;
 
 const Button = styled.button`
@@ -40,7 +52,10 @@ const Button = styled.button`
   border-radius: 0.8rem;
   font-size: 1.6rem;
   color: var(--color-white);
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: ${({ folderRemove }) =>
+    folderRemove
+      ? 'var(--red-color)'
+      : 'linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%)'};
   cursor: pointer;
 `;
 
@@ -70,51 +85,70 @@ const Dim = styled.div`
   opacity: 0.4;
 `;
 
-function Modal({ isOpen, onClick, edit, add }) {
+const Sns = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 3.2rem;
+
+  li {
+    font-size: 1.3rem;
+
+    img {
+      display: block;
+      margin: 0 0 1rem 0;
+    }
+  }
+`;
+
+function Modal({ $isOpen, onClick, edit, add, share, folderRemove }) {
   return (
     <>
-      {edit && (
-        <>
-          <ModalContainer isOpen={isOpen}>
-            <Title>폴더 이름 변경</Title>
-            <Input placeholder="내용 입력" />
-            <Button type="button">변경하기</Button>
-            <CloseButton type="button" onClick={onClick}>
-              닫기
-            </CloseButton>
-          </ModalContainer>
-          <Dim isOpen={isOpen}></Dim>
-        </>
-      )}
-
-      {add && (
-        <>
-          <ModalContainer isOpen={isOpen}>
-            <Title>폴더 추가</Title>
-            <Input placeholder="내용 입력" />
-            <Button type="button">추가하기</Button>
-            <CloseButton type="button" onClick={onClick}>
-              닫기
-            </CloseButton>
-          </ModalContainer>
-          <Dim isOpen={isOpen}></Dim>
-        </>
-      )}
-      <>
-          <ModalContainer isOpen={isOpen}>
-            <Title>폴더 공유</Title>
-            <Input placeholder="내용 입력" />
-            <ul>
-              <li><img src="" alt=""/></li>
-              <li><img src="" alt=""/></li>
-              <li><img src="" alt=""/></li>
-            </ul>
-            <CloseButton type="button" onClick={onClick}>
-              닫기
-            </CloseButton>
-          </ModalContainer>
-          <Dim isOpen={isOpen}></Dim>
-        </>
+      <ModalContainer $isOpen={$isOpen}>
+        <Title>
+          {edit
+            ? '폴더 변경'
+            : add
+              ? '폴더 추가'
+              : share
+                ? '폴더 공유'
+                : folderRemove
+                  ? '폴더 삭제'
+                  : ''}
+        </Title>
+        {!share && !folderRemove ? (
+          <Input placeholder="내용 입력" />
+        ) : (
+          <Text>폴더명</Text>
+        )}
+        {!share && (
+          <Button type="button" folderRemove={folderRemove}>
+            {edit ? '변경하기' : add ? '추가하기' : folderRemove ? '삭제하기' : ''}
+          </Button>
+        )}
+        {share && (
+          <Sns>
+            <li>
+              <img src={kakao} alt="카카오톡" />
+              카카오톡
+            </li>
+            <li>
+              <img src={facebook} alt="페이스북" />
+              페이스북
+            </li>
+            <li>
+              <img src={link} alt="링크 복사" />
+              링크 복사
+            </li>
+          </Sns>
+        )}
+        <CloseButton type="button" onClick={onClick}>
+          닫기
+        </CloseButton>
+      </ModalContainer>
+      <Dim $isOpen={$isOpen}></Dim>
     </>
   );
 }
