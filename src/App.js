@@ -6,6 +6,8 @@ import SignupPage from './page/SignupPage';
 import SigninPage from './page/SigninPage';
 import CardList from './components/CardList';
 import PopOver from './components/PopOver';
+import Modal from './components/Modal';
+import AddLinkBar from './components/AddLinkBar';
 
 function App() {
   return (
@@ -13,7 +15,7 @@ function App() {
       <GlobalStyle />
       <Routes>
         {/* <Route path="/" element={<Navigate replace to="/folder" />} /> */}
-        <Route path="/" element={<FolderPage />} />
+        <Route path="/" element={<AddLinkBar />} />
         {/* <Route path="/signin" element={<SigninPage />}></Route>
         <Route path="/signup" element={<SignupPage />}></Route>
         <Route path="/shared" element={<SharedPage />}></Route>
