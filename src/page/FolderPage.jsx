@@ -5,7 +5,7 @@ import AddLinkBar from '../components/AddLinkBar';
 import Nav from '../components/Nav';
 import TabMenu from '../components/TabMenu';
 import SearchBar from '../components/SearchBar';
-import MainTitle from '../components/MainTitle';
+import ButtonOption from '../components/ButtonOption';
 import AddFolder from '../components/AddFolder';
 import CardList from '../components/CardList';
 import useAsync from '../hook/useAsync';
@@ -91,7 +91,7 @@ function FolderPage() {
             menuActive={menuActive}
             btnOption={btnOption}
           />
-          <MainTitle
+          <ButtonOption
             title={title}
             btnOption={btnOption}
             menuActive={menuActive}

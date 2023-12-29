@@ -5,7 +5,7 @@ import del from '../assets/btn-delete.png';
 import Modal from './Modal';
 import { useEffect, useState } from 'react';
 
-const Container = styled.div`
+const ButtonOptionContainer = styled.div`
   position: relative;
 
   h2 {
@@ -18,7 +18,7 @@ const Container = styled.div`
   }
 `;
 
-const ButtonOption = styled.div`
+const Option = styled.div`
   display: ${({ $btnOption, $menuActive }) =>
     $btnOption === true && $menuActive !== 'all' ? 'block' : 'none'};
   position: absolute;
@@ -68,7 +68,7 @@ const ButtonOption = styled.div`
   }
 `;
 
-function MainTitle({ title, menuActive, btnOption }) {
+function ButtonOption({ title, menuActive, btnOption }) {
   const [isOpen, setIsOpen] = useState(false);
   const [edit, setEdit] = useState(false);
 
@@ -82,19 +82,19 @@ function MainTitle({ title, menuActive, btnOption }) {
 
   return (
     <>
-      <Container>
+      <ButtonOptionContainer>
         <h2>{title}</h2>
-        <ButtonOption $menuActive={menuActive} $btnOption={btnOption}>
+        <Option $menuActive={menuActive} $btnOption={btnOption}>
           <button type="button">공유</button>
           <button type="button" onClick={handleClickOpen}>
             이름 변경
           </button>
           <button type="button">삭제</button>
-        </ButtonOption>
-      </Container>
+        </Option>
+      </ButtonOptionContainer>
       <Modal isOpen={isOpen} onClick={handleClickClose} edit={edit}/>
     </>
   );
 }
 
-export default MainTitle;
+export default ButtonOption;
