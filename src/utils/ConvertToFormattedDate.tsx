@@ -1,4 +1,4 @@
-function ConvertToFormattedDate(createdAtString) {
+function ConvertToFormattedDate(createdAtString: string) {
   const createdAt = new Date(createdAtString);
   const year = createdAt.getFullYear();
   const month = createdAt.getMonth() + 1;

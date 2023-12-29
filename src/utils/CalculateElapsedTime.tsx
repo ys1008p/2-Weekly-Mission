@@ -1,4 +1,4 @@
-function CalculateElapsedTime(createdAtString) {
+function CalculateElapsedTime(createdAtString: string) {
   const createdAt = new Date(createdAtString);
   const currentTime = new Date();
 
@@ -8,7 +8,7 @@ function CalculateElapsedTime(createdAtString) {
   const elapsedMonth = Math.floor((currentTime.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24 * 30));
 
   if (elapsedMinutes < 2) {
-    return "1 minute ago";
+    return '1 minute ago';
   } else if (elapsedMinutes < 60) {
     return `${elapsedMinutes} minutes ago`;
   } else if (elapsedHour < 24) {
@@ -19,7 +19,7 @@ function CalculateElapsedTime(createdAtString) {
     return `${elapsedMonth} months ago`;
   } else {
     const years = Math.floor(elapsedMonth / 12);
-    return years === 1 ? "1 year ago" : `${years} years ago`;
+    return years === 1 ? '1 year ago' : `${years} years ago`;
   }
 }
 

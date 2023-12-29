@@ -1,9 +1,8 @@
-import Header from '../components/Header';
-import Footer from '../components/commons/Footer';
+import Header from '../components/commons/Header';
 import FolderAddLinkInput from '../components/domains/folder/FolderAddLinkInput';
 import CardList from '../components/CardList';
 import SearchInput from '../components/SearchInput';
-import styles from '../styles/FolderPage.module.css';
+import styles from '../styles/folderPage.module.css';
 import FolderButtonList from '../components/domains/folder/FolderButtonList';
 import FolderTitle from '../components//domains/folder/FolderTitle';
 import FloatingButton from '../components/domains/folder/FloatingButton'
@@ -57,9 +56,6 @@ function FolderPage() {
 
   return (
     <>
- 
-        {/* <DeleteModal/> */}
-      
       <Header user={user} />
       <FolderAddLinkInput   />
       <section className={styles.contentFlax}>
@@ -76,7 +72,6 @@ function FolderPage() {
           )}
         </div>
       </section>
-      <Footer />
       <FloatingButton />
    </>
   );

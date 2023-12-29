@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ASSETS_URL } from '../constants';
+import { ASSETS_URL } from '../../constants';
 
 const HeaderLayout = styled.header`
   background-color: var(--gray-bg-color);

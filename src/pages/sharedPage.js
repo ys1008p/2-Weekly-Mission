@@ -1,9 +1,8 @@
-import Header from "../components/Header";
-import Footer from "../components/commons/Footer";
+import Header from "../components/commons/Header";
 import Banner from "../components/Banner";
 import CardList from "../components/CardList";
 import SearchInput from "../components/SearchInput";
-import styles from "../styles/SharedPage.module.css";
+import styles from "../styles/sharedPage.module.css";
 import { getSharedData, getUserData } from "../services/SharedApi";
 import { useEffect, useState } from "react";
 
@@ -36,7 +35,6 @@ function SharedPage() {
           <CardList links={folder && folder.links} />
         </div>
       </section>
-      <Footer />
     </>
   );
 }
