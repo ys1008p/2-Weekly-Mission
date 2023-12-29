@@ -57,7 +57,15 @@ export default function FolderLayout() {
         <h1 className="folderName">{selectedFolder.name}</h1>
         {selectedFolder.id && <FolderEditButtons className="folderEditButtons" />}
       </div>
-      {links.length ? <Cards links={filteredLinks} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
+      {links.length ? (
+        filterLinks(searchValue).length ? (
+          <Cards links={filteredLinks} />
+        ) : (
+          <div className="noLinks"> 검색결과가 없습니다.</div>
+        )
+      ) : (
+        <div className="noLinks">저장된 링크가 없습니다.</div>
+      )}
       <FloatingActionButton />
     </ContentLayout>
   );
