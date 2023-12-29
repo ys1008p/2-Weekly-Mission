@@ -3,55 +3,34 @@ import facebook from '../assets/ico-facebook.png';
 import twitter from '../assets/ico-twitter.png';
 import youtube from '../assets/ico-youtube.png';
 import instagram from '../assets/ico-instagram.png';
+import { Link } from 'react-router-dom';
 
-const SNSINFO = [
-  {
-    src: facebook,
-    alt: 'facebook',
-  },
-
-  {
-    src: twitter,
-    alt: 'twitter',
-  },
-
-  {
-    src: youtube,
-    alt: 'youtube',
-  },
-
-  {
-    src: instagram,
-    alt: 'instagram',
-  },
-];
-
-const Container = styled.div`
+const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 10.4rem 10.8rem 10.4rem;
-  background-color: var(--black);
+  background-color: var(--bg-black);
 
   @media screen and (min-width: 375px) and (max-width: 768px) {
     position: relative;
     padding: 3.2rem 3.2rem 10.8rem 3.2rem;
   }
+`;
 
-  span {
-    color: var(--color-dark-gray);
-    font-family: Arial;
-    font-size: 1.6rem;
+const Copyright = styled.span`
+  color: var(--color-dark-gray);
+  font-family: Arial;
+  font-size: 1.6rem;
 
-    @media screen and (min-width: 375px) and (max-width: 768px) {
-      position: absolute;
-      bottom: 3.2rem;
-    }
+  @media screen and (min-width: 375px) and (max-width: 768px) {
+    position: absolute;
+    bottom: 3.2rem;
   }
 `;
 
 const Privery = styled.div`
   float: left;
-  
+
   a {
     font-size: 1.6rem;
     color: var(--color-light-gray);
@@ -67,17 +46,49 @@ const Faq = styled(Privery)`
 const Sns = styled.ul`
   display: flex;
   gap: 1.2rem;
+
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 function SnsList() {
-  const sns = SNSINFO.map((item, idx) => (
-    <li key={idx}>
-      <a href="/" target="_blank" rel="noopener noreferrer">
+  const SNS_INFO = [
+    {
+      id: 'facebook',
+      src: facebook,
+      alt: 'facebook',
+    },
+
+    {
+      id: 'twitter',
+      src: twitter,
+      alt: 'twitter',
+    },
+
+    {
+      id: 'youtube',
+      src: youtube,
+      alt: 'youtube',
+    },
+
+    {
+      id: 'instagram',
+      src: instagram,
+      alt: 'instagram',
+    },
+  ];
+
+  const sns = SNS_INFO.map((sns) => (
+    <li key={sns.id}>
+      <Link to="/" target="_blank" rel="noopener noreferrer">
         <img
-          src={item.src}
-          alt={`${item.alt} 홈페이지로 연결된 ${item.alt} 로고`}
+          src={sns.src}
+          alt={`${sns.alt} 홈페이지로 연결된 ${sns.alt} 로고`}
         />
-      </a>
+      </Link>
     </li>
   ));
   return sns;
@@ -85,14 +96,14 @@ function SnsList() {
 
 function Footer() {
   return (
-    <Container>
-      <span>©codeit - 2023</span>
+    <FooterContainer>
+      <Copyright>©codeit - 2023</Copyright>
       <div>
         <Privery>
-          <a href="/">Privacy Policy</a>
+          <Link to="/">Privacy Policy</Link>
         </Privery>
         <Faq>
-          <a href="/">FAQ</a>
+          <Link to="/">FAQ</Link>
         </Faq>
       </div>
       <div>
@@ -100,7 +111,7 @@ function Footer() {
           <SnsList />
         </Sns>
       </div>
-    </Container>
+    </FooterContainer>
   );
 }
 

@@ -11,9 +11,6 @@ function SharedPage() {
   const [cardList, setCardList] = useState([]);
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState('');
-  const [folderUserProfile, setFolderUserProfile] = useState(null);
-  const [folderUserName, setFolderUserName] = useState('');
-  const [folderName, setFolderName] = useState('');
 
   const [getProfileSample] = useAsync('/sample/user', '', '', '');
   const [getFolderSample] = useAsync('/sample/folder', '', '', '');
@@ -27,15 +24,8 @@ function SharedPage() {
   const handleLoadFolder = async () => {
     const { folder } = await getFolderSample();
     const { links } = folder;
-    setFolderName(folder.name);
-    setFolderUserName(folder?.owner?.name);
-    setFolderUserProfile(folder?.owner?.profileImageSource);
     setCardList(links);
   };
-
-  const handleMouseOver = (e) => e.currentTarget.classList.add('active');
-
-  const handleMouseOut = (e) => e.currentTarget.classList.remove('active');
 
   useEffect(() => {
     handleLoadProfile();
@@ -50,18 +40,12 @@ function SharedPage() {
       <div className="container">
         <header>
           <Nav profileEmail={profileEmail} profileImg={profileImg} />
-          <FolderUser
-            folderName={folderName}
-            folderUserName={folderUserName}
-            folderUserProfile={folderUserProfile}
-          />
+          <FolderUser/>
         </header>
         <div className="main">
           <SearchBar />
           <CardList
-            links={cardList}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
+            cardList={cardList}
           />
         </div>
         <footer>

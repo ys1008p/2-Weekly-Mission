@@ -1,7 +1,13 @@
 import styled from 'styled-components';
-import addFolder from '../assets/btn-add-folder.png';
+import addFolder from '../assets/btn-add-folder.svg';
 
-const Button = styled.button`
+const AddFolderButton = styled.button`
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  border: none;
+  background-color: transparent;
+  
   @media screen and (min-width: 375px) and (max-width: 768px) {
     position: fixed;
     left: 50%;
@@ -31,7 +37,7 @@ const Button = styled.button`
 `;
 
 function AddFolder() {
-  return <Button type="button"></Button>;
+  return <AddFolderButton type="button">폴더 추가 버튼</AddFolderButton>;
 }
 
 export default AddFolder;

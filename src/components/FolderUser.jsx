@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import useAsync from '../hook/useAsync';
 
-const Container = styled.div`
+const FolderUserContainer = styled.div`
   margin: 9.4rem 0 0;
   padding: 2rem 0 6rem 0;
   text-align: center;
@@ -10,13 +12,13 @@ const Container = styled.div`
     margin: 6.3rem 0 0;
     padding: 1rem 0 4rem 0;
   }
+`;
 
-  img {
-    width: 6rem;
+const UserProfileImg = styled.img`
+  width: 6rem;
 
-    @media screen and (min-width: 375px) and (max-width: 768px) {
-      width: 4rem;
-    }
+  @media screen and (min-width: 375px) and (max-width: 768px) {
+    width: 4rem;
   }
 `;
 
@@ -31,7 +33,7 @@ const UserName = styled.p`
   }
 `;
 
-const Name = styled.p`
+const FolderName = styled.p`
   font-size: 4rem;
   line-height: 4.8rem;
   font-weight: 600;
@@ -42,13 +44,29 @@ const Name = styled.p`
   }
 `;
 
-function FolderUser({ folderName, folderUserName, folderUserProfile }) {
+function FolderUser() {
+  const [folderUserProfile, setFolderUserProfile] = useState(null);
+  const [folderUserName, setFolderUserName] = useState('');
+  const [folderName, setFolderName] = useState('');
+  const [getFolderSample] = useAsync('/sample/folder', '', '', '');
+
+  const handleLoadFolder = async () => {
+    const { folder } = await getFolderSample();
+    setFolderName(folder?.name);
+    setFolderUserName(folder?.owner?.name);
+    setFolderUserProfile(folder?.owner?.profileImageSource);
+  };
+
+  useEffect(() => {
+    handleLoadFolder();
+  }, []);
+
   return (
-    <Container>
-      <img src={folderUserProfile} alt="폴더 사용자 프로필 이미지" />
+    <FolderUserContainer>
+      <UserProfileImg src={folderUserProfile} alt="폴더 사용자 프로필 이미지" />
       <UserName>{folderUserName}</UserName>
-      <Name>{folderName}</Name>
-    </Container>
+      <FolderName>{folderName}</FolderName>
+    </FolderUserContainer>
   );
 }
 

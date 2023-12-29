@@ -58,10 +58,6 @@ function FolderPage() {
     setTitle(`${item.name !== '전체' ? item.name : ''}`);
   };
 
-  const handleMouseOver = (e) => e.currentTarget.classList.add('active');
-
-  const handleMouseOut = (e) => e.currentTarget.classList.remove('active');
-
   useEffect(() => {
     handleLoadProfile();
     handleLoadFolderMenu();
@@ -101,9 +97,7 @@ function FolderPage() {
             menuActive={menuActive}
           />
           <CardList
-            links={cardList}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
+            cardList={cardList}
             data={data}
           />
           <AddFolder />

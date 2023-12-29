@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import noImg from '../assets/no-img.svg';
 import star from '../assets/ico-star.png';
 import kebab from '../assets/btn-kebab.png';
+import { Link } from 'react-router-dom';
+import PopOver from './PopOver';
+import { useState } from 'react';
 
 const Card = styled.img`
   display: block;
@@ -20,41 +23,42 @@ const Container = styled.ul`
   @media screen and (min-width: 375px) and (max-width: 768px) {
     gap: 2rem 0;
   }
+`;
 
-  li {
-    width: calc(33.3% - 2rem);
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 15px;
+const Cards = styled.li`
+position: relative;
+  width: calc(33.3% - 2rem);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
 
-    @media screen and (max-width: 1124px) {
-      width: calc(50% - 2.4rem);
-    }
+  @media screen and (max-width: 1124px) {
+    width: calc(50% - 2.4rem);
+  }
 
-    @media screen and (min-width: 375px) and (max-width: 768px) {
-      width: 100%;
-    }
+  @media screen and (min-width: 375px) and (max-width: 768px) {
+    width: 100%;
+  }
 
-    &.active {
-      a {
-        border: 3px solid var(--color-blue);
-
-        ${Card} {
-          transform: scale(1.3);
-          transition: all 0.5s;
-        }
-      }
-
-      div {
-        background-color: var(--bg-sky-blue);
-      }
-    }
-
+  &.active {
     a {
-      display: block;
-      overflow: hidden;
-      border: 3px solid transparent;
-      border-radius: 15px;
+      border: 3px solid var(--color-blue);
+
+      ${Card} {
+        transform: scale(1.3);
+        transition: all 0.5s;
+      }
     }
+
+    div {
+      background-color: var(--bg-sky-blue);
+    }
+  }
+
+  a {
+    display: block;
+    overflow: hidden;
+    border: 3px solid transparent;
+    border-radius: 15px;
   }
 `;
 
@@ -76,14 +80,14 @@ const Text = styled.div`
   overflow: hidden;
   min-height: 11.5rem;
   padding: 1.5rem 2rem;
+`;
 
-  span {
-    display: block;
-    float: right;
-    width: 2.1rem;
-    height: 1.7rem;
-    background: url('${kebab}') no-repeat;
-  }
+const Kebab = styled.span`
+  display: block;
+  float: right;
+  width: 2.1rem;
+  height: 1.7rem;
+  background: url('${kebab}') no-repeat;
 `;
 
 const BeforeAge = styled.p`
@@ -116,7 +120,6 @@ const NoLink = styled.p`
   text-align: center;
   font-size: 1.6rem;
 `;
-
 function getDateText({ createdAt }) {
   const idx = createdAt.indexOf('T');
   const text = createdAt.slice(0, idx);
@@ -145,13 +148,26 @@ function getDateInfo({ createdAt }) {
   }
 }
 
-function CardList({ links, onMouseOver, onMouseOut, data }) {
-  if (links.length === 0) return <NoLink>저장된 링크가 없습니다</NoLink>;
+function CardList({ cardList, data }) {
+  const [isOpen, setIsOpen] = useState(null);
+  const handleClickKebab = (e, id) => {
+    e.preventDefault();
+    setIsOpen(prevOpen => (prevOpen !== id && id));
+  };
 
-  const cards = links.map((card) =>
+  if (cardList.length === 0) return <NoLink>저장된 링크가 없습니다</NoLink>;
+
+  const handleMouseOverOut = (e, isOver) =>
+    e.currentTarget.classList[isOver ? 'add' : 'remove']('active');
+
+  const cards = cardList.map((card) =>
     data ? (
-      <li key={card.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
-        <a href={card.url} target="_blank" rel="noopener noreferrer">
+      <Cards
+        key={card.id}
+        onMouseOver={(e) => handleMouseOverOut(e, true)}
+        onMouseOut={(e) => handleMouseOverOut(e, false)}
+      >
+        <Link to={card.url} target="_blank" rel="noopener noreferrer">
           <ImgBox>
             <Card
               src={card.image_source ? card.image_source : noImg}
@@ -161,16 +177,21 @@ function CardList({ links, onMouseOver, onMouseOut, data }) {
           </ImgBox>
           <Text>
             <BeforeAge>{getDateInfo({ createdAt: card.created_at })}</BeforeAge>
-            <span></span>
+            <Kebab onClick={(e) => handleClickKebab(e, card.id)}></Kebab>
+            <PopOver $isOpen={card.id === isOpen} />
             <Desc>{card.description}</Desc>
             <CreatedDate>
               {getDateText({ createdAt: card.created_at })}
             </CreatedDate>
           </Text>
-        </a>
-      </li>
+        </Link>
+      </Cards>
     ) : (
-      <li key={card.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+      <Cards
+        key={card.id}
+        onMouseOver={(e) => handleMouseOverOut(e, true)}
+        onMouseOut={(e) => handleMouseOverOut(e, false)}
+      >
         <a href={card.url} target="_blank" rel="noopener noreferrer">
           <ImgBox>
             <Card
@@ -186,7 +207,7 @@ function CardList({ links, onMouseOver, onMouseOut, data }) {
             </CreatedDate>
           </Text>
         </a>
-      </li>
+      </Cards>
     )
   );
 
