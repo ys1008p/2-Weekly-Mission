@@ -29,5 +29,6 @@
 
 .SearchBarInput {
   border: none;
+  width: 100%;
   background: #f5f5f5;
 }
