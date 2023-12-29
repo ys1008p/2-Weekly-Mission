@@ -5,6 +5,7 @@ const ModalContainer = styled.div`
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   position: fixed;
   left: 50%;
+  display: block;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 36rem;
@@ -99,6 +100,21 @@ function Modal({ isOpen, onClick, edit, add }) {
           <Dim isOpen={isOpen}></Dim>
         </>
       )}
+      <>
+          <ModalContainer isOpen={isOpen}>
+            <Title>폴더 공유</Title>
+            <Input placeholder="내용 입력" />
+            <ul>
+              <li><img src="" alt=""/></li>
+              <li><img src="" alt=""/></li>
+              <li><img src="" alt=""/></li>
+            </ul>
+            <CloseButton type="button" onClick={onClick}>
+              닫기
+            </CloseButton>
+          </ModalContainer>
+          <Dim isOpen={isOpen}></Dim>
+        </>
     </>
   );
 }
