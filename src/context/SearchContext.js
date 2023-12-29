@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 // folder page의 뷰를 결정하는 두가지 인자를 context로 관리
 const viewParams = {
   searchValue: '',
-  selectedFolder: { id: 0, name: '' },
+  selectedFolder: { id: undefined, name: '' },
 };
 
 const SearchContext = createContext(viewParams);
