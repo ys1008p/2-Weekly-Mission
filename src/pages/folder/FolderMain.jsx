@@ -1,15 +1,35 @@
 import CardList from '@/components/CardList';
+import ModalWithOneButton from '@/components/modal/ModalWithOneButton';
+import { useModal } from '@/contexts/ModalContext';
 import { useEffect, useMemo, useState } from 'react';
 import style from './FolderMain.module.css';
 import { getLinks } from './api';
 
 function FolderTitle({ currentFolder }) {
+  const modal = useModal();
+  const openModal = modal.openModal;
+
   return (
     <div className={style.folderTitle}>
       <h1 className={style.title}>{currentFolder.name}</h1>
       {!currentFolder.id && (
         <div className={style.options}>
-          <button className={style.option}>
+          <button
+            className={style.option}
+            onClick={() =>
+              openModal(
+                <ModalWithOneButton
+                  title={'폴더 이름 변경'}
+                  buttonText={'변경하기'}
+                  onClick={() => openModal(<div>네네 두 번째 모달이어료</div>)}>
+                  <input
+                    className={style.modalInput}
+                    type='text'
+                    placeholder='폴더명'
+                  />
+                </ModalWithOneButton>,
+              )
+            }>
             <img src='/images/icons/share.svg' alt='공유 버튼 이미지' />
             <span>공유</span>
           </button>
