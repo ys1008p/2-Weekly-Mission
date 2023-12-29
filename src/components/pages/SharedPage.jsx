@@ -1,4 +1,4 @@
-import './SharedPage.css';
+import styles from './SharedPage.module.css';
 import { useState, useEffect } from 'react';
 import { getSampleUserFolder } from '../fetchApi';
 import FolderBanner from '../others/FolderBanner';

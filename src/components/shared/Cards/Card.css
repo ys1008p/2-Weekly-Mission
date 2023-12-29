@@ -15,7 +15,7 @@
 
 .contentBox:hover {
   border: 2px solid var(--linkbrary-primary-color, #6d6afe);
-  border-radius: 15px;
+  border-radius: 17px;
 }
 
 .imgContainer {

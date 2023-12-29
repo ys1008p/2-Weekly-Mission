@@ -1,16 +1,11 @@
 .SearchBarContainer {
-  box-sizing: border-box;
-  width: 100vw;
-  padding: 0 68px;
-  margin: 40px 0;
-
-  @media (max-width: 1119px) {
-    padding: 0 32px;
-  }
   @media (max-width: 767px) {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  width: 100%;
+  max-width: 1080px;
+  margin: 40px auto;
 }
 
 .SearchBar {

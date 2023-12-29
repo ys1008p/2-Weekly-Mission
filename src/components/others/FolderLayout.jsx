@@ -8,6 +8,7 @@ import FloatingActionButton from '../shared/FloatingActionButton';
 import { useState, useEffect, useContext } from 'react';
 import { getFolder, getLinks } from '../fetchApi';
 import { SearchContext } from '../../context/SearchContext';
+import ContentLayout from './ContentLayout';
 
 export default function FolderLayout() {
   const { searchValue, selectedFolder } = useContext(SearchContext);
@@ -43,10 +44,12 @@ export default function FolderLayout() {
   }, [selectedFolder.id, selectedFolder.name]);
 
   return (
-    <div>
+    <ContentLayout>
       <AddLinkBar />
       <SearchBar filterLinks={filterLinks} setFilteredLinks={setFilteredLinks} />
-      <div> {searchValue}로 검색한 결과입니다. </div>
+      <div className="searchResult">
+        <span className="searchKeyword">{searchValue}</span>로 검색한 결과입니다.{' '}
+      </div>
       <Filtering chosenFolderId={selectedFolder.id} folder={folder} />
       <div className="folderDescription">
         <h1 className="folderName">{selectedFolder.name}</h1>
@@ -54,6 +57,6 @@ export default function FolderLayout() {
       </div>
       {links.length ? <Cards links={filteredLinks} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
       <FloatingActionButton />
-    </div>
+    </ContentLayout>
   );
 }
