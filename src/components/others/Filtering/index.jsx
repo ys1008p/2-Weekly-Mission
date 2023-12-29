@@ -3,7 +3,7 @@ import FolderButton from '../../shared/FolderButton';
 import addFolderIcon from './add.png';
 import { useMediaQuery } from 'react-responsive';
 
-export default function Sorting({ chosenFolderId, folder, handleQuery }) {
+export default function Sorting({ chosenFolderId, folder }) {
   const isNotMobile = useMediaQuery({
     query: '(min-width :768px)',
   });
@@ -17,22 +17,10 @@ export default function Sorting({ chosenFolderId, folder, handleQuery }) {
   return (
     <div className="folderNav">
       <div className="Sorting">
-        <FolderButton
-          isFolderChosen={needAllLink}
-          chosenFolderId={chosenFolderId}
-          folderInfo={allInfo}
-          handleQuery={handleQuery}
-        />
+        <FolderButton isFolderChosen={needAllLink} chosenFolderId={chosenFolderId} folderInfo={allInfo} />
         {folder.map((folderInfo) => {
           const isFolderChosen = +chosenFolderId === folderInfo.id; // 선택된 폴더인지 확인
-          return (
-            <FolderButton
-              isFolderChosen={isFolderChosen}
-              key={folderInfo.id}
-              folderInfo={folderInfo}
-              handleQuery={handleQuery}
-            />
-          );
+          return <FolderButton isFolderChosen={isFolderChosen} key={folderInfo.id} folderInfo={folderInfo} />;
         })}
       </div>
       {isNotMobile && (

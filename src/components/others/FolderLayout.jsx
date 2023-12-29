@@ -10,18 +10,9 @@ import { getFolder, getLinks } from '../fetchApi';
 import { SearchContext } from '../../context/SearchContext';
 
 export default function FolderLayout() {
-  const { searchValue, setSearchValue, selectedFolder, setSelectedFolder } = useContext(SearchContext);
+  const { searchValue, selectedFolder } = useContext(SearchContext);
   const [folder, setFolder] = useState([]);
   const [links, setLinks] = useState([]);
-  const [chosenFolderId, setChosenFolderId] = useState(undefined);
-  const [chosenFolderName, setChosenFolderName] = useState('');
-
-  function handleQuery(e) {
-    const chosenFolderId = e.target.dataset.key;
-    const chosenFolderName = e.target.dataset.name;
-    setChosenFolderId(chosenFolderId);
-    setChosenFolderName(chosenFolderName);
-  }
 
   async function loadFolder() {
     const { data } = await getFolder();
@@ -29,7 +20,7 @@ export default function FolderLayout() {
   }
 
   async function loadLinks() {
-    const { data } = await getLinks(chosenFolderId);
+    const { data } = await getLinks(selectedFolder.id);
     setLinks(data);
   }
 
@@ -39,17 +30,17 @@ export default function FolderLayout() {
 
   useEffect(() => {
     loadLinks();
-  }, [chosenFolderId, chosenFolderName]);
+  }, [selectedFolder.id, selectedFolder.name]);
 
   return (
     <div>
       <AddLinkBar />
       <SearchBar />
       <div> {searchValue}로 검색한 결과입니다. </div>
-      <Filtering chosenFolderId={chosenFolderId} folder={folder} handleQuery={handleQuery} />
+      <Filtering chosenFolderId={selectedFolder.id} folder={folder} />
       <div className="folderDescription">
-        <h1 className="folderName">{chosenFolderName}</h1>
-        {chosenFolderId && <FolderEditButtons className="folderEditButtons" />}
+        <h1 className="folderName">{selectedFolder.name}</h1>
+        {selectedFolder.id && <FolderEditButtons className="folderEditButtons" />}
       </div>
       {links.length ? <Cards links={links} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
       <FloatingActionButton />

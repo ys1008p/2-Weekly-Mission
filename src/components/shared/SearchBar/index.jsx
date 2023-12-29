@@ -8,7 +8,6 @@ export default function SearchBar() {
 
   const handleChangeSearchValue = ({ target }) => {
     setSearchValue(target.value);
-    console.log(target.value);
   };
 
   return (

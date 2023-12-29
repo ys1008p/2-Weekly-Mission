@@ -1,10 +1,10 @@
 import './FolderButton.css';
 import { useContext } from 'react';
 import { SearchContext } from '../../../context/SearchContext';
-export default function FolderButton({ isFolderChosen, folderInfo, handleQuery }) {
+export default function FolderButton({ isFolderChosen, folderInfo }) {
   const { setSelectedFolder } = useContext(SearchContext);
-  function handleSetFolder(e) {
-    handleQuery(e);
+  function handleSetFolder({ target }) {
+    setSelectedFolder({ id: target.dataset.key, name: target.dataset.name });
   }
   return (
     <button
