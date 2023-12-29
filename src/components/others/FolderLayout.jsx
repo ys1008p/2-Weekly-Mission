@@ -13,6 +13,15 @@ export default function FolderLayout() {
   const { searchValue, selectedFolder } = useContext(SearchContext);
   const [folder, setFolder] = useState([]);
   const [links, setLinks] = useState([]);
+  const [filteredLinks, setFilteredLinks] = useState([]);
+
+  function filterLinks(searchKeyword) {
+    return links.filter((link) =>
+      Object.values(link).some(
+        (value) => typeof value === 'string' && value.toLowerCase().includes(searchKeyword.toLowerCase())
+      )
+    );
+  }
 
   async function loadFolder() {
     const { data } = await getFolder();
@@ -22,6 +31,7 @@ export default function FolderLayout() {
   async function loadLinks() {
     const { data } = await getLinks(selectedFolder.id);
     setLinks(data);
+    setFilteredLinks(data);
   }
 
   useEffect(() => {
@@ -35,14 +45,14 @@ export default function FolderLayout() {
   return (
     <div>
       <AddLinkBar />
-      <SearchBar />
+      <SearchBar filterLinks={filterLinks} setFilteredLinks={setFilteredLinks} />
       <div> {searchValue}로 검색한 결과입니다. </div>
       <Filtering chosenFolderId={selectedFolder.id} folder={folder} />
       <div className="folderDescription">
         <h1 className="folderName">{selectedFolder.name}</h1>
         {selectedFolder.id && <FolderEditButtons className="folderEditButtons" />}
       </div>
-      {links.length ? <Cards links={links} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
+      {links.length ? <Cards links={filteredLinks} /> : <div className="noLinks">저장된 링크가 없습니다.</div>}
       <FloatingActionButton />
     </div>
   );
