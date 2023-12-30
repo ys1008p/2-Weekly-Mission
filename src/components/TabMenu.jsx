@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import add from '../assets/btn-add.png';
+import add from '../assets/btn-add.svg';
 
 const Container = styled.div`
   position: relative;

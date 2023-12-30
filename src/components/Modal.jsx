@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import closeModal from '../assets/btn-close-modal.svg';
-import kakao from '../assets/ico-kakao-share.png';
-import facebook from '../assets/ico-facebook-share.png';
-import link from '../assets/ico-link-share.png';
+import kakao from '../assets/ico-kakao-share.svg';
+import facebook from '../assets/ico-facebook-share.svg';
+import link from '../assets/ico-link-copy.svg';
 
 const ModalContainer = styled.div`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
