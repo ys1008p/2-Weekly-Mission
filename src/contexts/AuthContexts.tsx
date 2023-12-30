@@ -6,8 +6,8 @@ interface Auth {
 }
 
 interface AuthContextValue {
-  auth: Auth | undefined;
-  setAuth: React.Dispatch<React.SetStateAction<undefined>>;
+  auth?: Auth;
+  setAuth: (value: undefined) => void;
 }
 
 interface AuthProviderProps {
