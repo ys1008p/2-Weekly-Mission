@@ -1,12 +1,3 @@
-export interface Link {
-  id: number;
-  url: string;
-  title: string;
-  description: string;
-  imageSource: string;
-  createdAt: string;
-}
-
 const link = {
   id: 211,
   description:
@@ -18,12 +9,17 @@ const link = {
   createdAt: "2023-10-27T02:07:36.330744+00:00",
 };
 
-export type FolderLink = typeof link;
+const shardLink = {
+  id: 1,
+  createdAt: "2023-03-12T14:24:08Z",
+  url: "https://www.codeit.kr",
+  title: "코드잇 | 코딩, 쉬워질 때도 됐다",
+  description: "월 2만원대로 Python, JavaScript, HTML/CSS 등 3,000개 이상 프로그래밍 강의를 배워보세요!",
+  imageSource: "https://codeit-frontend.codeit.com/static/images/brand/og_tag.png",
+};
 
-export interface FolderData {
-  id: number;
-  name: string;
-}
+export type FolderLink = typeof link;
+export type ShardLink = typeof shardLink;
 
 export interface LinkData {
   id: number;
@@ -36,15 +32,6 @@ export interface LinkData {
   update_at: string;
 }
 
-export interface UserData {
-  id: number;
-  auth_id: string;
-  name: string;
-  email: string;
-  image_source: string;
-  created_at: string;
-}
-
 export interface FolderData {
   id: number;
   user_id: number;
@@ -53,15 +40,6 @@ export interface FolderData {
     count: number;
   };
   created_at: string;
-}
-
-export interface ShardLink {
-  id: number;
-  url: string;
-  title: string;
-  description: string;
-  imageSource: string;
-  createdAt: string;
 }
 
 export interface ShardData {
