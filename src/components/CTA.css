@@ -1,9 +1,8 @@
 .button {
   display: flex;
-  width: 8rem;
-  padding: 1rem 1.6rem;
   justify-content: center;
   align-items: center;
+  padding: 1rem 1.6rem;
   background: var(--gra-purpleblue-to-skyblue);
   color: var(--color-white);
   font-size: 1.4rem;
@@ -12,10 +11,20 @@
   cursor: pointer;
 }
 
+.fixedWidth {
+  width: 8rem;
+}
+
+.variableWidth {
+  width: 100%;
+}
+
 @media screen and (min-width: 768px) {
   .button {
-    width: 12.8rem;
-    padding: 1.6rem 2rem;
     font-size: 1.8rem;
+    padding: 1.6rem 2rem;
+  }
+  .fixedWidth {
+    width: 12.8rem;
   }
 }

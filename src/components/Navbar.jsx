@@ -1,7 +1,7 @@
 import React from 'react';
 import useGetData from '../hooks/useGetData';
 import Profile from './Profile';
-import SignButton from './SignButton';
+import CTA from './CTA';
 import LinkbraryLogo from '../images/logo.svg';
 import styles from './Navbar.module.css';
 
@@ -23,7 +23,7 @@ export default function Navbar({ profileUrl, className }) {
           <Profile user={userData} />
         ) : (
           <a href='/signin'>
-            <SignButton text='로그인' />
+            <CTA text='로그인' className='fixedWidth' />
           </a>
         )}
       </div>

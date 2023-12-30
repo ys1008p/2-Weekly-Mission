@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SignButton from './SignButton';
+import CTA from './CTA';
 import styles from './AddLink.module.css';
 
 export default function AddLink() {
@@ -15,7 +15,7 @@ export default function AddLink() {
         }}
         placeholder='🔗 링크를 추가해 보세요.'
       />
-      <SignButton text='추가하기' />
+      <CTA text='추가하기' className='fixedWidth' />
     </form>
   );
 }
