@@ -29,6 +29,8 @@ function CardPopOver({ $Lender, setIsModalOn, setModalData, linkUrl, psFolderDat
     setModalData(data);
   }
 
+  console.log("this: ", psFolderData);
+
   return (
     <>
       <StyledCardPopOverContainer $Lender={$Lender}>

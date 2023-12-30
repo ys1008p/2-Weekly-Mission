@@ -45,7 +45,7 @@ function Card({ data, psFolderData, linkData }) {
           setIsModalOn={setIsModalOn}
           linkUrl={data.url}
           psFolderData={psFolderData}
-          FolderDataLength={linkData}
+          linkData={linkData}
         />
       </StyledA>
     </>

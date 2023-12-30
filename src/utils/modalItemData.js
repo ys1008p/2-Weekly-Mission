@@ -69,14 +69,22 @@ const StyledShareOption = styled.p`
   font-size: 13px;
 `;
 const StyledAddFolderList = styled.ul`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
   margin: 0 auto 2.4rem;
 `;
 const StyledAddFolderListFolderTitle = styled.li`
   font-size: 1.6rem;
+  padding: 0.8rem;
   color: #373740;
+
+  &:hover {
+    border-radius: 8px;
+    background: #f0f6ff;
+    color: #6d6afe;
+    cursor: pointer;
+  }
 `;
 const StyledAddFolderListFolderTitleLength = styled.span`
   font-size: 1.4rem;
@@ -109,21 +117,30 @@ export const addFolder = {
   button: <StyledBlueBtn>추가하기</StyledBlueBtn>,
 };
 
-export const addLink = (link, folderData, LinkData) => ({
-  title: <StyledModalTitle>폴더에 추가</StyledModalTitle>,
-  sideTitle: <StyledsideTitle>{link}</StyledsideTitle>,
-  addLinkList: (
-    <StyledAddFolderList>
-      {folderData.map((folderData) => (
-        <StyledAddFolderListFolderTitle key={folderData.id}>
-          {folderData.name}
-          <StyledAddFolderListFolderTitleLength>{}개 링크</StyledAddFolderListFolderTitleLength>
-        </StyledAddFolderListFolderTitle>
-      ))}
-    </StyledAddFolderList>
-  ),
-  button: <StyledBlueBtn>추가하기</StyledBlueBtn>,
-});
+export const addLink = (link, folderData, linkData) => {
+  const linkCounts = {};
+
+  folderData.forEach((folder) => {
+    const folderId = folder.id;
+    linkCounts[folderId] = linkData.filter((link) => link.folderId === folderId).length;
+  });
+
+  return {
+    title: <StyledModalTitle>폴더에 추가</StyledModalTitle>,
+    sideTitle: <StyledsideTitle>{link}</StyledsideTitle>,
+    addLinkList: (
+      <StyledAddFolderList>
+        {folderData.map((folder) => (
+          <StyledAddFolderListFolderTitle key={folder.id}>
+            {folder.name}
+            <StyledAddFolderListFolderTitleLength>{linkCounts[folder.id]}개 링크</StyledAddFolderListFolderTitleLength>
+          </StyledAddFolderListFolderTitle>
+        ))}
+      </StyledAddFolderList>
+    ),
+    button: <StyledBlueBtn>추가하기</StyledBlueBtn>,
+  };
+};
 
 export const shareFolder = (folderName) => ({
   title: <StyledModalTitle>폴더 공유</StyledModalTitle>,

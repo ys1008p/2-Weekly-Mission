@@ -99,7 +99,12 @@ function App() {
               />
             }
           />
-          <Route path="/folder" element={<CardList cardData={personalLinkData} />} />
+          <Route
+            path="/folder"
+            element={
+              <CardList cardData={personalLinkData} psFolderData={personalFolderData} linkData={personalLinkData} />
+            }
+          />
         </Route>
         {/* ========================================== */}
         <Route path="*" element={<NotFoundPage />} />
