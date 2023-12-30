@@ -17,27 +17,16 @@ import DeleteIcon from '@/assets/images/icon/delete.svg';
 import PenIcon from '@/assets/images/icon/pen.svg';
 import ShareIcon from '@/assets/images/icon/share.svg';
 import GrayIconButton from '@/components/button/GrayIconButton';
+import {
+  FOLDER_STATUS_MESSAGE,
+  INITIAL_FOLDER,
+  LINK_STATUS_MESSAGE,
+} from '@/pages/constant';
 
 interface FolderType {
   id: null | number;
   name: string;
 }
-
-const linkMessage = {
-  loading: '로딩중입니다..',
-  error: '데이터를 불러올 수 없습니다',
-  empty: '저장된 링크가 없습니다',
-};
-
-const folderMessage = {
-  loading: '...',
-  error: '폴더 가져오기 실패',
-};
-
-const INITIAL_FOLDER = {
-  id: null,
-  name: '전체',
-};
 
 const Folder = () => {
   const [items, setItems] = useState([]);
@@ -89,11 +78,11 @@ const Folder = () => {
           <section className={styles.container}>
             <SearchBar placeholder="링크를 검색해 보세요." />
             {linkLoading ? (
-              <p className={styles.message}>{linkMessage.loading}</p>
+              <p className={styles.message}>{LINK_STATUS_MESSAGE.loading}</p>
             ) : linkError ? (
-              <p className={styles.message}>{linkMessage.error}</p>
+              <p className={styles.message}>{LINK_STATUS_MESSAGE.error}</p>
             ) : !items.length ? (
-              <p className={styles.message}>{linkMessage.empty}</p>
+              <p className={styles.message}>{LINK_STATUS_MESSAGE.empty}</p>
             ) : (
               <div>
                 <div className={styles.folder}>
@@ -107,9 +96,9 @@ const Folder = () => {
                       />
                     </li>
                     {folderLoading ? (
-                      <span>{folderMessage.loading}</span>
+                      <span>{FOLDER_STATUS_MESSAGE.loading}</span>
                     ) : folderError ? (
-                      <span>{folderMessage.error}</span>
+                      <span>{FOLDER_STATUS_MESSAGE.error}</span>
                     ) : (
                       folders.map(({ id, name }: FolderType) => (
                         <li key={id}>
