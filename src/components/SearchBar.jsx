@@ -25,8 +25,8 @@ const Input = styled.input`
   border: none;
   border-radius: 1rem;
   font-size: 1.6rem;
-  color: var(--color-gray);
-  background-color: var(--color-very-light-gray);
+  color: var(--gray-666);
+  background-color: var(--gray-f5f5);
 `;
 
 function SearchBar() {

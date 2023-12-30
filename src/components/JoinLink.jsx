@@ -29,10 +29,10 @@ const Link = styled.div`
   }
 
   a {
-    color: var(--primary-color);
+    color: var(--primary);
     font-weight: 600;
     line-height: 1.9rem;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary);
     font-size: 1.6rem;
   }
 `;

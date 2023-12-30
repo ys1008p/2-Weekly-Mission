@@ -6,7 +6,7 @@ const FolderUserContainer = styled.div`
   margin: 9.4rem 0 0;
   padding: 2rem 0 6rem 0;
   text-align: center;
-  background-color: var(--color-sky-blue);
+  background-color: var(--bg);
 
   @media screen and (min-width: 375px) and (max-width: 768px) {
     margin: 6.3rem 0 0;

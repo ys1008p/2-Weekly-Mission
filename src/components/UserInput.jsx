@@ -24,23 +24,23 @@ const Container = styled.div`
     width: 100%;
     padding: 1.8rem 1.5rem;
     font-size: 1.6rem;
-    color: var(--black-color);
+    color: var(--gray100);
     border-radius: 0.8rem;
-    border: 1px solid var(--box-border-color);
-    background-color: var(--white-color);
+    border: 1px solid var(--gray20);
+    background-color: var(--white);
 
     &:focus {
-      border: 1px solid var(--primary-color);
+      border: 1px solid var(--primary);
     }
 
     &.active {
-      border: 1px solid var(--red-color);
+      border: 1px solid var(--red);
     }
   }
 
   p {
     margin: 0.6rem 0 0;
-    color: var(--red-color);
+    color: var(--red);
     font-size: 1.4rem;
     line-height: 1.6rem;
   }
@@ -72,7 +72,7 @@ const BtnBox = styled.div`
     font-weight: 600;
     line-height: 2.1rem;
     cursor: pointer;
-    color: var(--btn-color);
+    color: var(--gray-f5f5);
     background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   }
 `;
@@ -161,16 +161,16 @@ function UserInput({ signup }) {
       );
 
       const { email, password } = USER_INFO;
-      
-      if(value.email === email && value.password === password){
-        window.location.href = '../../folder'
-      }else{
+
+      if (value.email === email && value.password === password) {
+        window.location.href = '../../folder';
+      } else {
         handleFocusoutEmail();
       }
 
       if (!response.ok) throw new Error();
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 
@@ -183,10 +183,12 @@ function UserInput({ signup }) {
           body: JSON.stringify(value.email),
         }
       );
-      
-      value.email !== USER_INFO.email ? window.location.href = '../../folder' :'';
 
-      if(!response.ok) throw new Error();
+      value.email !== USER_INFO.email
+        ? (window.location.href = '../../folder')
+        : '';
+
+      if (!response.ok) throw new Error();
     } catch (error) {
       setErrorEmail('이미 사용중인 이메일입니다');
     }
@@ -263,7 +265,9 @@ function UserInput({ signup }) {
         {errorPasswordCheck && <p>{errorPasswordCheck}</p>}
       </div>
       <BtnBox>
-        <button type="button" onClick={handleClickEmailCheck}>회원가입</button>
+        <button type="button" onClick={handleClickEmailCheck}>
+          회원가입
+        </button>
       </BtnBox>
     </Container>
   ) : (

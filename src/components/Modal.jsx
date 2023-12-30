@@ -12,17 +12,17 @@ const ModalContainer = styled.div`
   transform: translate(-50%, -50%);
   width: 36rem;
   padding: 3.2rem 4rem;
-  border: 1px solid var(--box-border-color);
+  border: 1px solid var(--gray20);
   border-radius: 1.5rem;
   z-index: 999;
-  background-color: var(--color-white);
+  background-color: var(--white);
 `;
 
 const Title = styled.p`
   font-weight: 700;
   font-size: 2rem;
   text-align: center;
-  color: var(--black-color);
+  color: var(--gray100);
 `;
 
 const Input = styled.input`
@@ -31,9 +31,9 @@ const Input = styled.input`
   padding: 1.8rem 1.5rem;
   font-size: 1.6rem;
   outline: none;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary);
   border-radius: 0.8rem;
-  color: var(--black-color);
+  color: var(--gray100);
 `;
 
 const Text = styled.p`
@@ -41,7 +41,7 @@ const Text = styled.p`
   text-align: center;
   font-size: 1.4rem;
   line-height: 2.2rem;
-  color: var(--color-middle-gray);
+  color: var(--gray60);
 `;
 
 const Button = styled.button`
@@ -50,10 +50,10 @@ const Button = styled.button`
   padding: 1.6rem 0;
   border-radius: 0.8rem;
   font-size: 1.6rem;
-  color: var(--color-white);
+  color: var(--white);
   background: ${({ folderRemove, LinkRemove }) =>
     folderRemove || LinkRemove
-      ? 'var(--red-color)'
+      ? 'var(--red)'
       : 'linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%)'};
   cursor: pointer;
 `;
@@ -81,7 +81,7 @@ const Dim = styled.div`
   z-index: 2;
   width: 100%;
   height: 100%;
-  background-color: var(--color-black-000);
+  background-color: var(--black-000);
   opacity: 0.4;
 `;
 

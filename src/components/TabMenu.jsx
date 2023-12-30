@@ -25,8 +25,8 @@ const TabMenuContainer = styled.div`
         height: 3.5rem;
         font-size: 1.6rem;
         border-radius: 5px;
-        border: 1px solid var(--color-blue);
-        background-color: var(--color-white);
+        border: 1px solid var(--primary);
+        background-color: var(--white);
         cursor: pointer;
 
         @media screen and (min-width: 375px) and (max-width: 768px) {
@@ -34,8 +34,8 @@ const TabMenuContainer = styled.div`
         }
 
         &.active {
-          color: var(--color-white);
-          background-color: var(--color-blue);
+          color: var(--white);
+          background-color: var(--primary);
         }
       }
     }

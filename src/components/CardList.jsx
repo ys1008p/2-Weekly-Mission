@@ -42,7 +42,7 @@ const Cards = styled.li`
 
   &.active {
     a {
-      border: 3px solid var(--color-blue);
+      border: 3px solid var(--primary);
 
       ${Card} {
         transform: scale(1.3);
@@ -51,7 +51,7 @@ const Cards = styled.li`
     }
 
     div {
-      background-color: var(--bg-sky-blue);
+      background-color: var(--bg);
     }
   }
 
@@ -95,7 +95,7 @@ const TimeStamp = styled.p`
   float: left;
   font-size: 1.3rem;
   line-height: 1.5rem;
-  color: var(--color-gray);
+  color: var(--gray-666);
 `;
 
 const Desc = styled.p`
@@ -107,14 +107,14 @@ const Desc = styled.p`
   min-height: 3.8rem;
   margin: 2.1rem 0 1rem 0;
   font-size: 1.6rem;
-  color: var(--color-black-000);
+  color: var(--black-000);
   clear: both;
 `;
 
 const CreatedDate = styled.p`
   font-size: 1.4rem;
   line-height: 1.6rem;
-  color: var(--color-black-333);
+  color: var(--black-333);
 `;
 
 const NoLink = styled.p`

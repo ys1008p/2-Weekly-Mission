@@ -11,13 +11,13 @@ const Container = styled.div`
   border-radius: 0.8rem;
   font-size: 1.4rem;
   line-height: 1.6rem;
-  border: 1px solid var(--box-border-color);
-  background-color: var(--sns-bg-color);
+  border: 1px solid var(--gray20);
+  background-color: var(--gray10);
 
   p {
     font-size: 1.4rem;
     line-height: 1.6rem;
-    color: var(--black-color);
+    color: var(--gray100);
   }
 
   ul {

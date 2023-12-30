@@ -7,7 +7,7 @@ const AddFolderButton = styled.button`
   white-space: nowrap;
   border: none;
   background-color: transparent;
-  
+
   @media screen and (min-width: 375px) and (max-width: 768px) {
     position: fixed;
     left: 50%;
@@ -18,9 +18,9 @@ const AddFolderButton = styled.button`
     width: 13.5rem;
     height: 3.6rem;
     border-radius: 2rem;
-    border: 1px solid var(--color-white);
+    border: 1px solid var(--white);
     cursor: pointer;
-    background-color: var(--color-blue);
+    background-color: var(--primary);
 
     &::after {
       content: '';

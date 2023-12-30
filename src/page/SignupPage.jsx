@@ -11,7 +11,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: var(--main-bg-color);
+  background-color: var(--bg);
 `;
 
 const Wrap = styled.div`
@@ -33,9 +33,7 @@ function SignupPage() {
       <Container>
         <Wrap>
           <JoinLink signup={signup} />
-          <UserInput
-            signup={signup}
-          />
+          <UserInput signup={signup} />
           <SignButton signup={signup} />
           <JoinSns />
         </Wrap>

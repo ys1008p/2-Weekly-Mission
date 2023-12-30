@@ -36,11 +36,11 @@ const Button = styled.button`
   margin: 0 1.2rem 0 0;
   padding: 0 0 0 2.2rem;
   border: none;
-  background-color: var(--color-white);
+  background-color: var(--white);
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1.6rem;
-  color: var(--color-middle-gray);
+  color: var(--gray60);
   cursor: pointer;
 
   &::before {

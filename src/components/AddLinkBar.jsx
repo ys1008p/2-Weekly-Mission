@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 const AddLinkBarContainer = styled.div`
   padding: 6rem 0 9rem 0;
-  background-color: var(--color-sky-blue);
+  background-color: var(--bg);
 
   @media screen and (max-width: 1124px) {
     padding: 6rem 3.2rem 9rem 3.2rem;
@@ -46,8 +46,8 @@ const Input = styled.input`
   width: 80rem;
   padding: 2.2rem 5.2rem;
   border-radius: 15px;
-  border: 1px solid var(--color-blue);
-  color: var(--color-middle-gray);
+  border: 1px solid var(--primary);
+  color: var(--gray60);
   font-size: 1.6rem;
   outline: none;
 
@@ -73,7 +73,7 @@ const Button = styled.button`
   cursor: pointer;
   background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
   border-radius: 0.8rem;
-  color: var(--color-very-light-gray);
+  color: var(--gray-f5f5);
   font-size: 1.4rem;
   font-weight: 600;
   text-align: center;
@@ -91,13 +91,15 @@ function AddLinkBar() {
 
   const handleOnChangeValue = (e) => setValue(e.target.value);
 
-  const handleClickOpen = () => {if(value) setIsOpen(true);}
+  const handleClickOpen = () => {
+    if (value) setIsOpen(true);
+  };
 
   const handleClickClose = () => setIsOpen(false);
 
   useEffect(() => {
     setFolderAdd(true);
-  }, [])
+  }, []);
 
   return (
     <>
@@ -114,7 +116,11 @@ function AddLinkBar() {
           </Button>
         </Wrap>
       </AddLinkBarContainer>
-      <Modal $isOpen={isOpen} onClick={handleClickClose} folderAdd={folderAdd}/>
+      <Modal
+        $isOpen={isOpen}
+        onClick={handleClickClose}
+        folderAdd={folderAdd}
+      />
     </>
   );
 }

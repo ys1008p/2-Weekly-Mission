@@ -17,35 +17,36 @@ const BtnBox = styled.div`
     font-weight: 600;
     line-height: 2.1rem;
     cursor: pointer;
-    color: var(--btn-color);
+    color: var(--gray-f5f5);
     background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   }
 `;
 
 function SignButton({ signup }) {
   const handleClick = async () => {
-    try{
+    try {
       const USER_INFO = {
         email: 'test@codeit.com',
         password: 'sprint101',
-      }
-      const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
-        method: 'POST',
-        body: JSON.stringify(USER_INFO),
-      })
+      };
+      const response = await fetch(
+        'https://bootcamp-api.codeit.kr/api/sign-in',
+        {
+          method: 'POST',
+          body: JSON.stringify(USER_INFO),
+        }
+      );
 
       const { email, password } = USER_INFO;
       // if(value.email === email && value.password === password){
       //   window.location.href="../../page/FolderPage.js";
       // }
-      
-      if(!response.ok) throw new Error('로그인 정보가 일치하지 않습니다');
-      
-    }catch(error){
-      console.log(error);
-    }  
-  }
 
+      if (!response.ok) throw new Error('로그인 정보가 일치하지 않습니다');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export default SignButton;

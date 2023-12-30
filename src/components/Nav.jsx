@@ -13,7 +13,7 @@ const Container = styled.nav`
   width: 100%;
   height: 9.4rem;
   padding: 0 20rem;
-  background-color: var(--color-sky-blue);
+  background-color: var(--bg);
 
   @media screen and (max-width: 1124px) {
     padding: 0 3.2rem;
@@ -41,7 +41,7 @@ const Email = styled.div`
     padding: 0 0 0 0.6rem;
     font-size: 1.4rem;
     line-height: 1.6rem;
-    color: var(--color-black);
+    color: var(--gray100);
   }
 
   img {
@@ -54,7 +54,7 @@ const Email = styled.div`
     padding: 0 0 0 0.6rem;
     font-size: 1.4rem;
     line-height: 1.6rem;
-    color: var(--color-black);
+    color: var(--gray100);
 
     @media screen and (min-width: 375px) and (max-width: 768px) {
       display: none;
@@ -72,7 +72,7 @@ const Login = styled.div`
     cursor: pointer;
     background-image: linear-gradient(135deg, #6d6afe 0%, #6ae3fe 100%);
     border-radius: 0.8rem;
-    color: var(--color-very-light-gray);
+    color: var(--gray-f5f5);
     font-size: 2.8rem;
     font-weight: 600;
   }

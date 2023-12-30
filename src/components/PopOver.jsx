@@ -21,13 +21,13 @@ const Button = styled.button`
   cursor: pointer;
 
   &:first-child {
-    color: var(--color-light-black);
-    background-color: var(--color-white);
+    color: var(--light-gray-100);
+    background-color: var(--white);
   }
 
   &:last-child {
-    color: var(--primary-color);
-    background-color: var(--sns-bg-color);
+    color: var(--primary);
+    background-color: var(--gray10);
   }
 `;
 
@@ -44,7 +44,7 @@ function PopOver({ $isOpen }) {
   const handleClickClose = (e) => {
     e.preventDefault();
     setIsOpen(false);
-  }
+  };
 
   const BUTTON = [
     {

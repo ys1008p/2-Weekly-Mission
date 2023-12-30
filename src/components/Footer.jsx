@@ -9,7 +9,7 @@ const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 10.4rem 10.8rem 10.4rem;
-  background-color: var(--bg-black);
+  background-color: var(--black);
 
   @media screen and (min-width: 375px) and (max-width: 768px) {
     position: relative;
@@ -18,7 +18,7 @@ const FooterContainer = styled.div`
 `;
 
 const Copyright = styled.span`
-  color: var(--color-dark-gray);
+  color: var(--gray-6767);
   font-family: Arial;
   font-size: 1.6rem;
 
@@ -33,7 +33,7 @@ const Privery = styled.div`
 
   a {
     font-size: 1.6rem;
-    color: var(--color-light-gray);
+    color: var(--gray-6767);
   }
 `;
 
