@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import share from '../assets/btn-share.png';
 import pen from '../assets/btn-pen.png';
 import del from '../assets/btn-delete.png';
 import Modal from './Modal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const ButtonOptionContainer = styled.div`
   position: relative;
@@ -23,7 +23,6 @@ const Option = styled.div`
   display: ${({ $btnOption, $menuActive }) =>
     $btnOption === true && $menuActive !== 'all' ? 'block' : 'none'};
   position: absolute;
-  display: block;
   top: 0;
   right: 0;
 

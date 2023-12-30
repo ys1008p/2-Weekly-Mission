@@ -52,8 +52,8 @@ const Button = styled.button`
   border-radius: 0.8rem;
   font-size: 1.6rem;
   color: var(--color-white);
-  background: ${({ folderRemove }) =>
-    folderRemove
+  background: ${({ folderRemove, LinkRemove }) =>
+    folderRemove || LinkRemove
       ? 'var(--red-color)'
       : 'linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%)'};
   cursor: pointer;
@@ -103,8 +103,16 @@ const Sns = styled.ul`
   }
 `;
 
-function Modal({ $isOpen, onClick, edit, addLink, share, folderRemove }) {
-  console.log($isOpen)
+function Modal({
+  $isOpen,
+  onClick,
+  edit,
+  addLink,
+  share,
+  folderRemove,
+  LinkRemove,
+  folderAdd,
+}) {
   return (
     <>
       <ModalContainer $isOpen={$isOpen}>
@@ -117,16 +125,26 @@ function Modal({ $isOpen, onClick, edit, addLink, share, folderRemove }) {
                 ? '폴더 공유'
                 : folderRemove
                   ? '폴더 삭제'
-                  : ''}
+                  : LinkRemove
+                    ? '링크 삭제'
+                    : folderAdd
+                      ? '폴더에 추가'
+                      : ''}
         </Title>
-        {!share && !folderRemove ? (
+        {!share && !folderRemove && !LinkRemove && !folderAdd ? (
           <Input placeholder="내용 입력" />
         ) : (
-          <Text>폴더명</Text>
+          <Text>{!LinkRemove ? '폴더명' : 'httpw://www.abc.com'}</Text>
         )}
         {!share && (
           <Button type="button" folderRemove={folderRemove}>
-            {edit ? '변경하기' : addLink ? '추가하기' : folderRemove ? '삭제하기' : ''}
+            {edit
+              ? '변경하기'
+              : addLink || folderAdd
+                ? '추가하기'
+                : folderRemove || LinkRemove
+                  ? '삭제하기'
+                  : ''}
           </Button>
         )}
         {share && (
