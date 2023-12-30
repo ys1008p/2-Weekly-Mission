@@ -2,6 +2,7 @@ import styled from "styled-components";
 import facebookIcon from "../img/colorFaceBookIcon.png";
 import kakaoIcon from "../img/colorKaKaoIcon.png";
 import copyIcon from "../img/link.svg";
+import checked from "../img/check.svg";
 
 const StyledModalTitle = styled.h2`
   font-size: 2rem;
@@ -57,27 +58,47 @@ const StyledShareIconContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 `;
 const StyledShareIcon = styled.img`
   border-radius: 50%;
   padding: 12px;
   width: 6rem;
   height: 6rem;
+  pointer-events: none;
 `;
-const StyledShareOption = styled.p`
+const StyledShareOption = styled.button`
   font-family: Inter;
   font-size: 13px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
 `;
-const StyledAddFolderList = styled.ul`
+const StyledAddFolderContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 0 auto 2.4rem;
 `;
-const StyledAddFolderListFolderTitle = styled.li`
+const StyledCkdInput = styled.input`
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  &:checked {
+    appearance: none;
+    background-image: url(${checked});
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+  }
+`;
+const StyledAddFolderList = styled.label`
   font-size: 1.6rem;
   padding: 0.8rem;
   color: #373740;
+  display: flex;
+  justify-content: space-between;
 
   &:hover {
     border-radius: 8px;
@@ -86,7 +107,7 @@ const StyledAddFolderListFolderTitle = styled.li`
     cursor: pointer;
   }
 `;
-const StyledAddFolderListFolderTitleLength = styled.span`
+const StyledAddFolderListLength = styled.span`
   font-size: 1.4rem;
   color: #9fa6b2;
   padding-left: 0.8rem;
@@ -129,14 +150,17 @@ export const addLink = (link, folderData, linkData) => {
     title: <StyledModalTitle>폴더에 추가</StyledModalTitle>,
     sideTitle: <StyledsideTitle>{link}</StyledsideTitle>,
     addLinkList: (
-      <StyledAddFolderList>
+      <StyledAddFolderContainer>
         {folderData.map((folder) => (
-          <StyledAddFolderListFolderTitle key={folder.id}>
-            {folder.name}
-            <StyledAddFolderListFolderTitleLength>{linkCounts[folder.id]}개 링크</StyledAddFolderListFolderTitleLength>
-          </StyledAddFolderListFolderTitle>
+          <StyledAddFolderList key={folder.id} name="checked">
+            <div>
+              {folder.name}
+              <StyledAddFolderListLength>{linkCounts[folder.id]}개 링크</StyledAddFolderListLength>
+            </div>
+            <StyledCkdInput type="checkbox" name="checked" />
+          </StyledAddFolderList>
         ))}
-      </StyledAddFolderList>
+      </StyledAddFolderContainer>
     ),
     button: <StyledBlueBtn>추가하기</StyledBlueBtn>,
   };
@@ -149,15 +173,33 @@ export const shareFolder = (folderName) => ({
     <StyledShareIconMainContainer>
       <StyledShareIconContainer>
         <StyledShareIcon src={kakaoIcon} alt="" />
-        <StyledShareOption>카카오톡</StyledShareOption>
+        <StyledShareOption
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          카카오톡
+        </StyledShareOption>
       </StyledShareIconContainer>
       <StyledShareIconContainer>
         <StyledShareIcon src={facebookIcon} alt="" />
-        <StyledShareOption>페이스북</StyledShareOption>
+        <StyledShareOption
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          페이스북
+        </StyledShareOption>
       </StyledShareIconContainer>
       <StyledShareIconContainer>
         <StyledShareIcon src={copyIcon} alt="" />
-        <StyledShareOption>링크복사</StyledShareOption>
+        <StyledShareOption
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          링크복사
+        </StyledShareOption>
       </StyledShareIconContainer>
     </StyledShareIconMainContainer>
   ),
