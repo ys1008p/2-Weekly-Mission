@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+function FloatingButton() {
+  // eslint-disable-next-line no-use-before-define
+  return <StyledButton>폴더추가 +</StyledButton>;
+}
+
 const StyledButton = styled.button`
   background-color: var(--primary-color);
   color: #ffffff;
@@ -17,9 +22,5 @@ const StyledButton = styled.button`
     z-index: 5;
   }
 `;
-function FloatingButton() {
-  return <StyledButton>폴더추가 +</StyledButton>;
-}
 
 export default FloatingButton;
-

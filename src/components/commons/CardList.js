@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Card from './Card';
+import styled from "styled-components";
+import Card from "./Card";
 
 const CardWrapper = styled.div`
   display: grid;
@@ -19,8 +19,14 @@ const CardWrapper = styled.div`
   }
 `;
 
-function CardList({ links, }) {
-  return <CardWrapper>{links && links.map((link) => <Card key={link.id} link={link} />)}</CardWrapper>;
+function CardList({ selectFolderLinks }) {
+  return (
+    <CardWrapper>
+      {selectFolderLinks?.map((link) => (
+        <Card key={link.id} link={link} />
+      ))}
+    </CardWrapper>
+  );
 }
 
 export default CardList;

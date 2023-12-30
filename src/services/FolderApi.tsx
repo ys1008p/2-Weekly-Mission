@@ -1,17 +1,17 @@
-import { getDate } from './GetData';
+import getDate from "./GetData.tsx";
 
 export async function getFolderUserData() {
-  return await getDate('/users/1');
+  return getDate("/users/1");
 }
 
 export async function getFoldersData() {
-  return await getDate('/users/1/folders');
+  return getDate("/users/1/folders");
 }
 
 export async function getAllLinksData() {
-  return await getDate('/users/1/links');
+  return getDate("/users/1/links");
 }
 
 export async function getSelectData(id: number) {
-  return await getDate(`/users/1/links?folderId=${id}`);
+  return getDate(`/users/1/links?folderId=${id}`);
 }

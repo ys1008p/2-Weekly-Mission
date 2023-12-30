@@ -1,4 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+
+interface Props {}
+
+function Banner({ folder }) {
+  return (
+    <BannerLayout>
+      <BannerBox>
+        <BannerImage
+          src={folder && folder.owner.profileImageSource}
+          alt="배너 프로필 이미지"
+        />
+        <BannerText>{folder && folder.owner.name}</BannerText>
+        <BannerTitle>{folder && folder.name}</BannerTitle>
+      </BannerBox>
+    </BannerLayout>
+  );
+}
 
 const BannerLayout = styled.section`
   background-color: var(--gray-bg-color);
@@ -22,17 +39,5 @@ const BannerText = styled.div`
 const BannerTitle = styled.h1`
   font-size: 4rem;
 `;
-
-function Banner({ folder }) {
-  return (
-    <BannerLayout>
-      <BannerBox>
-        <BannerImage src={folder && folder.owner.profileImageSource} alt="배너 프로필 이미지" />
-        <BannerText>{folder && folder.owner.name}</BannerText>
-        <BannerTitle>{folder && folder.name}</BannerTitle>
-      </BannerBox>
-    </BannerLayout>
-  );
-}
 
 export default Banner;

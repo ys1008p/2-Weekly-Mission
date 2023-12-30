@@ -1,10 +1,9 @@
-
-import { getDate } from "./GetData";
+import { getDate } from "./GetData.tsx";
 
 export async function getUserData() {
-  return await getDate("/sample/user");
+  return getDate("/sample/user");
 }
 
 export async function getSharedData() {
-  return await getDate("/sample/folder");
+  return getDate("/sample/folder");
 }

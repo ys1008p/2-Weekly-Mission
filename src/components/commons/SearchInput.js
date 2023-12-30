@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { ASSETS_URL } from '../constants';
+import styled from "styled-components";
+import { ASSETS_URL } from "../constants";
 
 const SearchBox = styled.div`
   width: 100%;
@@ -8,11 +8,11 @@ const SearchBox = styled.div`
 
   & input {
     width: 100%;
-  padding: 1.6rem 1.6rem 1.5rem 4.25rem;
-  border: none;
-  border-radius: 1rem;
-  background-color: rgb(245, 245, 245, 1);
-  position: relative;
+    padding: 1.6rem 1.6rem 1.5rem 4.25rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: rgb(245, 245, 245, 1);
+    position: relative;
   }
 
   & img {
@@ -26,7 +26,7 @@ function SearchInput() {
   return (
     <SearchBox>
       <input placeholder="링크를 검색해주세요" />
-      <img src={ASSETS_URL + '/images/search.png'} />
+      <img src={ASSETS_URL + "/images/search.png"} />
     </SearchBox>
   );
 }

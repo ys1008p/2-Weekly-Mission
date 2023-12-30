@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import Header from "../components/commons/Header";
-import Banner from "../components/Banner";
+import Banner from "../components/domains/folder/shared/Banner.tsx";
 import CardList from "../components/CardList";
 import SearchInput from "../components/SearchInput";
 import styles from "../styles/sharedPage.module.css";
-import { getSharedData, getUserData } from "../services/SharedApi";
-import { useEffect, useState } from "react";
+import { getSharedData, getUserData } from "../services/SharedApi.tsx";
 
 function SharedPage() {
   const [folder, setFolder] = useState();
@@ -27,7 +27,7 @@ function SharedPage() {
 
   return (
     <>
-      <Header sharedUser={user}/>
+      <Header sharedUser={user} />
       <Banner folder={folder} />
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>

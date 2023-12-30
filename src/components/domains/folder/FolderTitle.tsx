@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const categoryList = [
-  { title: '공유', image: process.env.PUBLIC_URL + '/images/share.png' },
-  { title: '이름 변경', image: process.env.PUBLIC_URL + '/images/pen.png' },
-  { title: '삭제', image: process.env.PUBLIC_URL + '/images/delete.png' },
+  { title: "공유", image: process.env.PUBLIC_URL + "/images/share.png" },
+  { title: "이름 변경", image: process.env.PUBLIC_URL + "/images/pen.png" },
+  { title: "삭제", image: process.env.PUBLIC_URL + "/images/delete.png" },
 ];
 
 const StyledCategoryBox = styled.div`
@@ -33,43 +33,39 @@ const CategoryList = styled.div`
   gap: 1.2rem;
 `;
 
-function Category({ category,}) {
+function Category({ category }) {
   const { title, image } = category;
   return (
-    <StyledCategory >
+    <StyledCategory>
       <img src={image} alt={`${title} 아이콘`} />
       <div>{title}</div>
     </StyledCategory>
   );
 }
 
-function CategoryBox({ folder,  }) {
-  
+function CategoryBox({ folder }) {
   return (
     <StyledCategoryBox>
       <h1>{folder.name}</h1>
-      {folder.name !== '전체' ? (
+      {folder.name !== "전체" ? (
         <CategoryList>
           {categoryList.map((category) => (
             <Category key={category.title} category={category} />
           ))}
         </CategoryList>
-      ) : (
-        null
-      )}
+      ) : null}
     </StyledCategoryBox>
   );
 }
 
-function FoldersTitle({ folders, id }) {
+function FoldersTitle({ folderList, id }) {
   return (
     <>
-      {
-        folders?.map((folder) => {
-          if (folder.id === id) {
-            return <CategoryBox  key={folder.id} folder={folder} />;
-          }
-        })}
+      {folderList?.map((folder) => {
+        if (folder.id === id) {
+          return <CategoryBox key={folder.id} folder={folder} />;
+        }
+      })}
     </>
   );
 }

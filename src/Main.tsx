@@ -1,10 +1,9 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import FolderPage from './pages/FolderPage';
-import SharedPage from './pages/SharedPage';
-import Footer from './components/commons/Footer';
+import { Routes, Route } from "react-router-dom";
+import FolderPage from "./pages/FolderPage.tsx";
+import SharedPage from "./pages/SharedPage.tsx";
+import Footer from "./components/commons/Footer.tsx";
 
-const Main = () => {
+function Main() {
   return (
     <div>
       <Routes>
@@ -15,6 +14,6 @@ const Main = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default Main;

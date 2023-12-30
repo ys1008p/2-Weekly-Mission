@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { ASSETS_URL } from '../../constants';
+import styled from "styled-components";
+import { ASSETS_URL } from "../../constants";
 
 const HeaderLayout = styled.header`
   background-color: var(--gray-bg-color);
@@ -46,7 +46,11 @@ const HeaderProfileBox = styled.div`
 
 const HeaderLoginButton = styled.a`
   padding: 1.6rem 4rem;
-  background-image: linear-gradient(90deg, rgba(109, 106, 254, 1), rgba(106, 227, 254, 1));
+  background-image: linear-gradient(
+    90deg,
+    rgba(109, 106, 254, 1),
+    rgba(106, 227, 254, 1)
+  );
   border: none;
   border-radius: 0.8rem;
   color: var(--white-color);
@@ -61,11 +65,11 @@ function Header({ user }) {
   return (
     <HeaderLayout>
       <HeaderBox>
-        <img src={ASSETS_URL + '/images/logo.png'} alt="로고이미지" />
-        {user? (
+        <img src={ASSETS_URL + "/images/logo.png"} alt="로고이미지" />
+        {user ? (
           <HeaderProfileBox>
             <img src={user.image_source} alt="프로필 아이콘" />
-            <div >{user.email}</div>
+            <div>{user.email}</div>
           </HeaderProfileBox>
         ) : (
           <HeaderLoginButton>로그인</HeaderLoginButton>
