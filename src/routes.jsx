@@ -1,6 +1,6 @@
 import { Route, Navigate } from "react-router-dom";
-import SharedPage from "./pages/Shared/SharedPage";
-import FolderPage from "./pages/Folder/FolderPage";
+import SharedPage from "./pages/shared";
+import FolderPage from "./pages/folder";
 
 export const routes = [
   <Route path="/" element={<Navigate replace to="/folder" />} />,

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FAB from "../../assets/FAB.png";
+import FAB from "../../../assets/FAB.png";
 
 const FolderAddButton = styled.button`
   display: none;
