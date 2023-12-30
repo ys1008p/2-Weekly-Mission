@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as CloseIcon } from "assets/icons/closeModal.svg";
+import { ReactComponent as CloseIcon } from "assets/icons/close.svg";
 
 const BackGround = styled.div`
   position: fixed;

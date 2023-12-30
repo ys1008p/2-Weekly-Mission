@@ -7,6 +7,19 @@ export interface Link {
   createdAt: string;
 }
 
+const link = {
+  id: 211,
+  description:
+    "Headless, type-safe, powerful utilities for complex workflows like Data Management, Data Visualization, Charts, Tables, and UI Components.",
+  url: "https://tanstack.com/",
+  title: "TanStack | High Quality Open-Source Software for Web Developers",
+  folderId: 16,
+  imageSource: "https://tanstack.com/build/_assets/og-FA4FELIQ.png",
+  createdAt: "2023-10-27T02:07:36.330744+00:00",
+};
+
+export type FolderLink = typeof link;
+
 export interface FolderData {
   id: number;
   name: string;

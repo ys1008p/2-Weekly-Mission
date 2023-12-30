@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import CardItem from "./CardItem";
 import { card } from "styles/card";
-import { ShardLink } from "utils/type";
+import { FolderLink, ShardLink } from "utils/type";
 import React from "react";
 
 interface CardListPrsop {
-  folder: ShardLink[] | undefined;
+  folder: ShardLink[] | FolderLink[] | undefined;
 }
 const CardList: React.FC<CardListPrsop> = ({ folder }) => {
   return (

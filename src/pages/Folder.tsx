@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import PageForm from "components/PageForm";
 import CardList from "components/CardList";
 import FolderInfo from "components/FolderInfo";
 import Fab from "components/Fab";
+import Portal from "components/Modal/Portal";
+import Modal from "components/Modal";
+import useHandleModal from "hooks/useHandleModal";
 import { useFetcher } from "hooks/useFetcher";
-import { FolderData } from "utils/type";
 import { FOLDER_OPTION_NAME } from "utils/constants";
+import { FolderData, FolderLink } from "utils/type";
 import { getFolderList, getSelectedFolder } from "utils/api";
 import { folder } from "styles/folder";
 import { tagComponent } from "styles/tag";
 import { folderIcon } from "assets/icons/folder";
-import Portal from "components/Modal/Portal";
-import useHandleModal from "hooks/useHandleModal";
-import Modal from "components/Modal";
+import PageLayout from "./PageLayout";
 
 interface SelectedFolder {
   name: string;
-  links: any[];
+  links: FolderLink[];
 }
 
 function Folder() {
@@ -24,6 +24,8 @@ function Folder() {
     name: "전체",
     links: [],
   });
+  const [search, setSearch] = useState<string>("");
+  const [filteredLinks, setFilteredLinks] = useState<FolderLink[]>([]);
 
   const { onModal, currentType, onClose, toggleModal } = useHandleModal();
 
@@ -32,12 +34,31 @@ function Folder() {
   const onClick = async (name: string, folderId?: number) => {
     try {
       const links = await getSelectedFolder(folderId);
-
       setSelected((prev) => ({ ...prev, name, links }));
     } catch (e) {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    //search가 변경될 때마다 디바운싱을 걸어 마지막 입력된 값을
+    //selected.links에서 filter를 검.
+    const debounce = setTimeout(() => {
+      if (search) {
+        const filtered = selected.links.filter(
+          (link) =>
+            (link.url && link.url.includes(search)) ||
+            (link.title && link.title.includes(search)) ||
+            (link.description && link.description.includes(search))
+        );
+        setFilteredLinks(filtered);
+      } else {
+        setFilteredLinks(selected.links);
+      }
+    }, 1000);
+
+    return () => clearTimeout(debounce);
+  }, [search, selected.links]);
 
   useEffect(() => {
     const fetched = async () => {
@@ -50,7 +71,7 @@ function Folder() {
   return (
     <>
       <FolderInfo />
-      <PageForm>
+      <PageLayout search={search} setSearch={setSearch}>
         {data ? (
           <>
             <folder.Sorts>
@@ -85,12 +106,12 @@ function Folder() {
                 </>
               )}
             </folder.FolderHeader>
-            <CardList folder={selected?.links} />
+            <CardList folder={filteredLinks} />
           </>
         ) : (
           <div>저장된 링크가 없습니다.</div>
         )}
-      </PageForm>
+      </PageLayout>
       <Portal>{onModal && <Modal currentType={currentType} onClose={onClose} />}</Portal>
     </>
   );
