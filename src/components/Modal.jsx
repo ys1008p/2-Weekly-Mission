@@ -107,7 +107,7 @@ function Modal({
   $isOpen,
   onClick,
   edit,
-  addLink,
+  add,
   share,
   folderRemove,
   LinkRemove,
@@ -119,7 +119,7 @@ function Modal({
         <Title>
           {edit
             ? '폴더 변경'
-            : addLink
+            : add
               ? '폴더 추가'
               : share
                 ? '폴더 공유'
@@ -140,7 +140,7 @@ function Modal({
           <Button type="button" folderRemove={folderRemove}>
             {edit
               ? '변경하기'
-              : addLink || folderAdd
+              : add || folderAdd
                 ? '추가하기'
                 : folderRemove || LinkRemove
                   ? '삭제하기'

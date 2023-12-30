@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import add from '../assets/btn-add.svg';
+import Modal from './Modal';
+import { useEffect, useState } from 'react';
 
-const Container = styled.div`
+const TabMenuContainer = styled.div`
   position: relative;
 
   ul {
@@ -79,18 +81,32 @@ function TabMenuFunction({ menu, menuActive, handleClick }) {
 }
 
 function TabMenu({ menu, menuActive, handleClick, btnOption }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [addLink, setAddLink] = useState(false);
+
+  const handleClickOpen = () => setIsOpen(true);
+
+  const handleClickClose = () => setIsOpen(false);
+
+  useEffect(() => {
+    setAddLink(true);
+  }, [])
+
   return (
-    <Container>
-      <ul>
-        <TabMenuFunction
-          menu={menu}
-          handleClick={handleClick}
-          menuActive={menuActive}
-          btnOption={btnOption}
-        />
-      </ul>
-      <Button type="button"></Button>
-    </Container>
+    <>
+      <TabMenuContainer>
+        <ul>
+          <TabMenuFunction
+            menu={menu}
+            handleClick={handleClick}
+            menuActive={menuActive}
+            btnOption={btnOption}
+          />
+        </ul>
+        <Button type="button" onClick={handleClickOpen}></Button>
+      </TabMenuContainer>
+      <Modal $isOpen={isOpen} onClick={handleClickClose} add={add} />
+    </>
   );
 }
 
