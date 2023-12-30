@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
+import styled from "styled-components";
 import { modalItem } from "styles/modal/item";
 import kakao from "assets/icons/modal/kakao.png";
 import facebook from "assets/icons/modal/facebook.png";
 import copyLink from "assets/icons/modal/copyLink.png";
-import styled from "styled-components";
 
 declare global {
   interface Window {

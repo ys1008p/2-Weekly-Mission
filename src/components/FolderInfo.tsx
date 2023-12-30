@@ -1,25 +1,17 @@
-import Modal from "./Modal";
-import Portal from "./Modal/Portal";
-import useHandleModal from "hooks/useHandleModal";
+import React, { forwardRef } from "react";
+import FolderInput from "./FolderInput";
 import { info } from "styles/pageInfo";
-import { ReactComponent as LinkIcon } from "assets/icons/link.svg";
 
-const FolderInfo = () => {
-  const { onModal, currentType, onClose, toggleModal } = useHandleModal();
+const FolderInfo = forwardRef<HTMLDivElement, { isInterSecting: boolean }>(({ isInterSecting }, ref) => {
   return (
     <>
-      <info.Wrapper>
-        <info.FolderInputContainer>
-          <LinkIcon />
-          <info.FolderInput placeholder="링크를 추가해 보세요." />
-          <info.FolderInputButton onClick={() => toggleModal("add")}>
-            <span>추가하기</span>
-          </info.FolderInputButton>
+      <info.Wrapper ref={ref}>
+        <info.FolderInputContainer $isInterSecting={isInterSecting}>
+          <FolderInput />
         </info.FolderInputContainer>
       </info.Wrapper>
-      <Portal>{onModal && <Modal currentType={currentType} onClose={onClose} />}</Portal>
     </>
   );
-};
+});
 
 export default FolderInfo;

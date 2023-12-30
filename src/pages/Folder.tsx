@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import PageLayout from "./PageLayout";
 import CardList from "components/CardList";
 import FolderInfo from "components/FolderInfo";
 import Fab from "components/Fab";
@@ -12,7 +13,6 @@ import { getFolderList, getSelectedFolder } from "utils/api";
 import { folder } from "styles/folder";
 import { tagComponent } from "styles/tag";
 import { folderIcon } from "assets/icons/folder";
-import PageLayout from "./PageLayout";
 
 interface SelectedFolder {
   name: string;
@@ -26,6 +26,11 @@ function Folder() {
   });
   const [search, setSearch] = useState<string>("");
   const [filteredLinks, setFilteredLinks] = useState<FolderLink[]>([]);
+
+  const ref = useRef<HTMLDivElement>(null);
+  const pageEndRef = useRef<HTMLDivElement>(null);
+
+  const [isInterSecting, setIsIntersecting] = useState<boolean>(false);
 
   const { onModal, currentType, onClose, toggleModal } = useHandleModal();
 
@@ -68,9 +73,49 @@ function Folder() {
     fetched();
   }, []);
 
+  useEffect(() => {
+    const target = ref.current;
+    const endTarget = pageEndRef.current;
+    if (!target || !endTarget) return;
+
+    let isTargetIntersecting = false;
+    let isEndTargetIntersecting = false;
+
+    const handler: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === target) {
+          isTargetIntersecting = entry.isIntersecting;
+        } else if (entry.target === endTarget) {
+          isEndTargetIntersecting = entry.isIntersecting;
+        }
+      });
+
+      // 조건에 따라 isIntersecting 상태 업데이트
+      const shouldBeIntersecting =
+        (isTargetIntersecting && isEndTargetIntersecting) ||
+        isTargetIntersecting ||
+        (!isTargetIntersecting && isEndTargetIntersecting);
+      setIsIntersecting(shouldBeIntersecting);
+    };
+
+    const options = {
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver(handler, options);
+
+    observer.observe(target);
+    observer.observe(endTarget);
+
+    return () => {
+      observer.unobserve(target);
+      observer.unobserve(endTarget);
+    };
+  }, []);
+
   return (
     <>
-      <FolderInfo />
+      <FolderInfo ref={ref} isInterSecting={isInterSecting} />
       <PageLayout search={search} setSearch={setSearch}>
         {data ? (
           <>
@@ -112,6 +157,7 @@ function Folder() {
           <div>저장된 링크가 없습니다.</div>
         )}
       </PageLayout>
+      <div id="end" ref={pageEndRef} />
       <Portal>{onModal && <Modal currentType={currentType} onClose={onClose} />}</Portal>
     </>
   );

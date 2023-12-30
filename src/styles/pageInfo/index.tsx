@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { CtaShort } from "../cta";
 
-const Wrapper = styled.header`
+interface InfoProps {
+  $isInterSecting?: boolean;
+}
+
+const Wrapper = styled.header<InfoProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +12,7 @@ const Wrapper = styled.header`
   background-color: #edf7ff;
 
   gap: 1.2rem;
-  padding: 20px 0 60px;
+  padding: 20px 0;
 `;
 
 const SharedAvatar = styled.img`
@@ -35,62 +38,25 @@ const SharedFolder = styled.span`
   line-height: normal;
 `;
 
-const FolderInputContainer = styled.div`
-  position: relative;
+const FolderInputContainer = styled.div<InfoProps>`
+  position: ${({ $isInterSecting }) => ($isInterSecting ? "static" : "fixed")};
+  bottom: ${({ $isInterSecting }) => ($isInterSecting ? "auto" : "0")};
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  max-width: 80rem;
-  width: calc(100% - 3.2rem);
-  margin: auto;
-
-  & > svg {
-    position: absolute;
-    top: 50%;
-    left: 1.6rem;
-    transform: translateY(-50%);
-  }
-
-  @media (min-width: ${(props) => props.theme.deviceSizes.mobile}) {
-    width: calc(100% - 1.6rem);
-  }
-`;
-
-const FolderInput = styled.input`
-  width: 100%;
-  padding: 16px;
-  padding-left: 4rem;
-  border-radius: 15px;
-  border: 1px solid transparent;
-  background: ${(props) => props.theme.white};
-
-  &:focus {
-    border: 1px solid ${(props) => props.theme.primary};
-  }
-`;
-
-const FolderInputButton = styled(CtaShort)`
-  position: absolute;
-  top: 50%;
-  right: 1.6rem;
-  transform: translateY(-50%);
-
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 8rem;
-  height: 3.4rem;
-  font-size: 1.4rem;
-  font-weight: 600;
+  gap: 8px;
+  width: 100%;
+  height: 10rem;
+  background-color: #edf7ff;
+
+  z-index: 1;
 `;
+
 export const info = {
   Wrapper,
   SharedAvatar,
   SharedOwner,
   SharedFolder,
   FolderInputContainer,
-  FolderInput,
-  FolderInputButton,
 };

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import Popover from "./Popover";
+import Modal from "./Modal";
+import Portal from "./Modal/Portal";
+import useHandleModal from "hooks/useHandleModal";
 import { ShardLink } from "utils/type";
 import getDateAgo from "utils/getDateAgo";
-import useHandleModal from "hooks/useHandleModal";
 import { card } from "styles/card";
-import Portal from "./Modal/Portal";
-import Modal from "./Modal";
 import { ReactComponent as KebobIcon } from "assets/icons/kebab.svg";
 import { ReactComponent as StarIcon } from "assets/icons/star.svg";
 

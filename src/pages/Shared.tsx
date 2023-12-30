@@ -1,9 +1,9 @@
+import PageLayout from "./PageLayout";
 import CardList from "components/CardList";
 import SharedInfo from "components/ShardInfo";
 import { useFetcher } from "hooks/useFetcher";
 import { getShared } from "utils/api";
 import { ShardData } from "utils/type";
-import PageLayout from "./PageLayout";
 
 function Shared() {
   const { data } = useFetcher<ShardData>("shared", getShared);

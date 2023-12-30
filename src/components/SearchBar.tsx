@@ -1,7 +1,7 @@
+import { ChangeEvent } from "react";
 import styled from "styled-components";
 import { ReactComponent as SearchIcon } from "assets/icons/Search.svg";
 import { ReactComponent as CloseIcon } from "assets/icons/close.svg";
-import { ChangeEvent } from "react";
 
 interface SearchBarProps {
   initialState?: () => void;

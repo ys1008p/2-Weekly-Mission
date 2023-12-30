@@ -1,8 +1,8 @@
+import React from "react";
 import styled from "styled-components";
 import CardItem from "./CardItem";
-import { card } from "styles/card";
 import { FolderLink, ShardLink } from "utils/type";
-import React from "react";
+import { card } from "styles/card";
 
 interface CardListPrsop {
   folder: ShardLink[] | FolderLink[] | undefined;

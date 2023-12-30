@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { ReactComponent as AddIcon } from "assets/icons/add.svg";
 import styled from "styled-components";
+import { ReactComponent as AddIcon } from "assets/icons/add.svg";
 
 const isMobileView = () => window.innerWidth <= 762;
 

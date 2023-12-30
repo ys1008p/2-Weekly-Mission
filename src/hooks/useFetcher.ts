@@ -1,5 +1,5 @@
-import { CacheContext } from "contexts/CacheContext";
 import { useEffect, useState, useContext, useCallback } from "react";
+import { CacheContext } from "contexts/CacheContext";
 import { MAX_RETRY_COUNT } from "utils/constants";
 
 interface FetcherTypes<T> {

@@ -1,6 +1,6 @@
+import { ShardData } from "utils/type";
 import { info } from "styles/pageInfo";
 import avatar from "assets/images/Avatar.png";
-import { ShardData } from "utils/type";
 
 interface SharedInfoProps {
   folder: ShardData | null;
