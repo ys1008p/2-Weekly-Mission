@@ -28,8 +28,8 @@ const Shared = () => {
   } = useAsync(fetchGetRequest);
 
   const initFolderData = useCallback(async () => {
-    const data = await fetchFolderData('/api/sample/folder');
-    const { name, owner, links } = data.folder;
+    const { folder } = await fetchFolderData('/api/sample/folder');
+    const { name, owner, links } = folder;
 
     setFolderName(name);
     setOwner(owner);
