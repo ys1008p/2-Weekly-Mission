@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { deleteLink, addLink } from "../utils/modalItemData";
 
 const StyledCardPopOverContainer = styled.div`
   display: ${({ $Lender }) => ($Lender ? `flex` : `none`)};
@@ -9,7 +10,6 @@ const StyledCardPopOverContainer = styled.div`
   z-index: 2;
   box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
 `;
-
 const StyledCardPopOverBtn = styled.button`
   background-color: white;
   font-size: 1.4rem;
@@ -23,20 +23,33 @@ const StyledCardPopOverBtn = styled.button`
   }
 `;
 
-function handleClick(e) {
-  e.preventDefault();
-}
+function CardPopOver({ $Lender, setIsModalOn, setModalData, linkUrl, psFolderData, linkData }) {
+  function handleClick(data) {
+    setIsModalOn(true);
+    setModalData(data);
+  }
 
-function CardPopOver({ $Lender }) {
   return (
-    <StyledCardPopOverContainer $Lender={$Lender}>
-      <StyledCardPopOverBtn onClick={handleClick}>
-        삭제하기
-      </StyledCardPopOverBtn>
-      <StyledCardPopOverBtn onClick={handleClick}>
-        폴더에추가
-      </StyledCardPopOverBtn>
-    </StyledCardPopOverContainer>
+    <>
+      <StyledCardPopOverContainer $Lender={$Lender}>
+        <StyledCardPopOverBtn
+          onClick={(e) => {
+            handleClick(deleteLink(linkUrl));
+            e.preventDefault();
+          }}
+        >
+          삭제하기
+        </StyledCardPopOverBtn>
+        <StyledCardPopOverBtn
+          onClick={(e) => {
+            handleClick(addLink(linkUrl, psFolderData, linkData));
+            e.preventDefault();
+          }}
+        >
+          폴더에추가
+        </StyledCardPopOverBtn>
+      </StyledCardPopOverContainer>
+    </>
   );
 }
 

@@ -35,11 +35,7 @@ function HeaderFoloderSection({ folderData }) {
 
   return (
     <StyledHeaderOwnerContainer>
-      <StyledOwnerImg
-        src={ownerImg}
-        alt="folderImg"
-        className="header-owner-section-ownerImg"
-      />
+      <StyledOwnerImg src={ownerImg} alt="folderImg" className="header-owner-section-ownerImg" />
       <StyledOwnerName>{ownerName}</StyledOwnerName>
       <StyledSelectFolderName>{folderName}</StyledSelectFolderName>
     </StyledHeaderOwnerContainer>

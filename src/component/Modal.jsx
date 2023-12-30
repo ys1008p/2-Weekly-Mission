@@ -9,9 +9,8 @@ const StyledModalBackground = styled.div`
   background-color: #000000;
   opacity: 0.4;
   z-index: 98;
-  display: ${({ $isLender }) => ($isLender ? `blcok` : `none`)};
+  display: ${({ $isLender }) => ($isLender ? `block` : `none`)};
 `;
-
 const StyledModalItem = styled.form`
   padding: 3.2rem 4rem;
   background-color: #fff;
@@ -29,35 +28,7 @@ const StyledModalItem = styled.form`
   z-index: 99;
 `;
 
-const StyledModalTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2.4rem;
-`;
-
-const StyledModalInput = styled.input`
-  border-radius: 8px;
-  width: 100%;
-  padding: 1.8rem 1.5rem;
-  border: 1px solid #ccd5e3;
-  margin-bottom: 1.5rem;
-
-  &::placeholder {
-    color: #ccd5e3;
-  }
-`;
-
-const StyledModalBtn = styled.button`
-  border-radius: 8px;
-  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  color: white;
-  border: none;
-  width: 28rem;
-  padding: 1.6rem 2rem;
-  cursor: pointer;
-`;
-
-function Modal({ $isModalOn, $isLender }) {
+function Modal({ $isModalOn, $isLender, modalData, location }) {
   return (
     <>
       <StyledModalBackground
@@ -66,10 +37,13 @@ function Modal({ $isModalOn, $isLender }) {
         }}
         $isLender={$isLender}
       />
-      <StyledModalItem $isLender={$isLender}>
-        <StyledModalTitle>폴더이름변경</StyledModalTitle>
-        <StyledModalInput type="text" placeholder="내용 입력" />
-        <StyledModalBtn>변경하기</StyledModalBtn>
+      <StyledModalItem $isLender={$isLender} location={location}>
+        {modalData.title}
+        {modalData.sideTitle}
+        {modalData.input}
+        {modalData.addLinkList}
+        {modalData.button}
+        {modalData.img}
       </StyledModalItem>
     </>
   );

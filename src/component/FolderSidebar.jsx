@@ -2,6 +2,7 @@ import styled from "styled-components";
 import shareIcon from "../img/share.svg";
 import penIcon from "../img/pen.svg";
 import deleteIcon from "../img/delete.svg";
+import { folderNameChange, shareFolder, deleteFolder } from "../utils/modalItemData";
 
 const StyledSideBarMainContainer = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ const StyledSideBtn = styled.span`
 
 const StyledSideBtnImg = styled.img``;
 
-function FolderSidebar({ folderName, sideBtnLender, $isModalOn }) {
+function FolderSidebar({ folderName, sideBtnLender, $isModalOn, setModalData, location }) {
   return (
     <StyledSideBarMainContainer>
       <StyledSelectFolderName>{folderName || "전체"}</StyledSelectFolderName>
@@ -41,6 +42,7 @@ function FolderSidebar({ folderName, sideBtnLender, $isModalOn }) {
           <StyledSideBtn
             onClick={() => {
               $isModalOn(true);
+              setModalData(shareFolder(folderName));
             }}
           >
             <StyledSideBtnImg src={shareIcon} alt="share" />
@@ -49,6 +51,7 @@ function FolderSidebar({ folderName, sideBtnLender, $isModalOn }) {
           <StyledSideBtn
             onClick={() => {
               $isModalOn(true);
+              setModalData(folderNameChange);
             }}
           >
             <StyledSideBtnImg src={penIcon} alt="changeName" />
@@ -57,6 +60,7 @@ function FolderSidebar({ folderName, sideBtnLender, $isModalOn }) {
           <StyledSideBtn
             onClick={() => {
               $isModalOn(true);
+              setModalData(deleteFolder(location));
             }}
           >
             <StyledSideBtnImg src={deleteIcon} alt="delete" />

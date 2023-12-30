@@ -24,7 +24,7 @@ const StyledCardListContainer = styled.div`
   }
 `;
 
-function CardList({ cardData }) {
+function CardList({ cardData, psFolderData, linkData }) {
   return (
     <>
       {cardData.length === 0 ? (
@@ -32,7 +32,7 @@ function CardList({ cardData }) {
       ) : (
         <StyledCardListContainer>
           {cardData.map((data) => (
-            <Card key={data.id} data={data} />
+            <Card key={data.id} data={data} psFolderData={psFolderData} linkData={linkData} />
           ))}
         </StyledCardListContainer>
       )}

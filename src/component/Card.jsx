@@ -4,6 +4,53 @@ import menuIcon from "../img/kebab.svg";
 import { formatDate, getTimeDifference } from "../utils/date";
 import CardPopOver from "./CardPopOver";
 import { useState } from "react";
+import Modal from "./Modal";
+
+function Card({ data, psFolderData, linkData }) {
+  const [isPopOverOn, setIsPopOverOn] = useState(false);
+  const [isModalOn, setIsModalOn] = useState(false);
+  const [modalData, setModalData] = useState({});
+
+  function handleMenuIconClick(e) {
+    e.preventDefault();
+    setIsPopOverOn((ipo) => !ipo);
+  }
+
+  return (
+    <>
+      <Modal $isModalOn={setIsModalOn} $isLender={isModalOn} modalData={modalData} />
+      <StyledA href={data.url}>
+        <StyledCardContiner>
+          <StyledCardImgContiner>
+            <StyledCardFavIcon src={starIcon} alt="즐겨찾기 아이콘" />
+            <StyledCardImg
+              src={
+                data.img || "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
+              }
+              alt="링크 이미지"
+            />
+          </StyledCardImgContiner>
+          <StyledCardInfoContainer>
+            <StyledUpdataAndMenuIconContainer>
+              <StyledCardLastUpdateDate>{getTimeDifference(data.createdAt)}</StyledCardLastUpdateDate>
+              <StyledCardMenuIcon src={menuIcon} alt="메뉴 아이콘" onClick={handleMenuIconClick} />
+            </StyledUpdataAndMenuIconContainer>
+            <StyledCardDescription>{data.description}</StyledCardDescription>
+            <StyledCardCreatedAt>{formatDate(data.createdAt)}</StyledCardCreatedAt>
+          </StyledCardInfoContainer>
+        </StyledCardContiner>
+        <CardPopOver
+          $Lender={isPopOverOn}
+          setModalData={setModalData}
+          setIsModalOn={setIsModalOn}
+          linkUrl={data.url}
+          psFolderData={psFolderData}
+          FolderDataLength={linkData}
+        />
+      </StyledA>
+    </>
+  );
+}
 
 const transparencyAnimation = keyframes`
 0% {
@@ -84,57 +131,13 @@ const StyledCardFavIcon = styled.img`
   }
 `;
 const StyledCardMenuIcon = styled.img`
-&:hover {
-  animation: ${transparencyAnimation} 1s ease-in-out infinite;
+  &:hover {
+    animation: ${transparencyAnimation} 1s ease-in-out infinite;
+  }
 `;
 const StyledUpdataAndMenuIconContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
-function Card({ data }) {
-  const [isPopOverOn, setIsPopOverOn] = useState(false);
-
-  function handleMenuIconClick(e) {
-    e.preventDefault();
-    setIsPopOverOn((ipo) => !ipo);
-  }
-
-  return (
-    <>
-      <StyledA href={data.url}>
-        <StyledCardContiner>
-          <StyledCardImgContiner>
-            <StyledCardFavIcon src={starIcon} alt="즐겨찾기 아이콘" />
-            <StyledCardImg
-              src={
-                data.img ||
-                "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
-              }
-              alt="링크 이미지"
-            />
-          </StyledCardImgContiner>
-          <StyledCardInfoContainer>
-            <StyledUpdataAndMenuIconContainer>
-              <StyledCardLastUpdateDate>
-                {getTimeDifference(data.createdAt)}
-              </StyledCardLastUpdateDate>
-              <StyledCardMenuIcon
-                src={menuIcon}
-                alt="메뉴 아이콘"
-                onClick={handleMenuIconClick}
-              />
-            </StyledUpdataAndMenuIconContainer>
-            <StyledCardDescription>{data.description}</StyledCardDescription>
-            <StyledCardCreatedAt>
-              {formatDate(data.createdAt)}
-            </StyledCardCreatedAt>
-          </StyledCardInfoContainer>
-        </StyledCardContiner>
-        <CardPopOver $Lender={isPopOverOn} />
-      </StyledA>
-    </>
-  );
-}
 
 export default Card;

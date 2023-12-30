@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { getUserData } from "./api/getUserData";
-import { getShareCardData } from "./api/getShareCardData";
 import GlobalStyle from "./GlobalStyles";
 import Loding from "./component/loding/Loding";
 import Navbar from "./component/Navbar";
@@ -12,27 +11,25 @@ import { getUserPersonalFolderData } from "./api/getUserPersonalFolderData";
 import TestLanding from "./component/TestLanding";
 import { getUserPersonalLinkData } from "./api/getUserPersoanlLinkData";
 import CardList from "./component/CardList";
-import { transformLinkData, transformShareCardData } from "./api/dataTransform";
+import { transformLinkData } from "./api/dataTransform";
 import NotFoundPage from "./component/NotFoundPage";
 
 function App() {
-  const [userData, setUserData] = useState({});
-  const [folderData, setFolderData] = useState({});
-  const [shareCardData, setShareCardData] = useState([]);
-  const [personalFolderData, setPersonalFolderData] = useState([]);
-  const [personalLinkData, setPersonalLinkData] = useState([]);
-  const [selectPersonalLinkData, setSelectPersonalLinkData] = useState([]);
+  const [userData, setUserData] = useState({}); // 로딩을위한 전역사용
+  const [personalFolderData, setPersonalFolderData] = useState([]); // folder 페이지의 폴더데이터
+  const [personalLinkData, setPersonalLinkData] = useState([]); // folder 페이지의 링크데이터
   const [loding, setLoding] = useState(false);
-  const [folderId, setFolderId] = useState();
-  const [folderName, setFolderName] = useState();
+  const [selectPersonalLinkData, setSelectPersonalLinkData] = useState([]); // 선택한 버튼의 폴더 데이터
+  const [folderId, setFolderId] = useState(); // 전역사용 O
+  const [folderName, setFolderName] = useState(); // 전역사용 O
   const location = useLocation();
 
   const handleData = (data) => {
-    setFolderId(data.id);
-    setFolderName(data.name);
+    setFolderId(data.id); // 폴더 아이디는 링크의 루트뒤의 id 를 뜻함
+    setFolderName(data.name); // 폴더 네임은 폴더페이지의 제목을 뜻함
   };
 
-  // shared 유저데이터
+  // shared 유저데이터 & 로딩처리
   useEffect(() => {
     setLoding(true);
 
@@ -45,16 +42,6 @@ function App() {
       .finally(() => {
         setLoding(false);
       });
-  }, []);
-
-  //shared 카드데이터
-  useEffect(() => {
-    getShareCardData()
-      .then((result) => {
-        setShareCardData(transformShareCardData(result.folder.links));
-        setFolderData(result.folder);
-      })
-      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
   }, []);
 
   // folder 목록데이터
@@ -75,14 +62,12 @@ function App() {
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
   }, []);
 
-  // folder 링크데이터
+  // 필터된 folder 링크데이터
   useEffect(() => {
     getUserPersonalLinkData()
       .then((result) => {
         const transformedData = transformLinkData(result.data);
-        const filteredData = transformedData.filter(
-          (item) => item.folderId === folderId
-        );
+        const filteredData = transformedData.filter((item) => item.folderId === folderId);
         setSelectPersonalLinkData(filteredData);
       })
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
@@ -98,29 +83,23 @@ function App() {
       {/* ========================================== */}
       <Routes>
         <Route path="/" element={<TestLanding />}></Route>
-        <Route
-          path="/shared"
-          element={<Shared folderData={folderData} cardData={shareCardData} />}
-        />
+        <Route path="/shared" element={<Shared />} />
         {/* ========================================== */}
         <Route
           path="/folder"
-          element={
-            <Folder
-              psFolderData={personalFolderData}
-              handleData={handleData}
-              folderName={folderName}
-            />
-          }
+          element={<Folder psFolderData={personalFolderData} handleData={handleData} folderName={folderName} />}
         >
           <Route
             path=":folderId"
-            element={<CardList cardData={selectPersonalLinkData} />}
+            element={
+              <CardList
+                cardData={selectPersonalLinkData}
+                psFolderData={personalFolderData}
+                linkData={personalLinkData}
+              />
+            }
           />
-          <Route
-            path="/folder"
-            element={<CardList cardData={personalLinkData} />}
-          />
+          <Route path="/folder" element={<CardList cardData={personalLinkData} />} />
         </Route>
         {/* ========================================== */}
         <Route path="*" element={<NotFoundPage />} />
