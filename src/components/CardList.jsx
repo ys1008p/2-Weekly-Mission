@@ -26,7 +26,8 @@ const Container = styled.ul`
 `;
 
 const Cards = styled.li`
-position: relative;
+  position: relative;
+  z-index: 1;
   width: calc(33.3% - 2rem);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
   border-radius: 15px;
@@ -152,7 +153,7 @@ function CardList({ cardList, data }) {
   const [isOpen, setIsOpen] = useState(null);
   const handleClickKebab = (e, id) => {
     e.preventDefault();
-    setIsOpen(prevOpen => (prevOpen !== id && id));
+    setIsOpen((prevOpen) => prevOpen !== id && id);
   };
 
   if (cardList.length === 0) return <NoLink>저장된 링크가 없습니다</NoLink>;

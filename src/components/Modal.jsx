@@ -8,7 +8,6 @@ const ModalContainer = styled.div`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   position: fixed;
   left: 50%;
-  /* display: block; */
   top: 50%;
   transform: translate(-50%, -50%);
   width: 36rem;
@@ -75,10 +74,11 @@ const CloseButton = styled.button`
 `;
 
 const Dim = styled.div`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
-  position: absolute;
+  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
+  position: fixed;
   left: 0;
   top: 0;
+  z-index: 2;
   width: 100%;
   height: 100%;
   background-color: var(--color-black-000);

@@ -87,7 +87,7 @@ const Button = styled.button`
 function AddLinkBar() {
   const [value, setValue] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const [add, setAdd] = useState(false);
+  const [folderAdd, setFolderAdd] = useState(false);
 
   const handleOnChangeValue = (e) => setValue(e.target.value);
 
@@ -96,7 +96,7 @@ function AddLinkBar() {
   const handleClickClose = () => setIsOpen(false);
 
   useEffect(() => {
-    setAdd(true);
+    setFolderAdd(true);
   }, [])
 
   return (
@@ -114,7 +114,7 @@ function AddLinkBar() {
           </Button>
         </Wrap>
       </AddLinkBarContainer>
-      <Modal $isOpen={isOpen} onClick={handleClickClose} add={add}/>
+      <Modal $isOpen={isOpen} onClick={handleClickClose} folderAdd={folderAdd}/>
     </>
   );
 }

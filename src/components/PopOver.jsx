@@ -35,12 +35,16 @@ function PopOver({ $isOpen }) {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState(null);
 
-  const handleClickOpen = (buttonId) => {
+  const handleClickOpen = (e, buttonId) => {
+    e.preventDefault();
     setIsOpen(true);
     setMode(buttonId);
   };
 
-  const handleClickClose = () => setIsOpen(false);
+  const handleClickClose = (e) => {
+    e.preventDefault();
+    setIsOpen(false);
+  }
 
   const BUTTON = [
     {
@@ -60,7 +64,7 @@ function PopOver({ $isOpen }) {
           <Button
             key={button.id}
             type="button"
-            onClick={() => handleClickOpen(button.id)}
+            onClick={(e) => handleClickOpen(e, button.id)}
           >
             {button?.name}
           </Button>
@@ -68,7 +72,7 @@ function PopOver({ $isOpen }) {
       </PopOverContainer>
       <Modal
         $isOpen={isOpen}
-        onClick={handleClickClose}
+        onClick={(e) => handleClickClose(e)}
         LinkRemove={mode === 'LinkRemove'}
         folderAdd={mode === 'folderAdd'}
       />
