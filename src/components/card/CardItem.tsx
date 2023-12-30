@@ -61,21 +61,21 @@ const CardItem = ({
             src={thumbnail ?? NoImage}
             alt="thumbnail"
           />
-          {isFolder && (
+          {isFolder ? (
             <img
               className={styles.star}
               src={selected ? SelectedStar : Star}
               onClick={handleStarClick}
               alt="star"
             />
-          )}
+          ) : null}
         </div>
         <div className={styles.contents}>
           <div className={styles.header}>
             <span className={styles.time}>{timeAgo}</span>
-            {isFolder && (
+            {isFolder ? (
               <img className={styles.kebab} src={Kebab} alt="kebab" />
-            )}
+            ) : null}
           </div>
           <div className={styles.title}>{title}</div>
           <span className={styles.date}>{parsedDate}</span>

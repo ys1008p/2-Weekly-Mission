@@ -138,13 +138,13 @@ const Folder = () => {
                   <span className={styles['folder-title']}>
                     {selectedFolder.name}
                   </span>
-                  {selectedFolder.id && (
+                  {selectedFolder.id ? (
                     <div className={styles['title-btns']}>
                       <GrayIconButton icon={ShareIcon} text="공유" />
                       <GrayIconButton icon={PenIcon} text="이름 변경" />
                       <GrayIconButton icon={DeleteIcon} text="삭제" />
                     </div>
-                  )}
+                  ) : null}
                 </div>
                 <FolderCardContainer items={items} />
               </div>
