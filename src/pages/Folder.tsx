@@ -44,9 +44,16 @@ const Folder = () => {
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] =
     useState<FolderType>(INITIAL_FOLDER);
-  const [linkLoading, linkError, fetchLinkData] = useAsync(fetchGetRequest);
-  const [folderLoading, folderError, fetchFolderData] =
-    useAsync(fetchGetRequest);
+  const {
+    loading: linkLoading,
+    error: linkError,
+    wrappedFunction: fetchLinkData,
+  } = useAsync(fetchGetRequest);
+  const {
+    loading: folderLoading,
+    error: folderError,
+    wrappedFunction: fetchFolderData,
+  } = useAsync(fetchGetRequest);
 
   const initFolderData = useCallback(async () => {
     const data = await fetchFolderData('/api/users/1/folders');

@@ -20,7 +20,12 @@ const Shared = () => {
   const [folderName, setFolderName] = useState('');
   const [owner, setOwner] = useState({ name: '', profileImageSource: '' });
   const [items, setItems] = useState([]);
-  const [loading, error, fetchFolderData] = useAsync(fetchGetRequest);
+
+  const {
+    loading,
+    error,
+    wrappedFunction: fetchFolderData,
+  } = useAsync(fetchGetRequest);
 
   const initFolderData = useCallback(async () => {
     const data = await fetchFolderData('/api/sample/folder');

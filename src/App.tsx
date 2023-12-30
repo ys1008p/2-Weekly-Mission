@@ -8,7 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   const setAuth = useSetAuth();
-  const [loading, error, fetchAuthData] = useAsync(fetchGetRequest);
+  const { wrappedFunction: fetchAuthData } = useAsync(fetchGetRequest);
 
   useEffect(() => {
     const initAuthData = async () => {

@@ -2,11 +2,11 @@ import { useCallback, useState } from 'react';
 
 type AsyncFunctionType = (...args: any[]) => Promise<any>;
 
-type UseAsyncReturnType = [
-  boolean,
-  Error | null,
-  (...args: any[]) => Promise<any>,
-];
+interface UseAsyncReturnType {
+  loading: boolean;
+  error: Error | null;
+  wrappedFunction: (...args: any[]) => Promise<any>;
+}
 
 const useAsync = (asyncFunction: AsyncFunctionType): UseAsyncReturnType => {
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ const useAsync = (asyncFunction: AsyncFunctionType): UseAsyncReturnType => {
     [asyncFunction],
   );
 
-  return [loading, error, wrappedFunction];
+  return { loading, error, wrappedFunction };
 };
 
 export default useAsync;
