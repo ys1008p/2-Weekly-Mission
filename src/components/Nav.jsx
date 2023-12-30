@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import logo from '../assets/logo.svg';
+import { Link } from 'react-router-dom';
 
 const Container = styled.nav`
   display: flex;
@@ -87,23 +88,23 @@ function Nav({ profileEmail, profileImg, position }) {
   return (
     <Container $position={position}>
       <h1>
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="홈으로 연결된 abrary 로고" />
-        </a>
+        </Link>
       </h1>
       <div>
         {profileEmail ? (
           <Email>
-            <a href="/">
+            <Link to="/">
               <img src={profileImg} alt="프로필 이미지" />
               <p>{profileEmail}</p>
-            </a>
+            </Link>
           </Email>
         ) : (
           <Login>
-            <a href="/">
+            <Link to="/">
               <span>로그인</span>
-            </a>
+            </Link>
           </Login>
         )}
       </div>
