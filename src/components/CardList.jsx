@@ -91,7 +91,7 @@ const Kebab = styled.span`
   background: url('${kebab}') no-repeat;
 `;
 
-const BeforeAge = styled.p`
+const TimeStamp = styled.p`
   float: left;
   font-size: 1.3rem;
   line-height: 1.5rem;
@@ -177,7 +177,7 @@ function CardList({ cardList, data }) {
             <Star src={star} alt="별 이미지" />
           </ImgBox>
           <Text>
-            <BeforeAge>{getDateInfo({ createdAt: card.created_at })}</BeforeAge>
+            <TimeStamp>{getDateInfo({ createdAt: card.created_at })}</TimeStamp>
             <Kebab onClick={(e) => handleClickKebab(e, card.id)}></Kebab>
             <PopOver $isOpen={card.id === isOpen} />
             <Desc>{card.description}</Desc>
@@ -201,7 +201,7 @@ function CardList({ cardList, data }) {
             />
           </ImgBox>
           <Text>
-            <BeforeAge>{getDateInfo({ createdAt: card.createdAt })}</BeforeAge>
+            <TimeStamp>{getDateInfo({ createdAt: card.createdAt })}</TimeStamp>
             <Desc>{card.description}</Desc>
             <CreatedDate>
               {getDateText({ createdAt: card.createdAt })}
