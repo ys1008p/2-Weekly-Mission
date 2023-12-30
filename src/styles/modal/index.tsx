@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { ReactComponent as CloseIcon } from "assets/icons/closeModal.svg";
 
 const BackGround = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 999;
 
   display: flex;
   align-items: center;
@@ -18,17 +19,35 @@ const BackGround = styled.div`
 
 const ContentWrapper = styled.div`
   display: flex;
+
   align-items: center;
   justify-content: center;
-  padding: 32px 40px;
   flex-direction: column;
-  gap: 24px;
+
+  width: 36rem;
+  min-height: 24rem;
 `;
 
 const ContentItem = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 3.2rem 4rem;
+  gap: 2.4rem;
+
   background-color: white;
   border-radius: 15px;
   outline: 1px solid ${({ theme }) => theme.gray300};
+
+  width: 100%;
+  height: 100%;
 `;
 
-export const modal = { BackGround, ContentWrapper, ContentItem };
+const Close = styled(CloseIcon)`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+`;
+
+export const modal = { BackGround, ContentWrapper, ContentItem, Close };

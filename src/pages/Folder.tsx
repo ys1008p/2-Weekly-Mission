@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { folder } from "styles/folder";
-import { tagComponent } from "styles/tag";
 import PageForm from "components/PageForm";
 import CardList from "components/CardList";
 import FolderInfo from "components/FolderInfo";
 import Fab from "components/Fab";
 import { useFetcher } from "hooks/useFetcher";
+import { FolderData } from "utils/type";
 import { FOLDER_OPTION_NAME } from "utils/constants";
 import { getFolderList, getSelectedFolder } from "utils/api";
+import { folder } from "styles/folder";
+import { tagComponent } from "styles/tag";
 import { folderIcon } from "assets/icons/folder";
-import { FolderData } from "utils/type";
+import Portal from "components/Modal/Portal";
+import useHandleModal from "hooks/useHandleModal";
+import Modal from "components/Modal";
 
 interface SelectedFolder {
   name: string;
@@ -21,6 +24,8 @@ function Folder() {
     name: "전체",
     links: [],
   });
+
+  const { onModal, currentType, onClose, toggleModal } = useHandleModal();
 
   const { data } = useFetcher<FolderData[]>("folder", getFolderList);
 
@@ -71,7 +76,7 @@ function Folder() {
                 <>
                   <folder.FolderOption>
                     {Object.entries(folderIcon).map(([iconName, Icon]) => (
-                      <folder.Option key={iconName}>
+                      <folder.Option key={iconName} onClick={() => toggleModal(iconName)}>
                         <Icon />
                         <span>{FOLDER_OPTION_NAME[iconName]}</span>
                       </folder.Option>
@@ -86,6 +91,7 @@ function Folder() {
           <div>저장된 링크가 없습니다.</div>
         )}
       </PageForm>
+      <Portal>{onModal && <Modal currentType={currentType} onClose={onClose} />}</Portal>
     </>
   );
 }

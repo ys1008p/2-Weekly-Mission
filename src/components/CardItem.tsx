@@ -2,35 +2,39 @@ import { Link } from "react-router-dom";
 import Popover from "./Popover";
 import { ShardLink } from "utils/type";
 import getDateAgo from "utils/getDateAgo";
+import useHandleModal from "hooks/useHandleModal";
 import { card } from "styles/card";
-import { ReactComponent as KebobIcon } from "assets/icons/kebab.svg";
-import { ReactComponent as StarIcon } from "assets/icons/star.svg";
 import Portal from "./Modal/Portal";
 import Modal from "./Modal";
-import { useState } from "react";
+import { ReactComponent as KebobIcon } from "assets/icons/kebab.svg";
+import { ReactComponent as StarIcon } from "assets/icons/star.svg";
 
 interface CardItemProps {
   data: ShardLink;
 }
 
-const CardItem: React.FC<CardItemProps> = ({ data: { createdAt, url, description, imageSource } }) => {
-  const [modalOn, setModalOn] = useState<boolean>(false);
-
-  const handleModal = () => {
-    setModalOn(!modalOn);
-  };
+function CardItem({ data: { createdAt, url, description, imageSource } }: CardItemProps) {
+  const { onModal, currentType, onClose, toggleModal } = useHandleModal();
 
   const timeAgo = getDateAgo(createdAt);
   const date = new Date(createdAt).toLocaleDateString();
 
+  const handleDeleteLink = () => {
+    toggleModal("deleteLink");
+  };
+
+  const handleAddToFolder = () => {
+    toggleModal("addFolder");
+  };
+
   const popoverContent = [
     {
       title: "삭제하기",
-      fn: handleModal,
+      fn: handleDeleteLink,
     },
     {
       title: "폴더에 추가",
-      fn: handleModal,
+      fn: handleAddToFolder,
     },
   ];
 
@@ -48,13 +52,13 @@ const CardItem: React.FC<CardItemProps> = ({ data: { createdAt, url, description
           <Popover content={popoverContent}>
             <KebobIcon />
           </Popover>
-          <Portal>{modalOn && <Modal onClose={handleModal} />}</Portal>
+          <Portal>{onModal && <Modal currentType={currentType} onClose={onClose} />}</Portal>
         </card.FlaverHeader>
         <card.Description>{description}</card.Description>
         <card.CreateAt>{date}</card.CreateAt>
       </card.Flavor>
     </card.Container>
   );
-};
+}
 
 export default CardItem;

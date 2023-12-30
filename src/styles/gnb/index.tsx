@@ -32,6 +32,7 @@ const Container = styled.div`
     padding: 0 20rem;
   }
 `;
+
 const Logo = styled.img`
   height: 1.6rem;
 
@@ -39,6 +40,7 @@ const Logo = styled.img`
     height: 2.4rem;
   }
 `;
+
 const Account = styled.div`
   display: flex;
   align-items: center;
