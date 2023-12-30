@@ -1,4 +1,4 @@
-import { useSetAuth } from '@/contexts/AuthContexts';
+import { useAuth } from '@/contexts/AuthContexts';
 import useAsync from '@/hooks/useAsync';
 import Folder from '@/pages/Folder';
 import Shared from '@/pages/Shared';
@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
-  const setAuth = useSetAuth();
+  const { setAuth } = useAuth();
   const { wrappedFunction: fetchAuthData } = useAsync(fetchGetRequest);
 
   useEffect(() => {
