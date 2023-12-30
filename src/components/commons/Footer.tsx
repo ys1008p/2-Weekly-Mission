@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { ASSETS_URL } from "../../constants";
-import React from "react";
+import { ASSETS_URL } from "../../constants.ts";
 
 function Footer() {
   return (
@@ -13,18 +12,18 @@ function Footer() {
       <FooterSnsBox>
         <a name="facebook" href="https://www.facebook.com" target="facebook">
           <img
-            src={ASSETS_URL + "/images/facebook.png"}
+            src={`${ASSETS_URL}/images/facebook.png`}
             alt="페이스북 아이콘"
           />
         </a>
         <a name="twitter" href="https://twitter.com/?lang=ko" target="twitter">
-          <img src={ASSETS_URL + "/images/twitter.png"} alt="트위터 아이콘" />
+          <img src={`${ASSETS_URL}/images/twitter.png`} alt="트위터 아이콘" />
         </a>
         <a name="youtube" href="https://www.youtube.com" target="youtube">
-          <img src={ASSETS_URL + "/images/youtube.png"} alt="유튜브 아이콘" />
+          <img src={`${ASSETS_URL}/images/youtube.png`} alt="유튜브 아이콘" />
         </a>
         <a name="instagram" href="https://www.instagram.com" target="instagram">
-          <img src={ASSETS_URL + "/images/instagram.png"} alt="인스타 아이콘" />
+          <img src={`${ASSETS_URL}/images/instagram.png`} alt="인스타 아이콘" />
         </a>
       </FooterSnsBox>
     </FooterLayout>

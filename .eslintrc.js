@@ -26,6 +26,7 @@ module.exports = {
       "error",
       { extensions: [".js", ".jsx", ".tsx"] },
     ],
+    "no-use-before-define": "off",
   },
   settings: {
     "import/resolver": {

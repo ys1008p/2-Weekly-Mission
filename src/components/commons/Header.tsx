@@ -1,5 +1,23 @@
 import styled from "styled-components";
-import { ASSETS_URL } from "../../constants";
+import { ASSETS_URL } from "../../constants.ts";
+
+function Header({ user }) {
+  return (
+    <HeaderLayout>
+      <HeaderBox>
+        <img src={`${ASSETS_URL}/images/logo.png`} alt="로고이미지" />
+        {user ? (
+          <HeaderProfileBox>
+            <img src={user.image_source} alt="프로필 아이콘" />
+            <div>{user.email}</div>
+          </HeaderProfileBox>
+        ) : (
+          <HeaderLoginButton>로그인</HeaderLoginButton>
+        )}
+      </HeaderBox>
+    </HeaderLayout>
+  );
+}
 
 const HeaderLayout = styled.header`
   background-color: var(--gray-bg-color);
@@ -60,23 +78,5 @@ const HeaderLoginButton = styled.a`
   margin-bottom: 3.2rem;
   cursor: pointer;
 `;
-
-function Header({ user }) {
-  return (
-    <HeaderLayout>
-      <HeaderBox>
-        <img src={ASSETS_URL + "/images/logo.png"} alt="로고이미지" />
-        {user ? (
-          <HeaderProfileBox>
-            <img src={user.image_source} alt="프로필 아이콘" />
-            <div>{user.email}</div>
-          </HeaderProfileBox>
-        ) : (
-          <HeaderLoginButton>로그인</HeaderLoginButton>
-        )}
-      </HeaderBox>
-    </HeaderLayout>
-  );
-}
 
 export default Header;

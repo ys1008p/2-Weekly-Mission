@@ -1,7 +1,35 @@
 import styled from "styled-components";
-import { getSelectData } from "../../../services/FolderApi";
+import React from "react";
+import { getSelectData } from "../../../services/FolderApi.tsx";
 
-function Button({ folder, setSelectFolderLinks }) {
+interface LinkInfo {
+  id: number;
+  create_at: string;
+  updated_at: string;
+  image_source: string;
+  title: string;
+  url: string;
+}
+
+interface FolderInfo {
+  id: number;
+  favorite: boolean;
+  name: string;
+  user_id: number;
+  links: LinkInfo[];
+}
+interface FolderButtonListProps {
+  folderList: FolderInfo[];
+  setSelectFolderLinks: React.Dispatch<React.SetStateAction<[]>>;
+}
+
+function Button({
+  folder,
+  setSelectFolderLinks,
+}: {
+  folder: FolderInfo;
+  setSelectFolderLinks: React.Dispatch<React.SetStateAction<[]>>;
+}) {
   const handleChangeID = async () => {
     const { data } = await getSelectData(folder.id);
     setSelectFolderLinks(data);
@@ -10,7 +38,7 @@ function Button({ folder, setSelectFolderLinks }) {
   return (
     <StyledButton
       onClick={() => {
-        handleChangeID(folder.id);
+        handleChangeID();
       }}
     >
       {folder && folder.name}
@@ -18,7 +46,10 @@ function Button({ folder, setSelectFolderLinks }) {
   );
 }
 
-function FolderButtonList({ folderList, setSelectFolderLinks }) {
+function FolderButtonList({
+  folderList,
+  setSelectFolderLinks,
+}: FolderButtonListProps) {
   return (
     <div>
       <StyledButtonBox>

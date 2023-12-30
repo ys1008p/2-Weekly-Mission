@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ASSETS_URL } from "../constants";
+import { ASSETS_URL } from "../../constants.ts";
 
 const SearchBox = styled.div`
   width: 100%;
@@ -26,7 +26,7 @@ function SearchInput() {
   return (
     <SearchBox>
       <input placeholder="링크를 검색해주세요" />
-      <img src={ASSETS_URL + "/images/search.png"} />
+      <img src={`${ASSETS_URL}/images/search.png`} alt="검색 아이콘" />
     </SearchBox>
   );
 }

@@ -1,6 +1,18 @@
 import styled from "styled-components";
 import { ASSETS_URL } from "../../../constants.ts";
 
+function FolderAddLinkInput() {
+  return (
+    <BannerLayout>
+      <BannerBox>
+        <input placeholder="링크를 추가해 보세요" />
+        <img src={`${ASSETS_URL}/images/linkIcon.png`} alt="링크 아이콘" />
+        <button type="button">추가하기</button>
+      </BannerBox>
+    </BannerLayout>
+  );
+}
+
 const BannerLayout = styled.section`
   background-color: var(--gray-bg-color);
   padding: 6rem 3.2rem 9rem;
@@ -45,17 +57,5 @@ const BannerBox = styled.div`
     top: 25%;
   }
 `;
-
-function FolderAddLinkInput() {
-  return (
-    <BannerLayout>
-      <BannerBox>
-        <input placeholder="링크를 추가해 보세요" />
-        <img src={`${ASSETS_URL}/images/linkIcon.png`} alt="링크 아이콘" />
-        <button type="button">추가하기</button>
-      </BannerBox>
-    </BannerLayout>
-  );
-}
 
 export default FolderAddLinkInput;

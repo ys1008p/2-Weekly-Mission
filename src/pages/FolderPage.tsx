@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Header from "../components/commons/Header";
+import Header from "../components/commons/Header.tsx";
 import Banner from "../components/domains/folder/Banner.tsx";
-import CardList from "../components/commons/CardList";
-import SearchInput from "../components/commons/SearchInput";
+import CardList from "../components/commons/CardList.tsx";
+import SearchInput from "../components/commons/SearchInput.tsx";
 import styles from "../styles/folderPage.module.css";
 import FolderButtonList from "../components/domains/folder/FolderButtonList.tsx";
 import FolderTitle from "../components/domains/folder/FolderTitle.tsx";
@@ -32,7 +32,7 @@ interface FolderInfo {
 
 function FolderPage() {
   const [folderList, setFolderList] = useState<FolderInfo[]>([]);
-  const [selectFolderLinks, setSelectFolderLinks] = useState([]);
+  const [selectFolderLinks, setSelectFolderLinks] = useState<[]>([]);
   const [user, setUser] = useState();
   const [id] = useState(0);
 
@@ -67,7 +67,7 @@ function FolderPage() {
   useEffect(() => {
     handleEmailLoad();
     handleFoldersLoad();
-  }, []);
+  }, [id]);
 
   return (
     <>

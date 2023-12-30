@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ASSETS_URL } from "../../constants.ts";
 import CalculateElapsedTime from "../../utils/CalculateElapsedTime.tsx";
 import ConvertToFormattedDate from "../../utils/ConvertToFormattedDate.tsx";
-import noImage from "../noImage.svg";
+import noImage from "../../noImage.svg";
 import PopOver from "../domains/folder/PopOver.tsx";
 
 function Card({ link }) {

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 function FloatingButton() {
-  // eslint-disable-next-line no-use-before-define
   return <StyledButton>폴더추가 +</StyledButton>;
 }
 

@@ -1,37 +1,10 @@
 import styled from "styled-components";
 
 const categoryList = [
-  { title: "공유", image: process.env.PUBLIC_URL + "/images/share.png" },
-  { title: "이름 변경", image: process.env.PUBLIC_URL + "/images/pen.png" },
-  { title: "삭제", image: process.env.PUBLIC_URL + "/images/delete.png" },
+  { title: "공유", image: `${process.env.PUBLIC_URL}/images/share.png` },
+  { title: "이름 변경", image: `${process.env.PUBLIC_URL}/images/pen.png` },
+  { title: "삭제", image: `${process.env.PUBLIC_URL}/images/delete.png` },
 ];
-
-const StyledCategoryBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 2.4rem;
-  margin-bottom: 2.4rem;
-  width: 106rem;
-
-  @media (max-width: 1200px) {
-    width: 100%;
-  }
-`;
-
-const StyledCategory = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.1rem;
-`;
-
-const CategoryList = styled.div`
-  display: flex;
-  justify-content: center;
-  font-size: 1.4rem;
-  gap: 1.2rem;
-`;
 
 function Category({ category }) {
   const { title, image } = category;
@@ -69,4 +42,32 @@ function FoldersTitle({ folderList, id }) {
     </>
   );
 }
+
+const StyledCategoryBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.4rem;
+  margin-bottom: 2.4rem;
+  width: 106rem;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`;
+
+const StyledCategory = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+`;
+
+const CategoryList = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+  gap: 1.2rem;
+`;
+
 export default FoldersTitle;

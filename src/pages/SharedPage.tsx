@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Header from "../components/commons/Header";
-import Banner from "../components/domains/folder/shared/Banner.tsx";
-import CardList from "../components/CardList";
-import SearchInput from "../components/SearchInput";
+import Header from "../components/commons/Header.tsx";
+import Banner from "../components/domains/shared/Banner.tsx";
+import CardList from "../components/commons/CardList.tsx";
+import SearchInput from "../components/commons/SearchInput.tsx";
 import styles from "../styles/sharedPage.module.css";
 import { getSharedData, getUserData } from "../services/SharedApi.tsx";
 
