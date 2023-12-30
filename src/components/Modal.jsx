@@ -103,14 +103,15 @@ const Sns = styled.ul`
   }
 `;
 
-function Modal({ $isOpen, onClick, edit, add, share, folderRemove }) {
+function Modal({ $isOpen, onClick, edit, addLink, share, folderRemove }) {
+  console.log($isOpen)
   return (
     <>
       <ModalContainer $isOpen={$isOpen}>
         <Title>
           {edit
             ? '폴더 변경'
-            : add
+            : addLink
               ? '폴더 추가'
               : share
                 ? '폴더 공유'
@@ -125,7 +126,7 @@ function Modal({ $isOpen, onClick, edit, add, share, folderRemove }) {
         )}
         {!share && (
           <Button type="button" folderRemove={folderRemove}>
-            {edit ? '변경하기' : add ? '추가하기' : folderRemove ? '삭제하기' : ''}
+            {edit ? '변경하기' : addLink ? '추가하기' : folderRemove ? '삭제하기' : ''}
           </Button>
         )}
         {share && (
