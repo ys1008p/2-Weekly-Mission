@@ -1,6 +1,6 @@
-import '../../css/card.css';
+import '../../../css/card.css';
 import Cards from './Card';
-import { NoneText } from '../folderPage/FolderPageMain';
+import { NoneText } from '../../folderPage/FolderPageMain';
 
 export default function CardsList({ cardData, ...other }) {
   return (

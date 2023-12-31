@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ModalContainer from './ModalContainer';
-import { Input } from '../folderPage/HeaderWithInput';
-import PrimeryButton from '../sharing/PrimeryButton';
+import { Input } from '../../folderPage/HeaderWithInput';
+import PrimeryButton from '../SPrimeryButton';
 
 const MdoalInput = styled(Input)`
   width: 100%;

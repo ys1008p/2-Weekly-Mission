@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import linkImg from '../../img/link.svg';
-import PrimeryButton from '../sharing/PrimeryButton';
+import PrimeryButton from '../sharing/SPrimeryButton';
 
 const Form = styled.form`
   padding: 5rem 0;

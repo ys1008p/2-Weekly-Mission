@@ -6,12 +6,12 @@ import styled from 'styled-components';
 import HeaderWithInPut from '../Components/folderPage/HeaderWithInput';
 import FolderPageMain from '../Components/folderPage/FolderPageMain.jsx';
 import '../css/index.css';
-import EditModal from '../Components/Modals/EditModal.jsx';
-import AddFolderModal from '../Components/Modals/AddFolderModal.jsx';
-import DeleteFoderModal from '../Components/Modals/DeleteFolderModal.jsx';
-import DeleteLinkModal from '../Components/Modals/DeleteLinkModal.jsx';
-import ShareModal from '../Components/Modals/ShareModal.jsx';
-import AddModal from '../Components/Modals/AddModal.jsx';
+import EditModal from '../Components/sharing/Modals/EditModal.jsx';
+import AddFolderModal from '../Components/sharing/Modals/AddFolderModal.jsx';
+import DeleteFoderModal from '../Components/sharing/Modals/DeleteFolderModal.jsx';
+import DeleteLinkModal from '../Components/sharing/Modals/DeleteLinkModal.jsx';
+import ShareModal from '../Components/sharing/Modals/ShareModal.jsx';
+import AddModal from '../Components/sharing/Modals/AddModal.jsx';
 
 const ForFolderNav = styled(Nav)`
   position: static;
@@ -26,7 +26,7 @@ export default function FolderPage() {
   const [isSelected, setIsSelected] = useState(null);
   const [isKebab, setIsKebab] = useState(null);
 
-  const handleModal = (id) => {
+  const handleModal = () => {
     console.log(id);
     setIsModal(id);
 

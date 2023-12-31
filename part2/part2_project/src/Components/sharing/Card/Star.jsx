@@ -1,5 +1,5 @@
-import starImg from '../../img/star.svg';
-import selected from '../../img/selected.svg';
+import starImg from '../../../img/star.svg';
+import selected from '../../../img/selected.svg';
 
 export default function Star({ isSelected, onClick, id }) {
   return (

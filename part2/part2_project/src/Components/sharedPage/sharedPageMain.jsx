@@ -1,7 +1,7 @@
-import CardsList from "../sharing/CardsList";
-import SearchBox from "../sharing/SearchBox";
+import CardsList from '../sharing/Card/CardsList';
+import SearchBox from '../sharing/SearchBox';
 
-export default function Main({ cardData }) {
+export default function SharedPageMain({ cardData }) {
   return (
     <main>
       <SearchBox />

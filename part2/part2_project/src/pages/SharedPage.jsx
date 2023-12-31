@@ -1,9 +1,9 @@
-import Nav from "../Components/sharing/Nav";
-import Footer from "../Components/sharing/Footer";
-import { getUserData, getUserPick } from "../util/api.js";
-import { useEffect, useState } from "react";
-import Header from "../Components/sharedPage/sharedPageHeader.jsx";
-import Main from "../Components/sharedPage/sharedPageMain.jsx";
+import Nav from '../Components/sharing/Nav';
+import Footer from '../Components/sharing/Footer';
+import { getUserData, getUserPick } from '../util/api.js';
+import { useEffect, useState } from 'react';
+import SharedPageHeader from '../Components/sharedPage/SharedPageHeader';
+import SharedPageMain from '../Components/sharedPage/SharedPageMain.jsx';
 
 function SharedPage() {
   const [userInfo, setUserInfo] = useState(null);
@@ -34,8 +34,8 @@ function SharedPage() {
   return (
     <>
       <Nav userData={userData} />
-      <Header userInfo={userInfo} />
-      <Main cardData={cardData} />
+      <SharedPageHeader userInfo={userInfo} />
+      <SharedPageMain cardData={cardData} />
       <Footer />
     </>
   );

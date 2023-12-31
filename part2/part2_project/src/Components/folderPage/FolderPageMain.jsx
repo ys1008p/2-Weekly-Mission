@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import SearchBox from '../sharing/SearchBox';
-import CardsList from '../sharing/CardsList';
+import CardsList from '../sharing/Card/CardsList';
 import SortButton from './SortButton';
 import '../../css/folderButtons.css';
 

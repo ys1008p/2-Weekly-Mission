@@ -1,7 +1,7 @@
 import EditList from './EditList';
 import addImg from '../../img/add.svg';
 import '../../css/folderButtons.css';
-import AddFolderModal from '../Modals/AddFolderModal';
+import AddFolderModal from '../sharing/Modals/AddFolderModal';
 
 export default function SortButton({
   isModal,

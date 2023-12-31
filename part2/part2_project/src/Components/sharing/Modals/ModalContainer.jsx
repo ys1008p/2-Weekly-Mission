@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import closeImg from '../../img/modalclose.png';
+import closeImg from '../../../img/modalclose.png';
 
 const ModalBackground = styled.div`
   position: fixed;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import ModalContainer from './ModalContainer';
 import { MoreInfo } from './DeleteFolderModal';
-import kakaotalkImg from '../../img/kakao.png';
-import facebookImg from '../../img/facebook.png';
-import linkImg from '../../img/link.svg';
+import kakaotalkImg from '../../../img/kakao.png';
+import facebookImg from '../../../img/facebook.png';
+import linkImg from '../../../img/link.svg';
 
 const AllSnsbox = styled.div`
   display: flex;

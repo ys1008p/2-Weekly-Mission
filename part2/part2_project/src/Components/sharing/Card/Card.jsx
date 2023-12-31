@@ -1,10 +1,10 @@
-import kebab from '../../img/kebab.svg';
-import { timeAgo } from '../../util/time.js';
-import noneImg from '../../img/!img.svg';
+import kebab from '../../../img/kebab.svg';
+import noneImg from '../../../img/!img.svg';
+
+import { timeAgo } from '../../../util/time.js';
 import PopOver from './PopOver.jsx';
 import Star from './Star.jsx';
-import { useState } from 'react';
-import '../../css/card.css';
+import '../../../css/card.css';
 
 function formatDate(value) {
   const date = new Date(value);
