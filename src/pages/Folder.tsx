@@ -32,7 +32,7 @@ interface FolderType {
 }
 
 const Folder = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<ModalType>('edit');
   const [modalProps, setModalProps] = useState<Record<string, any>>({});
 
