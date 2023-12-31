@@ -54,10 +54,12 @@
 
 .modalContent {
   margin-top: 24px;
+  width: 100%;
 }
 
 .folderShareInSNS {
   display: flex;
+  justify-content: center;
   gap: 32px;
 }
 
@@ -102,6 +104,54 @@
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
 }
+
+.folderList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.folderItemInfo {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.folderItemInfo:hover {
+  border-radius: 8px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+.folderItemInfo.selectedFolder {
+  border-radius: 8px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+  color: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.folderItemInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.folderItemName {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 16px;
+  line-height: 24px; /* 150% */
+}
+
+.folderItemLinkCount {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  line-height: normal;
+}
+
 .modalButton {
   margin-top: 15px;
   display: flex;

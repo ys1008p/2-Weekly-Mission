@@ -26,7 +26,7 @@ export default function CardItem({ link }) {
       <section className="contentText">
         <div className="contentNav">
           <div className="timeCreated">{timeAgo(link.created_at ?? `''`)}</div>
-          <KebabButtons />
+          <KebabButtons link={link} />
         </div>
         <div className="description">{getShortDescription(link.description ?? `''`)}</div>
         <div className="dateCreated">{getYYYYMMYY(link.created_at ?? `''`)}</div>

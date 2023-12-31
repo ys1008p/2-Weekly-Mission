@@ -8,6 +8,7 @@ const Modal = forwardRef(
   ({ onCloseModal, onClickActionButton, isButtonActivated = true, title, subTitle, children, ...props }, ref) => {
     const handleModalClick = (e) => {
       e.stopPropagation();
+      e.preventDefault();
       if (e.target.nodeName === 'DIALOG') onCloseModal();
     };
 
@@ -17,7 +18,12 @@ const Modal = forwardRef(
     return (
       <dialog ref={ref} {...props} onClick={handleModalClick} className={styles.modal}>
         <div className={styles.modalContentWrapper}>
-          <button onClick={() => onCloseModal()}>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              onCloseModal();
+            }}
+          >
             <img className={styles.modalCloseButton} src={closeIcon} alt="" />
           </button>
           <div className={styles.modalTitle}>{title}</div>
