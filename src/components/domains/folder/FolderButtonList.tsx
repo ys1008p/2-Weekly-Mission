@@ -2,37 +2,41 @@ import styled from "styled-components";
 import React from "react";
 import { getSelectData } from "../../../services/FolderApi.tsx";
 
-interface LinkInfo {
+interface LinkProps {
   id: number;
   create_at: string;
-  updated_at: string;
   image_source: string;
   title: string;
   url: string;
 }
 
-interface FolderInfo {
+interface FolderProps {
   id: number;
   favorite: boolean;
   name: string;
   user_id: number;
-  links: LinkInfo[];
+  links: LinkProps[];
 }
+
 interface FolderButtonListProps {
-  folderList: FolderInfo[];
-  setSelectFolderLinks: React.Dispatch<React.SetStateAction<[]>>;
+  folderList: FolderProps[];
+  setSelectFolderLinks: React.Dispatch<React.SetStateAction<LinkProps[]>>;
+  setId: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function Button({
   folder,
   setSelectFolderLinks,
+  setId,
 }: {
-  folder: FolderInfo;
-  setSelectFolderLinks: React.Dispatch<React.SetStateAction<[]>>;
+  folder: FolderProps;
+  setSelectFolderLinks: React.Dispatch<React.SetStateAction<LinkProps[]>>;
+  setId: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const handleChangeID = async () => {
     const { data } = await getSelectData(folder.id);
     setSelectFolderLinks(data);
+    setId(folder.id);
   };
 
   return (
@@ -49,6 +53,7 @@ function Button({
 function FolderButtonList({
   folderList,
   setSelectFolderLinks,
+  setId,
 }: FolderButtonListProps) {
   return (
     <div>
@@ -59,6 +64,7 @@ function FolderButtonList({
               folder={folder}
               key={folder.id}
               setSelectFolderLinks={setSelectFolderLinks}
+              setId={setId}
             />
           ))}
         </StyledButtons>

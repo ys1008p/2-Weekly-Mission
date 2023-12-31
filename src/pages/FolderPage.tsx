@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Header from "../components/commons/Header.tsx";
 import Banner from "../components/domains/folder/Banner.tsx";
 import CardList from "../components/commons/CardList.tsx";
 import SearchInput from "../components/commons/SearchInput.tsx";
@@ -7,19 +6,15 @@ import styles from "../styles/folderPage.module.css";
 import FolderButtonList from "../components/domains/folder/FolderButtonList.tsx";
 import FolderTitle from "../components/domains/folder/FolderTitle.tsx";
 import FloatingButton from "../components/domains/folder/FloatingButton.tsx";
-import {
-  getFolderUserData,
-  getAllLinksData,
-  getFoldersData,
-} from "../services/FolderApi.tsx";
+import { getAllLinksData, getFoldersData } from "../services/FolderApi.tsx";
 
 interface LinkInfo {
   id: number;
-  create_at: string;
-  updated_at: string;
-  image_source: string;
-  title: string;
   url: string;
+  title: string;
+  description?: string;
+  image_source: string;
+  create_at: string;
 }
 
 interface FolderInfo {
@@ -32,14 +27,8 @@ interface FolderInfo {
 
 function FolderPage() {
   const [folderList, setFolderList] = useState<FolderInfo[]>([]);
-  const [selectFolderLinks, setSelectFolderLinks] = useState<[]>([]);
-  const [user, setUser] = useState();
-  const [id] = useState(0);
-
-  const handleEmailLoad = async () => {
-    const { data } = await getFolderUserData();
-    setUser(data[0]);
-  };
+  const [selectFolderLinks, setSelectFolderLinks] = useState<LinkInfo[]>([]);
+  const [id, setId] = useState<number>(0);
 
   const handleFoldersLoad = async () => {
     const allLinksFolder: FolderInfo = {
@@ -50,11 +39,10 @@ function FolderPage() {
       links: [
         {
           id: 0,
-          create_at: "",
-          updated_at: "",
-          image_source: "",
-          title: "",
           url: "",
+          title: "",
+          image_source: "",
+          create_at: "",
         },
       ],
     };
@@ -64,14 +52,28 @@ function FolderPage() {
     setFolderList([allLinksFolder, ...data]);
   };
 
+  function renderContent() {
+    if (id === 0) {
+      return <CardList links={folderList[0]?.links} />;
+    }
+
+    if (selectFolderLinks.length === 0) {
+      return (
+        <div className={styles.linksNull}>
+          <div>저장된 링크가 없습니다.</div>
+        </div>
+      );
+    }
+
+    return <CardList links={selectFolderLinks} />;
+  }
+
   useEffect(() => {
-    handleEmailLoad();
     handleFoldersLoad();
   }, [id]);
 
   return (
     <>
-      <Header user={user} />
       <Banner />
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
@@ -79,15 +81,10 @@ function FolderPage() {
           <FolderButtonList
             folderList={folderList}
             setSelectFolderLinks={setSelectFolderLinks}
+            setId={setId}
           />
           <FolderTitle folderList={folderList} id={id} />
-          {selectFolderLinks.length === 0 ? (
-            <div className={styles.linksNull}>
-              <div>저장된 링크가 없습니다.</div>
-            </div>
-          ) : (
-            <CardList selectFolderLinks={selectFolderLinks} />
-          )}
+          {renderContent()}
         </div>
       </section>
       <FloatingButton />

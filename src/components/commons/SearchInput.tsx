@@ -1,6 +1,15 @@
 import styled from "styled-components";
 import { ASSETS_URL } from "../../constants.ts";
 
+function SearchInput() {
+  return (
+    <SearchBox>
+      <input placeholder="링크를 검색해주세요" />
+      <img src={`${ASSETS_URL}/images/search.png`} alt="검색 아이콘" />
+    </SearchBox>
+  );
+}
+
 const SearchBox = styled.div`
   width: 100%;
   position: relative;
@@ -21,14 +30,5 @@ const SearchBox = styled.div`
     top: 32.5%;
   }
 `;
-
-function SearchInput() {
-  return (
-    <SearchBox>
-      <input placeholder="링크를 검색해주세요" />
-      <img src={`${ASSETS_URL}/images/search.png`} alt="검색 아이콘" />
-    </SearchBox>
-  );
-}
 
 export default SearchInput;

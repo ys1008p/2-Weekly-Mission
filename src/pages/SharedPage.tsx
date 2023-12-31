@@ -1,42 +1,101 @@
 import { useEffect, useState } from "react";
-import Header from "../components/commons/Header.tsx";
+
 import Banner from "../components/domains/shared/Banner.tsx";
 import CardList from "../components/commons/CardList.tsx";
 import SearchInput from "../components/commons/SearchInput.tsx";
 import styles from "../styles/sharedPage.module.css";
-import { getSharedData, getUserData } from "../services/SharedApi.tsx";
+import { getSharedData } from "../services/SharedApi.tsx";
+
+interface CamelKeyLink {
+  id: number;
+  createdAt: string;
+  url: string;
+  title: string;
+  description: string;
+  imageSource: string;
+}
+interface LinkInfo {
+  id?: number;
+  url?: string;
+  title?: string;
+  description?: string;
+  image_source?: string;
+  created_at?: string;
+}
+
+interface FolderInfo {
+  id: number;
+  name: string;
+  owner: {
+    id: number;
+    name: string;
+    profileImageSource: string;
+  };
+  links: LinkInfo[];
+}
 
 function SharedPage() {
-  const [folder, setFolder] = useState();
-  const [user, setUser] = useState();
+  const [sharedFolder, setSharedFolder] = useState<FolderInfo>({
+    id: 1,
+    name: "",
+    owner: {
+      id: 2,
+      name: "",
+      profileImageSource: "",
+    },
+    links: [
+      {
+        id: 1,
+        url: "",
+        title: "",
+        description: "",
+        image_source: "",
+        created_at: "",
+      },
+    ],
+  });
+
+  function transformKeys(link: CamelKeyLink): LinkInfo {
+    const transformedLink = Object.fromEntries(
+      Object.entries(link).map(([key, value]) => [
+        key.replace(/[A-Z]/g, (match) => `_${match.toLowerCase()}`),
+        value,
+      ])
+    ) as LinkInfo;
+
+    return transformedLink;
+  }
+
+  const transLinkKey = (links: []) => links.map(transformKeys);
 
   const handleFolderLoad = async () => {
     const { folder } = await getSharedData();
-    setFolder(folder);
-  };
-
-  const handleEmailLoad = async () => {
-    const { data } = await getUserData();
-    setUser(data);
+    const transformedFolder = {
+      ...folder,
+      links: transLinkKey(folder.links),
+    };
+    setSharedFolder(transformedFolder);
   };
 
   useEffect(() => {
-    handleEmailLoad();
     handleFolderLoad();
-  }, []);
+  });
 
   return (
     <>
-      <Header sharedUser={user} />
-      <Banner folder={folder} />
+      <Banner folder={sharedFolder} />
       <section className={styles.contentFlax}>
         <div className={styles.contentBox}>
           <SearchInput />
-          <CardList links={folder && folder.links} />
+          {newFunction()}
         </div>
       </section>
     </>
   );
+
+  function newFunction() {
+    return <CardList links={sharedFolder?.links} />;
+  }
 }
 
 export default SharedPage;

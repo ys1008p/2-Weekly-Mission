@@ -1,12 +1,33 @@
 import styled from "styled-components";
 
+interface LinkProps {
+  id: number;
+  create_at: string;
+  image_source: string;
+  title: string;
+  url: string;
+}
+
+interface FolderProps {
+  id: number;
+  favorite: boolean;
+  name: string;
+  user_id: number;
+  links: LinkProps[];
+}
+
+interface CategoryProps {
+  title: string;
+  image: string;
+}
+
 const categoryList = [
   { title: "공유", image: `${process.env.PUBLIC_URL}/images/share.png` },
   { title: "이름 변경", image: `${process.env.PUBLIC_URL}/images/pen.png` },
   { title: "삭제", image: `${process.env.PUBLIC_URL}/images/delete.png` },
 ];
 
-function Category({ category }) {
+function Category({ category }: { category: CategoryProps }) {
   const { title, image } = category;
   return (
     <StyledCategory>
@@ -16,7 +37,7 @@ function Category({ category }) {
   );
 }
 
-function CategoryBox({ folder }) {
+function CategoryBox({ folder }: { folder: FolderProps }) {
   return (
     <StyledCategoryBox>
       <h1>{folder.name}</h1>
@@ -31,15 +52,21 @@ function CategoryBox({ folder }) {
   );
 }
 
-function FoldersTitle({ folderList, id }) {
+function FoldersTitle({
+  folderList,
+  id,
+}: {
+  folderList: FolderProps[];
+  id: number;
+}) {
   return (
-    <>
-      {folderList?.map((folder) => {
-        if (folder.id === id) {
-          return <CategoryBox key={folder.id} folder={folder} />;
-        }
-      })}
-    </>
+    folderList?.length > 0 &&
+    folderList.map((folder) => {
+      if (folder.id === id) {
+        return <CategoryBox key={folder.id} folder={folder} />;
+      }
+      return null;
+    })
   );
 }
 

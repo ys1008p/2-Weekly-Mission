@@ -1,39 +1,39 @@
 import styled from "styled-components";
-import { useState } from "react";
 import { ASSETS_URL } from "../../constants.ts";
 import CalculateElapsedTime from "../../utils/CalculateElapsedTime.tsx";
 import ConvertToFormattedDate from "../../utils/ConvertToFormattedDate.tsx";
-import noImage from "../../noImage.svg";
 import PopOver from "../domains/folder/PopOver.tsx";
 
-function Card({ link }) {
-  const createdAtString = link.created_at;
-  const elapseTime = CalculateElapsedTime(createdAtString);
-  const postedDate = ConvertToFormattedDate(createdAtString);
-  const [showPopOver, setShowPopOver] = useState(false);
+interface LinkProps {
+  id?: number;
+  url?: string;
+  title?: string;
+  description?: string;
+  image_source?: string;
+  created_at?: string;
+}
 
-  const handelClickPopOver = (e) => {
-    if (e.target.tagName === "IMG" && e.target.src.includes("meatball.png")) {
-      setShowPopOver(true);
-    } else {
-      setShowPopOver(false);
-    }
-  };
+function Card({ link }: { link: LinkProps }) {
+  const elapseTime = CalculateElapsedTime(link?.created_at || "");
+  const postedDate = ConvertToFormattedDate(link?.created_at || "");
 
   return (
-    <CardLayout onClick={handelClickPopOver}>
+    <CardLayout>
       <CardImageWrapper onClick={() => window.open(`${link.url}`, "_blank")}>
         {link && link.image_source ? (
           <CardImage src={link.image_source} />
         ) : (
-          <CardNoImage src={noImage} />
+          <CardNoImage src={`${ASSETS_URL}/images/noImg.svg`} />
         )}
       </CardImageWrapper>
       <CardDescriptionBox>
         <TimeBox>
-          <PopOver showPopOver={showPopOver} />
+          <PopOver />
           <div>{elapseTime}</div>
-          <img src={`${ASSETS_URL}/images/meatball.png`} />
+          <img
+            src={`${ASSETS_URL}/images/meatball.png`}
+            alt="팝오버 메뉴아이콘"
+          />
         </TimeBox>
         <p>{link && link.description}</p>
         <div>{postedDate}</div>

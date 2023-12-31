@@ -1,15 +1,22 @@
 import styled from "styled-components";
 import { ASSETS_URL } from "../../constants.ts";
 
-function Header({ user }) {
+interface UserInfoProps {
+  id: number;
+  name: string;
+  email: string;
+  profileImageSource: string;
+}
+
+function Header({ user }: { user: UserInfoProps }) {
   return (
     <HeaderLayout>
       <HeaderBox>
         <img src={`${ASSETS_URL}/images/logo.png`} alt="로고이미지" />
         {user ? (
           <HeaderProfileBox>
-            <img src={user.image_source} alt="프로필 아이콘" />
-            <div>{user.email}</div>
+            <img src={user?.profileImageSource} alt="프로필 아이콘" />
+            <div>{user?.email}</div>
           </HeaderProfileBox>
         ) : (
           <HeaderLoginButton>로그인</HeaderLoginButton>

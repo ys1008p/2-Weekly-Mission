@@ -19,7 +19,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "import"],
   rules: {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [
@@ -27,6 +27,17 @@ module.exports = {
       { extensions: [".js", ".jsx", ".tsx"] },
     ],
     "no-use-before-define": "off",
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+        svg: "always",
+      },
+    ],
   },
   settings: {
     "import/resolver": {

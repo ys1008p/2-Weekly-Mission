@@ -10,19 +10,19 @@ function Footer() {
         <a href="/faq.html">FAQ</a>
       </FooterLinkBox>
       <FooterSnsBox>
-        <a name="facebook" href="https://www.facebook.com" target="facebook">
+        <a href="https://www.facebook.com" target="facebook">
           <img
             src={`${ASSETS_URL}/images/facebook.png`}
             alt="페이스북 아이콘"
           />
         </a>
-        <a name="twitter" href="https://twitter.com/?lang=ko" target="twitter">
+        <a href="https://twitter.com/?lang=ko" target="twitter">
           <img src={`${ASSETS_URL}/images/twitter.png`} alt="트위터 아이콘" />
         </a>
-        <a name="youtube" href="https://www.youtube.com" target="youtube">
+        <a href="https://www.youtube.com" target="youtube">
           <img src={`${ASSETS_URL}/images/youtube.png`} alt="유튜브 아이콘" />
         </a>
-        <a name="instagram" href="https://www.instagram.com" target="instagram">
+        <a href="https://www.instagram.com" target="instagram">
           <img src={`${ASSETS_URL}/images/instagram.png`} alt="인스타 아이콘" />
         </a>
       </FooterSnsBox>

@@ -1,17 +1,35 @@
 import styled from "styled-components";
 
-interface Props {}
+interface LinkInfo {
+  id?: number;
+  url?: string;
+  title?: string;
+  description?: string;
+  image_source?: string;
+  created_at?: string;
+}
 
-function Banner({ folder }) {
+interface FolderProps {
+  id: number;
+  name: string;
+  owner: {
+    id: number;
+    name: string;
+    profileImageSource: string;
+  };
+  links: LinkInfo[];
+}
+
+function Banner({ folder }: { folder: FolderProps }) {
   return (
     <BannerLayout>
       <BannerBox>
         <BannerImage
-          src={folder && folder.owner.profileImageSource}
+          src={folder.owner.profileImageSource}
           alt="배너 프로필 이미지"
         />
-        <BannerText>{folder && folder.owner.name}</BannerText>
-        <BannerTitle>{folder && folder.name}</BannerTitle>
+        <BannerText>{folder.owner.name}</BannerText>
+        <BannerTitle>{folder.name}</BannerTitle>
       </BannerBox>
     </BannerLayout>
   );

@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
-function PopOver({ showPopOver }) {
+function PopOver() {
   return (
-    <>
-      {showPopOver ? (
-        <PopOverLayout>
-          <PopOverButton>삭제하기</PopOverButton>
-          <PopOverButton>폴더에 추가</PopOverButton>
-        </PopOverLayout>
-      ) : null}
-    </>
+    <PopOverLayout>
+      <PopOverButton>삭제하기</PopOverButton>
+      <PopOverButton>폴더에 추가</PopOverButton>
+    </PopOverLayout>
   );
 }
 

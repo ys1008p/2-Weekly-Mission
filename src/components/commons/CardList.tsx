@@ -1,25 +1,19 @@
 import styled from "styled-components";
 import Card from "./Card.tsx";
 
-interface selectFolderLinksProps {
-  created_at: string;
-  description: string;
-  folder_id: number;
-  id: number;
-  image_source: string;
-  title: string;
-  updated_at?: string;
-  url: string;
+interface LinkProps {
+  id?: number;
+  url?: string;
+  title?: string;
+  description?: string;
+  image_source?: string;
+  created_at?: string;
 }
 
-function CardList({
-  selectFolderLinks,
-}: {
-  selectFolderLinks: selectFolderLinksProps[];
-}) {
+function CardList({ links }: { links: LinkProps[] }) {
   return (
     <CardWrapper>
-      {selectFolderLinks?.map((link) => <Card key={link.id} link={link} />)}
+      {links?.map((link) => <Card key={link.id} link={link} />)}
     </CardWrapper>
   );
 }

@@ -1,4 +1,4 @@
-import { getDate } from "./GetData.tsx";
+import getDate from "./GetData.tsx";
 
 export async function getUserData() {
   return getDate("/sample/user");
