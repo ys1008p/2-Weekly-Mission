@@ -1,8 +1,57 @@
 import { useEffect, useState } from "react";
 import { getButtonData } from "./Api";
-import "../css/Buttons.css";
 import AddFolder from "./AddFolder";
 import ButtonSelect from "./ButtonSelect";
+import styled from "styled-components";
+import mediaQuery from "../static/MediaQuery";
+
+const ButtonsField = styled.div`
+  margin: 0 auto;
+  width: 1060px;
+  display: flex;
+  justify-content: space-between;
+`;
+const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  row-gap: 12px;
+  ${mediaQuery.tablet} {
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 100%;
+  }
+  ${mediaQuery.tablet} {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+`;
+const Button = styled.button`
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color);
+  ${({ selectedButtonId }) => {
+    return selectedButtonId === null
+      ? `background: var(--Linkbrary-primary-color);
+  color: var(--white);`
+      : `background: var(--white);
+  color: var(--black);`;
+  }}
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  ${mediaQuery.mobile} {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+`;
+const NoneData = styled.div`
+  padding: 41px 15px 35px 16px;
+  color: var(--black);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+`;
 
 function Buttons({
   setSelectedButtonId,
@@ -27,18 +76,16 @@ function Buttons({
     ButtonDataLoad();
   }, []);
   return (
-    <div className="ButtonsContainer">
+    <ButtonsField>
       {buttonData && buttonData.data.length !== 0 ? (
         <>
-          <div className="Buttons">
-            <button
+          <ButtonsContainer>
+            <Button
               onClick={handleSelectedId}
-              className={`Buttons-button ${
-                selectedButtonId === null ? "selected" : ""
-              } `}
+              selectedButtonId={selectedButtonId}
             >
               전체
-            </button>
+            </Button>
             {buttonData.data.map((data) => (
               <ButtonSelect
                 key={data.id}
@@ -49,13 +96,13 @@ function Buttons({
                 setSelectedButtonTitle={setSelectedButtonTitle}
               />
             ))}
-          </div>
+          </ButtonsContainer>
           <AddFolder />
         </>
       ) : (
-        <div className="noneData">저장된 링크가 없습니다</div>
+        <NoneData>저장된 링크가 없습니다</NoneData>
       )}
-    </div>
+    </ButtonsField>
   );
 }
 export default Buttons;

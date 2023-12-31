@@ -1,18 +1,18 @@
-import AddLink from "./Components/AddLink";
-import Buttons from "./Components/Buttons";
-import Card from "./Components/Card";
-import ListTitle from "./Components/ListTitle";
-import SearchBar from "./Components/SearchBar";
-import Footer from "./Footer";
-import Nav from "./Nav";
+import AddLink from "../Components/AddLink";
+import Buttons from "../Components/Buttons";
+import Card from "../Components/Card";
+import ListEdit from "../Components/ListEdit";
+import SearchBar from "../Components/SearchBar";
+import Footer from "../Components/Footer/Footer";
 import { useState } from "react";
+import Nav from "../Components/Header/Nav";
 
 function Folder() {
   const [selectedButtonId, setSelectedButtonId] = useState(null);
   const [selectedButtonTitle, setSelectedButtonTitle] = useState("");
   return (
     <>
-      <Nav />
+      <Nav sticky="off" />
       <AddLink />
       <SearchBar />
       <Buttons
@@ -20,7 +20,7 @@ function Folder() {
         selectedButtonId={selectedButtonId}
         setSelectedButtonTitle={setSelectedButtonTitle}
       />
-      <ListTitle title={selectedButtonTitle} />
+      <ListEdit title={selectedButtonTitle} />
       <Card selectedButtonId={selectedButtonId} />
       <Footer />
     </>
