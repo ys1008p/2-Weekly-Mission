@@ -1,0 +1,61 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+
+  width: 36rem;
+  padding: 3.2rem 4rem;
+
+  border-radius: 15px;
+  border: 1px solid var(--Stroke-light, #dee2e6);
+  background-color: var(--color-white);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.6rem;
+  right: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.modalTitle {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.details {
+  color: var(--color-gray-60);
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+
+  max-height: 4.4rem;
+
+  /* todo: url이 엄청 길어질 경우 그 url을 다 보여주는게 자연스러울까? 일부만 보여주거나 스크롤해서 볼 수 있는게 자연스러울까?*/
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
