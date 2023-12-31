@@ -22,6 +22,7 @@ import {
   INITIAL_FOLDER,
   LINK_STATUS_MESSAGE,
 } from '@/pages/constant';
+import ModalContainer from '@/components/modal/ModalContainer';
 
 interface FolderType {
   id: null | number;
@@ -29,6 +30,7 @@ interface FolderType {
 }
 
 const Folder = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [items, setItems] = useState([]);
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] =
@@ -67,6 +69,9 @@ const Folder = () => {
 
   return (
     <>
+      {isModalOpen ? (
+        <ModalContainer setIsModalOpen={setIsModalOpen}>모달창</ModalContainer>
+      ) : null}
       <Header sticky={false} />
       <main>
         <FolderBanner />
