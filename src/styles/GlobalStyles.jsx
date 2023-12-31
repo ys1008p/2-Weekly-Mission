@@ -1,3 +1,10 @@
+import reset from "./reset";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
+
+${reset}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,6 +22,7 @@ html {
   --black-color: #111322;
   --white-color: #ffffff;
   --gray-100-color: #3e3e43;
+  --gray-80-color: #444;
   --gray-60-color: #9fa6b2;
   --gray-20-color: #ccd5e3;
   --gray-10-color: #e7effb;
@@ -55,3 +63,6 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+`;
+
+export default GlobalStyles;

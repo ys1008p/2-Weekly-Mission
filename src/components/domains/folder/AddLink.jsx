@@ -144,6 +144,10 @@ const LinkButton = styled.button`
     background-color: var(--gray-bg-color);
   }
 
+  div {
+    font-size: 1.4rem;
+  }
+
   span {
     flex: 1;
     color: var(--gray-60-color);

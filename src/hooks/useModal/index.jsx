@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
 import exitIcon from "../../assets/exit-icon.png";
+import ShareButtons from "../../components/domains/folder/ShareButtons";
 
 const useModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
+
   const openModal = () => {
     setModalOpen(true);
   };
@@ -13,7 +15,7 @@ const useModal = () => {
 
   return {
     Modal: modalOpen
-      ? ({ title, link, list, input, button, color, shareSNS }) => (
+      ? ({ title, link, list, input, button, color, shareSNS, userId, folderId }) => (
           <ModalBackground>
             <ModalBox>
               <ModalContainer>
@@ -24,14 +26,14 @@ const useModal = () => {
                   <ModalTitle>{title}</ModalTitle>
                   <ModalLink>{link}</ModalLink>
                 </ModalTop>
-                {list && <ModalList />}
+                {list && <ModalList>{list}</ModalList>}
                 {input && <ModalInput />}
                 {button && (
                   <ModalButton onClick={closeModal} color={color}>
                     {button}
                   </ModalButton>
                 )}
-                {shareSNS && <ModalShareSNS />}
+                {shareSNS && <ShareButtons folderId={folderId} />}
               </ModalContainer>
             </ModalBox>
           </ModalBackground>
@@ -56,7 +58,7 @@ const ModalBackground = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const ModalBox = styled.div`
@@ -67,7 +69,7 @@ const ModalBox = styled.div`
   border-radius: 1.5rem;
   border: 1px solid #dee2e6;
   padding: 3.2rem 4rem;
-  z-index: 2;
+  z-index: 3;
 `;
 
 const ModalContainer = styled.div`
@@ -135,4 +137,22 @@ const ModalButton = styled.button`
   width: 28rem;
 `;
 
-const ModalShareSNS = styled.div``;
+const ModalShareSNS = styled.div`
+  display: flex;
+  gap: 3.2rem;
+`;
+
+const ShareIcon = styled.img`
+  width: 4rem;
+  height: 4rem;
+`;
+
+const ShareButton = styled.a`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-decoration: none;
+  color: var(--gray-80-color);
+  font-size: 1.3rem;
+`;

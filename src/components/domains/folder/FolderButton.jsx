@@ -19,6 +19,7 @@ const StyledFolderButton = styled.button`
   border-radius: 5px;
   border: 1px solid var(--primary-color);
   background: var(--white-color);
+  height: 4rem;
 
   &:hover,
   &:focus {

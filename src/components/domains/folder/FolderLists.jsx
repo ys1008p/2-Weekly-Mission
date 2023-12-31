@@ -29,8 +29,6 @@ function FolderLists() {
 
   const isFolderSelected = selectedFolder.id !== null && selectedFolder.name !== "전체";
 
-  console.log(selectedFolder.name);
-
   return (
     <StyledFolders>
       <StyledFoldersTop>
@@ -49,7 +47,7 @@ function FolderLists() {
       </StyledFoldersTop>
       <StyledNameAndOption>
         <StyledFolderName>{selectedFolder.name}</StyledFolderName>
-        {isFolderSelected ? <Option folderName={selectedFolder.name} /> : null}
+        {isFolderSelected ? <Option folderName={selectedFolder.name} folderId={selectedFolder.id} /> : null}
       </StyledNameAndOption>
       <FolderCardList folderId={selectedFolder.id} />
     </StyledFolders>
@@ -77,10 +75,6 @@ const StyledFolderButtons = styled.div`
   gap: 1.2rem;
   flex-wrap: wrap;
 `;
-
-// .folder-button {
-//   height: 4rem;
-// }
 
 const StyledAddIconImg = styled.img`
   width: 1.6rem;

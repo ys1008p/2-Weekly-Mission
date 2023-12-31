@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Gnb from "../../components/commons/Gnb";
 import AddLink from "../../components/domains/folder/AddLink";
@@ -7,15 +8,17 @@ import Footer from "../../components/commons/Footer";
 import FolderAddButton from "../../components/domains/folder/FolderAddButton";
 
 function FolderPage() {
+  const { folderId } = useParams();
+
   return (
     <>
       <Gnb />
       <main>
-        <AddLink />
+        <AddLink folderId={folderId} />
         <StyledFolder>
           <SearchBar />
-          <FolderLists />
-          <FolderAddButton />
+          <FolderLists folderId={folderId} />
+          <FolderAddButton folderId={folderId} />
         </StyledFolder>
       </main>
       <Footer />

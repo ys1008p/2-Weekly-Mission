@@ -50,6 +50,7 @@ const StyledKebob = styled.div`
   width: 2.1rem;
   height: 1.7rem;
   cursor: pointer;
+  z-index: 1;
 `;
 
 const StyledPopup = styled.ul`
@@ -80,6 +81,8 @@ const StyledDelete = styled.li`
 `;
 
 const StyledAddInFolder = styled.li`
+  padding: 12px 7px;
+  text-align: center;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--gray-100-color);
