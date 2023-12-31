@@ -46,16 +46,15 @@ const Folder = () => {
 
   const initFolderData = useCallback(async () => {
     const data = await fetchFolderData('/api/users/1/folders');
-
     setFolders(data?.data ?? []);
   }, [fetchFolderData]);
 
   const initLinkData = useCallback(async () => {
-    const data = await fetchLinkData(
-      `/api/users/1/links${
-        selectedFolder.id ? `?folderId=${selectedFolder.id}` : ''
-      }`,
-    );
+    const params = selectedFolder.id
+      ? { folderId: selectedFolder.id }
+      : undefined;
+
+    const data = await fetchLinkData('/api/users/1/links', params);
 
     setItems(data?.data ?? []);
   }, [fetchLinkData, selectedFolder]);
@@ -66,8 +65,11 @@ const Folder = () => {
 
   useEffect(() => {
     void initFolderData();
+  }, [initFolderData]);
+
+  useEffect(() => {
     void initLinkData();
-  }, [initFolderData, initLinkData]);
+  }, [initLinkData]);
 
   return (
     <>
