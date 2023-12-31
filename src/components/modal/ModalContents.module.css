@@ -26,3 +26,16 @@ input:focus {
   height: 50px;
   margin-top: 15px;
 }
+
+.delete-btn {
+  height: 50px;
+  margin-top: 24px;
+}
+
+.target {
+  color: var(--gray-60);
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 8px;
+}
