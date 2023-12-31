@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import logo from '../assets/logo.svg';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import useAsync from '../hook/useAsync';
 
-const Container = styled.nav`
+
+const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,17 +26,18 @@ const Container = styled.nav`
     padding: 0 3.2rem;
     height: 6.3rem;
   }
+`;
 
-  h1 {
-    display: block;
+const Logo = styled.h1`
+  display: block;
+`;
 
-    img {
-      @media screen and (min-width: 375px) and (max-width: 768px) {
-        width: 8.8rem;
-      }
-    }
+const LogoImg = styled.img`
+  @media screen and (min-width: 375px) and (max-width: 768px) {
+    width: 8.8rem;
   }
 `;
+
 const Email = styled.div`
   a {
     display: flex;
@@ -84,14 +88,28 @@ const Login = styled.div`
   }
 `;
 
-function Nav({ profileEmail, profileImg, position }) {
+function Nav({ position }) {
+  const [profileImg, setProfileImg] = useState(null);
+  const [profileEmail, setProfileEmail] = useState('');
+  const [getProfile] = useAsync('/users', '/1', '', '');
+
+  const handleLoadProfile = async () => {
+    const { data } = await getProfile();
+    setProfileImg(data[0].image_source);
+    setProfileEmail(data[0].email);
+  };
+
+  useEffect(() => {
+    handleLoadProfile();
+  }, []);
+
   return (
-    <Container $position={position}>
-      <h1>
+    <NavContainer $position={position}>
+      <Logo>
         <Link to="/">
-          <img src={logo} alt="홈으로 연결된 abrary 로고" />
+          <LogoImg src={logo} alt="홈으로 연결된 abrary 로고" />
         </Link>
-      </h1>
+      </Logo>
       <div>
         {profileEmail ? (
           <Email>
@@ -108,7 +126,7 @@ function Nav({ profileEmail, profileImg, position }) {
           </Login>
         )}
       </div>
-    </Container>
+    </NavContainer>
   );
 }
 

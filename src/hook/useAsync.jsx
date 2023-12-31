@@ -10,7 +10,7 @@ function useAsync(baseUrl, folderId, path, userId) {
       const result = await response.json();
       return result;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   return [fetchUrl];

@@ -14,12 +14,12 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        {/* <Route path="/" element={<Navigate replace to="/folder" />} /> */}
-        <Route path="/" element={<FolderPage />} />
-        {/* <Route path="/signin" element={<SigninPage />}></Route>
+        <Route path="/" element={<Navigate replace to="/folder" />} />
+        {/* <Route path="/" element={<FolderPage />} /> */}
+        <Route path="/signin" element={<SigninPage />}></Route>
         <Route path="/signup" element={<SignupPage />}></Route>
         <Route path="/shared" element={<SharedPage />}></Route>
-        <Route path="/folder" element={<FolderPage />}></Route> */}
+        <Route path="/folder" element={<FolderPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

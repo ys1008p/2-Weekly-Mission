@@ -11,8 +11,6 @@ import CardList from '../components/CardList';
 import useAsync from '../hook/useAsync';
 
 function FolderPage() {
-  const [profileImg, setProfileImg] = useState(null);
-  const [profileEmail, setProfileEmail] = useState('');
   const [cardList, setCardList] = useState([]);
   const [folderMenu, setFolderMenu] = useState([]);
   const [menuActive, setMenuActive] = useState('all');
@@ -21,7 +19,6 @@ function FolderPage() {
   const [position, setPosition] = useState('');
   const [data, setData] = useState(null);
 
-  const [getProfile] = useAsync('/users', '/1', '', '');
   const [getFolderMenu] = useAsync('/users', '/1', '/folders', '');
   const [getFolderAll] = useAsync('/users', '/1', '/links', '');
   const [getFolderData] = useAsync(
@@ -30,12 +27,6 @@ function FolderPage() {
     '/links?folderId=',
     menuActive
   );
-
-  const handleLoadProfile = async () => {
-    const { data } = await getProfile();
-    setProfileImg(data[0].image_source);
-    setProfileEmail(data[0].email);
-  };
 
   const handleLoadFolderMenu = async () => {
     const { data } = await getFolderMenu();
@@ -59,7 +50,6 @@ function FolderPage() {
   };
 
   useEffect(() => {
-    handleLoadProfile();
     handleLoadFolderMenu();
     setPosition('static');
     setData('created_at');
@@ -77,8 +67,6 @@ function FolderPage() {
       <div className="container">
         <header>
           <Nav
-            profileImg={profileImg}
-            profileEmail={profileEmail}
             position={position}
           />
           <AddLinkBar />

@@ -58,7 +58,8 @@ const Button = styled.button`
   }
 `;
 
-function TabMenuFunction({ menu, menuActive, handleClick }) {
+function TabMenuFunction({ menu, menuActive, handleClick, setFolderId }) {
+
   const All = {
     id: 'all',
     name: '전체',
@@ -71,7 +72,10 @@ function TabMenuFunction({ menu, menuActive, handleClick }) {
       <button
         type="button"
         className={menuActive === item.id ? 'active' : ''}
-        onClick={() => handleClick(item)}
+        onClick={() => {
+          handleClick(item);
+          setFolderId(item.id);
+        }}
       >
         {item.name}
       </button>
@@ -81,6 +85,7 @@ function TabMenuFunction({ menu, menuActive, handleClick }) {
 }
 
 function TabMenu({ menu, menuActive, handleClick, btnOption }) {
+  const [folderId, setFolderId] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClickOpen = () => setIsOpen(true);
@@ -96,11 +101,12 @@ function TabMenu({ menu, menuActive, handleClick, btnOption }) {
             handleClick={handleClick}
             menuActive={menuActive}
             btnOption={btnOption}
+            setFolderId={setFolderId}
           />
         </ul>
         <Button type="button" onClick={handleClickOpen}></Button>
       </TabMenuContainer>
-      <Modal $isOpen={isOpen} onClick={handleClickClose} add={add} />
+      <Modal $isOpen={isOpen} onClick={handleClickClose} add={add} folderId={folderId}/>
     </>
   );
 }

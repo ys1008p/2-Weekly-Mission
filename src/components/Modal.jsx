@@ -3,6 +3,7 @@ import closeModal from '../assets/btn-close-modal.svg';
 import kakao from '../assets/ico-kakao-share.svg';
 import facebook from '../assets/ico-facebook-share.svg';
 import link from '../assets/ico-link-copy.svg';
+import { shareKakao } from '../components/shareKakao';
 
 const ModalContainer = styled.div`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
@@ -103,6 +104,18 @@ const Sns = styled.ul`
   }
 `;
 
+function shareFacebook({ folderId }) {
+  let url = encodeURIComponent(
+    `http://localhost:3000/shared?user=1/&folderId=${folderId}`
+  );
+  let title = '페이스북';
+  window.open(
+    `http://www.facebook.com/sharer.php?u=${url}&t=${title}`,
+    '',
+    'width=400, height=400'
+  );
+}
+
 function Modal({
   $isOpen,
   onClick,
@@ -112,13 +125,14 @@ function Modal({
   folderRemove,
   LinkRemove,
   folderAdd,
+  folderId,
 }) {
   return (
     <>
       <ModalContainer $isOpen={$isOpen}>
         <Title>
           {edit
-            ? '폴더 변경'
+            ? '폴더 이름 변경'
             : add
               ? '폴더 추가'
               : share
@@ -131,29 +145,37 @@ function Modal({
                       ? '폴더에 추가'
                       : ''}
         </Title>
-        {!share && !folderRemove && !LinkRemove && !folderAdd ? (
+        {add || edit ? (
           <Input placeholder="내용 입력" />
         ) : (
-          <Text>{!LinkRemove ? '폴더명' : 'httpw://www.abc.com'}</Text>
+          <Text>
+            {LinkRemove
+              ? 'httpw://www.abc.com'
+              : folderAdd
+                ? '링크 주소'
+                : '폴더명'}
+          </Text>
         )}
         {!share && (
           <Button type="button" folderRemove={folderRemove}>
-            {edit
-              ? '변경하기'
-              : add || folderAdd
-                ? '추가하기'
-                : folderRemove || LinkRemove
-                  ? '삭제하기'
-                  : ''}
+            {add || folderAdd
+              ? '추가하기'
+              : folderRemove || LinkRemove
+                ? '삭제하기'
+                : '변경하기'}
           </Button>
         )}
         {share && (
           <Sns>
-            <li>
+            <li onClick={shareKakao}>
               <img src={kakao} alt="카카오톡" />
               카카오톡
             </li>
-            <li>
+            <li
+              onClick={() => {
+                shareFacebook({ folderId });
+              }}
+            >
               <img src={facebook} alt="페이스북" />
               페이스북
             </li>

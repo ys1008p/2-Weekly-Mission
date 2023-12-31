@@ -13,7 +13,7 @@ const Card = styled.img`
   object-fit: cover;
 `;
 
-const Container = styled.ul`
+const CardContainer = styled.ul`
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -27,7 +27,6 @@ const Container = styled.ul`
 
 const Cards = styled.li`
   position: relative;
-  z-index: 1;
   width: calc(33.3% - 2rem);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
   border-radius: 15px;
@@ -40,26 +39,24 @@ const Cards = styled.li`
     width: 100%;
   }
 
-  &.active {
-    a {
+  a {
+    display: block;
+    overflow: hidden;
+    border: 3px solid transparent;
+    border-radius: 15px;
+
+    &.active {
       border: 3px solid var(--primary);
 
       ${Card} {
         transform: scale(1.3);
         transition: all 0.5s;
       }
-    }
 
-    div {
-      background-color: var(--bg);
+      div {
+        background-color: var(--bg);
+      }
     }
-  }
-
-  a {
-    display: block;
-    overflow: hidden;
-    border: 3px solid transparent;
-    border-radius: 15px;
   }
 `;
 
@@ -121,6 +118,7 @@ const NoLink = styled.p`
   text-align: center;
   font-size: 1.6rem;
 `;
+
 function getDateText({ createdAt }) {
   const idx = createdAt.indexOf('T');
   const text = createdAt.slice(0, idx);
@@ -151,6 +149,7 @@ function getDateInfo({ createdAt }) {
 
 function CardList({ cardList, data }) {
   const [isOpen, setIsOpen] = useState(null);
+
   const handleClickKebab = (e, id) => {
     e.preventDefault();
     setIsOpen((prevOpen) => prevOpen !== id && id);
@@ -158,42 +157,43 @@ function CardList({ cardList, data }) {
 
   if (cardList.length === 0) return <NoLink>저장된 링크가 없습니다</NoLink>;
 
-  const handleMouseOverOut = (e, isOver) =>
+  const handleMouseOverOut = (e, isOver) => {
     e.currentTarget.classList[isOver ? 'add' : 'remove']('active');
+  };
 
-  const cards = cardList.map((card) =>
-    data ? (
-      <Cards
-        key={card.id}
-        onMouseOver={(e) => handleMouseOverOut(e, true)}
-        onMouseOut={(e) => handleMouseOverOut(e, false)}
-      >
+  const cards = cardList.map((card) => (
+    <Cards key={card.id}>
+      {data ? (
+        <>
+          <Link
+            to={card.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseOver={(e) => handleMouseOverOut(e, true)}
+            onMouseOut={(e) => handleMouseOverOut(e, false)}
+          >
+            <ImgBox>
+              <Card
+                src={card.image_source ? card.image_source : noImg}
+                alt="카드 이미지"
+              />
+              <Star src={star} alt="별 이미지" />
+            </ImgBox>
+            <Text>
+              <TimeStamp>
+                {getDateInfo({ createdAt: card.created_at })}
+              </TimeStamp>
+              <Kebab onClick={(e) => handleClickKebab(e, card.id)}></Kebab>
+              <Desc>{card.description}</Desc>
+              <CreatedDate>
+                {getDateText({ createdAt: card.created_at })}
+              </CreatedDate>
+            </Text>
+          </Link>
+          <PopOver $isOpen={card.id === isOpen} />
+        </>
+      ) : (
         <Link to={card.url} target="_blank" rel="noopener noreferrer">
-          <ImgBox>
-            <Card
-              src={card.image_source ? card.image_source : noImg}
-              alt="카드 이미지"
-            />
-            <Star src={star} alt="별 이미지" />
-          </ImgBox>
-          <Text>
-            <TimeStamp>{getDateInfo({ createdAt: card.created_at })}</TimeStamp>
-            <Kebab onClick={(e) => handleClickKebab(e, card.id)}></Kebab>
-            <PopOver $isOpen={card.id === isOpen} />
-            <Desc>{card.description}</Desc>
-            <CreatedDate>
-              {getDateText({ createdAt: card.created_at })}
-            </CreatedDate>
-          </Text>
-        </Link>
-      </Cards>
-    ) : (
-      <Cards
-        key={card.id}
-        onMouseOver={(e) => handleMouseOverOut(e, true)}
-        onMouseOut={(e) => handleMouseOverOut(e, false)}
-      >
-        <a href={card.url} target="_blank" rel="noopener noreferrer">
           <ImgBox>
             <Card
               src={card.imageSource ? card.imageSource : noImg}
@@ -207,12 +207,12 @@ function CardList({ cardList, data }) {
               {getDateText({ createdAt: card.createdAt })}
             </CreatedDate>
           </Text>
-        </a>
-      </Cards>
-    )
-  );
+        </Link>
+      )}
+    </Cards>
+  ));
 
-  return <Container>{cards}</Container>;
+  return <CardContainer>{cards}</CardContainer>;
 }
 
 export default CardList;
