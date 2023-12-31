@@ -9,12 +9,15 @@ import { useState, useEffect, useContext } from 'react';
 import { getFolder, getLinks } from '../fetchApi';
 import { SearchContext } from '../../context/SearchContext';
 import ContentLayout from './ContentLayout';
+import Modal from '../shared/Modal';
+import useModal from '../shared/Modal/useModal';
 
 export default function FolderLayout() {
   const { searchValue, selectedFolder } = useContext(SearchContext);
   const [folder, setFolder] = useState([]);
   const [links, setLinks] = useState([]);
   const [filteredLinks, setFilteredLinks] = useState([]);
+  const [modalRef, openModal, closeModal] = useModal();
 
   function filterLinks(searchKeyword) {
     return links.filter((link) =>
@@ -66,6 +69,33 @@ export default function FolderLayout() {
       ) : (
         <div className="noLinks">저장된 링크가 없습니다.</div>
       )}
+      {/* <button onClick={() => openModal()}>여닫기</button>
+      <Modal
+        title="폴더 이름 변경"
+        ref={(node) => {
+          if (node) {
+            modalRef.current = node;
+          } else modalRef.current = null;
+        }}
+        onClickBackdrop={() => closeModal()}
+      >
+        <div>
+          <div>
+            <button onClick={() => closeModal()}>
+              <span>닫기</span>
+            </button>
+          </div>
+          <header>
+            <h2>타이틀</h2>
+          </header>
+          <div>
+            <input />
+          </div>
+          <div>
+            <button onClick={() => closeModal()}>하단 버튼</button>
+          </div>
+        </div>
+      </Modal> */}
       <FloatingActionButton />
     </ContentLayout>
   );

@@ -11,7 +11,7 @@ export default function FloatingActionButton() {
       {isMobile && (
         <div className="FloatingActionButtonContainer">
           <button className="FloatingActionButton">
-            <div>폴더추가</div>
+            <button>폴더추가</button>
             <img className="FloatingActionButtonIcon" src={addIcon}></img>
           </button>
         </div>

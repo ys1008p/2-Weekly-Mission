@@ -25,7 +25,7 @@ export default function Sorting({ chosenFolderId, folder }) {
       </div>
       {isNotMobile && (
         <div className="addFolderButton">
-          <div className="folderAddText">폴더 추가</div>
+          <button className="folderAddText">폴더 추가</button>
           <img className="addFolderIcon" src={addFolderIcon}></img>
         </div>
       )}

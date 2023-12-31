@@ -5,6 +5,7 @@ import SearchBar from '../shared/SearchBar';
 import { CardForShared } from '../shared/CardForShared';
 import ContentLayout from './ContentLayout';
 import { SearchContext } from '../../context/SearchContext';
+
 export default function SharedLayout() {
   const { searchValue, selectedFolder } = useContext(SearchContext);
 
