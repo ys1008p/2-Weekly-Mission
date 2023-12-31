@@ -6,8 +6,6 @@ const ModalContext = createContext();
 export function ModalProvider({ children }) {
   const [modals, setModals] = useState([]);
 
-  console.log('modals', modals);
-
   const openModal = (content) => {
     const id = crypto.randomUUID();
     const newModal = { id, content };
@@ -17,8 +15,6 @@ export function ModalProvider({ children }) {
   const closeModal = (id) => {
     setModals(
       modals.filter((modal) => {
-        console.log('modal.id', modal.id);
-        console.log('id', id);
         return modal.id !== id;
       }),
     );

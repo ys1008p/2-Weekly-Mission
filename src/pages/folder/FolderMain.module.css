@@ -86,6 +86,46 @@
   color: var(--color-gray4);
 }
 
+.modalDeleteButton {
+  background: var(--color-red);
+}
+
+.modalShareButtonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+.modalShareButtonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modalShareButton {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+.modalShareKakao {
+  background: #fee500 url('/images/icons/kakao.svg') no-repeat center / 1.8rem
+    1.8rem;
+}
+
+.modalShareFacebook {
+  background: #1877f2 url('/images/icons/facebook-fill.svg') no-repeat center /
+    1.8rem 1.8rem;
+}
+
+.modalShareLink {
+  background: #fbfbfb url('/images/icons/link.svg') no-repeat center / 1.8rem
+    1.8rem;
+}
+
 /* Mobile */
 @media only screen and (max-width: 767px) and (min-width: 375px) {
   .folderButton {
