@@ -39,3 +39,24 @@ input:focus {
   line-height: 22px;
   margin-top: 8px;
 }
+
+.sns {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.sns li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  color: var(--gray-100);
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.sns li img {
+  width: 42px;
+}
