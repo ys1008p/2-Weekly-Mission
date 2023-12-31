@@ -2,8 +2,13 @@ import './Filtering.css';
 import FolderButton from '../../shared/FolderButton';
 import addFolderIcon from './add.png';
 import { useMediaQuery } from 'react-responsive';
+import useModal from '../../shared/Modal/useModal';
+import styles from '../../shared/Modal/Modal.module.css';
+import Modal from '../../shared/Modal';
 
 export default function Sorting({ chosenFolderId, folder }) {
+  const [addFoldermodalRef, openAddFolderModal, closeAddFoldereModal] = useModal();
+
   const isNotMobile = useMediaQuery({
     query: '(min-width :768px)',
   });
@@ -25,10 +30,26 @@ export default function Sorting({ chosenFolderId, folder }) {
       </div>
       {isNotMobile && (
         <div className="addFolderButton">
-          <button className="folderAddText">폴더 추가</button>
+          <button onClick={openAddFolderModal} className="folderAddText">
+            폴더 추가
+          </button>
           <img className="addFolderIcon" src={addFolderIcon}></img>
         </div>
       )}
+
+      <Modal
+        title="폴더 추가"
+        ref={(node) => {
+          if (node) {
+            addFoldermodalRef.current = node;
+          } else addFoldermodalRef.current = null;
+        }}
+        onCloseModal={closeAddFoldereModal}
+      >
+        <div>
+          <input placeholder="내용 입력" className={styles.modalInput}></input>
+        </div>
+      </Modal>
     </div>
   );
 }
