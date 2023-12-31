@@ -5,7 +5,7 @@ import Twitter from '../images/twitter.svg';
 import Youtube from '../images/youtube.svg';
 import './Footer.css';
 
-export default function Footer() {
+export default function Footer({ refs }) {
   const snsList = SNSList.map(({ title, link, imageSrc, altMessage }) => (
     <li key={title}>
       <SNS link={link} imageSrc={imageSrc} altMessage={altMessage} />
@@ -13,7 +13,7 @@ export default function Footer() {
   ));
 
   return (
-    <div className='footer'>
+    <div className='footer' ref={refs}>
       <div className='footer-container'>
         <p className='copyright'>©codeit - 2023</p>
         <ul className='policy-links'>
