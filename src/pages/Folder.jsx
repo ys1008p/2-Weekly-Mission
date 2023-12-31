@@ -11,6 +11,8 @@ import styles from './Folder.module.css';
 
 export default function Folder() {
   const [selectedFolder, setSelectedFolder] = useState({ id: null, name: '전체' });
+  const [search, setSearch] = useState('');
+
   const [sideAddLinkbar, setSideAddLinkbar] = useState(false);
   const targets = useRef([]);
 
@@ -41,9 +43,9 @@ export default function Folder() {
       <AddLinkHeader refs={(el) => (targets.current[0] = el)} className='backgroundDefault'>
         <AddLink />
       </AddLinkHeader>
-      <SearchBar />
+      <SearchBar search={search} setSearch={setSearch} />
       <FolderButtons folderId={selectedFolder.id} handleFolderClick={handleFolderClick} />
-      <FolderCardList selectedFolder={selectedFolder} />
+      <FolderCardList selectedFolder={selectedFolder} search={search} />
       <Footer refs={(el) => (targets.current[1] = el)} />
       <aside className={styles['add-floating-button']}>
         <AddIcon className={styles['add-floating-icon']} src={AddIcon} alt='폴터 추가 아이콘' fill='#e7effb' />
