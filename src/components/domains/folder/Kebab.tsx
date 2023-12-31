@@ -1,11 +1,11 @@
-import { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
 import kebab from "../../../assets/kebab.png";
 
 function Kebab() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleButton = useCallback((e) => {
+  const handleButton = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     setIsOpen((prev) => !prev);
   }, []);

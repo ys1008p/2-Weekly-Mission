@@ -1,28 +1,39 @@
-import { getLinks } from "../../../services/api";
-import { useEffect, useState } from "react";
+import { getSharedFolders } from "../../../services/api";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Kebab from "./Kebab";
 import formatTimeAgo from "../../../utils/formatTimeAgo";
 import formatDate from "../../../utils/formatDate";
 import noimage from "../../../assets/noimage.svg";
-import starDefault from "../../../assets/star-default.png";
 
-function FolderCard({ card }) {
-  const timeAgo = formatTimeAgo(card.created_at);
-  const date = formatDate(card.created_at);
+interface StyledCardProps {
+  href: string;
+}
+
+interface Link {
+  id: number;
+  url: string;
+  imageSource: string;
+  title: string;
+  description: string;
+  createdAt: number;
+}
+
+interface SharedCardProps {
+  card: Link;
+}
+
+function SharedCard({ card }: SharedCardProps) {
+  const timeAgo = formatTimeAgo(card.createdAt);
+  const date = formatDate(card.createdAt);
 
   return (
     <div>
       <StyledCard href={card.url} target="_blank" rel="noopener noreferrer">
         <StyledImgContainer>
-          <StyledCardImg src={card.image_source || noimage} alt={card.title} type="card" />
-          <StyledStarImg src={starDefault} alt="bookmark icon" />
+          <StyledCardImg src={card.imageSource || noimage} alt={card.title} />
         </StyledImgContainer>
         <StyledCardInfo>
-          <StyledCardInfoTop>
-            <StyledTimeAgo>{timeAgo}</StyledTimeAgo>
-            <Kebab />
-          </StyledCardInfoTop>
+          <StyledTimeAgo>{timeAgo}</StyledTimeAgo>
           <StyledLinksDescription>{card.description}</StyledLinksDescription>
           <StyledCreatedAt>{date}</StyledCreatedAt>
         </StyledCardInfo>
@@ -31,44 +42,33 @@ function FolderCard({ card }) {
   );
 }
 
-function FolderCardList({ folderId }) {
-  const [links, setLinks] = useState([]);
+function SharedCardList() {
+  const [folder, setFolder] = useState<Link[]>([]);
 
   useEffect(() => {
-    const fetchLinks = async () => {
-      const apiEndpoint = folderId ? `${folderId}` : ``;
-
-      const link = await getLinks(apiEndpoint);
-      setLinks(link);
+    const handleFolder = async () => {
+      const { folder } = await getSharedFolders();
+      setFolder(folder.links);
     };
-
-    fetchLinks();
-  }, [folderId]);
+    handleFolder();
+  }, []);
 
   return (
-    <>
-      {links.data && links.data.length > 0 ? (
-        <StyledCards>
-          {links.data?.map((card) => {
-            return <FolderCard key={card.id} card={card} />;
-          })}
-        </StyledCards>
-      ) : (
-        <div>
-          <StyledNoLink>저장된 링크가 없습니다</StyledNoLink>
-        </div>
-      )}
-    </>
+    <StyledCards>
+      {folder.map((card) => {
+        return <SharedCard key={card.id} card={card} />;
+      })}
+    </StyledCards>
   );
 }
 
-export default FolderCardList;
+export default SharedCardList;
 
 const StyledImgContainer = styled.div`
   overflow: hidden;
 `;
 
-const StyledCard = styled.a`
+const StyledCard = styled.a<StyledCardProps>`
   background-color: var(--white-color);
   position: relative;
   display: flex;
@@ -90,24 +90,12 @@ const StyledCardImg = styled.img`
   }
 `;
 
-const StyledStarImg = styled.img`
-  position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
-`;
-
 const StyledCardInfo = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
   padding: 1.5rem 2rem;
-`;
-
-const StyledCardInfoTop = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
 `;
 
 const StyledTimeAgo = styled.p`
@@ -141,14 +129,4 @@ const StyledCards = styled.div`
   flex-wrap: wrap;
   column-gap: 2rem;
   row-gap: 2.5rem;
-`;
-
-const StyledNoLink = styled.div`
-  color: #000;
-  font-weight: 400;
-  font-size: 1.6rem;
-  text-align: center;
-  width: 100%;
-  padding-top: 4.1rem;
-  padding-bottom: 3.5rem;
 `;

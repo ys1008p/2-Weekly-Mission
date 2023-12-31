@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import styled from "styled-components";
 import kakaoShare from "../../../assets/Kakao-share.png";
 import facebookShare from "../../../assets/Facebook-share.png";
 import linkShare from "../../../assets/link-share.png";
 
-function ShareButtons({ folderId }) {
+interface ShareButtonsProps {
+  folderId?: number;
+}
+
+const ShareButtons: FC<ShareButtonsProps> = ({ folderId }) => {
   const [copied, setCopied] = useState(false);
 
   const shareLink = `${window.location.origin}/shared?user=1&folder=${folderId}`;
@@ -17,8 +21,6 @@ function ShareButtons({ folderId }) {
   const resetCopiedStatus = () => {
     setCopied(false);
   };
-
-  console.log(folderId);
 
   return (
     <ModalShareSNS>
@@ -44,7 +46,7 @@ function ShareButtons({ folderId }) {
       </ShareLink>
     </ModalShareSNS>
   );
-}
+};
 
 export default ShareButtons;
 

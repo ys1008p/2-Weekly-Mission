@@ -5,10 +5,21 @@ import FolderButton from "./FolderButton";
 import FolderCardList from "./FolderCardList";
 import Option from "./Option";
 import addIcon from "../../../assets/add-icon.svg";
+import React from "react";
+
+interface Folder {
+  id: number;
+  name: string;
+}
+
+interface SelectedFolder {
+  id: number | null;
+  name: string | null;
+}
 
 function FolderLists() {
-  const [folders, setFolders] = useState([]);
-  const [selectedFolder, setSelectedFolder] = useState({
+  const [folders, setFolders] = useState<{ data: Folder[] }>({ data: [] });
+  const [selectedFolder, setSelectedFolder] = useState<SelectedFolder>({
     id: null,
     name: null,
   });
@@ -23,7 +34,7 @@ function FolderLists() {
     fetchFolders();
   }, []);
 
-  const handleFolderClick = ({ folderId, folderName }) => {
+  const handleFolderClick = ({ folderId, folderName }: { folderId: number; folderName: string }) => {
     setSelectedFolder({ id: folderId, name: folderName });
   };
 

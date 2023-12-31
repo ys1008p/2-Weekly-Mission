@@ -1,20 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import styled from "styled-components";
 import { getLinks, getFolders } from "../../../services/api";
 import addLink from "../../../assets/add-link.png";
 import checkIcon from "../../../assets/check.svg";
-import useModal from "../../../hooks/useModal";
+import useModal, { ModalProps } from "../../../hooks/useModal";
+import React from "react";
 
-function FolderLinkButton({ folderId, folderName, onClick }) {
+interface FolderLinkButtonProps {
+  folderId?: number;
+  folderName?: string;
+  onClick?: () => void;
+}
+
+const FolderLinkButton: FC<FolderLinkButtonProps> = ({ folderId, folderName, onClick }) => {
   const [isActive, setIsActive] = useState(false);
-  const [links, setLinks] = useState([]);
+  const [links, setLinks] = useState<{ data: any[] }>({ data: [] });
 
   useEffect(() => {
     const fetchLinks = async () => {
-      const apiEndpoint = folderId ? `${folderId}` : ``;
+      const apiEndpoint: any = folderId ? `${folderId}` : ``;
 
       const link = await getLinks(apiEndpoint);
-      setLinks(link);
+      setLinks({ data: link });
     };
 
     fetchLinks();
@@ -34,16 +41,16 @@ function FolderLinkButton({ folderId, folderName, onClick }) {
       {isActive && <img src={checkIcon} alt="check icon" />}
     </LinkButton>
   );
-}
+};
 
 function FolderLinks() {
-  const [folders, setFolders] = useState([]);
+  const [folders, setFolders] = useState<{ data: any[] }>({ data: [] });
 
   useEffect(() => {
     const fetchFolders = async () => {
       const folder = await getFolders();
 
-      setFolders(folder);
+      setFolders({ data: folder });
     };
 
     fetchFolders();
@@ -62,7 +69,7 @@ function AddLink() {
   const { Modal, openModal } = useModal();
   const [linkInput, setLinkInput] = useState("");
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLinkInput(e.target.value);
   };
 
@@ -72,7 +79,13 @@ function AddLink() {
         <AddLinkInput placeholder="링크를 추가해 보세요" value={linkInput} onChange={handleInputChange} />
         <AddLinkImg src={addLink} alt="링크 아이콘" />
         <AddLinkButton onClick={openModal}>추가하기</AddLinkButton>
-        <Modal title="폴더에 추가" link={linkInput} list={<FolderLinks />} button="추가하기" color="blue" />
+        {(Modal as FC<ModalProps>)({
+          title: "폴더에 추가",
+          link: linkInput,
+          list: <FolderLinks />,
+          button: "추가하기",
+          color: "blue",
+        })}
       </AddLinkContainer>
     </AddLinkBar>
   );

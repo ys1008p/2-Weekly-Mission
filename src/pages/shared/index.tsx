@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Gnb from "../../components/commons/Gnb";
 import Profile from "../../components/domains/shared/Profile";

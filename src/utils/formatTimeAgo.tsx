@@ -1,7 +1,7 @@
-function formatTimeAgo(value) {
+function formatTimeAgo(value: number) {
   const now = new Date();
   const createdDate = new Date(value);
-  const timeDiff = now - createdDate;
+  const timeDiff = now.getTime() - createdDate.getTime();
   const seconds = Math.floor(timeDiff / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);

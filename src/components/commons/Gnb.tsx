@@ -1,15 +1,21 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getProfiles } from "../../services/api";
 import styled from "styled-components";
 import logo from "../../assets/linkbrary-logo.png";
 
+interface Profile {
+  id: number;
+  email: string;
+  image_source: string;
+}
+
 function Gnb() {
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState<Profile[]>([]);
 
   useEffect(() => {
     const fetchUserData = async () => {
       const data = await getProfiles();
-      setUserData(data);
+      setUserData(data.data);
     };
     fetchUserData();
   }, []);
@@ -20,9 +26,9 @@ function Gnb() {
         <a href="/">
           <img src={logo} alt="홈으로 연결된 Linkbrary 로고" />
         </a>
-        {userData.data ? (
+        {userData ? (
           <>
-            {userData.data?.map((info) => {
+            {userData.map((info) => {
               return (
                 <StyledGnb key={info.id}>
                   <StyledGnbImg src={info.image_source} alt="프로필 사진" />

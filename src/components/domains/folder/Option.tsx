@@ -1,19 +1,28 @@
+import React, { FC } from "react";
 import styled from "styled-components";
 import shareIcon from "../../../assets/share.png";
 import renameIcon from "../../../assets/pen.png";
 import deleteIcon from "../../../assets/delete.png";
 import useModal from "../../../hooks/useModal";
 
-function OptionButton({ onClick, icon, altText, text, folderId }) {
+interface OptionButtonProps {
+  onClick?: (folderId?: number) => void;
+  icon: string;
+  altText: string;
+  text: string;
+  folderId?: number;
+}
+
+const OptionButton: FC<OptionButtonProps> = ({ onClick, icon, altText, text, folderId }) => {
   return (
-    <StyledOptionButton onClick={() => onClick(folderId)}>
+    <StyledOptionButton onClick={() => onClick && onClick(folderId)}>
       <img src={icon} alt={altText} />
       <StyledOptionText>{text}</StyledOptionText>
     </StyledOptionButton>
   );
-}
+};
 
-function Option({ folderName, folderId }) {
+function Option({ folderName, folderId }: { folderName: string; folderId: number }) {
   const { Modal: ShareModal, openModal: openShareModal } = useModal();
   const { Modal: RenameModal, openModal: openRenameModal } = useModal();
   const { Modal: DeleteModal, openModal: openDeleteModal } = useModal();
