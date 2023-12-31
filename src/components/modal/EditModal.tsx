@@ -9,7 +9,9 @@ interface EditModalProps {
 const EditModal = ({ value }: EditModalProps) => {
   return (
     <div>
-      <div className={styles.title}>폴더 이름 변경</div>
+      <div className={styles.title}>
+        {value ? '폴더 이름 변경' : '폴더 추가'}
+      </div>
 
       <input
         type="text"
@@ -19,7 +21,7 @@ const EditModal = ({ value }: EditModalProps) => {
       />
 
       <div className={styles['edit-btn']}>
-        <GradientButton text="변경하기" />
+        <GradientButton text={value ? '변경하기' : '추가하기'} />
       </div>
     </div>
   );
