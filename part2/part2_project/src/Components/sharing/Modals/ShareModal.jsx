@@ -54,11 +54,11 @@ const Imgs = () => {
   );
 };
 
-export default function ShareModal({ children = '폴더명' }) {
+export default function ShareModal({ name = '폴더명', handleModal }) {
   return (
-    <ModalContainer>
+    <ModalContainer handleModal={handleModal}>
       폴더 공유
-      <MoreInfo>{children}</MoreInfo>
+      <MoreInfo>{name}</MoreInfo>
       <Imgs></Imgs>
     </ModalContainer>
   );

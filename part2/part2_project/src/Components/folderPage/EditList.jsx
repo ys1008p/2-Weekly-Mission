@@ -23,20 +23,20 @@ const EditButton = styled.button`
   cursor: pointer;
 `;
 
-export default function EditList() {
+export default function EditList({ handleModal }) {
   return (
     <EditBox>
-      <EditButton>
+      <EditButton id="goshare" onClick={handleModal}>
         <img src={shardImg} alt="공유하기" />
-        <p>공유</p>
+        공유
       </EditButton>
-      <EditButton>
+      <EditButton id="changeName" onClick={handleModal}>
         <img src={penImg} alt="이름 변경" />
-        <p>이름 변경</p>
+        이름 변경
       </EditButton>
-      <EditButton>
+      <EditButton id="deleteFolder" onClick={handleModal}>
         <img src={deleteImg} alt="삭제하기" />
-        <p>삭제</p>
+        삭제
       </EditButton>
     </EditBox>
   );

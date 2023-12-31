@@ -54,7 +54,7 @@ export default function ModalContainer({ children, handleModal }) {
         <Close
           src={closeImg}
           alt="폴더 이름 변경창 닫기"
-          onClick={() => handleModal(id)}
+          onClick={handleModal}
         />
       </Modal>
     </ModalBackground>

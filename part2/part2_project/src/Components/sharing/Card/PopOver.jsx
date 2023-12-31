@@ -17,9 +17,13 @@ const PopOverBox = styled.ul`
   > li {
     width: 100%;
   }
+
+  @media screen and (max-width: 1199px) {
+    right: 1rem;
+  }
 `;
 
-const PopOverText = styled.button`
+const PopOverBtn = styled.button`
   padding: 0.4375rem 0.75rem;
   border: none;
   width: 100%;
@@ -37,14 +41,18 @@ const PopOverText = styled.button`
   }
 `;
 
-export default function PopOver() {
+export default function PopOver({ handleModal, id }) {
   return (
     <PopOverBox>
       <li>
-        <PopOverText>삭제하기</PopOverText>
+        <PopOverBtn id={id + 'delete'} onClick={handleModal}>
+          삭제하기
+        </PopOverBtn>
       </li>
       <li>
-        <PopOverText>폴더에 추가</PopOverText>
+        <PopOverBtn id={id + 'add'} onClick={handleModal}>
+          폴더에 추가
+        </PopOverBtn>
       </li>
     </PopOverBox>
   );

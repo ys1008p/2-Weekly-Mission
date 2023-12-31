@@ -11,7 +11,6 @@ export default function SortButton({
   yourPick,
   littleTitle,
 }) {
-  console.log(buttons);
   return (
     <>
       <section className="buttonLine">
@@ -41,15 +40,14 @@ export default function SortButton({
           className="addButton"
           src={addImg}
           alt="링크 추가 버튼"
-          id="al"
-          onClick={() => handleModal(id)}
+          id="addLink"
+          onClick={handleModal}
         />
       </section>
       <section className="buttonLine">
         <h2 className="littleTitle">{littleTitle || '전체'}</h2>
         {littleTitle && <EditList handleModal={handleModal} />}
       </section>
-      {isModal === 'al' && <AddFolderModal id="al" handleModal={handleModal} />}
     </>
   );
 }

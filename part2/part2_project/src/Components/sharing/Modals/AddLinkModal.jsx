@@ -31,9 +31,13 @@ const AddThisFolder = styled.li`
   }
 `;
 
-export default function AddModal({ url = '링크주소', buttons }) {
+export default function AddLinkModal({
+  url = '링크주소',
+  buttons,
+  handleModal,
+}) {
   return (
-    <ModalContainer>
+    <ModalContainer handleModal={handleModal}>
       폴더에 추가
       <MoreInfo>{url}</MoreInfo>
       <AddFolderList>

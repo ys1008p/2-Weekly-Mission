@@ -15,13 +15,15 @@ const DelteButton = styled(ModalButton)`
 `;
 
 export default function DeleteFoderModal({
-  url = '폴더명',
+  name,
+  url = '',
+  handleModal,
   isDeleteLink = false,
 }) {
   return (
-    <ModalContainer>
+    <ModalContainer handleModal={handleModal}>
       {isDeleteLink ? '링크 삭제' : '폴더 삭제'}
-      <MoreInfo>{url}</MoreInfo>
+      <MoreInfo>{url || name}</MoreInfo>
       <DelteButton>삭제하기</DelteButton>
     </ModalContainer>
   );

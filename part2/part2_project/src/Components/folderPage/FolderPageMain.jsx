@@ -8,9 +8,7 @@ export const NoneText = styled.p`
   text-align: center;
 
   font-size: 1rem;
-
   font-weight: 400;
-  line-height: 1.5rem; /* 150% */
 `;
 
 export default function FolderPageMain({
@@ -41,6 +39,9 @@ export default function FolderPageMain({
             littleTitle={littleTitle}
           />
           <CardsList
+            handleModal={handleModal}
+            isModal={isModal}
+            buttons={buttons}
             handleShowAll={handleShowAll}
             cardData={cardData}
             handleSelet={handleSelet}

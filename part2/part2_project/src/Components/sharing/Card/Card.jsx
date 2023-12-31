@@ -1,10 +1,12 @@
 import kebab from '../../../img/kebab.svg';
 import noneImg from '../../../img/!img.svg';
-
 import { timeAgo } from '../../../util/time.js';
 import PopOver from './PopOver.jsx';
 import Star from './Star.jsx';
 import '../../../css/card.css';
+import DeleteLinkModal from '../Modals/DeleteLinkModal.jsx';
+import AddFolderModal from '../Modals/AddFolderModal.jsx';
+import AddLinkModal from '../Modals/AddLinkModal.jsx';
 
 function formatDate(value) {
   const date = new Date(value);
@@ -23,7 +25,15 @@ export default function Card({ card, other }) {
     id,
   } = card;
 
-  const { handleSelet, handleKebab, isSelected, isKebab } = other;
+  const {
+    buttons,
+    isModal,
+    handleModal,
+    handleSelet,
+    handleKebab,
+    isSelected,
+    isKebab,
+  } = other;
   return (
     <>
       <div className="card">
@@ -41,7 +51,7 @@ export default function Card({ card, other }) {
           alt="기능 버튼"
           onClick={() => handleKebab(id)}
         />
-        {isKebab === id && <PopOver />}
+        {isKebab === id && <PopOver id={id} handleModal={other.handleModal} />}
 
         <a href={url} className="cardText">
           <p className="timeAgo">{timeAgo(createdAt || created_at)}</p>
@@ -49,6 +59,12 @@ export default function Card({ card, other }) {
           <p className="makeDate">{formatDate(createdAt || created_at)}</p>
         </a>
       </div>
+      {isModal === `${id}delete` && (
+        <DeleteLinkModal url={url} handleModal={handleModal} />
+      )}
+      {isModal === `${id}add` && (
+        <AddLinkModal buttons={buttons} handleModal={handleModal} url={url} />
+      )}
     </>
   );
 }

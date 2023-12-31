@@ -11,7 +11,7 @@ import AddFolderModal from '../Components/sharing/Modals/AddFolderModal.jsx';
 import DeleteFoderModal from '../Components/sharing/Modals/DeleteFolderModal.jsx';
 import DeleteLinkModal from '../Components/sharing/Modals/DeleteLinkModal.jsx';
 import ShareModal from '../Components/sharing/Modals/ShareModal.jsx';
-import AddModal from '../Components/sharing/Modals/AddModal.jsx';
+import AddLinkModal from '../Components/sharing/Modals/AddLinkModal.jsx';
 
 const ForFolderNav = styled(Nav)`
   position: static;
@@ -26,9 +26,11 @@ export default function FolderPage() {
   const [isSelected, setIsSelected] = useState(null);
   const [isKebab, setIsKebab] = useState(null);
 
-  const handleModal = () => {
-    console.log(id);
+  const handleModal = (e) => {
+    console.log(e);
+    const id = e.target.id;
     setIsModal(id);
+    console.log(isModal);
 
     if (isModal === id) {
       setIsModal(null);
@@ -107,6 +109,14 @@ export default function FolderPage() {
         isKebab={isKebab}
       />
       <Footer />
+      {isModal === 'addLink' && <AddFolderModal handleModal={handleModal} />}
+      {isModal === 'goshare' && (
+        <ShareModal name={littleTitle} handleModal={handleModal} />
+      )}
+      {isModal === 'changeName' && <EditModal handleModal={handleModal} />}
+      {isModal === 'deleteFolder' && (
+        <DeleteFoderModal name={littleTitle} handleModal={handleModal} />
+      )}
     </>
   );
 }
