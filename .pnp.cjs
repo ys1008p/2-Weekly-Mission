@@ -34,6 +34,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:8112db9a522d4b77bfc961b55172522f3838e14926fa277fa5ef307e988268a109ae37bce8c18da495d245d61d76f3a76aa68ff2a2f4fec877ee5016c6416c8f#npm:6.12.0"],\
           ["@vitejs/plugin-react-swc", "virtual:8112db9a522d4b77bfc961b55172522f3838e14926fa277fa5ef307e988268a109ae37bce8c18da495d245d61d76f3a76aa68ff2a2f4fec877ee5016c6416c8f#npm:3.5.0"],\
           ["@yarnpkg/sdks", "npm:3.1.0"],\
+          ["clsx", "npm:2.1.0"],\
           ["eslint", "npm:8.54.0"],\
           ["eslint-config-prettier", "virtual:8112db9a522d4b77bfc961b55172522f3838e14926fa277fa5ef307e988268a109ae37bce8c18da495d245d61d76f3a76aa68ff2a2f4fec877ee5016c6416c8f#npm:9.0.0"],\
           ["eslint-plugin-import", "virtual:8112db9a522d4b77bfc961b55172522f3838e14926fa277fa5ef307e988268a109ae37bce8c18da495d245d61d76f3a76aa68ff2a2f4fec877ee5016c6416c8f#npm:2.29.0"],\
@@ -66,6 +67,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:8112db9a522d4b77bfc961b55172522f3838e14926fa277fa5ef307e988268a109ae37bce8c18da495d245d61d76f3a76aa68ff2a2f4fec877ee5016c6416c8f#npm:6.12.0"],\
           ["@vitejs/plugin-react-swc", "virtual:8112db9a522d4b77bfc961b55172522f3838e14926fa277fa5ef307e988268a109ae37bce8c18da495d245d61d76f3a76aa68ff2a2f4fec877ee5016c6416c8f#npm:3.5.0"],\
           ["@yarnpkg/sdks", "npm:3.1.0"],\
+          ["clsx", "npm:2.1.0"],\
           ["eslint", "npm:8.54.0"],\
           ["eslint-config-prettier", "virtual:8112db9a522d4b77bfc961b55172522f3838e14926fa277fa5ef307e988268a109ae37bce8c18da495d245d61d76f3a76aa68ff2a2f4fec877ee5016c6416c8f#npm:9.0.0"],\
           ["eslint-plugin-import", "virtual:8112db9a522d4b77bfc961b55172522f3838e14926fa277fa5ef307e988268a109ae37bce8c18da495d245d61d76f3a76aa68ff2a2f4fec877ee5016c6416c8f#npm:2.29.0"],\
@@ -2454,6 +2456,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["clone-response", "npm:1.0.3"],\
           ["mimic-response", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["clsx", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../../../../.yarn/berry/cache/clsx-npm-2.1.0-29d286e1de-10c0.zip/node_modules/clsx/",\
+        "packageDependencies": [\
+          ["clsx", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
