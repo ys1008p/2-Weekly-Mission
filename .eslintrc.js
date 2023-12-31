@@ -29,7 +29,7 @@ module.exports = {
     "no-use-before-define": "off",
     "import/extensions": [
       "error",
-      "always",
+      "ignorePackages",
       {
         js: "never",
         jsx: "never",

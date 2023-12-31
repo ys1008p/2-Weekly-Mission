@@ -27,7 +27,8 @@
     "src/**/*.js",
     "src/**/*.jsx",
     "src/**/*.svg",
-    "src/**/*.css"
+    "src/**/*.css",
+    "src/**/*.png"
   ],
   "exclude": ["node_modules"]
 }

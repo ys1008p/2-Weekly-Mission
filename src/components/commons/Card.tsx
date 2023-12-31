@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ASSETS_URL } from "../../constants.ts";
 import CalculateElapsedTime from "../../utils/CalculateElapsedTime.tsx";
 import ConvertToFormattedDate from "../../utils/ConvertToFormattedDate.tsx";
-import PopOver from "../domains/folder/PopOver.tsx";
 
 interface LinkProps {
   id?: number;
@@ -23,12 +22,11 @@ function Card({ link }: { link: LinkProps }) {
         {link && link.image_source ? (
           <CardImage src={link.image_source} />
         ) : (
-          <CardNoImage src={`${ASSETS_URL}/images/noImg.svg`} />
+          <CardNoImage src={`${ASSETS_URL}/images/noImage.svg`} />
         )}
       </CardImageWrapper>
       <CardDescriptionBox>
         <TimeBox>
-          <PopOver />
           <div>{elapseTime}</div>
           <img
             src={`${ASSETS_URL}/images/meatball.png`}
@@ -50,13 +48,6 @@ const CardLayout = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
-  & img {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 1;
-  }
 `;
 
 const CardImageWrapper = styled.div`
@@ -73,9 +64,11 @@ const CardImage = styled.img`
     transform: scale(1.3);
   }
 `;
+
 const CardNoImage = styled.img`
   width: 100%;
 `;
+
 const CardDescriptionBox = styled.div`
   width: 100%;
   height: 100%;
@@ -99,6 +92,7 @@ const CardDescriptionBox = styled.div`
     font-size: 1.4rem;
   }
 `;
+
 const TimeBox = styled.div`
   display: flex;
   justify-content: space-between;

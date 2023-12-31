@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import Banner from "../components/domains/shared/Banner.tsx";
 import CardList from "../components/commons/CardList.tsx";
 import SearchInput from "../components/commons/SearchInput.tsx";

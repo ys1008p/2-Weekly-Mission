@@ -4,7 +4,7 @@ import CardList from "../components/commons/CardList.tsx";
 import SearchInput from "../components/commons/SearchInput.tsx";
 import styles from "../styles/folderPage.module.css";
 import FolderButtonList from "../components/domains/folder/FolderButtonList.tsx";
-import FolderTitle from "../components/domains/folder/FolderTitle.tsx";
+import FolderTitles from "../components/domains/folder/folderTitle/FolderTitles.tsx";
 import FloatingButton from "../components/domains/folder/FloatingButton.tsx";
 import { getAllLinksData, getFoldersData } from "../services/FolderApi.tsx";
 
@@ -83,7 +83,7 @@ function FolderPage() {
             setSelectFolderLinks={setSelectFolderLinks}
             setId={setId}
           />
-          <FolderTitle folderList={folderList} id={id} />
+          <FolderTitles folderList={folderList} id={id} />
           {renderContent()}
         </div>
       </section>

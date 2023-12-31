@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { ASSETS_URL } from "../../constants.ts";
 
 interface UserInfoProps {
@@ -12,7 +13,9 @@ function Header({ user }: { user: UserInfoProps }) {
   return (
     <HeaderLayout>
       <HeaderBox>
-        <img src={`${ASSETS_URL}/images/logo.png`} alt="로고이미지" />
+        <Link to="/shared">
+          <img src={`${ASSETS_URL}/images/logo.png`} alt="로고이미지" />
+        </Link>
         {user ? (
           <HeaderProfileBox>
             <img src={user?.profileImageSource} alt="프로필 아이콘" />
