@@ -1,14 +1,29 @@
-import React from 'react';
-
 import styles from './ModalContainer.module.css';
 import CloseBtn from '@/assets/images/icon/close.svg';
+import EditModal from '@/components/modal/EditModal';
+
+export type ModalType = 'edit' | 'addLink' | 'share' | 'delete';
 
 interface ContainerProps {
-  children: React.ReactNode;
   setIsModalOpen: (isModalOpen: boolean) => void;
+  modalType: ModalType;
+  props: Record<string, any>;
 }
 
-const ModalContainer = ({ children, setIsModalOpen }: ContainerProps) => {
+const renderModal = (modalType: ModalType, props: Record<string, any>) => {
+  switch (modalType) {
+    case 'edit':
+      return <EditModal {...props} />;
+    default:
+      return <div>잘못된 모달창 타입</div>;
+  }
+};
+
+const ModalContainer = ({
+  setIsModalOpen,
+  modalType,
+  props,
+}: ContainerProps) => {
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
@@ -19,7 +34,7 @@ const ModalContainer = ({ children, setIsModalOpen }: ContainerProps) => {
         <button onClick={handleModalClose}>
           <img src={CloseBtn} className={styles.close} />
         </button>
-        {children}
+        {renderModal(modalType, props)}
       </div>
     </div>
   );

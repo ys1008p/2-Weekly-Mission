@@ -1,0 +1,28 @@
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-20);
+  background-color: var(--white);
+  margin-top: 24px;
+}
+
+input:focus {
+  outline: 1px solid var(--primary);
+}
+
+.input::placeholder {
+  color: var(--gray-60);
+}
+
+.edit-btn {
+  height: 50px;
+  margin-top: 15px;
+}

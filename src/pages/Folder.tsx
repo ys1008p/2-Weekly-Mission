@@ -24,17 +24,23 @@ import {
 } from '@/pages/constant';
 import ModalContainer from '@/components/modal/ModalContainer';
 
+import type { ModalType } from '@/components/modal/ModalContainer';
+
 interface FolderType {
   id: null | number;
   name: string;
 }
 
 const Folder = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [modalType, setModalType] = useState<ModalType>('edit');
+  const [modalProps, setModalProps] = useState<Record<string, any>>({});
+
   const [items, setItems] = useState([]);
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] =
     useState<FolderType>(INITIAL_FOLDER);
+
   const { error: linkError, wrappedFunction: fetchLinkData } =
     useAsync(fetchGetRequest);
   const { error: folderError, wrappedFunction: fetchFolderData } =
@@ -70,15 +76,19 @@ const Folder = () => {
   return (
     <>
       {isModalOpen ? (
-        <ModalContainer setIsModalOpen={setIsModalOpen}>모달창</ModalContainer>
+        <ModalContainer
+          modalType={modalType}
+          setIsModalOpen={setIsModalOpen}
+          props={modalProps}
+        ></ModalContainer>
       ) : null}
+
       <Header sticky={false} />
       <main>
         <FolderBanner />
         <div className={styles.wrapper}>
           <section className={styles.container}>
             <SearchBar placeholder="링크를 검색해 보세요." />
-
             <div>
               <div className={styles.folder}>
                 <ul className={styles['folder-list']}>
@@ -90,6 +100,7 @@ const Folder = () => {
                       onSelected={handleSelectFolder}
                     />
                   </li>
+
                   {folderError ? (
                     <span>{FOLDER_STATUS_MESSAGE.error}</span>
                   ) : (
@@ -128,6 +139,7 @@ const Folder = () => {
                   </div>
                 ) : null}
               </div>
+
               {linkError ? (
                 <p className={styles.message}>{LINK_STATUS_MESSAGE.error}</p>
               ) : !items.length ? (
