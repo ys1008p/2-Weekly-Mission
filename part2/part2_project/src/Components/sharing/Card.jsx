@@ -1,14 +1,17 @@
-import starImg from "../../img/star.svg";
-import kebab from "../../img/kebab.svg";
-import { timeAgo } from "../../util/time.js";
-import noneImg from "../../img/!img.svg";
+import kebab from '../../img/kebab.svg';
+import { timeAgo } from '../../util/time.js';
+import noneImg from '../../img/!img.svg';
+import PopOver from './PopOver.jsx';
+import Star from './Star.jsx';
+import { useState } from 'react';
+import '../../css/card.css';
 
 function formatDate(value) {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-export default function Cards({ card }) {
+export default function Card({ card, other }) {
   const {
     created_at,
     createdAt,
@@ -17,25 +20,35 @@ export default function Cards({ card }) {
     imageSource,
     title,
     url,
-    folder_id,
+    id,
   } = card;
 
+  const { handleSelet, handleKebab, isSelected, isKebab } = other;
   return (
-    <a href={url} className="card">
-      <div className="cardImgBox">
+    <>
+      <div className="card">
+        <a href={url} className="cardImgBox">
+          <img
+            className="cardImg"
+            src={imageSource || image_source || noneImg}
+            alt={title}
+          />
+        </a>
+        <Star onClick={() => handleSelet(id)} id={id} isSelected={isSelected} />
         <img
-          className="cardImg"
-          src={imageSource || image_source || noneImg}
-          alt={title}
+          className="kebab"
+          src={kebab}
+          alt="기능 버튼"
+          onClick={() => handleKebab(id)}
         />
+        {isKebab === id && <PopOver />}
+
+        <a href={url} className="cardText">
+          <p className="timeAgo">{timeAgo(createdAt || created_at)}</p>
+          <h6 className="cardDescription">{description}</h6>
+          <p className="makeDate">{formatDate(createdAt || created_at)}</p>
+        </a>
       </div>
-      <img className=" star" src={starImg} alt="즐겨찾기 버튼" />
-      <img className="kebab" src={kebab} alt="기능 버튼" />
-      <div className="cardText">
-        <p className="timeAgo">{timeAgo(createdAt || created_at)}</p>
-        <h6 className="cardDescription">{description}</h6>
-        <p className="makeDate">{formatDate(createdAt || created_at)}</p>
-      </div>
-    </a>
+    </>
   );
 }

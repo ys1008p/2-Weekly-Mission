@@ -1,26 +1,60 @@
-import SearchBox from "../sharing/SearchBox";
-import CardsList from "../sharing/CardsList";
-import addImg from "../../img/add.svg";
-import SortButton from "./SortButton";
-import EditList from "./EditList";
-import styled from "../../css/folder.buttons.module.css";
+import styled from 'styled-components';
+import SearchBox from '../sharing/SearchBox';
+import CardsList from '../sharing/CardsList';
+import SortButton from './SortButton';
+import '../../css/folderButtons.css';
 
-export default function Main({ buttons, cardData }) {
-  const handleAllListbutton = (e) => {};
+export const NoneText = styled.p`
+  text-align: center;
 
+  font-size: 1rem;
+
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+`;
+
+export default function FolderPageMain({
+  isModal,
+  handleModal,
+  buttons,
+  cardData,
+  handleShowAll,
+  yourPick,
+  littleTitle,
+  handleSelet,
+  handleKebab,
+  isSelected,
+  isKebab,
+}) {
   return (
     <main>
-      <SearchBox />
+      {cardData ? (
+        <>
+          <SearchBox />
 
-      <section className={styled.buttonLine}>
-        <SortButton buttons={buttons} />
-        <img className={styled.addButton} src={addImg} alt="링크 추가 버튼" />
-      </section>
-      <section className={styled.buttonLine}>
-        <h2 className={styled.littleTitle}>전체</h2>
-        <EditList />
-      </section>
-      <CardsList cardData={cardData} />
+          <SortButton
+            handleModal={handleModal}
+            isModal={isModal}
+            buttons={buttons}
+            handleShowAll={handleShowAll}
+            yourPick={yourPick}
+            littleTitle={littleTitle}
+          />
+          <CardsList
+            handleShowAll={handleShowAll}
+            cardData={cardData}
+            handleSelet={handleSelet}
+            isSelected={isSelected}
+            handleKebab={handleKebab}
+            isKebab={isKebab}
+          />
+        </>
+      ) : (
+        <>
+          <SearchBox />
+          <NoneText>저장된 링크가 없습니다</NoneText>
+        </>
+      )}
     </main>
   );
 }

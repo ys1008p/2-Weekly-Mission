@@ -1,19 +1,31 @@
-import styled from "styled-components";
-import linkImg from "../../img/link.svg";
+import styled from 'styled-components';
+import linkImg from '../../img/link.svg';
+import PrimeryButton from '../sharing/PrimeryButton';
 
 const Form = styled.form`
   padding: 5rem 0;
   background: var(--linkbrary-bg, #f0f6ff);
+
+  @media screen and (max-width: 767px) {
+    padding: 5rem 2rem;
+  }
 `;
 
 const LinkInputBox = styled.div`
   position: relative;
-  width: 50vw;
+  width: 70vw;
+  max-width: 120rem;
+
+  @media screen and (max-width: 1199px) {
+    width: 100%;
+    max-width: 47rem;
+  }
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   display: flex;
-  width: 50vw;
+  width: 70vw;
+  max-width: 120rem;
   height: 4.5rem;
   padding: 1rem 1.25rem 1rem 3rem;
   border-radius: 15px;
@@ -23,20 +35,11 @@ const Input = styled.input`
   &:hover {
     outline-color: var(--linkbrary-primary-color, #6d6afe);
   }
-`;
 
-const Button = styled.button`
-  position: absolute;
-  text-align: center;
-  border: none;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue);
-  cursor: pointer;
-  color: #f5f5f5;
-  text-decoration: none;
-  bottom: 0.94rem;
-  right: 1rem;
+  @media screen and (max-width: 1199px) {
+    width: 100%;
+    max-width: 47rem;
+  }
 `;
 
 const Img = styled.img`
@@ -51,7 +54,7 @@ export default function HeaderWithInPut() {
       <Input placeholder="링크를 입력하세요" />
       <LinkInputBox>
         <Img src={linkImg} alt="사슬 이미지" />
-        <Button>추가하기</Button>
+        <PrimeryButton>추가하기</PrimeryButton>
       </LinkInputBox>
     </Form>
   );

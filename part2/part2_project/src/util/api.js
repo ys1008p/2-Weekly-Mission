@@ -1,4 +1,4 @@
-const BASE_URL = "";
+const BASE_URL = '';
 
 export async function getUserData() {
   try {
@@ -26,7 +26,7 @@ export async function getUserPick() {
 
 export async function forUser1() {
   try {
-    const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1");
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/users/1');
     const body = await response.json();
     return body;
   } catch {
@@ -46,10 +46,11 @@ export async function TasteUser1() {
   }
 }
 
-export async function getUserList() {
+export async function getUserList(id = '') {
+  const query = id ? `folderId=${id}` : '';
   try {
     const response = await fetch(
-      `https://bootcamp-api.codeit.kr/api/users/1/links`
+      `https://bootcamp-api.codeit.kr/api/users/1/links?${query}`
     );
     const body = await response.json();
     return body;

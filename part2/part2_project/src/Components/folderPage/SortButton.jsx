@@ -1,40 +1,55 @@
-import { TasteUser1 } from "../../util/api.js";
+import EditList from './EditList';
+import addImg from '../../img/add.svg';
+import '../../css/folderButtons.css';
+import AddFolderModal from '../Modals/AddFolderModal';
 
-import { useEffect, useState } from "react";
-
-export default function SortButton({ buttons }) {
-  const [tasteButton, setTasteButton] = useState();
-  const [folderId, setFolderId] = useState(null);
-
-  const handleListButtonClick = (e) => {
-    if (e.target.id === CardsList.id) {
-    }
-  };
-
-  const sortUserTasteButton = async () => {
-    const { data: userTasteButton } = await TasteUser1();
-    const folderId = userTasteButton.map((item) => item.id);
-    setTasteButton(folderId);
-  };
-
-  useEffect(() => {
-    sortUserTasteButton();
-  }, []);
-
+export default function SortButton({
+  isModal,
+  handleModal,
+  buttons,
+  handleShowAll,
+  yourPick,
+  littleTitle,
+}) {
+  console.log(buttons);
   return (
-    <ul className="list">
-      <li>
-        <button className="listUpButton">전체</button>
-      </li>
-      {buttons?.map((btn) => {
-        return (
-          <li key={btn.id}>
-            <button className="listUpButton" links={btn.link}>
-              {btn.name}
+    <>
+      <section className="buttonLine">
+        <ul className="list">
+          <li>
+            <button className="listUpButton " onClick={handleShowAll}>
+              전체
             </button>
           </li>
-        );
-      })}
-    </ul>
+          {buttons?.map((btn) => {
+            return (
+              <li key={btn.id}>
+                <button
+                  onClick={() => yourPick(btn.id, btn.name)}
+                  className={`listUpButton ${
+                    littleTitle === btn.name ? 'clickButton' : ''
+                  }`}
+                  links={btn.link}
+                >
+                  {btn.name}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        <img
+          className="addButton"
+          src={addImg}
+          alt="링크 추가 버튼"
+          id="al"
+          onClick={() => handleModal(id)}
+        />
+      </section>
+      <section className="buttonLine">
+        <h2 className="littleTitle">{littleTitle || '전체'}</h2>
+        {littleTitle && <EditList handleModal={handleModal} />}
+      </section>
+      {isModal === 'al' && <AddFolderModal id="al" handleModal={handleModal} />}
+    </>
   );
 }

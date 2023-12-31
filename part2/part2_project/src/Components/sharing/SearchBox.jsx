@@ -1,5 +1,5 @@
-import searchImg from "../../img/Search.svg";
-import styled from "styled-components";
+import searchImg from '../../img/Search.svg';
+import styled from 'styled-components';
 
 const Form = styled.form`
   position: relative;

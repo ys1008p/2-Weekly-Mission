@@ -4,12 +4,14 @@ import FolderPage from "./pages/FolderPage";
 
 const App = createBrowserRouter([
   {
-    path: "/folder",
-    element: <FolderPage />,
+    path: "/",
+    element: <SharedPage />,
+    errorElement: <></>,
   },
   {
-    path: "/shared",
-    element: <SharedPage />,
+    path: "/folder",
+    element: <FolderPage />,
+    errorElement: <></>,
   },
 ]);
 

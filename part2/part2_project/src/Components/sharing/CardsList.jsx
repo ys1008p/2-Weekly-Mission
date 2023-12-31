@@ -1,15 +1,21 @@
-import "../../css/card.css";
-import Cards from "./Card";
+import '../../css/card.css';
+import Cards from './Card';
+import { NoneText } from '../folderPage/FolderPageMain';
 
-export default function CardsList({ cardData }) {
-  console.log(cardData);
+export default function CardsList({ cardData, ...other }) {
   return (
-    <ul className="CardList">
-      {cardData?.map((card) => (
-        <li className="cardBox" key={card.id}>
-          <Cards card={card} />
-        </li>
-      ))}
-    </ul>
+    <>
+      {cardData.length !== 0 ? (
+        <ul className="CardList">
+          {cardData?.map((card) => (
+            <li className="cardBox" key={card.id} folderId={card.folder_Id}>
+              <Cards card={card} other={other} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <NoneText>저장된 링크가 없습니다</NoneText>
+      )}
+    </>
   );
 }
