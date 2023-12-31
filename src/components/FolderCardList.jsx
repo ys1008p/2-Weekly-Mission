@@ -9,10 +9,7 @@ export default function FolderCardList({ selectedFolder }) {
   const { id: folderId, name: folderName } = selectedFolder;
   const query = folderId ? `?folderId=${folderId}` : '';
 
-  const [loading, error, linkData] = useGetData(
-    `users/1/links${query}`,
-    selectedFolder
-  );
+  const [loading, error, linkData] = useGetData(`users/1/links${query}`, selectedFolder);
 
   if (loading) return <p>loading..</p>;
   if (error) return <EmptyCardList />;
@@ -23,7 +20,7 @@ export default function FolderCardList({ selectedFolder }) {
     <div>
       <div className={styles.nameContainer}>
         <h2 className={styles.name}>{folderName}</h2>
-        {folderId && <EditFeatures />}
+        {folderId && <EditFeatures folderId={folderId} folderName={folderName} />}
       </div>
       {links.length === 0 ? <EmptyCardList /> : <CardList links={links} />}
     </div>
