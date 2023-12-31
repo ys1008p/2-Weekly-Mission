@@ -4,7 +4,7 @@ import CTA from './CTA';
 import CheckImg from '../images/check.svg';
 import styles from './AddToFolderModal.module.css';
 
-export default function AddToFolderModal({ url, setAddToFolderModalOpen }) {
+export default function AddToFolderModal({ url, setUrl, setAddToFolderModalOpen }) {
   const [selectedFolderId, setSelectedFolderId] = useState('');
   const [loading, error, user] = useGetData('users/1/folders');
 
@@ -36,6 +36,7 @@ export default function AddToFolderModal({ url, setAddToFolderModalOpen }) {
       body: { url: url, folderId: selectedFolderId },
     });
     setAddToFolderModalOpen(false);
+    setUrl && setUrl('');
   };
 
   return (

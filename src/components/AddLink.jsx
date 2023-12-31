@@ -29,7 +29,7 @@ export default function AddLink() {
       <CTA text='추가하기' className='fixedWidth' />
       {addToFolderModalOpen && (
         <ModalLayout setModalOpen={setAddToFolderModalOpen} modalTitle='폴더에 추가' details={url}>
-          <AddToFolderModal url={url} setAddToFolderModalOpen={setAddToFolderModalOpen} />
+          <AddToFolderModal url={url} setUrl={setUrl} setAddToFolderModalOpen={setAddToFolderModalOpen} />
         </ModalLayout>
       )}
     </form>
