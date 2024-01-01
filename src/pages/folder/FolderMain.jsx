@@ -10,9 +10,17 @@ function FolderTitle({ currentFolder }) {
   const modal = useModal();
   const openModal = modal.openModal;
 
+  const currentUrl = window.location.href;
+  const sharedLink = encodeURIComponent(
+    `${currentUrl}/shared?user=${currentFolder.user_id}&folder=${currentFolder.id}`,
+  );
+
   const handleClickCopyUrl = () => {
-    const currentUrl = window.location.href;
     navigator.clipboard.writeText(currentUrl);
+  };
+
+  const handleClickShareToFacebook = () => {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
 
   return (
@@ -42,7 +50,8 @@ function FolderTitle({ currentFolder }) {
                           className={clsx(
                             styles.modalShareButton,
                             styles.modalShareFacebook,
-                          )}></button>
+                          )}
+                          onClick={handleClickShareToFacebook}></button>
                         <span>페이스북</span>
                       </div>
                       <div className={styles.modalShareButtonContainer}>
