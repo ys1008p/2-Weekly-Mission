@@ -47,6 +47,7 @@ function Folder({ psFolderData, handleData, folderName, setSearchLinkValue, sear
     observerFooter.observe(footerRef.current);
     return () => {
       observerLinkSearchInput.disconnect();
+      observerFooter.disconnect();
     };
   });
 
