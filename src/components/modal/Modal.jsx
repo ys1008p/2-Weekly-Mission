@@ -35,14 +35,14 @@ function Modal({ children, id, onRemove }) {
     if (ref.current) {
       ref.current.showModal();
       document.addEventListener('keydown', handleKeydownEsc);
-      document.addEventListener('click', handleClickOutside);
+      // document.addEventListener('click', handleClickOutside);
     }
 
     return () => {
       if (ref.current) {
         ref.current.close();
         document.removeEventListener('keydown', handleKeydownEsc);
-        document.removeEventListener('click', handleClickOutside);
+        // document.removeEventListener('click', handleClickOutside);
       }
     };
   }, [isOpen]);

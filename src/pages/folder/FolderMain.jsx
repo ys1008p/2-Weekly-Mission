@@ -179,7 +179,11 @@ function FolderMain({ folders, className }) {
       </div>
 
       <FolderTitle currentFolder={currentFolder} />
-      <CardList className='main__content shared__card-list' list={link} />
+      <CardList
+        className='main__content shared__card-list'
+        list={link}
+        folders={folders}
+      />
     </div>
   );
 }

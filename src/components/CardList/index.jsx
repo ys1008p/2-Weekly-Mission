@@ -9,7 +9,7 @@ function EmptyMessage() {
   );
 }
 
-function CardList({ className, list }) {
+function CardList({ className, list, folders }) {
   {
     return list.length ? (
       <div className={`${style.cardList} ${className}`}>
@@ -30,6 +30,7 @@ function CardList({ className, list }) {
               createdAt={createdAt || created_at}
               description={description}
               url={url}
+              folders={folders}
             />
           );
         })}
