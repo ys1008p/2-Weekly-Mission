@@ -1,23 +1,23 @@
-import { Children, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { forUser1, TasteUser1, getUserList } from '../util/api.js';
 import Nav from '../Components/sharing/Nav';
 import Footer from '../Components/sharing/Footer';
 import styled from 'styled-components';
 import HeaderWithInPut from '../Components/folderPage/HeaderWithInput';
 import FolderPageMain from '../Components/folderPage/FolderPageMain.jsx';
-import '../css/index.css';
 import EditModal from '../Components/sharing/Modals/EditModal.jsx';
 import AddFolderModal from '../Components/sharing/Modals/AddFolderModal.jsx';
 import DeleteFoderModal from '../Components/sharing/Modals/DeleteFolderModal.jsx';
-import DeleteLinkModal from '../Components/sharing/Modals/DeleteLinkModal.jsx';
 import ShareModal from '../Components/sharing/Modals/ShareModal.jsx';
 import AddLinkModal from '../Components/sharing/Modals/AddLinkModal.jsx';
+import '../css/index.css';
 
 const ForFolderNav = styled(Nav)`
   position: static;
 `;
 
 export default function FolderPage() {
+  const [inputValue, setInputValue] = useState('');
   const [userData, setUSerData] = useState(null);
   const [buttons, setButtons] = useState();
   const [cardData, setCardData] = useState();
@@ -26,11 +26,13 @@ export default function FolderPage() {
   const [isSelected, setIsSelected] = useState(null);
   const [isKebab, setIsKebab] = useState(null);
 
+  const handleValue = (e) => {
+    setInputValue(e.target.value);
+  };
+
   const handleModal = (e) => {
-    console.log(e);
     const id = e.target.id;
     setIsModal(id);
-    console.log(isModal);
 
     if (isModal === id) {
       setIsModal(null);
@@ -94,7 +96,11 @@ export default function FolderPage() {
   return (
     <>
       <ForFolderNav userData={userData} />
-      <HeaderWithInPut />
+      <HeaderWithInPut
+        inputValue={inputValue}
+        handleValue={handleValue}
+        handleModal={handleModal}
+      />
       <FolderPageMain
         handleModal={handleModal}
         isModal={isModal}
@@ -116,6 +122,13 @@ export default function FolderPage() {
       {isModal === 'changeName' && <EditModal handleModal={handleModal} />}
       {isModal === 'deleteFolder' && (
         <DeleteFoderModal name={littleTitle} handleModal={handleModal} />
+      )}
+      {isModal === 'addLinkBtn' && (
+        <AddLinkModal
+          url={inputValue}
+          buttons={buttons}
+          handleModal={handleModal}
+        />
       )}
     </>
   );

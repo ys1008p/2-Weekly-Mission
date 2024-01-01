@@ -42,7 +42,7 @@ export default function AddLinkModal({
       <MoreInfo>{url}</MoreInfo>
       <AddFolderList>
         {buttons?.map((btn) => (
-          <AddThisFolder>
+          <AddThisFolder key={btn.id}>
             {btn.name} <span>{btn.link.count}개 링크</span>
           </AddThisFolder>
         ))}

@@ -4,6 +4,7 @@ import { MoreInfo } from './DeleteFolderModal';
 import kakaotalkImg from '../../../img/kakao.png';
 import facebookImg from '../../../img/facebook.png';
 import linkImg from '../../../img/link.svg';
+import { useLocation } from 'react-router-dom';
 
 const AllSnsbox = styled.div`
   display: flex;
@@ -12,7 +13,9 @@ const AllSnsbox = styled.div`
   gap: 2rem;
 `;
 
-const SnsBox = styled.div`
+const SnsBox = styled.button`
+  border: none;
+  background-color: #fff;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -21,7 +24,8 @@ const SnsBox = styled.div`
   text-align: center;
   font-size: 0.8125rem;
   font-weight: 400;
-  line-height: 0.9375rem; /* 115.385% */
+  line-height: 0.9375rem;
+  cursor: pointer;
 `;
 
 const Logo = styled.img`
@@ -36,6 +40,12 @@ const Logo = styled.img`
 `;
 
 const Imgs = () => {
+  const location = useLocation();
+
+  const handlecopyPage = async () => {
+    await navigator.clipboard.writeText(location.pathname);
+  };
+
   return (
     <AllSnsbox>
       <SnsBox>
@@ -47,7 +57,12 @@ const Imgs = () => {
         <p>페이스북</p>
       </SnsBox>
       <SnsBox>
-        <Logo src={linkImg} alt="링크 복사해서 공유 하기" className="last" />
+        <Logo
+          onClick={handlecopyPage}
+          src={linkImg}
+          alt="링크 복사해서 공유 하기"
+          className="last"
+        />
         <p>링크 복사</p>
       </SnsBox>
     </AllSnsbox>
@@ -59,7 +74,7 @@ export default function ShareModal({ name = '폴더명', handleModal }) {
     <ModalContainer handleModal={handleModal}>
       폴더 공유
       <MoreInfo>{name}</MoreInfo>
-      <Imgs></Imgs>
+      <Imgs />
     </ModalContainer>
   );
 }

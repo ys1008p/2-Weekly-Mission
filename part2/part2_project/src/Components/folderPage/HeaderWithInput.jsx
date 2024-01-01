@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import linkImg from '../../img/link.svg';
 import PrimeryButton from '../sharing/SPrimeryButton';
+import { useState } from 'react';
 
 const Form = styled.form`
   padding: 5rem 0;
@@ -48,10 +49,24 @@ const Img = styled.img`
   left: 1rem;
 `;
 
-export default function HeaderWithInPut() {
+export default function HeaderWithInPut({
+  inputValue,
+  handleValue,
+  handleModal,
+}) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    handleModal(e);
+  };
+
   return (
-    <Form>
-      <Input placeholder="링크를 입력하세요" />
+    <Form id="addLinkBtn" onSubmit={handleSubmit}>
+      <Input
+        placeholder="링크를 입력하세요"
+        value={inputValue}
+        onChange={handleValue}
+      />
       <LinkInputBox>
         <Img src={linkImg} alt="사슬 이미지" />
         <PrimeryButton>추가하기</PrimeryButton>

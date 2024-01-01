@@ -8,7 +8,7 @@ export default function CardsList({ cardData, ...other }) {
       {cardData.length !== 0 ? (
         <ul className="CardList">
           {cardData?.map((card) => (
-            <li className="cardBox" key={card.id} folderId={card.folder_Id}>
+            <li className="cardBox" key={card.id} folderid={card.folder_Id}>
               <Cards card={card} other={other} />
             </li>
           ))}
