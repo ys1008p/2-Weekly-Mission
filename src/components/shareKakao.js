@@ -9,7 +9,7 @@ export const shareKakao = ({ title }) => {
       objectType: "feed", 
       content: {
         title: `${title}`,
-        description: `${title} 폴더 링크`,
+        description: `${title} 폴더 링크 목록`,
         imageUrl:
           "https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png",
         link: {
