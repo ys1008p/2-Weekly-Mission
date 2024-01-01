@@ -1,4 +1,4 @@
-import { useState, useEffect, FC } from "react";
+import { useState, useEffect, FC, useRef } from "react";
 import styled from "styled-components";
 import { getLinks, getFolders } from "../../../services/api";
 import { LinkData, FolderData } from "../../../utils/interface";
@@ -69,35 +69,73 @@ function FolderLinks() {
 function AddLink() {
   const { Modal, openModal } = useModal();
   const [linkInput, setLinkInput] = useState("");
+  // const addLinkRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLinkInput(e.target.value);
   };
 
+  // useEffect(() => {
+  //   const currentRef = addLinkRef.current;
+  //   const options = {
+  //     threshold: 0.1,
+  //   };
+
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         // 상단에서는 가려줌
+  //         currentRef.style.position = "absolute";
+  //       } else {
+  //         // 푸터가 시작되는 지점부터는 최하단에 고정
+  //         currentRef.style.position = "fixed";
+  //       }
+  //     });
+  //   }, options);
+
+  //   if (currentRef) {
+  //     observer.observe(currentRef);
+  //   }
+
+  //   return () => {
+  //     if (currentRef) {
+  //       observer.unobserve(currentRef);
+  //     }
+  //   };
+  // }, []);
+
   return (
-    <AddLinkBar>
-      <AddLinkContainer>
-        <AddLinkInput placeholder="링크를 추가해 보세요" value={linkInput} onChange={handleInputChange} />
-        <AddLinkImg src={addLink} alt="링크 아이콘" />
-        <AddLinkButton onClick={openModal}>추가하기</AddLinkButton>
-        {(Modal as FC<ModalProps>)({
-          title: "폴더에 추가",
-          link: linkInput,
-          list: <FolderLinks />,
-          button: "추가하기",
-          color: "blue",
-        })}
-      </AddLinkContainer>
-    </AddLinkBar>
+    // <AddLinkSection ref={addLinkRef}>
+    <AddLinkSection>
+      <AddLinkBar>
+        <AddLinkContainer>
+          <AddLinkInput placeholder="링크를 추가해 보세요" value={linkInput} onChange={handleInputChange} />
+          <AddLinkImg src={addLink} alt="링크 아이콘" />
+          <AddLinkButton onClick={openModal}>추가하기</AddLinkButton>
+          {(Modal as FC<ModalProps>)({
+            title: "폴더에 추가",
+            link: linkInput,
+            list: <FolderLinks />,
+            button: "추가하기",
+            color: "blue",
+          })}
+        </AddLinkContainer>
+      </AddLinkBar>
+    </AddLinkSection>
   );
 }
 
 export default AddLink;
 
+const AddLinkSection = styled.div`
+  background-color: var(--gray-bg-color);
+  padding: 3.2rem;
+`;
+
 const AddLinkBar = styled.div`
   background-color: var(--gray-bg-color);
-  padding-top: 6rem;
-  padding-bottom: 9rem;
+  padding: 2.4rem;
+  z-index: 9;
 
   @media (max-width: 1200px) {
     padding-left: 3.2rem;
