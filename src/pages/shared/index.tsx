@@ -13,7 +13,7 @@ function SharedPage() {
       <main>
         <Profile />
         <StyledFolder>
-          <SearchBar />
+          {/* <SearchBar /> */}
           <SharedCardList />
         </StyledFolder>
       </main>

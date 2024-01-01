@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getLinks } from "../../../services/api";
+import { LinkData } from "../../../utils/interface";
 import styled from "styled-components";
 import Kebab from "./Kebab";
 import formatTimeAgo from "../../../utils/formatTimeAgo";
@@ -11,21 +12,13 @@ interface StyledCardProps {
   href: string;
 }
 
-interface Link {
-  id: number;
-  url: string;
-  image_source: string;
-  title: string;
-  description: string;
-  created_at: number;
-}
-
 interface FolderCardProps {
-  card: Link;
+  card: LinkData;
 }
 
 interface FolderCardListProps {
   folderId: number;
+  link: LinkData[];
 }
 
 function FolderCard({ card }: FolderCardProps) {
@@ -33,27 +26,25 @@ function FolderCard({ card }: FolderCardProps) {
   const date = formatDate(card.created_at);
 
   return (
-    <div>
-      <StyledCard href={card.url} target="_blank" rel="noopener noreferrer">
-        <StyledImgContainer>
-          <StyledCardImg src={card.image_source || noimage} alt={card.title} />
-          <StyledStarImg src={starDefault} alt="bookmark icon" />
-        </StyledImgContainer>
-        <StyledCardInfo>
-          <StyledCardInfoTop>
-            <StyledTimeAgo>{timeAgo}</StyledTimeAgo>
-            <Kebab />
-          </StyledCardInfoTop>
-          <StyledLinksDescription>{card.description}</StyledLinksDescription>
-          <StyledCreatedAt>{date}</StyledCreatedAt>
-        </StyledCardInfo>
-      </StyledCard>
-    </div>
+    <StyledCard href={card.url} target="_blank" rel="noopener noreferrer">
+      <StyledImgContainer>
+        <StyledCardImg src={card.image_source || noimage} alt={card.title} />
+        <StyledStarImg src={starDefault} alt="bookmark icon" />
+      </StyledImgContainer>
+      <StyledCardInfo>
+        <StyledCardInfoTop>
+          <StyledTimeAgo>{timeAgo}</StyledTimeAgo>
+          <Kebab />
+        </StyledCardInfoTop>
+        <StyledLinksDescription>{card.description}</StyledLinksDescription>
+        <StyledCreatedAt>{date}</StyledCreatedAt>
+      </StyledCardInfo>
+    </StyledCard>
   );
 }
 
 function FolderCardList({ folderId }: FolderCardListProps) {
-  const [links, setLinks] = useState<Link[]>([]);
+  const [links, setLinks] = useState<LinkData[]>([]);
 
   useEffect(() => {
     const fetchLinks = async () => {

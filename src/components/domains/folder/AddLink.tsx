@@ -1,6 +1,7 @@
 import { useState, useEffect, FC } from "react";
 import styled from "styled-components";
 import { getLinks, getFolders } from "../../../services/api";
+import { LinkData, FolderData } from "../../../utils/interface";
 import addLink from "../../../assets/add-link.png";
 import checkIcon from "../../../assets/check.svg";
 import useModal, { ModalProps } from "../../../hooks/useModal";
@@ -14,14 +15,14 @@ interface FolderLinkButtonProps {
 
 const FolderLinkButton: FC<FolderLinkButtonProps> = ({ folderId, folderName, onClick }) => {
   const [isActive, setIsActive] = useState(false);
-  const [links, setLinks] = useState<{ data: any[] }>({ data: [] });
+  const [links, setLinks] = useState<LinkData[]>([]);
 
   useEffect(() => {
     const fetchLinks = async () => {
-      const apiEndpoint: any = folderId ? `${folderId}` : ``;
+      const apiEndpoint: number = folderId && folderId;
 
       const link = await getLinks(apiEndpoint);
-      setLinks({ data: link });
+      setLinks(link.data);
     };
 
     fetchLinks();
@@ -37,20 +38,20 @@ const FolderLinkButton: FC<FolderLinkButtonProps> = ({ folderId, folderName, onC
   return (
     <LinkButton onClick={handleFolderClick}>
       <div>{folderName}</div>
-      <span>{`${links.data ? links.data.length : 0}개 링크`}</span>
+      <span>{`${links ? links.length : 0}개 링크`}</span>
       {isActive && <img src={checkIcon} alt="check icon" />}
     </LinkButton>
   );
 };
 
 function FolderLinks() {
-  const [folders, setFolders] = useState<{ data: any[] }>({ data: [] });
+  const [folders, setFolders] = useState<FolderData[]>([]);
 
   useEffect(() => {
     const fetchFolders = async () => {
       const folder = await getFolders();
 
-      setFolders({ data: folder });
+      setFolders(folder.data);
     };
 
     fetchFolders();
@@ -58,7 +59,7 @@ function FolderLinks() {
 
   return (
     <FolderLinkList>
-      {folders.data?.map((folder) => (
+      {folders.map((folder) => (
         <FolderLinkButton key={folder.id} folderId={folder.id} folderName={folder.name} />
       ))}
     </FolderLinkList>
