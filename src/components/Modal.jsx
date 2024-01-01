@@ -6,7 +6,6 @@ import link from '../assets/ico-link-copy.svg';
 import { shareKakao } from '../components/shareKakao';
 import check from '../assets/ico-check.svg';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 const ModalContainer = styled.div`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
@@ -55,8 +54,8 @@ const Button = styled.button`
   border-radius: 0.8rem;
   font-size: 1.6rem;
   color: var(--white);
-  background: ${({ folderRemove, LinkRemove }) =>
-    folderRemove || LinkRemove
+  background: ${({ $folderRemove, $linkRemove }) =>
+    $folderRemove || $linkRemove
       ? 'var(--red)'
       : 'linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%)'};
   cursor: pointer;
@@ -210,8 +209,8 @@ function Modal({
   edit,
   add,
   share,
-  folderRemove,
-  LinkRemove,
+  $folderRemove,
+  $linkRemove,
   folderAdd,
   title,
   url,
@@ -238,9 +237,9 @@ function Modal({
               ? '폴더 추가'
               : share
                 ? '폴더 공유'
-                : folderRemove
+                : $folderRemove
                   ? '폴더 삭제'
-                  : LinkRemove
+                  : $linkRemove
                     ? '링크 삭제'
                     : folderAdd
                       ? '폴더에 추가'
@@ -249,7 +248,7 @@ function Modal({
         {add || edit ? (
           <Input placeholder="내용 입력" />
         ) : (
-          <Text>{LinkRemove ? url : folderAdd ? '링크 주소' : title}</Text>
+          <Text>{$linkRemove ? url : folderAdd ? '링크 주소' : title}</Text>
         )}
         {folderAdd && (
           <FolderList>
@@ -263,12 +262,12 @@ function Modal({
         {!share && (
           <Button
             type="button"
-            folderRemove={folderRemove}
-            LinkRemove={LinkRemove}
+            $folderRemove={$folderRemove}
+            $linkRemove={$linkRemove}
           >
             {add || folderAdd
               ? '추가하기'
-              : folderRemove || LinkRemove
+              : $folderRemove || $linkRemove
                 ? '삭제하기'
                 : '변경하기'}
           </Button>

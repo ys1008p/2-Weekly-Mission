@@ -48,7 +48,7 @@ function PopOver({ $isOpen, url, menu, menuActive }) {
 
   const BUTTON = [
     {
-      id: 'LinkRemove',
+      id: 'linkRemove',
       name: '삭제하기',
     },
     {
@@ -73,7 +73,7 @@ function PopOver({ $isOpen, url, menu, menuActive }) {
       <Modal
         $isOpen={isOpen}
         onClick={(e) => handleClickClose(e)}
-        LinkRemove={mode === 'LinkRemove'}
+        $linkRemove={mode === 'linkRemove'}
         folderAdd={mode === 'folderAdd'}
         url={url}
         menu={menu}

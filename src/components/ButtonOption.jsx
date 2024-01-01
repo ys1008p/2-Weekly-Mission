@@ -64,7 +64,6 @@ function ButtonOption({ title, menuActive, btnOption, menu }) {
   const handleClickOpen = (buttonId) => {
     setIsOpen(true);
     setMode(buttonId);
-    console.log(buttonId)
   };
 
   const handleClickClose = () => setIsOpen(false);
@@ -105,7 +104,7 @@ function ButtonOption({ title, menuActive, btnOption, menu }) {
         onClick={handleClickClose}
         edit={mode === 'edit'}
         share={mode === 'share'}
-        folderRemove={mode === 'folderRemove'}
+        $folderRemove={mode === 'folderRemove'}
         title={title}
         menu={menu}
         menuActive={menuActive}
