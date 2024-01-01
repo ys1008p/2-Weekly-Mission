@@ -1,9 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import closeModal from '../assets/btn-close-modal.svg';
 import kakao from '../assets/ico-kakao-share.svg';
 import facebook from '../assets/ico-facebook-share.svg';
 import link from '../assets/ico-link-copy.svg';
 import { shareKakao } from '../components/shareKakao';
+import check from '../assets/ico-check.svg';
+import useAsync from '../hook/useAsync';
+import { useEffect, useState } from 'react';
 
 const ModalContainer = styled.div`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
@@ -104,6 +107,64 @@ const Sns = styled.ul`
   }
 `;
 
+const FolderList = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin: 0 0 2.4rem 0;
+`;
+
+const FolderActive = css`
+  border-radius: 0.8rem;
+  background-color: var(--bg);
+`;
+
+const Item = styled.li`
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    ${FolderActive}
+  }
+
+  & + & {
+    margin: 1.1rem 0 0;
+  }
+
+  &.active {
+    ${FolderActive}
+
+    p {
+      color: var(--primary);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.4rem;
+      height: 1.4rem;
+      background: url('${check}') no-repeat;
+    }
+  }
+`;
+
+const Name = styled.p`
+  display: inline-block;
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  color: var(--gray100);
+`;
+
+const Count = styled.span`
+  margin: 0 0 0 0.8rem;
+  font-size: 1.4rem;
+  color: var(--gray60);
+`;
+
 function shareFacebook({ folderId }) {
   let url = encodeURIComponent(
     `http://localhost:3000/shared?user=1/&folderId=${folderId}`
@@ -116,6 +177,17 @@ function shareFacebook({ folderId }) {
   );
 }
 
+function Folder({ handleClickFolder, folderActive, menu }) {
+  const folder = menu.map((folder) => (
+    <Item onClick={() => handleClickFolder(folder)} className={folderActive === folder ? 'active' : ''}>
+      <Name>{folder.name}</Name>
+      <Count>{folder.link.count}개</Count>
+    </Item>
+  ));
+
+  return folder;
+}
+
 function Modal({
   $isOpen,
   onClick,
@@ -125,8 +197,14 @@ function Modal({
   folderRemove,
   LinkRemove,
   folderAdd,
-  folderId,
+  title,
+  url,
+  menu,
 }) {
+  const [folderActive, setFolderActive] = useState('');
+
+  const handleClickFolder = (item) => setFolderActive(item);
+
   return (
     <>
       <ModalContainer $isOpen={$isOpen}>
@@ -150,11 +228,16 @@ function Modal({
         ) : (
           <Text>
             {LinkRemove
-              ? 'httpw://www.abc.com'
+              ? url
               : folderAdd
                 ? '링크 주소'
-                : '폴더명'}
+                : title}
           </Text>
+        )}
+        {folderAdd && (
+          <FolderList>
+            <Folder folderActive={folderActive} handleClickFolder={handleClickFolder} menu={menu}/>
+          </FolderList>
         )}
         {!share && (
           <Button type="button" folderRemove={folderRemove}>
@@ -173,7 +256,7 @@ function Modal({
             </li>
             <li
               onClick={() => {
-                shareFacebook({ folderId });
+                shareFacebook();
               }}
             >
               <img src={facebook} alt="페이스북" />

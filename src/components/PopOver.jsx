@@ -31,7 +31,7 @@ const Button = styled.button`
   }
 `;
 
-function PopOver({ $isOpen }) {
+function PopOver({ $isOpen, url, menu }) {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState(null);
 
@@ -75,6 +75,8 @@ function PopOver({ $isOpen }) {
         onClick={(e) => handleClickClose(e)}
         LinkRemove={mode === 'LinkRemove'}
         folderAdd={mode === 'folderAdd'}
+        url={url}
+        menu={menu}
       />
     </>
   );

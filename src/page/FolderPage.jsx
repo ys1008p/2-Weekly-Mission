@@ -69,7 +69,7 @@ function FolderPage() {
           <Nav
             position={position}
           />
-          <AddLinkBar />
+          <AddLinkBar menu={folderMenu}/>
         </header>
         <div className="main">
           <SearchBar />
@@ -81,12 +81,15 @@ function FolderPage() {
           />
           <ButtonOption
             title={title}
+            cardList={cardList}
             btnOption={btnOption}
             menuActive={menuActive}
+            menu={folderMenu}
           />
           <CardList
             cardList={cardList}
             data={data}
+            menu={folderMenu}
           />
           <AddFolder />
         </div>

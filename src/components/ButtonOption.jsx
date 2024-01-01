@@ -67,7 +67,7 @@ const Button = styled.button`
   }
 `;
 
-function ButtonOption({ title, menuActive, btnOption }) {
+function ButtonOption({ title, menuActive, btnOption, menu }) {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState(null);
 
@@ -104,7 +104,7 @@ function ButtonOption({ title, menuActive, btnOption }) {
               type="button"
               onClick={() => handleClickOpen(button.id)}
             >
-              {button?.name}
+              {button.name}
             </Button>
           ))}
         </Option>
@@ -115,6 +115,8 @@ function ButtonOption({ title, menuActive, btnOption }) {
         edit={mode === 'edit'}
         share={mode === 'share'}
         folderRemove={mode === 'folderRemove'}
+        title={title}
+        menu={menu}
       />
     </>
   );
