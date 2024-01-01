@@ -1,4 +1,4 @@
-export const shareKakao = () => {
+export const shareKakao = ({ title }) => {
   if (window.Kakao) {
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
@@ -8,8 +8,8 @@ export const shareKakao = () => {
     kakao.Link.sendDefault({
       objectType: "feed", 
       content: {
-        title: "Linkbrary",
-        description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요",
+        title: `${title}`,
+        description: `${title} 폴더 링크`,
         imageUrl:
           "https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png",
         link: {

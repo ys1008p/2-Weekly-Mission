@@ -276,7 +276,7 @@ function Modal({
         {share && (
           <Sns>
             <li>
-              <img src={kakao} alt="카카오톡" onClick={shareKakao} />
+              <img src={kakao} alt="카카오톡" onClick={() => shareKakao({ title })} />
               카카오톡
             </li>
             <li>
