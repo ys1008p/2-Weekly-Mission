@@ -5,8 +5,8 @@ import facebook from '../assets/ico-facebook-share.svg';
 import link from '../assets/ico-link-copy.svg';
 import { shareKakao } from '../components/shareKakao';
 import check from '../assets/ico-check.svg';
-import useAsync from '../hook/useAsync';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ModalContainer = styled.div`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
@@ -166,13 +166,20 @@ const Count = styled.span`
   color: var(--gray60);
 `;
 
-function shareFacebook({ menuActive, menu }) {
-  const userId = menu[0].user_id;
-  const host = window.location.href;
+async function clipBoard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    alert(text);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
+function shareFacebook({ menuActive }, userId, host) {
   let url = encodeURIComponent(
-    `${host}/shared?user=${userId}/&folderId=${menuActive}`
+    `${host}shared?user=${userId}/&folderId=${menuActive}`
   );
+  console.log(url)
   let title = '페이스북';
   window.open(
     `http://www.facebook.com/sharer.php?u=${url}&t=${title}`,
@@ -213,6 +220,12 @@ function Modal({
   const [folderActive, setFolderActive] = useState('');
 
   const handleClickFolder = (item) => setFolderActive(item);
+
+  let userId;
+  if (menu.length > 0) userId = menu[0].user_id;
+  const host = window.location.href;
+
+  let linkUrl = `${host}shared?user=${userId}&folderId=${menuActive}`;
 
   return (
     <>
@@ -270,13 +283,13 @@ function Modal({
                 src={facebook}
                 alt="페이스북"
                 onClick={() => {
-                  shareFacebook({ menuActive, menu });
+                  shareFacebook({ menuActive, menu }, userId, host);
                 }}
               />
               페이스북
             </li>
             <li>
-              <img src={link} alt="링크 복사" />
+              <img src={link} alt="링크 복사" onClick={() => clipBoard(linkUrl)} />
               링크 복사
             </li>
           </Sns>
