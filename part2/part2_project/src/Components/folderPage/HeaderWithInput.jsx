@@ -19,7 +19,7 @@ const LinkInputBox = styled.div`
 
   @media screen and (max-width: 1199px) {
     width: 100%;
-    max-width: 47rem;
+    max-width: 45rem;
   }
 `;
 
@@ -33,13 +33,13 @@ export const Input = styled.input`
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
   background: var(--linkbrary-white, #fff);
 
-  &:hover {
+  &:focus {
     outline-color: var(--linkbrary-primary-color, #6d6afe);
   }
 
   @media screen and (max-width: 1199px) {
     width: 100%;
-    max-width: 47rem;
+    max-width: 45rem;
   }
 `;
 

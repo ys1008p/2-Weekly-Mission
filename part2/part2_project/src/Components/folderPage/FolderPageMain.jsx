@@ -11,7 +11,22 @@ export const NoneText = styled.p`
   font-weight: 400;
 `;
 
+const SearchText = styled.h1`
+  color: var(--Linkbrary-gray100);
+
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: normal;
+
+  > span {
+    color: var(--Linkbrary-gray60, #9fa6b2);
+  }
+`;
+
 export default function FolderPageMain({
+  search,
+  setSearch,
+  handleSearch,
   isModal,
   handleModal,
   buttons,
@@ -28,8 +43,17 @@ export default function FolderPageMain({
     <main>
       {cardData ? (
         <>
-          <SearchBox />
-
+          <SearchBox
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+          />
+          {search && (
+            <SearchText>
+              {search}
+              <span>으로 검색한 결과입니다.</span>
+            </SearchText>
+          )}
           <SortButton
             handleModal={handleModal}
             isModal={isModal}
@@ -39,6 +63,7 @@ export default function FolderPageMain({
             littleTitle={littleTitle}
           />
           <CardsList
+            handleSearch={handleSearch}
             handleModal={handleModal}
             isModal={isModal}
             buttons={buttons}

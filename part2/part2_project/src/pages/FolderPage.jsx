@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { forUser1, TasteUser1, getUserList } from '../util/api.js';
 import Nav from '../Components/sharing/Nav';
 import Footer from '../Components/sharing/Footer';
@@ -18,13 +18,35 @@ const ForFolderNav = styled(Nav)`
 
 export default function FolderPage() {
   const [inputValue, setInputValue] = useState('');
+  const [search, setSearch] = useState('');
   const [userData, setUSerData] = useState(null);
-  const [buttons, setButtons] = useState();
-  const [cardData, setCardData] = useState();
   const [isModal, setIsModal] = useState(null);
   const [littleTitle, setLittleTite] = useState(null);
   const [isSelected, setIsSelected] = useState(null);
   const [isKebab, setIsKebab] = useState(null);
+  const [buttons, setButtons] = useState();
+  const [cardData, setCardData] = useState();
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const makeSearchList = async () => {
+    const { data } = await getUserList();
+
+    const filteredSearch = data.filter(
+      (card) =>
+        card.title?.toLowerCase().includes(search?.toLowerCase()) ||
+        card.url?.toLowerCase().includes(search?.toLowerCase()) ||
+        card.description?.toLowerCase().includes(search?.toLowerCase())
+    );
+
+    setCardData(filteredSearch);
+  };
+
+  useEffect(() => {
+    makeSearchList();
+  }, [search]);
 
   const handleValue = (e) => {
     setInputValue(e.target.value);
@@ -57,7 +79,7 @@ export default function FolderPage() {
 
   const myUser = async () => {
     const { data } = await forUser1();
-    const [user] = data.map((li) => (li ? li : ''));
+    const [user] = data.map((item) => (item ? item : ''));
 
     const { email, image_source: profileImageSource } = user;
 
@@ -101,7 +123,11 @@ export default function FolderPage() {
         handleValue={handleValue}
         handleModal={handleModal}
       />
+
       <FolderPageMain
+        search={search}
+        setSearch={setSearch}
+        handleSearch={handleSearch}
         handleModal={handleModal}
         isModal={isModal}
         buttons={buttons}
