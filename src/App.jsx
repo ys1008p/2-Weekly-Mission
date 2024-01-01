@@ -22,13 +22,14 @@ function App() {
   const [selectPersonalLinkData, setSelectPersonalLinkData] = useState([]); // 선택한 버튼의 폴더 데이터
   const [folderId, setFolderId] = useState(); // 전역사용 O
   const [folderName, setFolderName] = useState(); // 전역사용 O
+  const [searchLinkValue, setSearchLinkValue] = useState(""); // 링크검색데이터
   const location = useLocation();
 
   const handleData = (data) => {
     setFolderId(data.id); // 폴더 아이디는 링크의 루트뒤의 id 를 뜻함
     setFolderName(data.name); // 폴더 네임은 폴더페이지의 제목을 뜻함
   };
-
+  console.log("검색값:", searchLinkValue);
   // shared 유저데이터 & 로딩처리
   useEffect(() => {
     setLoding(true);
@@ -57,10 +58,23 @@ function App() {
   useEffect(() => {
     getUserPersonalLinkData()
       .then((result) => {
-        setPersonalLinkData(transformLinkData(result.data));
+        console.log("전체데이터:", result.data);
+        if (searchLinkValue !== "") {
+          const filteredData = result.data.filter((link) => {
+            return (
+              link.url?.includes(searchLinkValue) ||
+              link.title?.includes(searchLinkValue) ||
+              link.description?.includes(searchLinkValue)
+            );
+          });
+          setPersonalLinkData(transformLinkData(filteredData));
+          console.log("필터링된 데이터 : ", filteredData);
+        } else {
+          setPersonalLinkData(transformLinkData(result.data));
+        }
       })
-      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
-  }, []);
+      .catch((e) => console.log(e));
+  }, [searchLinkValue]);
 
   // 필터된 folder 링크데이터
   useEffect(() => {
@@ -87,7 +101,15 @@ function App() {
         {/* ========================================== */}
         <Route
           path="/folder"
-          element={<Folder psFolderData={personalFolderData} handleData={handleData} folderName={folderName} />}
+          element={
+            <Folder
+              psFolderData={personalFolderData}
+              handleData={handleData}
+              folderName={folderName}
+              setSearchLinkValue={setSearchLinkValue}
+              searchLinkValue={searchLinkValue}
+            />
+          }
         >
           <Route
             path=":folderId"
