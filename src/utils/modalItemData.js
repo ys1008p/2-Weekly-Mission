@@ -3,6 +3,7 @@ import facebookIcon from "../img/colorFaceBookIcon.png";
 import kakaoIcon from "../img/colorKaKaoIcon.png";
 import copyIcon from "../img/link.svg";
 import checked from "../img/check.svg";
+import handleLinkCopyClipBoard from "../api/copyClipBoard";
 
 const StyledModalTitle = styled.h2`
   font-size: 2rem;
@@ -120,9 +121,9 @@ export const folderNameChange = {
   button: <StyledBlueBtn>변경하기</StyledBlueBtn>,
 };
 
-export const deleteFolder = (location) => ({
+export const deleteFolder = (url) => ({
   title: <StyledModalTitle>폴더 삭제</StyledModalTitle>,
-  sideTitle: <StyledsideTitle>localhost:3000{location}</StyledsideTitle>,
+  sideTitle: <StyledsideTitle>{url}</StyledsideTitle>,
   button: <StyledRedBtn>삭제하기</StyledRedBtn>,
 });
 
@@ -166,7 +167,7 @@ export const addLink = (link, folderData, linkData) => {
   };
 };
 
-export const shareFolder = (folderName) => ({
+export const shareFolder = (folderName, url) => ({
   title: <StyledModalTitle>폴더 공유</StyledModalTitle>,
   sideTitle: <StyledsideTitle>{folderName}</StyledsideTitle>,
   img: (
@@ -195,6 +196,7 @@ export const shareFolder = (folderName) => ({
         <StyledShareIcon src={copyIcon} alt="" />
         <StyledShareOption
           onClick={(e) => {
+            handleLinkCopyClipBoard(`${url}`);
             e.preventDefault();
           }}
         >

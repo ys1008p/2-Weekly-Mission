@@ -34,6 +34,8 @@ const StyledSideBtn = styled.span`
 const StyledSideBtnImg = styled.img``;
 
 function FolderSidebar({ folderName, sideBtnLender, $isModalOn, setModalData, location }) {
+  const url = "http://localhost:3000" + location;
+
   return (
     <StyledSideBarMainContainer>
       <StyledSelectFolderName>{folderName || "전체"}</StyledSelectFolderName>
@@ -42,7 +44,7 @@ function FolderSidebar({ folderName, sideBtnLender, $isModalOn, setModalData, lo
           <StyledSideBtn
             onClick={() => {
               $isModalOn(true);
-              setModalData(shareFolder(folderName));
+              setModalData(shareFolder(folderName, url));
             }}
           >
             <StyledSideBtnImg src={shareIcon} alt="share" />
@@ -60,7 +62,7 @@ function FolderSidebar({ folderName, sideBtnLender, $isModalOn, setModalData, lo
           <StyledSideBtn
             onClick={() => {
               $isModalOn(true);
-              setModalData(deleteFolder(location));
+              setModalData(deleteFolder(url));
             }}
           >
             <StyledSideBtnImg src={deleteIcon} alt="delete" />
