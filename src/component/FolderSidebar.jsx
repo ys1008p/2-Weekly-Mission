@@ -4,35 +4,6 @@ import penIcon from "../img/pen.svg";
 import deleteIcon from "../img/delete.svg";
 import { folderNameChange, shareFolder, deleteFolder } from "../utils/modalItemData";
 
-const StyledSideBarMainContainer = styled.div`
-  display: flex;
-  margin: 2.4rem 0;
-  justify-content: space-between;
-`;
-
-const StyledSideBtnContainer = styled.div`
-  display: flex;
-  gap: 1.2rem;
-`;
-
-const StyledSelectFolderName = styled.h2`
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: -0.2px;
-`;
-
-const StyledSideBtn = styled.span`
-  color: #9fa6b2;
-  font-size: 1.4rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  cursor: pointer;
-`;
-
-const StyledSideBtnImg = styled.img``;
-
 function FolderSidebar({ folderName, sideBtnLender, $isModalOn, setModalData, location }) {
   const url = "http://localhost:3000" + location;
 
@@ -73,5 +44,34 @@ function FolderSidebar({ folderName, sideBtnLender, $isModalOn, setModalData, lo
     </StyledSideBarMainContainer>
   );
 }
+
+const StyledSideBarMainContainer = styled.div`
+  display: flex;
+  margin: 2.4rem 0;
+  justify-content: space-between;
+`;
+
+const StyledSideBtnContainer = styled.div`
+  display: flex;
+  gap: 1.2rem;
+`;
+
+const StyledSelectFolderName = styled.h2`
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+`;
+
+const StyledSideBtn = styled.span`
+  color: #9fa6b2;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+`;
+
+const StyledSideBtnImg = styled.img``;
 
 export default FolderSidebar;

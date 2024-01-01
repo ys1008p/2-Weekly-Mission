@@ -53,7 +53,7 @@ function App() {
         setPersonalFolderData(result.data);
       })
       .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
-  }, []);
+  }, [personalFolderData]);
 
   // folder 링크데이터
   useEffect(() => {

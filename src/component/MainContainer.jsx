@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+function MainContainer({ children }) {
+  return <StyledMainContainer>{children}</StyledMainContainer>;
+}
+
 const StyledMainContainer = styled.div`
   margin: 4rem auto;
   max-width: 106rem;
@@ -8,9 +12,5 @@ const StyledMainContainer = styled.div`
     margin: 4rem 3.2rem;
   }
 `;
-
-function MainContainer({ children }) {
-  return <StyledMainContainer>{children}</StyledMainContainer>;
-}
 
 export default MainContainer;

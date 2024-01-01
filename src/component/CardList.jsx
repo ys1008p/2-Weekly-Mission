@@ -2,6 +2,22 @@ import Card from "./Card";
 import styled from "styled-components";
 import LinkNotFound from "./LinkNotFound";
 
+function CardList({ cardData, psFolderData, linkData }) {
+  return (
+    <>
+      {cardData.length === 0 ? (
+        <LinkNotFound />
+      ) : (
+        <StyledCardListContainer>
+          {cardData.map((data) => (
+            <Card key={data.id} data={data} psFolderData={psFolderData} linkData={linkData} />
+          ))}
+        </StyledCardListContainer>
+      )}
+    </>
+  );
+}
+
 const StyledCardListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -24,19 +40,4 @@ const StyledCardListContainer = styled.div`
   }
 `;
 
-function CardList({ cardData, psFolderData, linkData }) {
-  return (
-    <>
-      {cardData.length === 0 ? (
-        <LinkNotFound />
-      ) : (
-        <StyledCardListContainer>
-          {cardData.map((data) => (
-            <Card key={data.id} data={data} psFolderData={psFolderData} linkData={linkData} />
-          ))}
-        </StyledCardListContainer>
-      )}
-    </>
-  );
-}
 export default CardList;

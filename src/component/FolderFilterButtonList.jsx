@@ -6,6 +6,61 @@ import Modal from "./Modal";
 import { useState } from "react";
 import { addFolder } from "../utils/modalItemData";
 
+function FolderFilterButtonList({ psFolderData, handleData, handleSideBtn, folderName, sideBtnLender, location }) {
+  const path = useParams();
+  const numPath = Number(path.folderId);
+
+  const [isModalOn, setIsModalOn] = useState(false);
+  const [modalData, setModalData] = useState({});
+
+  return (
+    <>
+      <Modal $isModalOn={setIsModalOn} $isLender={isModalOn} modalData={modalData} location={location} />
+      <StyledFolderFilterBtnContainer>
+        <StyledFolderFilterBtnItemContainer>
+          <Link to="/folder">
+            <StyledFolderFilterBtn
+              $isMatching={numPath}
+              onClick={() => {
+                handleData("");
+                handleSideBtn(false);
+              }}
+            >
+              전체
+            </StyledFolderFilterBtn>
+          </Link>
+          {psFolderData.map((data) => {
+            return (
+              <FolderFilterButton
+                key={data.id}
+                data={data}
+                handleData={handleData}
+                handleSideBtn={handleSideBtn}
+                numPath={numPath}
+              />
+            );
+          })}
+        </StyledFolderFilterBtnItemContainer>
+        <StyledFolderAddBtn
+          onClick={() => {
+            setIsModalOn(true);
+            setModalData(addFolder);
+          }}
+        >
+          폴더 추가 +
+        </StyledFolderAddBtn>
+      </StyledFolderFilterBtnContainer>
+      <FolderSidebar
+        folderName={folderName}
+        sideBtnLender={sideBtnLender}
+        $isModalOn={setIsModalOn}
+        setModalData={setModalData}
+        location={location}
+      />
+    </>
+  );
+}
+
 const StyledFolderFilterBtn = styled.button`
   border-radius: 5px;
   border: 1px solid #6d6afe;
@@ -61,60 +116,5 @@ const StyledFolderAddBtn = styled.button`
     }
   }
 `;
-
-function FolderFilterButtonList({ psFolderData, handleData, handleSideBtn, folderName, sideBtnLender, location }) {
-  const path = useParams();
-  const numPath = Number(path.folderId);
-
-  const [isModalOn, setIsModalOn] = useState(false);
-  const [modalData, setModalData] = useState({});
-
-  return (
-    <>
-      <Modal $isModalOn={setIsModalOn} $isLender={isModalOn} modalData={modalData} location={location} />
-      <StyledFolderFilterBtnContainer>
-        <StyledFolderFilterBtnItemContainer>
-          <Link to="/folder">
-            <StyledFolderFilterBtn
-              $isMatching={numPath}
-              onClick={() => {
-                handleData("");
-                handleSideBtn(false);
-              }}
-            >
-              전체
-            </StyledFolderFilterBtn>
-          </Link>
-          {psFolderData.map((data) => {
-            return (
-              <FolderFilterButton
-                key={data.id}
-                data={data}
-                handleData={handleData}
-                handleSideBtn={handleSideBtn}
-                numPath={numPath}
-              />
-            );
-          })}
-        </StyledFolderFilterBtnItemContainer>
-        <StyledFolderAddBtn
-          onClick={() => {
-            setIsModalOn(true);
-            setModalData(addFolder);
-          }}
-        >
-          폴더 추가 +
-        </StyledFolderAddBtn>
-      </StyledFolderFilterBtnContainer>
-      <FolderSidebar
-        folderName={folderName}
-        sideBtnLender={sideBtnLender}
-        $isModalOn={setIsModalOn}
-        setModalData={setModalData}
-        location={location}
-      />
-    </>
-  );
-}
 
 export default FolderFilterButtonList;

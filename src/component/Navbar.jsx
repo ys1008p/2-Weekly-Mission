@@ -2,6 +2,33 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logoIcon from "../img/logo.png";
 
+function Navbar({ userData, location }) {
+  const { email, image_source } = userData;
+
+  const isSharedPath = location.pathname === "/shared";
+
+  return (
+    <>
+      <StyledNavbarContainer $isActiveFixed={isSharedPath}>
+        <StyledNavItem>
+          <Link to="/">
+            <StyledNavLogo src={logoIcon} alt="logo" />
+          </Link>
+
+          {userData?.id ? (
+            <StyledNavProfile>
+              <StyledNavProfileImg src={image_source} alt="profile-img" />
+              <StyledNavProfileEmail>{email}</StyledNavProfileEmail>
+            </StyledNavProfile>
+          ) : (
+            <StyledNavLoginBtn>로그인</StyledNavLoginBtn>
+          )}
+        </StyledNavItem>
+      </StyledNavbarContainer>
+    </>
+  );
+}
+
 const StyledNavbarContainer = styled.nav`
   background-color: #f0f6ff;
   margin: 0 auto;
@@ -61,32 +88,5 @@ const StyledNavLoginBtn = styled.button`
   font-weight: 600;
   cursor: pointer;
 `;
-
-function Navbar({ userData, location }) {
-  const { email, image_source } = userData;
-
-  const isSharedPath = location.pathname === "/shared";
-
-  return (
-    <>
-      <StyledNavbarContainer $isActiveFixed={isSharedPath}>
-        <StyledNavItem>
-          <Link to="/">
-            <StyledNavLogo src={logoIcon} alt="logo" />
-          </Link>
-
-          {userData?.id ? (
-            <StyledNavProfile>
-              <StyledNavProfileImg src={image_source} alt="profile-img" />
-              <StyledNavProfileEmail>{email}</StyledNavProfileEmail>
-            </StyledNavProfile>
-          ) : (
-            <StyledNavLoginBtn>로그인</StyledNavLoginBtn>
-          )}
-        </StyledNavItem>
-      </StyledNavbarContainer>
-    </>
-  );
-}
 
 export default Navbar;

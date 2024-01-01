@@ -1,6 +1,22 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+function FolderFilterButton({ data, handleData, handleSideBtn, numPath }) {
+  return (
+    <Link to={`/folder/${data.id}`}>
+      <StyledFolderFilterButton
+        $isMatching={data.id === numPath}
+        onClick={() => {
+          handleData(data);
+          handleSideBtn(true);
+        }}
+      >
+        {data.name}
+      </StyledFolderFilterButton>
+    </Link>
+  );
+}
+
 const StyledFolderFilterButton = styled.button`
   border-radius: 5px;
   border: 1px solid #6d6afe;
@@ -17,21 +33,5 @@ const StyledFolderFilterButton = styled.button`
     color: #fff;
   }
 `;
-
-function FolderFilterButton({ data, handleData, handleSideBtn, numPath }) {
-  return (
-    <Link to={`/folder/${data.id}`}>
-      <StyledFolderFilterButton
-        $isMatching={data.id === numPath}
-        onClick={() => {
-          handleData(data);
-          handleSideBtn(true);
-        }}
-      >
-        {data.name}
-      </StyledFolderFilterButton>
-    </Link>
-  );
-}
 
 export default FolderFilterButton;

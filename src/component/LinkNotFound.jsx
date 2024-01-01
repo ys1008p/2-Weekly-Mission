@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+function LinkNotFound() {
+  return <LinkNotFoundMsg>저장된 링크가 없습니다.</LinkNotFoundMsg>;
+}
+
 const LinkNotFoundMsg = styled.h2`
   position: absolute;
   top: 50%;
@@ -8,9 +12,5 @@ const LinkNotFoundMsg = styled.h2`
   text-align: center;
   font-size: 1.6rem;
 `;
-
-function LinkNotFound() {
-  return <LinkNotFoundMsg>저장된 링크가 없습니다.</LinkNotFoundMsg>;
-}
 
 export default LinkNotFound;

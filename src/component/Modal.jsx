@@ -1,5 +1,26 @@
 import styled from "styled-components";
 
+function Modal({ $isModalOn, $isLender, modalData, location }) {
+  return (
+    <>
+      <StyledModalBackground
+        onClick={() => {
+          $isModalOn(false);
+        }}
+        $isLender={$isLender}
+      />
+      <StyledModalItem $isLender={$isLender} location={location}>
+        {modalData.title}
+        {modalData.sideTitle}
+        {modalData.input}
+        {modalData.addLinkList}
+        {modalData.button}
+        {modalData.img}
+      </StyledModalItem>
+    </>
+  );
+}
+
 const StyledModalBackground = styled.div`
   position: fixed;
   top: 0;
@@ -27,26 +48,5 @@ const StyledModalItem = styled.form`
   transform: translate(-50%, -50%);
   z-index: 99;
 `;
-
-function Modal({ $isModalOn, $isLender, modalData, location }) {
-  return (
-    <>
-      <StyledModalBackground
-        onClick={() => {
-          $isModalOn(false);
-        }}
-        $isLender={$isLender}
-      />
-      <StyledModalItem $isLender={$isLender} location={location}>
-        {modalData.title}
-        {modalData.sideTitle}
-        {modalData.input}
-        {modalData.addLinkList}
-        {modalData.button}
-        {modalData.img}
-      </StyledModalItem>
-    </>
-  );
-}
 
 export default Modal;

@@ -1,5 +1,28 @@
 import styled from "styled-components";
 
+function LinkSearchInput({ setSearchLinkValue, value, setRef }) {
+  const handleSearchValue = (e) => {
+    setSearchLinkValue(e.target.value);
+  };
+
+  const clearSearchValue = () => {
+    setSearchLinkValue(""); // input 값을 빈 문자열로 설정
+  };
+
+  return (
+    <StyledForm ref={setRef}>
+      <StyledLinkSearchInput
+        type="text"
+        placeholder="링크를 검색해보세요."
+        name="test"
+        onChange={handleSearchValue}
+        value={value}
+      />
+      {value === "" ? "" : <StyledBtn onClick={clearSearchValue}>X</StyledBtn>}
+    </StyledForm>
+  );
+}
+
 const StyledForm = styled.form`
   position: relative;
   margin-bottom: 40px;
@@ -41,28 +64,5 @@ const StyledBtn = styled.button`
   align-items: center;
   cursor: pointer;
 `;
-
-function LinkSearchInput({ setSearchLinkValue, value, setRef }) {
-  const handleSearchValue = (e) => {
-    setSearchLinkValue(e.target.value);
-  };
-
-  const clearSearchValue = () => {
-    setSearchLinkValue(""); // input 값을 빈 문자열로 설정
-  };
-
-  return (
-    <StyledForm ref={setRef}>
-      <StyledLinkSearchInput
-        type="text"
-        placeholder="링크를 검색해보세요."
-        name="test"
-        onChange={handleSearchValue}
-        value={value}
-      />
-      {value === "" ? "" : <StyledBtn onClick={clearSearchValue}>X</StyledBtn>}
-    </StyledForm>
-  );
-}
 
 export default LinkSearchInput;

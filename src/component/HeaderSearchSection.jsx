@@ -1,6 +1,17 @@
 import styled from "styled-components";
 import linkIcon from "../img/link.svg";
 
+function HeaderSearchSection({ setRef }) {
+  return (
+    <StyledHeaderSectionContainer ref={setRef}>
+      <StyledHeaderSectionForm>
+        <StyledHeaderSectionInput type="text" placeholder="링크를 추가해 보세요" />
+        <StyledHeaderSectionButton type="submit">추가하기</StyledHeaderSectionButton>
+      </StyledHeaderSectionForm>
+    </StyledHeaderSectionContainer>
+  );
+}
+
 const StyledHeaderSectionContainer = styled.section`
   padding: 6rem 32rem 9rem;
   background-color: #f0f6ff;
@@ -61,16 +72,5 @@ const StyledHeaderSectionButton = styled.button`
   transform: translate(0, -50%);
   cursor: pointer;
 `;
-
-function HeaderSearchSection({ setRef }) {
-  return (
-    <StyledHeaderSectionContainer ref={setRef}>
-      <StyledHeaderSectionForm>
-        <StyledHeaderSectionInput type="text" placeholder="링크를 추가해 보세요" />
-        <StyledHeaderSectionButton type="submit">추가하기</StyledHeaderSectionButton>
-      </StyledHeaderSectionForm>
-    </StyledHeaderSectionContainer>
-  );
-}
 
 export default HeaderSearchSection;
