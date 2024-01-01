@@ -43,16 +43,6 @@ const Button = styled.button`
   color: var(--gray60);
   cursor: pointer;
 
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-
   &:first-child {
     background: url('${share}') no-repeat left center;
   }
@@ -74,6 +64,7 @@ function ButtonOption({ title, menuActive, btnOption, menu }) {
   const handleClickOpen = (buttonId) => {
     setIsOpen(true);
     setMode(buttonId);
+    console.log(buttonId)
   };
 
   const handleClickClose = () => setIsOpen(false);

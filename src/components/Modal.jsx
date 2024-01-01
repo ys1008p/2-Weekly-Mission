@@ -175,14 +175,15 @@ async function clipBoard(text) {
   }
 }
 
-function shareFacebook({ menuActive }, userId, host) {
+function shareFacebook({ menuActive, title }, userId, host) {
   let url = encodeURIComponent(
     `${host}shared?user=${userId}/&folderId=${menuActive}`
   );
-  console.log(url)
-  let title = '페이스북';
+
+  let titleText = title;
+
   window.open(
-    `http://www.facebook.com/sharer.php?u=${url}&t=${title}`,
+    `http://www.facebook.com/sharer.php?u=${url}&t=${titleText}`,
     '',
     'width=400, height=400'
   );
@@ -283,7 +284,7 @@ function Modal({
                 src={facebook}
                 alt="페이스북"
                 onClick={() => {
-                  shareFacebook({ menuActive, menu }, userId, host);
+                  shareFacebook({ menuActive, menu, title }, userId, host);
                 }}
               />
               페이스북
