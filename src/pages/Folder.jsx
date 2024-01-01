@@ -4,6 +4,7 @@ import MainContainer from "../component/MainContainer";
 import FolderFilterButtonList from "../component/FolderFilterButtonList";
 import LinkSearchInput from "../component/LinkSearchInput";
 import { useState } from "react";
+import styled from "styled-components";
 
 function Folder({ psFolderData, handleData, folderName, setSearchLinkValue, searchLinkValue }) {
   const [sideBtnLender, setSideBtnLender] = useState(false);
@@ -22,10 +23,17 @@ function Folder({ psFolderData, handleData, folderName, setSearchLinkValue, sear
           folderName={folderName} // 폴더이름표시
           location={location.pathname}
         />
-        <Outlet />
+        <StyledCardListBackground>
+          <Outlet />
+        </StyledCardListBackground>
       </MainContainer>
     </>
   );
 }
+
+const StyledCardListBackground = styled.div`
+  position: relative;
+  min-height: 29.5rem;
+`;
 
 export default Folder;
