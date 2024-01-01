@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import search from '../assets/ico-search.png';
 import searchRemove from '../assets/ico-search-remove.svg';
-import { useState } from 'react';
 
 const SearchBarContainer = styled.div`
   position: relative;
@@ -58,22 +57,16 @@ const Text = styled.p`
   }
 `;
 
-function SearchBar() {
-  const [value, setValue] = useState('');
-
-  const handleKeyDown = (e) => {
-    if (e.keyCode === 13) setValue(e.target.value);
-  };
-
+function SearchBar({ handleChangeValue, value }) {
   return (
     <SearchBarContainer>
       <Input
         type="search"
         placeholder="링크를 검색해 보세요."
-        onKeyDown={handleKeyDown}
+        onChange={(e) => handleChangeValue(e)}
       />
       <Text value={value}>
-        <span>{value}</span>으로 검색한 결과입니다.
+        <span>{value}</span>로 검색한 결과입니다.
       </Text>
     </SearchBarContainer>
   );

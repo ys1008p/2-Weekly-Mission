@@ -18,6 +18,8 @@ function FolderPage() {
   const [title, setTitle] = useState('');
   const [position, setPosition] = useState('');
   const [data, setData] = useState(null);
+  const [value, setValue] = useState('');
+  const [filterData, setFilterData] = useState([]);
 
   const [getFolderMenu] = useAsync('/users', '/1', '/folders', '');
   const [getFolderAll] = useAsync('/users', '/1', '/links', '');
@@ -49,11 +51,26 @@ function FolderPage() {
     setTitle(`${item.name !== '전체' ? item.name : ''}`);
   };
 
+  const handleChangeValue = (e) => {
+    setValue(e.target.value);
+
+    const item = cardList.filter(
+      (item) =>
+        item?.title?.includes(value) ||
+        item?.description?.includes(value) ||
+        item?.url?.includes(value)
+    );
+    setFilterData(item);
+
+    if (!e.target.value) setFilterData(cardList);
+  };
+
   useEffect(() => {
     handleLoadFolderMenu();
     setPosition('static');
     setData('created_at');
-  }, []);
+    setFilterData(cardList);
+  }, [cardList]);
 
   useEffect(() => {
     handleLoadFolderData(menuActive);
@@ -70,7 +87,11 @@ function FolderPage() {
           <AddLinkBar menu={folderMenu} menuActive={menuActive} />
         </header>
         <div className="main">
-          <SearchBar />
+          <SearchBar
+            cardList={cardList}
+            handleChangeValue={handleChangeValue}
+            value={value}
+          />
           <TabMenu
             menu={folderMenu}
             handleClick={handleClick}
@@ -89,6 +110,7 @@ function FolderPage() {
             data={data}
             menu={folderMenu}
             menuActive={menuActive}
+            filterData={filterData}
           />
           <AddFolder />
         </div>

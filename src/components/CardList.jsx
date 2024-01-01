@@ -17,8 +17,7 @@ const CardContainer = styled.ul`
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem 0;
-  justify-content: space-between;
+  gap: 2.5rem;
 
   @media screen and (min-width: 375px) and (max-width: 768px) {
     gap: 2rem 0;
@@ -147,7 +146,8 @@ function getDateInfo({ createdAt }) {
   }
 }
 
-function CardList({ cardList, data, menu, menuActive }) {
+function CardList({ cardList, data, menu, menuActive, filterData }) {
+  console.log(filterData)
   const [isOpen, setIsOpen] = useState(null);
 
   const handleClickKebab = (e, id) => {
@@ -161,7 +161,7 @@ function CardList({ cardList, data, menu, menuActive }) {
     e.currentTarget.classList[isOver ? 'add' : 'remove']('active');
   };
 
-  const cards = cardList.map((card) => (
+  const cards = filterData.map((card) => (
     <Cards key={card.id}>
       {data ? (
         <>
@@ -190,7 +190,12 @@ function CardList({ cardList, data, menu, menuActive }) {
               </CreatedDate>
             </Text>
           </Link>
-          <PopOver $isOpen={card.id === isOpen} url={card.url} menu={menu} menuActive={menuActive}/>
+          <PopOver
+            $isOpen={card.id === isOpen}
+            url={card.url}
+            menu={menu}
+            menuActive={menuActive}
+          />
         </>
       ) : (
         <Link to={card.url} target="_blank" rel="noopener noreferrer">
