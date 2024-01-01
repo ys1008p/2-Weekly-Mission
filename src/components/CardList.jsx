@@ -147,7 +147,6 @@ function getDateInfo({ createdAt }) {
 }
 
 function CardList({ cardList, data, menu, menuActive, filterData }) {
-  console.log(filterData)
   const [isOpen, setIsOpen] = useState(null);
 
   const handleClickKebab = (e, id) => {

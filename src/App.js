@@ -10,7 +10,6 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        {/* <Route path="/" element={<Navigate replace to="/folder" />} /> */}
         <Route path="/" element={<FolderPage />} />
         <Route path="/signin" element={<SigninPage />}></Route>
         <Route path="/signup" element={<SignupPage />}></Route>
