@@ -29,7 +29,7 @@ function App() {
     setFolderId(data.id); // 폴더 아이디는 링크의 루트뒤의 id 를 뜻함
     setFolderName(data.name); // 폴더 네임은 폴더페이지의 제목을 뜻함
   };
-  console.log("검색값:", searchLinkValue);
+
   // shared 유저데이터 & 로딩처리
   useEffect(() => {
     setLoding(true);
@@ -58,7 +58,6 @@ function App() {
   useEffect(() => {
     getUserPersonalLinkData()
       .then((result) => {
-        console.log("전체데이터:", result.data);
         if (searchLinkValue !== "") {
           const filteredData = result.data.filter((link) => {
             return (
@@ -68,7 +67,6 @@ function App() {
             );
           });
           setPersonalLinkData(transformLinkData(filteredData));
-          console.log("필터링된 데이터 : ", filteredData);
         } else {
           setPersonalLinkData(transformLinkData(result.data));
         }
@@ -82,10 +80,22 @@ function App() {
       .then((result) => {
         const transformedData = transformLinkData(result.data);
         const filteredData = transformedData.filter((item) => item.folderId === folderId);
-        setSelectPersonalLinkData(filteredData);
+
+        if (searchLinkValue !== "") {
+          const filteredSearchData = filteredData.filter((link) => {
+            return (
+              link.url?.includes(searchLinkValue) ||
+              link.title?.includes(searchLinkValue) ||
+              link.description?.includes(searchLinkValue)
+            );
+          });
+          setSelectPersonalLinkData(filteredSearchData);
+        } else {
+          setSelectPersonalLinkData(filteredData);
+        }
       })
-      .catch(() => alert("폴더 정보를 불러오는중 에러가 발생하였습니다."));
-  }, [folderId]);
+      .catch((e) => alert(e));
+  }, [folderId, searchLinkValue]);
 
   return (
     <>
