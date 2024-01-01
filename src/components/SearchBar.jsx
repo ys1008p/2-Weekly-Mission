@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import search from '../assets/ico-search.png';
+import searchRemove from '../assets/ico-search-remove.svg';
 
 const SearchBarContainer = styled.div`
   position: relative;
@@ -20,13 +21,27 @@ const SearchBarContainer = styled.div`
 
 const Input = styled.input`
   width: 100%;
-  padding: 1.5rem 4.2rem;
+  padding: 1.5rem 1.7rem 1.5rem 4.2rem;
   outline: none;
   border: none;
   border-radius: 1rem;
   font-size: 1.6rem;
   color: var(--gray-666);
   background-color: var(--gray-f5f5);
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url('${searchRemove}') no-repeat;
+    cursor: pointer;
+
+    @media screen and (min-width: 360px) and (max-width: 768px) {
+      width: 1.6rem;
+      height: 1.6rem;
+      background-size: 1.6rem;
+    }
+  }
 `;
 
 function SearchBar() {
