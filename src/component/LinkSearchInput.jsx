@@ -24,13 +24,7 @@ const StyledLinkSearchInput = styled.input`
 `;
 
 function LinkSearchInput() {
-  return (
-    <StyledLinkSearchInput
-      type="text"
-      placeholder="링크를 검색해보세요."
-      className="link-search-input"
-    />
-  );
+  return <StyledLinkSearchInput type="text" placeholder="링크를 검색해보세요." />;
 }
 
 export default LinkSearchInput;

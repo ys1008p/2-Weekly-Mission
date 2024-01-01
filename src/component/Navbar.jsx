@@ -9,8 +9,7 @@ const StyledNavbarContainer = styled.nav`
   width: 100%;
   top: 0;
   left: 50%;
-  transform: ${({ $isActiveFixed }) =>
-    $isActiveFixed ? "translate(-50%, 0);" : "none"};
+  transform: ${({ $isActiveFixed }) => ($isActiveFixed ? "translate(-50%, 0);" : "none")};
   z-index: 99;
 `;
 
@@ -82,9 +81,7 @@ function Navbar({ userData, location }) {
               <StyledNavProfileEmail>{email}</StyledNavProfileEmail>
             </StyledNavProfile>
           ) : (
-            <StyledNavLoginBtn className="nav-login-btn">
-              로그인
-            </StyledNavLoginBtn>
+            <StyledNavLoginBtn>로그인</StyledNavLoginBtn>
           )}
         </StyledNavItem>
       </StyledNavbarContainer>
