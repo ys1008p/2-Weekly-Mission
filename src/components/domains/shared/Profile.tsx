@@ -1,8 +1,23 @@
 import { getSharedFolders } from "../../../services/api";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, FC } from "react";
 import styled from "styled-components";
 
-function ProfileInfo({ owner, name }) {
+interface Owner {
+  profileImageSource: string;
+  name: string;
+}
+
+interface Folder {
+  owner: Owner;
+  name: string;
+}
+
+interface ProfileInfoProps {
+  owner: Owner;
+  name: string;
+}
+
+const ProfileInfo: FC<ProfileInfoProps> = ({ owner, name }) => {
   if (!owner) return <p>로그인 정보가 없습니다.</p>;
   return (
     <StyledProfile>
@@ -11,10 +26,10 @@ function ProfileInfo({ owner, name }) {
       <h2>{name}</h2>
     </StyledProfile>
   );
-}
+};
 
 function Profile() {
-  const [folder, setFolder] = useState([]);
+  const [folder, setFolder] = useState<Folder | null>(null);
 
   useEffect(() => {
     const handleFolder = async () => {
@@ -24,7 +39,7 @@ function Profile() {
     handleFolder();
   }, []);
 
-  return <ProfileInfo owner={folder.owner} name={folder.name} />;
+  return folder && <ProfileInfo owner={folder.owner} name={folder.name} />;
 }
 
 export default Profile;

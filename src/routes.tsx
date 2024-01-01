@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Navigate } from "react-router-dom";
 import SharedPage from "./pages/shared";
 import FolderPage from "./pages/folder";

@@ -1,7 +1,19 @@
-import { useState } from "react";
+import { FC, useState, ReactNode } from "react";
 import styled from "styled-components";
 import exitIcon from "../../assets/exit-icon.png";
 import ShareButtons from "../../components/domains/folder/ShareButtons";
+import React from "react";
+
+export interface ModalProps {
+  title: string;
+  link?: string;
+  list?: ReactNode;
+  input?: string;
+  button?: string;
+  color?: "blue" | "red";
+  shareSNS?: boolean;
+  folderId?: number;
+}
 
 const useModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -13,35 +25,31 @@ const useModal = () => {
     setModalOpen(false);
   };
 
-  return {
-    Modal: modalOpen
-      ? ({ title, link, list, input, button, color, shareSNS, userId, folderId }) => (
-          <ModalBackground>
-            <ModalBox>
-              <ModalContainer>
-                <ModalTop>
-                  <ModalExit onClick={closeModal}>
-                    <img src={exitIcon} alt="exit icon" />
-                  </ModalExit>
-                  <ModalTitle>{title}</ModalTitle>
-                  <ModalLink>{link}</ModalLink>
-                </ModalTop>
-                {list && <ModalList>{list}</ModalList>}
-                {input && <ModalInput />}
-                {button && (
-                  <ModalButton onClick={closeModal} color={color}>
-                    {button}
-                  </ModalButton>
-                )}
-                {shareSNS && <ShareButtons folderId={folderId} />}
-              </ModalContainer>
-            </ModalBox>
-          </ModalBackground>
-        )
-      : () => null,
-    openModal,
-    closeModal,
-  };
+  const Modal: FC<ModalProps> = ({ title, link, list, input, button, color, shareSNS, folderId }) =>
+    modalOpen ? (
+      <ModalBackground>
+        <ModalBox>
+          <ModalContainer>
+            <ModalTop>
+              <ModalExit onClick={closeModal}>
+                <img src={exitIcon} alt="exit icon" />
+              </ModalExit>
+              <ModalTitle>{title}</ModalTitle>
+              <ModalLink>{link}</ModalLink>
+            </ModalTop>
+            {list && <ModalList>{list}</ModalList>}
+            {input && <ModalInput />}
+            {button && (
+              <ModalButton onClick={closeModal} color={color as "blue" | "red"}>
+                {button}
+              </ModalButton>
+            )}
+            {shareSNS && <ShareButtons folderId={folderId} />}
+          </ModalContainer>
+        </ModalBox>
+      </ModalBackground>
+    ) : null;
+  return { Modal, openModal, closeModal };
 };
 
 export default useModal;
@@ -129,30 +137,10 @@ const ModalInput = styled.input`
   }
 `;
 
-const ModalButton = styled.button`
+const ModalButton = styled.button<{ color: "blue" | "red" }>`
   background: ${({ color }) => COLORS[color]};
   color: var(--white-color);
   border-radius: 0.8rem;
   padding: 1.6rem 2rem;
   width: 28rem;
-`;
-
-const ModalShareSNS = styled.div`
-  display: flex;
-  gap: 3.2rem;
-`;
-
-const ShareIcon = styled.img`
-  width: 4rem;
-  height: 4rem;
-`;
-
-const ShareButton = styled.a`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  text-decoration: none;
-  color: var(--gray-80-color);
-  font-size: 1.3rem;
 `;

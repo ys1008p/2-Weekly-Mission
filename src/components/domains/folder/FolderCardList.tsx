@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from "react";
 import { getLinks } from "../../../services/api";
-import { useEffect, useState } from "react";
+import { LinkData } from "../../../utils/interface";
 import styled from "styled-components";
 import Kebab from "./Kebab";
 import formatTimeAgo from "../../../utils/formatTimeAgo";
@@ -7,39 +8,50 @@ import formatDate from "../../../utils/formatDate";
 import noimage from "../../../assets/noimage.svg";
 import starDefault from "../../../assets/star-default.png";
 
-function FolderCard({ card }) {
+interface StyledCardProps {
+  href: string;
+}
+
+interface FolderCardProps {
+  card: LinkData;
+}
+
+interface FolderCardListProps {
+  folderId: number;
+  link: LinkData[];
+}
+
+function FolderCard({ card }: FolderCardProps) {
   const timeAgo = formatTimeAgo(card.created_at);
   const date = formatDate(card.created_at);
 
   return (
-    <div>
-      <StyledCard href={card.url} target="_blank" rel="noopener noreferrer">
-        <StyledImgContainer>
-          <StyledCardImg src={card.image_source || noimage} alt={card.title} type="card" />
-          <StyledStarImg src={starDefault} alt="bookmark icon" />
-        </StyledImgContainer>
-        <StyledCardInfo>
-          <StyledCardInfoTop>
-            <StyledTimeAgo>{timeAgo}</StyledTimeAgo>
-            <Kebab />
-          </StyledCardInfoTop>
-          <StyledLinksDescription>{card.description}</StyledLinksDescription>
-          <StyledCreatedAt>{date}</StyledCreatedAt>
-        </StyledCardInfo>
-      </StyledCard>
-    </div>
+    <StyledCard href={card.url} target="_blank" rel="noopener noreferrer">
+      <StyledImgContainer>
+        <StyledCardImg src={card.image_source || noimage} alt={card.title} />
+        <StyledStarImg src={starDefault} alt="bookmark icon" />
+      </StyledImgContainer>
+      <StyledCardInfo>
+        <StyledCardInfoTop>
+          <StyledTimeAgo>{timeAgo}</StyledTimeAgo>
+          <Kebab />
+        </StyledCardInfoTop>
+        <StyledLinksDescription>{card.description}</StyledLinksDescription>
+        <StyledCreatedAt>{date}</StyledCreatedAt>
+      </StyledCardInfo>
+    </StyledCard>
   );
 }
 
-function FolderCardList({ folderId }) {
-  const [links, setLinks] = useState([]);
+function FolderCardList({ folderId }: FolderCardListProps) {
+  const [links, setLinks] = useState<LinkData[]>([]);
 
   useEffect(() => {
     const fetchLinks = async () => {
-      const apiEndpoint = folderId ? `${folderId}` : ``;
+      const apiEndpoint: any = folderId ? `${folderId}` : ``;
 
       const link = await getLinks(apiEndpoint);
-      setLinks(link);
+      setLinks(link.data);
     };
 
     fetchLinks();
@@ -47,9 +59,9 @@ function FolderCardList({ folderId }) {
 
   return (
     <>
-      {links.data && links.data.length > 0 ? (
+      {links && links.length > 0 ? (
         <StyledCards>
-          {links.data?.map((card) => {
+          {links.map((card) => {
             return <FolderCard key={card.id} card={card} />;
           })}
         </StyledCards>
@@ -68,7 +80,7 @@ const StyledImgContainer = styled.div`
   overflow: hidden;
 `;
 
-const StyledCard = styled.a`
+const StyledCard = styled.a<StyledCardProps>`
   background-color: var(--white-color);
   position: relative;
   display: flex;

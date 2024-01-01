@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import facebook from "../../assets/facebook.svg";
 import twitter from "../../assets/twitter.svg";
@@ -58,6 +59,7 @@ const StyledInfo = styled.div`
 
 const StyledCodeit = styled.div`
   color: #676767;
+  font-size: 1.6rem;
 
   @media (min-width: 375px) and (max-width: 767px) {
     grid-area: codeit;
@@ -69,9 +71,10 @@ const StyledPolicy = styled.div`
   gap: 3rem;
 
   a {
-    color: #cfcfcf;
+    color: #676767;
     text-decoration: none;
     text-align: center;
+    font-size: 1.6rem;
   }
 
   @media (min-width: 375px) and (max-width: 767px) {

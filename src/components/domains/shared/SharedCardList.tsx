@@ -1,11 +1,28 @@
 import { getSharedFolders } from "../../../services/api";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import formatTimeAgo from "../../../utils/formatTimeAgo";
 import formatDate from "../../../utils/formatDate";
 import noimage from "../../../assets/noimage.svg";
 
-function SharedCard({ card }) {
+interface StyledCardProps {
+  href: string;
+}
+
+interface Link {
+  id: number;
+  url: string;
+  imageSource: string;
+  title: string;
+  description: string;
+  createdAt: number;
+}
+
+interface SharedCardProps {
+  card: Link;
+}
+
+function SharedCard({ card }: SharedCardProps) {
   const timeAgo = formatTimeAgo(card.createdAt);
   const date = formatDate(card.createdAt);
 
@@ -13,7 +30,7 @@ function SharedCard({ card }) {
     <div>
       <StyledCard href={card.url} target="_blank" rel="noopener noreferrer">
         <StyledImgContainer>
-          <StyledCardImg src={card.imageSource || noimage} alt={card.title} type="card" />
+          <StyledCardImg src={card.imageSource || noimage} alt={card.title} />
         </StyledImgContainer>
         <StyledCardInfo>
           <StyledTimeAgo>{timeAgo}</StyledTimeAgo>
@@ -26,19 +43,19 @@ function SharedCard({ card }) {
 }
 
 function SharedCardList() {
-  const [folder, setFolder] = useState([]);
+  const [folder, setFolder] = useState<Link[]>([]);
 
   useEffect(() => {
     const handleFolder = async () => {
       const { folder } = await getSharedFolders();
-      setFolder(folder);
+      setFolder(folder.links);
     };
     handleFolder();
   }, []);
 
   return (
     <StyledCards>
-      {folder.links?.map((card) => {
+      {folder.map((card) => {
         return <SharedCard key={card.id} card={card} />;
       })}
     </StyledCards>
@@ -51,7 +68,7 @@ const StyledImgContainer = styled.div`
   overflow: hidden;
 `;
 
-const StyledCard = styled.a`
+const StyledCard = styled.a<StyledCardProps>`
   background-color: var(--white-color);
   position: relative;
   display: flex;

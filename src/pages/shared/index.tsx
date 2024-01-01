@@ -1,24 +1,20 @@
-import { useParams } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
 import Gnb from "../../components/commons/Gnb";
-import AddLink from "../../components/domains/folder/AddLink";
+import Profile from "../../components/domains/shared/Profile";
 import SearchBar from "../../components/commons/SearchBar";
-import FolderLists from "../../components/domains/folder/FolderLists";
+import SharedCardList from "../../components/domains/shared/SharedCardList";
 import Footer from "../../components/commons/Footer";
-import FolderAddButton from "../../components/domains/folder/FolderAddButton";
 
-function FolderPage() {
-  const { folderId } = useParams();
-
+function SharedPage() {
   return (
     <>
       <Gnb />
       <main>
-        <AddLink folderId={folderId} />
+        <Profile />
         <StyledFolder>
-          <SearchBar />
-          <FolderLists folderId={folderId} />
-          <FolderAddButton folderId={folderId} />
+          {/* <SearchBar /> */}
+          <SharedCardList />
         </StyledFolder>
       </main>
       <Footer />
@@ -26,7 +22,7 @@ function FolderPage() {
   );
 }
 
-export default FolderPage;
+export default SharedPage;
 
 const StyledFolder = styled.div`
   max-width: 106rem;

@@ -1,8 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-function FolderButton({ folderId, folderName, onFolderClick }) {
-  const [isActive, setIsActive] = useState(false);
+interface FolderButtonProps {
+  folderName: string;
+  folderId?: number;
+  onFolderClick: (folder: { folderId: number; folderName: string }) => void;
+  isActive?: boolean;
+}
+
+function FolderButton({ folderId, folderName, onFolderClick }: FolderButtonProps) {
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const handleFolderClick = () => {
     setIsActive(!isActive);
