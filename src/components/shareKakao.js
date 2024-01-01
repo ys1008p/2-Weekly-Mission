@@ -2,14 +2,14 @@ export const shareKakao = () => {
   if (window.Kakao) {
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
-      kakao.init('javascript key');
+      kakao.init('abbd86379133e623416676a637862b22');
     }
 
     kakao.Link.sendDefault({
       objectType: "feed", 
       content: {
-        title: "제목입니다",
-        description: "설명란입니다",
+        title: "Linkbrary",
+        description: "세상의 모든 정보를 쉽게 저장하고 관리해 보세요",
         imageUrl:
           "https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png",
         link: {

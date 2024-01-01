@@ -100,7 +100,7 @@ function TabMenu({ menu, menuActive, handleClick, btnOption }) {
         </ul>
         <Button type="button" onClick={handleClickOpen}></Button>
       </TabMenuContainer>
-      <Modal $isOpen={isOpen} onClick={handleClickClose} add={add} menu={menu} />
+      <Modal $isOpen={isOpen} onClick={handleClickClose} add={add} menu={menu} menuActive={menuActive}/>
     </>
   );
 }

@@ -147,7 +147,7 @@ function getDateInfo({ createdAt }) {
   }
 }
 
-function CardList({ cardList, data, menu }) {
+function CardList({ cardList, data, menu, menuActive }) {
   const [isOpen, setIsOpen] = useState(null);
 
   const handleClickKebab = (e, id) => {
@@ -190,7 +190,7 @@ function CardList({ cardList, data, menu }) {
               </CreatedDate>
             </Text>
           </Link>
-          <PopOver $isOpen={card.id === isOpen} url={card.url} menu={menu}/>
+          <PopOver $isOpen={card.id === isOpen} url={card.url} menu={menu} menuActive={menuActive}/>
         </>
       ) : (
         <Link to={card.url} target="_blank" rel="noopener noreferrer">

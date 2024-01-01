@@ -117,6 +117,7 @@ function ButtonOption({ title, menuActive, btnOption, menu }) {
         folderRemove={mode === 'folderRemove'}
         title={title}
         menu={menu}
+        menuActive={menuActive}
       />
     </>
   );

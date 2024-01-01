@@ -66,10 +66,8 @@ function FolderPage() {
       </Helmet>
       <div className="container">
         <header>
-          <Nav
-            position={position}
-          />
-          <AddLinkBar menu={folderMenu}/>
+          <Nav position={position} />
+          <AddLinkBar menu={folderMenu} menuActive={menuActive} />
         </header>
         <div className="main">
           <SearchBar />
@@ -90,6 +88,7 @@ function FolderPage() {
             cardList={cardList}
             data={data}
             menu={folderMenu}
+            menuActive={menuActive}
           />
           <AddFolder />
         </div>

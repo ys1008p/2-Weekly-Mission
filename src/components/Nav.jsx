@@ -91,6 +91,7 @@ const Login = styled.div`
 function Nav({ position }) {
   const [profileImg, setProfileImg] = useState(null);
   const [profileEmail, setProfileEmail] = useState('');
+
   const [getProfile] = useAsync('/users', '/1', '', '');
 
   const handleLoadProfile = async () => {

@@ -84,7 +84,7 @@ const Button = styled.button`
   }
 `;
 
-function AddLinkBar({ menu }) {
+function AddLinkBar({ menu, menuActive }) {
   const [value, setValue] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [folderAdd, setFolderAdd] = useState(false);
@@ -121,6 +121,7 @@ function AddLinkBar({ menu }) {
         onClick={handleClickClose}
         folderAdd={folderAdd}
         menu={menu}
+        menuActive={menuActive}
       />
     </>
   );

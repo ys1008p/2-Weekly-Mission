@@ -99,6 +99,7 @@ const Sns = styled.ul`
 
   li {
     font-size: 1.3rem;
+    cursor: pointer;
 
     img {
       display: block;
@@ -165,9 +166,12 @@ const Count = styled.span`
   color: var(--gray60);
 `;
 
-function shareFacebook({ folderId }) {
+function shareFacebook({ menuActive, menu }) {
+  const userId = menu[0].user_id;
+  const host = window.location.href;
+
   let url = encodeURIComponent(
-    `http://localhost:3000/shared?user=1/&folderId=${folderId}`
+    `${host}/shared?user=${userId}/&folderId=${menuActive}`
   );
   let title = '페이스북';
   window.open(
@@ -179,7 +183,11 @@ function shareFacebook({ folderId }) {
 
 function Folder({ handleClickFolder, folderActive, menu }) {
   const folder = menu.map((folder) => (
-    <Item onClick={() => handleClickFolder(folder)} className={folderActive === folder ? 'active' : ''}>
+    <Item
+      key={folder.id}
+      onClick={() => handleClickFolder(folder)}
+      className={folderActive === folder ? 'active' : ''}
+    >
       <Name>{folder.name}</Name>
       <Count>{folder.link.count}개</Count>
     </Item>
@@ -200,6 +208,7 @@ function Modal({
   title,
   url,
   menu,
+  menuActive,
 }) {
   const [folderActive, setFolderActive] = useState('');
 
@@ -226,21 +235,23 @@ function Modal({
         {add || edit ? (
           <Input placeholder="내용 입력" />
         ) : (
-          <Text>
-            {LinkRemove
-              ? url
-              : folderAdd
-                ? '링크 주소'
-                : title}
-          </Text>
+          <Text>{LinkRemove ? url : folderAdd ? '링크 주소' : title}</Text>
         )}
         {folderAdd && (
           <FolderList>
-            <Folder folderActive={folderActive} handleClickFolder={handleClickFolder} menu={menu}/>
+            <Folder
+              folderActive={folderActive}
+              handleClickFolder={handleClickFolder}
+              menu={menu}
+            />
           </FolderList>
         )}
         {!share && (
-          <Button type="button" folderRemove={folderRemove}>
+          <Button
+            type="button"
+            folderRemove={folderRemove}
+            LinkRemove={LinkRemove}
+          >
             {add || folderAdd
               ? '추가하기'
               : folderRemove || LinkRemove
@@ -250,16 +261,18 @@ function Modal({
         )}
         {share && (
           <Sns>
-            <li onClick={shareKakao}>
-              <img src={kakao} alt="카카오톡" />
+            <li>
+              <img src={kakao} alt="카카오톡" onClick={shareKakao} />
               카카오톡
             </li>
-            <li
-              onClick={() => {
-                shareFacebook();
-              }}
-            >
-              <img src={facebook} alt="페이스북" />
+            <li>
+              <img
+                src={facebook}
+                alt="페이스북"
+                onClick={() => {
+                  shareFacebook({ menuActive, menu });
+                }}
+              />
               페이스북
             </li>
             <li>
