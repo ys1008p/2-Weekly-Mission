@@ -42,7 +42,7 @@ const StyledBtn = styled.button`
   cursor: pointer;
 `;
 
-function LinkSearchInput({ setSearchLinkValue, value }) {
+function LinkSearchInput({ setSearchLinkValue, value, setRef }) {
   const handleSearchValue = (e) => {
     setSearchLinkValue(e.target.value);
   };
@@ -52,7 +52,7 @@ function LinkSearchInput({ setSearchLinkValue, value }) {
   };
 
   return (
-    <StyledForm>
+    <StyledForm ref={setRef}>
       <StyledLinkSearchInput
         type="text"
         placeholder="링크를 검색해보세요."

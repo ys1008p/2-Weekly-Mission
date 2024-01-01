@@ -62,17 +62,12 @@ const StyledHeaderSectionButton = styled.button`
   cursor: pointer;
 `;
 
-function HeaderSearchSection() {
+function HeaderSearchSection({ setRef }) {
   return (
-    <StyledHeaderSectionContainer>
+    <StyledHeaderSectionContainer ref={setRef}>
       <StyledHeaderSectionForm>
-        <StyledHeaderSectionInput
-          type="text"
-          placeholder="링크를 추가해 보세요"
-        />
-        <StyledHeaderSectionButton type="submit">
-          추가하기
-        </StyledHeaderSectionButton>
+        <StyledHeaderSectionInput type="text" placeholder="링크를 추가해 보세요" />
+        <StyledHeaderSectionButton type="submit">추가하기</StyledHeaderSectionButton>
       </StyledHeaderSectionForm>
     </StyledHeaderSectionContainer>
   );

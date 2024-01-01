@@ -62,18 +62,16 @@ const StyledFooterIconContainer = styled.div`
   }
 `;
 
-function Footer() {
+function Footer({ setRef }) {
   return (
-    <StyledFooterContainer>
+    <StyledFooterContainer ref={setRef}>
       <StyledFooterItemContainer>
         <StyledFooterSrc>
           <p>©codeit - 2023</p>
         </StyledFooterSrc>
 
         <StyledFooterGuideContainer>
-          <StyledFooterGuideLink href="/privacy">
-            Privacy Policy
-          </StyledFooterGuideLink>
+          <StyledFooterGuideLink href="/privacy">Privacy Policy</StyledFooterGuideLink>
           <StyledFooterGuideLink href="/faq">FAQ</StyledFooterGuideLink>
         </StyledFooterGuideContainer>
 

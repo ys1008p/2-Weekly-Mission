@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { getUserData } from "./api/getUserData";
 import GlobalStyle from "./GlobalStyles";
@@ -22,7 +22,8 @@ function App() {
   const [selectPersonalLinkData, setSelectPersonalLinkData] = useState([]); // 선택한 버튼의 폴더 데이터
   const [folderId, setFolderId] = useState(); // 전역사용 O
   const [folderName, setFolderName] = useState(); // 전역사용 O
-  const [searchLinkValue, setSearchLinkValue] = useState(""); // 링크검색데이터
+  const [searchLinkValue, setSearchLinkValue] = useState(""); // 링크검색데이터\
+  const footerRef = useRef();
   const location = useLocation();
 
   const handleData = (data) => {
@@ -118,6 +119,7 @@ function App() {
               folderName={folderName}
               setSearchLinkValue={setSearchLinkValue}
               searchLinkValue={searchLinkValue}
+              footerRef={footerRef}
             />
           }
         >
@@ -141,7 +143,7 @@ function App() {
         {/* ========================================== */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <Footer />
+      <Footer setRef={footerRef} />
     </>
   );
 }
