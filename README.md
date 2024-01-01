@@ -10,30 +10,47 @@
   <br>
 </div>
 
-## 1-1. 디렉토리설명
+## 1. 폴더구조
 
-> 모든 디렉토리의 구조를 변경하였습니다.
+├── public  
+├── src  
+│ ├── api  
+│ ├── component  
+│ ├── img  
+│ ├── utils  
+│ ├── App.jsx  
+│ ├── GloStyles.jsx  
+│ ├── index.js  
+└── README.md
 
-**ㅁ api**
+### 1-1. api
 
-- 서버통신을 위한 api 함수들을 모아놓았습니다. 추가로 중첩된 컴포넌트의 유용한 사용을 위하여 데이터의 key 이름을 통일화시켜주는 함수도 추가되었습니다.
+- copyClipBoard : 링크 클립보드복사용 api
+- dataTransform : 폴더의 객체 프로퍼티와 폴더안의 링크 객체 프로퍼티 필터링을 위한 데이터이름 통일용 함수
+- getShareCardData : shared 페이지의 카드데이터 가져오는 api
+- getUserCardData : 유저데이터 가져오는 api
+- getUserPersoanlLinkDataCardData : 개인폴더의 링크(카드) 데이터 가져오는 api
+- getUserPersonalFolderData : 개인폴더 데이터 가져오는 api
 
-**ㅁ component**
+### 1-2. component
 
-- page 단위가 아닌 page에 사용되는 item컴포넌트들을 모아놓은 디렉토리입니다.
-
-**ㅁ img**
-
-- 컴포넌트에 사용할 이미지들을 모아놓은 디렉토리입니다. 원래 public/img를 사용하고 싶었으나 import로는 절대경로 참조를 못한다는 오류가 표시되어 디렉토리위치를 옮기게 되었습니다.
-- 원래 이미지 디렉토리에도 디렉토리별로 쓸 이미지 구조별로 나누려고했는데 시간도 시간이고 너무 힘들어서 ... 이건 다음미션에 하겠습니다 ㅎㅎ...
-
-**ㅁ pages**
-
-- 라우터로 렌더링될 페이지들을 디렉토리입니다.
-
-**ㅁ utils**
-
-- 유틸리티 함수들을 모아놓은 디렉토리입니다.
+- loding : 로딩용 컴포넌트
+- Card : 카드 컴포넌트
+- CardList : 카드 컴포넌트의 집합
+- CardPopOver : 카드 컴포넌트의 PopOver 컴포넌트
+- FolderFilterButton : 폴더명을 렌더링해주는 컴포넌트
+- FolderFilterButtonList : 각 폴더명과 폴더추가+ 버튼을 담고있는 컴포넌트
+- FolderSiderbar : 클릭한 폴더의 이름 , '공유', '이름변경', '삭제' 버튼을 포함하는 컴포넌트
+- Footer : 하단의 Footer 컴포넌트
+- HeaderFolderSection : shared 페이지의 사용자 정보 컴포넌트
+- HeaderSearchSection : Folder 페이지의 링크를 추가해보세요 인풋 컴포넌트
+- LinkNotFound : Folder 페이지의 폴더에 데이터가 없을시 나타날 컴포넌트
+- LinkSearchInput : Folder 페이지의 링크검색인풋 컴포넌트
+- MainContainer : 각 페이지 Main 의 기본 컨테이너
+- Modal : 모달창 컨테이너 컴포넌트
+- Navbar : 네브바 컴포넌트
+- NotFoundPage : 404 페이지 컴포넌트
+- TestLanding : Link | Folder Page로 이동하는 테스트용 렌딩페이지 컴포넌트
 
 ## 1-2. 기능구현 목록
 
@@ -54,12 +71,14 @@
 - [ ] Week 4
 - [ ] Week 5
 - [ ] Week 6
-- [x] Week 7
+- [ ] Week 7
 - [ ] Week 8
 - [ ] Week 9
 - [ ] Week 10
-- [ ] Week 11
+- [x] Week 11
 - [ ] Week 12
+- [ ] Week 13
+- [ ] Week 14
 
 ## 3. 스스로 생각하는 개선점 및 질문
 
