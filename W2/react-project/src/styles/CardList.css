@@ -22,6 +22,9 @@
   width: 100%;
   height: 60%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-image{
@@ -32,10 +35,12 @@
   overflow: hidden;
   transition: all 0.3s;
 }
+
 .time-age{
   font-size: 1rem;
   margin: 0
 }
+
 
 .card .card-text {
   font-size: 1rem;
@@ -64,10 +69,13 @@
 .time-createdAt{
   margin: 0
 }
+
 .kebab-display{
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
+
 .kebab-icon{
   border: none;
 }
