@@ -1,12 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './Modal.module.css';
 
 function Modal({ children, id, onRemove }) {
-  const [isOpen, setIsOpen] = useState(true);
   const ref = useRef();
 
   const handleClickClose = () => {
-    setIsOpen(false);
     onRemove(id);
   };
 
@@ -19,14 +17,12 @@ function Modal({ children, id, onRemove }) {
       rect.top > e.clientY ||
       rect.bottom < e.clientY
     ) {
-      setIsOpen(false);
       onRemove(id);
     }
   };
 
   const handleKeydownEsc = (e) => {
     if (e.keyCode === 27) {
-      setIsOpen(false);
       onRemove(id);
     }
   };
@@ -36,16 +32,18 @@ function Modal({ children, id, onRemove }) {
       ref.current.showModal();
       document.addEventListener('keydown', handleKeydownEsc);
       // document.addEventListener('click', handleClickOutside);
+      document.body.style = `overflow: hidden`;
     }
 
     return () => {
+      document.removeEventListener('keydown', handleKeydownEsc);
+      // document.removeEventListener('click', handleClickOutside);
+      document.body.style = `overflow: auto`;
       if (ref.current) {
         ref.current.close();
-        document.removeEventListener('keydown', handleKeydownEsc);
-        // document.removeEventListener('click', handleClickOutside);
       }
     };
-  }, [isOpen]);
+  }, [id]);
 
   return (
     <dialog ref={ref} className={styles.modal}>
