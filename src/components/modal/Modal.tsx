@@ -1,15 +1,21 @@
-import { useEffect, useRef } from 'react';
-import styles from './Modal.module.css';
+import styles from '@/components/modal/Modal.module.css';
+import { MouseEvent, ReactNode, useEffect, useRef } from 'react';
 
-function Modal({ children, id, onRemove }) {
-  const ref = useRef();
+interface Props {
+  id: string;
+  children: ReactNode;
+  onRemove: (id: string) => void;
+}
+
+function Modal({ children, id, onRemove }: Props) {
+  const ref = useRef<HTMLDialogElement>(null);
 
   const handleClickClose = () => {
     onRemove(id);
   };
 
-  const handleClickOutside = (e) => {
-    const target = e.target;
+  const handleClickOutside = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
     const rect = target.getBoundingClientRect();
     if (
       rect.left > e.clientX ||
@@ -32,13 +38,13 @@ function Modal({ children, id, onRemove }) {
       ref.current.showModal();
       document.addEventListener('keydown', handleKeydownEsc);
       // document.addEventListener('click', handleClickOutside);
-      document.body.style = `overflow: hidden`;
+      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('keydown', handleKeydownEsc);
       // document.removeEventListener('click', handleClickOutside);
-      document.body.style = `overflow: auto`;
+      document.body.style.overflow = ' auto';
       if (ref.current) {
         ref.current.close();
       }

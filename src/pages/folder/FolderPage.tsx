@@ -6,12 +6,14 @@ import CommonPageLayout from '@/components/layout/CommonPageLayout';
 import { useSetIsGnbFixed } from '@/contexts/LayoutContext';
 import { useSetUser } from '@/contexts/UserContext';
 
+import { Folder } from '@/types/folder';
+
 import FolderHeader from './FolderHeader';
 import FolderMain from './FolderMain';
 import { getFolders, getUser } from './api';
 
 function FolderPage() {
-  const [folders, setFolders] = useState([]);
+  const [folders, setFolders] = useState<Folder[]>([]);
   const setUser = useSetUser();
   const setIsGnbFixed = useSetIsGnbFixed();
 

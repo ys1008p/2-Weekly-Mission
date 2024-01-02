@@ -4,9 +4,9 @@ import { LayoutStatusProvider } from '@/contexts/LayoutContext';
 import { ModalProvider } from '@/contexts/ModalContext';
 import { UserProvider } from '@/contexts/UserContext';
 
-import FolderPage from './pages/folder/FolderPage';
-import LandingPage from './pages/landing/LandingPage';
-import SharedPage from './pages/shared/SharedPage';
+import FolderPage from '@/pages/folder/FolderPage';
+import LandingPage from '@/pages/landing/LandingPage';
+import SharedPage from '@/pages/shared/SharedPage';
 
 function App() {
   return (

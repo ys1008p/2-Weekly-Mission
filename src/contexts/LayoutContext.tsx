@@ -1,6 +1,14 @@
 import { createContext, useContext, useState } from 'react';
 
-const LayoutContext = createContext();
+interface LayoutContextValue {
+  isGnbFixed: boolean;
+  setIsGnbFixed: (bool: boolean) => void;
+}
+
+const LayoutContext = createContext<LayoutContextValue>({
+  isGnbFixed: true,
+  setIsGnbFixed: () => {},
+});
 
 function LayoutStatusProvider({ children }) {
   const [isGnbFixed, setIsGnbFixed] = useState(true);

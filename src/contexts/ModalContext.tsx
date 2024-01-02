@@ -1,24 +1,41 @@
 import Modal from '@/components/modal/Modal';
-import { createContext, useContext, useState } from 'react';
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 
-const ModalContext = createContext();
+type ModalType = {
+  id: string;
+  content: ReactNode;
+};
 
-export function ModalProvider({ children }) {
-  const [modals, setModals] = useState([]);
+interface ModalContextValue {
+  openModal: (content: ReactNode) => void;
+}
 
-  const openModal = (content) => {
+const ModalContext = createContext<ModalContextValue>({
+  openModal: () => {},
+});
+
+export function ModalProvider({ children }: { children: ReactNode }) {
+  const [modals, setModals] = useState<ModalType[]>([]);
+
+  const openModal = (content: ReactNode) => {
     const id = crypto.randomUUID();
     const newModal = { id, content };
     setModals((prevModals) => [...prevModals, newModal]);
   };
 
-  const closeModal = (id) => {
+  const closeModal = useCallback((id: string) => {
     setModals(
       modals.filter((modal) => {
         return modal.id !== id;
       }),
     );
-  };
+  }, []);
 
   return (
     <ModalContext.Provider value={{ openModal }}>
