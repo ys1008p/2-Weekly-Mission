@@ -7,10 +7,32 @@ import { SearchBar } from "../../ui/SearchBar";
 import { CardList } from "../../ui/CardList";
 import { useGetFolder } from "data-access/useGetFolder";
 import { ReadOnlyCard } from "../../ui/ReadOnlyCard";
+import { useState, useEffect } from "react";
 
 export const SharedPage = ({ folderInfo, searchBar, cardList }) => {
-  const { data } = useGetFolder();
+  const { loading, data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
+  const [filteredLinks, setFilteredLinks] = useState(links);
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearchFolder = () => {
+    const searchValueLower = searchValue.toLowerCase().split(" ");
+    const newFilteredLinks = links?.filter((link) =>
+      searchValueLower.some(
+        (value) =>
+          link.url.toLowerCase().includes(value) ||
+          (link.title && link.title.toLowerCase().includes(value)) ||
+          link.description.toLowerCase().includes(value)
+      )
+    );
+    setFilteredLinks(newFilteredLinks);
+  };
+
+  useEffect(() => {
+    if (!loading) {
+      handleSearchFolder();
+    }
+  }, [loading]);
 
   return (
     <Layout>
@@ -22,9 +44,13 @@ export const SharedPage = ({ folderInfo, searchBar, cardList }) => {
         />
         <div className="SharedPage-items">
           <Link to="/folder">folder가는 링크</Link>
-          <SearchBar />
+          <SearchBar
+            value={searchValue}
+            onChange={setSearchValue}
+            onEnterPressed={handleSearchFolder}
+          />
           <CardList>
-            {links?.map((link) => (
+            {filteredLinks?.map((link) => (
               <ReadOnlyCard key={link?.id} {...link} />
             ))}
           </CardList>

@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+## 요구사항
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 기본
 
-## Available Scripts
+- [ ] TypeScript를 활용해 프로젝트의 필요한 곳에 타입을 명시해 주세요.
+- [x] 검색어를 입력하면 현재 폴더에 있는 링크들 중 “url”, “title”, “description”에 검색어가 포함된 링크들만 필터해서 보이게 해주세요.
+- [x] x 버튼을 클릭하면 입력값이 없던 ui 상태로 돌아갑니다.
 
-In the project directory, you can run:
+### 심화
 
-### `npm start`
+- [ ] 상단에 있던 링크 추가하기 영역이 가려져 보이지 않을 때 최하단에 링크 추가하기 영역을 고정하도록 만들어 주세요.
+- [ ] 푸터가 시작되는 지점에서는 최하단에 고정된 링크 추가하기 영역이 보이지 않게 해주세요.(IntersectionObserver를 활용해 보세요.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 주요 변경사항
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- FolderPage, SharedPage, SearchBar 수
 
-### `npm test`
+## 스크린샷
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](/screenshots/folderPage.png)
+![image](/screenshots/folderPage2.png)
+![image](/screenshots/folderPage3.png)
 
-### `npm run build`
+## 멘토에게
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Cancle Button은 Google Font에서 임시로 가져온 svg를 사용했습니다.
+- Cancle Button을 눌렀을 때 handleSearchFolder도 실행되게 하고 싶었는데... 실행은 됐는데 비동기 관련해서 반응이 느린 것 같더라고요. 어떻게 해야할지 고민입니다.

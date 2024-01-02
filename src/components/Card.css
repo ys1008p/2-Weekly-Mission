@@ -16,16 +16,16 @@
   background-repeat: no-repeat;
 }
 
-.Card-contents{
+.Card-contents {
   display: flex;
   width: 340px;
   padding: 15px 20px;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-    
+
   border-radius: 0px 0px 15px 15px;
-  background: #FFF;
+  background: #fff;
 }
 
 .Card-info {
@@ -52,7 +52,7 @@
 .Card-text {
   height: 49px;
   align-self: stretch;
-  
+
   overflow: hidden;
   color: #000;
   text-overflow: ellipsis;
@@ -64,7 +64,7 @@
   line-height: 150%;
 }
 
-.Card-date{
+.Card-date {
   height: 19px;
   align-self: stretch;
   overflow: hidden;

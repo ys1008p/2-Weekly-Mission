@@ -1,6 +1,6 @@
-import "./Card.css";
-import kebab from "./images/kebab.svg";
-import sharedImage7 from "./images/shared-image-7.png";
+import './Card.css';
+import kebab from './images/kebab.svg';
+import sharedImage7 from './images/shared-image-7.png';
 
 function Card() {
   return (

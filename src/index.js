@@ -1,4 +1,10 @@
-import ReactDOM from "react-dom";
-import Main from "./Main";
+import ReactDOM from 'react-dom/client';
+import Main from './Main';
+import { Fragment } from 'react';
 
-ReactDOM.render(<Main />, document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Fragment>
+    <Main />
+  </Fragment>
+);
