@@ -44,7 +44,7 @@ const Skeleton = () => {
       <main>
         <div className='container share-wrapper'>
           <div className='skeleton-searchbar'></div>
-          <div className='cardItemWrapper'>
+          <div className='card-item-wrapper'>
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
               <SkeletonCardItem key={index} />
             ))}

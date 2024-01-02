@@ -27,14 +27,31 @@
 }
 
 /* --------- Btn style --------- */
+.btn-base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #f5f5f5;
+  padding: 16px 0;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+}
+
+.btn-size-lg {
+  width: 100%;
+}
+
 // [default]기본 버튼
 .btn-primary {
   @extend %btn-base;
+  @include text-style(16);
+
   color: $white;
   padding: 16px 0;
-
-  background: $gradation;
-  background-size: 200%;
 }
 
 @keyframes gradientAnimation {
@@ -46,6 +63,16 @@
   }
 }
 
+.btn-default {
+  width: 280px;
+
+  background: $gradation;
+  background-size: 200%;
+}
+
+.btn-remove {
+  background-color: $red;
+}
 // [아이콘 단일 버튼]
 .ic-btn {
   @extend %ic-button-base;

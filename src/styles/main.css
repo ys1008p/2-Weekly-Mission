@@ -1,17 +1,20 @@
 @charset "UTF-8";
 /* $browser-font-size = 16px * 62.5% = 10px */
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
 @font-face {
-  font-family: "linkbrary";
-  src: url("../assets/fonts/linkbrary.eot");
-  src: url("../assets/fonts/linkbrary.eot#iefix") format("embedded-opentype"), url("../assets/fonts/linkbrary.ttf") format("truetype"), url("../assets/fonts/linkbrary.woff") format("woff"), url("../assets/fonts/linkbrary.svg#linkbrary") format("svg");
+  font-family: 'linkbrary';
+  src: url('../assets/fonts/linkbrary.eot');
+  src: url('../assets/fonts/linkbrary.eot#iefix') format('embedded-opentype'),
+    url('../assets/fonts/linkbrary.ttf') format('truetype'),
+    url('../assets/fonts/linkbrary.woff') format('woff'),
+    url('../assets/fonts/linkbrary.svg#linkbrary') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 i {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "linkbrary" !important;
+  font-family: 'linkbrary' !important;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -23,139 +26,139 @@ i {
 }
 
 .ic-add:before {
-  content: "\e900";
+  content: '\e900';
   color: #6d6afe;
 }
 
 .ic-close:before {
-  content: "\e902";
+  content: '\e902';
   color: #9fa6b2;
 }
 
 .ic-codeit .path1:before {
-  content: "\e903";
+  content: '\e903';
   color: rgb(143, 0, 255);
 }
 
 .ic-codeit .path2:before {
-  content: "\e904";
+  content: '\e904';
   margin-left: -1em;
   color: rgb(255, 255, 255);
 }
 
 .ic-delete:before {
-  content: "\e905";
+  content: '\e905';
   color: #9fa6b2;
 }
 
 .ic-eye-off:before {
-  content: "\e906";
+  content: '\e906';
 }
 
 .ic-eye-on:before {
-  content: "\e907";
+  content: '\e907';
 }
 
 .ic-facebook-1:before {
-  content: "\e908";
+  content: '\e908';
   color: #fff;
 }
 
 .ic-facebook .path1:before {
-  content: "\e909";
+  content: '\e909';
   color: rgb(24, 119, 242);
 }
 
 .ic-facebook .path2:before {
-  content: "\e90a";
+  content: '\e90a';
   margin-left: -1em;
   color: rgb(255, 255, 255);
 }
 
 .ic-google .path1:before {
-  content: "\e90b";
+  content: '\e90b';
   color: rgb(255, 255, 255);
 }
 
 .ic-google .path2:before {
-  content: "\e90c";
+  content: '\e90c';
   margin-left: -1em;
   color: rgb(0, 0, 0);
 }
 
 .ic-instagram:before {
-  content: "\e90d";
+  content: '\e90d';
   color: #fff;
 }
 
 .ic-kakao .path1:before {
-  content: "\e90e";
+  content: '\e90e';
   color: rgb(245, 225, 75);
 }
 
 .ic-kakao .path2:before {
-  content: "\e90f";
+  content: '\e90f';
   margin-left: -1em;
   color: rgb(51, 29, 30);
 }
 
 .ic-kakao .path3:before {
-  content: "\e910";
+  content: '\e910';
   margin-left: -1em;
   color: rgb(51, 29, 30);
 }
 
 .ic-link:before {
-  content: "\e911";
+  content: '\e911';
   color: #6d6afe;
 }
 
 .ic-more:before {
-  content: "\e912";
+  content: '\e912';
 }
 
 .ic-pen:before {
-  content: "\e913";
+  content: '\e913';
   color: #9fa6b2;
 }
 
 .ic-profile .path1:before {
-  content: "\e914";
+  content: '\e914';
   color: rgb(109, 106, 254);
 }
 
 .ic-profile .path2:before {
-  content: "\e915";
+  content: '\e915';
   margin-left: -1em;
   color: rgb(255, 255, 255);
 }
 
 .ic-search:before {
-  content: "\e916";
+  content: '\e916';
   color: #666;
 }
 
 .ic-share:before {
-  content: "\e917";
+  content: '\e917';
   color: #9fa6b2;
 }
 
 .ic-star-default:before {
-  content: "\e918";
+  content: '\e918';
 }
 
 .ic-star-fill:before {
-  content: "\e919";
+  content: '\e919';
   color: #6d6afe;
 }
 
 .ic-twitter:before {
-  content: "\e91a";
+  content: '\e91a';
   color: #fff;
 }
 
 .ic-youtube:before {
-  content: "\e91b";
+  content: '\e91b';
   color: #fff;
 }
 
@@ -234,7 +237,7 @@ abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -333,9 +336,9 @@ select {
        * Correct the inability to style clickable types in iOS and Safari.
        */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -343,9 +346,9 @@ button,
        * Remove the inner border and padding in Firefox.
        */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -354,9 +357,9 @@ button::-moz-focus-inner,
        * Restore the focus styles unset by the previous rule.
        */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -403,8 +406,8 @@ textarea {
        * 1. Add the correct box sizing in IE 10.
        * 2. Remove the padding in IE 10.
        */
-[type=checkbox],
-[type=radio] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -412,8 +415,8 @@ textarea {
 /**
        * Correct the cursor style of increment and decrement buttons in Chrome.
        */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -421,7 +424,7 @@ textarea {
        * 1. Correct the odd appearance in Chrome and Safari.
        * 2. Correct the outline style in Safari.
        */
-[type=search] {
+[type='search'] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -429,7 +432,7 @@ textarea {
 /**
        * Remove the inner padding in Chrome and Safari on macOS.
        */
-[type=search]::-webkit-search-decoration {
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -477,18 +480,24 @@ template {
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   font-size: 62.5%;
 }
 
 body {
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   color: #373740;
 }
 
@@ -571,7 +580,8 @@ input:-webkit-autofill:active {
   padding: 0 6px;
   opacity: 0;
 }
-#skip_nav a:focus, #skip_nav a:active {
+#skip_nav a:focus,
+#skip_nav a:active {
   top: 0;
   z-index: 100;
   opacity: 1;
@@ -831,7 +841,7 @@ footer .social-list-item a:hover i::before {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .profile-name {
   font-size: 1.4rem;
@@ -853,7 +863,7 @@ footer .social-list-item a:hover i::before {
 .card-item-img {
   height: 200px;
   overflow: hidden;
-  background-image: url("../assets/images/empty-card-img.png");
+  background-image: url('../assets/images/empty-card-img.png');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -861,7 +871,7 @@ footer .social-list-item a:hover i::before {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform ease-in-out 0.4s;
 }
 .card-item-textBox {
@@ -999,7 +1009,7 @@ footer .social-list-item a:hover i::before {
   align-items: center;
   justify-content: center;
   -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .skeleton-banner-avatar {
   width: 60px;
@@ -1053,7 +1063,7 @@ footer .social-list-item a:hover i::before {
   width: 100%;
   height: 100%;
   -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .skeleton-desc-item {
   width: 100%;
@@ -1083,7 +1093,7 @@ footer .social-list-item a:hover i::before {
   border-radius: 4px;
   background-color: #e2e4f0;
   -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .skeleton-footer-item:nth-child(1) {
   width: 150px;
@@ -1190,7 +1200,7 @@ container-size·············100% - (32px * 2)
   height: 953px;
   text-align: center;
   background-color: #f0f6ff;
-  background-image: url("../assets/images/_img-mainBanner.png");
+  background-image: url('../assets/images/_img-mainBanner.png');
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: auto;
@@ -1230,7 +1240,7 @@ container-size·············100% - (32px * 2)
 }
 .landing-page .call-to-action .btn-signup:hover {
   -webkit-animation: gradientAnimation 2s linear infinite;
-          animation: gradientAnimation 2s linear infinite;
+  animation: gradientAnimation 2s linear infinite;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 @media screen and (max-width: 1199px) {
@@ -1296,7 +1306,7 @@ container-size·············100% - (32px * 2)
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media screen and (max-width: 1199px) {
   .landing-page .feature-wrapper {
@@ -1326,7 +1336,11 @@ container-size·············100% - (32px * 2)
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(99deg, #6d7ccd 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  background-image: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
 }
 .landing-page .feature-search .textbox-sub-title span {
   background-clip: text;
@@ -1492,20 +1506,20 @@ container-size·············100% - (32px * 2)
   margin-top: 12px;
 }
 
-.cardItemWrapper {
+.card-item-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 25px;
   -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 @media screen and (max-width: 1123px) {
-  .cardItemWrapper {
+  .card-item-wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (max-width: 767px) {
-  .cardItemWrapper {
+  .card-item-wrapper {
     grid-template-columns: 1fr;
   }
 }
@@ -1533,7 +1547,7 @@ container-size·············100% - (32px * 2)
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
-  background-image: url("../assets/images/folder-avatar-default.png");
+  background-image: url('../assets/images/folder-avatar-default.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1542,7 +1556,7 @@ container-size·············100% - (32px * 2)
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .folder-banner .folder-symbol span {
   font-size: 1.6rem;
@@ -1573,4 +1587,4 @@ container-size·············100% - (32px * 2)
     margin-top: 6px;
     display: block;
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

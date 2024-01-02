@@ -30,7 +30,7 @@ const Home = () => {
             <ButtonLink
               path={'/signup'}
               text={'링크 추가하기'}
-              className={'btn-signup'}
+              className={'btn-default btn-signup'}
             />
           </div>
         </section>

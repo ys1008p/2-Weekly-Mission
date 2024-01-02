@@ -1,6 +1,21 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+// [모달 기본 버튼]
+export const MyButton = ({ children, variant, size, ...props }) => {
+  return (
+    <button className={`btn-base btn-size-${size} btn-${variant}`} {...props}>
+      {children}
+    </button>
+  );
+};
+
+MyButton.propTypes = {
+  variant: PropTypes.string,
+  size: PropTypes.string,
+  children: PropTypes.node,
+};
+
 // [default]기본 버튼
 export const Button = ({
   text,

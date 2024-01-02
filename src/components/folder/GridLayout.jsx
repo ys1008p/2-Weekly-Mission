@@ -1,9 +1,10 @@
-import { CardItem } from './CardItem';
 import PropTypes from 'prop-types';
 
-export const GridLayout = ({ folderData }) => {
+import { CardItem } from './CardItem';
+
+export const GridLayout = ({ folderData, filterData }) => {
   return (
-    <div className='cardItemWrapper folder-link'>
+    <div className='card-item-wrapper folder-link'>
       {folderData.map((item) => (
         <CardItem
           key={item.id}
@@ -12,6 +13,7 @@ export const GridLayout = ({ folderData }) => {
           title={item.title}
           created_at={item.created_at}
           description={item.description}
+          filterData={filterData}
         />
       ))}
     </div>
@@ -20,4 +22,5 @@ export const GridLayout = ({ folderData }) => {
 
 GridLayout.propTypes = {
   folderData: PropTypes.array.isRequired,
+  filterData: PropTypes.array,
 };

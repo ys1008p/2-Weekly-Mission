@@ -37,7 +37,11 @@ export const Header = () => {
         {isLoggedIn ? (
           <Profile profileData={profileData} />
         ) : (
-          <ButtonLink path={'/signin'} text='로그인' className={'btn-login'} />
+          <ButtonLink
+            path={'/signin'}
+            text='로그인'
+            className={'btn-default btn-login'}
+          />
         )}
       </div>
     </header>

@@ -14,6 +14,9 @@ import emptyAvatar from '../assets/images/icon/codeit.svg';
 import favoriteDefault from '../assets/images/icon/star-default.svg';
 import favoriteActive from '../assets/images/icon/star-active.svg';
 import liked from '../assets/images/icon/link.svg';
+import kakao from '../assets/images/icon/kakao.svg';
+import facebook from '../assets/images/icon/facebook.svg';
+import linkcopy from '../assets/images/icon/link.svg';
 
 export const FLOATING_BUTTON_POSITION = 101;
 
@@ -26,8 +29,16 @@ export const ROUTER_PATH = {
 };
 
 export const SELECT_MENU = [
-  { id: 1, name: '삭제하기' },
-  { id: 2, name: '폴더에 추가' },
+  {
+    id: 1,
+    name: '삭제하기',
+    type: 'remove',
+  },
+  {
+    id: 2,
+    name: '폴더에 추가',
+    type: 'add',
+  },
 ];
 
 export const FOOTER_SOCIAL_LIST = [
@@ -131,5 +142,19 @@ export const ICON = {
   liked: {
     url: liked,
     alt: '링크 추가하기 아이콘',
+  },
+  shared: {
+    kakao: {
+      url: kakao,
+      alt: '카카오톡 심볼 아이콘',
+    },
+    facebook: {
+      url: facebook,
+      alt: '페이스북 심볼 아이콘',
+    },
+    linkcopy: {
+      url: linkcopy,
+      alt: '링크 아이콘',
+    },
   },
 };
