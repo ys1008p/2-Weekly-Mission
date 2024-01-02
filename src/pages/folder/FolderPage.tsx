@@ -18,24 +18,13 @@ function FolderPage() {
 
   useEffect(() => {
     setIsGnbFixed(false);
-  });
 
-  useEffect(() => {
-    async function fetchUser() {
-      const userResponse = await getUser();
-      setUser(userResponse.data[0]);
-    }
-
-    fetchUser();
-  }, []);
-
-  useEffect(() => {
-    async function fetchFolders() {
-      const folderResponse = await getFolders();
-      setFolders(folderResponse.data);
-    }
-
-    fetchFolders();
+    Promise.all([getUser(), getFolders()]).then(
+      ([userResponse, folderResponse]) => {
+        setUser(userResponse.data[0]);
+        setFolders(folderResponse.data);
+      },
+    );
   }, []);
 
   return (

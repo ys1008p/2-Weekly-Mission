@@ -1,7 +1,10 @@
+import { useState } from 'react';
+
 import Cta from '@/components/Cta';
 import CommonModal from '@/components/modal/CommonModal';
+
 import { useModal } from '@/contexts/ModalContext';
-import { useState } from 'react';
+
 import style from './FolderHeader.module.css';
 
 function FolderHeader({ folders }) {
