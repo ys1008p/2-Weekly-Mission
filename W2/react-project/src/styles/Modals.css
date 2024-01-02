@@ -1,7 +1,8 @@
 
 
 .modal-container{
-  display: inline-flex;
+  position: absolute;
+  display: flex;
   padding: 3.2rem 4rem;
   flex-direction: column;
   justify-content: center;
@@ -10,8 +11,10 @@
   border-radius: 1.5rem;
   border: 1px solid  #CCD5E3;
   background: #FFF;
-  position: absolute;
-
+  top: 37rem;
+  right: 54rem;
+  left: 54rem;
+  z-index: 1;
 }
 
 .modal-title{

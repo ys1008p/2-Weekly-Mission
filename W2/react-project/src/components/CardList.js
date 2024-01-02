@@ -11,9 +11,12 @@ function formatDate(value) {
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
+/* 1. 케밥버튼이 눌렸을 때 뜨는 창이 z-index 사용하거나 위치를 이동시켜도 계속해서 카드 프레임 위로 뜨지 않고 경계선만큼 잘려서 보입니다. */
+
 function CardListItem({item}){
 
   const {created_at, description, image_source, url, title  } = item;
+
   const [kebabClicked, setKebabClicked]= useState(false);
 
   const handleClick = () => {
