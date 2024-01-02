@@ -1,5 +1,6 @@
 .searchBar {
   display: flex;
+  position: relative;
   padding: 1.5rem;
   border-radius: 1rem;
   background: #f5f5f5;
@@ -16,6 +17,16 @@
 .input {
   width: 100%;
   margin-left: 1rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: center / contain no-repeat url(/public/images/icons/close.svg);
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 767px) and (min-width: 375px) {

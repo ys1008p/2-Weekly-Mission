@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import SearchBar from '@/components/SearchBar';
 import CommonPageLayout from '@/components/layout/CommonPageLayout';
 
 import { useSetIsGnbFixed } from '@/contexts/LayoutContext';
@@ -41,10 +40,6 @@ function FolderPage() {
 
   return (
     <CommonPageLayout headerChildren={<FolderHeader folders={folders} />}>
-      <SearchBar
-        placeholder='링크를 검색해 보세요.'
-        className='main__content'
-      />
       <FolderMain folders={folders} className='main__content'></FolderMain>
     </CommonPageLayout>
   );

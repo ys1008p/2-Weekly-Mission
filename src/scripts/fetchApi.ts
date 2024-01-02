@@ -1,7 +1,7 @@
 const BASE_URL = 'https://bootcamp-api.codeit.kr/api';
 
 const fetchApi = {
-  request: async function (url, { options = {} } = {}) {
+  request: async function (url: string, { options = {} } = {}) {
     try {
       const accessToken = localStorage.getItem('accessToken');
       const response = await fetch(`${BASE_URL}${url}`, {
@@ -17,7 +17,8 @@ const fetchApi = {
       if (!response.ok) {
         throw {
           name: result?.error?.name || 'Error',
-          message: result?.error?.message || `HTTP error! status: ${response.status}`,
+          message:
+            result?.error?.message || `HTTP error! status: ${response.status}`,
         };
       }
 
@@ -27,7 +28,7 @@ const fetchApi = {
     }
   },
 
-  post: async function (url, { body, headers = {} }) {
+  post: async function (url: string, { body, headers = {} }) {
     const options = {
       method: 'POST',
       body: JSON.stringify(body),
@@ -41,7 +42,7 @@ const fetchApi = {
     return result;
   },
 
-  get: async function (url, { headers } = {}) {
+  get: async function (url: string, { headers = {} } = {}) {
     const options = {
       method: 'GET',
       headers: {
