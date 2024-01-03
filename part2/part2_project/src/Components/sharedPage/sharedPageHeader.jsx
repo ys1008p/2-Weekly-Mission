@@ -1,6 +1,6 @@
-import "../css/Header.css";
+import '../../css/Header.css';
 
-export default function Header({ userInfo }) {
+export default function SharedPageHeader({ userInfo }) {
   return (
     userInfo && (
       <header className="memHeader">
