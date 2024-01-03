@@ -7,8 +7,9 @@ import twitter from "../assets/twitter.svg";
 function Footer() {
   return (
     <footer>
-      <div className="footer-box">
-        <span className="copyright">©codeit - 2023</span>
+      <div className="footer-container">
+      <div className='footer-box'>
+        <section className="copyright">©codeit - 2023</section>
         <div className="footer-links">
           <a className="footer-link" href="privacy.html">
             Privacy Policy
@@ -30,6 +31,7 @@ function Footer() {
           <a href="https://www.instagram.com/">
             <img src={instagram} alt="sns" />
           </a>
+          </div>
         </div>
       </div>
     </footer>
