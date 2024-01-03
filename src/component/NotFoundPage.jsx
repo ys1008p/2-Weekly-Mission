@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+function NotFoundPage() {
+  return (
+    <StyledNotFoundPageContainer>
+      <StyledNotFoundPageH2>404 NOTFOUND ! </StyledNotFoundPageH2>
+      <StyledNotFoundPageP>죄송합니다! 페이지를 찾을수 없습니다.</StyledNotFoundPageP>
+    </StyledNotFoundPageContainer>
+  );
+}
+
 const StyledNotFoundPageContainer = styled.div`
   display: flex;
   height: 100vh;
@@ -22,15 +31,5 @@ const StyledNotFoundPageP = styled.p`
   font-weight: 400;
   color: white;
 `;
-function NotFoundPage() {
-  return (
-    <StyledNotFoundPageContainer>
-      <StyledNotFoundPageH2>404 NOTFOUND ! </StyledNotFoundPageH2>
-      <StyledNotFoundPageP>
-        죄송합니다! 페이지를 찾을수 없습니다.
-      </StyledNotFoundPageP>
-    </StyledNotFoundPageContainer>
-  );
-}
 
 export default NotFoundPage;

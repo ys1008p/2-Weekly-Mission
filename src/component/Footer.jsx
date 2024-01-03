@@ -4,6 +4,38 @@ import twitterIcon from "../img/akar-icons_twitter-fill.svg";
 import youtubeIcon from "../img/akar-icons_youtube-fill.svg";
 import instagramIcon from "../img/ant-design_instagram-filled.svg";
 
+function Footer({ setRef }) {
+  return (
+    <StyledFooterContainer ref={setRef}>
+      <StyledFooterItemContainer>
+        <StyledFooterSrc>
+          <p>©codeit - 2023</p>
+        </StyledFooterSrc>
+
+        <StyledFooterGuideContainer>
+          <StyledFooterGuideLink href="/privacy">Privacy Policy</StyledFooterGuideLink>
+          <StyledFooterGuideLink href="/faq">FAQ</StyledFooterGuideLink>
+        </StyledFooterGuideContainer>
+
+        <StyledFooterIconContainer>
+          <a href="https://www.facebook.com" rel="noopener noreferrer">
+            <img src={facebookIcon} alt="facebook_icon" />
+          </a>
+          <a href="https://www.twitter.com" rel="noopener noreferrer">
+            <img src={twitterIcon} alt="twitter_icon" />
+          </a>
+          <a href="https://www.youtube.com" rel="noopener noreferrer">
+            <img src={youtubeIcon} alt="youtube_icon" />
+          </a>
+          <a href="https://www.instagram.com" rel="noopener noreferrer">
+            <img src={instagramIcon} alt="instagram_icon" />
+          </a>
+        </StyledFooterIconContainer>
+      </StyledFooterItemContainer>
+    </StyledFooterContainer>
+  );
+}
+
 const StyledFooterContainer = styled.footer`
   background-color: #111322;
   padding: 3.2rem 10.4rem 6.4rem;
@@ -61,39 +93,5 @@ const StyledFooterIconContainer = styled.div`
     justify-content: space-between;
   }
 `;
-
-function Footer() {
-  return (
-    <StyledFooterContainer>
-      <StyledFooterItemContainer>
-        <StyledFooterSrc>
-          <p>©codeit - 2023</p>
-        </StyledFooterSrc>
-
-        <StyledFooterGuideContainer>
-          <StyledFooterGuideLink href="/privacy">
-            Privacy Policy
-          </StyledFooterGuideLink>
-          <StyledFooterGuideLink href="/faq">FAQ</StyledFooterGuideLink>
-        </StyledFooterGuideContainer>
-
-        <StyledFooterIconContainer>
-          <a href="https://www.facebook.com" rel="noopener noreferrer">
-            <img src={facebookIcon} alt="facebook_icon" />
-          </a>
-          <a href="https://www.twitter.com" rel="noopener noreferrer">
-            <img src={twitterIcon} alt="twitter_icon" />
-          </a>
-          <a href="https://www.youtube.com" rel="noopener noreferrer">
-            <img src={youtubeIcon} alt="youtube_icon" />
-          </a>
-          <a href="https://www.instagram.com" rel="noopener noreferrer">
-            <img src={instagramIcon} alt="instagram_icon" />
-          </a>
-        </StyledFooterIconContainer>
-      </StyledFooterItemContainer>
-    </StyledFooterContainer>
-  );
-}
 
 export default Footer;

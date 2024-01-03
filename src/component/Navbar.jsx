@@ -2,6 +2,33 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logoIcon from "../img/logo.png";
 
+function Navbar({ userData, location }) {
+  const { email, image_source } = userData;
+
+  const isSharedPath = location.pathname === "/shared";
+
+  return (
+    <>
+      <StyledNavbarContainer $isActiveFixed={isSharedPath}>
+        <StyledNavItem>
+          <Link to="/">
+            <StyledNavLogo src={logoIcon} alt="logo" />
+          </Link>
+
+          {userData?.id ? (
+            <StyledNavProfile>
+              <StyledNavProfileImg src={image_source} alt="profile-img" />
+              <StyledNavProfileEmail>{email}</StyledNavProfileEmail>
+            </StyledNavProfile>
+          ) : (
+            <StyledNavLoginBtn>로그인</StyledNavLoginBtn>
+          )}
+        </StyledNavItem>
+      </StyledNavbarContainer>
+    </>
+  );
+}
+
 const StyledNavbarContainer = styled.nav`
   background-color: #f0f6ff;
   margin: 0 auto;
@@ -9,8 +36,7 @@ const StyledNavbarContainer = styled.nav`
   width: 100%;
   top: 0;
   left: 50%;
-  transform: ${({ $isActiveFixed }) =>
-    $isActiveFixed ? "translate(-50%, 0);" : "none"};
+  transform: ${({ $isActiveFixed }) => ($isActiveFixed ? "translate(-50%, 0);" : "none")};
   z-index: 99;
 `;
 
@@ -62,38 +88,5 @@ const StyledNavLoginBtn = styled.button`
   font-weight: 600;
   cursor: pointer;
 `;
-
-function Navbar({ userData, location }) {
-  const { email, image_source } = userData;
-
-  const getPathname = location.pathname === "/shared";
-
-  return (
-    <>
-      <StyledNavbarContainer $isActiveFixed={getPathname}>
-        <StyledNavItem>
-          <Link to="/">
-            <StyledNavLogo
-              src={logoIcon}
-              alt="logo"
-              className="nav-item-logo"
-            />
-          </Link>
-
-          {userData?.id ? (
-            <StyledNavProfile>
-              <StyledNavProfileImg src={image_source} alt="profile-img" />
-              <StyledNavProfileEmail>{email}</StyledNavProfileEmail>
-            </StyledNavProfile>
-          ) : (
-            <StyledNavLoginBtn className="nav-login-btn">
-              로그인
-            </StyledNavLoginBtn>
-          )}
-        </StyledNavItem>
-      </StyledNavbarContainer>
-    </>
-  );
-}
 
 export default Navbar;

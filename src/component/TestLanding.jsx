@@ -1,6 +1,23 @@
 import { Link } from "react-router-dom";
-
 import styled from "styled-components";
+
+function Test() {
+  return (
+    <Container>
+      <Div>
+        <Link to="/shared">
+          <Button>shared</Button>
+        </Link>
+        <Link to="folder">
+          <Button>folder</Button>
+        </Link>
+      </Div>
+      <Div>
+        <H2>해당 페이지는 테스트용 렌딩페이지입니다 미션과 무관합니다.</H2>
+      </Div>
+    </Container>
+  );
+}
 
 const Div = styled.div`
   display: flex;
@@ -25,23 +42,5 @@ const Button = styled.button`
 const H2 = styled.h2`
   font-size: 3rem;
 `;
-
-function Test() {
-  return (
-    <Container>
-      <Div>
-        <Link to="/shared">
-          <Button>shared</Button>
-        </Link>
-        <Link to="folder">
-          <Button>folder</Button>
-        </Link>
-      </Div>
-      <Div>
-        <H2>해당 페이지는 테스트용 렌딩페이지입니다 미션과 무관합니다.</H2>
-      </Div>
-    </Container>
-  );
-}
 
 export default Test;
