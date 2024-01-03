@@ -26,14 +26,12 @@ function Folder() {
   });
   const [search, setSearch] = useState<string>("");
   const [filteredLinks, setFilteredLinks] = useState<FolderLink[]>([]);
+  const [isInterSecting, setIsIntersecting] = useState<boolean>(false);
 
   const ref = useRef<HTMLDivElement>(null);
   const pageEndRef = useRef<HTMLDivElement>(null);
 
-  const [isInterSecting, setIsIntersecting] = useState<boolean>(false);
-
   const { onModal, currentType, onClose, toggleModal } = useHandleModal();
-
   const { data } = useFetcher<FolderData[]>("folder", getFolderList);
 
   const onClick = async (name: string, folderId?: number) => {

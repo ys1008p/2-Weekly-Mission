@@ -24,8 +24,6 @@ function Share() {
       return;
     }
 
-    window.Kakao.init(process.env.KAKAO_KEY);
-
     window.Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
@@ -57,7 +55,7 @@ function Share() {
 
   useEffect(() => {
     if (window.Kakao && !window.Kakao.isInitialized()) {
-      window.Kakao.init(process.env.KAKAO_KEY);
+      window.Kakao.init(process.env.REACT_APP_ACCESS_KEY);
     }
   }, []);
 

@@ -14,8 +14,6 @@ function Shared() {
   const links = data?.links as ShardLink[];
 
   useEffect(() => {
-    //search가 변경될 때마다 디바운싱을 걸어 마지막 입력된 값을
-    //selected.links에서 filter를 검.
     const debounce = setTimeout(() => {
       if (search) {
         const filtered = links.filter(
