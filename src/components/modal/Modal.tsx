@@ -27,7 +27,7 @@ function Modal({ children, id, onRemove }: Props) {
     }
   };
 
-  const handleKeydownEsc = (e) => {
+  const handleKeydownEsc = (e: KeyboardEvent) => {
     if (e.keyCode === 27) {
       onRemove(id);
     }

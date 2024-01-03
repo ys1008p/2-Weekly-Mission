@@ -1,11 +1,5 @@
 import Modal from '@/components/modal/Modal';
-import {
-  ReactNode,
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 
 type ModalType = {
   id: string;
@@ -29,13 +23,13 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     setModals((prevModals) => [...prevModals, newModal]);
   };
 
-  const closeModal = useCallback((id: string) => {
+  const closeModal = (id: string) => {
     setModals(
       modals.filter((modal) => {
         return modal.id !== id;
       }),
     );
-  }, []);
+  };
 
   return (
     <ModalContext.Provider value={{ openModal }}>
