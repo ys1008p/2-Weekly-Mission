@@ -17,6 +17,7 @@ const ICON_MATCHER = {
 	star: "star",
 	kebab: "kebab-more",
 	add: "add",
+	close: "close",
 };
 
 interface Props extends ComponentPropsWithoutRef<"span"> {

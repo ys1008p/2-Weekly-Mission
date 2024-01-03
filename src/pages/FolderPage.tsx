@@ -28,21 +28,26 @@ export default function FolderPage() {
 		setSearchValue(userInput);
 	};
 
+	const handleResetSearchInput = () => {
+		setSearchValue("");
+	};
+
 	const searchedLinkList = useMemo(
 		() =>
 			linkList.filter(({ url, title, description }) =>
-				[url, title, description].some((t) => t.match(searchValue)),
+				[url, title, description].some((k) => k.match(searchValue)),
 			),
 		[linkList, searchValue],
 	);
-
-	console.log(searchedLinkList);
 
 	return (
 		<FolderLayout>
 			<main className="flex flex-[1] flex-col items-center gap-[3.2rem] px-[3.2rem] py-[2rem] tablet:gap-[4rem] tablet:py-[4rem]">
 				<section className="w-full max-w-[106rem]">
-					<SearchBar onChangeSearchInput={handleChangeSearchInput} />
+					<SearchBar
+						onChangeSearchInput={handleChangeSearchInput}
+						onResetSearchInput={handleResetSearchInput}
+					/>
 				</section>
 				<section className="flex w-full max-w-[106rem] flex-[1] flex-col gap-[2.4rem]">
 					<FolderTabMenuList

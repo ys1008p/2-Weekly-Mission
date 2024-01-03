@@ -1,16 +1,21 @@
 import Icon from "@/components/common/Icon";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 
 interface Props {
-	onChangeSearchInput: (userInput: string) => void;
+	onChangeSearchInput?: (userInput: string) => void;
+	onResetSearchInput?: () => void;
 }
 
-export default function SearchBar({ onChangeSearchInput }: Props) {
-	const [searchValue, setSearchValue] = useState("");
-
+export default function SearchBar({
+	onChangeSearchInput = () => {},
+	onResetSearchInput = () => {},
+}: Props) {
 	const handleChangeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
-		setSearchValue(e.target.value);
 		onChangeSearchInput(e.target.value);
+	};
+
+	const handleClickResetButton = () => {
+		onResetSearchInput();
 	};
 
 	return (
@@ -20,8 +25,14 @@ export default function SearchBar({ onChangeSearchInput }: Props) {
 				className="w-full bg-inherit text-[1.6rem] text-[#666] outline-none placeholder:text-[#666]"
 				placeholder="링크를 검색해 보세요."
 				onChange={handleChangeSearchInput}
-				value={searchValue}
 			/>
+			<button
+				type="button"
+				onClick={handleClickResetButton}
+				className="flex justify-center items-center"
+			>
+				<Icon name="close" className="w-[2.4rem] h-[2.4rem]" />
+			</button>
 		</div>
 	);
 }
