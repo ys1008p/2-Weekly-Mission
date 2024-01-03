@@ -3,7 +3,14 @@ import image1 from "../images/facebook.svg";
 import image2 from "../images/instagram.svg";
 import image3 from "../images/twitter.svg";
 import image4 from "../images/youtube.svg";
-import "../css/FooterLink.css";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const FooterLinkContainer = styled.div`
+  a {
+    padding-left: 12px;
+  }
+`;
 
 const ImageData = [
   {
@@ -30,13 +37,13 @@ const ImageData = [
 
 function FooterLink() {
   return (
-    <div className="FooterLink">
+    <FooterLinkContainer>
       {ImageData.map((image) => (
-        <a key={image.alt} href={image.link} target="_blank">
+        <Link to={image.link} key={image.alt} target="_blank">
           <img src={image.url} alt={image.alt} />
-        </a>
+        </Link>
       ))}
-    </div>
+    </FooterLinkContainer>
   );
 }
 export default FooterLink;
