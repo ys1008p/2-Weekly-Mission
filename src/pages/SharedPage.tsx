@@ -1,4 +1,3 @@
-import SearchBar from "@/components/common/SearchBar";
 import SharedLinkCardList from "@/components/shared/SharedLinkCardList";
 import SharedLayout from "@/components/shared/SharedLayout";
 import { useLoaderData, Await } from "react-router-dom";
@@ -7,7 +6,7 @@ import { Suspense } from "react";
 import { Folder } from "@/types/shared-type";
 
 export default function SharedPage() {
-	const { folder } = useLoaderData() as { folder: Folder };
+	const { folder } = useLoaderData() as { folder: Promise<Folder> };
 	useUserQuery(1);
 
 	return (
@@ -16,11 +15,11 @@ export default function SharedPage() {
 				{({ folder }) => (
 					<SharedLayout folder={folder}>
 						<main className="flex flex-col items-center gap-[3.2rem] px-[3.2rem] pb-[6rem] pt-[2rem] tablet:gap-[4rem] tablet:pb-[10rem] tablet:pt-[4rem]">
+							{/* <section className="w-full max-w-[106rem]">
+								<SearchBar onChangeSearchInput={handleChangeSearchInput} />
+							</section> */}
 							<section className="w-full max-w-[106rem]">
-								<SearchBar />
-							</section>
-							<section className="w-full max-w-[106rem]">
-								<SharedLinkCardList linkInfoList={folder.links} />
+								<SharedLinkCardList linkInfoList={folder.link} />
 							</section>
 						</main>
 					</SharedLayout>

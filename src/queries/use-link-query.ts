@@ -1,10 +1,36 @@
 import { getLinkList } from "@/apis/link-api";
+import { Link } from "@/types/folder-type";
 import { useEffect, useState } from "react";
 
-export const useLinkListQuery = (userId: number | null, folderId: number) => {
-	const [linkList, setLinkList] = useState([]);
+export type LinkListQueryOption = {
+	onSuccess?: (linkList: Link[]) => Link[];
+};
+
+export const useLinkListQuery = (
+	userId: number | null,
+	folderId: number,
+	option?: LinkListQueryOption,
+) => {
+	const [linkList, setLinkList] = useState<Link[]>([]);
 	const [error, setError] = useState<Error | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
+
+	const successor = option?.onSuccess ?? ((linkList) => linkList);
+
+	const refetch = async (userId: number | null, folderId: number) => {
+		if (userId === null) return;
+		setIsLoading(true);
+		try {
+			const { data: linkList } = await getLinkList(userId, folderId);
+			setLinkList(successor(linkList));
+
+			return { linkList, isLoading, error };
+		} catch (err) {
+			if (err instanceof Error) setError(err);
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
 	useEffect(() => {
 		if (!userId) return () => {};
@@ -29,5 +55,5 @@ export const useLinkListQuery = (userId: number | null, folderId: number) => {
 		};
 	}, [userId, folderId]);
 
-	return { linkList, isLoading, error };
+	return { linkList, isLoading, error, refetch };
 };

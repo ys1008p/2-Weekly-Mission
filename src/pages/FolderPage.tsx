@@ -9,7 +9,7 @@ import { useFolderListQuery } from "@/queries/use-folder-query";
 import { useLinkListQuery } from "@/queries/use-link-query";
 import { useUserQuery } from "@/queries/use-user-query";
 import { CurrentFolder } from "@/types/folder-type";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function FolderPage() {
 	// userId는 도대체 어디서 받아오죠...
@@ -20,13 +20,29 @@ export default function FolderPage() {
 		id: 0,
 		name: "전체",
 	});
-	const { linkList } = useLinkListQuery(user.id, currentFolder.id);
+	const { linkList, refetch } = useLinkListQuery(user.id, currentFolder.id);
+	const [searchValue, setSearchValue] = useState("");
+
+	const handleChangeSearchInput = (userInput: string) => {
+		refetch(user.id, currentFolder.id);
+		setSearchValue(userInput);
+	};
+
+	const searchedLinkList = useMemo(
+		() =>
+			linkList.filter(({ url, title, description }) =>
+				[url, title, description].some((t) => t.match(searchValue)),
+			),
+		[linkList, searchValue],
+	);
+
+	console.log(searchedLinkList);
 
 	return (
 		<FolderLayout>
 			<main className="flex flex-[1] flex-col items-center gap-[3.2rem] px-[3.2rem] py-[2rem] tablet:gap-[4rem] tablet:py-[4rem]">
 				<section className="w-full max-w-[106rem]">
-					<SearchBar />
+					<SearchBar onChangeSearchInput={handleChangeSearchInput} />
 				</section>
 				<section className="flex w-full max-w-[106rem] flex-[1] flex-col gap-[2.4rem]">
 					<FolderTabMenuList
@@ -66,8 +82,8 @@ export default function FolderPage() {
 							</div>
 						) : null}
 					</header>
-					{linkList.length ? (
-						<FolderLinkCardList linkInfoList={linkList} />
+					{searchedLinkList.length ? (
+						<FolderLinkCardList linkInfoList={searchedLinkList} />
 					) : (
 						<div className="flex flex-[1] items-center justify-center text-[1.6rem]">
 							저장된 링크가 없습니다.
