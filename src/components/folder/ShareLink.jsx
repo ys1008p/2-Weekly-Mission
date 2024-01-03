@@ -25,15 +25,14 @@ export function ShareLink({ currentFolderId }) {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js';
-
     script.async = true;
+
     document.body.appendChild(script);
     return () => document.body.removeChild(script);
   }, []);
 
-  const shareFacebookLink = () => {
+  const shareFacebookLink = () =>
     window.open(`http://www.facebook.com/sharer.php?u=${encodeURIComponent(shareURL)}`);
-  };
 
   return (
     <ul className='share-list'>

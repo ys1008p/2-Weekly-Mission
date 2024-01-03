@@ -5,26 +5,25 @@ import { useStoredData } from '../../utils/useStoredData';
 import { FolderContext } from '../../contexts/FolderProvider';
 import { getFilterList } from '../../apis/folderList';
 
+import { EmptyContent } from '../common/EmptyContent';
 import { GridLayout } from './GridLayout';
 import { Filter } from './Filter';
 import { FilterOptions } from './FilterOptions';
 import { INITIAL_FILTER_DATA } from '../../store/type';
-import { EmptyContent } from '../common/EmptyContent';
 
 export const FilterContent = ({ isKeyWord }) => {
   const { storedData: filteredCardList, currentId } = useStoredData(FolderContext);
-
   const [filterData, setFilterData] = useState(INITIAL_FILTER_DATA);
   const [title, setTitle] = useState('전체');
 
   const isFolderDataEmpty = Object.keys(filteredCardList).length === 0;
-  const searchKeyArr = ['url', 'title', 'description'];
+  const foundKeyArr = ['url', 'title', 'description'];
 
   const searchCardList = useMemo(() => {
     if (!isKeyWord?.length) return filteredCardList;
 
     return filteredCardList.filter((item) =>
-      searchKeyArr.some((key) =>
+      foundKeyArr.some((key) =>
         item[key]?.toLowerCase().includes(isKeyWord.toLowerCase())
       )
     );

@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getFilterList } from '../../apis/folderList';
 
-import { Button } from '../../components/common/Button';
 import { ICON } from '../../store/common';
 import { Dialog } from '../common/Dialog';
-import { MyButton } from '../common/Button';
+import { Button, MyButton } from '../common/Button';
 import { FolderList } from './FolderList';
 
 import { INITIAL_FILTER_DATA } from '../../store/type';
@@ -29,13 +28,8 @@ export const AddLinkForm = () => {
     getData();
   }, []);
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
+  const handleModalOpen = () => setIsModalOpen(true);
+  const handleModalClose = () => setIsModalOpen(false);
 
   return (
     <>

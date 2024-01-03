@@ -11,15 +11,9 @@ export const FilterOptions = ({ currentFolder, currentFolderId }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isRemoveModalOpen, setIsRemoveModalOpen] = useState(false);
 
-  const handleShareModalOpen = () => {
-    setIsShareModalOpen(true);
-  };
-  const handleEditModalOpen = () => {
-    setIsEditModalOpen(true);
-  };
-  const handleRemoveModalOpen = () => {
-    setIsRemoveModalOpen(true);
-  };
+  const handleShareModalOpen = () => setIsShareModalOpen(true);
+  const handleEditModalOpen = () => setIsEditModalOpen(true);
+  const handleRemoveModalOpen = () => setIsRemoveModalOpen(true);
 
   const handleModalClose = () => {
     setIsShareModalOpen(false);
