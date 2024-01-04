@@ -1,12 +1,20 @@
+import { FolderUser, SharedUser } from '@/types/user';
 import { createContext, useContext, useState } from 'react';
 
-const UserContext = createContext();
+interface UserContextValue {
+  user: FolderUser | SharedUser | null;
+  setUser: (user: FolderUser | SharedUser) => void;
+}
+
+const UserContext = createContext<UserContextValue | null>(null);
 
 function UserProvider({ children }) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<FolderUser | SharedUser | null>(null);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
   );
 }
 

@@ -1,6 +1,8 @@
+import { useUser } from '@/contexts/UserContext';
 import style from './Account.module.css';
 
-function Account({ user }) {
+function Account() {
+  const user = useUser();
   const { email, profileImageSource, image_source } = user;
   return (
     <div className={style.container}>
