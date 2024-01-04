@@ -1,5 +1,5 @@
+import clsx from "clsx";
 import { CurrentFolder, Folder } from "@/types/folder-type";
-
 interface Props {
 	folderList: Folder[];
 	onClickTabMenuItem: (folder: CurrentFolder) => void;
@@ -21,9 +21,11 @@ export default function FolderTabMenuList({
 				<button
 					type="button"
 					onClick={() => handleFolderTabMenuClick({ id: 0, name: "전체" })}
-					className={`flex-shrink-0 rounded-[0.5rem] border-[0.1rem] border-u-primary px-[1rem] py-[0.6rem] text-[1.6rem] ${
-						currentFolder.id === 0 ? "bg-u-primary text-u-white" : ""
-					} tablet:px-[1.2rem] tablet:py-[0.8rem]`}
+					className={clsx(
+						`flex-shrink-0 rounded-[0.5rem] border-[0.1rem] border-u-primary px-[1rem] py-[0.6rem] text-[1.6rem] ${
+							currentFolder.id === 0 && "bg-u-primary text-u-white"
+						} tablet:px-[1.2rem] tablet:py-[0.8rem]`,
+					)}
 				>
 					전체
 				</button>
@@ -38,9 +40,11 @@ export default function FolderTabMenuList({
 								name: folder.name,
 							})
 						}
-						className={`flex-shrink-0 rounded-[0.5rem] border-[0.1rem] border-u-primary px-[1rem] py-[0.6rem] text-[1.6rem] ${
-							currentFolder.id === folder.id ? "bg-u-primary text-u-white" : ""
-						} tablet:px-[1.2rem] tablet:py-[0.8rem]`}
+						className={clsx(
+							"flex-shrink-0 rounded-[0.5rem] border-[0.1rem] border-u-primary px-[1rem] py-[0.6rem] text-[1.6rem]",
+							currentFolder.id === folder.id && "bg-u-primary text-u-white",
+							"tablet:px-[1.2rem] tablet:py-[0.8rem]",
+						)}
 					>
 						{folder.name}
 					</button>
