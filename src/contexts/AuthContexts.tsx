@@ -6,8 +6,8 @@ interface Auth {
 }
 
 interface AuthContextValue {
-  auth: Auth | undefined;
-  setAuth: React.Dispatch<React.SetStateAction<undefined>>;
+  auth?: Auth;
+  setAuth: (value: undefined) => void;
 }
 
 interface AuthProviderProps {
@@ -31,15 +31,5 @@ export const useAuth = () => {
 
   if (!context) throw new Error('반드시 AuthProvider 안에서 사용해야 합니다');
 
-  const { auth } = context;
-  return auth;
-};
-
-export const useSetAuth = () => {
-  const context = useContext(AuthContext);
-
-  if (!context) throw new Error('반드시 AuthProvider 안에서 사용해야 합니다');
-
-  const { setAuth } = context;
-  return setAuth;
+  return context;
 };

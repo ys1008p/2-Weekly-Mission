@@ -1,0 +1,89 @@
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-20);
+  background-color: var(--white);
+  margin-top: 24px;
+}
+
+input:focus {
+  outline: 1px solid var(--primary);
+}
+
+.input::placeholder {
+  color: var(--gray-60);
+}
+
+.edit-btn {
+  height: 50px;
+  margin-top: 15px;
+}
+
+.delete-btn {
+  height: 50px;
+  margin-top: 24px;
+}
+
+.target {
+  color: var(--gray-60);
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 8px;
+}
+
+.sns {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.sns li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  color: var(--gray-100);
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.sns li img {
+  width: 42px;
+}
+
+.folders {
+  margin: 24px 0;
+}
+
+.folders li {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.folders li:hover {
+  background-color: var(--gray-bg);
+  color: var(--primary);
+}
+
+.count {
+  color: var(--gray-60);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 8px;
+}

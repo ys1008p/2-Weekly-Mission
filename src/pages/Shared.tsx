@@ -9,22 +9,22 @@ import SearchBar from '@/components/input/SearchBar';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import useAsync from '@/hooks/useAsync';
-
-const message = {
-  loading: '로딩중입니다..',
-  error: '데이터를 불러올 수 없습니다',
-  empty: '저장된 링크가 없습니다',
-};
+import { LINK_STATUS_MESSAGE } from '@/pages/constant';
 
 const Shared = () => {
   const [folderName, setFolderName] = useState('');
   const [owner, setOwner] = useState({ name: '', profileImageSource: '' });
   const [items, setItems] = useState([]);
-  const [loading, error, fetchFolderData] = useAsync(fetchGetRequest);
+
+  const {
+    loading,
+    error,
+    wrappedFunction: fetchFolderData,
+  } = useAsync(fetchGetRequest);
 
   const initFolderData = useCallback(async () => {
-    const data = await fetchFolderData('/api/sample/folder');
-    const { name, owner, links } = data.folder;
+    const { folder } = await fetchFolderData('/api/sample/folder');
+    const { name, owner, links } = folder;
 
     setFolderName(name);
     setOwner(owner);
@@ -44,11 +44,11 @@ const Shared = () => {
           <section className={styles.container}>
             <SearchBar placeholder="링크를 검색해 보세요." />
             {loading ? (
-              <p className={styles.message}>{message.loading}</p>
+              <p className={styles.message}>{LINK_STATUS_MESSAGE.loading}</p>
             ) : error ? (
-              <p className={styles.message}>{message.error}</p>
+              <p className={styles.message}>{LINK_STATUS_MESSAGE.error}</p>
             ) : !items.length ? (
-              <p className={styles.message}>{message.empty}</p>
+              <p className={styles.message}>{LINK_STATUS_MESSAGE.empty}</p>
             ) : (
               <SharedCardContainer items={items} />
             )}

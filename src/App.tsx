@@ -1,24 +1,24 @@
-import { useSetAuth } from '@/contexts/AuthContexts';
+import { useAuth } from '@/contexts/AuthContexts';
 import useAsync from '@/hooks/useAsync';
 import Folder from '@/pages/Folder';
 import Shared from '@/pages/Shared';
 import { fetchGetRequest } from '@/utils/api';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
-  const setAuth = useSetAuth();
-  const [loading, error, fetchAuthData] = useAsync(fetchGetRequest);
-
-  const initAuthData = useCallback(async () => {
-    const data = await fetchAuthData('/api/users/1');
-
-    setAuth(data?.data[0]);
-  }, [fetchAuthData, setAuth]);
+  const { setAuth } = useAuth();
+  const { wrappedFunction: fetchAuthData } = useAsync(fetchGetRequest);
 
   useEffect(() => {
+    const initAuthData = async () => {
+      const data = await fetchAuthData('/api/users/1');
+
+      setAuth(data?.data[0]);
+    };
+
     void initAuthData();
-  }, [initAuthData]);
+  }, [fetchAuthData, setAuth]);
 
   return (
     <Routes>

@@ -10,7 +10,7 @@ interface HeaderProps {
 }
 
 const Header = ({ sticky }: HeaderProps) => {
-  const user = useAuth();
+  const { auth: user } = useAuth();
 
   return (
     <header className={`${styles.header} ${sticky ? styles.sticky : ''}`}>

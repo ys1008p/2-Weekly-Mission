@@ -17,49 +17,46 @@ import DeleteIcon from '@/assets/images/icon/delete.svg';
 import PenIcon from '@/assets/images/icon/pen.svg';
 import ShareIcon from '@/assets/images/icon/share.svg';
 import GrayIconButton from '@/components/button/GrayIconButton';
+import {
+  FOLDER_STATUS_MESSAGE,
+  INITIAL_FOLDER,
+  LINK_STATUS_MESSAGE,
+} from '@/pages/constant';
+import ModalContainer from '@/components/modal/ModalContainer';
+
+import type { ModalType } from '@/components/modal/ModalContainer';
 
 interface FolderType {
   id: null | number;
   name: string;
 }
 
-const linkMessage = {
-  loading: '로딩중입니다..',
-  error: '데이터를 불러올 수 없습니다',
-  empty: '저장된 링크가 없습니다',
-};
-
-const folderMessage = {
-  loading: '...',
-  error: '폴더 가져오기 실패',
-};
-
-const INITIAL_FOLDER = {
-  id: null,
-  name: '전체',
-};
-
 const Folder = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<ModalType>('edit');
+  const [modalProps, setModalProps] = useState<Record<string, any>>({});
+
   const [items, setItems] = useState([]);
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] =
     useState<FolderType>(INITIAL_FOLDER);
-  const [linkLoading, linkError, fetchLinkData] = useAsync(fetchGetRequest);
-  const [folderLoading, folderError, fetchFolderData] =
+
+  const { error: linkError, wrappedFunction: fetchLinkData } =
+    useAsync(fetchGetRequest);
+  const { error: folderError, wrappedFunction: fetchFolderData } =
     useAsync(fetchGetRequest);
 
   const initFolderData = useCallback(async () => {
     const data = await fetchFolderData('/api/users/1/folders');
-
     setFolders(data?.data ?? []);
   }, [fetchFolderData]);
 
   const initLinkData = useCallback(async () => {
-    const data = await fetchLinkData(
-      `/api/users/1/links${
-        selectedFolder.id ? `?folderId=${selectedFolder.id}` : ''
-      }`,
-    );
+    const params = selectedFolder.id
+      ? { folderId: selectedFolder.id }
+      : undefined;
+
+    const data = await fetchLinkData('/api/users/1/links', params);
 
     setItems(data?.data ?? []);
   }, [fetchLinkData, selectedFolder]);
@@ -70,78 +67,87 @@ const Folder = () => {
 
   useEffect(() => {
     void initFolderData();
+  }, [initFolderData]);
+
+  useEffect(() => {
     void initLinkData();
-  }, [initFolderData, initLinkData]);
+  }, [initLinkData]);
 
   return (
     <>
+      {isModalOpen ? (
+        <ModalContainer
+          modalType={modalType}
+          setIsModalOpen={setIsModalOpen}
+          props={modalProps}
+        ></ModalContainer>
+      ) : null}
+
       <Header sticky={false} />
       <main>
         <FolderBanner />
         <div className={styles.wrapper}>
           <section className={styles.container}>
             <SearchBar placeholder="링크를 검색해 보세요." />
-            {linkLoading ? (
-              <p className={styles.message}>{linkMessage.loading}</p>
-            ) : linkError ? (
-              <p className={styles.message}>{linkMessage.error}</p>
-            ) : !items.length ? (
-              <p className={styles.message}>{linkMessage.empty}</p>
-            ) : (
-              <div>
-                <div className={styles.folder}>
-                  <ul className={styles['folder-list']}>
-                    <li>
-                      <FolderButton
-                        id={null}
-                        name="전체"
-                        selected={!selectedFolder.id}
-                        onSelected={handleSelectFolder}
-                      />
-                    </li>
-                    {folderLoading ? (
-                      <span>{folderMessage.loading}</span>
-                    ) : folderError ? (
-                      <span>{folderMessage.error}</span>
-                    ) : (
-                      folders.map(({ id, name }: FolderType) => (
-                        <li key={id}>
-                          <FolderButton
-                            id={id}
-                            name={name}
-                            selected={selectedFolder.id === id}
-                            onSelected={handleSelectFolder}
-                          />
-                        </li>
-                      ))
-                    )}
-                  </ul>
-                  <button className={styles['btn-add']} type="button">
-                    <img src={AddIcon} alt="add" />
-                  </button>
-                </div>
-                <button type="button" className={styles.floating}>
-                  <img
-                    className={styles['floating-icon']}
-                    src={AddIconWhite}
-                    alt="add"
-                  />
-                </button>
-                <div className={styles.title}>
-                  <span className={styles['folder-title']}>
-                    {selectedFolder.name}
-                  </span>
-                  {selectedFolder.id && (
-                    <div className={styles['title-btns']}>
-                      <GrayIconButton icon={ShareIcon} text="공유" />
-                      <GrayIconButton icon={PenIcon} text="이름 변경" />
-                      <GrayIconButton icon={DeleteIcon} text="삭제" />
-                    </div>
+            <div>
+              <div className={styles.folder}>
+                <ul className={styles['folder-list']}>
+                  <li>
+                    <FolderButton
+                      id={null}
+                      name="전체"
+                      selected={!selectedFolder.id}
+                      onSelected={handleSelectFolder}
+                    />
+                  </li>
+
+                  {folderError ? (
+                    <span>{FOLDER_STATUS_MESSAGE.error}</span>
+                  ) : (
+                    folders.map(({ id, name }: FolderType) => (
+                      <li key={id}>
+                        <FolderButton
+                          id={id}
+                          name={name}
+                          selected={selectedFolder.id === id}
+                          onSelected={handleSelectFolder}
+                        />
+                      </li>
+                    ))
                   )}
-                </div>
-                <FolderCardContainer items={items} />
+                </ul>
+                <button className={styles['btn-add']} type="button">
+                  <img src={AddIcon} alt="add" />
+                </button>
               </div>
-            )}
+              <button type="button" className={styles.floating}>
+                <img
+                  className={styles['floating-icon']}
+                  src={AddIconWhite}
+                  alt="add"
+                />
+              </button>
+              <div className={styles.title}>
+                <span className={styles['folder-title']}>
+                  {selectedFolder.name}
+                </span>
+                {selectedFolder.id ? (
+                  <div className={styles['title-btns']}>
+                    <GrayIconButton icon={ShareIcon} text="공유" />
+                    <GrayIconButton icon={PenIcon} text="이름 변경" />
+                    <GrayIconButton icon={DeleteIcon} text="삭제" />
+                  </div>
+                ) : null}
+              </div>
+
+              {linkError ? (
+                <p className={styles.message}>{LINK_STATUS_MESSAGE.error}</p>
+              ) : !items.length ? (
+                <p className={styles.message}>{LINK_STATUS_MESSAGE.empty}</p>
+              ) : (
+                <FolderCardContainer items={items} />
+              )}
+            </div>
           </section>
         </div>
       </main>
