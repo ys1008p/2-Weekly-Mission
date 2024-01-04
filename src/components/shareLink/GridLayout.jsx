@@ -9,7 +9,7 @@ export const GridLayout = () => {
   const { empty } = IMAGE_URL;
 
   return (
-    <div className='cardItemWrapper share-link'>
+    <div className='card-item-wrapper share-link'>
       {links.map((item) => (
         <CardItem
           key={item.id}

@@ -1,7 +1,6 @@
-// 7 - 8주차 진행
 import { Helmet } from 'react-helmet';
-import { MainBanner } from '../components/linkFolder/MainBanner';
-import { MainContent } from '../components/linkFolder/MainContent';
+import { MainBanner } from '../components/folder/MainBanner';
+import { MainContent } from '../components/folder/MainContent';
 
 const Folder = () => {
   return (

@@ -1,3 +1,7 @@
+.input-base {
+  @extend %input-base;
+}
+
 .input-group {
   .input-title {
     @include text-style(14);

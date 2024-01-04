@@ -12,6 +12,7 @@ export const useAsync = (asyncFunction) => {
 
     try {
       const res = await asyncFunction();
+      if (!res.ok) throw new Error('DATA FETCHING ERROR!!');
       const initData = res?.data;
       setData(initData);
     } catch (e) {
