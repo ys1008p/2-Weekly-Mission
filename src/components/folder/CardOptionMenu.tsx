@@ -46,9 +46,9 @@ function CardOptionMenuContent({ optionItems, onClickMenuItem }: ContentProps) {
 
 	return (
 		<menu>
-			{optionItems.map((item, i) => (
+			{optionItems.map((item) => (
 				<li
-					key={`${item.value}-${i}`}
+					key={item.value}
 					className="bg-u-white px-[1.2rem] py-[0.8rem] text-[1.4rem] transition-[background] hover:bg-u-gray-10 active:text-u-primary"
 				>
 					<button
