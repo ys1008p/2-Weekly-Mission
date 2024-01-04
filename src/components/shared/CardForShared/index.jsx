@@ -1,5 +1,4 @@
-import Stars from '../Stars/Stars';
-import logoImg from '../Gnb/logo.svg';
+import Stars from '../Stars';
 import { timeAgo, getYYYYMMYY, getShortDescription } from '../../../utils/formatting';
 import { useState } from 'react';
 import emptyCard from '../Cards/images/emptyCard.jpeg';

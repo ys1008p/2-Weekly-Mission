@@ -13,18 +13,12 @@
 
 .folderName {
   display: block;
-  margin: 40px 68px;
-
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.2px;
   grid-area: 'folderName';
-
-  @media (max-width: 1119px) {
-    margin-left: 32px;
-  }
 
   @media (max-width: 767px) {
     margin-top: 28px;
@@ -38,6 +32,10 @@
 }
 
 .folderDescription {
+  max-width: 1080px;
+  width: 100%;
+  margin: 24px auto;
+
   display: grid;
   grid-template-areas: 'folderName folderEditButtons';
   @media (max-width: 767px) {
@@ -45,4 +43,21 @@
       'folderName'
       'folderEditButtons';
   }
+}
+
+.searchKeyword {
+  color: var(--Linkbrary-gray100, #373740);
+}
+
+.searchResult {
+  max-width: 1080px;
+  width: 100%;
+  margin: 40px auto;
+
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
 }

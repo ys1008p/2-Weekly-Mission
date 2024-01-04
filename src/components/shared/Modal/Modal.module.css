@@ -1,0 +1,173 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #fff;
+  z-index: 999;
+
+  width: 360px;
+
+  border: none;
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContentWrapper {
+  inline-size: 100%;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 32px 40px;
+  position: relative;
+}
+
+.modalCloseButton {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.modalTitle {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.modalSubTitle {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+  margin-top: 8px;
+}
+
+.modalContent {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.folderShareInSNS {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.folderShareItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.folderShareLogoBackground {
+  padding: 12px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareIconKakao {
+  background: #fee500;
+}
+.shareIconFacebook {
+  background: #1877f2;
+}
+.shareIconLink {
+  background: rgba(157, 157, 157, 0.04);
+}
+
+.folderShareLogo {
+  width: 18px;
+  height: 18px;
+}
+
+.modalInput {
+  display: flex;
+  width: 280px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+}
+
+.folderList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.folderItemInfo {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.folderItemInfo:hover {
+  border-radius: 8px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+.folderItemInfo.selectedFolder {
+  border-radius: 8px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+  color: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.folderItemInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.folderItemName {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 16px;
+  line-height: 24px; /* 150% */
+}
+
+.folderItemLinkCount {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  line-height: normal;
+}
+
+.modalButton {
+  margin-top: 15px;
+  display: flex;
+  width: 280px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+
+  color: var(--Grey-Light, #f5f5f5);
+  font-family: Pretendard;
+  font-size: 16px;
+}
+
+.modalWarningButton {
+  background: var(--Linkbrary-red, #ff5b56);
+}

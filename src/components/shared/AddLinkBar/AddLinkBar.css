@@ -2,8 +2,11 @@
   background-color: var(--linkbrary-bg, #f0f6ff);
   padding-top: 60px;
   padding-bottom: 90px;
+  margin-inline: -32px;
   display: flex;
   justify-content: center;
+
+  z-index: 2;
 }
 
 .AddLinkBar {
@@ -29,4 +32,26 @@
   margin-left: 12px;
   flex-grow: 1;
   border: none;
+}
+
+.AddLinkBar__container_forSticked {
+  background-color: var(--linkbrary-bg, #f0f6ff);
+  padding: 24px;
+  margin-inline: -32px;
+  display: flex;
+  justify-content: center;
+
+  z-index: 2;
+}
+
+.StickToBottom {
+  position: fixed;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hide {
+  display: none;
 }

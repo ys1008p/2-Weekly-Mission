@@ -9,11 +9,10 @@
 .folderNav {
   justify-content: space-between;
   align-items: center;
-  padding: 0 68px;
   display: flex;
-  @media (max-width: 1119px) {
-    padding: 0 32px;
-  }
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 .addFolderButton {
@@ -33,6 +32,7 @@
 
 .folderAddText {
   text-wrap: nowrap;
+  color: #6d6afe;
 }
 
 .addFolderIcon {
