@@ -37,6 +37,10 @@ form {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+  /* @media (max-width: 768px) {
+    display: none;
+  } */
+
 }
 .sharePenDeleteDiv {
   display: flex;

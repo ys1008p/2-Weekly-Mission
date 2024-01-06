@@ -1,0 +1,200 @@
+.modalBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+}
+
+.modalContainer {
+  background-color: white;
+  padding: 32px 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: Pretendard;
+  position: relative;
+  border-radius: 15px;
+  border: 1px solid #ccd5e3;
+}
+.modalTitle {
+  color: #373740;
+
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.modalMiddleTitle {
+  color: #373740;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.modalSubTitle {
+  color: #9fa6b2;
+  font-size: 14px;
+
+  font-weight: 400;
+  line-height: 22px;
+}
+.modalInput {
+  width: 280px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid #6d6afe;
+  margin-top: 24px;
+}
+
+.modalButton {
+  margin-top: 15px;
+  width: 280px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.closeButton {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+.modalLogoButtons {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  color: #373740;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.logoButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border: none;
+}
+.logoButton img {
+  width: 20px;
+  height: 20px;
+}
+.kakao {
+  border-radius: 100%;
+  background: #fee500;
+}
+.faceBook {
+  border-radius: 37.333px;
+  background: #1877f2;
+}
+.link {
+  border-radius: 37.333px;
+  background: rgba(157, 157, 157, 0.04);
+}
+.logoBox {
+  padding: 12px;
+}
+.modalDeleteButton {
+  margin-top: 24px;
+  width: 280px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: #ff5b56;
+  border: none;
+  color: #f5f5f5;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.custom-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-radio-icon {
+  border: 2px solid #ccc; /* 체크박스 테두리 색상 */
+  width: 20px;
+  height: 20px;
+}
+.custom-radio-icon:checked {
+  width: 20px;
+  height: 20px;
+  background-image: url(../asset/check.svg); /* 체크된 이미지 URL로 바꿔주세요 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition: background-color 0.3s ease-in-out; /* 체크 시 색상 변경 효과를 위한 트랜지션 */
+}
+
+.custom-radio.checked {
+  background-color: #4caf50; /* 체크된 상태의 배경 색상 */
+}
+.linkOptions {
+  width: 100%;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.linkOption {
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.optionFlexBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.optionFlexBox:hover {
+  border-radius: 8px;
+  background: #f0f6ff;
+  cursor: pointer;
+}
+.optionFlexBox.selected {
+  color: #6d6afe;
+  background: #f0f6ff;
+  border-radius: 8px;
+}
+.optionFlexBox:hover .modalMiddleTitle {
+  color: #6d6afe;
+}
+
+.linkOptionCheck {
+  width: 14px;
+  height: 14px;
+  padding: 12px;
+  background-image: url(../asset/check.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}

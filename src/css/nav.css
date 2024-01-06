@@ -4,9 +4,6 @@ nav {
   width: 100%;
   background-color: #edf7ff;
   z-index: 100;
-
-  @media (max-width: 1124px) {
-  }
 }
 #root {
   width: 100%;

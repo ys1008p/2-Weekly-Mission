@@ -1,5 +1,5 @@
-import defaultImg from "../asset/defaultImg.jpg";
-import "../css/card.css";
+import defaultImg from "../../asset/defaultImg.jpg";
+import "../../css/card.css";
 function TimeAgo({ time }) {
   const currentDate = new Date();
   const createdDate = new Date(time);
@@ -37,12 +37,10 @@ function LinkListItem({ link }) {
   });
 
   return (
-    <>
-      <a href={url} target="_blank" rel="noreferrer">
-        <div className="cardImgDiv">
-          <img src={imageSource || defaultImg} alt={title} />
-        </div>
-      </a>
+    <a href={url} target="_blank" rel="noreferrer">
+      <div className="cardImgDiv">
+        <img src={imageSource || defaultImg} alt={title} />
+      </div>
       <div className="contentsDiv">
         <p className="timetogo">
           <TimeAgo time={createdDate} />
@@ -50,11 +48,11 @@ function LinkListItem({ link }) {
         <p className="contentsDescriptionDiv">{description}</p>
         <p>{modifyDate}</p>
       </div>
-    </>
+    </a>
   );
 }
 
-export function Card({ links }) {
+export function SharedCard({ links }) {
   return (
     <div className="gridFlexbox">
       <div className="gridparent">

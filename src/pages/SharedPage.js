@@ -1,11 +1,10 @@
 // SharedPage.js
 import React from "react";
-import InfoLoader from "../component/InfoLoader";
-import SharedHeader from "../component/SharedHeader";
-import SharedMain from "../component/SharedMain";
+import SharedHeader from "../component/shared/SharedHeader";
+import SharedMain from "../component/shared/SharedMain";
 
-function SharedPage() {
-  const { sharedFolderInfo } = InfoLoader();
+function SharedPage({ sharedFolderInfo }) {
+
   // const { links } = sharedFolderInfo;
   return (
     <>

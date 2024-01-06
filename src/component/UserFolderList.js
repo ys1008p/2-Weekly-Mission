@@ -6,28 +6,26 @@ import { useState } from "react";
 
 export function UserFolderList({ names, onFolderClick }) {
   const [selectedFolderId, setSelectedFolderId] = useState("");
-
-  const handleFolderButtonClick = (e) => {
+  const handleFolderButtonClick = async (e) => {
     const folderId = e.currentTarget.value;
     setSelectedFolderId(folderId);
-
-    // 여기서 선택된 폴더 아이디로 API를 호출
-    getFolder(folderId)
-      .then((result) => {
-        const { data } = result;
-        onFolderClick(data, true);
-        console.log(data, "받아온값");
-      })
-      .catch((error) => {
-        console.error("Error fetching folder data:", error);
-      });
+    try {
+      const result = await getFolder(folderId);
+      const { data } = result;
+      onFolderClick({ folderId, data });
+    } catch (error) {
+      console.error("Error fetching folder data:", error);
+    }
   };
+
   return (
     <div className="userFolderList">
       <div className="mapFolderList">
         <button
           value=""
-          className="mapFolderOneList"
+          className={` mapFolderOneList ${
+            selectedFolderId === "" ? "selected" : ""
+          }`}
           onClick={handleFolderButtonClick}
         >
           <p>전체</p>
@@ -36,8 +34,10 @@ export function UserFolderList({ names, onFolderClick }) {
           <button
             key={folder.id}
             value={folder.id}
-            className="mapFolderOneList"
             onClick={handleFolderButtonClick}
+            className={`mapFolderOneList ${
+              selectedFolderId === `${folder.id}` ? "selected" : ""
+            }`}
           >
             <p>{folder.name}</p>
           </button>

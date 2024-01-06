@@ -49,3 +49,8 @@
 .mapFolderOneList:hover {
   background-color: #6d6afe;
 }
+.mapFolderOneList.selected {
+  background-color: #6d6afe;
+  color: white;
+}
+
