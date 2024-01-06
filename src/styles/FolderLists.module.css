@@ -1,0 +1,93 @@
+.folder-list--container {
+  width: 1060px;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px auto 0;
+}
+
+.folder-btn--container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  width: 100%;
+}
+
+.folder--btn {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--linkbrary-primary-color, #6D6AFE);
+}
+
+.folder--btn:hover {
+  background: var(--linkbrary-gray-10, #E7EFFB);
+}
+
+.folder-inactive--btn {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: #FFF;
+}
+
+.folder-active--btn {
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: var(--linkbrary-primary-color, #6D6AFE);
+}
+
+.add--icon {
+  border: none;
+  background-color: transparent;
+}
+
+.mobile-add--btn {
+  display: none;
+}
+
+@media screen and (max-width: 1123px) {
+  .folder-list--container{
+    padding: 0 32px;
+    width: calc(100vw - 32px);
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .add--icon {
+    display: none;
+  }
+
+  .mobile-add--btn {
+    display: flex;
+    padding: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    background: var(--linkbrary-primary-color, #6D6AFE);
+    color: var(--linkbrary-gray-10, #E7EFFB);
+    text-align: center;
+    font-family: Abel;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.3px;
+
+    position: fixed;
+    bottom: 230px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 1;
+  }
+}
