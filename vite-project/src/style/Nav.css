@@ -1,11 +1,13 @@
 nav {
   display: flex;
   justify-content: center;
-  position: sticky;
-  top: 0;
-  width: 100%;
+  padding: 20px 200px;
   background-color: #edf7ff;
-  z-index: 1;
+  margin: 0 auto;
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    width: 100%;
+    padding: 18px 32px;
+  }
 }
 
 .gnb {
@@ -13,7 +15,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 6.3rem;
   padding: 0 3.2rem;
 
   @media screen and (min-width: 375px) and (max-width: 767px) {
@@ -23,7 +24,8 @@ nav {
 }
 
 .logo {
-  height: 1.6rem;
+  width: 133px;
+  height: 24px;
 
   @media screen and (min-width: 375px) and (max-width: 767px) {
     height: 2.4rem;
