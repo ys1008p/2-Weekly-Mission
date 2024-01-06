@@ -17,11 +17,8 @@ export default function FolderCardList({ selectedFolder, search }) {
   const links = linkData?.data;
 
   const selectedLinks = search
-    ? links.filter(
-        ({ url, title, description }) =>
-          url?.toUpperCase().includes(search.toUpperCase()) ||
-          title?.toUpperCase().includes(search.toUpperCase()) ||
-          description?.toUpperCase().includes(search.toUpperCase())
+    ? links.filter(({ url, title, description }) =>
+        [url, title, description].some((key) => key?.toUpperCase().includes(search.toUpperCase()))
       ) ?? []
     : links;
 
