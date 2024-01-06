@@ -5,27 +5,30 @@ import EmptyCardList from './EmptyCardList';
 import EditFeatures from './EditFeatures';
 import styles from './FolderCardList.module.css';
 
-export default function FolderCardList({ selectedFolder }) {
+export default function FolderCardList({ selectedFolder, search }) {
   const { id: folderId, name: folderName } = selectedFolder;
   const query = folderId ? `?folderId=${folderId}` : '';
 
-  const [loading, error, linkData] = useGetData(
-    `users/1/links${query}`,
-    selectedFolder
-  );
+  const [loading, error, linkData] = useGetData(`users/1/links${query}`, selectedFolder);
 
   if (loading) return <p>loading..</p>;
   if (error) return <EmptyCardList />;
 
   const links = linkData?.data;
 
+  const selectedLinks = search
+    ? links.filter(({ url, title, description }) =>
+        [url, title, description].some((key) => key?.toUpperCase().includes(search.toUpperCase()))
+      ) ?? []
+    : links;
+
   return (
     <div>
       <div className={styles.nameContainer}>
         <h2 className={styles.name}>{folderName}</h2>
-        {folderId && <EditFeatures />}
+        {folderId && <EditFeatures folderId={folderId} folderName={folderName} />}
       </div>
-      {links.length === 0 ? <EmptyCardList /> : <CardList links={links} />}
+      {selectedLinks.length === 0 ? <EmptyCardList /> : <CardList links={selectedLinks} />}
     </div>
   );
 }

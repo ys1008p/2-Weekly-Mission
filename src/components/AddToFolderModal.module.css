@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.4rem;
+  width: 100%;
+}
+
+.folderList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.folderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+}
+
+.folderContainer:hover {
+  background-color: var(--linkbrary-bg);
+}
+
+.selected {
+  color: var(--color-primary);
+  background-color: var(--linkbrary-bg);
+}
+
+.folder {
+  display: flex;
+  gap: 0.8rem;
+
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
+.linkCount {
+  font-size: 1.4rem;
+  color: var(--color-gray-60);
+}

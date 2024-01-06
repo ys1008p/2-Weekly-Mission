@@ -1,11 +1,20 @@
-.background {
-  background-color: var(--linkbrary-bg);
-  width: 100%;
+.backgroundDefault {
   padding: 2.4rem 3.2rem 4rem;
+  width: 100%;
+  background-color: var(--linkbrary-bg);
+}
+
+.backgroundSide {
+  position: fixed;
+  bottom: 0;
+
+  padding: 2.4rem;
+  width: 100%;
+  background-color: var(--linkbrary-bg);
 }
 
 @media screen and (min-width: 768px) {
-  .background {
+  .backgroundDefault {
     padding: 6rem 3.2rem 9rem;
   }
 }

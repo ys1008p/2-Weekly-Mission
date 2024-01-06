@@ -38,6 +38,12 @@
   padding: 1.5rem 2rem;
 }
 
+.card-time-and-kebab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card-log-time {
   color: #666;
   font-size: 1.3rem;
@@ -60,8 +66,12 @@
   font-size: 1.4rem;
 }
 
-.kebab-icon {
+.kebab-container {
+  position: relative;
+}
+
+.dropdown-position {
   position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+  top: 2rem;
+  left: 0;
 }
