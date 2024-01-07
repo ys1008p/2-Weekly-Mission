@@ -1,0 +1,11 @@
+.folder-nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 106rem;
+}
+
+.folder-nav {
+  display: flex;
+  column-gap: 0.8rem;
+}
