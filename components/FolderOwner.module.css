@@ -1,0 +1,21 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 60px;
+}
+
+.profileImage {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.folderOwnerName {
+  margin: 12px 0 20px;
+}
+
+.folderName {
+  font-size: 40px;
+}

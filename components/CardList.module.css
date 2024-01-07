@@ -1,0 +1,46 @@
+.cardContainer {
+  display: grid;
+  grid-template-columns: auto; /* 가로로 3줄 생성 */
+  grid-template-rows: repeat(3, 1fr); /* 세로로 3줄 생성 */
+  gap: 25px; /* 아이템 사이 간격 */
+  width: 1060px;
+  margin: 0 auto;
+}
+
+.cardListItem {
+  height: 334px;
+  width: 340px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+}
+
+.imageContainer {
+  width: 340px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardImage {
+  width: 100%;
+  height: 253px;
+  /* object-fit: cover; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.textContainer {
+  padding: 20px;
+}
+
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 49px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,13 @@
+.profileContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profileImg {
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  width: 28px;
+  height: 28px;
+}
