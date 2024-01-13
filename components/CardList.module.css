@@ -1,8 +1,8 @@
 .cardContainer {
   display: grid;
-  grid-template-columns: auto; /* 가로로 3줄 생성 */
-  grid-template-rows: repeat(3, 1fr); /* 세로로 3줄 생성 */
-  gap: 25px; /* 아이템 사이 간격 */
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 25px;
   width: 1060px;
   margin: 0 auto;
 }

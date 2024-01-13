@@ -18,10 +18,6 @@ export default function Shared() {
     getFolderInfo();
   }, []);
 
-  useEffect(() => {
-    console.log(folderInfo);
-  }, [folderInfo]);
-
   return (
     <>
       <FolderOwner folderInfo={folderInfo} />
