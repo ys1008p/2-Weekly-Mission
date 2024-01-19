@@ -1,29 +1,35 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "@/lib/axios";
-import ProfileInfo from "./ProfileInfo";
+import ProfileData from "./ProfileData";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const [isSignedIn, setisSignedIn] = useState(true);
-  const [userInfo, setUserInfo] = useState<any>();
+  const [userData, setUserData] = useState<any>();
+  let accessToken: string | null = "";
 
-  async function getUserInfo() {
-    const res = await axios.get("/sample/user");
-    const user = res.data;
-    setUserInfo(user);
+  async function getUserData() {
+    const res = await axios.get("/users", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    console.log(res.data.data[0]);
+    setUserData(res.data.data[0]);
   }
 
   useEffect(() => {
-    getUserInfo();
+    accessToken = localStorage.getItem("accessToken");
+    getUserData();
   }, []);
 
   return (
     <>
       <div className={styles.headerContainer}>
         <Image src="/logo.svg" width="133" height="24" alt="로고" />
-        {userInfo ? (
-          <ProfileInfo userInfo={userInfo} />
+        {userData ? (
+          <ProfileData userData={userData} />
         ) : (
           <button>로그인</button>
         )}

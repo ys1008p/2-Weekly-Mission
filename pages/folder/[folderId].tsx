@@ -11,7 +11,6 @@ export default function Folder() {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    console.log(res);
   }
   const router = useRouter();
 
