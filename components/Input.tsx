@@ -56,17 +56,18 @@ export default function Input({
 
   useEffect(() => {
     if (isFailedSignIn) {
-      setErrorType(
-        isEmailInput ? "FAILED_SIGNIN_EMAIL" : "FAILED_SIGNIN_PASSWORD"
-      );
+      const errorType = isEmailInput
+        ? "FAILED_SIGNIN_EMAIL"
+        : "FAILED_SIGNIN_PASSWORD";
+      setErrorType(errorType);
     }
   }, [isFailedSignIn]);
 
   useEffect(() => {
     if (isFailedSignUp) {
-      setErrorType(
-        !isEmailInput && !isComparePassword ? "FAILED_SIGNIN_PASSWORD" : ""
-      );
+      const errorType =
+        !isEmailInput && !isComparePassword ? "FAILED_SIGNIN_PASSWORD" : "";
+      setErrorType(errorType);
     }
   }, [isFailedSignUp]);
 
@@ -83,12 +84,13 @@ export default function Input({
       return;
     }
 
-    if (
+    const invalidPassword =
       !isEmailInput &&
       isSignUp &&
       !isComparePassword &&
-      !validatePassword(inputValue)
-    ) {
+      !validatePassword(inputValue);
+
+    if (invalidPassword) {
       setErrorType("INVALID_PASSWORD");
       setComparePW(inputValue);
       return;
