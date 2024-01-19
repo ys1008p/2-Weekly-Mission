@@ -25,6 +25,7 @@ export default function Signup() {
     email,
     password,
   };
+
   const formSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
     try {
