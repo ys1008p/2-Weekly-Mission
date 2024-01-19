@@ -6,29 +6,32 @@ import CardList from "@/components/CardList";
 import { useRouter } from "next/router";
 
 export default function Shared() {
-  const [folderInfo, setFolderInfo] = useState<any>();
+  const [folderData, setFolderData] = useState<any>();
   const router = useRouter();
   const { folderId } = router.query;
 
-  async function getFolderInfo() {
+  async function getFolderData() {
     try {
-      const res = await axios.get(`/api/folders/${folderId}`);
-      const user = res.data.folder;
-      setFolderInfo(user);
+      const res = await axios.get(`/folders/${folderId}`);
+      const user = res.data;
+      setFolderData(user);
     } catch (e) {
       console.log(e);
     }
   }
+  useEffect(() => {
+    console.log(folderData);
+  }, [folderData]);
 
   useEffect(() => {
-    getFolderInfo();
-  }, [folderId]);
+    getFolderData();
+  }, []);
 
   return (
     <>
-      <FolderOwner folderInfo={folderInfo} />
+      <FolderOwner userId={folderData?.user_id} />
       <SearchBar />
-      <CardList folderInfo={folderInfo} />
+      <CardList folderData={folderData} />
     </>
   );
 }

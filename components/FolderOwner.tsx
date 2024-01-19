@@ -1,33 +1,40 @@
 import Image from "next/image";
 import styles from "./FolderOwner.module.css";
+import { useEffect, useState } from "react";
+import axios from "@/lib/axios";
 
-interface FolderInfo {
-  folderInfo: {
-    name: string;
-    owner: {
-      name: string;
-      profileImageSource: string;
-    };
-  };
-}
+export default function FolderOwner(userId: string) {
+  const [folderOwnerData, setFolderOwnerData] = useState();
 
-export default function FolderOwner({ folderInfo }: FolderInfo) {
+  async function getFolderOwnerData() {
+    try {
+      const res = await axios.get(`/users/${userId}`);
+      const user = res.data;
+      setFolderOwnerData(user);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    getFolderOwnerData();
+  }, []);
+
   return (
     <section>
-      <div className={styles.profileContainer}>
+      {/* <div className={styles.profileContainer}>
         <div className={styles.profileImage}>
           <Image
-            src={folderInfo?.owner?.profileImageSource}
+            src={folderOwnerData?.owner?.profileImageSource}
             fill
             alt="프로필 이미지"
           />
         </div>
         <span className={styles.folderOwnerName}>
-          {folderInfo?.owner?.name}
+          {folderOwnerData?.owner?.name}
         </span>
-        {/* ? 옵셔널 체이닝 안쓰니까 에러떠서 넣었습니다 왜 그런지 잘모르겠습니다. */}
-        <p className={styles.folderName}>{folderInfo?.name}</p>
-      </div>
+        <p className={styles.folderName}>{folderOwnerData?.name}</p>
+      </div> */}
     </section>
   );
 }

@@ -10,16 +10,16 @@ interface Card {
   description: string;
 }
 
-interface FolderInfo {
-  folderInfo: {
+interface FolderData {
+  folderData: {
     links: Card[];
   };
 }
 
-export default function CardList({ folderInfo }: FolderInfo) {
+export default function CardList({ folderData }: FolderData) {
   return (
     <ul className={styles.cardContainer}>
-      {folderInfo?.links?.map((card: Card) => {
+      {folderData?.links?.map((card: Card) => {
         return (
           <li className={styles.cardListItem} key={card.id}>
             <div className={styles.imageContainer}>
