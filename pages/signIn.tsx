@@ -5,7 +5,7 @@ import axios from "@/lib/axios";
 import { useRouter } from "next/router";
 
 export default function SignIn() {
-  const [email, setEmail] = useState("");
+  const [email, setEmailValue] = useState("");
   const [password, setPassword] = useState("");
   const [isFailedSignIn, setisFailedSignIn] = useState(false);
   const [signInData, setSignInData] = useState({
@@ -13,7 +13,7 @@ export default function SignIn() {
     password: "",
   });
   const router = useRouter();
-  const setInputValueToEmail = (value: string) => setEmail(value);
+  const setInputValueToEmail = (value: string) => setEmailValue(value);
   const setInputValueToPassword = (value: string) => setPassword(value);
 
   useEffect(
