@@ -21,6 +21,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       const res = await axios.post("/sign-in", signInData);
+      localStorage.setItem("accessToken", res.data.data.accessToken);
       router.push("/folder");
     } catch (e) {
       setisFailedSignIn(true);
