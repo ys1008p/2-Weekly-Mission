@@ -8,10 +8,6 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFailedSignUp, setisFailedSignUp] = useState(false);
-  const [signUpData, setSignUpData] = useState({
-    email: "",
-    password: "",
-  });
   const [comparePassword, setComparePassword] = useState({
     pw: "",
     confirmPW: "",
@@ -25,11 +21,10 @@ export default function Signup() {
   const setCompareConfirmPW = (value: string) =>
     setComparePassword({ ...comparePassword, confirmPW: value });
 
-  useEffect(
-    () => setSignUpData({ email: email, password: password }),
-    [email, password]
-  );
-
+  const signUpData = {
+    email,
+    password,
+  };
   const formSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
     try {

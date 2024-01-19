@@ -8,18 +8,14 @@ export default function SignIn() {
   const [email, setEmailValue] = useState("");
   const [password, setPassword] = useState("");
   const [isFailedSignIn, setisFailedSignIn] = useState(false);
-  const [signInData, setSignInData] = useState({
-    email: "",
-    password: "",
-  });
   const router = useRouter();
   const setInputValueToEmail = (value: string) => setEmailValue(value);
   const setInputValueToPassword = (value: string) => setPassword(value);
 
-  useEffect(
-    () => setSignInData({ email: email, password: password }),
-    [email, password]
-  );
+  const signInData = {
+    email,
+    password,
+  };
 
   const formSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
