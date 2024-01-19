@@ -11,7 +11,7 @@ interface InputProps {
   isSignUp?: boolean;
   isComparePassword?: boolean;
   setComparePW?: () => void;
-  setComparePW2?: () => void;
+  setCompareConfirmPW?: () => void;
   matchedPassword?: boolean;
 }
 
@@ -36,7 +36,7 @@ export default function Input({
   isSignUp,
   isComparePassword,
   setComparePW,
-  setComparePW2,
+  setCompareConfirmPW,
   matchedPassword,
 }: InputProps) {
   const [pwdViewMod, setPwdViewMod] = useState(isEmailInput);
@@ -97,7 +97,7 @@ export default function Input({
     }
 
     if (isComparePassword) {
-      setComparePW2(inputValue);
+      setCompareConfirmPW(inputValue);
     }
 
     if (isComparePassword && !matchedPassword) {
